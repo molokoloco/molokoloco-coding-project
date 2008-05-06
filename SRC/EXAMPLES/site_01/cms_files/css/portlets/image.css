@@ -1,0 +1,11 @@
+.cms_img {
+	
+}
+.cms_img img{
+	border:none;
+	margin:0 10px;
+}
+.cms_img cite{
+	display:block;
+	margin:2px;
+}

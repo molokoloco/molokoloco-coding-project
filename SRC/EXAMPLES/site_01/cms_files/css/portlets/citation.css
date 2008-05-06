@@ -1,0 +1,81 @@
+/* CITATION */
+.cms_quotation{
+clear:both;
+margin:0 0 10px 0;
+}
+.cms_quotation .d1{
+padding:0 0 10px 0;
+}
+.cms_quotation .d2{
+padding:0;
+overflow:hidden;
+zoom:1;
+}
+.cms_quotation blockquote{
+background:url(../../images/guillemets.gif) no-repeat;
+padding:10px;
+}
+.cms_quotation p{
+background:url(../../images/guillemets.gif) no-repeat right bottom;
+}
+.cms_quotation cite{
+display:block;
+text-align:right;
+margin:10px 0 0 0;
+}
+/* CITATION + TEXTE */
+.cms_quotation_texte{
+clear:both;
+margin:0;
+overflow:hidden;
+zoom:1;
+}
+.cms_quotation_texte .citation_gauche{
+float:left;
+width:230px;
+margin-right:20px;
+padding:10px 0 0 0;
+}
+.cms_quotation_texte .citation_droite{
+float:right;
+width:230px;
+margin-left:20px;
+padding:10px 0 0 0;
+}
+.cms_quotation_texte .d1{
+padding:0 0 10px 0;
+}
+.cms_quotation_texte .d2{
+padding:0;
+overflow:hidden;
+zoom:1;
+}
+.cms_quotation_texte blockquote{
+background:url(../../images/guillemets.gif) no-repeat;
+padding:0;
+}
+.cms_quotation_texte blockquote p{
+background:url(../../images/guillemets.gif) no-repeat right bottom;
+padding:0 5px 0 10px;
+}
+.cms_quotation_texte blockquote cite{
+display:block;
+text-align:right;
+}
+.cms_quotation_texte p{
+}
+.cms_quotation_texte strong{
+}
+.cms_quotation_texte em{
+}
+.cms_quotation_texte a{
+}
+.cms_quotation_texte ul{
+margin:0;
+}
+.cms_quotation_texte li{
+background:url(../../images/puce.gif) no-repeat 0px 5px;
+list-style:none;
+padding-left:10px;
+zoom:1;
+}

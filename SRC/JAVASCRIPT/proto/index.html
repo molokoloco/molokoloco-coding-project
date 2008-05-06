@@ -1,0 +1,32 @@
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////
+///// Code mixing by Molokoloco [BETA TESTING FOR EVER] ........... (o_O)  /////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	Default :
+		002_flashObject, 100_prototype, 110_effects, 200_tools, 201_client, 210_functions, 211_form, 214_modal-dialogue, 300_specifique,999_regexp
+	Light :
+		100_prototype, 200_tools
+	Tous :
+		001_admin.js, 002_flashObject, 003_cookie, 004_fade, 005_color, 006_mousewheel, 100_prototype, 102_slider, 104_sound, 110_effects, 111_effects.extend, 112_dragdrop, 113_controls, 200_tools, 201_client, 210_functions, 211_form, 212_diaporama, 213_horloge, 214_modal-dialogue, 220_lightbox, 230_tab-view, 300_specifique,999_regexp
+
+////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+var compressed = false; // Cf. http://alex.dojotoolkit.org/shrinksafe/
+var toLoad = '100_prototype,110_effects,111_effects.extend,200_tools,201_client,210_functions,211_form,214_modal-dialogue,220_lightbox,300_specifique,999_regexp';
+
+var preloader = {
+    require: function(libraryName) {
+        document.write('<script type="text/javascript" src="'+libraryName+'"></script>');
+    },
+    init: function() {							
+		var path = '';
+		// Exporter tous les js apres compression Cf. http://alex.dojotoolkit.org/shrinksafe/
+		if (compressed) this.require('./js/ScriptAculous/functions.compressed.js');
+		else {
+			var reg = new RegExp("[,;]+","g");
+			var js = toLoad.split(reg);
+			for (var i=0; i<js.length; i++) this.require('./optional/'+js[i]+'.js');
+		}
+    }
+};
+preloader.init();

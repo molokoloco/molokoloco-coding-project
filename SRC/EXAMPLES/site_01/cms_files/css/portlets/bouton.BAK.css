@@ -1,0 +1,27 @@
+/* BOUTON */
+.cms_bouton{
+clear:both;
+background:url(../../images/h.gif) no-repeat;
+margin:0 0 10px 0;
+}
+.cms_bouton .d1{
+background:url(../../images/b.gif) no-repeat bottom;
+padding:0 0 10px 0;
+}
+.cms_bouton .d2{
+border-left:2px solid #ff6600;
+border-right:2px solid #ff6600;
+padding:0;
+}
+.cms_bouton a{
+width:150px;
+display:block;
+background:url(../../images/f.gif);
+text-align:center;
+padding:0;
+margin:0 auto 0 auto;
+border:2px solid #ff6600;
+}
+.cms_bouton a:hover{
+background:url(../../images/f2.gif);
+}
