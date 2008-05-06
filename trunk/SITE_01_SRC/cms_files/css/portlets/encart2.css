@@ -1,0 +1,30 @@
+.cms_encart2 {
+	width:380px;
+	overflow:hidden;
+	margin:0 0 20px 0;
+}
+.cms_encart2_body { 
+	width:330px;
+	margin:0 auto;
+}
+.cms_encart2_body h1 {
+	background: url(../../images/bg_encart.gif) no-repeat;	
+	color: #FFF;
+	height:29px;
+	line-height:29px;
+	vertical-align:middle;
+	text-align:left;
+	font-size:16px;
+	font-weight:blod;
+	margin:0;
+	padding:0 0 0 20px;
+}
+.cms_encart2_content {
+	padding:10px 0 0 0;
+}
+.cms_encart2_content p {
+	text-align:left;
+}
+.cms_encart2_content strong {
+	color:#B2A46E;
+}

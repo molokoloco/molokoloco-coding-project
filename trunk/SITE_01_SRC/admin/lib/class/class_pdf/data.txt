@@ -1,0 +1,55 @@
+# a line starting with '#' is a comment or a directive
+# 1<title>  is a first level heading (text is 'title')
+# 2<heading> is a second level heading (text is 'heading')
+#
+# the table of contents is automatically generated from the titles and headings.
+#
+# "#NP" starts a new page
+# "#C" starts a code section (put this on a line by itself
+# "#c" end the code section
+# "#X" and "#x" surround a block which will be executed as php code.
+#
+# <b></b> <i></i> can be used within the text with gleeful abandon
+#
+# a link can be added within the text using <c:alink:url_here>label</c:alink>
+
+
+1<Introduction>
+
+2<version 006>
+
+Still more bug fixes of course, but also some improved functionality.
+
+It is now possible to use &lt;b>&lt;/b>&lt;i>&lt;/i> <b>markers</b> within the text stream to do the obvious functionality. This depends on 'font families' being set up, which are described later.
+
+#X
+$pdf->selectFont('./fonts/Helvetica.afm');
+
+$data = array(
+	array('num'=>'prod n°1','name'=>'Balle GOLFBOWL avec un logo tampographié sur chaque demi-sphère','type'=>'4.25€/Unité'),
+	array('num'=>'prod n°2','name'=>'Balle GOLFBOWL avec 2 logos, chacun tampographié sur une demi-sphère','type'=>'5.25€/Unité','url'=>'http://www.ros.co.nz/pdf/'),
+	array('num'=>'prod n°3','name'=>'frodo','type'=>'hobbit'),
+	array('num'=>'prod n°4','name'=>'saruman','type'=>'bad dude','url'=>'http://sourceforge.net/projects/pdf-php'),
+	array('num'=>'prod n°5','name'=>'sauron','type'=>'really bad dude')
+);
+$cols = array('num'=>"FACTURE\nClient S. Poilot",'name'=>'Name','type'=>'Type');
+$pdf->ezTable(
+	$data,
+	$cols,
+	'',
+	array(
+		'showHeadings'=>1,
+		'shaded'=>1,
+		'xPos'=>90,
+		'xOrientation'=>'right',
+		'width'=>300,
+		'cols'=>array('num'=>array('justification'=>'right'),'name'=>array('width'=>100,'link'=>'url'),'type'=>array('width'=>100,'link'=>'url'))
+	)
+);
+#x
+
+
+For a slightly more complex example, print that table again, but only the second and third columns, and in the other order, also have column headings and a table heading.
+
+
+
