@@ -1,0 +1,22 @@
+/* IMPORTANT */
+.cms_p_strong{
+clear:both;
+background:url(../../images/h.gif) no-repeat;
+padding:10px 0 0 0;
+margin:0 0 10px 0;
+}
+.cms_p_strong .d1{
+background:url(../../images/b.gif) no-repeat bottom;
+padding:0 0 10px 0;
+}
+.cms_p_strong .d2{
+border-left:2px solid #ff6600;
+border-right:2px solid #ff6600;
+padding:0 10px 0 10px;
+}
+.cms_p_strong p{
+background:url(../../images/f.gif);
+}
+.cms_p_strong p strong{
+background:url(../../images/f2.gif);
+}

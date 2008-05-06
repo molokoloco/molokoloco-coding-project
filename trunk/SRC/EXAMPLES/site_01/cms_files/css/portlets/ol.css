@@ -1,0 +1,19 @@
+/* LISTE NUMEROTÉ */
+.cms_ol{
+clear:both;
+margin:0 0 10px 0;
+}
+.cms_ol .d1{
+padding:0 0 10px 0;
+}
+.cms_ol .d2{
+padding:0;
+overflow:hidden;
+zoom:1;
+}
+.cms_ol ol{
+padding-left:20px;
+}
+.cms_ol li{
+list-style:decimal;
+}

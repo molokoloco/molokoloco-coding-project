@@ -1,0 +1,29 @@
+/* SOMMAIRE*/
+.cms_sommaire{
+clear:both;
+background:url(../../images/h.gif) no-repeat;
+padding:10px 0 0 0;
+margin:0 0 10px 0;
+}
+.cms_sommaire .d1{
+background:url(../../images/b.gif) no-repeat bottom;
+padding:0 0 10px 0;
+}
+.cms_sommaire .d2{
+border-left:2px solid #ff6600;
+border-right:2px solid #ff6600;
+padding:0 10px 0 10px;
+overflow:hidden;
+zoom:1;
+}
+.cms_sommaire ul{
+background:url(../../images/f.gif);
+padding:10px;
+}
+.cms_sommaire li{
+background:#fff url(../../images/puce2.gif) no-repeat 5px 5px;
+padding-left:15px;
+zoom:1;
+}
+.cms_sommaire li a{
+}
