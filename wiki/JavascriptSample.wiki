@@ -438,5 +438,6 @@ var printPage = function(){
 
 }}}
 
-See  svn/trunk/SRC/JAVASCRIPT/proto/optional/ for more information
+=For more information=
+==svn/trunk/SRC/JAVASCRIPT/proto/optional/==
 http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SRC/JAVASCRIPT/proto/optional/?r=3
