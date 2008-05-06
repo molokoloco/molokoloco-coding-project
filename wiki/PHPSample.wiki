@@ -3,7 +3,7 @@
 
 = PHP framework example =
 
-== class_files.php ==
+== Examples ==
 
 {{{
 
@@ -110,6 +110,9 @@ else echo '<img src="images/nav/nopreview.png" width="120" height="80" class="di
 
 ?>
 }}}
+
+
+== class_files.php ==
 
 
 {{{
