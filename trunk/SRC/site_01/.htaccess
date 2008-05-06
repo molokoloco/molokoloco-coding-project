@@ -1,0 +1,12 @@
+RewriteEngine on
+#RewriteBase /
+#ErrorDocument 404 http://
+
+#RewriteRule ^css/(.*\.css) cache.php?type=css&files=$1
+#RewriteRule ^js/(.*\.js) cache.php?type=javascript&files=$1
+###RewriteRule ^(.*\.html) cache.php?type=html&files=$1
+
+RewriteRule ^([a-z,-]+)-r([0-9]+).html(.*)$ index.php?rid=$2$3 [QSA,L]
+RewriteRule ^([a-z,-]+)-r([0-9]+).html$ index.php?rid=$2 [L]
+RewriteRule ^([a-z,-]+)-r([0-9]+)-p([0-9]+).html$ index.php?rid=$2&prestation_id=$3#$3 [L]
+RewriteRule ^([a-z,-]+)-r([0-9]+)-r([0-9]+).html$ index.php?rid=$2&reference_id=$3#$3 [L]
