@@ -1,0 +1,45 @@
+#dyn_overlay {
+	-moz-opacity:0;
+	background:#FFFFFF;
+	filter:alpha(opacity=0);
+	height:500px;
+	left:0;
+	opacity:0;
+	position:absolute;
+	top:0;
+	width:100%;
+	z-index:90;
+}
+#dyn_lightbox {
+	left:0;
+	position:absolute;
+	text-align:center;
+	top:40px;
+	width:100%;
+	z-index:999;
+	background:#FFFFFF;
+	padding:10px;
+	border: 5px solid #1E91D4;
+}
+
+#dyn_lightbox p#messageInfo {
+	font-size:1.2em;
+}
+
+#dyn_lightbox img {
+	border: 3px solid #FFFFFF;
+}
+#dyn_lightbox .b a{
+	display:block;
+	line-height:32px;
+	font-size:1.2em;
+	color:#646464;
+}
+#dyn_lightbox #caption{
+	padding:10px 0px 5px 0px;
+	font-size:1.2em;
+	color:#646464;
+}
+#prevLink { float:left; margin:0px 25px 0px 0px;}
+#nextLink { float:left; }
+#BoxBtClose{ float:right; }

@@ -1,0 +1,10 @@
+.cms_encart3 {
+	width:350px;
+	background: url(../../images/bg_colonne_gauche.gif) repeat-y;
+}
+.cms_encart3_body {
+	padding:10px;
+}
+.cms_encart3_body p {
+	text-align:left;
+}
