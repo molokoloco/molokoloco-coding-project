@@ -9,7 +9,7 @@
 
 <?
 
-/* ---------- MEDIA -------------------------//
+// ---------- MEDIA -------------------------//
 $m =& new FILE();
 if ($m->isMedia($file)) $m->media();
 
@@ -108,8 +108,12 @@ else echo '<img src="images/nav/nopreview.png" width="120" height="80" class="di
 
 = <a href="medias/galeries/mini/070220152107_arbre.jpg" title="[120x80 pixels] Click : Pop-Up / Right-Click : Enregistrer-sous" onclick="return printPopUrl('medias/galeries/','img');"><img src="medias/galeries/mini/070220152107_arbre.jpg" id="img_Arbre" name="img_Arbre" alt="Arbre" class="divImg" border="0" height="80" width="120"></a><br />Arbre.jpg
 
-//-------------------------------------------------- */
-	
+?>
+}}}
+
+
+{{{
+<?	
 class FILE {
 
 	/* PUBLIC // User entry */
