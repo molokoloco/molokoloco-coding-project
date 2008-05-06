@@ -344,7 +344,7 @@ function stockIp($max=5,$dir='stock_ip.txt') {
 		$NewIpCountArray[$key] = $ipCountSel;
 		if ($ipCountSel >= $max) $error = 1;
 		if ($ipCountSel >= 20) {
-			mail('molokoloco@gmail.com', 'Spammeur...'.$WWW, $_SERVER['PHP_SELF'], 'From: molokoloco@gmail.com');
+			mailto('molokoloco@gmail.com','molokoloco@gmail.com', 'Spammeur...'.$WWW, $_SERVER['PHP_SELF']);
 		}
 	}
 	else {
@@ -378,7 +378,7 @@ function genPass() {
 // GENERATE UNIQUE ID -------------------------//
 function generateId($prefix='obj_') {
 	static $idObjects = 0;
-	if ($prefix != 'obj_') $prefix = cleanName($prefix);	
+	$prefix = cleanName($prefix);	
 	return $prefix.$idObjects++;
 }
 
