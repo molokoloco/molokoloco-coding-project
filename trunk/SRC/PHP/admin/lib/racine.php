@@ -1,9 +1,9 @@
 <?
-/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////// VIRTUAL ADMIN V1.0 /////////////////////////////////////////////////////
-////////////// Code mixing by Molokoloco... [BETA TESTING FOR EVER] ... (o_O) ///////////////////////////////////
-////////////// Contact : molokoloco@gmail.com // Tous droits d'utilisation réservé /////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// VIRTUAL ADMIN V1.0 /////////////////////////////////////////////////////
+////////////// Code mixing by Molokoloco... [BETA TESTING FOR EVER] ... (o_O) /////////////////////////////
+////////////////////// Contact : molokoloco@gmail.com // CopyLeft  ///////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
 // ---------- CONFIG GENERALE -------------------- //
@@ -65,18 +65,18 @@ if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
 	if (isOvh()) {
 		$dbase = 'juss';
 		$dbhost = 'localhost';
-		$dblogin = 'juss';
-		$dbmotdepasse = 'leprelapidus';
+		$dblogin = 'xxxxxxxxx';
+		$dbmotdepasse = 'xxxxxx';
 		$convert = '/usr/bin/';
 		$wwwRoot = $_SERVER['DOCUMENT_ROOT'].'/';
 		$WWW = 'http://'.$host.'/';
 	}
-	elseif (isLocal()) {
+	elseif (isLocal()) { // Sites are in C:/www/
 		$dbase = 'juss';
 		$dbhost = 'localhost';
 		$dblogin = 'root';
 		$dbmotdepasse = '';
-		$convert = NULL;// 'D:/localhost/ImageMagick/';
+		$convert = NULL;// 'C:/localhost/ImageMagick/';
 		list(,$firstRep,$secondRep) = explode('/',$_SERVER['PHP_SELF']);
 		$wwwRoot = $_SERVER['DOCUMENT_ROOT'].'/'.$firstRep.'/'; //.$secondRep.'/';
 		$WWW = 'http://'.$host.'/'.$firstRep.'/'; //.$secondRep.'/';
@@ -292,9 +292,6 @@ else {
 		$P =& new Q(" SELECT * FROM mod_clients WHERE id='$clients_id' AND actif='1' LIMIT 1 ");
 		if (count($P->V) < 1) return alert('D&eacute;sol&eacute;, votre compte est d&eacute;sactiv&eacute;', 'back');
 		$_SESSION[SITE_CONFIG]['CLIENT'] = $P->V[0];
-		
-		db($_SESSION[SITE_CONFIG]['CLIENT']);
-		
 		if ($cook) { // If cookie
 			$ids = genPass().genPass().genPass();// Regenerate IDS...
 			$U = new Q();
@@ -309,9 +306,6 @@ else {
 
 	// ---------- AUTO-CONNECT COOKIE MEMBRE ? -------------------- //
 	if (!isset($_SESSION[SITE_CONFIG]['CLIENT']['id']) && isset($_COOKIE['CLIENTIDS'])) {
-	
-		db($_COOKIE['CLIENTIDS']);
-	
 		$c = @unserialize(getMyCookie('CLIENTIDS'));
 		$clients_id = $c['clients_id'];
 		$ids = $c['ids'];
