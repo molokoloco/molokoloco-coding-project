@@ -440,4 +440,4 @@ var printPage = function(){
 
 =For more information=
 ==svn/trunk/SRC/JAVASCRIPT/proto/optional/==
-http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SRC/JAVASCRIPT/proto/optional/?r=3
+http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SRC/JAVASCRIPT/proto/optional
