@@ -6,17 +6,21 @@
 == Exemple ==
 {{{
 
-<a href="javascript:void(0);" id="a_<?=$i;?>" class="accordeon2 off" onfocus="blur();">Titre</a>
-<div class="accordeon2">Texte cache</div>
+<a href="javascript:void(0);" class="accordeon2 off" onfocus="blur();">Titre 1</a>
+<div class="accordeon2">Texte cache 1 bla bla bla bla bla</div>
+
+<a href="_membres_vip_suscribe.php" class="accordeon2 off" onfocus="blur();">Titre 2</a>
+<div class="accordeon2">&nbsp;</div>
 ...
 <?php js(" new Accordeon('a.accordeon2', 'div.accordeon2', {tClassOff:'off', tClassOn:'in', tempo:0.4, observe:'click'}); "); ?>
-// Si le lien qui ouvre possede un href celui ci et loadé en ajax dans le conteneur
+// Si le lien qui ouvre possède un href celui ci et loadé en ajax dans le conteneur
 
 }}}
 
 == Class Javascript ==
 
 {{{
+
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// Code mixing by Molokoloco - www.borntobeweb.fr - BETA TESTING FOR EVER !       (o_O)       ///////
 /////////////////////////////////////////////////////////////////////////////////////////////////////*/
