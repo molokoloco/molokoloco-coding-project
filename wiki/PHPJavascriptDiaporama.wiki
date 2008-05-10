@@ -15,7 +15,7 @@
 	// Standard script balise ---------------------------------------------
 	function js($script, $echo=TRUE) {
 		global $JS,$JSE;
-		$js = $JS.chr(13).chr(10).$script.chr(13).chr(10).$JSE;
+		$js = $JS.$script.chr(13).$JSE;
 		if ($echo) echo $js;
 		else return $js;
 	}
