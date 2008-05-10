@@ -12,7 +12,7 @@
 	$JSE = chr(13).chr(10).'// ]]>'.chr(13).chr(10).'</script>';	
 	
 	
-	// Standard script balise ---------------------------------------------
+	// Standard script balise --------------------
 	function js($script, $echo=TRUE) {
 		global $JS,$JSE;
 		$js = $JS.$script.chr(13).$JSE;
@@ -20,32 +20,32 @@
 		else return $js;
 	}
 
+	// Convert bi-dimentional php array to javascript array --------------------
 	function getScriptBiArray($arr_name, $arr) {
 		$myJs = "var ".$arr_name." = {";
 		$j=0;
 		foreach($arr as $key=>$val) {
+			if (is_array($val)) {
 			$myJs .= $j.":{";
 			foreach($val as $key2=>$val2) {
-				$val2 = str_replace("'", "\'", $val2);
-				$val2 = str_replace("{", "\{", $val2);
-				$val2 = str_replace("}", "\}", $val2);
-				$val2 = str_replace(chr(10), '', $val2);
-				$val2 = str_replace(chr(13), '', $val2);
-				$myJs .= $key2.":'".$val2."',";
+					$myJs .= $key2.":'".cleanJson($val2)."',";
 			}
 			$myJs = substr($myJs, 0, -1);
 			$myJs .= "},";
+			}
+			else $myJs .= $key.":'".cleanJson($val)."',";
 			$j++;
 		}
 		$myJs = substr($myJs, 0, -1).'};';
 		return $myJs;
 	}
+
 	
 	
-	// MAGAZINE
+	// BUILD IMAGES SLIDE
 	$arr_images = array();
-	$G =& new Q("SELECT id, titre, visuel FROM mod_magazines WHERE visuel!='' ORDER BY datepub DESC LIMIT 10");
-	foreach ($G->V as $G) {
+	$Q = q("SELECT id, titre, visuel FROM mod_magazines WHERE visuel!='' ORDER BY datepub DESC LIMIT 10");
+	foreach ($Q as $G) {
 		$i =& new FILE();
 		if ($i->isMedia('medias/magazine/medium/'.$G['visuel'])) {
 			$arr_images[] = array(
@@ -73,8 +73,9 @@
 
 {{{
 
-<div id="flickrSlideShow"></div>
-	
+	<div id="flickrSlideShow"></div>
+
+	#debutscript#
 	var arrImage = {
 		0 : { img : 'http://farm2.static.flickr.com/1385/777927764_fba1aee324_m.jpg', lien : '', titre : 'Test image' },
 		1 : { img : 'http://farm2.static.flickr.com/1066/778156110_168ab17268_m.jpg', lien : 'http://www.google.fr', titre : 'Hello World' }
@@ -91,6 +92,7 @@
 			control : true,
 			printInfo : false
 	});
+	#finscript#
 
 	### ATTEMPT TO BUILD THIS (if "boxElement" == "xxx") ##############################
 	
