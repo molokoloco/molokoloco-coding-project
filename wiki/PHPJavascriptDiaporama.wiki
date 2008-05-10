@@ -26,12 +26,12 @@
 		$j=0;
 		foreach($arr as $key=>$val) {
 			if (is_array($val)) {
-			$myJs .= $j.":{";
-			foreach($val as $key2=>$val2) {
+				$myJs .= $j.":{";
+				foreach($val as $key2=>$val2) {
 					$myJs .= $key2.":'".cleanJson($val2)."',";
-			}
-			$myJs = substr($myJs, 0, -1);
-			$myJs .= "},";
+				}
+				$myJs = substr($myJs, 0, -1);
+				$myJs .= "},";
 			}
 			else $myJs .= $key.":'".cleanJson($val)."',";
 			$j++;
