@@ -414,3 +414,7 @@ diaporama.prototype = { // EN COURS D'EVOLUTION... N'EST PAS FINI !!!! // CHECK 
 }
 
 }}}
+
+
+== For more information : svn/trunk/trunk/SITE_01_SRC/ ==
+http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/
