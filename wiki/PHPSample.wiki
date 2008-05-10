@@ -1055,6 +1055,5 @@ $script .= "so.write('".$this->id."');
 
 }}}
 
-=For more information=
-==svn/trunk/SRC/PHP/admin/lib/class/==
-http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SRC/PHP/admin/lib/class
+== For more information : svn/trunk/trunk/SITE_01_SRC/ ==
+http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/
