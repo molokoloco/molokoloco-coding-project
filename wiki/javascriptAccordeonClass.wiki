@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Simple and extensible JS class to manage accordeon swapping (ie <a> and <div>).
 #labels Featured,Phase-Requirements
 
 = 215_accordeon.js =
@@ -6,6 +6,7 @@
 == Exemple ==
 {{{
 
+// Si le lien qui ouvre possède un href, celui-ci et loadé en ajax dans le conteneur
 <a href="javascript:void(0);" class="accordeon2 off" onfocus="blur();">Titre 1</a>
 <div class="accordeon2">Texte cache 1 bla bla bla bla bla</div>
 
@@ -13,7 +14,6 @@
 <div class="accordeon2">&nbsp;</div>
 ...
 <?php js(" new Accordeon('a.accordeon2', 'div.accordeon2', {tClassOff:'off', tClassOn:'in', tempo:0.4, observe:'click'}); "); ?>
-// Si le lien qui ouvre possède un href celui ci et loadé en ajax dans le conteneur
 
 }}}
 
@@ -48,11 +48,8 @@ Accordeon.prototype = {
 				this.togglePane(i, true);
 				this._activeTitle = i;
 			}
-			if (isSet(this.xTitles[i].href)) {
-				this._xUrl[i] = this.xTitles[i].href;
-				this.xTitles[i].href = 'javascript:void(0)';
-			}
-			Event.observe(this.xTitles[i], this.observe, this.ctrPane.bindAsEventListener(this, i), false);
+			if (isSet(this.xTitles[i].href)) this._xUrl[i] = this.xTitles[i].href; // Stock link href
+			Event.observe(this.xTitles[i], this.observe, this.ctrPane.bindAsEventListener(this, i), true); // Observe link
 		}
 	},
 	setTitleClassOn: function(i) {
@@ -87,7 +84,7 @@ Accordeon.prototype = {
 				//if (typeof setPageSize == 'function') setPageSize();
 			}.bind(this, display)
 		};
-		if (display && this._xUrl[i]) { // Get Ajax content
+		if (display && this._xUrl[i]) { // Get Ajax content of href
 			specs = this._xUrl[i].split('?');
 			contentUrl = specs[0]
 			parameters = specs[1];
@@ -97,6 +94,9 @@ Accordeon.prototype = {
 				parameters: parameters,
 				onSuccess: function(transport) {
 					$(this.xPanes[i]).update(transport.responseText);
+					if (!$(this.xPanes[i]).id) $(this.xPanes[i]).id = getUniqueId();
+					close_btn = $$('#'+$(this.xPanes[i]).id+' a.close_btn')[0]; // <a href="javascript:void(0);" class="close_btn"><button>Fermer</button></a> ?
+					if (close_btn) Event.observe(close_btn, 'click', this.ctrPane.bindAsEventListener(this, i), false);
 				}.bind(this)
 			});
 		}
@@ -122,7 +122,7 @@ Accordeon.prototype = {
 			this.togglePane(i, true);
 			this._activeTitle = i;
 		}
-		return true;
+		Event.stop(event); // Don't open href
 	}
 };
 
