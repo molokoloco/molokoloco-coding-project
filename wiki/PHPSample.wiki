@@ -1,9 +1,9 @@
+#summary class_files.php example
 #labels Featured,Phase-Requirements
-#Very usefull php fonctions example
 
 = PHP framework example =
 
-== Examples ==
+== Examples : class_files.php ==
 
 {{{
 
