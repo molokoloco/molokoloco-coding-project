@@ -1,5 +1,5 @@
+#summary 200_tools.js example
 #labels Featured,Phase-Requirements
-#Very usefull javascript fonctions example
 
 = Javascript framework example =
 
