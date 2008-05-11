@@ -1,0 +1,115 @@
+#bandeau{
+height:112px;
+overflow:hidden;
+zoom:1;
+}
+.bandeau0{
+background:url(../images/common/h_bandeau0.gif) no-repeat bottom right;
+}
+.bandeau1{
+background:url(../images/common/h_bandeau1.gif) no-repeat bottom right;
+}
+.bandeau2{
+background:url(../images/common/h_bandeau2.gif) no-repeat bottom right;
+}
+.bandeau3{
+background:url(../images/common/h_bandeau3.gif) no-repeat bottom right;
+}
+.bandeau4{
+background:url(../images/common/h_bandeau4.gif) no-repeat bottom right;
+}
+.bandeau5{
+background:url(../images/common/h_bandeau5.gif) no-repeat bottom right;
+}
+.bandeau6{
+background:url(../images/common/h_bandeau6.gif) no-repeat bottom right;
+}
+.bandeau7{
+background:url(../images/common/h_bandeau7.gif) no-repeat bottom right;
+}
+.bandeau8{
+background:url(../images/common/h_bandeau8.gif) no-repeat bottom right;
+}
+#bandeau .g_bandeau{
+float:left;
+width:443px;
+}
+#bandeau .g_bandeau h1{
+display:inline;
+float:left;
+margin:8px 0 0 10px;
+}
+#bandeau .g_bandeau h2{
+display:inline;
+float:left;
+margin:56px 0 0 28px;
+}
+#bandeau .d_bandeau{
+float:right;
+width:486px;
+height:112px;
+overflow:hidden;
+zoom:1;
+}
+#bandeau .d_bandeau form{
+float:left;
+border-left:1px solid #F6F6F6;
+padding:5px 10px 4px 10px;
+}
+#bandeau .d_bandeau form input{
+float:left;
+width:164px;
+height:11px;
+font-size:11px;
+border:1px solid #D2D2D2;
+padding:3px 5px;
+}
+#bandeau .d_bandeau form input.bouton{
+float:left;
+width:auto;
+height:auto;
+padding:0;
+border:none;
+}
+#bandeau .d_bandeau ul.utilitaire{
+float:left;
+margin:0 0 15px 0;
+overflow:hidden;
+zoom:1;
+}
+#bandeau .d_bandeau ul.utilitaire li{
+float:left;
+line-height:28px;
+border-left:1px solid #F6F6F6;
+padding:0 8px;
+}
+#bandeau .d_bandeau ul.utilitaire li a{
+display:block;
+font-size:11px;
+color:#8F8F8F;
+}
+#bandeau .d_bandeau ul.utilitaire li a.favoris{
+background:url(../images/common/picto_favoris.gif) no-repeat 0px 5px;
+padding:0 0 0 27px;
+}
+#bandeau .d_bandeau ul.utilitaire li a.imprimer{
+background:url(../images/common/picto_imprimer.gif) no-repeat 0px 5px;
+padding:0 0 0 27px;
+}
+#bandeau .d_bandeau .h_nav{
+clear:both;
+width:97px;
+background:url(../images/common/h_nav_bandeau.gif) no-repeat;
+padding:8px 0 0 0;
+margin:0 0 0 auto;
+}
+#bandeau .d_bandeau .h_nav ul{
+background:url(../images/common/b_nav_bandeau.gif) no-repeat bottom;
+padding:0 0 8px 0;
+}
+#bandeau .d_bandeau .h_nav ul li{
+display:inline;
+}
+#bandeau .d_bandeau .h_nav ul li a img{
+display:block;
+}

@@ -1,0 +1,47 @@
+body{
+background:none;
+}
+#general{
+width:950px;
+margin:0 auto;
+}
+#general{
+background:none;
+}
+#general .contenu0, #general .contenu1, #general .contenu2, #general .contenu3, #general .contenu4, #general .contenu5, #general .contenu6, #general .contenu7{
+background:none;
+}
+#general .b_contenu_home, #general .b_contenu_simple, #general .b_contenu1, #general .b_contenu2{
+padding:0 0 40px 0;
+overflow:visible;
+}
+#general .b_contenu_home{
+background:none;
+}
+#general .b_contenu_simple{
+background:none;
+}
+#general .b_contenu1{
+background:none;
+}
+#general .b_contenu2{
+background:none;
+}
+
+#bandeau{
+background:none;
+}
+h1.t_page{
+font-size:20px;
+border-bottom:1px solid #E3E4E3;
+padding:0 0 10px 0;
+margin:0 0 25px 0;
+}
+/* DISPLAY NONE */
+.d_bandeau, #menu, .menu_g, #droite, #pied{
+display:none;
+}
+
+.page{
+float:none;
+}

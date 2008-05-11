@@ -1,0 +1,96 @@
+#contact{
+float:left;
+width:789px;
+padding:28px 0 0 0;
+}
+/* PAGE */
+.page{
+width:789px;
+}
+.page .h_form{
+width:384px;
+float:left;
+background:url(../images/common/h_form_contact.gif) no-repeat;
+padding:3px 0 0 0;
+}
+.page .h_form.texte{
+width:384px;
+float:right;
+background:url(../images/common/h_form_contact.gif) no-repeat;
+padding:3px 0 0 0;
+}
+
+.page .b_form{
+background:url(../images/common/b_form_contact.gif) no-repeat bottom;
+padding:0 0 3px 0;
+}
+.page form, .page .f_form{
+background:#F6F6F6 url(../images/common/f_form_contact.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:20px;
+overflow:hidden;
+zoom:1;
+}
+.page form p, .page .f_form p{
+margin:0 0 8px 0;
+overflow:hidden;
+zoom:1;
+}
+.page form p.intro{
+font-size:12px;
+padding:0 0 15px 0;
+margin:0 0 15px 0;
+border-bottom:1px solid #E3E4E3;
+}
+.page .f_form p{
+font-size:12px;
+margin:0 0 15px 0;
+}
+.page .f_form h2{
+font-size:14px;
+color:#006225;
+}
+.page .f_form p.adresse{
+padding:0 0 15px 0;
+border-bottom:1px solid #E3E4E3;
+}
+.page .f_form p.visuel{
+padding:0;
+margin:0 0 8px 0;
+text-align:center;
+}
+.page form label{
+display:block;
+float:left;
+width:95px;
+padding:0 15px 0 0;
+font-size:12px;
+text-align:right;
+}
+.page form label sup{
+vertical-align:top;
+}
+.page form input, .page form textarea{
+display:block;
+float:right;
+width:230px;
+font-size:12px;
+border:1px solid #E3E4E3;
+}
+.page form textarea{
+height:100px;
+}
+.page form input.bouton{
+width:auto;
+height:auto;
+border:none;
+}
+.page form span.obligatoire{
+display:block;
+float:left;
+font-size:10px;
+font-style:italic;
+line-height:20px;
+padding:0 20px 0 0;
+}

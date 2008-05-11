@@ -1,0 +1,150 @@
+#actualite{
+float:left;
+width:789px;
+padding:28px 0 0 0;
+}
+/* PAGINATION */
+#actualite .pagination{
+background:url(../images/common/f_pagination.gif) no-repeat;
+height:14px;
+font-size:11px;
+padding:10px 24px;
+margin:0 0 16px 0;
+overflow:hidden;
+zoom:1;
+}
+#actualite .pagination a{
+font-size:11px;
+text-decoration:underline;
+border-right:1px solid #797979;
+padding:0 7px;
+}
+#actualite .pagination a:hover{
+color:#EDB518;
+}
+#actualite .pagination a.premier{
+border-left:1px solid #797979;
+}
+#actualite .pagination strong{
+color:#EDB518;
+padding:0 7px;
+}
+/* UNE */
+#actualite .une{
+background:url(../images/common/h_une.gif) no-repeat;
+padding:2px 0 0 0;
+margin:0 0 30px 0;
+}
+#actualite .b_une{
+background:url(../images/common/b_une.gif) no-repeat bottom;
+padding:0 0 2px 0;
+}
+#actualite .f_une{
+background:#F6F6F6 url(../images/common/f_une.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:8px 19px 17px 19px;
+overflow:hidden;
+zoom:1;
+}
+#actualite .f_une h2{
+font-size:17px;
+font-weight:normal;
+margin-bottom:1px;
+}
+#actualite h3{
+font-size:16px;
+font-weight:normal;
+margin-bottom:18px;
+color:#ecad02;
+}
+#actualite h3 strong{color:#ecad02;}
+#actualite p{
+font-size:13px;
+line-height:19px;
+padding:0 0 20px 0;
+}
+#actualite img.gauche{
+float:left;
+margin:0 20px 0 0;
+}
+#actualite .actu{
+border-top:1px solid #E3E4E3;
+padding:25px 0 0 0;
+margin:0 0 30px 0;
+overflow:hidden;
+zoom:1;
+}
+#actualite .liens li{
+margin:5px 0 0 0;
+font-size:11px;
+}
+#actualite .liens .lien a{
+background:url(../images/common/fleche_orange2.gif) no-repeat 3px center;
+padding-left:24px;
+text-decoration:none;
+zoom:1;
+}
+#actualite .liens .doc a{
+background:url(../images/common/picto_telecharger.gif) no-repeat 0px 0px;
+padding:3px 0 0 24px;
+text-decoration:none;
+height:19px;
+display:block;
+}
+#actualite .liens a:hover{
+text-decoration:underline;
+}
+
+/* DETAIL */
+#actualite .actu_detail{
+padding:15px 0 30px 0;
+margin:0 0 15px 0;
+border-bottom:1px solid #e3e4e3;
+overflow:hidden;
+zoom:1;
+}
+#actualite .actu_detail p{
+width:640px;
+float:left;
+}
+#actualite .actu_detail .liens{
+width:644px;
+float:right;
+}
+#actualite .pagination .retour{
+border-right:none;
+padding:0 0 0 13px;
+background:url(../images/common/picto_precedent.gif) no-repeat center left;
+}
+#actualite .article{
+overflow:hidden;
+zoom:1;
+}
+#actualite .article ul{
+float:right;
+}
+#actualite .article ul li{
+float:left;
+margin-left:8px;
+font-size:11px;
+}
+#actualite .article ul li.prec{
+padding:0 8px 0 0;
+background:url(../images/common/filet.gif) no-repeat center right;
+}
+#actualite .article ul li.prec a{
+padding: 0 0 0 12px;
+background:url(../images/common/picto_precedent.gif) no-repeat center left;
+}
+#actualite .article ul li.suiv a{
+padding: 0 12px 0 0;
+background:url(../images/common/picto_suivant.gif) no-repeat center right;
+}
+#actualite .article a{
+text-decoration:underline;
+color:#4b4b4b;
+}
+#actualite .article a:hover{
+color:#EDB518;
+}

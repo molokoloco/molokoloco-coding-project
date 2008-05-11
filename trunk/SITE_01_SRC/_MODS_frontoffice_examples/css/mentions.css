@@ -1,0 +1,17 @@
+#mentions{
+padding:28px 0 0 0;
+}
+#mentions h2{
+font-size:17px;
+color:#006325;
+border-top:1px solid #E3E4E3;
+padding:15px 0 0 0;
+margin:0 0 20px 0;
+}
+#mentions p{
+font-size:12px;
+margin:0 0 20px 0;
+}
+#mentions p a{
+color:#006325;
+}

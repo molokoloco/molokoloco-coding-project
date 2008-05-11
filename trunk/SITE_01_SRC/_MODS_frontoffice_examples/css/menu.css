@@ -1,0 +1,79 @@
+#menu{
+
+}
+.menu0{
+background:url(../images/common/m_bandeau0.gif) no-repeat top right;
+}
+.menu1{
+background:url(../images/common/m_bandeau1.gif) no-repeat top right;
+}
+.menu2{
+background:url(../images/common/m_bandeau2.gif) no-repeat top right;
+}
+.menu3{
+background:url(../images/common/m_bandeau3.gif) no-repeat top right;
+}
+.menu4{
+background:url(../images/common/m_bandeau4.gif) no-repeat top right;
+}
+.menu5{
+background:url(../images/common/m_bandeau5.gif) no-repeat top right;
+}
+.menu6{
+background:url(../images/common/m_bandeau6.gif) no-repeat top right;
+}
+.menu7{
+background:url(../images/common/m_bandeau7.gif) no-repeat top right;
+}
+.menu8{
+background:url(../images/common/m_bandeau8.gif) no-repeat top right;
+}
+#menu ul{}
+#menu ul li{
+position:relative;
+float:left;
+margin:0 1px 0 0;
+}
+#menu ul li.dernier{
+margin:0;
+}
+#menu ul li a img{
+display:block;
+}
+#menu ul li ul{
+display:none;
+position:absolute;
+width:185px;
+top:26px;
+left:0px;
+z-index:10;
+}
+#menu ul li ul.sm1{
+background:#93C500;
+}
+#menu ul li ul.sm2{
+background:#F18901;
+}
+#menu ul li ul.sm3{
+background:#E2115E;
+}
+#menu ul li ul.sm4{
+background:#B64EBA;
+}
+#menu ul li ul.sm5{
+background:#EDAE02;
+}
+#menu ul li ul.sm6{
+background:#0CA7BA;
+}
+#menu ul li ul li{
+float:none;
+border-bottom:1px solid #fff;
+}
+#menu ul li ul li a{
+display:block;
+width:100%;
+font-size:11px;
+color:#fff;
+padding:2px 10px;
+}

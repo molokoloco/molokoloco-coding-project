@@ -1,0 +1,204 @@
+#utiles{
+float:left;
+width:789px;
+padding:28px 0 0 0;
+}
+#utiles img.gauche{
+float:left;
+margin:0 23px 0 0;
+border:1px solid #e3e4e3;
+}
+/* LIENS UTILES */
+#utiles .liens_utiles{
+overflow:hidden;
+zoom:1;
+border-bottom:1px solid #e3e4e3;
+padding-bottom:25px;
+margin-bottom:25px;
+font-size:12px;
+line-height:16px;
+color:#000000;
+}
+#utiles .liens_utiles .texte{
+float:left;
+width:600px;
+}
+#utiles .liens_utiles h3{
+font-size:12px;
+font-weight:bold;
+padding:0 0 0 29px;
+margin-bottom:15px;
+color:#89b401;
+background:url(../images/common/fleche_verte2.gif) no-repeat 0px 2px;
+}
+#utiles .liens_utiles p{
+padding:0 0 15px 29px;
+}
+#utiles .liens{
+padding:0 0 0 29px;
+}
+#utiles .liens li{
+font-size:11px;
+}
+#utiles .liens .lien a{
+background:url(../images/common/fleche_verte.gif) no-repeat 3px center;
+padding-left:24px;
+text-decoration:none;
+zoom:1;
+}
+#utiles .liens .doc{
+margin:5px 0 0 0;
+}
+#utiles .liens .doc a{
+background:url(../images/common/picto_telecharger.gif) no-repeat 0px 0px;
+padding:3px 0 0 24px;
+text-decoration:none;
+height:19px;
+display:block;
+}
+#utiles .liens a:hover{
+text-decoration:underline;
+}
+
+/* FAQ */
+#utiles .faq{
+overflow:hidden;
+zoom:1;
+margin:0px 0px 8px 0px;
+}
+#utiles .faq a{
+font-size:16px;
+color:#8ebc00;
+text-decoration:none;
+padding:0px 0px 0px 15px;
+background:url(../images/common/puce_grise.gif) no-repeat 0px 5px;
+}
+#utiles .faq a:hover,
+#utiles .faq a.on{
+color:#666666;
+}
+#utiles .faq a.in,
+#utiles .faq a.in:hover{
+color:#666666;
+background:url(../images/common/puce_grise2.gif) no-repeat 0px 7px;
+}
+#utiles .faq a:focus{
+outline:none;
+}
+#utiles .h_faq{
+margin:10px 0 5px 0;
+padding-top:5px;
+background:url(../images/common/h_faq.gif) no-repeat top left;
+}
+#utiles .dg_faq{
+background:url(../images/common/f_faq.gif) #f6f6f6 repeat-x top left;
+}
+#utiles .b_faq{
+background:url(../images/common/b_faq.gif) no-repeat bottom left;
+}
+#utiles .m_faq{
+border-left:1px solid #e3e4e3;
+border-right:1px solid #e3e4e3;
+padding:16px;
+overflow:hidden;
+zoom:1;
+font-size:12px;
+color:#000000;
+line-height:16px;
+}
+#utiles .liens_faq{
+padding-top:30px;
+margin-top:25px;
+border-top:1px solid #e3e4e3;
+overflow:hidden;
+zoom:1;
+}
+#utiles .liens_faq li{
+float:left;
+margin-right:25px;
+}
+
+/* LEXIQUE */
+#utiles .definition{
+overflow:hidden;
+zoom:1;
+margin:0px 0px 8px 0px;
+}
+#utiles .definition a{
+font-size:16px;
+color:#8ebc00;
+text-decoration:none;
+padding:0px 0px 0px 15px;
+background:url(../images/common/puce_grise.gif) no-repeat 0px 5px;
+}
+#utiles .definition a:hover,
+#utiles .definition a.on{
+color:#666666;
+}
+#utiles .definition a.in,
+#utiles .definition a.in:hover{
+color:#666666;
+background:url(../images/common/puce_grise2.gif) no-repeat 0px 7px;
+}
+#utiles .definition a:focus{
+outline:none;
+}
+#utiles .h_definition{
+margin:10px 0 5px 0;
+padding-top:5px;
+background:url(../images/common/h_faq.gif) no-repeat top left;
+}
+#utiles .dg_definition{
+background:url(../images/common/f_faq.gif) #f6f6f6 repeat-x top left;
+}
+#utiles .b_definition{
+background:url(../images/common/b_faq.gif) no-repeat bottom left;
+}
+#utiles .m_definition{
+border-left:1px solid #e3e4e3;
+border-right:1px solid #e3e4e3;
+padding:16px;
+overflow:hidden;
+zoom:1;
+font-size:12px;
+color:#000000;
+line-height:16px;
+}
+
+/* Sélection Lettre */
+#utiles .selection{
+height:34px;
+background:url(../images/common/g_lexique.gif) no-repeat top left;
+width:775px;
+padding-left:14px;
+margin-bottom:30px;
+}
+#utiles .selection ul{
+list-style:none;
+overflow:hidden;
+zoom:1;
+background:url(../images/common/d_lexique.gif) no-repeat top right;
+}
+#utiles .selection ul li{float:left;}
+#utiles .selection ul li a{
+line-height:34px;
+padding:0 9px 0 9px;
+overflow:hidden;
+background:url(../images/common/fond_lexique.gif) repeat-x 0px 0px;
+display:block;
+font-size:14px;
+text-decoration:underline;
+}
+#utiles .selection ul li span{
+line-height:34px;
+padding:0 9px 0 9px;
+overflow:hidden;
+background:url(../images/common/fond_lexique.gif) repeat-x 0px 0px;
+display:block;
+font-size:14px;
+}
+#utiles .selection ul li a:hover,
+#utiles .selection ul li a.on{
+background:url(../images/common/fond_lexique.gif) repeat-x 0px -34px;
+color:#ffffff;
+}

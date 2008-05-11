@@ -1,0 +1,20 @@
+.menu_g{
+float:left;
+width:205px;
+}
+.menu_g ul{}
+.menu_g ul li{
+padding:4px 0;
+border-bottom:1px solid #E3E4E3;
+}
+.menu_g ul li.dernier{
+border:none;
+}
+.menu_g ul li a{
+display:block;
+padding:0 0 0 15px;
+font-size:13px;
+}
+.menu_g ul li a.on{
+font-weight:bold;
+}

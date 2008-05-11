@@ -1,0 +1,207 @@
+#charte, #engagement{
+float:left;
+width:789px;
+padding:28px 0 0 0;
+}
+/* MENU GAUCHE */
+.menu_g ul li a{
+background:url(../images/common/puce_gauche1.gif) no-repeat 0px 4px;
+}
+.menu_g ul li a.on, .menu_g ul li a:hover{
+color:#93C500;
+}
+.menu_engagement{
+padding:10px 0 0 0;
+}
+.h_engagement{
+background:url(../images/common/f_menu_engagement.gif) repeat-y right;
+margin:0 0 8px 0;
+cursor:pointer;
+}
+.b_engagement{
+background:url(../images/common/b_menu_engagement.gif) no-repeat bottom right;
+}
+.f_engagement1{
+background:url(../images/common/h_g_engagement1.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.f_engagement2{
+background:url(../images/common/h_g_engagement2.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.f_engagement3{
+background:url(../images/common/h_g_engagement3.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.f_engagement4{
+background:url(../images/common/h_g_engagement4.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.f_engagement5{
+background:url(../images/common/h_g_engagement5.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.f_engagement6{
+background:url(../images/common/h_g_engagement6.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.h_engagement.on .f_engagement1{
+background:url(../images/common/h_g_engagement1on.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.h_engagement.on .f_engagement2{
+background:url(../images/common/h_g_engagement2on.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.h_engagement.on .f_engagement3{
+background:url(../images/common/h_g_engagement3on.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.h_engagement.on .f_engagement4{
+background:url(../images/common/h_g_engagement4on.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.h_engagement.on .f_engagement5{
+background:url(../images/common/h_g_engagement5on.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+.h_engagement.on .f_engagement6{
+background:url(../images/common/h_g_engagement6on.gif) no-repeat;
+padding:5px 20px 5px 40px;
+}
+
+.b_engagement a{
+font-size:12px;
+}
+.h_engagement.on a{
+color:#57A304;
+}
+/* PAGE */
+.page{
+float:right;
+width:558px;
+}
+.page h2{
+font-size:19px;
+font-weight:normal;
+color:#57A304;
+margin:0 0 20px 0;
+}
+.page img.visu_gauche, .page img.visu_droite{
+border:1px solid #F1EFF0;
+}
+.page img.visu_gauche{
+float:left;
+margin:0 15px 0 0;
+}
+.page img.visu_droite{
+float:right;
+margin:0 0 0 15px;
+}
+.page p{
+font-size:12px;
+margin:0 0 20px 0;
+}
+.page ul{
+font-size:12px;
+margin:0 0 20px 0;
+}
+.page ul li{
+background:url(../images/common/puce.gif) no-repeat 0px 7px;
+padding:0 0 0 10px;
+}
+.page ul.liens li{
+background:none;
+padding:0;
+margin:0 0 14px 0;
+}
+/* ENGAGEMENT */
+#engagement .h_t_engagement{
+background:url(../images/common/f_t_engagement.gif) repeat-y right;
+margin:0 0 18px 0;
+}
+#engagement .b_t_engagement{
+background:url(../images/common/b_t_engagement.gif) no-repeat bottom right;
+}
+#engagement .f_t_engagement1{
+background:url(../images/common/f_t_engagement1.gif) no-repeat;
+padding:20px 20px 18px 60px;
+}
+#engagement .f_t_engagement2{
+background:url(../images/common/f_t_engagement2.gif) no-repeat;
+padding:20px 20px 18px 60px;
+}
+#engagement .f_t_engagement3{
+background:url(../images/common/f_t_engagement3.gif) no-repeat;
+padding:20px 20px 18px 60px;
+}
+#engagement .f_t_engagement4{
+background:url(../images/common/f_t_engagement4.gif) no-repeat;
+padding:20px 20px 18px 60px;
+}
+#engagement .f_t_engagement5{
+background:url(../images/common/f_t_engagement5.gif) no-repeat;
+padding:20px 20px 18px 60px;
+}
+#engagement .f_t_engagement6{
+background:url(../images/common/f_t_engagement6.gif) no-repeat;
+padding:20px 20px 18px 60px;
+}
+#engagement .h_t_engagement h2{
+font-size:17px;
+font-weight:bold;
+color:#323232;
+margin:0 0 15px 0;
+padding:0;
+}
+#engagement #player{}
+#engagement a.video{
+display:block;
+float:left;
+background:url(../images/common/g_video.gif) no-repeat top left;
+padding:0 0 0 39px;
+margin:0 0 30px 0;
+}
+#engagement a.video span{
+display:block;
+float:left;
+height:22px;
+background:url(../images/common/d_video.gif) no-repeat top right;
+font-size:12px;
+padding:12px 15px 0 0;
+}
+#engagement .secrets{
+clear:both;
+background:url(../images/common/b_gestes.gif) no-repeat bottom;
+padding:0 0 2px 0;
+margin:0 0 20px 0;
+}
+#engagement .secrets h3{
+background:url(../images/common/f_t_gestes.gif) no-repeat;
+font-size:19px;
+color:#57A304;
+font-weight:normal;
+line-height:36px;
+padding:0 15px;
+}
+.page .f_secrets{
+background:#F6F6F6 url(../images/common/f_gestes.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:22px 14px 0 14px;
+overflow:hidden;
+zoom:1;
+}
+.page .f_secrets img{
+float:left;
+margin:0 14px 0 0;
+}
+.page .f_secrets h4{
+font-size:13px;
+font-weight:bold;
+color:#006325;
+margin:0 0 5px 0;
+}
+.page .f_secrets p{
+font-size:12px;
+}
