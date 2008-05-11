@@ -61,11 +61,10 @@
 			$arr_images[] = array(
 				'img'=>'medias/magazine/medium/'.$G['visuel'],
 				'lien'=>'#'.$G['id'],
-				'titre'=>$V['titre']
+				'titre'=>$G['titre']
 			);
 			if (!isset($once_mag)) {
 				$once_mag = 1;
-				$i->lien = '';
 				$i->image();
 			}
 		}
@@ -88,7 +87,7 @@
 	<script type="text/javascript">
 	// <![CDATA[
 	var arrImage = {
-		0:{img:'medias/magazine/medium/080506124350_couv_129.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M129',titre:''},
+		0:{img:'medias/magazine/medium/080506124350_couv_129.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M129',titre:'Test'},
 		1:{img:'medias/magazine/medium/080415163453_080414135518_campus_culture_p01.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M29',titre:''},
 		2:{img:'medias/magazine/medium/080415163521_080414135111_campus_128-p01_v2.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M18',titre:''},
 		3:{img:'medias/magazine/medium/080418191218_campus_lycee_couv.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M326',titre:''},
