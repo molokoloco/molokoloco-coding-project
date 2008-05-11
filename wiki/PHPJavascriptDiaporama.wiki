@@ -7,7 +7,7 @@
 
 <div id="magazine_slide">
 	<?php
-	
+		
 	$JS = '<script type="text/javascript">'.chr(13).chr(10).'// <![CDATA['.chr(13).chr(10);
 	$JSE = chr(13).chr(10).'// ]]>'.chr(13).chr(10).'</script>';	
 	
@@ -85,15 +85,15 @@
 
 	<div id="flickrSlideShow"></div>
 
-	#debutscript#
+	<script type="text/javascript">
+	// <![CDATA[
 	var arrImage = {
-		0 : { img : 'http://farm2.static.flickr.com/1385/777927764_fba1aee324_m.jpg', lien : '', titre : 'Test image' },
-		1 : { img : 'http://farm2.static.flickr.com/1066/778156110_168ab17268_m.jpg', lien : 'http://www.google.fr', titre : 'Hello World' }
+		0:{img:'medias/magazine/medium/080506124350_couv_129.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M129',titre:''},
+		1:{img:'medias/magazine/medium/080415163453_080414135518_campus_culture_p01.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M29',titre:''},
+		2:{img:'medias/magazine/medium/080415163521_080414135111_campus_128-p01_v2.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M18',titre:''},
+		3:{img:'medias/magazine/medium/080418191218_campus_lycee_couv.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M326',titre:''},
+		4:{img:'medias/magazine/medium/080415163419_080414132656_campus_lycee_couv.jpg',lien:'./telechargement-des-magazines-pdf-r60.html#M010',titre:''}
 	};
-	
-	// Simple
-	// myDiap = new diaporama(arrImage); // (Full screen)
-	// Custom
 	myDiap = new diaporama(arrImage, { 
 			div : 'flickrSlideShow',
 			tempo : 6,
@@ -102,7 +102,8 @@
 			control : true,
 			printInfo : false
 	});
-	#finscript#
+	// ]]>
+	</script>
 
 }}}
 
