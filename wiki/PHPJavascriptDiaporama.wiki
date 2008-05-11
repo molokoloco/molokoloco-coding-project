@@ -82,7 +82,9 @@
 
 {{{
 
-	<div id="flickrSlideShow"></div>
+	<div id="flickrSlideShow">
+		<a id="a_3" href="./telechargement-des-magazines-pdf-r60.html#M129"><img src="medias/magazine/medium/080506124350_couv_129.jpg" id="id_2" name="id_2" alt="Couv 129" border="0" width="189" height="267" /></a>
+	</div>
 
 	<script type="text/javascript">
 	// <![CDATA[
