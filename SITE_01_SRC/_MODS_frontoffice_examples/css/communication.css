@@ -1,0 +1,611 @@
+#communication, #journal, #kit, #presse, #rencontre, #rencontre_detail{
+float:left;
+width:789px;
+padding:28px 0 0 0;
+}
+/* MENU GAUCHE */
+.menu_g ul li a{
+background:url(../images/common/puce_gauche6.gif) no-repeat 0px 4px;
+}
+.menu_g ul li a.on, .menu_g ul li a:hover{
+color:#3EB7C7;
+}
+/* PAGE */
+.menu_g{
+width:184px;
+}
+.page{
+float:right;
+width:585px;
+}
+
+.page h2{
+font-size:19px;
+font-weight:normal;
+color:#3EB7C7;
+margin:0 0 20px 0;
+}
+.page img.visu_gauche, .page img.visu_droite{
+border:1px solid #F1EFF0;
+}
+.page img.visu_gauche{
+float:left;
+margin:0 15px 0 0;
+}
+.page img.visu_droite{
+float:right;
+margin:0 0 0 15px;
+}
+.page p{
+font-size:12px;
+margin:0 0 20px 0;
+}
+/* JOURNAL */
+.ligne{
+clear:both;
+overflow:hidden;
+zoom:1;
+}
+.h_journal{
+background:url(../images/common/h_journal.gif) no-repeat;
+padding:2px 0 0 0;
+margin:0 0 35px 0;
+}
+.h_journal_g, .h_journal_d{
+width:282px;
+background:url(../images/common/h_journal_p.gif) no-repeat;
+padding:2px 0 0 0;
+margin:0 0 20px 0;
+}
+.h_journal_g{
+float:left;
+}
+.h_journal_d{
+float:right;
+}
+.h_journal .b_journal{
+background:url(../images/common/b_journal.gif) no-repeat bottom;
+padding:0 0 2px 0;
+}
+.h_journal_g .b_journal, .h_journal_d .b_journal{
+background:url(../images/common/b_journal_p.gif) no-repeat bottom;
+padding:0 0 2px 0;
+}
+.h_journal .f_journal{
+background:#F5F5F5 url(../images/common/f_journal.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:15px 22px 15px 11px;
+overflow:hidden;
+zoom:1;
+}
+.h_journal_g .f_journal, .h_journal_d .f_journal{
+background:#F5F5F5 url(../images/common/f_journal_p.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:15px 10px 15px 10px;
+overflow:hidden;
+zoom:1;
+}
+.h_journal .f_journal .visuel{
+float:left;
+width:192px;
+}
+.h_journal_g .f_journal .visuel, .h_journal_d .f_journal .visuel{
+float:left;
+width:66px;
+border:1px solid #E7E8E7;
+}
+.h_journal .f_journal .description{
+float:right;
+width:335px;
+}
+.h_journal_g .f_journal .description, .h_journal_d .f_journal .description{
+float:right;
+width:170px;
+}
+.h_journal .f_journal .description h2{
+font-size:20px;
+color:#3EB7C7;
+margin:0 0 10px 0;
+}
+.h_journal_g .f_journal .description h2, .h_journal_d .f_journal .description h2{
+font-size:12px;
+font-weight:bold;
+color:#323232;
+margin:0 0 10px 0;
+}
+.h_journal .f_journal .description h3{
+font-size:13px;
+border-bottom:1px solid #E3E4E3;
+padding:0 0 8px 0;
+margin:0 0 10px 0;
+}
+.h_journal .f_journal .description h4{
+font-size:15px;
+color:#3EB7C7;
+margin:0 0 10px 0;
+}
+.h_journal .f_journal .description .h_sommaire{
+background:#EEEEEE url(../images/common/h_sommaire.gif) no-repeat;
+padding:2px 10px 0 10px;
+margin:0 0 16px 0;
+}
+.h_journal .f_journal .description .h_sommaire ul{
+background:url(../images/common/b_sommaire.gif) no-repeat bottom;
+padding:10px 0 5px 0;
+}
+.h_journal .f_journal .description .h_sommaire ul li{
+background:url(../images/common/puce_sommaire.gif) no-repeat 0px 4px;
+font-size:12px;
+padding:0 0 0 14px;
+margin:0 0 5px 0;
+}
+.h_journal .f_journal .description a.telecharger{
+display:block;
+background:url(../images/common/g_doc.gif) no-repeat left;
+padding:0 0 0 39px;
+}
+.h_journal .f_journal .description a.telecharger span{
+display:block;
+height:22px;
+background:url(../images/common/d_doc.gif) no-repeat top right;
+font-size:12px;
+padding:12px 39px 0 0;
+}
+.h_journal_g .f_journal a.telecharger, .h_journal_d .f_journal a.telecharger{
+clear:both;
+display:block;
+background:url(../images/common/g_doc.gif) no-repeat left;
+padding:0 0 0 39px;
+}
+.h_journal_g .f_journal a.telecharger span, .h_journal_d .f_journal a.telecharger span{
+display:block;
+height:22px;
+background:url(../images/common/d_doc.gif) no-repeat top right;
+font-size:12px;
+padding:12px 10px 0 0;
+}
+/* KIT */
+.h_kit{
+background:url(../images/common/h_journal.gif) no-repeat;
+padding:2px 0 0 0;
+margin:0 0 35px 0;
+}
+.h_kit .b_kit{
+background:url(../images/common/b_journal.gif) no-repeat bottom;
+padding:0 0 2px 0;
+}
+.h_kit .f_kit{
+background:#F5F5F5 url(../images/common/f_journal.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:15px 22px 15px 11px;
+overflow:hidden;
+zoom:1;
+}
+.h_kit .f_kit img.visu_gauche{
+float:left;
+border:none;
+margin:0 20px 0 0;
+}
+.h_kit .f_kit .message{
+background:url(../images/common/h_message.gif) no-repeat;
+width:550px;
+padding:2px 0 0 0;
+margin:0 0 20px 6px;
+}
+.h_kit .f_kit .message .b_message{
+background:#EDEDED url(../images/common/b_message.gif) no-repeat bottom;
+padding:0 0 2px 0;
+}
+.h_kit .f_kit .message .b_message p{
+font-size:15px;
+color:#3EB7C7;
+padding:5px 15px;
+margin:0;
+text-align:center;
+}
+#kit h2.contenu_kit{
+background:url(../images/common/f_t_contenu_kit.gif) no-repeat;
+line-height:36px;
+padding:0 15px;
+margin:0;
+}
+/* PRESSE */
+.h_presse{
+background:url(../images/common/h_journal.gif) no-repeat;
+padding:2px 0 0 0;
+margin:0 0 35px 0;
+}
+.h_presse .b_presse{
+background:url(../images/common/b_journal.gif) no-repeat bottom;
+padding:0 0 2px 0;
+}
+.h_presse .f_presse{
+background:#F5F5F5 url(../images/common/f_journal.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:15px 22px 15px 11px;
+overflow:hidden;
+zoom:1;
+}
+.h_presse .f_presse .visuel{
+float:left;
+width:220px;
+border:none;
+margin:0 20px 0 0;
+}
+.h_presse .f_presse .description{
+float:right;
+width:303px;
+}
+.h_presse .f_presse .description a.telecharger{
+display:block;
+background:url(../images/common/g_doc.gif) no-repeat left;
+padding:0 0 0 39px;
+margin:0 0 20px 0;
+}
+.h_presse .f_presse .description a.telecharger span{
+display:block;
+height:22px;
+background:url(../images/common/d_doc.gif) no-repeat top right;
+font-size:12px;
+padding:12px 5px 0 0;
+cursor:pointer;
+}
+.h_presse .f_presse .description a.t_contact, .h_presse .f_presse .description a.t_contact.on{
+display:block;
+background:url(../images/common/f_t_contacter.gif) no-repeat;
+width:275px;
+line-height:28px;
+font-size:14px;
+color:#fff;
+padding:0px 14px;
+}
+.h_presse .f_presse .description a.t_contact.on{
+background:url(../images/common/f_t_contacter_on.gif) no-repeat;
+}
+.h_presse .f_presse .description .contact{
+background:url(../images/common/b_form_presse.gif) no-repeat bottom;
+width:303px;
+padding:0 0 3px 0;
+}
+.h_presse .f_presse .description .contact form{
+background:url(../images/common/f_form_presse.gif) repeat-x;
+border-left:1px solid #E4E5E4;
+border-right:1px solid #E4E5E4;
+padding:14px 14px 3px 14px;
+}
+.h_presse .f_presse .description .contact form p{
+margin:0 0 4px 0;
+overflow:hidden;
+zoom:1;
+}
+.h_presse .f_presse .description .contact form p.intro{
+border-bottom:1px solid #E4E5E4;
+padding:0 0 20px 0;
+margin:0 0 20px 0;
+overflow:hidden;
+zoom:1;
+}
+.h_presse .f_presse .description .contact form p.envoi{
+margin:10px 0 4px 0;
+overflow:hidden;
+zoom:1;
+}
+.h_presse .f_presse .description .contact form label{
+display:block;
+float:left;
+width:72px;
+font-size:12px;
+text-align:right;
+padding:0 15px 0 0;
+}
+.h_presse .f_presse .description .contact form label sup{
+vertical-align:top;
+}
+.h_presse .f_presse .description .contact form input, .h_presse .f_presse .description .contact form textarea{
+display:block;
+float:right;
+width:180px;
+font-size:12px;
+border:1px solid #E4E5E4;
+}
+.h_presse .f_presse .description .contact form textarea{
+height:90px;
+}
+.h_presse .f_presse .description .contact form span{
+display:block;
+float:left;
+width:auto;
+font-size:9px;
+line-height:20px;
+}
+.h_presse .f_presse .description .contact form input.bouton{
+display:block;
+float:right;
+width:auto;
+border:none;
+}
+.presse{
+padding:23px 0 23px 0;
+border-top:1px solid #E3E4E3;
+overflow:hidden;
+zoom:1;
+}
+.presse .visuel{
+float:left;
+width:118px;
+border:1px solid #E3E4E3;
+text-align:center;
+padding:20px;
+}
+.presse .description{
+background:url(../images/common/fleche_bleue.gif) no-repeat 0px 2px;
+float:right;
+width:370px;
+padding:0 0 0 30px;
+}
+.presse .description h3{
+font-size:12px;
+color:#3EB7C7;
+margin:0 0 20px 0;
+}
+.presse .description p.liens{
+margin:0;
+}
+.presse .description p.liens a.info{
+display:block;
+float:left;
+background:url(../images/common/g_bouton_presse.gif) no-repeat left;
+padding:0 0 0 27px;
+margin:6px 10px 0 0;
+}
+.presse .description p.liens a.info span{
+display:block;
+float:left;
+height:28px;
+line-height:28px;
+background:url(../images/common/d_bouton_presse.gif) no-repeat top right;
+font-size:12px;
+padding:0px 10px 0 0;
+cursor:pointer;
+}
+.presse .description p.liens a.telecharger{
+display:block;
+float:left;
+background:url(../images/common/g_doc.gif) no-repeat left;
+padding:0 0 0 39px;
+margin:0 0 0 0;
+}
+.presse .description p.liens a.telecharger span{
+display:block;
+height:22px;
+background:url(../images/common/d_doc.gif) no-repeat top right;
+font-size:12px;
+padding:12px 10px 0 0;
+cursor:pointer;
+}
+/* RENCONTRE */
+#rencontre .h_rencontre{
+background:url(../images/common/h_journal.gif) no-repeat;
+padding:2px 0 0 0;
+margin:0 0 35px 0;
+}
+#rencontre .b_rencontre{
+background:url(../images/common/b_journal.gif) no-repeat bottom;
+padding:0 0 2px 0;
+}
+#rencontre .f_rencontre{
+background:#F5F5F5 url(../images/common/f_journal.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:15px 12px 15px 20px;
+overflow:hidden;
+zoom:1;
+}
+#rencontre .f_rencontre .visuel{
+float:left;
+width:149px;
+}
+#rencontre .f_rencontre .description{
+float:right;
+width:379px;
+}
+#rencontre .f_rencontre .description .contact{
+background:url(../images/common/h_ul_creation.gif) no-repeat;
+width:376px;
+padding:3px 0 0 0;
+}
+#rencontre .f_rencontre .description .b_contact{
+background:#EDEDED url(../images/common/b_ul_creation.gif) no-repeat bottom;
+padding:7px 20px 10px 20px;
+}
+#rencontre .f_rencontre .description .b_contact p{
+font-size:17px;
+color:#3EB7C7;
+margin:0;
+}
+#rencontre .calendrier{
+margin:0 0 30px 0;
+}
+#rencontre .calendrier h2{
+margin:0 0 10px 0;
+}
+#rencontre .rencontre{
+border-top:1px solid #36D3E7;
+padding:15px 0 0 0;
+margin:0 0 15px 0;
+}
+#rencontre .rencontre h3{
+float:left;
+background:url(../images/common/fleche_bleue.gif) no-repeat 0px 2px;
+font-weight:normal;
+padding:0 0 0 30px;
+}
+#rencontre .rencontre h3 a{
+font-size:12px;
+}
+#rencontre .rencontre a.info{
+float:right;
+background:url(../images/common/puce_plan6.gif) no-repeat 0px 4px;
+font-size:11px;
+padding:0 0 0 10px;
+}
+#rencontre .rencontre p{
+font-size:12px;
+padding:0 0 0 30px;
+}
+#rencontre .rencontre ul.liens{
+font-size:12px;
+padding:0 0 0 30px;
+}
+#rencontre .rencontre ul.liens li.lien{
+background:url(../images/common/fleche_bleue2.gif) no-repeat 3px 4px;
+font-size:12px;
+padding:0 0 0 24px;
+}
+#rencontre .rencontre ul.liens li.doc{
+background:url(../images/common/picto_doc.gif) no-repeat 0px 0px;
+font-size:12px;
+line-height:20px;
+padding:0 0 0 24px;
+}
+#rencontre .archives{
+border-top:1px solid #E3E4E3;
+padding:40px 0 0 0;
+}
+#rencontre .archives h2{
+font-size:20px;
+color:#323232;
+margin:0 0 10px 0;
+}
+#rencontre .archives form{
+background:url(../images/common/f_filtres_archives.gif) no-repeat;
+height:60px;
+padding:15px 10px 0 10px;
+margin:0 0 1px 0;
+overflow:hidden;
+zoom:1;
+}
+#rencontre .archives form h3{
+font-size:12px;
+font-weight:bold;
+float:left;
+margin:0 20px 0 0;
+}
+#rencontre .archives form .filtres{
+font-size:12px;
+float:left;
+}
+#rencontre .archives form .filtres p{
+margin:0 0 8px 0;
+overflow:hidden;
+zoom:1;
+}
+#rencontre .archives form .filtres p label{
+display:block;
+float:left;
+width:60px;
+font-size:12px;
+color:#006325;
+margin:0 10px 0 0;
+}
+#rencontre .archives form .filtres p select{
+float:left;
+width:195px;
+font-size:12px;
+border:1px solid #E4E5E4;
+}
+#rencontre .archives .h_archives{
+background:url(../images/common/h_archives.gif) no-repeat;
+padding:2px 0 0 0;
+}
+#rencontre .archives .b_archives{
+background:#EFEFEF url(../images/common/b_archives.gif) no-repeat bottom;
+padding:6px 0 2px 0;
+}
+#rencontre .archives .h_archive{
+width:565px;
+background:url(../images/common/h_archive.gif) no-repeat;
+padding:2px 0 6px 0;
+margin:0 auto 8px auto;
+}
+#rencontre .archives .b_archive{
+background:#fff url(../images/common/b_archive.gif) no-repeat bottom;
+padding:17px 17px 17px 17px;
+overflow:hidden;
+zoom:1;
+}
+#rencontre .archives .b_archive .titre{
+margin:0 0 15px 0;
+overflow:hidden;
+zoom:1;
+}
+
+#rencontre .archives .b_archive h4{
+float:left;
+background:#fff url(../images/common/fleche_grise.gif) no-repeat 0px 2px;
+font-size:12px;
+padding:0 0 0 22px;
+}
+#rencontre .archives .b_archive a.info{
+float:right;
+background:url(../images/common/puce_plan6.gif) no-repeat 0px 4px;
+font-size:11px;
+padding:0 0 0 10px;
+}
+#rencontre .archives .b_archive .visuel{
+float:left;
+width:150px;
+}
+#rencontre .archives .b_archive .description{
+float:right;
+width:355px;
+}
+#rencontre .archives .b_archive a.detail{
+background:url(../images/common/puce_plan6.gif) no-repeat 0px 4px;
+font-size:11px;
+padding:0 0 0 10px;
+}
+/* RENCONTRE DETAIL */
+#rencontre_detail .retour{
+background:url(../images/common/f_filtres_archives.gif) no-repeat;
+padding:15px;
+}
+#rencontre_detail .retour a{
+background:url(../images/common/puce_retour.gif) no-repeat 0px 3px;
+font-size:11px;
+padding:0 0 0 10px;
+}
+#rencontre_detail .archives .h_archives{
+background:url(../images/common/h_archives.gif) no-repeat;
+padding:2px 0 0 0;
+}
+#rencontre_detail .archives .b_archives{
+background:#EFEFEF url(../images/common/b_archives.gif) no-repeat bottom;
+padding:6px 0 2px 0;
+}
+#rencontre_detail .archives .h_archive{
+width:565px;
+background:url(../images/common/h_archive.gif) no-repeat;
+padding:2px 0 6px 0;
+margin:0 auto 8px auto;
+}
+#rencontre_detail .archives .b_archive{
+background:#fff url(../images/common/b_archive.gif) no-repeat bottom;
+padding:17px 17px 2px 17px;
+overflow:hidden;
+zoom:1;
+}
+#rencontre_detail .archives .b_archive h3{
+background:#fff url(../images/common/fleche_grise.gif) no-repeat 0px 2px;
+font-size:12px;
+padding:0 0 0 22px;
+margin:0 0 10px 0;
+}
+#rencontre_detail .archives .b_archive .visuel{
+float:left;
+margin:0 15px 0 0;
+}

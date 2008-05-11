@@ -1,0 +1,108 @@
+#plan{
+padding:28px 0 0 0;
+}
+.ligne{
+margin:0 0 27px 0;
+overflow:hidden;
+zoom:1;
+}
+.colonne{
+display:inline;
+float:left;
+width:217px;
+background:url(../images/common/b_plan.gif) no-repeat bottom;
+padding:0 0 2px 0;
+margin:0 27px 0 0;
+}
+.colonne.actualites{
+margin:0;
+}
+.colonne.utiles{
+margin:0;
+background:none;
+}
+.colonne.fleurs{
+width:461px;
+background:url(../images/common/b_plan2.gif) no-repeat bottom;
+padding:0 0 2px 0;
+}
+.colonne .f_colonne{
+background:#F5F5F5 url(../images/common/f_plan.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:19px;
+overflow:hidden;
+zoom:1;
+}
+.colonne .f_colonne ul{
+}
+.colonne .f_colonne ul li{
+padding:0 0 0 14px;
+}
+.colonne .f_colonne ul li a{
+font-size:12px;
+}
+.colonne .f_colonne ul li ul{}
+.colonne.charte .f_colonne ul li ul li{
+background:none;
+padding:0 0 0 14px;
+}
+.colonne.charte .f_colonne ul li{
+background:url(../images/common/puce_plan1.gif) no-repeat 0px 6px;
+}
+.colonne.parole .f_colonne ul li{
+background:url(../images/common/puce_plan2.gif) no-repeat 0px 6px;
+}
+.colonne.creations .f_colonne ul li{
+background:url(../images/common/puce_plan3.gif) no-repeat 0px 6px;
+}
+.colonne.actualites .f_colonne ul li{
+background:url(../images/common/puce_plan4.gif) no-repeat 0px 6px;
+}
+.colonne.fleurs .f_colonne ul li{
+float:left;
+width:100px;
+padding:0 20px 0 14px;
+background:url(../images/common/puce_plan5.gif) no-repeat 0px 6px;
+}
+.colonne.communication .f_colonne ul li{
+background:url(../images/common/puce_plan6.gif) no-repeat 0px 6px;
+}
+.colonne.utiles ul li{
+margin:0 0 8px 0;
+}
+
+.colonne.utiles ul li.texte, .colonne.utiles ul li.texte2{
+float:left;
+width:50px;
+padding:0 20px 0 14px;
+background:url(../images/common/puce_plan1.gif) no-repeat 0px 7px;
+}
+.colonne.utiles ul li.texte2{
+width:98px;
+}
+.colonne.utiles ul li.texte a, .colonne.utiles ul li.texte2 a{
+font-size:12px;
+}
+
+.colonne.charte ul li a:hover{
+color:#9BC816;
+}
+.colonne.parole ul li a:hover{
+color:#EBA03F;
+}
+.colonne.creations ul li a:hover{
+color:#BA5EBD;
+}
+.colonne.actualites ul li a:hover{
+color:#EBB218;
+}
+.colonne.fleurs ul li a:hover{
+color:#E13A78;
+}
+.colonne.communication ul li a:hover{
+color:#36B2C1;
+}
+.colonne.utiles ul li.texte a:hover, .colonne.utiles ul li.texte2 a:hover{
+color:#89B501;
+}

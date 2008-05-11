@@ -1,0 +1,67 @@
+#resultats{
+float:left;
+width:789px;
+padding:28px 0 0 0;
+}
+/* PAGINATION */
+#resultats .pagination{
+background:url(../images/common/f_pagination.gif) no-repeat;
+height:14px;
+font-size:11px;
+padding:10px 24px;
+margin:0 0 16px 0;
+overflow:hidden;
+zoom:1;
+}
+#resultats .pagination a{
+font-size:11px;
+text-decoration:underline;
+border-right:1px solid #797979;
+padding:0 7px;
+}
+#resultats .pagination a:hover{
+color:#93C500;
+}
+#resultats .pagination a.premier{
+border-left:1px solid #797979;
+}
+#resultats .pagination strong{
+color:#93C500;
+padding:0 7px;
+}
+/* PAGE */
+.page{
+width:789px;
+}
+.page h2{
+font-size:17px;
+margin:0 0 20px 0;
+}
+.page h2 span{
+color:#93C500;
+}
+.page .resultat{
+border-bottom:1px solid #E3E4E3;
+padding:0 0 20px 0;
+margin:0 0 20px 0;
+}
+.page .resultat.dernier{
+border-bottom:none;
+padding:0;
+margin:0 0 20px 0;
+}
+.page .resultat h3{
+margin:0 0 10px 0;
+}
+.page .resultat h3 a{
+font-size:15px;
+}
+.page .resultat h3 a span{
+background:#C9E27F;
+}
+.page .resultat p{
+font-size:12px;
+}
+.page .resultat p span{
+background:#C9E27F;
+}

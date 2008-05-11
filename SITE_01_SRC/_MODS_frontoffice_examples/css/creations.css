@@ -1,0 +1,212 @@
+#creations{
+float:left;
+width:789px;
+padding:28px 0 0 0;
+}
+/* MENU GAUCHE */
+.menu_g{
+float:left;
+width:205px;
+background:url(../images/common/b_menu_g.gif) no-repeat bottom;
+padding:0 0 16px 0;
+}
+.menu_g .f_menu_g{
+background:#fff;
+border:1px solid #E3E4E3;
+border-bottom:none;
+padding:0 0 0 9px;
+overflow:hidden;
+zoom:1;
+}
+.menu_g .f_menu_g select{
+width:185px;
+font-size:11px;
+border:1px solid #E0E1E0;
+margin:0 0 18px 0;
+}
+.menu_g .f_menu_g .ligne{
+clear:both;
+overflow:hidden;
+zoom:1;
+}
+.menu_g .f_menu_g .fleur{
+float:left;
+width:85px;
+text-align:center;
+margin:20px 10px 0 0;
+}
+.menu_g .f_menu_g .fleur a img{
+border:4px solid #DCDCDC;
+}
+.menu_g .f_menu_g .fleur a.on img, .menu_g .f_menu_g .fleur a:hover img{
+border:4px solid #9B27A1;
+}
+.menu_g .f_menu_g .fleur a{
+font-size:11px;
+}
+/* PAGE */
+.page{
+float:right;
+width:558px;
+}
+.page h2{
+background:url(../images/common/f_t_page2.gif) no-repeat;
+font-size:17px;
+padding:12px 20px;
+margin:0 0 20px 0;
+}
+.page h2 span{
+display:block;
+font-size:17px;
+color:#9B27A1;
+}
+.page .fiche{
+overflow:hidden;
+zoom:1;
+margin:0 0 20px 0;
+}
+.page .visuel{
+float:left;
+width:167px;
+}
+.page .visuel img{
+display:block;
+margin:0 0 1px 0;
+}
+.page .visuel .agrandir{
+background:url(../images/common/f_agrandir.gif) no-repeat;
+line-height:26px;
+margin:0 0 15px 0;
+}
+.page .visuel .agrandir a{
+background:url(../images/common/picto_loupe.gif) no-repeat 6px 2px;
+font-size:11px;
+padding:0 0 0 25px;
+color:#919191;
+}
+.page .visuel .liste{
+width:166px;
+background:url(../images/common/b_liste_doc.gif) no-repeat bottom;
+padding:0 0 16px 0;
+}
+.page .visuel .liste h3{
+font-size:15px;
+color:#9B27A1;
+padding:12px;
+border:1px solid #E3E4E3;
+border-bottom:none;
+}
+.page .visuel .liste ul{
+border:1px solid #E3E4E3;
+border-top:none;
+border-bottom:none;
+padding:0 10px;
+}
+.page .visuel .liste ul li{
+background:url(../images/common/picto_doc.gif) no-repeat 0px 0px;
+font-size:12px;
+line-height:19px;
+color:#777877;
+padding:0 0 7px 26px;
+}
+.page .description{
+float:right;
+width:376px;
+}
+.page .description p{
+font-size:12px;
+margin:0 0 20px 0;
+}
+.page .description .realisation{
+background:url(../images/common/f_temps_realisation.gif) no-repeat;
+line-height:45px;
+margin:0 0 13px 0;
+}
+.page .description .realisation h3{
+font-size:15px;
+color:#9B27A1;
+padding:4px 0 0 50px;
+}
+.page .description .realisation h3 span{
+font-size:13px;
+}
+.page .description .encart{
+background:#EFF0EF url(../images/common/h_ul_creation.gif) no-repeat;
+padding:6px 15px 0 15px;
+margin:0 0 13px 0;
+}
+.page .description .encart h3{
+font-size:15px;
+color:#9B27A1;
+margin:0 0 5px 0;
+}
+.page .description .encart ul{
+background:url(../images/common/b_ul_creation.gif) no-repeat bottom;
+padding:0 0 6px 0;
+}
+.page .description .encart ul li{
+background:url(../images/common/puce.gif) no-repeat 0px 6px;
+font-size:12px;
+padding:0 0 3px 10px;
+zoom:1;
+}
+
+.page .gestes{
+clear:both;
+background:url(../images/common/b_gestes.gif) no-repeat bottom;
+padding:0 0 2px 0;
+margin:0 0 20px 0;
+}
+.page .gestes h3{
+background:url(../images/common/f_t_gestes.gif) no-repeat;
+font-size:19px;
+color:#9B27A1;
+font-weight:normal;
+line-height:36px;
+padding:0 15px;
+}
+.page .f_gestes{
+background:#F6F6F6 url(../images/common/f_gestes.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:7px 14px 0 14px;
+overflow:hidden;
+zoom:1;
+}
+.page .geste{
+border-bottom:1px solid #EFF0EF;
+padding:15px 0;
+}
+.page .geste.dernier{
+border-bottom:none;
+}
+.page .geste img{
+float:left;
+margin:0 14px 0 0;
+}
+.page .geste h4{
+font-size:13px;
+color:#9B27A1;
+margin:0 0 5px 0;
+}
+.page .geste p{
+font-size:12px;
+}
+.page .savoir{
+background:url(../images/common/h_savoir_plus.gif) no-repeat;
+padding:2px 0 0 0;
+}
+.page .b_savoir{
+background:#EFF0EF url(../images/common/b_savoir_plus.gif) no-repeat bottom;
+padding:14px 16px 14px 16px;
+}
+.page .b_savoir h3{
+font-size:16px;
+font-weight:normal;
+color:#006627;
+margin:0 0 5px 0;
+}
+.page .b_savoir p{
+font-size:14px;
+color:#006627;
+}

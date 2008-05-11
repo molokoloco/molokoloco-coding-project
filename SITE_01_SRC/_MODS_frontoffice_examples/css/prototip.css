@@ -1,0 +1,73 @@
+/* prototip.css : http://www.nickstakenburg.com/projects/prototip */
+.prototip { position: absolute; }
+.prototip .effectWrapper { position: relative; }
+.prototip .tooltip { position: relative; }
+.prototip .toolbar {
+	position: relative;
+	display: block;
+	}
+.prototip .toolbar .title {
+	display: block;
+	position: relative;
+	}
+.prototip .content { clear: both; }
+.prototip .toolbar a.close {
+	position: relative;
+	text-decoration: none;
+	float: right;
+	width: 15px;
+	height: 15px;
+	background: transparent url(close.gif);
+	display: block;
+	line-height: 0;
+	font-size: 0px;
+	border: 0;
+	}
+.prototip .toolbar a.close:hover { background: transparent url(close_hover.gif); }
+
+.iframeShim { 
+	position: absolute;
+	border: 0;
+	margin: 0;	
+    padding: 0;
+    background: none;
+}
+
+/* Tooltip styles */
+.prototip .default {}
+.prototip .default .toolbar {}
+.prototip .default .title {
+	padding: 5px;
+}
+.prototip .content {}
+.prototip .content img {}
+
+/* Largeur fixe */
+.bulle{
+background:url(../images/common/h_bulle_gauche.gif) no-repeat;
+width:161px;
+padding:4px 0 0 0;
+}
+.b_bulle{
+background:url(../images/common/b_bulle_gauche.gif) no-repeat bottom;
+padding:0 0 16px 0;
+}
+.f_bulle{
+background:#F6F6F6 url(../images/common/f_bulle_gauche.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:0 5px;
+}
+.f_bulle cite{
+display:block;
+background:url(../images/common/g_citation_gauche.gif) no-repeat;
+font-style:normal;
+padding:0 0 0 18px;
+}
+.f_bulle cite span{
+display:block;
+background:url(../images/common/d_citation_gauche.gif) no-repeat bottom right;
+font-size:11px;
+color:#4B4B4B;
+padding:0 15px 0 0;
+}

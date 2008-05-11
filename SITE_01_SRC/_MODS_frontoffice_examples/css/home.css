@@ -1,0 +1,224 @@
+#home{
+padding:23px 0 0 0;
+}
+/* EDITO */
+#home .edito{
+float:left;
+width:205px;
+background:url(../images/common/b_encart_home.gif) no-repeat bottom;
+padding:0 0 16px 0;
+margin:0 0 21px 0;
+}
+#home .edito .f_edito{
+height:162px;
+background:#fff;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:0 13px;
+}
+#home .edito .f_edito p{
+font-size:11px;
+line-height:18px;
+margin:0 0 5px 0;
+}
+#home .edito .f_edito p a{
+color:#769D01;
+}
+#home .edito .f_edito ul li{
+font-size:11px;
+line-height:11px;
+background:url(../images/common/fleche_verte.gif) no-repeat 0px 3px;
+padding:0 0 0 17px;
+}
+#home .edito .f_edito ul li a:hover{
+color:#769D01;
+}
+
+/* ANIM */
+#home #anim_home{
+float:right;
+}
+
+/* CREATION */
+#home .creations{
+display:inline;
+float:left;
+width:205px;
+background:url(../images/common/b_encart_home.gif) no-repeat bottom;
+padding:0 0 16px 0;
+margin:0 26px 21px 0;
+}
+#home .creations .f_creations{
+background:#fff;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:0 11px 0 12px;
+}
+#home .creations .f_creations img.visuel{
+margin:0 0 8px 0;
+}
+#home .creations .f_creations h2{
+font-size:11px;
+}
+#home .creations .f_creations p{
+font-size:11px;
+}
+
+/* PAROLE */
+#home .parole{
+display:inline;
+float:left;
+width:214px;
+background:url(../images/common/b_parole.gif) no-repeat bottom;
+padding:0 0 3px 0;
+margin:0 25px 21px 0;
+}
+#home .parole .f_parole{
+background:#F6F6F6 url(../images/common/f_parole.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:9px 10px 6px 9px;
+}
+#home .parole .f_parole img.visuel{
+margin:0 0 8px 0;
+}
+#home .parole .f_parole h2{
+font-size:11px;
+margin:0 0 8px 0;
+}
+#home .parole .f_parole h2 span{
+font-weight:normal;
+}
+#home .parole .f_parole p{
+font-size:11px;
+}
+#home .parole .f_parole .citation{
+background:url(../images/common/d_citation.gif) no-repeat bottom right;
+margin:0 0 8px 0;
+}
+#home .parole .f_parole cite{
+display:inline;
+background:url(../images/common/g_citation.gif) no-repeat 0px 0px;
+font-size:11px;
+font-style:normal;
+padding:0 0 0 27px;
+}
+#home .parole .f_parole ul{
+border-top:1px solid #fff;
+padding:7px 0 0 0;
+}
+#home .parole .f_parole ul li{
+font-size:11px;
+line-height:11px;
+background:url(../images/common/fleche_orange.gif) no-repeat 0px 3px;
+padding:0 0 0 17px;
+}
+#home .parole .f_parole ul li a:hover{
+color:#E88300;
+}
+
+
+/* COLONNE CENTRALE */
+#home .col_centre{
+display:inline;
+float:left;
+width:319px;
+}
+#home .col_centre .charte{
+background:url(../images/common/h_encart_charte.gif) no-repeat;
+padding:4px 0 0 0;
+margin:0 0 25px 0;
+}
+#home .col_centre .b_charte{
+background:url(../images/common/b_encart_charte.gif) no-repeat bottom;
+padding:0 0 4px 0;
+}
+#home .col_centre .f_charte{
+background:#F6F6F6 url(../images/common/f_encart_charte.gif) repeat-x;
+border-left:1px solid #E3E4E3;
+border-right:1px solid #E3E4E3;
+padding:0 16px 4px 10px;
+overflow:hidden;
+zoom:1;
+}
+#home .col_centre .f_charte h2{
+font-size:12px;
+color:#FF5C99;
+margin:0 0 5px 0;
+}
+#home .col_centre .f_charte img.visuel{
+float:right;
+border:2px solid #fff;
+margin:7px 0 0 16px;
+}
+#home .col_centre .f_charte p a{
+font-size:11px;
+}
+
+#home .col_centre .actualite{
+background:url(../images/common/b_actu.gif) no-repeat bottom;
+height:191px;
+}
+#home .col_centre .actualite .t_actu{
+position:relative;
+background:url(../images/common/f_t_actu.gif) no-repeat;
+}
+#home .col_centre .actualite .t_actu #bt_bas{
+position:absolute;
+top:7px;
+left:276px;
+}
+#home .col_centre .actualite .t_actu #bt_haut{
+position:absolute;
+top:7px;
+left:293px;
+}
+#home .col_centre .actualite .f_actu{
+position:relative;
+height:142px;
+margin:0 0 0 9px;
+}
+#home .col_centre .actualite #contenu_actu{
+position:absolute;
+overflow:hidden;
+height:122px;
+width:300px;
+}
+#home .col_centre .actualite .actu{
+background:url(../images/common/f_li_actu.gif) no-repeat;
+width:288px;
+height:46px;
+padding:6px;
+margin:0 0 6px 0;
+overflow:hidden;
+}
+#home .col_centre .actualite .actu img.visuel{
+float:left;
+margin:0 15px 0 0;
+}
+#home .col_centre .actualite .actu h2 a{
+font-size:11px;
+color:#121212;
+text-decoration:none;
+}
+#home .col_centre .actualite .actu p{
+font-size:11px;
+color:#121212;
+margin:0 0 25px 0;
+}
+
+#home .col_centre .actualite ul.lien li{
+font-size:11px;
+line-height:11px;
+background:url(../images/common/fleche_orange2.gif) no-repeat 0px 3px;
+padding:0 0 0 17px;
+margin:0 0 0 9px;
+}
+#home .col_centre .actualite ul.lien li a:hover{
+color:#EEB102;
+}
+#home .col_droite{
+display:inline;
+float:right;
+width:135px;
+}
