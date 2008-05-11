@@ -164,7 +164,7 @@ ul#element_list li, ul#form_list li {
 	theme_advanced_resizing_use_cookie : true,
 	button_tile_map : true,
 	auto_reset_designmode : true,
-	dialog_type : 'modal',
+	dialog_type : 'window', //modal
 	object_resizing : false,
 	content_css : '<?=$WWW;?>admin/style_wysiwyg.css.php',
 	relative_urls : true,

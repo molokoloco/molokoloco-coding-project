@@ -10,7 +10,7 @@
 define('MLKLC', 1); // No Hack
 define('SITE_CMS', true); // Site CMS = menu cms + rep cms
 define('SITE_REF', true); // Active referencement dans rubrique
-define('VAD_VERSION', 'v1.0 - 05/05/2008'); // Etes-vous a jour ? :)
+define('VAD_VERSION', 'v1.0 - 11/05/2008'); // Etes-vous a jour ? :)
 
 $site_en_production = 0; // If "1" : Hide all debug -> db() + php.ini
 $debug = 0; // Affiche toutes les requetes exécutées apres cette déclaration
@@ -43,9 +43,9 @@ $root = '../../';
 $host = $_SERVER['HTTP_HOST'];
 $hostIp = $_SERVER['SERVER_ADDR'];
 
-function isOvh() {
+function isClient() {
 	global $hostIp;
-	return ( $hostIp == '91.121.22.81' ? true : false );
+	return ( $hostIp == 'XX.XXX.XXX.X' ? true : false );
 }
 function isLocal() {
 	global $host;
@@ -58,10 +58,10 @@ define('SITE_CONFIG', (isLocal() ? 'B2B' : 'B2BW')); // Unique ID for session co
 
 // ---------- SESSION DE CONFIGURATION -------------------- //
 // ALL STATIC CONFIG HERE - MODIFICATION ALLOWED !!!
-###
- $_SESSION[SITE_CONFIG]['WWW'] = NULL;
+### $_SESSION[SITE_CONFIG]['WWW'] = NULL;
 
-if (empty($_SESSION[SITE_CONFIG]['WWW'])) { 
+if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
+	// SQL CONFIG
 	if (isOvh()) {
 		$dbase = 'juss';
 		$dbhost = 'localhost';
@@ -96,8 +96,8 @@ if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
 	$_SESSION[SITE_CONFIG]['WWW'] 				= $WWW;
 	
 	$_SESSION[SITE_CONFIG]['libRootDir'] 		= dirname(__FILE__);
-	$_SESSION[SITE_CONFIG]['isUtf8'] 			= ($selfDirAdmin ? 0 : 0);
-	$_SESSION[SITE_CONFIG]['encoding'] 			= 'ISO-8859-15'; // UTF-8 | ISO-8859-15
+	$_SESSION[SITE_CONFIG]['isUtf8'] 			= ($selfDirAdmin ? 0 : 0); // ($selfDirAdmin ? 0 : 1);
+	$_SESSION[SITE_CONFIG]['encoding'] 			= 'ISO-8859-1'; // UTF-8 | ISO-8859-15
 	$_SESSION[SITE_CONFIG]['langues'] 			= array(0=>'fr');
 	$_SESSION[SITE_CONFIG]['lg'] 				= $_SESSION[SITE_CONFIG]['langues'][0];
 	$_SESSION[SITE_CONFIG]['maxUploadSize'] 	= ceil(1048576 * 99);
@@ -118,7 +118,7 @@ if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
 	$_SESSION[SITE_CONFIG]['extensionsVideo'] 	= array('mov', 'mpg', 'avi', 'wmv', 'wma', 'asf', 'wm', 'flv', 'rm', 'ram');
 	$_SESSION[SITE_CONFIG]['extensionsMusique'] = array('mp3', 'wav', 'ogg');
 	$_SESSION[SITE_CONFIG]['extensionsFlash'] 	= array('swf');
-	$_SESSION[SITE_CONFIG]['extensionsDocument'] = array('psd', 'pdf', 'zip', 'doc', 'txt', 'xls', 'ppt', 'pps', 'xml', 'fla', 'exe', 'rh', 'vrml', 'lw', 'ts', 'ac', 'dx', 'sw');
+	$_SESSION[SITE_CONFIG]['extensionsDocument'] = array('psd', 'pdf', 'zip', 'doc', 'txt', 'xls', 'ppt', 'pps', 'xml', 'fla', 'exe');
 	$_SESSION[SITE_CONFIG]['extensionsFiles'] 	= array_merge($_SESSION[SITE_CONFIG]['extensionsImg'], $_SESSION[SITE_CONFIG]['extensionsVideo'], $_SESSION[SITE_CONFIG]['extensionsMusique'], $_SESSION[SITE_CONFIG]['extensionsFlash'], $_SESSION[SITE_CONFIG]['extensionsDocument']); 
 	$_SESSION[SITE_CONFIG]['allowedTypesImg'] 	= array('image/pjpeg', 'image/jpeg', 'image/jpg', 'image/gif', 'image/png', 'x-png');
 	$_SESSION[SITE_CONFIG]['allowedTypesDocument'] = array('image/tiff', 'audio/mpeg', 'audio/x-wav', 'audio/x-ms-wma', 'audio/wav', 'audio/x-ms-wma', 'video/mpeg', 'video/mpg', 'video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/avi', 'video/x-ms-asf', 'video/x-ms-wm', 'video/x-ms-wmv', 'video/x-flv', 'text/plain', 'text/xml', 'text/html', 'application/pdf', 'application/zip', 'application/x-zip-compressed', 'application/msword', 'application/vnd.ms-excel', 'application/vnd.ms-powerpoint', 'application/excel', 'application/x-shockwave-fla', 'application/x-shockwave-flash', 'application/octet-stream', 'application/x-msdos-program');

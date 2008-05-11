@@ -76,14 +76,17 @@ else {
 $m =& new FILE();
 $m->delFiles('070220152107_arbre.jpg','./medias/galeries/');
 
-//----------- FLASH -----------------------//
+//----------- FLASH OBJ -----------------------//
 $m =& new FILE();
-$m->isMedia('./swf/titre.swf'));
-$m->width = '588';
-$m->height = '35';
-$m->flashvars = array('titre'=>'Gestion des galeries');
-$m->flashObj(); // Script flash Obj
-// $m->media(); // Flash embed
+$m->_path = $video_url;
+$m->id = generateId();
+$m->width = '300';
+$m->height = '270';
+$m->version = '8.0.0';
+$m->flashvars = $video_params;
+$m->flashparam = array('wmode'=>'transparent','allowFullScreen'=>'true');
+$m->flashObj();
+
 
 // ---------- CUSTOM JS POP-UP -------------------------//
 $m =& new FILE();
@@ -357,10 +360,11 @@ class FILE {
 			return;
 		}
 
-		// Lien vers grand fichier ?
+		// ZOOM : Si images dans ./xxx/mini/ ou ./xxx/medium/ cherche dans ./xxx/pop/ ou ./xxx/grand/ ou ./xxx/
 		if (empty($this->_pathzoom)) {
-			$this->_pathzoom = str_replace(array('mini/', 'medium/'), array(), $this->rep);
-			if (@is_file($this->_pathzoom.'grand/'.$this->name)) $this->_pathzoom .= 'grand/'.$this->name;
+			$this->_pathzoom = str_replace(array('mini/', 'medium/', 'grand/'), array(), $this->rep);
+			if (@is_file($this->_pathzoom.'pop/'.$this->name)) $this->_pathzoom .= 'pop/'.$this->name;
+			elseif (@is_file($this->_pathzoom.'grand/'.$this->name)) $this->_pathzoom .= 'grand/'.$this->name;
 			elseif (@is_file($this->_pathzoom.$this->name)) $this->_pathzoom .= $this->name;
 			else $this->_pathzoom = $this->_path; // No Zoom ?
 		}
@@ -369,7 +373,7 @@ class FILE {
 			return;
 		}
 
-		if ($this->title == '' && !$this->noTitle) $this->title = 'Afficher &quot;'.$this->cname.'&quot; ('.$this->width.'x'.$this->height.' pixels, '.$this->size.')';
+		if (empty($this->title) && !$this->noTitle) $this->title = 'Afficher &quot;'.$this->cname.'&quot; ('.$this->width.'x'.$this->height.' pixels, '.$this->size.')';
 		if (empty($this->texte)) $this->texte = $this->image(FALSE); // Get Image first
 		elseif ($this->texte == 'no') $this->texte = $this->cname;
 		
@@ -380,6 +384,8 @@ class FILE {
 		$this->noTitle = TRUE;
 		$this->noTarget = TRUE;
 
+		//$this->onClick = "javascript:myLightWindow.activateWindow({href: '".$this->_pathzoom."', title: 'Waiting', author: 'Jazzmatt', caption: 'Mmmmmm', left: 300});return false;";
+		//$this->onClick = 'popImg(\''.$pathzoom.'\',\'Zoom\'); return false;';
 		if (!isset($this->attributes)) { // Do not forget to include "220_lightbox.js" :)
 			// FULL : $this->attributes = array('class'=>'lightwindow', 'onfocus'=>'blur();', 'title'=>'Tata', 'author'=>'Toto', 'caption'=>'Tutu');
 			// params="lightwindow_width=640,lightwindow_height=288"
@@ -387,9 +393,6 @@ class FILE {
 			$this->attributes = array('class'=>'lightwindow', 'onfocus'=>'blur();', 'title'=>$this->title); 
 		}
 		if (!empty($this->galRel)) $this->attributes['rel'] = $this->galRel.'['.$this->catRel.']';
-
-		//$this->onClick = "javascript:myLightWindow.activateWindow({href: '".$this->_pathzoom."', title: 'Waiting', author: 'Jazzmatt', caption: 'Mmmmmm', left: 300});return false;";
-		//$this->onClick = 'popImg(\''.$pathzoom.'\',\'Zoom\'); return false;';
 
 		$this->_html = $this->lien(FALSE);
 		return $this->_printHtml($echo);
@@ -400,7 +403,7 @@ class FILE {
 
 		$this->lien =  $this->_path;
 
-		if ($this->texte == '') $this->texte = $this->cname.'.'.$this->ext;
+		if ($this->texte == '') $this->texte = $this->cname; //.'.'.$this->ext;
 		if ($this->texte != $this->name) $this->title = $this->name;
 
 		$this->_html = $this->lien(FALSE);
@@ -445,7 +448,7 @@ class FILE {
 		
 		if ($this->flashvars != '') { // $m->flashvars = array('titre'=>'Soubi douf');
 			$this->_html .= '<param name="flashvars" value="';
-			foreach($this->flashvars as $var=>$varValue) $this->_html .= '&'.$var.'='.htmlentities(UnHtmlEntities(aff($varValue)));
+			foreach($this->flashvars as $var=>$varValue) $this->_html .= '&'.$var.'='.htmlentities(unhtmlentities(aff($varValue)));
 			$this->_html .= '">'.chr(13);
 		}
 
@@ -464,7 +467,7 @@ class FILE {
 		
 		if ($this->flashvars != '') {
 			$this->_html .= ' flashvars="';
-			foreach($this->flashvars as $var=>$varValue) $this->_html .= '&'.$var.'='.htmlentities(UnHtmlEntities(aff($varValue)));
+			foreach($this->flashvars as $var=>$varValue) $this->_html .= '&'.$var.'='.htmlentities(unhtmlentities(aff($varValue)));
 			$this->_html .= '"';
 		}
 
@@ -482,6 +485,7 @@ class FILE {
 			<br /><a href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash&Lang=French&P5_Language=French" target="_blank"><img src="images/nav/no_flash_plugin.png" alt="no_flash_plugin" width="160" height="113" border="0"></a></div></noembed>';
 		}
 		$this->_html .= '</object>'.chr(13);
+		
 		if ($makeSize) { // AutoDetect Flash SIZE !
 			if(navDetect() == 'gecko') $medId = 'emb_'.$this->id; // Resize sur l'ID de l'embed et non pas de l'oBject..
 			$this->_script .= '<script type="text/javascript" language="javascript">
@@ -492,17 +496,21 @@ class FILE {
 		return $this->_printHtml($echo);
 	}
 	
-	function flashObj($echo=TRUE) {
-		global $extensionsFlash;	
-		if (!in_array($this->ext,$extensionsFlash)) {
-			$this->error .= 'Ce fichier n\'est pas un flash';
+	function flashObj($echo=TRUE) { // Cas particulier // Ne passe pas par isFile() : variable $this->_path a préciser...
+		//global $extensionsFlash;	
+		//if (!in_array($this->ext,$extensionsFlash)) {
+			//$this->error .= 'Ce fichier n\'est pas un flash';
+			//return;
+		//}
+		if (empty($this->_path)) {
+			$this->error .= 'flashObj() : $this->_path est vide';
 			return;
 		}
 		
 		if (empty($this->id)) $this->id = $this->_getId();
 		
 		$makeSize = FALSE;
-		if (empty($this->width) || empty($this->height)) {
+		if ($this->width < 1 || $this->height < 1) {
 			$this->width = 360;
 			$this->height = 280;
 			$makeSize = TRUE;
@@ -513,37 +521,43 @@ class FILE {
 		$this->_html = '<div id="'.$this->id.'"';
 		if ($this->css != '') $this->_setAttributes('css');
 		if ($this->style != '') $this->_setAttributes('style');
-		$this->_html .= '>Flash</div>';
+		$this->_html .= '>';
+		if ($this->texte) $this->_html .= $this->texte;
+		else $this->_html .= '<p style="text-align:center;"><br /><br /><br />
+		Vous devez disposer du <a href="http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player.exe" target="_blank">Player Flash</a><br />&nbsp;</p>';
+		$this->_html .= '</div>';
 		
+		// V2.0 ---
 		$script = "
 var flashvars = {};
-var params = {wmode: 'transparent', allowScriptAccess: 'sameDomain'};
+var params = {".(!isset($this->flashparam['wmode']) ? "wmode: 'transparent'," : "")." allowScriptAccess: 'always'};
 var attributes = {id: 'swf_".$this->id."'};
 ";
 		if ($this->flashvars != '' && is_array($this->flashvars))  // $m->flashvars = array('titre'=>'Soubi douf');
-			foreach($this->flashvars as $var=>$varValue) $script .=  "flashvars.".$var." = '".htmlentities(UnHtmlEntities(aff($varValue)))."';".chr(13);
+			foreach($this->flashvars as $var=>$varValue) $script .=  "flashvars.".$var." = '".squote($varValue)."';".chr(13);
 
 		if ($this->flashparam != '' && is_array($this->flashparam)) // $m->flashvars = array('titre'=>'Soubi douf');
-			foreach($this->flashparam as $var=>$varValue) $script .=  "params.".$var." = '".htmlentities(UnHtmlEntities(aff($varValue)))."';".chr(13);
+			foreach($this->flashparam as $var=>$varValue) $script .=  "params.".$var." = '".squote($varValue)."';".chr(13);
 
 $script .= "swfobject.embedSWF('".$this->_path."', '".$this->id."', '".$this->width."', '".$this->height."', '".$this->version."', '', flashvars, params, attributes);
 ";
-		
+		// V1.0 ---
 		/*$script = "
 var so = new SWFObject('".$this->_path."', 'swf_".$this->id."', '".$this->width."', '".$this->height."', '".$this->version."', '');
 so.addParam('wmode', 'transparent');
 so.addParam('allowScriptAccess', 'sameDomain');".chr(13);
 		if ($this->flashvars != '' && is_array($this->flashvars)) { // $m->flashvars = array('titre'=>'Soubi douf');
-			foreach($this->flashvars as $var=>$varValue) $script .=  "so.addVariable('".$var."', '".htmlentities(UnHtmlEntities(aff($varValue)))."');".chr(13);
+			foreach($this->flashvars as $var=>$varValue) $script .=  "so.addVariable('".$var."', '".htmlentities(unhtmlentities(aff($varValue)))."');".chr(13);
 		}
 		if ($this->flashparam != '' && is_array($this->flashparam)) { // $m->flashvars = array('titre'=>'Soubi douf');
-			foreach($this->flashparam as $var=>$varValue) $script .=  "so.addParam('".$var."', '".htmlentities(UnHtmlEntities(aff($varValue)))."');".chr(13);
+			foreach($this->flashparam as $var=>$varValue) $script .=  "so.addParam('".$var."', '".htmlentities(unhtmlentities(aff($varValue)))."');".chr(13);
 		}
 $script .= "so.write('".$this->id."');
 		";*/
 		
 		$script = js($script,FALSE);
 		$this->_html .= $script;
+		
 		if (!$echo) return $this->_html;
 		else {
 			echo $this->_html;

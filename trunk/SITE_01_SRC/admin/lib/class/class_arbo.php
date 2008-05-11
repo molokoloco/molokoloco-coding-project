@@ -176,8 +176,6 @@ class ARBO {
 
 		if ($this->arid < 1) die(getDb('[ARBO()] Il faut configurer au moins <strong>une rubrique</strong> pour l\'acceuil'));
 		
-		$this->arbo[$this->arid]['url'] = 'index.php'; // SPECIFIK !!!
-		
 		$this->setCurrentRid();
 	}
 

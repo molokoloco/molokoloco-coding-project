@@ -63,7 +63,8 @@ function V1() { // Verif formulaire
 <td class="texte"><img src="../images/spacer.gif" width="160" height="10"><?
 
 $dir = $wwwRoot.'admin/';
-$filesRep = getFile($dir,'rep');
+//$filesRep = getFile($dir,'rep');
+$filesRep = array('mod_membres','dat_emails','mod_articles','mod_shopping','mod_actualites','dat_bibliotheque_fichiers','dat_bibliotheque_images','dat_email_alertes','dat_villes','mod_contact','mod_diplomes','mod_ecoles','mod_magazines','mod_page_intro','mod_partenaires');
 $options = '';
 foreach($filesRep as $repData) {
 	if (is_file($dir.'/'.$repData.'/data.php')) {

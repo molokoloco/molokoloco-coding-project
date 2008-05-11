@@ -7,9 +7,8 @@
 215_menu,215_accordeon, 220_lightbox, 230_tab-view, 300_specifique,999_regexp
 ////////////////////////////////////////////////////////////////////////////////////////////////////*/
 var compressed = false; // Cf. http://alex.dojotoolkit.org/shrinksafe/
-var toLoad = '002_flashObject,100_prototype,110_effects,111_effects.extend,200_tools,201_client,210_functions,211_form,214_modal-dialogue,215_menu,300_specifique,999_regexp';
+var toLoad = '002_flashObject,100_prototype,110_effects,111_effects.extend,200_tools,201_client,210_functions,211_form,214_modal-dialogue,,114_prototip,212_diaporama,215_menu,215_accordeon,300_specifique,999_regexp';
 var Scriptaculous = {Version: '1.8.1'};
-
 var preloader = {
     require: function(libraryName) {
         document.write('<script type="text/javascript" src="'+libraryName+'" onerror="alert(\'Error: failed to load \'+this.src)"></script>');

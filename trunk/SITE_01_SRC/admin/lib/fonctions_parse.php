@@ -174,11 +174,7 @@ function html($string) { // html(aff($V['titre']))
 		return $string;
 	}
 	$string = str_replace('&quot;', '"', $string);
-
-	global $isUtf8;
-	if ($isUtf8) $string = htmlentities(make_iso($string), ENT_QUOTES);
-	else $string = htmlentities($string, ENT_QUOTES);
-
+	$string = htmlentities(make_iso($string), ENT_QUOTES);
 	$string = makeEncoding($string);
 	return $string;
 }
@@ -644,6 +640,24 @@ function relativeDate($dateFromSql) {
 		elseif ($day_diff < 31) return 'il y a '.ceil($day_diff/7).' semaine'.s(ceil($day_diff/7));
 		elseif ($day_diff < 361) return 'il y a '.ceil($day_diff/30).' mois';
 	}
+}
+
+// MAKE URL REWRITE NAME --------------------------------------------- 
+function urlRewrite($name, $params) {
+	// RewriteEngine on
+	// RewriteRule ^([a-z,-]+)-t([0-9]+)i([0-9]+)p([0-9]+).html$ index.php?goto=detail&theme=$2&id=$3&page=$4 [L]
+	$url = '';
+	$words = explode(' ', $name);
+	foreach ($words as $word) {
+		if (strlen($word) > 1) $url .= '-'.cleanName($word);
+		if (strlen($url) > 240) break;
+	}
+	$url = substr($url, 1);
+	$url = str_replace('_','-',$url);
+	$url = preg_replace('/[^a-z\-]/', '', $url);
+	$url = urlencode($url.'-'.$params.'.html');
+	$url = preg_replace('/[\-]{2,}/','-',$url);
+	return $url;
 }
 
 // MAKE AND WRITE SIMPLE XML FROM ARRAY ---------------------------------------------

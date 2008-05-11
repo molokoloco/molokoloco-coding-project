@@ -317,13 +317,14 @@
 	}
 	
 	#lightwindow_data_author_container {
-		width: 40%;
+		width: 60%;
 		text-align: right;
 		color: #666666;
 	 	font-style: italic;
 		font-size: 10px;
 		line-height: 20px;
 		float: right;
+		white-space:nowrap;
 		overflow: hidden;
 	}
 	
