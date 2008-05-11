@@ -411,7 +411,6 @@ diaporama.prototype = { // EN COURS D'EVOLUTION... N'EST PAS FINI !!!! // CHECK 
 }
 #diaporamaImage {
 	border:1px solid #D8B849;
-
 }
 
 }}}
