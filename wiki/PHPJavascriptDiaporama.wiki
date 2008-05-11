@@ -104,21 +104,6 @@
 	});
 	#finscript#
 
-	### ATTEMPT TO BUILD THIS (if "boxElement" == "xxx") ##############################
-	
-	<div id="xxx">
-		<div style="overflow: hidden; position: relative; display: block; height: 265px; width: 280px;" id="diaporamaBoxImage">
-			<div style="position: relative; margin-top: 12.5px;" id="diaporamaBoxImageEffect">
-				<a href="http://www.flickr.com/photos/mschmahl/802196014/" target="_blank">
-					<img width="160" height="240" border="0" title="http://www.toto.com/" src="toto.jpg" alt="toto.jpg" id="diaporamaImage"/>
-				</a>
-			</div>
-		</div>
-		<div style="position: relative;" id="diaporamaControler">
-			<img width="12" height="13" border="0" style="cursor: pointer;" id="precedante" title="Précédante" src="images/ico_js/back.gif"/> <img width="12" height="13" border="0" style="cursor: pointer;" id="pause" title="Pause" src="images/ico_js/pause.gif"/> <img width="12" height="13" border="0" style="cursor: pointer; display: none;" id="lecture" title="Lecture" src="images/ico_js/play.gif"/> <img width="12" height="13" border="0" style="cursor: pointer;" id="suivante" title="Suivante" src="images/ico_js/next.gif"/>
-		</div>
-	</div>
-
 }}}
 
 == JAVASCRIP : 212_diaporama.js ==
@@ -135,6 +120,21 @@ if (typeof db == 'undefined') die("212_diaporama.js requires 200_tools.js");
 if (typeof Effect == 'undefined') die("212_diaporama.js requires 110_effects.js");
 if (typeof startOverlay == 'undefined') db("212_diaporama.js requires 214_modal-dialogue.js");
 
+/* ATTEMPT TO BUILD THIS
+	
+	<div id="xxx">
+		<div style="overflow: hidden; position: relative; display: block; height: 265px; width: 280px;" id="diaporamaBoxImage">
+			<div style="position: relative; margin-top: 12.5px;" id="diaporamaBoxImageEffect">
+				<a href="http://www.flickr.com/photos/mschmahl/802196014/" target="_blank">
+					<img width="160" height="240" border="0" title="http://www.toto.com/" src="toto.jpg" alt="toto.jpg" id="diaporamaImage"/>
+				</a>
+			</div>
+		</div>
+		<div style="position: relative;" id="diaporamaControler">
+			<img width="12" height="13" border="0" style="cursor: pointer;" id="precedante" title="Précédante" src="images/ico_js/back.gif"/> <img width="12" height="13" border="0" style="cursor: pointer;" id="pause" title="Pause" src="images/ico_js/pause.gif"/> <img width="12" height="13" border="0" style="cursor: pointer; display: none;" id="lecture" title="Lecture" src="images/ico_js/play.gif"/> <img width="12" height="13" border="0" style="cursor: pointer;" id="suivante" title="Suivante" src="images/ico_js/next.gif"/>
+		</div>
+	</div>
+*/
 
 var diaporama = Class.create();
 diaporama.prototype = { // EN COURS D'EVOLUTION... N'EST PAS FINI !!!! // CHECK IF NO CONTROL !!
