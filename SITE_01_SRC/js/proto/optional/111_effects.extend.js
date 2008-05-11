@@ -137,28 +137,6 @@ Effect.Center = function(element) { // TO check
 	Element.setLeft(element, offsetX);
 }
 
-/* ------------------------- DIV SWAPPER ---------------------------------- */
-
-// <a onclick="Effect.divSwap('text1','text');" href="#">Text1</a>
-Effect.divSwap = function(element,container) {
-	var div = document.getElementById(container);
-	var nodeList = div.childNodes;
-	var queue = Effect.Queues.get('menuScope');
-	
-	if (queue.toArray().length<1) {
-		if (Element.visible(element)==false) {
-			for (i=0;i<nodeList.length;i++) {
-				if (nodeList.item(i).nodeName == "DIV" && nodeList.item(i).id != element) {
-					if (Element.visible(nodeList.item(i))==true) {
-						Effect.SlideUp(nodeList.item(i),{queue:{position:'end',scope:'menuScope',limit:2}})
-					}
-				}
-			}
-			Effect.SlideDown(element,{queue:{position:'end',scope:'menuScope',limit:2}})
-		}
-	}
-}
-
 /* ------------------------- HORIZONTALE SCROLL FROM LEFT TO RIGHT ---------------------------------- */
 Effect.ScrollFromLeft = function(element) {
 	Zelement = $(element);
