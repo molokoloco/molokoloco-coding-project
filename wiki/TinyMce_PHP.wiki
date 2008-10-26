@@ -1,7 +1,7 @@
 #summary TinyMce (WYSIWYG), Intrégration with PHP
 #labels Featured
 
-= Personal intregration of TinyMce with PHP =
+= Personal intregration of [http://tinymce.moxiecode.com/ TinyMce] with PHP =
 
 == admin/lib/class_tinymce.php ==
 
