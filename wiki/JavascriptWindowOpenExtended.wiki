@@ -1,4 +1,5 @@
 #summary The famous window.open
+#labels Featured
 
 = JAVASCRIPT =
 
@@ -7,7 +8,13 @@ Auto sized and centered in the screen
 {{{
 
 // ------------------------- POPUP URL ---------------------------------- //
-// width, height, left, top, name, scrollbars, menubar, locationbar, resizable, fullscreen
+/*
+ * Exemple :
+ * <a href="pop_media.php" onclick="return windowOpen('pop_media.php',{width:240, height:180});">Test</a>
+ * Properties : 
+ * width, height, left, top, name, scrollbars, menubar, locationbar, resizable, fullscreen
+ */
+
 var windowOpen = function(url) {  
 	var options = Object.extend({url:url}, arguments[1] || {});
 	var args = '';
@@ -53,7 +60,8 @@ var windowOpen = function(url) {
 	}
 };
 
-// Alias... <a href="pop_media.php" onclick="return pop('pop.html','pimpMyPop','260','120');">
+// Alias... <a href="pop_media.php" onclick="return pop('pop_media.php','pimpMyPop','260','120');">
+
 var pop = function(url, name, wide, high) {
 	return windowOpen(url, {name:name, width:wide, height:high, scrollbars:1, statusbar:1, resizable:1});
 };
