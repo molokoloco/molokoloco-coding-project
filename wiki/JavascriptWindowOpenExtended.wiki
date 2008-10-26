@@ -1,4 +1,4 @@
-#summary The famous window.open
+#summary The famous window.open / window.document / navigator.userAgent
 #labels Featured
 
 = JAVASCRIPT window.open() extended =
