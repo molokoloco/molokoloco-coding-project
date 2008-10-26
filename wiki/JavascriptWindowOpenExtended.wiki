@@ -1,9 +1,9 @@
 #summary The famous window.open
 #labels Featured
 
-= JAVASCRIPT =
+= JAVASCRIPT window.open() extended =
 
-===Auto sized and centered in the screen===
+=== Auto sized and centered in the screen ===
 
 {{{
 
@@ -65,6 +65,5 @@ var windowOpen = function(url) {
 var pop = function(url, name, wide, high) {
 	return windowOpen(url, {name:name, width:wide, height:high, scrollbars:1, statusbar:1, resizable:1});
 };
-
 
 }}}
