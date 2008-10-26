@@ -1,7 +1,7 @@
+#summary TinyMce (WYSIWYG), Intrégration with PHP
 #labels Featured
-#TinyMce - WYSIWYG, Intrégration with PHP
 
-= Intrégration of TinyMce with PHP =
+= Personal intregration of TinyMce with PHP =
 
 == admin/lib/class_tinymce.php ==
 
@@ -31,12 +31,12 @@
  
  /* EXEMPLE 
  
-require_once ("inc/TinyMce/TinyMce.php");
+require_once("admin/lib/class_tinymce.php");
 $Ed = new TinyMce('myInputName');
 $Ed->ToolbarSet = 'Basic';  // BasicStyle | BasicTab | BasicImg
 $Ed->Width = '100%';
-$Ed->Height = '280px';
-$Ed->Value = 'Bla bla';
+$Ed->Height = '280';
+$Ed->Value = str_replace('&quot;','"','Ici le texte...');
 $Ed->Create();
 
  */
