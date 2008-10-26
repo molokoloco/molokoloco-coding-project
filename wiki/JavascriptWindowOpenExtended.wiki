@@ -3,7 +3,7 @@
 
 = JAVASCRIPT =
 
-Auto sized and centered in the screen
+===Auto sized and centered in the screen===
 
 {{{
 
