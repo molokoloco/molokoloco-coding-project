@@ -39,6 +39,10 @@ function q($query) {
 	return ( count($Q->V) > 1 ? $Q->V : $Q->V[0] );
 }
 
+// Stock connexion between class instanciation
+$_cConnexion = 0;
+$_dbDataBase = 0;
+
 class Q { // SQL QUERY MANAGER ;)
 
 	public $_c = 0;
@@ -62,11 +66,21 @@ class Q { // SQL QUERY MANAGER ;)
 	
 	// CONNEXION
 	private function C() {
-		global $dbhost, $dbase, $dblogin, $dbmotdepasse;
-		if (empty($dbhost) || empty($dbase) || empty($dblogin)) die(db('[Q()] Desole, il manque un parametre ['.$dbhost.', '.$dbase.', '.$dblogin.']'));
-		$this->_c = mysql_connect($dbhost, $dblogin, $dbmotdepasse) or die(db('[Q()] Desole, connexion impossible sur le host ['.$dbhost.']'));
-		$this->_db = mysql_select_db($dbase, $this->_c) or die(db('[Q()] Desole, connexion impossible a la base ['.$dbhost.' : '.$dbase.'] '.htmlspecialchars(mysql_error($this->_c))));
-		if (!is_resource($this->_c) || !$this->_db)  die(db('[Q()] Pb inconnu ['.$dbase.' : '.$dbhost.'] '.htmlspecialchars(mysql_error($this->_c))));
+		global $_cConnexion, $_dbDataBase;
+		if ($_cConnexion && $_dbDataBase) {
+			 $this->_c = $_cConnexion;
+			 $this->_db = $_dbDataBase;
+		}
+		else {
+			global $dbhost, $dbase, $dblogin, $dbmotdepasse;
+			if (empty($dbhost) || empty($dbase) || empty($dblogin)) die(db('[Q()] Desole, il manque un parametre ['.$dbhost.', '.$dbase.', '.$dblogin.']'));
+			$this->_c = mysql_connect($dbhost, $dblogin, $dbmotdepasse) or die(db('[Q()] Desole, connexion impossible sur le host ['.$dbhost.']'));
+			$this->_db = mysql_select_db($dbase, $this->_c) or die(db('[Q()] Desole, connexion impossible a la base ['.$dbhost.' : '.$dbase.'] '.htmlspecialchars(mysql_error($this->_c))));
+			if (!is_resource($this->_c) || !$this->_db)  die(db('[Q()] Pb inconnu ['.$dbase.' : '.$dbhost.'] '.htmlspecialchars(mysql_error($this->_c))));
+			
+			$_cConnexion = $this->_c;
+			$_dbDataBase = $this->_db;
+		}
 	}
 	
 	// OPEN SQL QUERY MAKER
