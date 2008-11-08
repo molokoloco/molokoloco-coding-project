@@ -7,8 +7,8 @@ exemple.php :
 
 {{{
 	// SELECT
-	$Q =& new Q("SELECT * FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
-	foreach ($Q->V as $V) echo $V['titre'].'<br />';
+		$Q =& new Q("SELECT * FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
+		foreach ($Q->V as $V) echo $V['titre'].'<br />';
 	
 	// SELECT II
 		$Q =& new Q();
