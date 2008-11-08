@@ -61,7 +61,7 @@ class Q { // SQL query MANAGER ;)
 	public $query;
 	public $id;
 	public $affected;
-	public $V = array();
+	public $V;
 
 	function __construct($query='') {
 		global $debug;
