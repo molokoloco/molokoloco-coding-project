@@ -17,26 +17,18 @@
 
 = Configuring Admin =
 
+	# Understanding admin squeleton :
 
-# Understanding admin squeleton :
+All the pages in the admin are build with only three class, three types of view.
+The three class are based on the data description of a module
 
-All the page in the admin are build with only three class, three types of view.
+	* admin\lib\class\class_admin_liste.php : print a view of all elements in a module, list of clients for exemple
+	* admin\lib\class\class_admin_fiche.php : print a editing view of an elements in a module, sheet of the clients for exemple
+	* admin\lib\class\class_admin_bdd.php : Manage action doable to an elements in a module : Add, update, Delete
 
-* admin\lib\class\class_admin_liste.php
-> print a view of all elements in a module, list of clients for exemple
-* admin\lib\class\class_admin_fiche.php
-> print a editing view of an elements in a module, sheet of the clients for exemple
-* admin\lib\class\class_admin_bdd.php
-> Manage action doable to an elements in a module : Add, update, Delete
-
-
-This three class are surrounded be overall header and footer
-* admin\menu\menu.php
-> General header, also build the admin menu
-* admin\menu\menu_bas.php
-> General footer
-
-
+This three class are surrounded by an overall header and footer
+	* admin\menu\menu.php : General header, also build the admin menu
+	* admin\menu\menu_bas.php : General footer
 
 
 
