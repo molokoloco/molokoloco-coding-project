@@ -81,30 +81,30 @@ var pop = function(url, name, wide, high) {
 
 Functions :
 
-	client.getPage()  						: return ( scrollX, scrollY, viewW, viewH, pageW, pageY )
-	client.getScroll()	 					: return ( left, top )
-	client.getViewport() 					: return ( width, height )
-	client.getWindow() 						: return ( width, height )
-	client.getMaxScroll() 					: return ( width, height )
-	client.getScreen() 						: return ( width, height )
+	client.getPage()  				: return ( scrollX, scrollY, viewW, viewH, pageW, pageY )
+	client.getScroll()	 			: return ( left, top )
+	client.getViewport() 				: return ( width, height )
+	client.getWindow() 				: return ( width, height )
+	client.getMaxScroll() 				: return ( width, height )
+	client.getScreen() 				: return ( width, height )
 	
-	client.scrollLeft()	 					: return ( left )
-	client.scrollTop()	 					: return ( top )
-	client.viewportWidth() 					: return ( width)
-	client.viewportHeight() 				: return ( height )
+	client.scrollLeft()	 			: return ( left )
+	client.scrollTop()	 			: return ( top )
+	client.viewportWidth() 				: return ( width)
+	client.viewportHeight() 			: return ( height )
 	client.pageMaxScrollWidth() 			: return ( width )
 	client.pageMaxScrollHeight() 			: return ( height )
-	client.winWidth() 						: return ( width )
-	client.winHeight() 						: return ( height )
-	client.screenWidth() 					: return ( width )
-	client.screenHeight() 					: return ( height )
+	client.winWidth() 				: return ( width )
+	client.winHeight() 				: return ( height )
+	client.screenWidth() 				: return ( width )
+	client.screenHeight() 				: return ( height )
 
-	client.browser() 						: return ( msieOld | msie 6 | msie 7 | opera | safari | firefox | camino | konqueror | mozilla )
-	client.isIe()							: return true | false
-	client.isIe7()							: return true | false
-	client.isMac()							: return true | false
+	client.browser() 				: return ( msieOld | msie 6 | msie 7 | opera | safari | firefox | camino | konqueror | mozilla )
+	client.isIe()					: return true | false
+	client.isIe7()					: return true | false
+	client.isMac()					: return true | false
 
-	client.frameResize(element) 			: onload="resizeIframe('popIframe');"
+	client.frameResize(element) 			: onload="resizeIframe('popIframe');" 
 	client.windowResize(Wwide,Whigh)		: Resize window and center
 	
 */
@@ -260,7 +260,7 @@ var client = { // Testé FF/IE
 	
 	frameResize: function(element) { // onload="client.frameResize(this);"
 		if (!isId(element)) {
-			db('Can\'t find iframe : '+element);
+			alert('Can\'t find iframe : '+element);
 			return false;
 		}
 		var currentfr = $(element);
