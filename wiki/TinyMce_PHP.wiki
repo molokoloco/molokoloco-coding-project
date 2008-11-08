@@ -222,3 +222,4 @@ function js($script, $echo=TRUE) {
 
 }}}
 
+http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/admin/lib/class/class_tinymce.php?r=86
