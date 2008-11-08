@@ -15,14 +15,14 @@
 		<? foreach (q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>'; ?>
 	
 	// UPDATE // INSERT // DELETE
-		$A = new Q();
+		$A =& new Q();
 		$A->update('mod_membres_blogs', array(
 			'titre'=> $titre,
 			'message'=> $message,
 		), " id='$id' AND membre_id='{$_SESSION[SITE_CONFIG]['MEMBRE']['id']}' LIMIT 1 ");
 
 	// CREATE XML
-		$X = new Q();
+		$X =& new Q();
 		$XML = $X->getXml("
 			SELECT id,titre,texte,miniature,
 			CONCAT('".$WWW."galeries.php?galerie_id=',id) url
