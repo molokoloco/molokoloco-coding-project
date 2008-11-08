@@ -176,6 +176,8 @@ class ARBO {
 
 		if ($this->arid < 1) die(getDb('[ARBO()] Il faut configurer au moins <strong>une rubrique</strong> pour l\'acceuil'));
 		
+		//$this->arbo[$this->arid]['url'] = 'accueil.php'; // SPECIFIK !!!
+		
 		$this->setCurrentRid();
 	}
 
@@ -300,15 +302,15 @@ class ARBO {
      */
 	function getRootMenuHtml($rid=0) {
 		
-		if ($rid < 1) $rid = $this->rid;
+		if ($rid < 1) $rid = $this->arid;
 		
 		// Custom CSS
 		$this->sep = (isset($this->sep) ? $this->sep : ' | ');
 		
 		$rootMenuHtml .= '<a href="'.$this->arbo[$this->arid]['url'].'" class="'.($ridSel==$this->arid ? $this->cssOn : $this->css).'">'.html(aff($this->arbo[$this->arid]['titre_'.$this->lg])).'</a>'.$this->sep;
-		foreach($this->arbo[$this->arid]['childs'] as $ridSel) {
+		foreach($this->arbo[$rid]['childs'] as $ridSel) {
 			if ($this->arbo[$ridSel]['menu'] != 1 && empty($this->menuAll)) continue;
-			$rootMenuHtml .= '<a href="'.$this->arbo[$ridSel]['url'].'" class="'.($ridSel==$this->rid ? $this->cssOn : $this->css).($i==(count($this->arbo[$this->arid]['childs'])-1)?' last':'').'">'.html(aff($this->arbo[$ridSel]['titre_'.$this->lg])).'</a>'.$this->sep;
+			$rootMenuHtml .= '<a href="'.$this->arbo[$ridSel]['url'].'" class="'.($ridSel==$this->rid ? $this->cssOn : $this->css).($i==(count($this->arbo[$rid]['childs'])-1)?' last':'').'">'.html(aff($this->arbo[$ridSel]['titre_'.$this->lg])).'</a>'.$this->sep;
 		}
 		$rootMenuHtml = substr($rootMenuHtml, 0, -strlen($this->sep));
 
@@ -322,14 +324,14 @@ class ARBO {
      */
 	function getBottomMenuHtml($rid=0) {
 		
-		if ($rid < 1) $rid = $this->rid;
+		if ($rid < 1) $rid = $this->arid;
 
 		// Custom CSS
 		$this->sep = (isset($this->sep) ? $this->sep : ' | ');
 
-		foreach($this->arbo[$this->arid]['childs'] as $i=>$ridSel) {
+		foreach($this->arbo[$rid]['childs'] as $i=>$ridSel) {
 			if ($this->arbo[$ridSel]['type_id'] == 11 || ($this->arbo[$ridSel]['menu'] == 1 && empty($this->menuAll))) continue;
-			$bottomMenuHtml .= '<a href="'.$this->arbo[$ridSel]['url'].'" class="'.($ridSel==$this->rid ? $this->cssOn : $this->css).($i==(count($this->arbo[$this->arid]['childs'])-1)?'last':'').'" id="r'.($i+1).'">'.html(aff($this->arbo[$ridSel]['titre_'.$this->lg])).'</a>'.$this->sep;
+			$bottomMenuHtml .= '<a href="'.$this->arbo[$ridSel]['url'].'" class="'.($ridSel==$this->rid ? $this->cssOn : $this->css).($i==(count($this->arbo[$rid]['childs'])-1)?'last':'').'" id="r'.($i+1).'">'.html(aff($this->arbo[$ridSel]['titre_'.$this->lg])).'</a>'.$this->sep;
 		}
 		$bottomMenuHtml = substr($bottomMenuHtml, 0, -strlen($this->sep));
 

@@ -13,11 +13,23 @@ if ( !defined('MLKLC') ) die('Lucky Duck');
 		<? foreach (q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>'; ?>
 	
 	// UPDATE // INSERT // DELETE
-		$A = new SQ();
+		$A = new Q();
 		$A->update('mod_membres_blogs', array(
 			'titre'=> $titre,
 			'message'=> $message,
 		), " id='$id' AND membre_id='{$_SESSION[SITE_CONFIG]['MEMBRE']['id']}' LIMIT 1 ");
+
+
+	// XML
+	$X = new Q();
+	$XML = $X->getXml("
+		SELECT id,titre,texte,miniature,
+		CONCAT('".$WWW."galeries.php?galerie_id=',id) url
+		FROM galeries
+		WHERE clients_id='$clients_id' AND actif='1'
+		ORDER BY ordre ASC, id DESC
+	", array('galeries','galerie'), './rep/file.xml');
+	db($XML);
 	
 */
 
@@ -26,14 +38,14 @@ function q($query) {
 	return ( count($Q->V) > 1 ? $Q->V : $Q->V[0] );
 }
 
-class Q { // SQL QUERY MANAGER
+class Q { // SQL QUERY MANAGER ;)
 
-	var $_c = 0;
-	var $_db = 0;
-	var $query;
-	var $id;
-	var $affected;
-	var $V = array();
+	public $_c = 0;
+	public $_db = 0;
+	public $query;
+	public $id;
+	public $affected;
+	public $V = array();
 
 	function __construct($query='') {
 		global $debug;
@@ -47,18 +59,26 @@ class Q { // SQL QUERY MANAGER
 		$this->__construct($query);
 	}
 	
+	// CONNEXION
+	private function C() {
+		global $dbhost, $dbase, $dblogin, $dbmotdepasse;
+		if (empty($dbhost) || empty($dbase) || empty($dblogin)) die(db('[Q()] Desole, il manque un parametre ['.$dbhost.', '.$dbase.', '.$dblogin.']'));
+		$this->_c = mysql_connect($dbhost, $dblogin, $dbmotdepasse) or die(db('[Q()] Desole, connexion impossible sur le host ['.$dbhost.']'));
+		$this->_db = mysql_select_db($dbase, $this->_c) or die(db('[Q()] Desole, connexion impossible a la base ['.$dbhost.' : '.$dbase.'] '.htmlspecialchars(mysql_error($this->_c))));
+		if (!is_resource($this->_c) || !$this->_db)  die(db('[Q()] Pb inconnu ['.$dbase.' : '.$dbhost.'] '.htmlspecialchars(mysql_error($this->_c))));
+	}
+	
 	// OPEN SQL QUERY MAKER
-	function QUERY($query) {
-		$this->requete = trim($query);
-		if (empty($this->requete)) return;
-		$result = mysql_query($this->requete, $this->_c) or die(db($this, 'Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
+	public function QUERY($query) {
+		$this->query = trim($query);
+		if (empty($this->query)) return;
+		$result = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
 		
 		$this->V = array();
-		if (is_resource($result) && preg_match('/^SELECT /', $this->requete)) {
 			$this->id = 0;
 			$this->affected = 0;
-			while ($arrRow = @mysql_fetch_array($result, MYSQL_ASSOC))
-				$this->V[] = $arrRow;
+		if (is_resource($result) && preg_match('/^SELECT /', $this->query)) {
+			while ($arrRow = @mysql_fetch_array($result, MYSQL_ASSOC)) $this->V[] = $arrRow;
 		}
 		else {
 			$this->id = @mysql_insert_id();
@@ -68,16 +88,8 @@ class Q { // SQL QUERY MANAGER
 		if ($this->debug) db($this);
 	}
 
-	// CONNEXION
-	function C() {
-		global $dbhost, $dbase, $dblogin, $dbmotdepasse;
-		$this->_c = mysql_connect($dbhost, $dblogin, $dbmotdepasse) or die(db('Desole, connexion impossible sur le host ['.$dbhost.']'));
-		$this->_db = mysql_select_db($dbase, $this->_c) or die(db('Desole, connexion impossible a la base ['.$dbase.'] '.htmlspecialchars(mysql_error($this->_c))));
-		if (!is_resource($this->_c) || !$this->_db)  die(db('Pb inconnu ['.$dbase.'] - ['.$dbhost.'] '.htmlspecialchars(mysql_error($this->_c))));
-	}
-	
 	// UPDATE
-	function update($table, $fields, $where='') {
+	public function update($table, $fields, $where='') {
     	$query = 'UPDATE `'.$table.'` SET ';
     	$i=0;
 		foreach ((array)$fields as $name=>$value) {
@@ -93,12 +105,12 @@ class Q { // SQL QUERY MANAGER
     }
 	
 	// INSERT
-    function insert($table, $fields) {
+    public function insert($table, $fields) {
     	$query = 'INSERT INTO `'.$table.'` (';
 		$query .= '`'.implode('`, `', array_keys($fields)).'`';
     	$query .= ') VALUES (';
     	$i=0;
-    	foreach ((array)$fields as $tmp=>$value) {
+    	foreach ((array)$fields as $value) {
     		if ($i == 0) $i = 1;
 			else $query .= ', ';
     		if ($this->NoClean || preg_match('/^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)/', $value)) $query .= $value;
@@ -109,10 +121,33 @@ class Q { // SQL QUERY MANAGER
     }
 	
 	// DELETE
-    function delete($table, $where='') {
+    public function delete($table, $where='') {
     	$query = "DELETE FROM `$table`";
     	if (!empty($where)) $query .= ' WHERE '.$where;
     	$this->QUERY($query);
+    }
+
+	// CREATE XML FROM REQUETE
+	public function getXml($query, $tags=array(), $xmlPath='') {
+		$this->query = $query;
+		if (empty($tags[0])) $tags[0] = 'root';
+		if (empty($tags[1])) $tags[1] = 'row';
+		$xml = '<?xml version="1.0" encoding="UTF-8"?>'.chr(13).chr(10);
+		$req = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
+		if (@mysql_num_rows($req) && @mysql_num_rows($req) > 0) {
+			$xml.= '<'.aff($tags[0]).'>'.chr(13).chr(10);
+			while ($res = @mysql_fetch_assoc($req)) {
+				$xml .= chr(9).'<'.aff($tags[1]).'>'.chr(13).chr(10);
+				foreach ($res as $titre=>$value) $xml .= chr(9).chr(9).'<'.$titre.'>'.cleanXml($value, 1). '</'.$titre.'>'.chr(13).chr(10);
+				$xml.= chr(9).'</'.aff($tags[1]).'>'.chr(13).chr(10);
+				$i++;
+			}
+			$xml.= '</'.$tags[0].'>';
+		}
+		@mysql_free_result($req);
+		if ($this->debug == '1') db($xml);
+		if (!empty($xmlPath)) return writeFile($xmlPath, $xml);
+		else return $xml;
     }
 }
 
@@ -148,16 +183,6 @@ $champs = array(
 $G =& new SQL('galeries');
 $G->updateSql($champs," id='$galerie_id' AND clients_id='$clients_id' LIMIT 1 ");
 	
-	// XML ///////////////////////////////////////////
-	$G = new SQL('');
-	$G->xmlPath = './rep/file.xml';
-	$XML = $G->getXml("
-		SELECT id,titre,texte,miniature,
-		CONCAT('".$WWW."galeries.php?galerie_id=',id) url
-		FROM galeries
-		WHERE clients_id='$clients_id' AND actif='1'
-		ORDER BY ordre ASC, id DESC
-	",array('galeries','galerie'));
 
 */
 
@@ -225,33 +250,6 @@ class SQL {
             return($fd_names);
         }
 		else return db("Unable to find any field list in table: $tbl_name");
-    }
-	// - - - - - - - - - - - - - - - - - - - getXml($query,array('dataset','record')) - - - - - - - - - - - - - - - - - - - //
-	function getXml($requete, $tags=array('channel','item')) {
-		$initConnexion =& new Q();
-		$this->data = '<?xml version="1.0" encoding="UTF-8"?>'.chr(13);
-		$req = mysql_query($requete,$initConnexion->_c) or die('<b>Impossible d\'ex&eacute;cuter la requête :</b> '.mysql_error($initConnexion->_c));
-		if (!@mysql_num_rows($req) || @mysql_num_rows($req) < 1) {
-			if ($this->xmlPath != '') return writeFile($this->xmlPath,'');
-			else return;
-		}
-		else {
-			$this->nb = mysql_num_rows($req);
-			$this->data.= '<'.$tags[0].'>'.chr(13);
-			while ($res = mysql_fetch_assoc($req)) {
-				$this->data.= chr(9).'<'.$tags[1].'>'.chr(13);
-				foreach ($res as $titre=>$value) {
-					$this->data .= chr(9).chr(9).'<'.$titre.'>'.cleanXml($value,1). '</'.$titre.'>'.chr(13);
-				}
-				$this->data.= chr(9).'</'.$tags[1].'>'.chr(13);
-				$i++;
-			}
-			$this->data.= '</'.$tags[0].'>';
-		}
-		@mysql_free_result($req);
-		if ($this->debug == '1') echo '<textarea name="textarea" cols="170" rows="50">'.$this->data.'</textarea>';
-		if ($this->xmlPath != '') return writeFile($this->xmlPath,$this->data);
-		else return $this->data;
     }
 	// - - - - - - - - - - - - - - - - - - - CREATE - - - - - - - - - - - - - - - - - - - //
 	function createSql($data,$drop=0) {

@@ -22,6 +22,24 @@
 	10/	Comment the last row in data.php
 	11/	Admin your clients ;)
 
+	CONFIGURING ADMIN
+
+	1/ Understanding admin squeleton :
+		- All the pages in the admin are build with only three class, three types of view. The three class are based on the data description of a module
+			admin\lib\class\class_admin_liste.php : print a view of all elements in a module, list of clients for exemple
+			admin\lib\class\class_admin_fiche.php : print a editing view of an elements in a module, sheet of the clients for exemple
+			admin\lib\class\class_admin_bdd.php : Manage action doable to an elements in a module : Add, update, Delete
+		- This three class are surrounded by an overall header and footer
+			admin\menu\menu.php : General header, also build the admin menu
+			admin\menu\menu_bas.php : General footer
+	
+	2/ Editing the admin configuration file :
+		- ./admin/lib/racine.php : READ AND EDIT WITH ATTENTION !
+		- Remember to emphy the session parameters configuration by decommenting the 74' row : ### $_SESSION[SITE_CONFIG]['WWW'] = NULL;, before reloading in your browser
+	
+	3/ Configuring some admin generals parameters :
+		- Going to http://127.0.0.1/www.site.com/admin/admin_parametres/ : Edit the look and feel, logo, theme, etc...
+
 */
 
 

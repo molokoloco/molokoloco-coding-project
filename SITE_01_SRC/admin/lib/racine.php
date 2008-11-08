@@ -39,7 +39,7 @@ session_start();
 $selfPageName = basename($_SERVER['PHP_SELF']);
 $selfPageQuery = (!empty($_SERVER['QUERY_STRING']) ? $selfPageName.'?'.$_SERVER['QUERY_STRING'] : $selfPageName );
 $selfDir = $_SERVER['REQUEST_URI'];
-$root = '../../';
+$root = '../../'; // where the site root from here
 $host = $_SERVER['HTTP_HOST'];
 $hostIp = $_SERVER['SERVER_ADDR'];
 
@@ -129,7 +129,7 @@ extract($_SESSION[SITE_CONFIG], EXTR_OVERWRITE);
 	
 
 // ---------- PHP.INI -------------------- //
-$lifeSecTime = 900;
+$lifeSecTime = 90;
 @set_time_limit($lifeSecTime);
 @ini_set('session.gc_maxlifetime', $lifeSecTime);
 @ini_set('memory_limit', $maxUploadSize);
