@@ -54,7 +54,7 @@ function q($query) {
 $_cConnexion = 0;
 $_dbDataBase = 0;
 
-class Q { // SQL QUERY MANAGER ;)
+class Q { // SQL query MANAGER ;)
 
 	public $_c = 0;
 	public $_db = 0;
@@ -66,13 +66,8 @@ class Q { // SQL QUERY MANAGER ;)
 	function __construct($query='') {
 		global $debug;
 		$this->debug = $debug;
-		
-		$this->id = 0;
-		$this->affected = 0;
-		$this->V = array();
-		
-		if (!$this->_c || !$this->_db) $this->C();
-		$this->QUERY($query);
+		if (!$this->_c || !$this->_db) $this->c();
+		$this->query($query);
 	}
 		
 	// PHP4
@@ -80,8 +75,16 @@ class Q { // SQL QUERY MANAGER ;)
 		$this->__construct($query);
 	}
 	
+	// EMPTY
+	private function clean() {
+		$this->id = 0;
+		$this->affected = 0;
+		$this->V = array();
+		$this->query = '';
+	}
+	
 	// CONNEXION
-	private function C() {
+	private function c() {
 		global $_cConnexion, $_dbDataBase;
 		if ($_cConnexion && $_dbDataBase) {
 			 $this->_c = $_cConnexion;
@@ -98,8 +101,9 @@ class Q { // SQL QUERY MANAGER ;)
 		if (!is_resource($this->_c) || !$this->_db)  die(db('[Q()] Pb inconnu ['.$dbase.' : '.$dbhost.'] '.htmlspecialchars(mysql_error($this->_c))));
 	}
 	
-	// OPEN SQL QUERY MAKER
-	public function QUERY($query) {
+	// OPEN SQL query MAKER
+	public function query($query) {
+		$this->clean();
 		if (empty($query)) return;
 		$this->query = trim($query);
 		$result = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
@@ -127,7 +131,7 @@ class Q { // SQL QUERY MANAGER ;)
     		else $query .= "'".clean($value)."'";
     	}
     	if (!empty($where)) $query .= ' WHERE '.$where;
-    	$this->QUERY($query);
+    	$this->query($query);
     }
 	
 	// INSERT
@@ -143,35 +147,36 @@ class Q { // SQL QUERY MANAGER ;)
     		else $query .= "'".clean($value)."'";
     	}
     	$query .= ')';
-    	$this->QUERY($query);
+    	$this->query($query);
     }
 	
 	// DELETE
     public function delete($table, $where='') {
     	$query = "DELETE FROM `$table`";
     	if (!empty($where)) $query .= ' WHERE '.$where;
-    	$this->QUERY($query);
+    	$this->query($query);
     }
 
 	// CREATE XML FROM REQUETE
 	public function getXml($query, $tags=array(), $xmlPath='') {
+		$this->clean();
+		if (empty($query)) return;
 		$this->query = $query;
 		if (empty($tags[0])) $tags[0] = 'root';
 		if (empty($tags[1])) $tags[1] = 'row';
 		$xml = '<?xml version="1.0" encoding="UTF-8"?>'.chr(13).chr(10);
-		$req = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
-		if (@mysql_num_rows($req) && @mysql_num_rows($req) > 0) {
+		$result = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
+		if (@mysql_num_rows($result) && @mysql_num_rows($result) > 0) {
 			$xml.= '<'.aff($tags[0]).'>'.chr(13).chr(10);
-			while ($res = @mysql_fetch_assoc($req)) {
+			while ($res = @mysql_fetch_assoc($result)) {
 				$xml .= chr(9).'<'.aff($tags[1]).'>'.chr(13).chr(10);
 				foreach ($res as $titre=>$value) $xml .= chr(9).chr(9).'<'.$titre.'>'.cleanXml($value, 1). '</'.$titre.'>'.chr(13).chr(10);
 				$xml.= chr(9).'</'.aff($tags[1]).'>'.chr(13).chr(10);
-				$i++;
 			}
 			$xml.= '</'.$tags[0].'>';
 		}
-		@mysql_free_result($req);
-		if ($this->debug == '1') db($xml);
+		if ($result) @mysql_free_result($result);
+		if ($this->debug) db($this);
 		if (!empty($xmlPath)) return writeFile($xmlPath, $xml);
 		else return $xml;
     }
