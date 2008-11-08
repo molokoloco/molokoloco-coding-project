@@ -58,18 +58,21 @@ define('SITE_CONFIG', (isLocal() ? 'B2B' : 'B2BW')); // Unique ID for session co
 
 // ---------- SESSION DE CONFIGURATION -------------------- //
 // ALL STATIC CONFIG HERE - MODIFICATION ALLOWED !!!
+// DON'T FORGET TO UNCOMMENT THIS WHEN DOING SOME MODIFICATIONS
+
 ### $_SESSION[SITE_CONFIG]['WWW'] = NULL;
 
 if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
+	
 	// SQL CONFIG
-	if (isOvh()) {
+	if (isClient()) {
 		$dbase = 'juss';
 		$dbhost = 'localhost';
 		$dblogin = 'xxxxxxxxx';
 		$dbmotdepasse = 'xxxxxx';
 		$convert = '/usr/bin/';
-		$wwwRoot = $_SERVER['DOCUMENT_ROOT'].'/';
-		$WWW = 'http://'.$host.'/';
+		$wwwRoot = '/home/juss/www/';
+		$WWW = 'http://www.juss.com/';
 	}
 	elseif (isLocal()) { // Sites are in C:/www/
 		$dbase = 'juss';
@@ -77,9 +80,8 @@ if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
 		$dblogin = 'root';
 		$dbmotdepasse = '';
 		$convert = NULL;// 'C:/localhost/ImageMagick/';
-		list(,$firstRep,$secondRep) = explode('/',$_SERVER['PHP_SELF']);
-		$wwwRoot = $_SERVER['DOCUMENT_ROOT'].'/'.$firstRep.'/'; //.$secondRep.'/';
-		$WWW = 'http://'.$host.'/'.$firstRep.'/'; //.$secondRep.'/';
+		$wwwRoot = 'C:\\www\\_SVN_\\molokoloco-code-project\\SITE_01_SRC\\';
+		$WWW = 'http://127.0.0.1/_SVN_/molokoloco-code-project/';
 	}
 	else die('Config Serveur non connue !');
 	
@@ -136,8 +138,13 @@ $lifeSecTime = 90;
 @ini_set('post_max_size', $maxUploadSize);
 @ini_set('upload_max_filesize', $maxUploadSize);
 	
-if ($site_en_production) @ini_set('display_errors', 'off'); 
-
+if ($site_en_production) {
+	@ini_set('display_errors', 'off');
+}
+else {
+	@ini_set('error_reporting', E_ALL & ~E_NOTICE);
+	@ini_set('display_errors', 'on'); 
+}
 
 // ---------- DROIT ADMIN -------------------- //
 if (isLocal() && !isset($_SESSION[SITE_CONFIG]['ADMIN'])) { // AUTO CONNECT ADMIN IF LOCAL :) !!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -162,6 +169,7 @@ if ($selfDirAdmin) {
 	require($libRootDir.'/class/class_admin_fiche.php');
 	require($libRootDir.'/class/class_admin_bdd.php');
 }
+
 
 // ---------- MODULE_ID spécifiques pour les pages CMS -------------------- //
 if (SITE_CMS) {
