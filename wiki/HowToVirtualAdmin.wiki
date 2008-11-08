@@ -14,3 +14,31 @@
 	# Open the module in your browser `http://127.0.0.1/www.site.com/admin/mod_clients/`, the table is created
 	# Comment the last row in `data.php`
 	# Admin your clients ;)
+
+= Configuring Admin =
+
+
+# Understanding admin squeleton :
+
+All the page in the admin are build with only three class, three types of view.
+
+* admin\lib\class\class_admin_liste.php
+> print a view of all elements in a module, list of clients for exemple
+* admin\lib\class\class_admin_fiche.php
+> print a editing view of an elements in a module, sheet of the clients for exemple
+* admin\lib\class\class_admin_bdd.php
+> Manage action doable to an elements in a module : Add, update, Delete
+
+
+This three class are surrounded be overall header and footer
+* admin\menu\menu.php
+> General header, also build the admin menu
+* admin\menu\menu_bas.php
+> General footer
+
+
+
+
+
+
+
