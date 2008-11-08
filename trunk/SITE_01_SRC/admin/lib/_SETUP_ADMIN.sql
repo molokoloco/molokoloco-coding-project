@@ -51,7 +51,7 @@ CREATE TABLE admin_parametres (
   ligne2 varchar(7) NOT NULL default '#F4F4F4',
   ligneon varchar(7) NOT NULL default '#FFFFFF',
   PRIMARY KEY  (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table 'admin_parametres'
@@ -74,7 +74,7 @@ CREATE TABLE admin_utilisateurs (
   email varchar(250) default NULL,
   `password` varchar(250) default NULL,
   PRIMARY KEY  (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table 'admin_utilisateurs'
@@ -95,7 +95,7 @@ CREATE TABLE cms_blocs (
   titre varchar(250) default NULL,
   description text,
   PRIMARY KEY  (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table 'cms_blocs'
@@ -121,7 +121,7 @@ CREATE TABLE cms_elements_types (
   valeurs varchar(250) default NULL,
   template text,
   PRIMARY KEY  (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+) DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
 -- Contenu de la table 'cms_elements_types'
@@ -186,7 +186,7 @@ CREATE TABLE cms_pages (
   PRIMARY KEY  (id),
   KEY pid (pid),
   KEY type_id (type_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table 'cms_pages'
@@ -216,7 +216,7 @@ CREATE TABLE cms_pages_elements (
   valeurs text,
   PRIMARY KEY  (id),
   KEY pid (pid)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=143 ;
+) DEFAULT CHARSET=latin1 AUTO_INCREMENT=143 ;
 
 --
 -- Contenu de la table 'cms_pages_elements'
@@ -238,7 +238,7 @@ CREATE TABLE cms_pages_relation_cms_blocs (
   PRIMARY KEY  (id),
   KEY cat_id (cat_id),
   KEY prod_id (prod_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) AUTO_INCREMENT=9 ;
 
 --
 -- Contenu de la table 'cms_pages_relation_cms_blocs'
@@ -259,7 +259,7 @@ CREATE TABLE cms_pages_types (
   description text,
   style varchar(250) default NULL,
   PRIMARY KEY  (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table 'cms_pages_types'
@@ -288,7 +288,7 @@ CREATE TABLE dat_bibliotheque_fichiers (
   `date` datetime default NULL,
   fichier varchar(70) default NULL,
   PRIMARY KEY  (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) AUTO_INCREMENT=14 ;
 
 --
 -- Contenu de la table 'dat_bibliotheque_fichiers'
@@ -306,7 +306,7 @@ CREATE TABLE dat_bibliotheque_fichiers_cat (
   ordre int(4) NOT NULL default '1',
   titre varchar(150) default NULL,
   PRIMARY KEY  (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table 'dat_bibliotheque_fichiers_cat'
@@ -331,7 +331,7 @@ CREATE TABLE dat_bibliotheque_images (
   `date` datetime default NULL,
   image varchar(70) default NULL,
   PRIMARY KEY  (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table 'dat_bibliotheque_images'
@@ -349,7 +349,7 @@ CREATE TABLE dat_bibliotheque_images_cat (
   ordre int(4) default NULL,
   titre varchar(255) default NULL,
   PRIMARY KEY  (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table 'dat_bibliotheque_images_cat'
@@ -371,7 +371,7 @@ CREATE TABLE dat_email_alertes (
   sujet_fr varchar(150) default NULL,
   texte_fr text,
   PRIMARY KEY  (id)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM AUTO_INCREMENT=1 ;
 
 --
 -- Contenu de la table 'dat_email_alertes'
