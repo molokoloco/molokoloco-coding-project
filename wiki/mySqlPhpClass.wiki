@@ -1,0 +1,154 @@
+#summary $Q =& new Q('SELECT * FROM mod_actualites');
+#labels Featured
+
+= Building SQL query with PHP =
+
+{{{
+// ----------------------------------------------- CLASS SQL  ----------------------------------------------- //
+/*
+	EXEMPLE :
+	
+	// SELECT
+		$Q =& new Q("SELECT * FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
+		foreach ($Q->V as $V) echo $V['titre'].'<br />';
+	
+		<? foreach (q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>'; ?>
+	
+	// UPDATE // INSERT // DELETE
+		$A = new Q();
+		$A->update('mod_membres_blogs', array(
+			'titre'=> $titre,
+			'message'=> $message,
+		), " id='$id' AND membre_id='{$_SESSION[SITE_CONFIG]['MEMBRE']['id']}' LIMIT 1 ");
+
+	// CREATE XML
+		$X = new Q();
+		$XML = $X->getXml("
+			SELECT id,titre,texte,miniature,
+			CONCAT('".$WWW."galeries.php?galerie_id=',id) url
+			FROM galeries
+			WHERE clients_id='$clients_id' AND actif='1'
+			ORDER BY ordre ASC, id DESC
+		", array('galeries','galerie'), './rep/file.xml');
+		db($XML);
+	
+*/
+
+function q($query) {
+	$Q =& new Q($query);
+	return ( count($Q->V) > 1 ? $Q->V : $Q->V[0] );
+}
+
+class Q { // SQL QUERY MANAGER ;)
+
+	public $_c = 0;
+	public $_db = 0;
+	public $query;
+	public $id;
+	public $affected;
+	public $V = array();
+
+	function __construct($query='') {
+		global $debug;
+		$this->debug = $debug;
+		if (!$this->_c) $this->C();
+		$this->QUERY($query);
+	}
+		
+	// PHP4
+	function Q($query='') {
+		$this->__construct($query);
+	}
+	
+	// CONNEXION
+	private function C() {
+		global $dbhost, $dbase, $dblogin, $dbmotdepasse;
+		if (empty($dbhost) || empty($dbase) || empty($dblogin)) die(db('[Q()] Desole, il manque un parametre ['.$dbhost.', '.$dbase.', '.$dblogin.']'));
+		$this->_c = mysql_connect($dbhost, $dblogin, $dbmotdepasse) or die(db('[Q()] Desole, connexion impossible sur le host ['.$dbhost.']'));
+		$this->_db = mysql_select_db($dbase, $this->_c) or die(db('[Q()] Desole, connexion impossible a la base ['.$dbhost.' : '.$dbase.'] '.htmlspecialchars(mysql_error($this->_c))));
+		if (!is_resource($this->_c) || !$this->_db)  die(db('[Q()] Pb inconnu ['.$dbase.' : '.$dbhost.'] '.htmlspecialchars(mysql_error($this->_c))));
+	}
+	
+	// OPEN SQL QUERY MAKER
+	public function QUERY($query) {
+		$this->query = trim($query);
+		if (empty($this->query)) return;
+		$result = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
+		
+		$this->V = array();
+			$this->id = 0;
+			$this->affected = 0;
+		if (is_resource($result) && preg_match('/^SELECT /', $this->query)) {
+			while ($arrRow = @mysql_fetch_array($result, MYSQL_ASSOC)) $this->V[] = $arrRow;
+		}
+		else {
+			$this->id = @mysql_insert_id();
+			$this->affected = @mysql_affected_rows();
+		}
+		if ($result) @mysql_free_result($result);
+		if ($this->debug) db($this);
+	}
+
+	// UPDATE
+	public function update($table, $fields, $where='') {
+    	$query = 'UPDATE `'.$table.'` SET ';
+    	$i=0;
+		foreach ((array)$fields as $name=>$value) {
+    		if ($i == 0) $i = 1;
+			else $query .= ', ';
+			$query .= '`'.$name.'`=';
+			if (empty($value)) $query .= "''";
+    		else if ($this->NoClean || preg_match('/^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)/', $value)) $query .= $value;
+    		else $query .= "'".clean($value)."'";
+    	}
+    	if (!empty($where)) $query .= ' WHERE '.$where;
+    	$this->QUERY($query);
+    }
+	
+	// INSERT
+    public function insert($table, $fields) {
+    	$query = 'INSERT INTO `'.$table.'` (';
+		$query .= '`'.implode('`, `', array_keys($fields)).'`';
+    	$query .= ') VALUES (';
+    	$i=0;
+    	foreach ((array)$fields as $value) {
+    		if ($i == 0) $i = 1;
+			else $query .= ', ';
+    		if ($this->NoClean || preg_match('/^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)/', $value)) $query .= $value;
+    		else $query .= "'".clean($value)."'";
+    	}
+    	$query .= ')';
+    	$this->QUERY($query);
+    }
+	
+	// DELETE
+    public function delete($table, $where='') {
+    	$query = "DELETE FROM `$table`";
+    	if (!empty($where)) $query .= ' WHERE '.$where;
+    	$this->QUERY($query);
+    }
+
+	// CREATE XML FROM REQUETE
+	public function getXml($query, $tags=array(), $xmlPath='') {
+		$this->query = $query;
+		if (empty($tags[0])) $tags[0] = 'root';
+		if (empty($tags[1])) $tags[1] = 'row';
+		$xml = '<?xml version="1.0" encoding="UTF-8"?>'.chr(13).chr(10);
+		$req = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
+		if (@mysql_num_rows($req) && @mysql_num_rows($req) > 0) {
+			$xml.= '<'.aff($tags[0]).'>'.chr(13).chr(10);
+			while ($res = @mysql_fetch_assoc($req)) {
+				$xml .= chr(9).'<'.aff($tags[1]).'>'.chr(13).chr(10);
+				foreach ($res as $titre=>$value) $xml .= chr(9).chr(9).'<'.$titre.'>'.cleanXml($value, 1). '</'.$titre.'>'.chr(13).chr(10);
+				$xml.= chr(9).'</'.aff($tags[1]).'>'.chr(13).chr(10);
+				$i++;
+			}
+			$xml.= '</'.$tags[0].'>';
+		}
+		@mysql_free_result($req);
+		if ($this->debug == '1') db($xml);
+		if (!empty($xmlPath)) return writeFile($xmlPath, $xml);
+		else return $xml;
+    }
+}
+}}}
