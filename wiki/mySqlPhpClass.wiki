@@ -84,10 +84,9 @@ class Q { // SQL QUERY MANAGER ;)
 	
 	// OPEN SQL QUERY MAKER
 	public function QUERY($query) {
+		if (empty($query)) return;
 		$this->query = trim($query);
-		if (empty($this->query)) return;
 		$result = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
-		
 		$this->V = array();
 			$this->id = 0;
 			$this->affected = 0;
