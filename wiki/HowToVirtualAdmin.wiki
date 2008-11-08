@@ -40,3 +40,5 @@ This three class are surrounded by an overall header and footer
 	* Going to `http://127.0.0.1/www.site.com/admin/admin_parametres/` : Edit the look and feel, logo, theme, etc...
 
 
+
+http://molokoloco-coding-project.googlecode.com/svn-history/r86/trunk/SITE_01_SRC/admin/lib/_DOC_VIRTUAL_ADMIN.php
