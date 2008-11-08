@@ -634,7 +634,7 @@ class LISTE {
 								elseif ($this->data[$this->idDataSelect[$u]]['htmDefaut'] == 'date') 
 									$this->html .= rDate($F->V[$i][$this->champSelect[$u]]);
 								elseif ($this->data[$this->idDataSelect[$u]]['htmDefaut'] == 'datetime') 
-									$this->html .= printDateTime($F->V[$i][$this->champSelect[$u]]);
+									$this->html .= (!empty($F->V[$i][$this->champSelect[$u]]) ? printDateTime($F->V[$i][$this->champSelect[$u]]) : '-');
 								else 
 									$this->html .= ($F->V[$i][$this->champSelect[$u]] != '' ? affVeryClean($F->V[$i][$this->champSelect[$u]], 160, 43) : '[<i>vide</i>]');
 							break;
@@ -936,7 +936,7 @@ class LISTE {
 				break;
 				
 				case 'datetime' :
-					$this->html .= printDateTime($N->V[0][$this->champSelect[$u]]);
+					$this->html .= (!empty($N->V[0][$this->champSelect[$u]]) ? printDateTime($N->V[0][$this->champSelect[$u]]) : '-');
 				break;
 
 				default :
@@ -1018,7 +1018,7 @@ class LISTE {
 						if ($this->data[$this->idDataSelect[$u]]['htmDefaut'] == 'date') 
 							$this->html .= rDate($N->V[0][$this->champSelect[$u]]);
 						elseif ($this->data[$this->idDataSelect[$u]]['htmDefaut'] == 'datetime') 
-							$this->html .= printDateTime($N->V[0][$this->champSelect[$u]]);
+							$this->html .= !empty($N->V[0][$this->champSelect[$u]]) ? printDateTime($N->V[0][$this->champSelect[$u]]) : '-';
 						else $this->html .= aff(($N->V[0][$this->champSelect[$u]]!=''?$N->V[0][$this->champSelect[$u]]:'[ ]'));
 						// .' (ID <b>'.$N->V[0]['id'].'</b>)'
 						// else $this->html .= aff(($N->V[0][$this->champSelect[$u]]!=''?$N->V[0][$this->champSelect[$u]]:'[ ]'));

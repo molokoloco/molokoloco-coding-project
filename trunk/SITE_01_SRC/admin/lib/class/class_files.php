@@ -56,7 +56,7 @@ if ($m->error) {
 
 // ---------- THUMBALIZE -------------------------//
 $m =& new FILE();
-$m->makeThumb('./medias/galeries/070220152107_arbre.jpg','./medias/galeries/',$R2['sizeimg']);
+$m->makeThumbs('./medias/galeries/070220152107_arbre.jpg','./medias/galeries/',$R2['sizeimg']);
 if ($m->error) {
 	return 'Unable to make Mini / Medium / Grand';
 }
@@ -586,7 +586,7 @@ $script .= "so.write('".$this->id."');
 	}
 
 	// RETAILLE IMAGE >>>>>>>>> GD GRAPHICS ---------------------------------------------
-	// Attention ne doit pas écraser les propriétés de la class makeThumbs() !!!!!!!!!!!!!!!!
+	// Attention ne doit pas écraser les propriétés de la class makeThumbs() (avec un S) !!!!!!!!!!!!!!!!
 	function makeThumb($file, $fileDest, $maxWidth, $maxHeight, $quality='', $resize='') { 
 		global $convert;
 		require_once('class_image_Transform.php'); // LOAD MODULES IMAGE !
@@ -923,7 +923,7 @@ $script .= "so.write('".$this->id."');
 		global $jpgquality, $maxUploadSize;
 		
 		if (!@is_file($file) || !@is_dir($file_dest)) {
-			$this->error .= '[makeThumbs()] Probleme avec le fichier ou sa destination';
+			$this->error .= '[makeThumbs()] Probleme avec le fichier ('.$file.') ou sa destination ('.$file_dest.')';
 			return;
 		}
 		if (!is_array($arrSize) || !count($arrSize)) {
