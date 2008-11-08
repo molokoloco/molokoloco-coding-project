@@ -25,7 +25,7 @@
 		$X =& new Q();
 		$XML = $X->getXml("
 			SELECT id,titre,texte,miniature,
-			CONCAT('".$WWW."galeries.php?galerie_id=',id) url
+			CONCAT('".$WWW."galeries.php?galerie_id=',id) AS url
 			FROM galeries
 			WHERE clients_id='$clients_id' AND actif='1'
 			ORDER BY ordre ASC, id DESC
