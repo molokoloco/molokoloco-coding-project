@@ -301,3 +301,5 @@ Points-virgules (;) <input name="sep" type="radio" class="radio" value="3"> Tabu
 <? require("../menu/menu_bas.php"); ?>
 
 }}}
+
+http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/admin/_MODS_backoffice_exemples/mod_import_CSV_produits/?r=86
