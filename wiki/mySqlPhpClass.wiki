@@ -164,3 +164,6 @@ class Q { // SQL QUERY MANAGER ;)
     }
 }
 }}}
+
+
+http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/admin/lib/class/class_sql.php
