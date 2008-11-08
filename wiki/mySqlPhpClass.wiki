@@ -6,18 +6,19 @@
 exemple.php :
 
 {{{
-	// SELECT
+		// SELECT
 		$Q =& new Q("SELECT * FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
 		foreach ($Q->V as $V) echo $V['titre'].'<br />';
-		
-		foreach (q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>';
-		
+	
 	// SELECT II
 		$Q =& new Q();
 		$Q1 = $Q->QUERY("SELECT * FROM mod_actualites");
 		foreach ($Q1->V as $V) echo $V['titre'].'<br />';
 		$Q2 = $Q->QUERY("SELECT * FROM mod_actualites");
 		//...
+	
+	// SELECT III
+		foreach (q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>';
 	
 	// UPDATE // INSERT // DELETE
 		$A = new Q();
@@ -26,7 +27,7 @@ exemple.php :
 			'message'=> $message,
 		), " id='$id' AND membre_id='{$_SESSION[SITE_CONFIG]['MEMBRE']['id']}' LIMIT 1 ");
 	
-	// XML
+	// CREATE XML
 		$X = new Q();
 		$XML = $X->getXml("
 			SELECT id,titre,texte,miniature,
