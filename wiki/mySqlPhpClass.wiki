@@ -3,18 +3,16 @@
 
 = Building SQL query with PHP =
 
+exemple.php :
+
 {{{
-// ----------------------------------------------- CLASS SQL  ----------------------------------------------- //
-/*
-	EXEMPLE :
-	
 	// SELECT
 		$Q =& new Q("SELECT * FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
 		foreach ($Q->V as $V) echo $V['titre'].'<br />';
 		
-		<? foreach (q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>'; ?>
+		foreach (q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>';
 		
-	/ SELECT II
+	// SELECT II
 		$Q =& new Q();
 		$Q1 = $Q->QUERY("SELECT * FROM mod_actualites");
 		foreach ($Q1->V as $V) echo $V['titre'].'<br />';
@@ -38,9 +36,12 @@
 			ORDER BY ordre ASC, id DESC
 		", array('galeries','galerie'), './rep/file.xml');
 		db($XML);
-	
-*/
+}}}
 
+class_sql.php
+
+{{{
+// ----------------------------------------------- CLASS SQL  ----------------------------------------------- //
 
 // ShorCut
 function q($query) {
