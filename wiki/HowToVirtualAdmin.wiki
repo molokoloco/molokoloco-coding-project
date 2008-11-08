@@ -1,0 +1,16 @@
+#summary How to use Virtual Admin ?
+#labels Featured
+
+= INSTAL ADMIN AND THE FIRST MODULE =
+
+	# Create a new DB in PhpMyAdmin
+	# Edit the file ./admin/lib/racine.php : $dbase , $dbhost, $dblogin (Ligne 75)
+	# In this base, import default SQL ./admin/lib/_SETUP_ADMIN_CMS.SQL with PhpMyAdmin
+	# Open Admin in your browser http://127.0.0.1/www.site.com/admin/
+	# For each new module (ex : "mod_clients")  drop it in ./admin/ folder
+	# Edit./admin/lib/racine.php : $adminMenuAdmin (Ligne 208) , your module appear in the admin menu
+	# Edit the data file for custom fields in ./mod_clients/data.php
+	# When ready,  decomment the last row in data.php
+	# Open the module in your browser http://127.0.0.1/www.site.com/admin/mod_clients/, the table is created
+	# Comment the last row in data.php
+	# Admin your clients ;)
