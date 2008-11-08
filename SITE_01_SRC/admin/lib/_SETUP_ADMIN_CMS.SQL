@@ -1,13 +1,13 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 2.9.1.1
 -- http://www.phpmyadmin.net
 -- 
 -- Serveur: localhost
--- Généré le : Jeudi 20 Mars 2008 à 17:09
+-- Généré le : Samedi 08 Novembre 2008 à 17:37
 -- Version du serveur: 5.0.27
 -- Version de PHP: 5.2.0
 -- 
--- Base de données: `tresorcobelge`
+-- Base de données: `virtual`
 -- 
 
 -- --------------------------------------------------------
@@ -43,14 +43,14 @@ CREATE TABLE `admin_parametres` (
   `ligne2` varchar(7) NOT NULL default '#F4F4F4',
   `ligneon` varchar(7) NOT NULL default '#FFFFFF',
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=2 ;
+)  AUTO_INCREMENT=2 ;
 
 -- 
 -- Contenu de la table `admin_parametres`
 -- 
 
 INSERT INTO `admin_parametres` (`id`, `email`, `meta_title_fr`, `meta_title_uk`, `meta_url_fr`, `meta_url_uk`, `meta_desc_fr`, `meta_desc_uk`, `meta_key_fr`, `meta_key_uk`, `logoc`, `logoa`, `paginationa`, `pagination`, `fontcolor1`, `fontcolor2`, `linkcolor`, `linkcoloron`, `bgcolor1`, `bgcolor2`, `ligneentete`, `ligne1`, `ligne2`, `ligneon`) VALUES 
-(1, 've@alice-evenements.com', 'Salon-immobilier-aix.com', 'Salon-immobilier-aix.com', 'http://www.salon-immobilier-aix.com/', 'http://www.salon-immobilier-aix.com/', 'Nous vous donnons d''ores et déjà rendez-vous pour vivre ensemble le 1er Salon de l''Immobilier qui réunira la majorité des acteurs qui font l''Immobilier sur le Pays d''Aix', 'Nous vous donnons d''ores et déjà rendez-vous pour vivre ensemble le 1er Salon de l''Immobilier qui réunira la majorité des acteurs qui font l''Immobilier sur le Pays d''Aix', 'Agences immobilières, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et défiscalisation, Assurances, Fédérations, Institutions, Syndicats professionnels, Architectes, Presse, Activités annexes à la construction', 'Agences immobilières, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et défiscalisation, Assurances, Fédérations, Institutions, Syndicats professionnels, Architectes, Presse, Activités annexes à la construction', '080311131559_logo1.jpg', '', 50, 10, '#FFFFFF', '#666666', '#C20027', '#C0B15B', '#FFFFFF', '#999999', '#BBBBBB', '#E4E4E4', '#F4F4F4', '#FFFFFF');
+(1, 'test@test.com', 'Titre du site', 'Salon-immobilier-aix.com', 'http://www.site.com/', 'http://www.salon-immobilier-aix.com/', 'Nous vous donnons d''ores et déjà rendez-vous pour vivre ensemble le 1er Salon de l''Immobilier qui réunira la majorité des acteurs qui font l''Immobilier sur le Pays d''Aix', 'Nous vous donnons d''ores et déjà rendez-vous pour vivre ensemble le 1er Salon de l''Immobilier qui réunira la majorité des acteurs qui font l''Immobilier sur le Pays d''Aix', 'Agences immobilières, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et défiscalisation, Assurances, Fédérations, Institutions, Syndicats professionnels, Architectes, Presse, Activités annexes à la construction', 'Agences immobilières, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et défiscalisation, Assurances, Fédérations, Institutions, Syndicats professionnels, Architectes, Presse, Activités annexes à la construction', '080311131559_logo1.jpg', '', 50, 10, '#FFFFFF', '#666666', '#C20027', '#C0B15B', '#FFFFFF', '#999999', '#BBBBBB', '#E4E4E4', '#F4F4F4', '#FFFFFF');
 
 -- --------------------------------------------------------
 
@@ -63,19 +63,17 @@ CREATE TABLE `admin_utilisateurs` (
   `id` int(8) NOT NULL auto_increment,
   `actif` tinyint(1) NOT NULL default '1',
   `type` tinyint(1) NOT NULL default '1',
-  `login` varchar(250) default NULL,
-  `nom` varchar(250) default NULL,
-  `prenom` varchar(250) default NULL,
+  `email` varchar(250) default NULL,
   `password` varchar(250) default NULL,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=2 ;
+)  AUTO_INCREMENT=2 ;
 
 -- 
 -- Contenu de la table `admin_utilisateurs`
 -- 
 
-INSERT INTO `admin_utilisateurs` (`id`, `actif`, `type`, `login`, `nom`, `prenom`, `password`) VALUES 
-(1, 1, 3, 'immoaix', '', '', 'immo');
+INSERT INTO `admin_utilisateurs` (`id`, `actif`, `type`, `email`, `password`) VALUES 
+(1, 1, 3, 'admin@site.com', 'admin');
 
 -- --------------------------------------------------------
 
@@ -90,7 +88,7 @@ CREATE TABLE `cms_blocs` (
   `lien` varchar(250) default NULL,
   `visuel` varchar(70) default NULL,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=3 ;
+)  AUTO_INCREMENT=3 ;
 
 -- 
 -- Contenu de la table `cms_blocs`
@@ -102,7 +100,6 @@ INSERT INTO `cms_blocs` (`id`, `titre`, `lien`, `visuel`) VALUES
 
 -- --------------------------------------------------------
 
--- 
 -- 
 -- Structure de la table `cms_elements_types`
 -- 
@@ -117,7 +114,7 @@ CREATE TABLE `cms_elements_types` (
   `valeurs` varchar(250) default NULL,
   `template` text,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=45 ;
+)  AUTO_INCREMENT=45 ;
 
 -- 
 -- Contenu de la table `cms_elements_types`
@@ -200,7 +197,7 @@ CREATE TABLE `cms_pages` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `type_id` (`type_id`)
-) AUTO_INCREMENT=73 ;
+)  AUTO_INCREMENT=73 ;
 
 -- 
 -- Contenu de la table `cms_pages`
@@ -241,44 +238,12 @@ CREATE TABLE `cms_pages_elements` (
   `motcle` text,
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`)
-) AUTO_INCREMENT=44 ;
+) AUTO_INCREMENT=1 ;
 
 -- 
 -- Contenu de la table `cms_pages_elements`
 -- 
 
-INSERT INTO `cms_pages_elements` (`id`, `ordre`, `actif`, `pid`, `type_id`, `langue`, `valeurs`, `motcle`) VALUES 
-(1, 10, 1, 1, 40, 'uk', 'a:3:{s:5:"titre";s:24:"TGVzIGNoaWZmcmVzIDIwMDg=";s:5:"texte";s:260:"PHA+MjAwMCBtJnN1cDI7IGQnZXhwb3NpdGlvbjxiciAvPiAtLS0tLS0tLTxiciAvPiA5MDAgbSZzdXAyOyBkZSBzdGFuZHM8YnIgLz4gLS0tLS0tLS08YnIgLz4gUGx1cyBkZSA3MCBzb2NpJmVhY3V0ZTt0JmVhY3V0ZTtzIGV4cG9zYW50ZXM8YnIgLz4gLS0tLS0tLS08YnIgLz4gUGx1cyBkZSAxMDAwMCB2aXNpdGV1cnMgYXR0ZW5kdXM8L3A+";s:10:"alignement";s:8:"Z2F1Y2hl";}', 'Les chiffres 2008<br />2000 mÂ² d''exposition -------- 900 mÂ² de stands -------- Plus de 70 sociÃ©tÃ©s exposantes -------- Plus de 10000 visiteurs attendus <br />gauche<br />'),
-(2, 10, 1, 69, 40, 'uk', 'a:3:{s:5:"titre";s:24:"TGVzIGNoaWZmcmVzIDIwMDg=";s:5:"texte";s:260:"PHA+MjAwMCBtJnN1cDI7IGQnZXhwb3NpdGlvbjxiciAvPiAtLS0tLS0tLTxiciAvPiA5MDAgbSZzdXAyOyBkZSBzdGFuZHM8YnIgLz4gLS0tLS0tLS08YnIgLz4gUGx1cyBkZSA3MCBzb2NpJmVhY3V0ZTt0JmVhY3V0ZTtzIGV4cG9zYW50ZXM8YnIgLz4gLS0tLS0tLS08YnIgLz4gUGx1cyBkZSAxMDAwMCB2aXNpdGV1cnMgYXR0ZW5kdXM8L3A+";s:10:"alignement";s:8:"Z2F1Y2hl";}', 'Les chiffres 2008<br />2000 mÂ² d''exposition -------- 900 mÂ² de stands -------- Plus de 70 sociÃ©tÃ©s exposantes -------- Plus de 10000 visiteurs attendus <br />gauche<br />'),
-(3, 20, 1, 69, 40, 'fr', 'a:3:{s:5:"titre";s:24:"TGVzIGNoaWZmcmVzIDIwMDg=";s:5:"texte";s:320:"PHAgc3R5bGU9InRleHQtYWxpZ246IGNlbnRlcjsiPjxzdHJvbmc+MjAwMCBtJnN1cDI7IGQnZXhwb3NpdGlvbjxiciAvPiAtLS0tLS0tLTxiciAvPiA5MDAgbSZzdXAyOyBkZSBzdGFuZHM8YnIgLz4gLS0tLS0tLS08YnIgLz4gUGx1cyBkZSA3MCBzb2NpJmVhY3V0ZTt0JmVhY3V0ZTtzIGV4cG9zYW50ZXM8YnIgLz4gLS0tLS0tLS08YnIgLz4gUGx1cyBkZSAxMDAwMCB2aXNpdGV1cnMgYXR0ZW5kdXM8L3N0cm9uZz48L3A+";s:10:"alignement";s:8:"Z2F1Y2hl";}', 'Les chiffres 2008<br />2000 mÂ² d''exposition -------- 900 mÂ² de stands -------- Plus de 70 sociÃ©tÃ©s exposantes -------- Plus de 10000 visiteurs attendus <br />gauche<br />'),
-(4, 10, 1, 69, 41, 'fr', 'a:3:{s:5:"titre";s:36:"RGVzdGluYXRpb24gbGUgcGF5cyBkJ0FpeA==";s:5:"texte";s:800:"PHA+PHN0cm9uZz5Ob3VzIHZvdXMgZG9ubm9ucyBkJ29yZXMgZXQgZCZlYWN1dGU7aiZhZ3JhdmU7IHJlbmRlei12b3VzIGR1IDEgYXUgMyBqdWluIHByb2NoYWluIHBvdXIgdml2cmUgZW5zZW1ibGUgbGUgMWVyIFNhbG9uIGRlIGwnSW1tb2JpbGllciBxdWkgciZlYWN1dGU7dW5pcmEgbGEgbWFqb3JpdCZlYWN1dGU7IGRlcyBhY3RldXJzIHF1aSBmb250IGwnSW1tb2JpbGllciBzdXIgbGUgUGF5cyBkJ0FpeCA6PC9zdHJvbmc+PGJyIC8+IDxiciAvPiBBZ2VuY2VzIGltbW9iaWxpJmVncmF2ZTtyZXMsIFByb21vdGV1cnMgZXQgY29tbWVyY2lhbGlzdGF0ZXVycywgQ29uc3RydWN0ZXVycw0KZGUgTWFpc29ucyBJbmRpdmlkdWVsbGVzLCBFdGFibGlzc2VtZW50cyBmaW5hbmNpZXJzLCBHZXN0aW9uIGRlDQpQYXRyaW1vaW5lIGV0IGQmZWFjdXRlO2Zpc2NhbGlzYXRpb24sIEFzc3VyYW5jZXMsIEYmZWFjdXRlO2QmZWFjdXRlO3JhdGlvbnMsIEluc3RpdHV0aW9ucywNClN5bmRpY2F0cyBwcm9mZXNzaW9ubmVscywgQXJjaGl0ZWN0ZXMsIFByZXNzZSwgQWN0aXZpdCZlYWN1dGU7cyBhbm5leGVzICZhZ3JhdmU7IGxhDQpjb25zdHJ1Y3Rpb24sIC4uLjwvcD4=";s:10:"alignement";s:8:"ZHJvaXRl";}', 'Destination le pays d''Aix<br />Nous vous donnons d''ores et dÃ©jÃ  rendez-vous du 1 au 3 juin prochain pour vivre ensemble le 1er Salon de l''Immobilier qui rÃ©unira la majoritÃ© des acteurs qui font l''Immobilier sur le Pays d''Aix :  Agences immobiliÃ¨res, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et dÃ©fiscalisation, Assurances, FÃ©dÃ©rations, Institutions, Syndicats professionnels, Architectes, Presse, ActivitÃ©s annexes Ã  la construction, ... <br />droite<br />'),
-(5, 10, 1, 65, 42, 'fr', 'a:2:{s:5:"texte";s:1336:"PHAgY2xhc3M9InRpdHJlX3JvdWdlIj5EYXRlczwvcD4NCjxwPjxiciAvPlZlbmRyZWRpIDEsIHNhbWVkaSAyIGV0IGRpbWFuY2hlIDMganVpbiAyMDA3PC9wPg0KPHA+PGJyIC8+PGJyIC8+PHNwYW4gY2xhc3M9InRpdHJlX3JvdWdlIj5MaWV1PC9zcGFuPjwvcD4NCjxwPjxiciAvPjxzdHJvbmc+UEFTSU5PPC9zdHJvbmc+LCBuaXZlYXUgMTxiciAvPjIxLCBhdmVudWUgZGUgbCdldXJvcGUgLSBCUCA0PGJyIC8+MTM2MDEgQUlYIEVOIFBST1ZFTkNFIENFREVYIDE8L3A+DQo8cD48YnIgLz48YnIgLz48c3BhbiBjbGFzcz0idGl0cmVfcm91Z2UiPkhvcmFpcmVzIGQnb3V2ZXJ0dXJlIGF1IGdyYW5kIHB1YmxpYzwvc3Bhbj48L3A+DQo8cD48YnIgLz48c3Ryb25nPlZlbmRyZWRpIDEganVpbiA6PC9zdHJvbmc+Jm5ic3A7Jm5ic3A7Jm5ic3A7IDE0aDAwICZhZ3JhdmU7IDE5aDAwPGJyIC8+PHN0cm9uZz5TYW1lZGkgMiBqdWluIDo8L3N0cm9uZz4mbmJzcDsmbmJzcDsmbmJzcDsgMTBoMDAgJmFncmF2ZTsgMTloMDA8YnIgLz48c3Ryb25nPkRpbWFuY2hlIDMganVpbiA6PC9zdHJvbmc+Jm5ic3A7Jm5ic3A7Jm5ic3A7IDEwaDAwICZhZ3JhdmU7IDE5aDAwPC9wPg0KPHA+PGJyIC8+PGJyIC8+PHNwYW4gY2xhc3M9InRpdHJlX3JvdWdlIj5UYXJpZjwvc3Bhbj48L3A+DQo8cD48YnIgLz5FbnRyJmVhY3V0ZTtlIDxzdHJvbmc+R1JBVFVJVEU8L3N0cm9uZz48L3A+DQo8cD4mbmJzcDs8L3A+DQo8cD48YnIgLz48c3BhbiBjbGFzcz0idGl0cmVfcm91Z2UiPlBhcmtpbmcgZHUgUGFzaW5vPC9zcGFuPjwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPkdyYXR1aXQgZXQgc3VydmVpbGwmZWFjdXRlOyAoNTAwIHBsYWNlcyk8L3A+DQo8cD48YnIgLz48YnIgLz48c3BhbiBjbGFzcz0idGl0cmVfcm91Z2UiPkhhbmRpY2FwJmVhY3V0ZTtzPC9zcGFuPjwvcD4NCjxwPjxiciAvPkxlIG5pdmVhdSAxIGR1IFBhc2lubyBlc3QgYWNjZXNzaWJsZSBhdXggaGFuZGljYXAmZWFjdXRlOzwvcD4=";s:10:"alignement";s:8:"Z2F1Y2hl";}', 'Dates  Vendredi 1, samedi 2 et dimanche 3 juin 2007  Lieu  PASINO, niveau 121, avenue de l''europe - BP 413601 AIX EN PROVENCE CEDEX 1  Horaires d''ouverture au grand public  Vendredi 1 juin :Â Â Â  14h00 Ã  19h00Samedi 2 juin :Â Â Â  10h00 Ã  19h00Dimanche 3 juin :Â Â Â  10h00 Ã  19h00  Tarif  EntrÃ©e GRATUITE  Â   Parking du Pasino  Â   Gratuit et surveillÃ© (500 places)  HandicapÃ©s  Le niveau 1 du Pasino est accessible aux handicapÃ© <br />gauche<br />'),
-(6, 20, 1, 65, 41, 'fr', 'a:3:{s:5:"titre";s:28:"Q29tbWVudCBzJ3kgcmVuZHJlID8=";s:5:"texte";s:420:"PHA+PHN0cm9uZz5QYXIgbGEgcm91dGUgOjwvc3Ryb25nPiB2b2lyIHBsYW4gYXV0b3JvdXRpZXI8YnIgLz48YnIgLz48c3Ryb25nPlRyYWluIDo8L3N0cm9uZz4gU05DRiAtIEdhcmUgU2FpbnQgQ2hhcmxlczxiciAvPlJlbnNlaWduZW1lbnRzIHZveWFnZXVycyA6IDA4IDkyIDM1IDM1IDM1PGJyIC8+PGJyIC8+TSZlYWN1dGU7dHJvIGV0IGJ1cyA6IFJUTSAoUiZlYWN1dGU7c2VhdXggZGVzIFRyYW5zcG9ydHMgTWFyc2VpbGxhaXMpPGJyIC8+UmVuc2VpZ25lbWVudHMgdm95YWdldXJzIDogMDQgOTEgOTEgOTIgMTA8YnIgLz53d3cucnRtLmZyPC9wPg==";s:10:"alignement";s:8:"ZHJvaXRl";}', 'Comment s''y rendre ?<br />Par la route : voir plan autoroutierTrain : SNCF - Gare Saint CharlesRenseignements voyageurs : 08 92 35 35 35MÃ©tro et bus : RTM (RÃ©seaux des Transports Marseillais)Renseignements voyageurs : 04 91 91 92 10www.rtm.fr <br />droite<br />'),
-(7, 30, 1, 65, 41, 'fr', 'a:3:{s:5:"titre";s:16:"U2VydmljZXMuLi4=";s:5:"texte";s:408:"PHA+PHN0cm9uZz5SZXN0YXVyYW50IDo8L3N0cm9uZz4gTGUgUGFzaW5vIHZvdXMgcHJvcG9zZSAzIHJlc3RhdXJhbnRzICZhZ3JhdmU7IHRoJmVncmF2ZTttZXMgKG9yaWVudGFsLCBpdGFsaWVuIGV0IGphcG9uYWlzKTxiciAvPjxiciAvPjxzdHJvbmc+Q29mZmVlIExvdW5nZSA6PC9zdHJvbmc+IE5vdXMgdm91cyBwcm9wb3NvbnMgJmVhY3V0ZTtnYWxlbWVudCB1biBzZXJ2aWNlIGRlIHJlc3RhdXJhdGlvbiByYXBpZGUgYXUgbml2ZWF1IGR1IEJhciAmYWdyYXZlOyBsJnJzcXVvO2ludCZlYWN1dGU7cmlldXIgZHUgU2Fsb24uPC9wPg==";s:10:"alignement";s:8:"ZHJvaXRl";}', 'Services...<br />Restaurant : Le Pasino vous propose 3 restaurants Ã  thÃ¨mes (oriental, italien et japonais)Coffee Lounge : Nous vous proposons Ã©galement un service de restauration rapide au niveau du Bar Ã  l&rsquo;intÃ©rieur du Salon. <br />droite<br />'),
-(16, 50, 1, 60, 43, 'fr', 'a:9:{s:5:"titre";s:24:"Q29udGFjdGV6LW5vdXMuLi4=";s:5:"texte";s:436:"PHAgc3R5bGU9InRleHQtYWxpZ246IHJpZ2h0OyI+PHN0cm9uZz5BbGljZSBFdiZlYWN1dGU7bmVtZW50czwvc3Ryb25nPjxiciAvPiAyLCBBdmVudWUgRWxzYSBUcmlvbGV0PC9wPg0KPHAgc3R5bGU9InRleHQtYWxpZ246IHJpZ2h0OyI+QlAgNjI3PGJyIC8+IDEzMjY5IE1hcnNlaWxsZSBDZWRleCAwODxiciAvPiA8YnIgLz4gVCZlYWN1dGU7bC4gOiAwNCA5MSAxNiA1MiA1MjxiciAvPiBGYXggOiAwNCA5MSA3MiA1MSA1MTxiciAvPiA8YSBocmVmPSIuLi93d3cuYWxpY2UtZXZlbmVtZW50cy5jb20iPnd3dy5hbGljZS1ldmVuZW1lbnRzLmNvbTwvYT48L3A+DQombmJzcDs=";s:5:"image";s:4:"MQ==";s:12:"image_taille";s:8:"bWluaQ==";s:11:"image_popup";s:4:"MA==";s:13:"image_legende";s:4:"MA==";s:13:"image_credits";s:4:"MA==";s:12:"image_auteur";s:4:"MA==";s:10:"image_date";s:4:"MA==";}', 'Contactez-nous...<br />Alice Evénements 2, Avenue Elsa Triolet  BP 627 13269 Marseille Cedex 08  Tél. : 04 91 16 52 52 Fax : 04 91 72 51 51 www.alice-evenements.com   <br />1<br />mini<br />0<br />0<br />0<br />0<br />0<br />'),
-(18, 10, 1, 66, 42, 'fr', 'a:2:{s:5:"texte";s:760:"PHAgY2xhc3M9InRpdHJlX3JvdWdlIj5KdWluIDIwMDggc2UgcHJvZmlsZSAmYWdyYXZlOyBsJ2hvcml6b248L3A+DQo8cD4mbmJzcDs8L3A+DQo8cD48c3Ryb25nPlVuZSBub3V2ZWxsZSBkYXRlLCB1biBub3V2ZWF1IHJlbmRlei12b3VzIGltYWdpbiZlYWN1dGU7IGV0IGNyJmVhY3V0ZTsmZWFjdXRlOyBwb3VyIHZvdXMuLi4gVW5lIGV4aWdlbmNlLCB1bmUgciZlYWN1dGU7YWxpdCZlYWN1dGU7Ljwvc3Ryb25nPjwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPkImZWFjdXRlO24mZWFjdXRlO2ZpY2lhbnQNCmR1IHNvdXRpZW4gZGUgbCdlbnNlbWJsZSBkZXMgZiZlYWN1dGU7ZCZlYWN1dGU7cmF0aW9ucyBldCBkZXMgaW5zdGl0dXRpb25zDQpwcm9mZXNzaW9ubmVsbGVzIGRlIGwnSW1tb2JpbGllciBldCBkZSBsYSByZWNvbm5haXNzYW5jZSogZGUgdm90cmUNCnByb2Zlc3Npb24sIGNldCAmZWFjdXRlO3YmZWdyYXZlO25lbWVudCB1bmlxdWUgc3VyIDIwMDBtMiBlc3QgdW5lIHImZWFjdXRlO2VsbGUgcGx1cyB2YWx1ZSB0YW50ICZlYWN1dGU7Y29ub21pcXVlIHF1ZSBtJmVhY3V0ZTtkaWF0aXF1ZS48L3A+";s:10:"alignement";s:8:"Z2F1Y2hl";}', 'Juin 2008 se profile à l''horizon     Une nouvelle date, un nouveau rendez-vous imaginé et créé pour vous... Une exigence, une réalité.     Bénéficiant du soutien de l''ensemble des fédérations et des institutions professionnelles de l''Immobilier et de la reconnaissance* de votre profession, cet évènement unique sur 2000m2 est une réelle plus value tant économique que médiatique. <br />gauche<br />'),
-(17, 10, 1, 70, 43, 'fr', 'a:9:{s:5:"titre";s:24:"Q29udGFjdGV6LW5vdXMuLi4=";s:5:"texte";s:444:"PHAgc3R5bGU9InRleHQtYWxpZ246IHJpZ2h0OyI+PHN0cm9uZz5BbGljZSBFdiZlYWN1dGU7bmVtZW50czwvc3Ryb25nPjxiciAvPiAyLCBBdmVudWUgRWxzYSBUcmlvbGV0PC9wPg0KPHAgc3R5bGU9InRleHQtYWxpZ246IHJpZ2h0OyI+QlAgNjI3PGJyIC8+IDEzMjY5IE1hcnNlaWxsZSBDZWRleCAwODxiciAvPiA8YnIgLz4gVCZlYWN1dGU7bC4gOiAwNCA5MSAxNiA1MiA1MjxiciAvPiBGYXggOiAwNCA5MSA3MiA1MSA1MTxiciAvPiA8YSBocmVmPSIuLi93d3cuYWxpY2UtZXZlbmVtZW50cy5jb20iPnd3dy5hbGljZS1ldmVuZW1lbnRzLmNvbTwvYT48L3A+DQo8cD4mbmJzcDs8L3A+";s:5:"image";s:4:"MQ==";s:12:"image_taille";s:8:"bWluaQ==";s:11:"image_popup";s:4:"MA==";s:13:"image_legende";s:4:"MA==";s:13:"image_credits";s:4:"MA==";s:12:"image_auteur";s:4:"MA==";s:10:"image_date";s:4:"MA==";}', 'Contactez-nous...<br />Alice Evénements 2, Avenue Elsa Triolet  BP 627 13269 Marseille Cedex 08  Tél. : 04 91 16 52 52 Fax : 04 91 72 51 51 www.alice-evenements.com    <br />1<br />mini<br />0<br />0<br />0<br />0<br />0<br />'),
-(19, 20, 1, 66, 41, 'fr', 'a:3:{s:5:"titre";s:52:"UHJvZml0ZXogZGUgY2UgcmVuZGV6LXZvdXMgc3VyIDMgam91cnM=";s:5:"texte";s:300:"PHVsPg0KPGxpPlJlbmNvbnRyZXogdm90cmUgY29ldXIgZGUgY2libGU8L2xpPg0KPGxpPlByb21vdXZvaXIgdm9zIHByb2R1aXRzIGV0IHZhbG9yaXNlciB2b3RyZSBpbWFnZTwvbGk+DQo8bGk+TXVsdGlwbGllciB2b3MgY29udGFjdHMgZXQgQm9vc3RlciB2b3RyZSBhY3Rpdml0JmVhY3V0ZTsgZGFucyB1biBlbnZpcm9ubmVtZW50IHBlcmZvcm1hbnQgZXQgZHluYW1pcXVlPC9saT4NCjwvdWw+";s:10:"alignement";s:8:"ZHJvaXRl";}', 'Profitez de ce rendez-vous sur 3 jours<br /> Rencontrez votre coeur de cible  Promouvoir vos produits et valoriser votre image  Multiplier vos contacts et Booster votre activité dans un environnement performant et dynamique   <br />droite<br />'),
-(20, 30, 1, 66, 41, 'fr', 'a:3:{s:5:"titre";s:48:"RS1maWNoZSA6IG9wdGltaXNleiB2b3RyZSBwculzZW5jZQ==";s:5:"texte";s:248:"PHVsPg0KPGxpPkNvbW11bmlxdWVyIGVuIGFtb250LCBwZW5kYW50IGV0IGFwciZlZ3JhdmU7cyBsZSBzYWxvbjwvbGk+DQo8bGk+R2FnbmVyIGVuIHZpc2liaWxpdCZlYWN1dGU7PC9saT4NCjxsaT5NZXR0cmUgc291cyBsZSBmZXUgZGVzIHByb2plY3RldXJzIHZvcyBwcm9kdWl0cyBldCBzZXJ2aWNlczwvbGk+DQo8L3VsPg==";s:10:"alignement";s:8:"ZHJvaXRl";}', 'E-fiche : optimisez votre présence<br /> Communiquer en amont, pendant et après le salon  Gagner en visibilité  Mettre sous le feu des projecteurs vos produits et services   <br />droite<br />'),
-(21, 10, 1, 63, 42, 'fr', 'a:2:{s:5:"texte";s:1356:"PHA+PHNwYW4gY2xhc3M9InRpdHJlX3JvdWdlIj5Wb3RyZSBwYXJ0aWNpcGF0aW9uIGNvbXByZW5kPC9zcGFuPjwvcD4NCjxwPiZuYnNwOzwvcD4NCjx1bD4NCjxsaT5JbnNjcmlwdGlvbiBkZSB2b3RyZSBzb2NpJmVhY3V0ZTt0JmVhY3V0ZTsgc3VyIGxlIHNpdGUgSW50ZXJuZXQsIGRhbnMgbGUgJmxhcXVvOyBEb3NzaWVyIFNwJmVhY3V0ZTtjaWFsIFNhbG9uICZyYXF1bzsgZGUgTEEgUFJPVkVOQ0UgZXQgVE9QIEFOTk9OQ0VTLCBkYW5zIGxhIGxpc3RlIGRlcyBleHBvc2FudHMgZGlzdHJpYnUmZWFjdXRlO2UgJmFncmF2ZTsgdG91cyBsZXMgdmlzaXRldXJzPC9saT4NCjxsaT5CYWRnZXMgZXhwb3NhbnRzIHBhciB0cmFuY2hlIGRlIDltMiAoc3RhbmQgJmVhY3V0ZTtxdWlwJmVhY3V0ZTspPC9saT4NCjxsaT5BY2MmZWdyYXZlO3MgcGFya2luZyBwYXIgdHJhbmNoZSBkZSA5bTIgKHN0YW5kICZlYWN1dGU7cXVpcCZlYWN1dGU7KTwvbGk+DQo8bGk+TW9iaWxpZXIgZXQgJmVhY3V0ZTtsZWN0cmljaXQmZWFjdXRlOyAocG91ciBzdGFuZCAmZWFjdXRlO3F1aXAmZWFjdXRlOyAtIHZvaXIgbGEgQnJvY2h1cmUpPC9saT4NCjxsaT5OZXR0b3lhZ2UgZGVzIHN0YW5kczwvbGk+DQo8L3VsPg0KPHA+Jm5ic3A7PC9wPg0KPHA+Jm5ic3A7PC9wPg0KPHA+PHNwYW4gY2xhc3M9InRpdHJlX3JvdWdlIj5Eb3NzaWVyIHRlY2huaXF1ZTwvc3Bhbj48L3A+DQo8cD4mbmJzcDs8L3A+DQo8cD5DZSBkb2N1bWVudCB2b3VzIGRvbm5lIHRvdXMgbGVzDQpyZW5zZWlnbmVtZW50cyBldCBwcmVzdGF0aW9ucyB1dGlsZXMgJmFncmF2ZTsgbCdvcmdhbmlzYXRpb24gZGUgdm90cmUNCnByJmVhY3V0ZTtzZW5jZS4gRCZlZ3JhdmU7cyByJmVhY3V0ZTtjZXB0aW9uIGRlIHZvdHJlIERlbWFuZGUgZGUgUGFydGljaXBhdGlvbiwgbm91cyB2b3VzDQphZHJlc3NvbnMgdW4gY291cnJpZXIgYXZlYyB2b3RyZSBsb2dpbiBldCBtb3QgZGUgcGFzc2UgcHJpdiZlYWN1dGU7cyBwb3VyIHkNCmFjYyZlYWN1dGU7ZGVyPC9wPg==";s:10:"alignement";s:8:"Z2F1Y2hl";}', 'Votre participation comprend      Inscription de votre société sur le site Internet, dans le « Dossier Spécial Salon » de LA PROVENCE et TOP ANNONCES, dans la liste des exposants distribuée à tous les visiteurs  Badges exposants par tranche de 9m2 (stand équipé)  Accès parking par tranche de 9m2 (stand équipé)  Mobilier et électricité (pour stand équipé - voir la Brochure)  Nettoyage des stands          Dossier technique     Ce document vous donne tous les renseignements et prestations utiles à l''organisation de votre présence. Dès réception de votre Demande de Participation, nous vous adressons un courrier avec votre login et mot de passe privés pour y accéder <br />gauche<br />'),
-(22, 20, 1, 63, 16, 'fr', 'a:1:{s:5:"texte";s:804:"PHA+Jm5ic3A7PC9wPg0KPHA+PHNwYW4gY2xhc3M9InRpdHJlX3JvdWdlIj5EYXRlcyBldCBob3JhaXJlcyB1dGlsZTwvc3Bhbj48L3A+DQo8cD4mbmJzcDs8L3A+DQo8cD48c3Ryb25nPk1vbnRhZ2UgZGVzIHN0YW5kczwvc3Ryb25nPjxiciAvPiBEJmVhY3V0ZTttb250YWdlIGRlcyBzdGFuZHM8YnIgLz4gPHN0cm9uZz48YnIgLz4gT3V2ZXJ0dXJlIGF1IHB1YmxpYzwvc3Ryb25nPjxiciAvPiBWZW5kcmVkaSA6IGRlIDE0aDAwICZhZ3JhdmU7IDE5aDAwPGJyIC8+IFNhbWVkaSAmYW1wOyBEaW1hbmNoZSA6IGRlIDEwaDAwICZhZ3JhdmU7IDE5aDAwPC9wPg0KPHA+Jm5ic3A7PC9wPg0KPHA+Jm5ic3A7PC9wPg0KPHA+PHNwYW4gY2xhc3M9InRpdHJlX3JvdWdlIj5MaWV1PC9zcGFuPjwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPlBBU0lOTywgbml2ZWF1IDEsPC9wPg0KPHA+MjEsIEF2ZW51ZSBkZSBsJ0V1cm9wZSAtIEJQIDQ8L3A+DQo8cD4xMzYwMSBBSVggRU4gUFJPVkVOQ0UgQ0VERVggMTwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPjxzcGFuIGNsYXNzPSJ0aXRyZV9yb3VnZSI+Q29tbWVudCBzJ3kgcmVuZHJlID88L3NwYW4+PC9wPg==";}', '   Dates et horaires utile     Montage des stands Démontage des stands  Ouverture au public Vendredi : de 14h00 à 19h00 Samedi & Dimanche : de 10h00 à 19h00        Lieu     PASINO, niveau 1,  21, Avenue de l''Europe - BP 4  13601 AIX EN PROVENCE CEDEX 1        Comment s''y rendre ? <br />'),
-(23, 30, 1, 63, 37, 'fr', 'a:3:{s:6:"source";s:476:"aHR0cDovL21hcHMuZ29vZ2xlLmNvbS9tYXBzP2Y9cSZhbXA7aGw9ZnImYW1wO2dlb2NvZGU9JmFtcDtxPVBBU0lOTywrMjEsK0F2ZW51ZStkZStsJ0V1cm9wZSwrQUlYK0VOK1BST1ZFTkNFLCtGUkFOQ0UmYW1wO3NsbD00My41MjgxNCw1LjQzOTE3NyZhbXA7c3Nwbj0wLjA0NTI0MSwwLjA5MTQ5NiZhbXA7aWU9VVRGOCZhbXA7Y2lkPTQzNTIzMzc5LDU0Mzk0NTYsMTYwNTc1NDI1MjM1Mzk0NTgzMCZhbXA7cz1BQVJUc0pvMWt1TzRqdTNQd2xWNWZCWGpGaWxxRWMwQWRnJmFtcDtsbD00My41NDE0NTYsNS40NDU0NDImYW1wO3Nwbj0wLjA0MzU1MiwwLjA3Mjk1NiZhbXA7ej0xMyZhbXA7aXdsb2M9QSZhbXA7b3V0cHV0PWVtYmVk";s:5:"width";s:8:"MTAwJQ==";s:6:"height";s:4:"MzMw";}', 'http://maps.google.com/maps?f=q&hl=fr&geocode=&q=PASINO,+21,+Avenue+de+l''Europe,+AIX+EN+PROVENCE,+FRANCE&sll=43.52814,5.439177&sspn=0.045241,0.091496&ie=UTF8&cid=43523379,5439456,1605754252353945830&s=AARTsJo1kuO4ju3PwlV5fBXjFilqEc0Adg&ll=43.541456,5.445442&spn=0.043552,0.072956&z=13&iwloc=A&output=embed<br />100%<br />330<br />'),
-(25, 10, 1, 61, 3, 'fr', 'a:1:{s:5:"titre";s:24:"RGV2ZW5leiBleHBvc2FudA==";}', 'Devenez exposant<br />'),
-(26, 20, 1, 61, 18, 'fr', 'a:8:{s:5:"image";s:4:"Mw==";s:12:"image_taille";s:8:"bWVkaXVt";s:11:"image_popup";s:4:"MA==";s:13:"image_legende";s:4:"MA==";s:13:"image_credits";s:4:"MA==";s:12:"image_auteur";s:4:"MA==";s:10:"image_date";s:4:"MA==";s:10:"alignement";s:20:"R2F1Y2hlIGZsb3R0YW50";}', '3<br />medium<br />0<br />0<br />0<br />0<br />0<br />Gauche flottant<br />'),
-(27, 40, 1, 61, 25, 'fr', 'a:2:{s:8:"document";a:4:{i:0;s:4:"MTE=";i:1;s:4:"OA==";i:2;s:4:"OQ==";i:3;s:4:"MTA=";}s:14:"instance_count";a:1:{i:0;s:4:"Mw==";}}', '<br /><br />'),
-(28, 30, 1, 61, 5, 'fr', 'a:1:{s:5:"titre";s:44:"UG91ciBy6XNlcnZlciB2b3RyZSBwcm9wcmUgc3RhbmQ=";}', 'Pour réserver votre propre stand<br />'),
-(29, 60, 1, 61, 3, 'fr', 'a:1:{s:5:"titre";s:64:"VmFsb3Jpc2V6IHZvdHJlIHBy6XNlbmNlIHN1ciBJbnRlcm5ldCA6IGUtRmljaGU=";}', 'Valorisez votre présence sur Internet : e-Fiche<br />'),
-(30, 80, 1, 61, 5, 'fr', 'a:1:{s:5:"titre";s:52:"T3B0aW1pc2V6IHZvdHJlIHBy6XNlbmNlIHN1ciBub3RyZSBzaXRl";}', 'Optimisez votre présence sur notre site<br />'),
-(31, 90, 1, 61, 12, 'fr', 'a:2:{s:4:"item";a:3:{i:0;s:88:"Q29tbXVuaXF1ZXIgZW4gYW1vbnQsIHBlbmRhbnQgZXQgYXBy6HMgbGUgc2Fsb24gc3VyIHZvdHJlIGFjdGl2aXTp";i:1;s:28:"R2FnbmVyIGVuIHZpc2liaWxpdOk=";i:2;s:80:"TWV0dHJlIHNvdXMgbGUgZmV1IGRlcyBwcm9qZWN0ZXVycyB2b3MgcHJvZHVpdHMgZXQgc2VydmljZXM=";}s:14:"instance_count";a:1:{i:0;s:4:"Mg==";}}', '<br /><br />'),
-(32, 100, 1, 61, 5, 'fr', 'a:1:{s:5:"titre";s:72:"ImUtRmljaGUiIGRhbnMgbGUgZm9ybXVsYWlyZSBkZSBkZW1hbmRlIGQnaW5zY3JpcHRpb24=";}', '"e-Fiche" dans le formulaire de demande d''inscription<br />'),
-(33, 120, 1, 61, 3, 'fr', 'a:1:{s:5:"titre";s:16:"SW5zY3JpcHRpb24=";}', 'Inscription<br />'),
-(34, 70, 1, 61, 18, 'fr', 'a:8:{s:5:"image";s:4:"Mg==";s:12:"image_taille";s:8:"bWVkaXVt";s:11:"image_popup";s:4:"MA==";s:13:"image_legende";s:4:"MA==";s:13:"image_credits";s:4:"MA==";s:12:"image_auteur";s:4:"MA==";s:10:"image_date";s:4:"MA==";s:10:"alignement";s:20:"R2F1Y2hlIGZsb3R0YW50";}', '2<br />medium<br />0<br />0<br />0<br />0<br />0<br />Gauche flottant<br />'),
-(35, 130, 1, 61, 18, 'fr', 'a:8:{s:5:"image";s:4:"NQ==";s:12:"image_taille";s:8:"bWVkaXVt";s:11:"image_popup";s:4:"MA==";s:13:"image_legende";s:4:"MA==";s:13:"image_credits";s:4:"MA==";s:12:"image_auteur";s:4:"MA==";s:10:"image_date";s:4:"MA==";s:10:"alignement";s:20:"R2F1Y2hlIGZsb3R0YW50";}', '5<br />medium<br />0<br />0<br />0<br />0<br />0<br />Gauche flottant<br />'),
-(36, 140, 1, 61, 16, 'fr', 'a:1:{s:5:"texte";s:256:"PHA+VmV1aWxsZXogcmVtcGxpciBsZSBmb3JtdWxhaXJlIGFmaW4gcXVlIG5vdXMgcHVpc3Npb25zIHZvdXMgY29udGFjdGVyDQpldCB2b3VzIGFkcmVzc2VyIHVuZSBwcm9wb3NpdGlvbiBhZGFwdCZlYWN1dGU7ZSAmYWdyYXZlOyB2b3Mgb2JqZWN0aWZzIGF2ZWMgbGENCmRlbWFuZGUgZGUgcGFydGljaXBhdGlvbiAoY29udHJhdCk8L3A+";}', 'Veuillez remplir le formulaire afin que nous puissions vous contacter et vous adresser une proposition adaptée à vos objectifs avec la demande de participation (contrat) <br />'),
-(37, 50, 1, 61, 1, 'fr', NULL, NULL),
-(38, 110, 1, 61, 1, 'fr', NULL, NULL),
-(43, 10, 1, 72, 39, 'fr', 'a:9:{s:5:"titre";s:36:"Rm9ybXVsYWlyZSBwculpbnNjcmlwdGlvbg==";s:5:"texte";s:488:"PHAgc3R5bGU9InRleHQtYWxpZ246IHJpZ2h0OyI+PHN0cm9uZz5BbGljZSBFdiZlYWN1dGU7bmVtZW50czwvc3Ryb25nPjxiciAvPiAyLCBBdmVudWUgRWxzYSBUcmlvbGV0PC9wPg0KPHAgc3R5bGU9InRleHQtYWxpZ246IHJpZ2h0OyI+QlAgNjI3PGJyIC8+IDEzMjY5IE1hcnNlaWxsZSBDZWRleCAwODxiciAvPiA8YnIgLz4gVCZlYWN1dGU7bC4gOiAwNCA5MSAxNiA1MiA1MjxiciAvPiBGYXggOiAwNCA5MSA3MiA1MSA1MTxiciAvPiA8YSBocmVmPSJodHRwOi8vd3d3LnNhbG9uLWltbW9iaWxpZXItYWl4LmNvbS93d3cuYWxpY2UtZXZlbmVtZW50cy5jb20iPnd3dy5hbGljZS1ldmVuZW1lbnRzLmNvbTwvYT48L3A+DQo8cD4mbmJzcDs8L3A+";s:5:"image";s:4:"MQ==";s:12:"image_taille";s:8:"bWluaQ==";s:11:"image_popup";s:4:"MA==";s:13:"image_legende";s:4:"MA==";s:13:"image_credits";s:4:"MA==";s:12:"image_auteur";s:4:"MA==";s:10:"image_date";s:4:"MA==";}', 'Formulaire préinscription<br />Alice Evénements 2, Avenue Elsa Triolet  BP 627 13269 Marseille Cedex 08  Tél. : 04 91 16 52 52 Fax : 04 91 72 51 51 www.alice-evenements.com    <br />1<br />mini<br />0<br />0<br />0<br />0<br />0<br />'),
-(41, 150, 1, 61, 44, 'fr', 'a:3:{s:4:"page";s:32:"cHJlLWluc2NyaXB0aW9uLXI3Mi5odG1s";s:9:"titrelien";s:40:"Rm9ybXVsYWlyZSBkZSBwcuktaW5zY3JpcHRpb24=";s:5:"cible";s:8:"X3NlbGY=";}', 'pre-inscription-r72.html<br />Formulaire de pré-inscription<br />_self<br />');
 
 -- --------------------------------------------------------
 
@@ -295,7 +260,7 @@ CREATE TABLE `cms_pages_types` (
   `description` text,
   `style` varchar(250) default NULL,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=17 ;
+)  AUTO_INCREMENT=17 ;
 
 -- 
 -- Contenu de la table `cms_pages_types`
@@ -331,7 +296,7 @@ CREATE TABLE `dat_bibliotheque_fichiers` (
   `date` datetime default NULL,
   `fichier` varchar(70) default NULL,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=12 ;
+)  AUTO_INCREMENT=12 ;
 
 -- 
 -- Contenu de la table `dat_bibliotheque_fichiers`
@@ -355,7 +320,7 @@ CREATE TABLE `dat_bibliotheque_fichiers_cat` (
   `ordre` int(4) NOT NULL default '1',
   `titre` varchar(150) default NULL,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=4 ;
+)  AUTO_INCREMENT=4 ;
 
 -- 
 -- Contenu de la table `dat_bibliotheque_fichiers_cat`
@@ -383,7 +348,7 @@ CREATE TABLE `dat_bibliotheque_images` (
   `date` datetime default NULL,
   `image` varchar(70) default NULL,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=6 ;
+)  AUTO_INCREMENT=6 ;
 
 -- 
 -- Contenu de la table `dat_bibliotheque_images`
@@ -408,7 +373,7 @@ CREATE TABLE `dat_bibliotheque_images_cat` (
   `ordre` int(4) default NULL,
   `titre` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=2 ;
+)  AUTO_INCREMENT=2 ;
 
 -- 
 -- Contenu de la table `dat_bibliotheque_images_cat`
@@ -430,7 +395,7 @@ CREATE TABLE `dat_email_alertes` (
   `sujet` varchar(150) default NULL,
   `texte` text,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=2 ;
+)  AUTO_INCREMENT=2 ;
 
 -- 
 -- Contenu de la table `dat_email_alertes`
@@ -452,7 +417,7 @@ CREATE TABLE `dat_trad_mots` (
   `trad_fr` tinytext,
   `trad_uk` tinytext,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=46 ;
+)  AUTO_INCREMENT=46 ;
 
 -- 
 -- Contenu de la table `dat_trad_mots`
@@ -518,7 +483,7 @@ CREATE TABLE `dat_trad_textes` (
   `trad_fr` text,
   `trad_uk` text,
   PRIMARY KEY  (`id`)
-)AUTO_INCREMENT=1 ;
+) AUTO_INCREMENT=1 ;
 
 -- 
 -- Contenu de la table `dat_trad_textes`
