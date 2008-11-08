@@ -9,8 +9,15 @@ if ( !defined('MLKLC') ) die('Lucky Duck');
 	// SELECT
 		$Q =& new Q("SELECT * FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
 		foreach ($Q->V as $V) echo $V['titre'].'<br />';
-	
+		
 		<? foreach (q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>'; ?>
+		
+	/ SELECT II
+		$Q =& new Q();
+		$Q1 = $Q->QUERY("SELECT * FROM mod_actualites");
+		foreach ($Q1->V as $V) echo $V['titre'].'<br />';
+		$Q2 = $Q->QUERY("SELECT * FROM mod_actualites");
+		//...
 	
 	// UPDATE // INSERT // DELETE
 		$A = new Q();
@@ -18,25 +25,27 @@ if ( !defined('MLKLC') ) die('Lucky Duck');
 			'titre'=> $titre,
 			'message'=> $message,
 		), " id='$id' AND membre_id='{$_SESSION[SITE_CONFIG]['MEMBRE']['id']}' LIMIT 1 ");
-
-
+	
 	// XML
-	$X = new Q();
-	$XML = $X->getXml("
-		SELECT id,titre,texte,miniature,
-		CONCAT('".$WWW."galeries.php?galerie_id=',id) url
-		FROM galeries
-		WHERE clients_id='$clients_id' AND actif='1'
-		ORDER BY ordre ASC, id DESC
-	", array('galeries','galerie'), './rep/file.xml');
-	db($XML);
+		$X = new Q();
+		$XML = $X->getXml("
+			SELECT id,titre,texte,miniature,
+			CONCAT('".$WWW."galeries.php?galerie_id=',id) AS url
+			FROM galeries
+			WHERE clients_id='$clients_id' AND actif='1'
+			ORDER BY ordre ASC, id DESC
+		", array('galeries','galerie'), './rep/file.xml');
+		db($XML);
 	
 */
 
+
+// ShorCut
 function q($query) {
 	$Q =& new Q($query);
 	return ( count($Q->V) > 1 ? $Q->V : $Q->V[0] );
 }
+
 // Stock connexion between class instanciation
 $_cConnexion = 0;
 $_dbDataBase = 0;
@@ -53,7 +62,12 @@ class Q { // SQL QUERY MANAGER ;)
 	function __construct($query='') {
 		global $debug;
 		$this->debug = $debug;
-		if (!$this->_c) $this->C();
+		
+		$this->id = 0;
+		$this->affected = 0;
+		$this->V = array();
+		
+		if (!$this->_c || !$this->_db) $this->C();
 		$this->QUERY($query);
 	}
 		
@@ -74,10 +88,10 @@ class Q { // SQL QUERY MANAGER ;)
 			if (empty($dbhost) || empty($dbase) || empty($dblogin)) die(db('[Q()] Desole, il manque un parametre ['.$dbhost.', '.$dbase.', '.$dblogin.']'));
 			$this->_c = mysql_connect($dbhost, $dblogin, $dbmotdepasse) or die(db('[Q()] Desole, connexion impossible sur le host ['.$dbhost.']'));
 			$this->_db = mysql_select_db($dbase, $this->_c) or die(db('[Q()] Desole, connexion impossible a la base ['.$dbhost.' : '.$dbase.'] '.htmlspecialchars(mysql_error($this->_c))));
-			if (!is_resource($this->_c) || !$this->_db)  die(db('[Q()] Pb inconnu ['.$dbase.' : '.$dbhost.'] '.htmlspecialchars(mysql_error($this->_c))));
 			$_cConnexion = $this->_c;
 			$_dbDataBase = $this->_db;
 		}
+		if (!is_resource($this->_c) || !$this->_db)  die(db('[Q()] Pb inconnu ['.$dbase.' : '.$dbhost.'] '.htmlspecialchars(mysql_error($this->_c))));
 	}
 	
 	// OPEN SQL QUERY MAKER
@@ -85,9 +99,6 @@ class Q { // SQL QUERY MANAGER ;)
 		if (empty($query)) return;
 		$this->query = trim($query);
 		$result = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
-		$this->V = array();
-			$this->id = 0;
-			$this->affected = 0;
 		if (is_resource($result) && preg_match('/^SELECT /', $this->query)) {
 			while ($arrRow = @mysql_fetch_array($result, MYSQL_ASSOC)) $this->V[] = $arrRow;
 		}
