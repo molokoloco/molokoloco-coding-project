@@ -5,7 +5,7 @@
 
 	# Create a new DB in [http://www.easyphp.org/index.php PhpMyAdmin]
 	# Edit the file ./admin/lib/racine.php : $dbase , $dbhost, $dblogin (Ligne 75)
-	# With [http://www.easyphp.org/index.php PhpMyAdmin], import default SQL ./admin/lib/_SETUP_ADMIN_CMS.SQL in this base
+	# With [http://www.easyphp.org/index.php PhpMyAdmin]
 	# Open Admin in your browser http://127.0.0.1/www.site.com/admin/
 	# For each new module (ex : "mod_clients")  drop it in ./admin/ folder
 	# Edit./admin/lib/racine.php : $adminMenuAdmin (Ligne 208) , your module appear in the admin menu
