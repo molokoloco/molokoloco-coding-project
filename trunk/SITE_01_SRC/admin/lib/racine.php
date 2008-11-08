@@ -60,22 +60,23 @@ define('SITE_CONFIG', (isLocal() ? 'B2B' : 'B2BW')); // Unique ID for session co
 // ALL STATIC CONFIG HERE - MODIFICATION ALLOWED !!!
 // DON'T FORGET TO UNCOMMENT THIS WHEN DOING SOME MODIFICATIONS
 
-### $_SESSION[SITE_CONFIG]['WWW'] = NULL;
+### 
+$_SESSION[SITE_CONFIG]['WWW'] = NULL;
 
 if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
 	
 	// SQL CONFIG
 	if (isClient()) {
-		$dbase = 'juss';
+		$dbase = 'virtual';
 		$dbhost = 'localhost';
 		$dblogin = 'xxxxxxxxx';
 		$dbmotdepasse = 'xxxxxx';
 		$convert = '/usr/bin/';
-		$wwwRoot = '/home/juss/www/';
-		$WWW = 'http://www.juss.com/';
+		$wwwRoot = '/home/virtual/www/';
+		$WWW = 'http://www.virtual.com/';
 	}
 	elseif (isLocal()) { // Sites are in C:/www/
-		$dbase = 'juss';
+		$dbase = 'virtual';
 		$dbhost = 'localhost';
 		$dblogin = 'root';
 		$dbmotdepasse = '';
