@@ -1,0 +1,13 @@
+/* TEXTE ENRICHI */
+.cms_rte { margin:0 0 10px 0; width:auto; }
+.cms_rte p {}
+.cms_rte strong {}
+.cms_rte em {}
+#cms .cms_rte a {}
+.cms_rte ul {}
+.cms_rte ul li {
+	background: url(../../images/puce.gif) no-repeat 0px 5px;
+	list-style:none;
+	padding-left:10px;
+	zoom:1;
+}

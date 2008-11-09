@@ -1,0 +1,25 @@
+/* LISTE DE CHOIX */
+.cms_ul{
+margin:10px 0 10px 0;
+overflow:hidden;
+}
+.cms_ul .d1{
+}
+.cms_ul .d2{
+}
+.cms_ul ul{
+margin:0 10px;
+padding:0;
+}
+.cms_ul li{
+background: url(../../images/puce4.gif) no-repeat 5px 6px;
+list-style:none;
+margin:0;
+padding:0;
+zoom:1;
+padding:3px 0;
+padding:3px 0 3px 17px;
+}
+.cms_ul li a{
+	
+}

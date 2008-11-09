@@ -1,0 +1,70 @@
+/* FOCUS */
+.cms_focus{
+clear:both;
+margin:0 0 10px 0;
+}
+.cms_focus .d1{
+padding:0 0 10px 0;
+}
+.cms_focus .d2{
+padding:0;
+overflow:hidden;
+zoom:1;
+}
+.cms_focus .visu_gauche{
+float:left;
+margin-right:20px;
+}
+.cms_focus .visu_droite{
+float:right;
+margin-left:20px;
+}
+.cms_focus .visu_gauche img, .cms_focus .visu_droite img{
+display:block;
+border:none;
+}
+.cms_focus .visu_gauche cite, .cms_focus .visu_droite cite{
+display:block;
+margin:5px;
+}
+.cms_focus h1{
+margin-bottom:10px;
+color:#CCCCCC;
+}
+.cms_focus p{
+}
+.cms_focus strong{
+}
+.cms_focus em{
+}
+.cms_focus a{
+}
+.cms_focus ul{
+margin:0;
+}
+.cms_focus li{
+background:url(../../images/puce.gif) no-repeat 0px 5px;
+list-style:none;
+padding-left:10px;
+zoom:1;
+}
+.cms_focus ul.liens{
+clear:both;
+padding:0;
+}
+.cms_focus ul.liens li.url{
+background:url(../../images/puce2.gif) no-repeat 0px 5px;
+padding-left:10px;
+zoom:1;
+}
+.cms_focus ul.liens li.url a{
+color:#ff6600;
+}
+.cms_focus ul.liens li.doc{
+background:url(../../images/puce3.gif) no-repeat 0px 5px;
+padding-left:10px;
+zoom:1;
+}
+.cms_focus ul.liens li.doc a{
+color:#ff6600;
+}
