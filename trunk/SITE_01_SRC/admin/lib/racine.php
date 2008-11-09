@@ -10,7 +10,7 @@
 define('MLKLC', 1); // No Hack
 define('SITE_CMS', true); // Site CMS = menu cms + rep cms
 define('SITE_REF', true); // Active referencement dans rubrique
-define('VAD_VERSION', 'v1.0 - 11/05/2008'); // Etes-vous a jour ? :)
+define('VAD_VERSION', 'v1.0 - 09/11/2008'); // Etes-vous a jour ? :)
 
 $site_en_production = 0; // If "1" : Hide all debug -> db() + php.ini
 $debug = 0; // Affiche toutes les requetes exécutées apres cette déclaration
@@ -45,7 +45,7 @@ $hostIp = $_SERVER['SERVER_ADDR'];
 
 function isClient() {
 	global $hostIp;
-	return ( $hostIp == 'XX.XXX.XXX.X' ? true : false );
+	return ( $hostIp == 'XX.XX.XX.XX' ? true : false );
 }
 function isLocal() {
 	global $host;
@@ -60,7 +60,7 @@ define('SITE_CONFIG', (isLocal() ? 'B2B' : 'B2BW')); // Unique ID for session co
 // ALL STATIC CONFIG HERE - MODIFICATION ALLOWED !!!
 // DON'T FORGET TO UNCOMMENT THIS WHEN DOING SOME MODIFICATIONS
 
-### $_SESSION[SITE_CONFIG]['WWW'] = NULL;
+###$_SESSION[SITE_CONFIG]['WWW'] = NULL;
 
 if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
 	
@@ -81,7 +81,7 @@ if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
 		$dbmotdepasse = '';
 		$convert = NULL;// 'C:/localhost/ImageMagick/';
 		$wwwRoot = 'C:\\www\\_SVN_\\molokoloco-code-project\\SITE_01_SRC\\';
-		$WWW = 'http://127.0.0.1/_SVN_/molokoloco-code-project/';
+		$WWW = 'http://127.0.0.1/_SVN_/molokoloco-code-project/SITE_01_SRC/';
 	}
 	else die('Config Serveur non connue !');
 	

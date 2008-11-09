@@ -23,13 +23,13 @@
  
  /* EXEMPLE 
  
-require_once ("inc/TinyMce/TinyMce.php");
-$Ed = new TinyMce('myInputName');
-$Ed->ToolbarSet = 'Basic';  // BasicStyle | BasicTab | BasicImg
-$Ed->Width = '100%';
-$Ed->Height = '280px';
-$Ed->Value = 'Bla bla';
-$Ed->Create();
+	require_once('admin/lib/class/class_tinymce.php');
+	$Ed = new TinyMce('myInputName');
+	$Ed->ToolbarSet = 'Basic';  // BasicStyle | BasicTab | BasicImg
+	$Ed->Width = '100%';
+	$Ed->Height = '280px';
+	$Ed->Value = 'Bla bla &lt;strong&gt; bold &lt;/strong&gt; ';
+	$Ed->Create();
 
  */
 
@@ -71,8 +71,6 @@ class TinyMce
 		global $WWW;
 		$HtmlValue = htmlspecialchars( $this->Value ) ;
 		
-		static $idCounter = 0;
-
 		// Default CONFIG
 		$toolbar = $toolbar2 = $toolbar3 = '';
 		$plugg = 'paste,preview,inlinepopups,contextmenu';
@@ -143,99 +141,97 @@ class TinyMce
 			break;
 		}
 
-		$js_file = '';
-		$javascript = '';
+		$js_file = $javascript = '';
 		
+		// Include once the JS file
 		global $TinyMceEditorDone;
-		if ($TinyMceEditorDone != 1 ) {
+		if( $TinyMceEditorDone != 1) {
 			$TinyMceEditorDone = 1;
-			global $WWW,$JS,$JSE;
+			global $WWW;
 			$js_file = '<script language="javascript" type="text/javascript" src="'.$WWW.'admin/lib/tinymce/tiny_mce.js"></script>';
-		}	
+		}
 		
 		// http://wiki.moxiecode.com/index.php/TinyMCE:Configuration
 		
 		$javascript = js("
 		tinyMCE.init({
-			mode : 'textareas',
-			editor_selector : '".$this->InstanceName."_class',
 			width : '".$this->width.(strpos($this->width,'%')!==false?'':'px')."',
 			//height : '".$this->height.(strpos($this->height,'%')!==false?'':'px')."',
+			mode : 'exact',
+			cleanup : true,
+			theme : 'advanced',
+			elements : '' ,
 			language : 'fr',
 			plugins : '".$plugg."',
-			theme : 'advanced',
 			theme_advanced_buttons1 : '".$toolbar."',
 			theme_advanced_buttons2 : '".$toolbar2."',
 			theme_advanced_buttons3 : '".$toolbar3."',
 			theme_advanced_resizing : true,
 			theme_advanced_resize_horizontal : false,
-			theme_advanced_resizing_use_cookie : true,
+			theme_advanced_resizing_use_cookie : false,
 			button_tile_map : true,
 			auto_reset_designmode : true,
 			dialog_type : 'modal',
-			object_resizing : false,
-			content_css : '".$WWW."admin/style_wysiwyg.css.php',
-			relative_urls : true,
-			document_base_url : '".$WWW."',
-			forced_root_block : 'p',
-			remove_trailing_nbsp : true,
 			cleanup_on_startup : true,
 			cleanup: true,
-			valid_elements : '+a[id|rel|name|href|target|title|class],-p[id|class|align|style],-strong/-b[class],-em/-i[class],-strike[class],-u[class],-ol[class],-ul[class],-li[class],br,img[id|class|src|border=0|alt=|title|hspace|vspace|width|height|align=left],-sub[class],-sup[class],-blockquote,-span[class],-pre[class|align],address[class|align],caption[id|class],-h1[id|class|align],-h2[id|class|align],-h3[id|class|align],-h4[id|class|align],-h5[id|class|align],-h6[id|class|align],hr[class],-font[size|id|class|color],dd[id|class|title|dir|lang],dl[id|class|title],dt[id|class|title],cite[title|id|class],abbr[title|id|class],acronym[title|id|class],del[title|id|class|datetime|cite],ins[title|id|class|dir|lang|datetime|cite]',
+			object_resizing : false,
+			relative_urls : false,
+			remove_script_host : false,
+			document_base_url : '".$WWW."',
+			".($this->ToolbarSet != 'BasicTab' ? "valid_elements : '+a[id|rel|name|href|target|title|class],-p[id|class|align|style],-strong/-b[class],-em/-i[class],-strike[class],-u[class],-ol[class],-ul[class],-li[class],br,img[id|class|src|border=0|alt=|title|hspace|vspace|width|height|align=left],-sub[class],-sup[class],-blockquote,-span[class],-pre[class|align],address[class|align],caption[id|class],-h1[id|class|align],-h2[id|class|align],-h3[id|class|align],-h4[id|class|align],-h5[id|class|align],-h6[id|class|align],hr[class],-font[size|id|class|color],dd[id|class|title|dir|lang],dl[id|class|title],dt[id|class|title],cite[title|id|class],abbr[title|id|class],acronym[title|id|class],del[title|id|class|datetime|cite],ins[title|id|class|dir|lang|datetime|cite]'," : '')."
 			".$config_supp."
 			debug : false
 		});
-		",false);
-	
-	
+		", false);
 		
 		/*
-		-table[border=0|cellspacing=0|cellpadding=4|width|height|class|align|id|bgcolor|background|bordercolor],-tr[id|class|rowspan|width|height|align|valign|bgcolor|background|bordercolor],#td[id|class|colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor],-th[id|class|colspan|rowspan|width|height|align|valign],-div[id|class|align],
-
-		external_image_list_url : "myexternallist.js"
-		
-		var tinyMCEImageList = new Array(
-			// Name, URL
-			["Logo 1", "logo.jpg"],
-			["Logo 2 Over", "logo_over.jpg"]
-		);
-		
-		content_css : "/mycontent.css",
-		verify_css_classes : true, //class names placed in class attributes will be verified agains the content CSS. So elements with a class attribute containing a class that doesn't exist in the CSS will be removed
-		elements : '' ,
-		auto_resize : true,
-		forced_root_block : 'p',
-		execcommand_callback : 'myCustomExecCommandHandler',
-		hide_selects_on_submit : true,
-		strict_loading_mode : false,
-		theme_advanced_buttons1_add_before : '',
-		theme_advanced_text_colors : 'FF00FF,FFFF00,000000',
-		theme_advanced_fonts : 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace',
-		theme_advanced_background_colors : 'FF00FF,FFFF00,000000',
-		theme_advanced_toolbar_location : "top",';
-		theme_advanced_statusbar_location : "bottom",';
-		
+			content_css : "/mycontent.css",
+			verify_css_classes : true, //class names placed in class attributes will be verified agains the content CSS. So elements with a class attribute containing a class that doesn't exist in the CSS will be removed
+			
+			auto_resize : true,
+			//editor_selector : '".$this->InstanceName."_class',
+			forced_root_block : 'p',
+			execcommand_callback : 'myCustomExecCommandHandler',
+			hide_selects_on_submit : true,
+			strict_loading_mode : false,
+			theme_advanced_buttons1_add_before : '',
+			theme_advanced_text_colors : 'FF00FF,FFFF00,000000',
+			theme_advanced_fonts : 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace',
+			theme_advanced_background_colors : 'FF00FF,FFFF00,000000',
+			theme_advanced_toolbar_location : "top",';
+			theme_advanced_statusbar_location : "bottom",';
+			-table[border=0|cellspacing=0|cellpadding=4|width|height|class|align|id|bgcolor|background|bordercolor],-tr[id|class|rowspan|width|height|align|valign|bgcolor|background|bordercolor],#td[id|class|colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor],-th[id|class|colspan|rowspan|width|height|align|valign],-div[id|class|align],
+	
+			external_image_list_url : "myexternallist.js"
+			var tinyMCEImageList = new Array(
+				// Name, URL
+				["Logo 1", "logo.jpg"],
+				["Logo 2 Over", "logo_over.jpg"]
+			);
+			
+			content_css : "/mycontent.css",
+			verify_css_classes : true, //class names placed in class attributes will be verified agains the content CSS. So elements with a class attribute containing a class that doesn't exist in the CSS will be removed
+			elements : '' ,
+			auto_resize : true,
+			forced_root_block : 'p',
+			execcommand_callback : 'myCustomExecCommandHandler',
+			hide_selects_on_submit : true,
+			strict_loading_mode : false,
+			theme_advanced_buttons1_add_before : '',
+			theme_advanced_text_colors : 'FF00FF,FFFF00,000000',
+			theme_advanced_fonts : 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace',
+			theme_advanced_background_colors : 'FF00FF,FFFF00,000000',
+			theme_advanced_toolbar_location : "top",';
+			theme_advanced_statusbar_location : "bottom",';
 		*/
 
+		$html = '<div><textarea name="'.$this->InstanceName.'" id="'.$this->InstanceName.'" cols="40" rows="'.round(intval($this->height) / 10).'" wrap="virtual">'.$HtmlValue.'</textarea></div>';
+		$javascript_E = js("tinyMCE.execCommand('mceAddControl', false, '".$this->InstanceName."');", false);
 		
-		/*$javascript_E = js("
-		tinyMCE.idCounter=".$idCounter.";
-		tinyMCE.execCommand('mceAddControl', false, '".$this->InstanceName."');
-		", false);*/
-
-		$idCounter++;
-
-		$rows = round(intval($this->height) / 10);
-		
-		//  style="width:'.$this->width.(strpos($this->width,'%')!==false?'':'px').';height:'.$this->height.(strpos($this->height,'%')!==false?'':'px').';"
-		$html = '<div>
-		<textarea name="'.$this->InstanceName.'" id="'.$this->InstanceName.'" class="'.$this->InstanceName.'_class" cols="40" rows="'.$rows.'" wrap="virtual">'.$HtmlValue.'</textarea>
-		</div>';
-
 		$js_html = $js_file.$javascript.chr(13).chr(10).$html.chr(13).chr(10).$javascript_E;
-		
-		return $js_html;
 
+		//die(db(htmlentities($js_html)));
+		return $js_html;
 	}
 }
 

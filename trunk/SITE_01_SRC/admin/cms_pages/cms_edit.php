@@ -147,52 +147,7 @@ ul#element_list li, ul#form_list li {
 
 </style>
 <script language="javascript" type="text/javascript" src="../lib/tinymce/tiny_mce.js"></script>
-<script type="text/javascript">
-// <![CDATA[
-/*tinyMCE.init({
-	mode : 'textareas',
-	//editor_selector : 'intro_class',
-	width : '<?=$frontPageWidth-50;?>px',
-	height : '320px',
-	language : 'fr',
-	plugins : 'paste,preview,inlinepopups,contextmenu,,nonbreaking,xhtmlxtras',
-	theme : 'advanced',
-	theme_advanced_buttons1 : 'preview,|,cut,copy,paste,pastetext,pasteword,cleanup,removeformat,|,blockquote,cite,abbr,acronym,del,ins,|,sub,sup,|,charmap,nonbreaking',
-	theme_advanced_buttons2 : 'bold,italic,hr,|,formatselect,|,link,unlink,|,bullist,numlist,indent,outdent,justifyleft,justifycenter,justifyright,justifyfull,|,code',
-	theme_advanced_buttons3 : '',
-	theme_advanced_resizing : true,
-	theme_advanced_resizing_use_cookie : true,
-	button_tile_map : true,
-	auto_reset_designmode : true,
-	dialog_type : 'window', //modal
-	object_resizing : false,
-	content_css : '<?=$WWW;?>admin/style_wysiwyg.css.php',
-	relative_urls : true,
-	document_base_url : '<?=$WWW;?>',
-	forced_root_block : 'p',
-	remove_trailing_nbsp : true,
-	cleanup_on_startup : true,
-	cleanup: true,
-	valid_elements : '+a[id|rel|name|href|target|title|class],-p[id|class|align],-strong/-b[class],-em/-i[class],-strike[class],-u[class],-ol[class],-ul[class],-li[class],br,img[id|class|src|border=0|alt=|title|hspace|vspace|width|height|align=left],-sub[class],-sup[class],-blockquote,-span[class],-pre[class|align],address[class|align],caption[id|class],-h1[id|class|align],-h2[id|class|align],-h3[id|class|align],-h4[id|class|align],-h5[id|class|align],-h6[id|class|align],hr[class],-font[size|id|class|color],dd[id|class|title|dir|lang],dl[id|class|title],dt[id|class|title],cite[title|id|class],abbr[title|id|class],acronym[title|id|class],del[title|id|class|datetime|cite],ins[title|id|class|dir|lang|datetime|cite]',
-	
-		theme_advanced_styles : '',
-		theme_advanced_toolbar_location : 'top',
-		theme_advanced_statusbar_location : 'bottom',
-		theme_advanced_path : true,
-		theme_advanced_blockformats : 'p,h1,h2,h3,h4,h5',
-		plugin_preview_width : '<?=$frontPageWidth;?>',
-		plugin_preview_height : '600',
-		plugin_preview_pageurl : '<?=$WWW;?>admin/lib/tinymce/plugins/preview/example.html',
-		popups_css_add : '<?=$WWW;?>admin/style_admin.css.php',
-	
-	add_form_submit_trigger : false, // No auto-submit, submit by fonction
-	
-	debug : false
-});*/
-		
-// ]]>
-</script>
-	
+
 <table width="100%"  border="0" cellpadding="0" cellspacing="0" class="borCote">
 <tr>
 <td valign="top">
@@ -260,8 +215,7 @@ ul#element_list li, ul#form_list li {
 		
 	getMenuChild($arbo, $rubrique_id);
 	
-	?>
-	  <select onchange="window.location='index.php?mode=cms&id='+this.options[this.selectedIndex].value;" size="1" id="rubrique_id" name="rubrique_id">
+	?><select onchange="window.location='index.php?mode=cms&id='+this.options[this.selectedIndex].value;" size="1" id="rubrique_id" name="rubrique_id">
 	<option>Choisir une page -&gt;</option>
 	<?=$menu;?>
 	</select></td>

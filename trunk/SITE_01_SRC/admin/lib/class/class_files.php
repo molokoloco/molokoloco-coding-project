@@ -373,10 +373,18 @@ class FILE {
 			return;
 		}
 
-		if (empty($this->title) && !$this->noTitle) $this->title = 'Afficher &quot;'.$this->cname.'&quot; ('.$this->width.'x'.$this->height.' pixels, '.$this->size.')';
-		if (empty($this->texte)) $this->texte = $this->image(FALSE); // Get Image first
-		elseif ($this->texte == 'no') $this->texte = $this->cname;
+		if (empty($this->title) && !$this->noTitle) $this->title = 'Afficher &quot;'.$this->cname.'&quot;';// ('.$this->width.'x'.$this->height.' pixels, '.$this->size.')';
 		
+		if (!empty($this->rel)) { // PuT rel attribut on the image without put it on the link
+			$this->attributes['rel'] = $this->rel;
+			if ($this->texte == 'no') $this->texte = $this->cname;
+			else if (empty($this->texte)) $this->texte = $this->image(FALSE); // Get Image
+			$this->attributes = array(); // !
+		}
+		else {
+			if ($this->texte == 'no') $this->texte = $this->cname;
+			else if (empty($this->texte)) $this->texte = $this->image(FALSE); // Get Image
+		}
 		// Get LINK
 		$this->lien = $this->_pathzoom;
 		$this->id .= '_link';
@@ -386,13 +394,13 @@ class FILE {
 
 		//$this->onClick = "javascript:myLightWindow.activateWindow({href: '".$this->_pathzoom."', title: 'Waiting', author: 'Jazzmatt', caption: 'Mmmmmm', left: 300});return false;";
 		//$this->onClick = 'popImg(\''.$pathzoom.'\',\'Zoom\'); return false;';
-		if (!isset($this->attributes)) { // Do not forget to include "220_lightbox.js" :)
+		if (empty($this->attributes)) { // Do not forget to include "220_lightbox.js" :)
 			// FULL : $this->attributes = array('class'=>'lightwindow', 'onfocus'=>'blur();', 'title'=>'Tata', 'author'=>'Toto', 'caption'=>'Tutu');
 			// params="lightwindow_width=640,lightwindow_height=288"
 			//$this->attributes = array('class'=>'lightwindow', 'onfocus'=>'blur();', 'title'=>'Tata', 'author'=>'Toto', 'caption'=>'Tutu');
 			$this->attributes = array('class'=>'lightwindow', 'onfocus'=>'blur();', 'title'=>$this->title); 
 		}
-		if (!empty($this->galRel)) $this->attributes['rel'] = $this->galRel.'['.$this->catRel.']';
+		if (!empty($this->galRel)) $this->attributes['rel'] = $this->galRel.'['.$this->catRel.']';  // PuT rel attribut on the link without put it on the image
 
 		$this->_html = $this->lien(FALSE);
 		return $this->_printHtml($echo);
