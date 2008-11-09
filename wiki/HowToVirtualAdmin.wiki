@@ -1,19 +1,12 @@
 #summary How to use Virtual Admin ?
 #labels Featured
 
-= INSTAL ADMIN AND THE FIRST MODULE =
+= INSTAL ADMIN =
 
 	# Create a new DB in [http://www.easyphp.org/index.php phpMyAdmin]
 	# Edit the file `./admin/lib/racine.php` : `$dbase` , `$dbhost`, `$dblogin` (Ligne 75)
 	# With [http://www.easyphp.org/index.php phpMyAdmin] , import default SQL data `./admin/lib/_SETUP_ADMIN_CMS.SQL` in this base
 	# Open Admin in your browser `http://127.0.0.1/www.site.com/admin/`
-	# For each new module (ex : `./mod_clients/`)  drop it in `./admin/` folder
-	# Edit `./admin/lib/racine.php` : `$adminMenuAdmin` (Ligne 208) , your module appear in the admin menu
-	# Edit the data file for custom fields in `./mod_clients/data.php`
-	# When ready, decomment the last row in `data.php`
-	# Open the module in your browser `http://127.0.0.1/www.site.com/admin/mod_clients/`, the table is created
-	# Comment the last row in `data.php`
-	# Admin your clients ;)
 
 = CONFIGURING ADMIN =
 
@@ -22,8 +15,8 @@
 All the pages in the admin are build with only three class, three types of view.
 The three class are based on the data description of a module
 
-	* `admin\lib\class\class_admin_liste.php` : print a view of all elements in a module, list of clients for exemple
-	* `admin\lib\class\class_admin_fiche.php` : print a editing view of an elements in a module, sheet of the clients for exemple
+	* `admin\lib\class\class_admin_liste.php` : Print a view of all elements in a module, list of clients for exemple
+	* `admin\lib\class\class_admin_fiche.php` : Print a editing view of an elements in a module, sheet of the clients for exemple
 	* `admin\lib\class\class_admin_bdd.php` : Manage action doable to an elements in a module : Add, update, Delete
 
 This three class are surrounded by an overall header and footer
@@ -38,6 +31,169 @@ This three class are surrounded by an overall header and footer
 	# *Configuring some admin generals parameters :*
 
 	* Going to `http://127.0.0.1/www.site.com/admin/admin_parametres/` : Edit the look and feel, logo, theme, etc...
+
+= INSTAL THE FIRST MODULE =
+
+	# For each new module (ex : `./mod_clients/`)  drop it in `./admin/` folder
+	# Edit `./admin/lib/racine.php` : `$adminMenuAdmin` (Ligne 208) , your module appear in the admin menu
+	# Edit the data file for custom fields in `./mod_clients/data.php`
+	# When ready, decomment the last row in `data.php`
+	# Open the module in your browser `http://127.0.0.1/www.site.com/admin/mod_clients/`, the table is created
+	# Comment the last row in `data.php`
+	# Admin your clients ;)
+
+= DEBUGGING =
+
+	# Global var `$debug = 1;` allow you to print requete
+	# Use en re-use the `db()` fonction, see in your browser what's going on : `db($_SESSION[SITE_CONFIG]['WWW']);`
+
+= FONCTIONS LIST =
+
+{{{
+$user_fonctions = Array (
+	[0] => isclient
+	[1] => islocal
+	[2] => db
+	[3] => d
+	[4] => getdb
+	[5] => jsdb
+	[6] => getvars
+	[7] => dbb
+	[8] => myinfo
+	[9] => my_var_dump
+	[10] => _generateid
+	[11] => _my_var_dump_aux
+	[12] => _unset_all_var_dump
+	[13] => vd
+	[14] => vdd
+	[15] => cmd
+	[16] => navdetect
+	[17] => getnav
+	[18] => getmycookie
+	[19] => setmycookie
+	[20] => delmycookie
+	[21] => delallmycookie
+	[22] => setisoheader
+	[23] => setutf8header
+	[24] => gpc
+	[25] => js
+	[26] => goto
+	[27] => nocache
+	[28] => setcache
+	[29] => alert
+	[30] => getatt
+	[31] => gettag
+	[32] => getcss
+	[33] => form
+	[34] => forme
+	[35] => getformrow
+	[36] => thisurl
+	[37] => thisredir
+	[38] => thispage
+	[39] => checkref
+	[40] => checkaction
+	[41] => getip
+	[42] => checkip
+	[43] => stockip
+	[44] => genpass
+	[45] => generateid
+	[46] => nextid
+	[47] => fetchvalue
+	[48] => fetchvalues
+	[49] => fetchalerte
+	[50] => mailto
+	[51] => scale
+	[52] => reduceimginhtml
+	[53] => maskimginhtml
+	[54] => genxcode
+	[55] => makepage
+	[56] => searchdb
+	[57] => initsearch
+	[58] => check_time
+	[59] => getjsswfflv
+	[60] => sanitize
+	[61] => clean
+	[62] => cleanwysiwyg
+	[63] => cleanajax
+	[64] => cleanname
+	[65] => striptags
+	[66] => aff
+	[67] => affveryclean
+	[68] => affcleanname
+	[69] => quote
+	[70] => squote
+	[71] => html
+	[72] => html_array
+	[73] => htmlbuttags
+	[74] => cleanxml
+	[75] => affxml
+	[76] => cleanrss
+	[77] => makename
+	[78] => cleantag
+	[79] => detectencoding
+	[80] => make_iso
+	[81] => make_utf
+	[82] => makeencoding
+	[83] => stringtoregex
+	[84] => inarrayregex
+	[85] => issetarray
+	[86] => strhighlight
+	[87] => unhtmlentities
+	[88] => bornes
+	[89] => pad
+	[90] => cleanko
+	[91] => makeclickable
+	[92] => html2rgb
+	[93] => rgb2html
+	[94] => ccs
+	[95] => cs
+	[96] => wrap
+	[97] => t
+	[98] => s
+	[99] => checkmail
+	[100] => rdate
+	[101] => sqldatetorss
+	[102] => datetoarray
+	[103] => printdate
+	[104] => getdatetime
+	[105] => printdatetime
+	[106] => relativedate
+	[107] => urlrewrite
+	[108] => makexml
+	[109] => parsearrtorss
+	[110] => getrssimage
+	[111] => cleanjson
+	[112] => getscriptbiarray
+	[113] => urltojson
+	[114] => getext
+	[115] => getfileextension
+	[116] => getfiletype
+	[117] => getmime
+	[118] => fixendpath
+	[119] => getfilecontent
+	[120] => getfile
+	[121] => telecharger
+	[122] => createfile
+	[123] => writefile
+	[124] => createrep
+	[125] => copyfile
+	[126] => copydirr
+	[127] => rmdirr
+	[128] => checkuploaderror
+	[129] => xmltoarray
+	[130] => getchildren
+	[131] => q
+	[132] => getelementstype
+	[133] => parseabstractstring
+	[134] => getpages
+	[135] => getinputtr
+	[136] => cleanserial
+	[137] => cleanunserial
+	[138] => error_hndl
+	[139] => getcmshtml
+	[140] => htmlwrap
+);
+}}}
 
 
 
