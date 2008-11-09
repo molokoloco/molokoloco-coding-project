@@ -12,25 +12,25 @@
 
 	# *Understanding admin squeleton :*
 
-All the pages in the admin are build with only three class, three types of view.
-The three class are based on the data description of a module
+		All the pages in the admin are build with only three class, three types of view.
+		The three class are based on the data description of a module
 
-	* `admin\lib\class\class_admin_liste.php` : Print a view of all elements in a module, list of clients for exemple
-	* `admin\lib\class\class_admin_fiche.php` : Print a editing view of an elements in a module, sheet of the clients for exemple
-	* `admin\lib\class\class_admin_bdd.php` : Manage action doable to an elements in a module : Add, update, Delete
+		* `admin\lib\class\class_admin_liste.php` : Print a view of all elements in a module, list of clients for exemple
+		* `admin\lib\class\class_admin_fiche.php` : Print a editing view of an elements in a module, sheet of the clients for exemple
+		* `admin\lib\class\class_admin_bdd.php` : Manage action doable to an elements in a module : Add, update, Delete
 
-This three class are surrounded by an overall header and footer
-	* `admin\menu\menu.php` : General header, also build the admin menu
-	* `admin\menu\menu_bas.php` : General footer
+		This three class are surrounded by an overall header and footer
+		* `admin\menu\menu.php` : General header, also build the admin menu
+		* `admin\menu\menu_bas.php` : General footer
 
 	# *Editing the admin configuration file :*
 
-	* `./admin/lib/racine.php` : READ AND EDIT WITH ATTENTION !
-	* Remember to emphy the session parameters configuration by decommenting the 74' row : `### $_SESSION[SITE_CONFIG]['WWW'] = NULL;`, before reloading in your browser
+		* `./admin/lib/racine.php` : READ AND EDIT WITH ATTENTION !
+		* Remember to emphy the session parameters configuration by decommenting the 74' row : `### $_SESSION[SITE_CONFIG]['WWW'] = NULL;`, before reloading in your browser
 
 	# *Configuring some admin generals parameters :*
 
-	* Going to `http://127.0.0.1/www.site.com/admin/admin_parametres/` : Edit the look and feel, logo, theme, etc...
+		* Going to `http://127.0.0.1/www.site.com/admin/admin_parametres/` : Edit the look and feel, logo, theme, etc...
 
 = INSTAL THE FIRST MODULE =
 
@@ -46,6 +46,71 @@ This three class are surrounded by an overall header and footer
 
 	# Global var `$debug = 1;` allow you to print requete
 	# Use en re-use the `db()` fonction, see in your browser what's going on : `db($_SESSION[SITE_CONFIG]['WWW']);`
+
+= WHAT'S A DATA ? =
+
+Look at the numerous exemples provided in `./admin/_MODS_backoffice_exemples/`
+
+{{{
+// ------------------ DATA TYPE ELEMENT "TABLE" ------------------------------------------------- //
+
+$R1 = array(
+	'table'=>				'alertes_email',			// Nom de la table SQL
+	'titre'=>				'Texte de e-mail',			// Titre a afficher
+	'titres'=>				'Textes des e-mails',			// Si titre au pluriel est particulier
+	'genre'=>				'e',									// '' (un) | 'e' (unE)
+	'relation'=>				$R1['table'].':id:titre:cat_id', 	// mode "Catégorie" : parent:2 (2 enfants) | tableCat:champValeur:champTitre:champRelation
+	'rubrelation'=>				'categories_offres:id:titre:parent_id', // mode "Rubrique"
+	'childRel'=>				'categories_offres:categories_offres_produits:produits:cat_id=id:prod_id=id:titre:titre', // mode "Rubrique" (  | 1)
+	'rubLevel'=>				'0:0',					// mode "Rubrique"
+	'prodLevel'=>				'0:0',					// mode "Rubrique"
+	'wherenot'=>				'cat_id < 1',				// Parametre supp. WHERE
+	'postbdd'=>				'create_xml.php', 			// Include apres UPDATE BDD
+	'preview'=>				$root.'index2.php?goto=actu_une', 	// To check... fonctionne avec "actif", ajoute "&id=33"
+	'ifr '=>				'add_file.php', 			// Iframe sur la page LISTE
+	'boutonFiche'=>				$boutonPrint, 				// Code html d'un bouton : Cf + haut
+	'boutonListe'=>				$boutonPrint,
+	'filtre'=>				array('statut'=>'1','type'=>'todo'),	// Filtre d'affichage > "todo" = aucune valeur par defaut
+	'ordre'=>				'titre DESC',				// Ordre d'affichae en mode LISTE
+	'miseenavant'=>				'sujet_liste',				// Colonne la plus large en mode LISTE
+	'fixe'=>				0,					// O (normal) | 1 (pas d'ajout) | 2 (pas de modif)
+	'tips '=>				'Une fois que l\'&quot;Actu&quot; est crée, il est possible d\'y attacher des médias', // TIPS sur la page FICHE
+	'rep'=>					$rep.'actus/',				// Repertoire ou seront stocker les fichiers et les images
+	'sizeimg'=>				array('mini'=>'120x100','medium'=>'240x190','tgrand'=>'520x520xXY') // rep => WIDTH x HEIGHT x RESIZE (ATTENTION optionnel : "tgrand" = valeur particuliere : stock l'image à la racine du rép),
+
+	array('table'=>'matable', 'titre'=>'Actualité'), // Minimum table configuration
+);
+
+// ------------------ DATA TYPE ELEMENT "CHAMPS" ------------------------------------------------- //
+
+$R1_data = array(
+	array(
+		'name'=>			'titre',				// Nom du champs sql, de l'input et, par défaut, titre affiché...
+		'titre'=>			'Intilu&eacute;', 			// Le nom du champ par défaut "name" peut être remplacé à l'affichage
+		'sqlType'=>			'varchar', 				// float | int | tinyint | varchar | text
+		'sqlDefaut'=>			1,					// '' (NULL) | 1 (par defaut a l'insertion) 
+		'nbChar'=>			255, 					// Nombre de caractères  : 1-255
+		'bilingue'=>			1, 					// Champs en plusieur langues : 0 | 1
+		'input'=>			'radio',				// text | textarea | radio | file | checkbox | radio | select | multiselect || '' (hidden en mode FICHE)
+		'valeur'=>			array('1','0'), 			// Valeurs des inputs -> radio/select...
+		'titrevaleur'=>			array('Oui','Non'), 			// Titre des inputs -> radio/select... : <option value="valeur">titrevaleur</option>
+		'wysiwyg'=>			2, 					// Texte avec WYSIWYG 1 2 3 4 5 (style+hauteur dans wisiwg) | longText (hauteur textarea)
+		'resize'=>			'XY',					// X, Y ou XY >> force le resize des images, vide par defaut, XY = crop, O = ombres sur PNG to jpg
+		'htmDefaut'=>			'',					// '' (normal) | date | datetime | img | fichier | dateMod(modificationMAJ) | couleur | video
+		'oblige'=>			1,					// Obligatoire (script vérification du formulaire)
+		'disable'=>			1,					// Edition impossible
+		'relation'=>			1, 					// 1 (Appartient a une cat) | produits_relation_rea:produits:cat_id=id:prod_id=id:nom-prenom#pid>0' (input multiselect avec htmlDefault)
+		'inc'=>				'genres:id:titre', 			// Relation vers une table : tableRel:ChampsVal:ChampsTitre | projet:id:titre:unique:cat_id="'.$cat_id.'"
+		'unique'=>			1,					// Si input "radio", cet enregistrement est le seul à pouvoir avoir cette valeur... (à la une)
+		'action'=>			'!=:1:==:1:<script>window.open(\'send_mail.php?id='.$id.'\',\'\',\'width=250,height=100\');</script>', // Want fun ?
+		'index'=>			1,					// Présence sur page LISTE : 0 | 1 
+		'tips'=>			'Liste des <a href="../mod_membres/index.php?mode=fiche&id=\'.$F->V[\'0\'][$this->data[$i][\'name\'].\'_\'.$langue].\'" target="_blank">Profils</a>',													// Infos HTML à afficher sous Le champ (tips cool be with php (eval)
+		'separateur'=>			'',					// A mettre dans une data pour séparer les infos suivantes sur la FICHE
+	),
+	array('name'=>'monchamps', 'sqlDefaut'=>'', 'sqlType'=>'varchar', 'nbChar'=>'100'), // Minimum field configuration
+);
+}}}
+
 
 = FONCTIONS LIST =
 
