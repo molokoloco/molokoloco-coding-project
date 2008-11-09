@@ -184,18 +184,21 @@ var client = { // Testé FF/IE
 	
 	frameResize: function(element) { // onload="client.frameResize(this);"
 		if (!isId(element)) {
-			db('Can\'t find iframe : '+element);
+			alert('Can\'t find iframe : '+element);
 			return false;
 		}
 		var currentfr = $(element);
 		var yScroll = 400; // par defaut si echec fonction
 		try {
-			if (currentfr.contentDocument && currentfr.contentDocument.body.scrollHeight) yScroll = currentfr.contentDocument.body.offsetHeight + 30;
-			else if (currentfr.contentDocument && currentfr.Document.body.scrollHeight) yScroll = currentfr.document.body.scrollHeight + 30;
-			else if(window.frames[element]) yScroll = window.frames[element].document.offsetHeight + 30;
+			if (currentfr.contentDocument && currentfr.contentDocument.body.scrollHeight)
+				yScroll = currentfr.contentDocument.body.offsetHeight + 30;
+			else if (currentfr.contentDocument && currentfr.document.body.scrollHeight)
+				yScroll = currentfr.document.body.scrollHeight + 30;
+			else if (window.frames[element])
+				yScroll = window.frames[element].document.offsetHeight + 30;
 			else yScroll = currentfr.offsetHeight + 30;
 		}
-		catch(e) {return;}
+		catch(e) {}
 		currentfr.height = yScroll+'px';
 		currentfr.style.display = 'block';
 	},
@@ -212,8 +215,8 @@ var client = { // Testé FF/IE
 		else Wwide = wide;
 		if (high > Whigh) top = (high-Whigh)/2;
 		else Whigh = high; // Max Size
-		window.moveTo(left,top);
-		window.resizeTo(Wwide,Whigh);
+		window.moveTo(left, top);
+		window.resizeTo(Wwide, Whigh);
 	}
 };
 
