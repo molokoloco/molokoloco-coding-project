@@ -47,32 +47,32 @@
 // ------------------ DATA TYPE ELEMENT "TABLE" ------------------------------------------------- //
 
 $R1 = array(
-	'table'=>					'alertes_email',							// Nom de la table SQL
+	'table'=>					'alertes_email',						// Nom de la table SQL
 	'titre'=>					'Texte de e-mail',						// Titre a afficher
 	'titres'=>					'Textes des e-mails',					// Si titre au pluriel est particulier
-	'genre'=>					'e',											// '' (un) | 'e' (unE)
-	'relation'=>				$R1['table'].':id:titre:cat_id', 	// mode "Catégorie" : parent:2 (2 enfants) | tableCat:champValeur:champTitre:champRelation
+	'genre'=>					'e',									// '' (un) | 'e' (unE)
+	'relation'=>				$R1['table'].':id:titre:cat_id', 		// mode "Catégorie" : parent:2 (2 enfants) | tableCat:champValeur:champTitre:champRelation
 	'rubrelation'=>				'categories_offres:id:titre:parent_id', // mode "Rubrique"
 	'childRel'=>				'categories_offres:categories_offres_produits:produits:cat_id=id:prod_id=id:titre:titre', // mode "Rubrique" (  | 1)
-	'rubLevel'=>				'0:0',										// mode "Rubrique"
-	'prodLevel'=>				'0:0',										// mode "Rubrique"
-	'wherenot'=>				'cat_id < 1',								// Parametre supp. WHERE
+	'rubLevel'=>				'0:0',									// mode "Rubrique"
+	'prodLevel'=>				'0:0',									// mode "Rubrique"
+	'wherenot'=>				'cat_id < 1',							// Parametre supp. WHERE
 	'postbdd'=>					'create_xml.php', 						// Include apres UPDATE BDD
-	'preview'=>					$root.'index2.php?goto=actu_une', 	// To check... fonctionne avec "actif", ajoute "&id=33"
-	'ifr '=>					'add_file.php', 							// Iframe sur la page LISTE
-	'boutonFiche'=>				$boutonPrint, 								// Code html d'un bouton : Cf + haut
+	'preview'=>					$root.'index2.php?goto=actu_une', 		// To check... fonctionne avec "actif", ajoute "&id=33"
+	'ifr '=>					'add_file.php', 						// Iframe sur la page LISTE
+	'boutonFiche'=>				$boutonPrint, 							// Code html d'un bouton : Cf + haut
 	'boutonListe'=>				$boutonPrint,
-	'filtre'=>					array('statut'=>'1','type'=>'todo'), // Filtre d'affichage > "todo" = aucune valeur par defaut
-	'ordre'=>					'titre DESC',								// Ordre d'affichae en mode LISTE
-	'miseenavant'=>				'sujet_liste',								// Colonne la plus large en mode LISTE
-	'fixe'=>					0,												// O (normal) | 1 (pas d'ajout) | 2 (pas de modif)
+	'filtre'=>					array('statut'=>'1','type'=>'todo'),	// Filtre d'affichage > "todo" = aucune valeur par defaut
+	'ordre'=>					'titre DESC',							// Ordre d'affichae en mode LISTE
+	'miseenavant'=>				'sujet_liste',							// Colonne la plus large en mode LISTE
+	'fixe'=>					0,										// O (normal) | 1 (pas d'ajout) | 2 (pas de modif)
 	'tips '=>					'Une fois que l\'&quot;Actu&quot; est crée, il est possible d\'y attacher des médias', // TIPS sur la page FICHE
-	'rep'=>						$rep.'actus/',								// Repertoire ou seront stocker les fichiers et les images
+	'rep'=>						$rep.'actus/',							// Repertoire ou seront stocker les fichiers et les images
 	'sizeimg'=>					array('mini'=>'120x100','medium'=>'240x190','tgrand'=>'520x520xXY') // rep => WIDTH x HEIGHT x RESIZE (ATTENTION optionnel : "tgrand" = valeur particuliere : stock l'image à la racine du rép)
 );
 
 // Bouton
-$boutonFiche = '<table  border="0" cellspacing="0" cellpadding="0"><tr><td width="1"><img src="../images/images/button_01.png" width="15" height="18" /></td><td nowrap="nowrap" background="../images/images/button_02.png"><a href="javascript:void(0);" onclick="window.open(\'commande_impression.php?id='.intval($_GET['id']).'\',\'\',\'width=500,height=580\');" class="menu">IMPRIMER</a></td><td width="1"><img src="../images/images/button_04.png" width="7" height="18" /></td></tr></table>';
+$boutonPrint = '<table  border="0" cellspacing="0" cellpadding="0"><tr><td width="1"><img src="../images/images/button_01.png" width="15" height="18" /></td><td nowrap="nowrap" background="../images/images/button_02.png"><a href="javascript:void(0);" onclick="window.open(\'commande_impression.php?id='.intval($_GET['id']).'\',\'\',\'width=500,height=580\');" class="menu">IMPRIMER</a></td><td width="1"><img src="../images/images/button_04.png" width="7" height="18" /></td></tr></table>';
 
 // Preview
 $mode = gpc('mode');
