@@ -48,22 +48,22 @@ function q($query) {
 }
 
 // Stock connexion between class instanciation
-$_cConnexion = 0;
-$_dbDataBase = 0;
+$connexion = 0;
+$dataBase = 0;
 
 class Q { // SQL query MANAGER ;)
 
-	public $_c = 0;
-	public $_db = 0;
+	public $c;
+	public $db;
 	public $query;
 	public $id;
 	public $affected;
-	public $V = array();
+	public $V;
 
 	function __construct($query='') {
 		global $debug;
 		$this->debug = $debug;
-		if (!$this->_c || !$this->_db) $this->c();
+		if (!$this->c || !$this->db) $this->c();
 		$this->query($query);
 	}
 		
@@ -74,28 +74,28 @@ class Q { // SQL query MANAGER ;)
 	
 	// EMPTY
 	private function clean() {
+		$this->query = '';
 		$this->id = 0;
 		$this->affected = 0;
 		$this->V = array();
-		$this->query = '';
 	}
 	
 	// CONNEXION
 	private function c() {
-		global $_cConnexion, $_dbDataBase;
-		if ($_cConnexion && $_dbDataBase) {
-			 $this->_c = $_cConnexion;
-			 $this->_db = $_dbDataBase;
+		global $connexion, $dataBase;
+		if ($connexion && $dataBase) {
+			 $this->c = $connexion;
+			 $this->db = $dataBase;
 		}
 		else {
 			global $dbhost, $dbase, $dblogin, $dbmotdepasse;
 			if (empty($dbhost) || empty($dbase) || empty($dblogin)) die(db('[Q()] Desole, il manque un parametre ['.$dbhost.', '.$dbase.', '.$dblogin.']'));
-			$this->_c = mysql_connect($dbhost, $dblogin, $dbmotdepasse) or die(db('[Q()] Desole, connexion impossible sur le host ['.$dbhost.']'));
-			$this->_db = mysql_select_db($dbase, $this->_c) or die(db('[Q()] Desole, connexion impossible a la base ['.$dbhost.' : '.$dbase.'] '.htmlspecialchars(mysql_error($this->_c))));
-			$_cConnexion = $this->_c;
-			$_dbDataBase = $this->_db;
+			$this->c = mysql_connect($dbhost, $dblogin, $dbmotdepasse) or die(db('[Q()] Desole, connexion impossible sur le host ['.$dbhost.']'));
+			$this->db = mysql_select_db($dbase, $this->c) or die(db('[Q()] Desole, connexion impossible a la base ['.$dbhost.' : '.$dbase.'] '.htmlspecialchars(mysql_error($this->c))));
+			$connexion = $this->c;
+			$dataBase = $this->db;
 		}
-		if (!is_resource($this->_c) || !$this->_db)  die(db('[Q()] Pb inconnu ['.$dbase.' : '.$dbhost.'] '.htmlspecialchars(mysql_error($this->_c))));
+		if (!is_resource($this->c) || !$this->db)  die(db('[Q()] Pb inconnu ['.$dbase.' : '.$dbhost.'] '.htmlspecialchars(mysql_error($this->c))));
 	}
 	
 	// OPEN SQL query MAKER
@@ -103,7 +103,7 @@ class Q { // SQL query MANAGER ;)
 		$this->clean();
 		if (empty($query)) return;
 		$this->query = trim($query);
-		$result = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
+		$result = mysql_query($this->query, $this->c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->c))));
 		if (is_resource($result) && preg_match('/^SELECT /', $this->query)) {
 			while ($arrRow = @mysql_fetch_array($result, MYSQL_ASSOC)) $this->V[] = $arrRow;
 		}
@@ -162,7 +162,7 @@ class Q { // SQL query MANAGER ;)
 		if (empty($tags[0])) $tags[0] = 'root';
 		if (empty($tags[1])) $tags[1] = 'row';
 		$xml = '<?xml version="1.0" encoding="UTF-8"?>'.chr(13).chr(10);
-		$result = mysql_query($this->query, $this->_c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->_c))));
+		$result = mysql_query($this->query, $this->c) or die(db($this, '[Q()] Erreur mySQL : '.htmlspecialchars(mysql_error($this->c))));
 		if (@mysql_num_rows($result) && @mysql_num_rows($result) > 0) {
 			$xml.= '<'.aff($tags[0]).'>'.chr(13).chr(10);
 			while ($res = @mysql_fetch_assoc($result)) {
@@ -257,7 +257,7 @@ class SQL {
 	// - - - - - - - - - - - - - - - - - - - GetTableList() - - - - - - - - - - - - - - - - - - - //
 	function GetTableList() {
 		$initConnexion =& new Q();
-        if ($this->result = mysql_list_tables($this->db,$initConnexion->_c)){
+        if ($this->result = mysql_list_tables($this->db,$initConnexion->c)){
             $i=0;
             while($i < mysql_num_rows($this->result)){
                 $tb_names[$i] = mysql_tablename($this->result,$i);
@@ -269,7 +269,7 @@ class SQL {
 	// - - - - - - - - - - - - - - - - - - - GetFieldList($tbl_name) - - - - - - - - - - - - - - - - - - - //
     function GetFieldList($tbl_name) {
 		$initConnexion =& new Q();
-        if ($this->result = mysql_list_fields($this->db,$tbl_name, $initConnexion->_c)){
+        if ($this->result = mysql_list_fields($this->db,$tbl_name, $initConnexion->c)){
             $i=0;
             while($i < mysql_num_fields($this->result)){
                 $fd_names[$i] = mysql_field_name($this->result,$i);
@@ -308,7 +308,7 @@ class SQL {
 		if ($drop == '1') { 
 			$req = "DROP TABLE {$this->table['table']} ";
 			if ($this->debug == '1') db($req);
-			mysql_query($req,$initConnexion->_c);
+			mysql_query($req,$initConnexion->c);
 		}
 		// Create
 		$create = "CREATE TABLE {$this->table['table']} (\n";
@@ -318,7 +318,7 @@ class SQL {
 		$create .= ") TYPE=MyISAM\n";
 		
 		if ($this->debug == '1') db($create);
-		$create = mysql_query($create,$initConnexion->_c) or die(mysql_error($initConnexion->_c));
+		$create = mysql_query($create,$initConnexion->c) or die(mysql_error($initConnexion->c));
 		
 		// Make Directory
 		if (!empty($this->table['rep']) && $this->table['rep'] != '') {
@@ -356,7 +356,7 @@ class SQL {
 						if (!empty($data[$i]['sqlDefaut'])) { $createRow .= " NOT NULL default '".$data[$i]['sqlDefaut']."' "; }
 						else { $createRow .= " default NULL "; }
 						if ($this->debug == '1') db("ALTER TABLE ".$this->table['table']." ADD $createRow AFTER $nameEx ;");
-						$alter = mysql_query("ALTER TABLE ".$this->table['table']." ADD $createRow AFTER $nameEx ;",$initConnexion->_c) or die(mysql_error($initConnexion->_c));
+						$alter = mysql_query("ALTER TABLE ".$this->table['table']." ADD $createRow AFTER $nameEx ;",$initConnexion->c) or die(mysql_error($initConnexion->c));
 						if ($alter) db('Add : '.$data[$i]['name']);
 						else db('GetDown :(');
 						$alter = NULL;
@@ -371,7 +371,7 @@ class SQL {
 					if (!empty($data[$i]['sqlDefaut'])) { $createRow .= " NOT NULL default '".$data[$i]['sqlDefaut']."' "; }
 					else { $createRow .= " default NULL "; }
 					if ($this->debug == '1') db("ALTER TABLE ".$this->table['table']." ADD $createRow AFTER $nameEx ;");
-					$alter = mysql_query("ALTER TABLE ".$this->table['table']." ADD $createRow AFTER $nameEx ;",$initConnexion->_c) or die(mysql_error($initConnexion->_c));
+					$alter = mysql_query("ALTER TABLE ".$this->table['table']." ADD $createRow AFTER $nameEx ;",$initConnexion->c) or die(mysql_error($initConnexion->c));
 					if ($alter) db('Add : '.$data[$i]['name']);
 					else db('GetDown :(');
 					$alter = NULL;
@@ -395,7 +395,7 @@ class SQL {
 		$r = $i = 0;
 		if ($champs[0] == '*') { // Get All champs
 			$champs = NULL;
-			$req = mysql_query("SELECT * FROM {$this->table['table']} LIMIT 1",$initConnexion->_c) or die(mysql_error($initConnexion->_c));
+			$req = mysql_query("SELECT * FROM {$this->table['table']} LIMIT 1",$initConnexion->c) or die(mysql_error($initConnexion->c));
 			$nbchamps = mysql_num_fields($req);
 			while($i<$nbchamps)  {
 				$champs[] = mysql_field_name($req,$i); 
@@ -409,7 +409,7 @@ class SQL {
 		if ($where != '') { $where = ' WHERE '.$where.' '; }
 		$i = 0;
 		if ($this->debug == '1') { db("SELECT $selectOpt $champ FROM {$this->table['table']} $where "); }
-		$req = mysql_query("SELECT $selectOpt $champ FROM {$this->table['table']} $where ", $initConnexion->_c) or die(mysql_error($initConnexion->_c));
+		$req = mysql_query("SELECT $selectOpt $champ FROM {$this->table['table']} $where ", $initConnexion->c) or die(mysql_error($initConnexion->c));
 		if (mysql_num_rows($req) == 0) { $this->nb = 0; }
 		else {
 			$this->nb = mysql_num_rows($req);
@@ -427,7 +427,7 @@ class SQL {
 	function customSql($requete) { 
 		$initConnexion =& new Q();
 		if ($this->debug == '1') db($requete);
-		$req = mysql_query(" $requete ",$initConnexion->_c) or die(mysql_error($initConnexion->_c));
+		$req = mysql_query(" $requete ",$initConnexion->c) or die(mysql_error($initConnexion->c));
 		if (!@mysql_num_rows($req) || mysql_num_rows($req) == 0) { // mySQL ne renvois pas de resultats...
 			$this->nb = 0;
 		}
@@ -448,7 +448,7 @@ class SQL {
 		if ($notAll == 0) {
 			if (is_array($champs)) $champ = implode("','",$champs);
 			if ($this->debug == '1')  echo ("INSERT INTO {$this->table['table']} VALUES ('','$champ')");
-			$req = mysql_query("INSERT INTO {$this->table['table']} VALUES ('','$champ')", $initConnexion->_c) or die(mysql_error($initConnexion->_c));
+			$req = mysql_query("INSERT INTO {$this->table['table']} VALUES ('','$champ')", $initConnexion->c) or die(mysql_error($initConnexion->c));
 		}
 		else { 
 			if (!is_array($champs)) return false;
@@ -467,7 +467,7 @@ class SQL {
 			}
 			$champValString = implode("','",$champVal);
 			if ($this->debug == '1') db("INSERT INTO {$this->table['table']} VALUES ('$champValString') ");
-			$req = mysql_query("INSERT INTO {$this->table['table']} VALUES ('$champValString') ", $initConnexion->_c) or die(mysql_error($initConnexion->_c));
+			$req = mysql_query("INSERT INTO {$this->table['table']} VALUES ('$champValString') ", $initConnexion->c) or die(mysql_error($initConnexion->c));
 		}
 		$this->id = mysql_insert_id();
 	}
@@ -482,7 +482,7 @@ class SQL {
 			$champ = substr($champ,0,-1);
 			if ($where != '') { $where = " WHERE $where "; }
 			if ($this->debug == '1') db(" UPDATE {$this->table['table']} SET $champ $where ");
-			$req = mysql_query("UPDATE {$this->table['table']} SET $champ $where ", $initConnexion->_c) or die(mysql_error($initConnexion->_c));			
+			$req = mysql_query("UPDATE {$this->table['table']} SET $champ $where ", $initConnexion->c) or die(mysql_error($initConnexion->c));			
 		}
 	}
 	// - - - - - - - - - - - - - - - - - - - DELETE - - - - - - - - - - - - - - - - - - - //
@@ -490,7 +490,7 @@ class SQL {
 		$initConnexion =& new Q();
 		if ($where == '') return NULL;
 		if ($this->debug == '1') db("DELETE FROM {$this->table['table']} WHERE $where ");
-		else mysql_query("DELETE FROM {$this->table['table']} WHERE $where ",$initConnexion->_c) or die(mysql_error($initConnexion->_c));
+		else mysql_query("DELETE FROM {$this->table['table']} WHERE $where ", $initConnexion->c) or die(mysql_error($initConnexion->c));
 	}
 }
 ?>

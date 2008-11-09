@@ -224,7 +224,7 @@ function getInputTr($i, $element_item, &$array_valeurs, $multiple='') {
 			else $valeur = !empty($array_valeurs[$element_item['nom']][$multiple]) ? $array_valeurs[$element_item['nom']][$multiple] : $element_item['defaut'];
 			
 			global $TinyMceEditorDone;
-			$TinyMceEditorDone = 1; // Don't init JS in class TINYMCE, already done in cms_edit.php...
+			$TinyMceEditorDone = 1; // Don't init JS in class TINYMCE, already done in cms_edit.php..., can't load JS src file by ajax
 
 			$Ed = 'Ed'.$i;
 			$$Ed = new TinyMce($element_item['nom'].$name_suff);
@@ -235,9 +235,9 @@ function getInputTr($i, $element_item, &$array_valeurs, $multiple='') {
 			$$Ed->Value = str_replace('&quot;','"',aff($valeur));
 
 			$input = $$Ed->Create();
-
+			
 			$jsVerif .= '';
-			$jsSubmitAdd .= 'tinyMCE.triggerSave();';
+			$jsSubmitAdd .= 'tinyMCE.triggerSave();'; // Makes a cleanup and moves the contents from the editor to the form field
 			//$jsAdd .= '';
 		break;
 		
