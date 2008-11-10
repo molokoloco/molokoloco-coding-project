@@ -18,16 +18,14 @@ while (!feof ($page)) $contenu_html .= trim(fgets($page, 4096));
 preg_match("/$debut(.*)$fin/s", $contenu_html, $valeur);
 echo 'Le nombre de pages Web recensées par Google est de '.$valeur[1].'.';
 
-
-str_replace('_',' ',preg_replace("|[_0-9]{13}|",'','mails-_050802171336.txt'))
 ________________________________________________________________________
 
-//EXTRACT IMAGE
+// EXTRACT IMAGE
 $pattern_img_src = '!.*<img.+src=("|\')([^\1]+)\1.*!Ui'; // '!<([biu])>(.)*<\1>!Ui'
 preg_match($pattern_img_src,$desc,$links);
 if (!$links[2]) continue;
 
-//EXTRACT URL
+// EXTRACT URL
 function _striplinks($document) { 
         preg_match_all("'<\s*a\s+.*href\s*=\s*           # find <a href=
                         ([\"\'])?                        # find single or double quote
@@ -46,9 +44,23 @@ function _striplinks($document) {
 
 
 /*
-/src=("[^"]*")/
-.*?src=['|"](.+?)['|"].*? >>>>>>>>>>>>>> http://pipes.yahoo.com/pipes/pipe.edit?_id=534532be1eb17e0fd039d5b6a6b4ebe4
+http://regexlib.com/Search.aspx?k=image
+
+/pipe.edit?_id=534532be1eb17e0fd039d5b6a6b4ebe4
 <img.*?src=['|"](.+?)['|"].*?>
+
+src=\"([^\"]*)\"[^>]*
+(.*)?src=['|"](.+?)['|"](.*)?
+
+/src=("[^"]*")/
+
+.*?src=['|"](.+?)['|"].*? >>>>>>>>>>>>>> http://pipes.yahoo.com/pipes
+.*?(src=['|"](.+?)['|"]).*?
+
+^(http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?(?:[a-zA-Z0-9_])+\.(?:jpg|jpeg|gif|png))$
+
+.*?(http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?(?:[a-zA-Z0-9_])+\.(?:jpg|jpeg|gif|png)).*?
+
 */
 
 preg_match_all('/<img[^>]+>/i',$html, $result);
@@ -65,6 +77,8 @@ http://fr.php.net/manual/fr/reference.pcre.pattern.syntax.php
 get HTTP form string...
 preg_match_all("/http[^'|\"]*/i", $T->V[$i]['post_text'], $cleanHttp);
 
+str_replace('_',' ',preg_replace("|[_0-9]{13}|",'','mails-_050802171336.txt'))
+
 regex URL
 /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
 /<\/?[^>]*>/ >>>> strip tags
@@ -72,7 +86,7 @@ regex URL
 // Pattern Modifiers... /patern/i
 # sont les délimiteurs de l'expression régulière. On voit déjà que j'ai spécifié deux options : i (insensible à la casse) et s (le caractère . peut aussi récupérer des retours à la ligne)
 
-Caseless (i)   If this modifier is set, letters in the pattern match both upper and lower case letters.
+Caseless (i)  If this modifier is set, letters in the pattern match both upper and lower case letters.
 Multiline mode (m)
 Dot all (s)
 Extended (x)
