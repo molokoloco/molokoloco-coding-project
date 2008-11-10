@@ -46,20 +46,22 @@ function _striplinks($document) {
 /*
 http://regexlib.com/Search.aspx?k=image
 
-/pipe.edit?_id=534532be1eb17e0fd039d5b6a6b4ebe4
-<img.*?src=['|"](.+?)['|"].*?>
+### Extract image source from RSS feed for Yahoo pipe.... PERL like syntax
 
+<img.*?src=['|"](.+?)['|"].*?>
 src=\"([^\"]*)\"[^>]*
 (.*)?src=['|"](.+?)['|"](.*)?
-
 /src=("[^"]*")/
-
 .*?src=['|"](.+?)['|"].*? >>>>>>>>>>>>>> http://pipes.yahoo.com/pipes
-.*?(src=['|"](.+?)['|"]).*?
-
+.*?(src=['|"](.+?)['|"]).*?>> with $2
+.*?src=['|"](.+?)['|"].*? >>> with $1
+.+src=("|\')([^\1]+)\1.*
 ^(http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?(?:[a-zA-Z0-9_])+\.(?:jpg|jpeg|gif|png))$
-
 .*?(http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?(?:[a-zA-Z0-9_])+\.(?:jpg|jpeg|gif|png)).*?
+
+## OK :) ###
+
+.+src=['|"](.+?)['|"].+
 
 */
 
