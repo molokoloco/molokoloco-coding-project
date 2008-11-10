@@ -2,7 +2,7 @@
 #labels Phase-Support
 
 
-= Details =
+= Tooltips Regex =
 
 http://regex.larsolavtorvik.com/ (ONLINE)
 
@@ -254,7 +254,9 @@ Expression Signification
 [:digit:]      Only the digits 0 to 9
 [:xdigit:] Chiffres hexadécimaux
 ________________________________________________________________________
+
 FIND ALL EMAIL IN A FILE
+
 $contenu = join('',file($fichier_csv));
 preg_match_all("/([\w\._-]+\@([\w_-]+\.)+[\w_-]+)/", $contenu, $cleanMail);
 //preg_match_all("/(\"(.*?)\"\s+)?<?([\w\._-]+\@([\w_-]+\.)+[\w_-]+)>?/", $contenu, $cleanMail);
@@ -268,6 +270,7 @@ for ($i=0 ; $i<count($cleanMail[0]); $i++) {
         }
 }
 _________________________________________________________
+
 RECHERCHE MOT CLE DANS UN FICHIER
 <pre>
 <?php
