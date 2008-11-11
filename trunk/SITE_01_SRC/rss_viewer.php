@@ -1,6 +1,6 @@
 <?
 require('admin/lib/racine.php');
-require('admin/lib/feeds/simplepie.php');
+require('admin/lib/class/class_simplepie/simplepie.inc');
 
 $feed = (isset($_GET['feed']) ? clean(urldecode($_GET['feed'])) : 'http://picasaweb.google.fr/data/feed/base/user/molokoloco?kind=album&alt=rss&hl=fr&access=public');
 $max = (isset($_GET['max']) ? intval($_GET['max']) : 7);
