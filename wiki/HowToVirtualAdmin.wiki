@@ -10,7 +10,7 @@
 
 = CONFIGURING ADMIN =
 
-	# *Understanding admin squeleton :*
+ # *Understanding admin squeleton :*
 
 		All the pages in the admin are build with only three class, three types of view.
 		The three class are based on the data description of a module
@@ -23,12 +23,12 @@
 		* `admin\menu\menu.php` : General header, also build the admin menu
 		* `admin\menu\menu_bas.php` : General footer
 
-	# *Editing the admin configuration file :*
+ # *Editing the admin configuration file :*
 
 		* `./admin/lib/racine.php` : READ AND EDIT WITH ATTENTION !
 		* Remember to emphy the session parameters configuration by decommenting the 74' row : `### $_SESSION[SITE_CONFIG]['WWW'] = NULL;`, before reloading in your browser
 
-	# *Configuring some admin generals parameters :*
+ # *Configuring some admin generals parameters :*
 
 		* Going to `http://127.0.0.1/www.site.com/admin/admin_parametres/` : Edit the look and feel, logo, theme, etc...
 
@@ -581,6 +581,7 @@ $user_fonctions = Array (
 	[140] => htmlwrap
 );
 }}}
+
 
 
 
