@@ -45,7 +45,7 @@
 = DEBUGGING =
 
 	# Global var `$debug = 1;` allow you to print requete
-	# Use en re-use the `db()` fonction, see in your browser what's going on : `db($_SESSION[SITE_CONFIG]['WWW']);`
+	# Use en re-use the `db()` fonction, see in your browser what's going on : `db($_SESSION[SITE_CONFIG]);`
 
 = WHAT'S A DATA ? =
 
