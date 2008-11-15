@@ -52,3 +52,44 @@ header('Content-Type: text/xml; charset=iso-8859-1');
 echo $feed;
 
 }}}
+
+= fonctions_parse.php =
+
+{{{
+
+//...
+
+function parseArrToRss($rssChannel, $rssPath='', $encoding='iso-8859-1', $version='2.0') {
+	
+	if (!is_array($rssChannel)) return FALSE;
+	
+	$rss = '<?xml version="1.0" encoding="'.$encoding.'"?>'.chr(13).chr(10);
+	$rss .= '<rss version="'.$version.'">'.chr(13).chr(10);
+	$rss .= t(1).'<channel>'.chr(13).chr(10);
+	
+	foreach($rssChannel as $key=>$value) {
+		if ($key == 'items') continue;
+		$rss .= t(2).'<'.$key.'>'.cleanRss($value, 1, true).'</'.$key.'>'.chr(13).chr(10);
+	}
+	
+	foreach($rssChannel['items'] as $rssItem) { 
+		$rss .= t(2).'<item>'.chr(13).chr(10);
+		foreach($rssItem as $key=>$value) {
+			list($keyEnd) = explode(' ', $key);
+			if (!is_array($value)) $rss .= t(3).'<'.$key.'>'.cleanRss($value,1).'</'.$keyEnd.'>'.chr(13).chr(10);
+			else {
+				$rss .= t(3).'<'.$key.'>'.chr(13).chr(10);
+				foreach($value as $k=>$val)  $rss .= t(4).'<'.$k.'>'.cleanRss($val,1).'</'.$k.'>'.chr(13).chr(10);
+				$rss .= t(3).'</'.$keyEnd.'>'.chr(13).chr(10);
+			}
+		}
+		$rss.= t(2).'</item>'.chr(13).chr(10);
+	}
+	$rss .= t(1).'</channel>'.chr(13).chr(10);
+	$rss .= '</rss>'.chr(13).chr(10);
+	if ($rssPath) return writeFile($rssPath, $rss);
+	else return $rss;
+}
+
+//...
+}}}
