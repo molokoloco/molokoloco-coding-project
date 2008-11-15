@@ -1,11 +1,6 @@
 #summary Exemple de création de flux RSS, à partir de mySQL
 #labels Featured
 
-= Introduction =
-
-Add your content here.
-
-
 = rss.php =
 
 {{{
