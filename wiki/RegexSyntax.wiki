@@ -1,4 +1,4 @@
-#summary Tooltip for regex pattern
+#summary Personal tooltip for regex pattern...
 #labels Phase-Support
 
 
