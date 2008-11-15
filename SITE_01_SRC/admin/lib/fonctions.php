@@ -114,7 +114,7 @@ function goto($url,$head=NULL) { // header redir <-> body redir
 			case '403' : header("HTTP/1.1 403 Forbidden"); break;
 			case '404' : header("HTTP/1.0 404 Not Found"); break;
 			case '405' : header("HTTP/1.1 405 Method Not Allowed"); break;
-			case '500' : header("HTTP/1.1 500 Internal Server Error"); break;
+			case '500' : headparseArrToRsser("HTTP/1.1 500 Internal Server Error"); break;
 			default : header("HTTP/1.1 100 Continue"); break; // let's go ?
 		}
 		header("Location: $url");
@@ -154,7 +154,7 @@ function getAtt($name, $value) {
 }
 
 // TAGS TEMPLATES -------------------------//
-// Lazy coding ;) Genere les attributs par défaut pour chaque tag, overwritable
+// Lazy coding ;) Genere les attributs par dï¿½faut pour chaque tag, overwritable
 // echo getTag('img', array('src'=>'toto.jpg'));
 function getTag($tag, $options=array()) {
 	$tpl = '';
@@ -301,7 +301,7 @@ function checkAction($name,$max) {
 	if (!isset($_SESSION[$name])) { session_register($name); $_SESSION[$name] = 1; }
 	else $_SESSION[$name] = $_SESSION[$name] + 1;
 	if ($_SESSION[$name] > $max)
-		alert('Désolé vous ne pouvez pas essayer cette action plus de '.$max.' fois', 'index.php');
+		alert('Dï¿½solï¿½ vous ne pouvez pas essayer cette action plus de '.$max.' fois', 'index.php');
 }
 
 // GET IP -------------------------//
@@ -498,7 +498,7 @@ function mailto($from, $to, $subject, $titreBody='', $innerBody='', $sender='', 
 			$mailTxt .= '</div><br /><br />';
 			createFile($wwwRoot.'_mails.txt.htm', $mailTxt); //, 'append'
 			if (headers_sent()) js("myPop('".$WWW."_mails.txt.htm','', 600, 480);");
-			else echo '<h1 align="center" style="background:#FFF;color:#CCC;">'.getTag('a', array('href'=>$WWW.'_mails.txt.htm', 'target'=>'_blank', 'inner'=>'Voir le mail envoyé')).'</h1>';
+			else echo '<h1 align="center" style="background:#FFF;color:#CCC;">'.getTag('a', array('href'=>$WWW.'_mails.txt.htm', 'target'=>'_blank', 'inner'=>'Voir le mail envoyï¿½')).'</h1>';
 
 		}
 		else {
@@ -629,12 +629,12 @@ function makePage($currentPage, $total, $offset, $getUrl, $classOn, $classOff, $
 	if (strpos($getUrl, '?') === FALSE) $getUrl .= '?';
 		
 	if ($currentPage > 1)
-		$startpageHtml = '<a href="'.$getUrl.'&amp;'.$getName.'=1" class="premier"><img src="images/common/picto_premier.gif" alt="Première page" class="rollover" /></a>
+		$startpageHtml = '<a href="'.$getUrl.'&amp;'.$getName.'=1" class="premier"><img src="images/common/picto_premier.gif" alt="Premiï¿½re page" class="rollover" /></a>
 		<a href="'.$getUrl.'&amp;'.$getName.'='.($currentPage-1).'"><img src="images/common/picto_precedent.gif" alt="Page pr&eacute;c&eacute;dante" class="rollover" /></a>'; // class="'.$classOff.'"
 
 	if ($currentPage < $nbpage)
 		$endpageHtml = '<a href="'.$getUrl.'&amp;'.$getName.'='.($currentPage+1).'"><img src="images/common/picto_suivant.gif" alt="Page suivante" class="rollover" /></a>
-		<a href="'.$getUrl.'&amp;'.$getName.'='.$nbpage.'"><img src="images/common/picto_derniere.gif" alt="Dernière page" class="rollover" /></a>';
+		<a href="'.$getUrl.'&amp;'.$getName.'='.$nbpage.'"><img src="images/common/picto_derniere.gif" alt="Derniï¿½re page" class="rollover" /></a>';
 
 	$pageHtml .= $startHtm;
 	
@@ -708,7 +708,7 @@ function searchDb($select, $fields, $max=200) {
 		###db($criteres);
 		foreach((array)$criteres as $field) {
 			if ($field[3] !== 0 && $field[3] !== '0' && empty($field[3])) continue;
-			$searchArray['keywords'][$field[1]] = $searchs = make_iso(aff($field[3])); // Base de donnée ISO, pages UTF8......
+			$searchArray['keywords'][$field[1]] = $searchs = make_iso(aff($field[3])); // Base de donnï¿½e ISO, pages UTF8......
 			$searchs = explode(' ', $searchs);
 			foreach($searchs as $i=>$search) {
 				if ($search !== 0 && $search !== '0' && empty($search)) continue;
