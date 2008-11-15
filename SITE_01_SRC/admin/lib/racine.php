@@ -13,7 +13,7 @@ define('SITE_REF', true); // Active referencement dans rubrique
 define('VAD_VERSION', 'v1.0 - 09/11/2008'); // Etes-vous a jour ? :)
 
 $site_en_production = 0; // If "1" : Hide all debug -> db() + php.ini
-$debug = 0; // Affiche toutes les requetes exécutées apres cette déclaration
+$debug = 0; // Affiche toutes les requetes exï¿½cutï¿½es apres cette dï¿½claration
 
 
 // ---------- DEBUG PHP.INI -------------------- //
@@ -78,10 +78,12 @@ if (empty($_SESSION[SITE_CONFIG]['WWW'])) {
 		$dbase = 'virtual';
 		$dbhost = 'localhost';
 		$dblogin = 'root';
-		$dbmotdepasse = '';
+		$dbmotdepasse = 'scor13';
 		$convert = NULL;// 'C:/localhost/ImageMagick/';
-		$wwwRoot = 'C:\\www\\_SVN_\\molokoloco-code-project\\SITE_01_SRC\\';
-		$WWW = 'http://127.0.0.1/_SVN_/molokoloco-code-project/SITE_01_SRC/';
+		//$wwwRoot = 'C:\\www\\_SVN_\\molokoloco-code-project\\SITE_01_SRC\\';
+		//$WWW = 'http://127.0.0.1/_SVN_/molokoloco-code-project/SITE_01_SRC/';
+		$wwwRoot = '/opt/lampp/htdocs/framework/sources/';
+		$WWW = 'http://127.0.0.1/framework/sources/';
 	}
 	else die('Config Serveur non connue !');
 	
@@ -171,7 +173,7 @@ if ($selfDirAdmin) {
 }
 
 
-// ---------- MODULE_ID spécifiques pour les pages CMS -------------------- //
+// ---------- MODULE_ID spï¿½cifiques pour les pages CMS -------------------- //
 if (SITE_CMS) {
 	require $libRootDir.'/class/class_arbo.php';
 	@include $wwwRoot.'admin/cms_pages/cms_fonctions.php';
