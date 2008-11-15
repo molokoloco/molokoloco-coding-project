@@ -1,0 +1,365 @@
+#summary Personnal notes for CSS
+
+= CSS =
+
+{{{
+
+body {
+    font-size : 62.5%;
+    marging : 1em; /* = 10px */
+}
+
+
+________________________________________________________________________
+IE BG PNG TRANSPARENCY
+/* HACK png transparent sur IE en background */
+
+background-image:url(../images/common/h_contenu2.png) !important;
+background-image:url(no-image);
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='images/common/h_contenu2.png');
+background-repeat:no-repeat;
+
+________________________________________________________________________
+a.warning {
+      cursor:url(.././themes/original/img/error.ico), default;
+}
+
+#q, .tc input[type=text] { width:540px; }
+
+<q><a href="http://www.wikipedia.org/wiki/Wiki"><span class="tool">Wikipedia!
+<span class="tip">Wikipedia! on Wiki<br/>http://www.wikipedia.org/wiki/Wiki</span></span></a></q>
+
+
+
+/* css/tooltip.css -- fancy tooltips */
+
+span.tool {
+  position: relative;   /* this is key */
+  cursor: help;
+}
+ 
+span.tool span.tip {
+  display: none;        /* so is this */
+}
+
+/* tooltip will display on :hover event */
+ 
+span.tool:hover span.tip {
+  display: block;
+  z-index: 100;
+  position: absolute;
+  top: 2.5em;
+  left: 0;
+  width: auto;
+  line-height: 1.2em;
+  padding: 3px 7px 4px 6px;
+  border: 1px solid #336;
+  background-color: #f7f7ee;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  color: #000;
+  text-align: left;
+}
+
+#content span.tool::after {
+  padding-left: 2px;            /* eye candy */
+  content: url(/img/bubble.gif);
+}
+
+________________________________________________________________________
+
+.noprint {
+    display : none;
+}
+* {
+    background-color: white !important;
+    background-image: none !important;
+}
+p a:link, p a:active, p a:visited, p a:hover  {
+    color : #36EA00;
+    text-decoration:underline;
+}
+p a:link:after, a:visited:after {
+  content: " (" attr(href) ") ";
+  font-size: 80%;
+}
+h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+}
+
+/* Neutralize styling: Elements we want to clean out entirely: */
+
+html, body, form, fieldset {
+    margin: 0;
+    padding: 0;
+    font: 100%/120% Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* Neutralize styling: Elements with a vertical margin: */
+h1, h2, h3, h4, h5, h6, p, pre,
+blockquote, ul, ol, dl, address {
+    margin: 1em 0;
+    padding: 0;
+}
+
+/* Apply left margin: Only to the few elements that need it: */
+li, dd, blockquote {
+    margin-left: 1em;
+}
+
+/* Miscellaneous conveniences: */
+form label {
+    cursor: pointer;
+}
+fieldset {
+    border: none;
+}
+
+/* Form field text-scaling */
+input, select, textarea {
+    font-size: 100%;
+}
+________________________________________________________________________
+
+.clipInHalf {
+    position: absolute;
+    clip: rect(15 350 195 50);
+    top: 0px;
+    left: 0px;
+}
+
+<fieldset>
+<legend>TIPS</legend>
+
+table { background-color:#FFF; border: 1px solid #3366FF; border-collapse: separate; }
+th { background-color:#3366FF; color:#FFCC66; }
+tr:hover>td { background-color:#B9CFFF; }
+
+________________________________________________________________________
+position:relative is very important. The children of this <div> are absolutely positioned.
+Absolutely positioned elements are positioned relative to the nearest positioned ancestor.
+Since we want them to be positioned relative to the diagram itself, we have to make it positioned.
+By setting position:relative without specifying an offset, it will become positioned without being moved.
+
+
+content: "Your browser supports content"
+
+q { quotes: '"' '"' }
+
+    [quotes] specifies what form the quotes of the open-quote and close-quote values of the content property should take. Not supported by IE.
+   
+orphans: <integer>
+widows: <integer>
+These two properties are used primarily in paged media to control line breaks by specifying the number of lines in a paragraph that should be left at the top (widows) or bottom (orphans) of a page.
+About.com
+
+table-layout: (auto | fixed)
+According to Quackit.com The CSS table-layout property allows you to fix the table layout so that the table renders much faster
+________________________________________________________________________
+
+.pullquote {
+    width: 20%;
+    float:right;
+    font-size:125%;
+    line-height:140%;
+    margin:10px;
+    background: url(closequote.gif) no-repeat bottom right !important;
+    background /**/:url(); /* removing quote graphic in IE5+ */
+    padding:0px 25px 5px 0px;
+}
+.pullquote:first-letter {
+    background: url(openquote.gif) no-repeat left top !important;
+    padding:5px 2px 10px 35px!important;
+    padding /**/:0px;     /* resetting padding in IE5+ */
+    background /**/: url(); /* removing quote graphic in IE5+ */
+}
+
+<blockquote class="pullquote">The most impressive thing about read em!</blockquote>
+       
+       
+________________________________________________________________________
+
+/* The CSS that's required to position the footer */
+
+body {
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+}
+#header, #content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 888px;
+    text-align:left;
+}
+
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+}
+#nonFooter {
+    position: relative;
+    min-height: 100%;
+}
+* html #nonFooter {
+    height: 100%;
+}
+#footer {
+    position: relative;
+    margin: -7.5em auto 0 auto;
+}
+
+/* A CSS hack that only applies to IE -- specifies a different height for the footer */
+
+* html #footer {
+    margin-top: -7.4em;
+}
+
+
+<div id="page">
+    <div id="nonFooter"> Page </div>
+</div>
+<div id="footer"> TOTO </div>
+________________________________________________________________________
+
+Shadow Image
+
+.img-shadow {
+  clear: both;
+  float:left;
+  background: url(/d/cssdropshadows/img/shadowAlpha.png) no-repeat bottom right !important;
+  background: url(/d/cssdropshadows/img/shadow.gif) no-repeat bottom right;
+  margin: 20px 0 0 17px !important;
+  margin: 20px 0 0 8px;
+}
+
+.img-shadow img {
+  display: block;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #a9a9a9;
+  margin: -6px 6px 6px -6px;
+  padding: 4px;
+  width: 154px;
+  height: 203px;
+}
+
+.p-shadow {
+  clear: both;
+  width: 90%;
+  float:left;
+  background: url(/d/cssdropshadows/img/shadowAlpha.png) no-repeat bottom right !important;
+  background: url(/d/cssdropshadows/img/shadow.gif) no-repeat bottom right;
+  margin: 10px 0 0 10px !important;
+  margin: 10px 0 0 5px;
+}
+
+.p-shadow div {
+  background: none !important;
+  background: url(/d/cssdropshadows/img/shadow2.gif) no-repeat left top;
+  padding: 0 !important;
+  padding: 0 6px 6px 0;
+}
+
+.p-shadow p {
+  color: #777;
+  background-color: #fff;
+  font: italic 1em georgia, serif;
+  border: 1px solid #a9a9a9;
+  padding: 4px;
+  margin: -6px 6px 6px -6px !important;
+  margin: 0;
+}
+
+
+<div class="p-shadow"><div><p style="font-size: 1.3em;">The rain in Spain falls mainly on the plain.</p></div></div>
+
+<br style="clear:both;" />
+
+/////
+
+.dropshadow2{
+    float:left;
+    clear:left;
+    background: url(images/shadowAlpha.png) no-repeat bottom right !important;
+    background: url(images/shadow.gif) no-repeat bottom right;
+    margin: 10px 0 10px 10px !important;
+    margin: 10px 0 10px 5px;
+    width: 500px;
+    padding: 0px;
+}
+.innerbox{
+    position:relative;
+    bottom:6px;
+    right: 6px;
+    border: 1px solid #999999;
+    padding:4px;
+    margin: 0px 0px 0px 0px;
+}
+.innerbox{
+    /* IE5 hack */
+    \margin: 0px 0px -3px 0px;
+    ma\rgin:  0px 0px 0px 0px;
+}
+.innerbox p{       
+    font-size:14px;
+    margin: 3px;
+}
+
+
+<div class="dropshadow2">
+    <div class="innerbox">
+    <h4>Test 2</h4>
+      <p>This has two wrapping div's. one for the shadow, and one for the border.</p>
+    </div>
+</div>
+________________________________________________________________________
+
+ROund BOX
+
+#xsnazzy h1, #xsnazzy h2, #xsnazzy p {margin:0 10px; letter-spacing:1px;}
+#xsnazzy h1 {font-size:2.5em; color:#fff;}
+#xsnazzy h2 {font-size:2em;color:#06a; border:0;}
+#xsnazzy p {padding-bottom:0.5em;}
+#xsnazzy h2 {padding-top:0.5em;}
+#xsnazzy {background: transparent; margin:1em;}
+
+.xtop, .xbottom {display:block; background:transparent; font-size:1px;}
+.xb1, .xb2, .xb3, .xb4 {display:block; overflow:hidden;}
+.xb1, .xb2, .xb3 {height:1px;}
+.xb2, .xb3, .xb4 {background:#ccc; border-left:1px solid #08c; border-right:1px solid #08c;}
+.xb1 {margin:0 5px; background:#08c;}
+.xb2 {margin:0 3px; border-width:0 2px;}
+.xb3 {margin:0 2px;}
+.xb4 {height:2px; margin:0 1px;}
+
+.xboxcontent {display:block; background:#ccc; border:0 solid #08c; border-width:0 1px;}
+
+
+
+<div id="xsnazzy">
+<b class="xtop"><b class="xb1"></b><b class="xb2"></b><b class="xb3"></b><b class="xb4"></b></b>
+<div class="xboxcontent">
+<h1>Snazzy Borders</h1>
+<p>Based on Nifty Corners By Alessandro Fulciniti<br />http://pro.html.it/esempio/nifty/</p>
+
+<h2>Rounded borders without images</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+  euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
+  ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
+  ut aliquip ex ea commodo consequat.</p>
+<p>Duis autem vel eum iriure dolor in hendrerit
+  in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
+  facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
+  luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+</div>
+<b class="xbottom"><b class="xb4"></b><b class="xb3"></b><b class="xb2"></b><b class="xb1"></b></b>
+</div>
+
+}}}
