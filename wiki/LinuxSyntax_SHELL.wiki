@@ -1,4 +1,5 @@
 #summary Personal notes on Linux (Debian) Shell commands
+#labels Tooltips
 
 = DEBIAN =
 
