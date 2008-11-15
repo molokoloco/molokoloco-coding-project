@@ -225,6 +225,26 @@ Match blank input --- ^\s[\t]*$
 Match New line --- [\r\n]|$
 
 
+// Javascript
+
+var reWhiteSpace = /^\s+$/;
+var reDigit = /^\d$/;
+var reInteger = /^\d+$/;
+var reSignedInteger = /^(\+|\-)?\d+$/;
+var reFloat = /^((\d+(\.\d*)?)|((\d*\.)?\d+))$/;
+var reSignedFloat = /^(((\+|\-)?\d+(\.\d*)?)|((\+|\-)?(\d*\.)?\d+))$/;
+var reLetter = /^[a-zA-Z]$/;
+var reAlphabetic = /^[a-zA-Z]+$/;
+var reLetterOrDigit = /^([a-zA-Z]|\d)$/;
+var reAlphanumeric = /^[a-zA-Z0-9]+$/;
+var reEmail = /^([a-z\d]+([\.\-_]?[a-z\d]+)*)@([a-z\d]+[\.\-]?[a-z\d]+|[\.]?[a-z\d]+)+\.([a-z]{2}|com|net|org|edu|biz}info|gov)$/i;
+var reZipCode = /^\d{5}$/;
+var reDep = /^((\d\d)|(2A)|(2B)|(97[1-6]))$/;
+//var reDate = /^(\d{2}\/){2}\d{4}$/;
+var reDate = /^\d{4}(\-\d{2}){2}$/;
+var reUrl = /^http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}$/;
+
+return reAlphabetic.test(MyString);
 
 
 function escape($filename) { // any non-word characters will be replaced
