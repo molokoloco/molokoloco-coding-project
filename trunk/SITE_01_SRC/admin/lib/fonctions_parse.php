@@ -57,7 +57,7 @@ function cleanWysiwyg($string, $br=1) {
 	if (strpos($string,'<br />') !== false) {
 		if ($br == 0) $string = str_replace('<br />',chr(13).chr(10),$string);
 		$string = str_replace('<br />&nbsp;<br />','',$string);
-		while (strpos(substr($string,0,8), '<br />') !== false) $string = str_replace('<br />', '',substr($string,0,8)).substr($string,8); // BR de début
+		while (strpos(substr($string,0,8), '<br />') !== false) $string = str_replace('<br />', '',substr($string,0,8)).substr($string,8); // BR de dï¿½but
 		while (strpos(substr($string,-8),'<br />') !== false) $string = substr($string,0,-8).str_replace('<br />','',substr($string,-8));
 	}
 	return trim($string);
@@ -74,7 +74,7 @@ function cleanName($string) {
 	if (empty($string)) return $string;
 	elseif (is_numeric($string)) return $string;
 	$string = strtolower(' '.trim($string).' ');
-	$special = array('&', 'O', 'Z', '-', 'o', 'z', 'Y', 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Æ', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ð', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'æ', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ñ', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ', '.', ' ', '+', '\'');
+	$special = array('&', 'O', 'Z', '-', 'o', 'z', 'Y', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', '.', ' ', '+', '\'');
 	$normal = array('et', 'o', 'z', '-', 'o', 'z', 'y', 'a', 'a', 'a', 'a', 'a', 'a', 'ae', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'd', 'n', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'a', 'a', 'a', 'a', 'a', 'a', 'ae', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'o', 'n', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'y', '_', '_', '-', '-');
 	$string = str_replace($special, $normal, $string);
 	$string = preg_replace('/[^a-z0-9_\-]/', '', $string);
@@ -208,7 +208,7 @@ function cleanTag($string) { // l\\\'ApostrophE > l'apostrophe > l\\\'apostrophe
 	if (count(explode(' ',$string)) > 3) {
 		return false;
 	}
-	preg_match("/^[a-z0-9&éèàùâêîûôùëïöüç\-' ]{2,150}$/",$string, $matches); // Validate STRING as WORD
+	preg_match("/^[a-z0-9&ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\-' ]{2,150}$/",$string, $matches); // Validate STRING as WORD
 	if (count($matches) == 1) { // Enleve le dernier S si pas "'s" (DJ's) ou 2 "ss" (Dress).... A reflechir...
 		if (strpos(substr($string,-1),'s') !== false 
 		&& strpos(substr($string,-2,1),'\'') === false
@@ -251,7 +251,7 @@ function makeEncoding($string) {
 
 // SQL REGEX WITHOUT ACCENT NO MORE SLASHES --------------------------------------------- 
 function stringToRegex($string,$sql=1) { // String is "clean" ("act\\\'ion")
-	// WHERE "act\'ion" REGEXP "^[aàâä][cç]t\\\\'[iîï][oôö]n[s]?$" 
+	// WHERE "act\'ion" REGEXP "^[aï¿½ï¿½ï¿½][cï¿½]t\\\\'[iï¿½ï¿½][oï¿½ï¿½]n[s]?$" 
 	// SELECT QUOTE("Don't") -> 'Don\'t!'
 	if (!$string) return;
 	$string = strtolower($string);
@@ -259,13 +259,13 @@ function stringToRegex($string,$sql=1) { // String is "clean" ("act\\\'ion")
 		$string = preg_replace('|[\\\]{1,}|', '\\\\\\\\\\\\\\', clean($string)); // 3 slashes > 4 slashes : pour trouver 1 slashes dans SQL...
 	else
 		$string = stripslashes(stripslashes($string));
-	$string = preg_replace('|[aàâä]{1}|', '[aàâä]', $string); // SQL REGEX
-	$string = preg_replace('|[eéèêë]{1}|', '[eéèêë]', $string);
-	$string = preg_replace('|[iîï]{1}|', '[iîï]', $string);
-	$string = preg_replace('|[uùûü]{1}|', '[uùûü]', $string);
-	$string = preg_replace('|[oôö]{1}|', '[oôö]', $string);
-	$string = preg_replace('|[cç]{1}|', '[cç]', $string);
-	$string = preg_replace('|[ ]{1}|', '[s]? ', $string); // mots clé == mot clé
+	$string = preg_replace('|[aï¿½ï¿½ï¿½]{1}|', '[aï¿½ï¿½ï¿½]', $string); // SQL REGEX
+	$string = preg_replace('|[eï¿½ï¿½ï¿½ï¿½]{1}|', '[eï¿½ï¿½ï¿½ï¿½]', $string);
+	$string = preg_replace('|[iï¿½ï¿½]{1}|', '[iï¿½ï¿½]', $string);
+	$string = preg_replace('|[uï¿½ï¿½ï¿½]{1}|', '[uï¿½ï¿½ï¿½]', $string);
+	$string = preg_replace('|[oï¿½ï¿½]{1}|', '[oï¿½ï¿½]', $string);
+	$string = preg_replace('|[cï¿½]{1}|', '[cï¿½]', $string);
+	$string = preg_replace('|[ ]{1}|', '[s]? ', $string); // mots clï¿½ == mot clï¿½
 	$string = preg_replace("|[ -']{1}|", "[ -']", $string);
 
 	return '^'.$string.'[s]?$'; // Insensible au pluriel
@@ -468,13 +468,13 @@ function rDate($MyDate,$lettre='0',$lg='fr') { // 781502 <-> 15/02/78 || 781502 
 			if ($lg == 'fr') {
 				$dateform = str_replace($mois_en, $mois_fr,$dateform);
 				$dateform = str_replace ($jour_en, $jour_fr,$dateform); 
-				$dateform = preg_replace("/(\D)1st/","\${1}1er",$dateform); // 1st qui n'est pas précédé par un chiffre 
+				$dateform = preg_replace("/(\D)1st/","\${1}1er",$dateform); // 1st qui n'est pas prï¿½cï¿½dï¿½ par un chiffre 
 				$dateform = preg_replace("/(\d)(st|th|nd|rd)/","\${1}",$dateform); 
 			}
 			if ($lg == 'es') {
 				$dateform = str_replace($mois_en,$mois_es,$dateform);
 				$dateform = str_replace ($jour_en,$jour_es,$dateform); 
-				$dateform = preg_replace("/(\D)1st/","\${1}1er",$dateform); // 1st qui n'est pas précédé par un chiffre 
+				$dateform = preg_replace("/(\D)1st/","\${1}1er",$dateform); // 1st qui n'est pas prï¿½cï¿½dï¿½ par un chiffre 
 				$dateform = preg_replace("/(\d)(st|th|nd|rd)/","\${1}",$dateform); 
 			}			
 			
@@ -554,7 +554,7 @@ function printDateTime($dateTime,$lettre=0,$lg='fr') {
 	list($date, $time) = explode(' ', $dateTime);
 	list($a, $m, $j) = explode('-', $date);
 
-	if ($lettre == 0) { // 12/01/07 à 10h30
+	if ($lettre == 0) { // 12/01/07 ï¿½ 10h30
 		$date = $j.'/'.$m.'/'.substr($a, 2);
 		$time = substr($time, 0, -3);
 		$time = str_replace(':', 'h', $time);
@@ -564,13 +564,13 @@ function printDateTime($dateTime,$lettre=0,$lg='fr') {
 		if ($lg == 'uk') return $m.'-'.$j.'-'.substr($a,2);
 		else  return $j.'-'.$m.'-'.substr($a,2);
 	}
-	elseif ($lettre == 2) { // Mercredi 31 Janvier 2007 à 10h30
+	elseif ($lettre == 2) { // Mercredi 31 Janvier 2007 ï¿½ 10h30
 		$date = rDate($a.$m.$j, '1', $lg);
 		$time = substr($time, 0, -3);
 		$time = str_replace(':', 'h', $time);
 		return $date.' &agrave; '.$time;
 	}
-	elseif ($lettre == 3) { // Mercredi 31 Janvier à 10h30
+	elseif ($lettre == 3) { // Mercredi 31 Janvier ï¿½ 10h30
 		$date = rDate($a.$m.$j, '1', $lg); 
 		$date = substr($date, 0, -5);
 		$time = substr($time, 0, -3);
@@ -685,12 +685,12 @@ function makeXml($arrXml,$xmlPath='') {
 	);
 	$rssChannel['items'] = $rssItems;
 */
-function parseArrToRss($rssChannel, $rssPath='', $encoding='iso-8859-1', $version='2.0') {
+function parseArrToRss($rssChannel, $rssPath='', $encoding='iso-8859-1') {
 	
 	if (!is_array($rssChannel)) return FALSE;
 	
 	$rss = '<?xml version="1.0" encoding="'.$encoding.'"?>'."\n";
-	$rss .= '<rss version="'.$version.'">'."\n";
+	$rss .= '<rss version="2.0">'."\n";
 	$rss .= t(1).'<channel>'."\n";
 	
 	foreach($rssChannel as $key=>$value) {
