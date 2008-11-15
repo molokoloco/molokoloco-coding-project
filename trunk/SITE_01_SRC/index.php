@@ -20,11 +20,11 @@
 				### db($S->arbo[$S->rid]['type_id']);
 	
 				switch($S->arbo[$S->rid]['type_id']) {
-					case 1 : require '_accueil.php'; break;
-					case 8 : require '_cv.php'; break;
-					case 9 : require '_portofolio.php'; break;
-					case 10 : require '_expertise.php'; break;
-					case 6 : require '_services.php'; break;
+//					case 1 : require '_accueil.php'; break;
+//					case 8 : require '_cv.php'; break;
+//					case 9 : require '_portofolio.php'; break;
+//					case 10 : require '_expertise.php'; break;
+//					case 6 : require '_services.php'; break;
 					
 					case 4 : // CMS
 						if (@is_file('cache/page_rid_'.$S->rid.'.html')) include('cache/page_rid_'.$S->rid.'.html'); // LAST WRITED (CACHED) CONTENT

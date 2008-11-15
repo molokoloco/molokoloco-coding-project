@@ -49,25 +49,25 @@ if (empty($meta_titre)) $meta_titre = $titre_page;
 
 
 
-$arr_Acc = array();
-$infoScroll = '';
-$A = new Q("SELECT * FROM mod_prestations WHERE actif='1' ORDER BY ordre DESC");
-foreach($A->V as $V) { 
-	$str = aff($V['texte']);
-	$str = str_replace('&nbsp;', ' ', $str);
-	$str = preg_replace('(\\n)', '', $str);
-	$str = str_replace('<br />', '#', $str);
-	$str = trim(strip_tags($str));
-	$str = preg_replace('/[\\n]{2,}/', "\n", $str);
-	$arr_Acc[] = array(
-		'goto' => urlRewrite($V['titre'], 'r'.$S->getRidByType(($V['type']==1?'10':'6')).'-p'.$V['id']),
-		'titre' => htmlentities(aff($V['titre'])),
-		'texte' => $str
-	);
-	$infoScroll .= '<p>'.htmlentities(aff($V['titre']))."</p>\n";
-	$infoScroll .= aff($V['texte'])."\n";
-}
-$js_arr_Acc = getScriptBiArray('arrAccroche', $arr_Acc);
+//$arr_Acc = array();
+//$infoScroll = '';
+//$A = new Q("SELECT * FROM mod_prestations WHERE actif='1' ORDER BY ordre DESC");
+//foreach($A->V as $V) { 
+//	$str = aff($V['texte']);
+//	$str = str_replace('&nbsp;', ' ', $str);
+//	$str = preg_replace('(\\n)', '', $str);
+//	$str = str_replace('<br />', '#', $str);
+//	$str = trim(strip_tags($str));
+//	$str = preg_replace('/[\\n]{2,}/', "\n", $str);
+//	$arr_Acc[] = array(
+//		'goto' => urlRewrite($V['titre'], 'r'.$S->getRidByType(($V['type']==1?'10':'6')).'-p'.$V['id']),
+//		'titre' => htmlentities(aff($V['titre'])),
+//		'texte' => $str
+//	);
+//	$infoScroll .= '<p>'.htmlentities(aff($V['titre']))."</p>\n";
+//	$infoScroll .= aff($V['texte'])."\n";
+//}
+//$js_arr_Acc = getScriptBiArray('arrAccroche', $arr_Acc);
 
 
 if ($ajax != 1) { // !!!
