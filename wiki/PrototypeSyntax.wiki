@@ -1,4 +1,5 @@
-#summary Personnal notes on Prototype javascript framework
+#summary Personal notes on Prototype javascript framework
+#labels Tooltips
 
 = Prototype 1.8 DOC =
 
