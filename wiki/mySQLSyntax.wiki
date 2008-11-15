@@ -1,4 +1,5 @@
-#summary Personnal notes for mySQL
+#summary Personal notes for mySQL
+#labels Tooltips
 
 =  SQL REQUEST =
 
