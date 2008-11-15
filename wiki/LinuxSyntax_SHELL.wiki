@@ -1,0 +1,651 @@
+#summary Personal notes on Linux (Debian) Shell commands
+
+= DEBIAN =
+
+{{{
+SHELL AND DEBIAN
+
+==========================================================================================
+
+APTITUDE
+http://qref.sourceforge.net/quick/ch-package.fr.html
+
+aptitude install apt-spy
+apt-get -y --force-yes -f install proftpd
+
+aptitude, la recherche d'un paquet se fait avec "/" puis en tapant une partie du nom et la touche "n" pour voir le match suivant
+
+aptitude purge le-paquet
+aptitude clean
+
+dpkg-reconfigure - reconfigure un paquet déjà installé (s'il utilise debconf)
+dpkg-source - gère les paquets sources
+dpkg-buildpackage - automatise la création d'un paquet
+apt-cache - recherche un paquet dans le cache local
+
+aptitude en plein écran accepte des commandes à une touche, généralement en minuscule.
+
+Touche Action
+F10 Menu
+? Aide (listing complet)
+u Mise à jour des informations de l'archive de paquets
++ Marque un paquet pour mise-à-jour ou installation
+- Marque un paquet pour suppression (garde la configuration)
+_ Marque un paquet pour purge (supprime la configuration)
+= Place un paquet en maintien
+U Marque tous les paquets qui peuvent être mis à jour
+g Téléchargement et installation des paquets sélectionnés
+q Sortie de l'écran courant et sauvegarde des changements
+x Sortie de l'écran courant sans sauvegarde
+Enter Visualisation d'information sur un paquet
+C Visualisation des changements d'un paquet
+| Change la limite des paquets affichés
+/ Recherche la première occurence
+\ Répète la dernière recherche
+
+Comme apt-get, aptitude installe les dépendances d'un paquet demandé. aptitude offre aussi une option pour récupérer les paquets qui sont recommandés ou suggérés par un paquet à installer. Vous pouvez changer ce comportement en choisissant
+F10 -> Options -> Dependency handling dans le menu.
+
+Autres avantages d'aptitude :
+
+aptitude offre accès à toutes les versions d'un paquet.
+aptitude enregistre toutes ses actions dans /var/log/aptitude.
+aptitude rend facile le suivi des logiciels obsolètes en les listant dans « Obsolete and Locally Created Packages ».
+aptitude inclut un système de recherche puissant pour trouver des paquets particuliers ou limité l'affichage des paquets. Les utilisateurs familiers avec mutt seront rapidement à l'aise, puisque mutt a inspiré la syntaxe des expressions. Voir « SEARCHING, LIMITING, AND EXPRESSIONS » dans /usr/share/doc/aptitude/README.
+aptitude en plein écran intègre su et peut être utilisé par un utilisateur normal jusqu'à ce qu'il y ait réellement besoin des privilèges de l'administrateur.
+
+aptitude upgrade (ou apt-get upgrade ou aptitude dist-upgrade ou apt-get dist-upgrade)
+    Cela suit la distribution testing et met à jour tous les paquets du système en installant leurs dépendances de testing. [26]
+apt-get dselect-upgrade
+    Cela suit la distribution testing et met à jour tous les paquets du système avec la sélection de dselect.
+aptitude install package/unstable
+    Cela installe package de unstable en prenant les dépendances dans testing.
+aptitude install -t unstable package
+    Cela installe package de unstable en prenant les dépendances aussi dans unstable en mettant Pin-Priority de unstable à 990.
+apt-cache policy foo bar ...
+    Cela affiche l'état des paquets foo bar ....
+aptitude show foo bar ... | less (ou apt-cache show foo bar ... | less)
+    Cela affiche l'information sur les paquets foo bar ....
+aptitude install foo=2.2.4-1
+    Cela installe la version 2.2.4-1 du paquet foo.
+aptitude install foo bar-
+    Cela installe la paquet foo et supprime le paquet bar.
+aptitude remove bar
+    Cela supprime le paquet bar mais garde ses fichiers de configuration.
+aptitude purge postfix
+
+dpkg-reconfigure --priority=medium package [...]
+dpkg-reconfigure --all # reconfigure tous les paquets
+dpkg-reconfigure locales # génère de nouvelles locales
+dpkg-reconfigure --p=low xserver-xfree86 # reconfigure le serveur X
+
+apt-setup - crée /etc/apt/sources.list
+install-mbr - installe un gestionnaire de Master Boot Record
+tzconfig - configure le fuseau horaire local
+gpmconfig - configure le gestionnaire de souris gpm
+eximconfig - configure Exim (MTA)
+texconfig - configure teTeX
+apacheconfig - configure Apache (httpd)
+cvsconfig - configure CVS
+sndconfig - configure le système sonore
+update-alternatives - configure la commande par défaut ; par exemple, vim pour vi
+update-rc.d - gestion des scripts de démarrage System-V
+update-menus - système de menus Debian
+...
+
+
+apt-get check # met à jour le cache et vérifie les dépendances
+apt-cache search texte # cherche un paquet à partir de "texte"
+apt-cache policy paquet # information sur la priorité d'un paquet
+apt-cache show -a paquet # affiche la description d'un paquet dans toutes les distributions
+apt-cache showpkg paquet # informations de debogage sur un paquet
+dpkg --audit|-C # cherche les paquets partiellement installés
+dpkg {-s|--status} paquet ... # état et description d'un paquet installé
+dpkg -l paquet ... # état du paquet installé (1 ligne)
+dpkg -L paquet ... # liste les noms des fichiers installés par le paquet
+
+==========================================================================================
+
+# APACHE (Hugh <:) :
+
+a2enmod // modules disponibles
+a2dismod // modules chargés
+
+a2enmod nom_module // activer le module
+a2dismod php4 // désactiver le module
+
+# VIRTUAL HOST
+cd /etc/apache2/sites-available
+
+a2ensite mon_repertoire_virtuel // activer ce répertoire virtuel
+a2dissite toto.org.conf // désactiver ce répertoire virtuel
+
+==========================================================================================
+REINSTALL !!!
+
+apt-get remove --purge apache2
+puis au pire un rm -rf /etc/apache (mais normalement le dossier est vide)
+apt-get install apache2
+
+apres pour verifier si il est lancé :
+ps -e (ca te donne tout les processus lancer)
+
+ps -e|grep httpd
+
+
+==========================================================================================
+
+/etc/init.d/apache2 reload  {start|stop|reload|reload-modules|force-reload|restart}
+/etc/init.d/apache2 restart
+/etc/
+/etc/init.d/xinetd reload
+
+/etc/init.d/proftpd reload
+
+
+==========================================================================================
+
+SSL : http://www.coagul.org/article_imprime.php3?id_article=351
+
+Fichier error log
+# /usr/local/apache/logs
+/var/log/apache2/
+
+PHP.ini
+/etc/php5/cgi/php.ini
+
+etc/mysql mysqlaccess my.conf
+
+
+# DEPLACEMENT BASE SQL !!
+/var/lib/mysql.BACKUP
+/home/mysql/
+
+/usr/share/apache2/error/include // error header
+
+# Apache logs :
+/var/log/apache2/
+# Creation dans /usr/local/apache/logs
+# CHECK : /home/log/
+
+http://ns24436.ovh.net:10000/syslog/index.cgi
+
+==========================================================================================
+ORNIS Fedora Core 7 i386 RPM
+
+CTRL + C OU Maj + Entrée
+
+locate | grep "img"
+
+cat toto.log | more
+
+init 6 // Restart machine
+
+chown -R --recursive hairbox.www-data /home/hairbox/*
+
+rpm -K --nosignature ImageMagick-6.3.4-2.i386.rpm
+rpm -i ImageMagick-6.3.4-2.i386.rpm
+
+touch toto.txt > creer un fichier
+host google.fr srv
+dig @srv google.fr
+
+cat /etc/ovhrelease (Info)
+wget ftp://ftp.ovh.net/made-in-ovh/release/patch-all.sh -O patch-all.sh; sh patch-all.sh
+
+rpm -Uvh nom_du_paquet
+
+adduser toto
+
+cfdisk // Partititon
+
+df -h (espace libre)
+free (memoire)
+rm -rf /tmp/*.wrk
+ps auxw (processus) // ps -aux // Tous les process
+telnet localhost 80
+
+#Lien
+ln -s /etc/apache2/mods-available/userdir.load /etc/apache2/mods-enabled/userdir.load
+ln -s /etc/apache2/sites-available/theatredesdeuxreves.org.conf /etc/apache2/sites-enabled/theatredesdeuxreves.org.conf
+ 
+rgrep -i directoryindex -inH /etc/apache2 | grep conf  [Cherche le mot "directoryindex" dans un rep...]
+grep localhost /etc/hosts
+
+#make link...
+bebeserv:/etc/apache2/mods-enabled# ln -s ../mods-available/userdir.load userdir.load
+
+mysql -u root
+mysql> USE mysql;
+mysql> UPDATE user
+    -> SET password = PASSWORD('faG5Xq8A')
+    -> WHERE user = 'root';
+mysql> flush privileges;
+
+Déconnectez vous avec le commande
+exit;
+puis reconnectez vous
+mysql -u root -p
+MySQL vous demande alors votre mot de passe
+
+ns24436:/# ps -all
+F S UID PID PPID C PRI NI ADDR SZ WCHAN TTY TIME CMD
+0 S 0 17581 1 0 85 0 - 1032 wait pts/1 00:00:00 mysqld_safe
+ns24436:/# kill -9 17581
+
+more
+
+tail -f /var/log/apache2/access.log > /dev/tty11 &
+affiche les dernières requêtes au serveur Apache, "en direct" sur la pseudo-console 11 (pour l'activer : alt-F11).
+On peut utiliser aussi
+less /var/log/apache/access.log puis Shift-F
+pour basculer à la fin du fichier en attente de données (Ctrl-C pour finir)
+
+==========================================================================================
+http://formation.bearstech.com/trac/wiki/GnuLinuxAdminApache
+
+<VirtualHost *>
+    ServerName mycompany.com
+    RedirectMatch (.*) http://www.mycompany.com$1
+</VirtualHost>
+
+<VirtualHost *:80>
+ ServerName    secure.example.org
+ ServerAdmin   webmaster@example.org
+ ServerSignature On
+
+ # we don't need a DocumentRoot for zope only sites
+ #DocumentRoot  /var/www/secure.example.org
+
+ CustomLog     /var/log/apache2/secure.example.org-access.log combined
+ ErrorLog      /var/log/apache2/secure.example.org-error.log
+ LogLevel warn
+ <IfModule mod_rewrite.c>
+   RewriteEngine On
+
+   # use RewriteLog to debug problems with your rewrite rules
+   # disable it after you found the error our your harddisk will be filled *very fast*
+   # RewriteLog "/var/log/apache2/rewrite_log"
+   # RewriteLogLevel 2
+
+   # Rewrite with redirect moved permanently
+   RewriteRule ^/(.*) https://secure.example.org/$1 [R=301, L]
+ </IfModule>
+</VirtualHost>
+
+
+logrotate fait l'affaire:
+
+/var/log/apache2/*/*.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+}
+
+==========================================================================================
+
+SOA - Start Of Authority record identifies who hs authoritative responsinility
+
+for this Domain.
+
+NS - NameServer Record maintains an authoritative set of resource records for
+
+the Domain.
+
+CNAME - Canonical Name record is used to identify an alias host name.
+
+MX - Records specifu a list of hosts that are configured to receive Mail sent to
+
+this Domain Name.
+
+A - Address Record maps an IP Address a Host Name.
+
+PTR - Record allows special Names to point to some other location in the Domain.
+
+( PTR Records are used only in reverse domains IN-ADDR.ARPA )
+
+==========================================================================================
+IMAGE MAGICK
+
+/usr/local/bin/
+
+identify -list format
+convert rose: rose.png
+
+==========================================================================================
+
+ADMIN EMAILS...
+
+http://ns24436.ovh.net/cgi-bin/qmailadmin/
+http://ns24436.ovh.net/cgi-bin/sqwebmail
+http://ns24436.ovh.net:10000/qmailadmin/
+http://ns24436.ovh.net:10000/mailboxes/index.cgi
+
+EMAILS...
+
+postmaster@ns24436.ovh.net
+postmaster@saintdesprit.net
+molokoloco@saintdesprit.net
+infos@saintdesprit.net
+postmaster@bibliobus.info
+postmaster@saintdesprit.org
+
+==========================================================================================
+
+http://guides.ovh.net/QueueQmailFull
+http://guides.ovh.net/EmailProblemesEtSolutions
+http://guides.ovh.net/InstallQmailAntiSpam
+http://guides.ovh.net/QmailAdmin
+
+/var/qmail/queue
+
+/etc/init.d/qmail stop
+/etc/init.d/qmail start
+tail -f /var/log/qmail/current
+
+cd /dev/queue-repair-0.9.0
+ls -l queue
+
+EDIT
+
+http://forum.ovh.com/showthread.php?t=861&page=3
+/home/vpopmail/domains/saintdesprit.net/.qmail-default
+| /home/vpopmail/bin/vdelivermail '' bounce-no-mailbox
+| /home/vpopmail/bin/vdelivermail '' delete
+
+http://guides.ovh.net/InstallQmailAntiSpam
+/etc/rc.d/init.d/qmail
+/etc/rc.d/init.d/qmail.bak
+
+Update perl.. http://www.cpan.org/authors/id/F/FE/FELICITY/Mail-SpamAssassin-3.1.8.tar.gz
+
+==========================================================================================
+
+SSH Transfert ... D'un disque à un autre
+
+/root/.ssh/authorized_keys2 ?
+
+scp -r root@213.186.46.78:/home/saintdes/www/ /home/saintdes/
+scp -r root@213.186.46.78:/home/bibliobus/www/ /home/bibliobu/
+scp -r root@213.186.46.78:/home/steve/www/ /home/steve/
+scp -r root@213.186.46.78:/home/doudiv/www/ /home/doudiv/
+scp -r root@213.186.46.78:/home/casimir/ /home/casimir/
+scp -r root@213.186.46.78:/home/miro/www /home/miro/
+
+chown bibliobu.users /home/bibliobu/www/*
+chown steve.users /home/steve/www/*
+chown doudiv.users /home/doudiv/www/*
+chown casimir.users /home/casimir/*
+chown miro.users /home/miro/*
+
+chown mysql.mysql /home/mysql/bibliobu/*
+chown mysql.mysql /home/mysql/steve/*
+chown mysql.mysql /home/mysql/saintdes/*
+
+==========================================================================================
+
+MODULES WEBMIN
+
+Shoutcast
+Majordormo
+qmail
+.htpassword
+php.ini
+
+Perl version 5.6.0
+
+Perl5 module for reading configuration files and parsing command line arguments.
+DBD::Pg
+PostgreSQL database driver for the DBI module
+DBI
+Digest::MD5
+Perl interface to the MD5 Algorithm
+File::MMagic
+Guess file type
+MD5
+Net::SSLeay
+
+==========================================================================================
+
+SSH : ATTENTION CERTIFICAT DESACTIVE (WEBMIN CONF.)
+
+[root@ns24436 root]# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+cf:7e:72:df:8a:9d:3b:b3:9c:d2:a6:db:0d:63:be:0a root@ns24436.ovh.net
+
+
+}}}
+
+= UBUNTU (is great !!!) =
+
+{{{
+
+--- RACCOURCIS ---------------------------------------------------------
+
+ALT-F2 >> Open soft
+
+Ctrl+Alt+F2 >> virtual console
+
+sudo shutdown -r
+sudo mv -v /home/from.gz  /opt/to.gz
+sudo rm -rf /opt/lampp
+sudo chown molokoloco index.php
+sudo chown -R root:root eclipse
+sudo chmod 605 /var/www/phpinfo.php
+sudo chmod 755 /var/www/phpinfo.php
+sudo touch /usr/bin/eclipse
+
+Alt+PrintScreen+R+E+I+S+U+B > if really freeze
+
+autostart > System->Preferences->Session
+
+gconf-editor
+glxinfo | grep "direct rendering"
+compizconfig-settings-manager
+
+NAVIGATEUR AVEC DROIT ROOT
+gksudo nautilus
+
+EDITEUR AVEC DROIT ROOT
+sudo gedit /etc/mysql/my.cnf
+
+--- NETWORK ---------------------------------------------------------
+
+sudo ifup --force eth1
+sudo ifdown eth1
+sudo ifconfig eth1
+sudo iwconfig
+sudo iwlist scanning
+sudo /etc/init.d/networking restart
+sudo lshw -C network
+sudo ip addr show
+cat /etc/network/interfaces
+
+# explicitly release the old address
+/etc/init.d/networking stop
+sudo dhclient -r eth1
+/etc/init.d/networking start
+
+--- XAMP - LAMPP ---------------------------------------------------------
+
+http://doc.ubuntu-fr.org/xampp
+http://www.polarion.org/index.php?page=installation&project=subversive
+http://www.apachefriends.org/en/xampp-linux.html#381
+
+sudo chmod a+x /opt/lampp/htdocs
+
+sudo lampp start
+sudo lampp restart
+sudo lampp security
+sudo lampp stop
+sudo lampp
+
+sudo gedit /opt/lampp/etc/proftpd.conf
+sudo gedit /opt/lampp/etc/php.ini
+sudo gedit /opt/lampp/etc/httpd.conf
+sudo gedit /opt/lampp/etc/extra/httpd-vhosts.conf
+
+
+--- LAMP ---------------------------------------------------------
+
+http://doc.ubuntu-fr.org/lamp
+
+sudo /etc/init.d/apache2 start
+/etc/apache2/apache2.conf
+
+sudo chmod 605 /var/www/phpinfo.php
+sudo chmod 755 /var/www/phpinfo.php
+
+apt://apache2,apache2-doc,mysql-server,php5,libapache2-mod-php5,php5-mysql,phpmyadmin
+
+PHP command : /usr/bin/php
+PHP Parser command: /usr/bin/php -l -f {0}
+Start Apache: /etc/init.d/apache2 start
+Stop Apache: /etc/init.d/apache2 stop
+Restart Apache: /etc/init.d/apache2 restart
+Apache: /usr/bin/gksudo
+Path to httpd.conf: /etc/apache2/httpd.conf
+Path to etc/hosts: /etc/hosts
+Start MySQL: /etc/init.d/mysql start
+MySQL: /usr/bin/gksudo
+
+--- APT ---------------------------------------------------------
+
+sudo apt-get update
+sudo apt-get install linux-restricted-modules-$(uname -r)
+sudo apt-get autoremove
+
+# Copier un repertoirevers home
+cp cfg ~/.entertainer -R
+
+# Limiter la recherche
+cat /var/log/Xorg.0.log | grep '(EE)
+
+sudo apt-get install sun-java5-jre sun-java5-plugin # JAVA (firefox)
+
+sudo apt-get install unrar
+unrar e nom_du_fichier.rar
+
+# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
+# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
+sudo apt-get install firestarter
+
+apt://ubuntustudio-desktop;apt:ubuntustudio-icon-theme;apt:ubuntustudio-look;apt:ubuntustudio-theme;apt:ubuntustudio-wallpapers;apt:usplash-theme-ubuntustudio
+
+sudo apt-get install python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
+
+sudo aptitude remove python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
+
+apt://gnome-do
+
+fgl_glxgears # (test)
+
+
+--- EDITED FILE ---------------------------------------------------------
+
+gstreamer-properties
+
+--- GNOME MENU ITEM ---------------------------------------------------------
+
+http://flurdy.com/docs/eclipse/install.html
+
+tar xzf wtp-all-in-one-sdk-1.0-linux-gtk.tar.gz
+sudo mv eclipse /opt/eclipse cd /opt sudo chown -R root:root eclipse
+sudo chmod -R +r eclipse
+sudo chmod +x `sudo find eclipse -type d`
+
+# Then create an eclipse executable in your path
+sudo touch /usr/bin/eclipse
+sudo chmod 755 /usr/bin/eclipse
+sudoedit /usr/bin/eclipse
+
+# With this contents
+#!/bin/sh
+#export MOZILLA_FIVE_HOME="/usr/lib/mozilla/"
+export ECLIPSE_HOME="/opt/eclipse"
+
+$ECLIPSE_HOME/eclipse $*
+
+Then create a gnome menu item
+sudoedit /usr/share/applications/eclipse.desktop
+
+With this contents
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse
+Comment=Eclipse IDE
+Exec=eclipse
+Icon=/opt/eclipse/icon.xpm
+Terminal=false
+Type=Application
+Categories=GNOME;Application;Development;
+StartupNotify=true
+Configure
+
+You now have a working eclipse. But run this command first to initialise the set up.
+/opt/eclipse/eclipse -clean
+
+Then from here on you can run from the menu item applications/programming/eclipse
+
+--- CARTE GRAPHIQUE ACER ---------------------------------------------------------
+
+ATI MOBILITY RADEON X700
+http://wiki.cchtml.com/index.php/Ubuntu_Hardy_Installation_Guide#Method_2:_Manual_Method_.28installing_Catalyst_8.7.29
+
+2915ABG Network Connection
+
+--- HOW TO ----------------------------------------------------------
+http://doc.ubuntu-fr.org/catalyst
+http://doc.ubuntu-fr.org/ati.run
+http://forum.ubuntu-fr.org/viewtopic.php?id=109984
+http://forum.ubuntu-fr.org/viewtopic.php?id=109004
+http://wiki.cchtml.com/index.php/Main_Page
+http://forum.ubuntu-fr.org/viewtopic.php?id=160734
+http://forum.compiz-fusion.org/showthread.php?t=6794&highlight=ATI+X700
+
+
+The Xgl server will now be started automatically next time you login.  It is no longer necessary to use any special X session to start Xgl, and such sessions will likely fail to work properly.  Please select a regular session from your session manager next time you log in.  To disable Xgl autostart for this user, create a file named ~/.config/xserver-xgl/disable
+https://answers.launchpad.net/ubuntu/+source/xserver-xgl/+question/20589
+
+--- HUM ? -----------------------------------------------------------
+
+# Cinelerra
+# deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/cinelerra/pentium4/ ./
+# deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/cinelerra/athlonxp/ ./
+deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/cinelerra/i686/ ./
+deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/mjpegtools ./
+
+Update:
+sudo apt-get update
+
+Now install:
+sudo apt-get install cinelerra
+
+--- FLASH ---------------------------------------------------------
+
+Method #1: Install Ubuntu flash 10 Player
+Visit this url and grab .deb file. Uninstall old flashplayer 9 ( if installed ):
+    $ sudo apt-get remove flashplugin-nonfree
+    Now, install Flash 10 (make sure Firefox is not running):
+    $ sudo dpkg -i sudo dpkg -i install_flash_player_10_linux.deb
+    Start firefox and type about:plugins. You should see list of plugins including Flash 10.
+
+Method #2: Install Flash Player 10 Final in your home directory
+If you need to install flash plugin in your home directory, type the following commands. To uninstall type the command:
+    $ cd ~/.mozilla
+    $ rm flashplayer.xpt libflashplayer.so
+    Visit adobe website to grab flash player 10 tar.gz (tar ball). Download and install flash player 10 (please exit any browsers you may have running):
+    $ cd /tmp
+    $ wget http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player_10_linux.tar.gz
+    $ tar -zxvf install_flash_player_10_linux.tar.gz
+    $ cd install_flash_player_10_linux
+    $ ./flashplayer-installer
+
+}}}
