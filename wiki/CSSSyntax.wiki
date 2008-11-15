@@ -1,6 +1,6 @@
 #summary Personnal notes for CSS
 
-= CSS =
+= CSS TIPS =
 
 {{{
 
@@ -364,7 +364,7 @@ ROund BOX
 
 }}}
 
-= STARTING =
+= STARTING ./STYLES.CSS =
 
 {{{
 
