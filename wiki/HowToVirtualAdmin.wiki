@@ -1,5 +1,5 @@
 #summary How to use Virtual Admin ?
-#labels Featured
+#labels Featured,Phase-Deploy
 
 = INSTAL ADMIN =
 
