@@ -59,6 +59,12 @@ echo $feed;
 
 //...
 
+// Tabulation ---------------------------------------------
+function t($count) {
+	return str_repeat(chr(9), $count);
+}
+
+// RSS node tree ---------------------------------------------
 function parseArrToRss($rssChannel, $rssPath='', $encoding='iso-8859-1', $version='2.0') {
 	
 	if (!is_array($rssChannel)) return FALSE;
