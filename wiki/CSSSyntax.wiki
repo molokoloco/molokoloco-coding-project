@@ -1,4 +1,5 @@
-#summary Personnal notes for CSS
+#summary Personal notes for CSS
+#labels Tooltips
 
 = CSS TIPS =
 
