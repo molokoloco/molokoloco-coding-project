@@ -1,4 +1,5 @@
-#summary Personnal notes for installing LAMP based on DEBIAN OS
+#summary Personal notes for installing LAMP based on DEBIAN OS
+#labels Tooltips
 
 = DEBIAN =
 
