@@ -99,3 +99,5 @@ function parseArrToRss($rssChannel, $rssPath='', $encoding='iso-8859-1') {
 
 //...
 }}}
+
+http://molokoloco-coding-project.googlecode.com/svn-history/r94/trunk/SITE_01_SRC/admin/lib/fonctions_parse.php
