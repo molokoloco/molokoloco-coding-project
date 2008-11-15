@@ -1,7 +1,7 @@
 #summary Exemple de création de flux RSS, à partir de mySQL
 #labels Featured
 
-= rss.php =
+= ./rss.php =
 
 {{{
 
@@ -23,7 +23,7 @@ $rssChannel = array(
 );
 
 $S =& new ARBO();
-$S->fields = array('id','ordre','pid','type_id','lien_fr', 'menu', 'titre_fr','titre_page_fr','meta_titre_fr','meta_url_fr','meta_description_fr','meta_key_fr');
+$S->fields = array('id','ordre','pid','type_id','lien_fr');
 $S->buildArbo();
 
 // REQUETE ////////////////////////////////////////////////////////////////////
@@ -53,7 +53,7 @@ echo $feed;
 
 }}}
 
-= fonctions_parse.php =
+= ./admin/lib/fonctions_parse.php =
 
 {{{
 
@@ -65,12 +65,12 @@ function t($count) {
 }
 
 // RSS node tree ---------------------------------------------
-function parseArrToRss($rssChannel, $rssPath='', $encoding='iso-8859-1', $version='2.0') {
+function parseArrToRss($rssChannel, $rssPath='', $encoding='iso-8859-1') {
 	
 	if (!is_array($rssChannel)) return FALSE;
 	
 	$rss = '<?xml version="1.0" encoding="'.$encoding.'"?>'.chr(13).chr(10);
-	$rss .= '<rss version="'.$version.'">'.chr(13).chr(10);
+	$rss .= '<rss version="2.0">'.chr(13).chr(10);
 	$rss .= t(1).'<channel>'.chr(13).chr(10);
 	
 	foreach($rssChannel as $key=>$value) {
