@@ -1,4 +1,5 @@
 #summary Personal notes for PHP scripting
+#labels Tooltips
 
 = En vrac... =
 
