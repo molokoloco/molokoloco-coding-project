@@ -2,7 +2,7 @@
 
 $R = array(
 	'table'=>					'admin_parametres',
-	'titre'=>					'Paramètre',
+	'titre'=>					'ParamÃ¨tre',
 	'titres'=>					'',
 	'genre'=>					'',
 	'relation'=>				'',
@@ -124,7 +124,7 @@ $R_data = array(
 		'action'=>				'',
 		'index'=>				0,
 		'tips'=>				'M&eacute;ta description par d&eacute;faut des pages<br>
-								250 charactères maximum',
+								250 charactï¿½res maximum',
 		'separateur'=>			'',
 	),
 	

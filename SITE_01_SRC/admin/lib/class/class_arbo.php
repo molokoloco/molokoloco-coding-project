@@ -347,26 +347,27 @@ class ARBO {
 	function getRootMenuUl($rid=0) {
 		
 		if ($rid < 1) $rid = $this->arid;
-		
-		if (empty($this->arbo[$this->arid]['childs'][0])) return '';
+
+		if (empty($this->arbo[$rid]['childs'][0])) return '';
 
 		$rootMenuHtml .= '<ul id="menu">';
 		
 		$sep_img = ''; //<img src="images/nav_divider.png" width="1" height="32" class="absmiddle" alt="" />';
-		$li_sel_class = ($this->arid == $this->rid ? 'current_page' : 'page');
+		$li_sel_class = ($this->arid == $rid ? 'current_page' : 'page');
 		
 		// Accueil
-		$rootMenuHtml .= '<li class="'.$li_sel_class.'"><a href="'.$this->arbo[$this->arid]['url'].'" class="menu c'.$this->arbo[$this->arid]['couleur'].'"><span>'.html(aff($this->arbo[$this->arid]['titre_'.$this->lg])).'</span></a></li>';
+		if ($this->arbo[$this->arid]['menu'] == 1)
+			$rootMenuHtml .= '<li class="'.$li_sel_class.'"><a href="'.$this->arbo[$this->arid]['url'].'" class="menu c'.$this->arbo[$this->arid]['couleur'].'"><span>'.html(aff($this->arbo[$this->arid]['titre_'.$this->lg])).'</span></a></li>';
 
 		// LEVEL 1
-		foreach($this->arbo[$this->arid]['childs'] as $i=>$ridSel) {
+		foreach($this->arbo[$rid]['childs'] as $i=>$ridSel) {
 		
 			if ($this->arbo[$ridSel]['menu'] != 1 && empty($this->menuAll)) continue;
 
 			$li_sel_class = ($ridSel == $this->rid || in_array($ridSel, $this->arbo[$this->rid]['parents']) ? 'current' : '');
 			
 			if ($i == 0) $li_sel_class .= ' first';
-			elseif ($i == count($this->arbo[$this->arid]['childs']) - 2) $li_sel_class .= ' last'; // -2 >>> // Accueil désactivé""
+			elseif ($i == count($this->arbo[$this->arid]['childs']) - 2) $li_sel_class .= ' last'; // -2 >>> // Accueil dï¿½sactivï¿½""
 			
 			// HAVE LEVEL 2 ?
 			if (!empty($this->arbo[$ridSel]['childs']) && is_array($this->arbo[$ridSel]['childs'])) {

@@ -1,33 +1,20 @@
-﻿-- phpMyAdmin SQL Dump
--- version 2.9.1.1
--- http://www.phpmyadmin.net
--- 
--- Serveur: localhost
--- Généré le : Samedi 08 Novembre 2008 à 17:37
--- Version du serveur: 5.0.27
--- Version de PHP: 5.2.0
--- 
+--
 -- Base de données: `virtual`
--- 
+--
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `admin_parametres`
--- 
+--
 
-DROP TABLE IF EXISTS `admin_parametres`;
-CREATE TABLE `admin_parametres` (
+CREATE TABLE IF NOT EXISTS `admin_parametres` (
   `id` int(8) NOT NULL auto_increment,
   `email` varchar(250) default NULL,
   `meta_title_fr` varchar(65) default NULL,
-  `meta_title_uk` varchar(65) default NULL,
   `meta_url_fr` varchar(250) default NULL,
-  `meta_url_uk` varchar(250) default NULL,
   `meta_desc_fr` text,
-  `meta_desc_uk` text,
   `meta_key_fr` text,
-  `meta_key_uk` text,
   `logoc` varchar(70) default NULL,
   `logoa` varchar(70) default NULL,
   `paginationa` tinyint(3) default NULL,
@@ -43,69 +30,67 @@ CREATE TABLE `admin_parametres` (
   `ligne2` varchar(7) NOT NULL default '#F4F4F4',
   `ligneon` varchar(7) NOT NULL default '#FFFFFF',
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=2 ;
+)    AUTO_INCREMENT=3 ;
 
--- 
+--
 -- Contenu de la table `admin_parametres`
--- 
+--
 
-INSERT INTO `admin_parametres` (`id`, `email`, `meta_title_fr`, `meta_title_uk`, `meta_url_fr`, `meta_url_uk`, `meta_desc_fr`, `meta_desc_uk`, `meta_key_fr`, `meta_key_uk`, `logoc`, `logoa`, `paginationa`, `pagination`, `fontcolor1`, `fontcolor2`, `linkcolor`, `linkcoloron`, `bgcolor1`, `bgcolor2`, `ligneentete`, `ligne1`, `ligne2`, `ligneon`) VALUES 
-(1, 'test@test.com', 'Titre du site', 'Salon-immobilier-aix.com', 'http://www.site.com/', 'http://www.salon-immobilier-aix.com/', 'Nous vous donnons d''ores et déjà rendez-vous pour vivre ensemble le 1er Salon de l''Immobilier qui réunira la majorité des acteurs qui font l''Immobilier sur le Pays d''Aix', 'Nous vous donnons d''ores et déjà rendez-vous pour vivre ensemble le 1er Salon de l''Immobilier qui réunira la majorité des acteurs qui font l''Immobilier sur le Pays d''Aix', 'Agences immobilières, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et défiscalisation, Assurances, Fédérations, Institutions, Syndicats professionnels, Architectes, Presse, Activités annexes à la construction', 'Agences immobilières, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et défiscalisation, Assurances, Fédérations, Institutions, Syndicats professionnels, Architectes, Presse, Activités annexes à la construction', '080311131559_logo1.jpg', '', 50, 10, '#FFFFFF', '#666666', '#C20027', '#C0B15B', '#FFFFFF', '#999999', '#BBBBBB', '#E4E4E4', '#F4F4F4', '#FFFFFF');
+INSERT INTO `admin_parametres` (`id`, `email`, `meta_title_fr`, `meta_url_fr`, `meta_desc_fr`, `meta_key_fr`, `logoc`, `logoa`, `paginationa`, `pagination`, `fontcolor1`, `fontcolor2`, `linkcolor`, `linkcoloron`, `bgcolor1`, `bgcolor2`, `ligneentete`, `ligne1`, `ligne2`, `ligneon`) VALUES
+(1, 'molokoloco@gmail.com', 'Bienvenue [www.site.com]', 'http://127.0.0.1/framework/', '', '', '', '', 0, 0, '#FFFFFF', '#666666', '#016AC5', '#FF0000', '#FFFFFF', '#999999', '#BBBBBB', '#E4E4E4', '#F4F4F4', '#FFFFFF'),
+(2, 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '#FFFFFF', '#666666', '#016AC5', '#FF0000', '#FFFFFF', '#999999', '#BBBBBB', '#E4E4E4', '#F4F4F4', '#FFFFFF');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `admin_utilisateurs`
--- 
+--
 
-DROP TABLE IF EXISTS `admin_utilisateurs`;
-CREATE TABLE `admin_utilisateurs` (
+CREATE TABLE IF NOT EXISTS `admin_utilisateurs` (
   `id` int(8) NOT NULL auto_increment,
   `actif` tinyint(1) NOT NULL default '1',
   `type` tinyint(1) NOT NULL default '1',
   `email` varchar(250) default NULL,
   `password` varchar(250) default NULL,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=2 ;
+)    AUTO_INCREMENT=2 ;
 
--- 
+--
 -- Contenu de la table `admin_utilisateurs`
--- 
+--
 
-INSERT INTO `admin_utilisateurs` (`id`, `actif`, `type`, `email`, `password`) VALUES 
+INSERT INTO `admin_utilisateurs` (`id`, `actif`, `type`, `email`, `password`) VALUES
 (1, 1, 3, 'admin@site.com', 'admin');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `cms_blocs`
--- 
+--
 
-DROP TABLE IF EXISTS `cms_blocs`;
-CREATE TABLE `cms_blocs` (
+CREATE TABLE IF NOT EXISTS `cms_blocs` (
   `id` int(8) NOT NULL auto_increment,
   `titre` varchar(250) default NULL,
   `lien` varchar(250) default NULL,
   `visuel` varchar(70) default NULL,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=3 ;
+)    AUTO_INCREMENT=3 ;
 
--- 
+--
 -- Contenu de la table `cms_blocs`
--- 
+--
 
-INSERT INTO `cms_blocs` (`id`, `titre`, `lien`, `visuel`) VALUES 
+INSERT INTO `cms_blocs` (`id`, `titre`, `lien`, `visuel`) VALUES
 (1, 'Borntobeweb.fr', 'http://www.borntobeweb.fr', '080228225853__banniere.gif'),
 (2, 'Reflex Immo', 'http://www.site.com', '080228225934_51bb2ea46c7f23d6.jpg');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `cms_elements_types`
--- 
+--
 
-DROP TABLE IF EXISTS `cms_elements_types`;
-CREATE TABLE `cms_elements_types` (
+CREATE TABLE IF NOT EXISTS `cms_elements_types` (
   `id` int(8) NOT NULL auto_increment,
   `actif` tinyint(1) NOT NULL default '1',
   `ordre` int(4) NOT NULL default '1',
@@ -114,13 +99,13 @@ CREATE TABLE `cms_elements_types` (
   `valeurs` varchar(250) default NULL,
   `template` text,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=45 ;
+)    AUTO_INCREMENT=45 ;
 
--- 
+--
 -- Contenu de la table `cms_elements_types`
--- 
+--
 
-INSERT INTO `cms_elements_types` (`id`, `actif`, `ordre`, `type`, `titre`, `valeurs`, `template`) VALUES 
+INSERT INTO `cms_elements_types` (`id`, `actif`, `ordre`, `type`, `titre`, `valeurs`, `template`) VALUES
 (1, 1, 250, 4, 'Espacement vertical', '', '<div class="spacer">&nbsp;</div>'),
 (2, 1, 160, 4, 'Ligne de séparation', '', '<hr class="cms_hr" />'),
 (3, 1, 190, 0, 'Titre 1', 'item:Libellé|titre|text', '<div class="cms_h1">\r\n	<div class="d1">\r\n		<div class="d2">\r\n			<h1>''.$titre.''</h1>\r\n		</div>\r\n	</div>\r\n</div>'),
@@ -162,17 +147,16 @@ INSERT INTO `cms_elements_types` (`id`, `actif`, `ordre`, `type`, `titre`, `vale
 (40, 1, 390, 1, 'Pavé focus : Titre + Texte', 'item:Titre*|titre|text,Texte*|texte|html,Alignement*|alignement|enum[gauche/droite(gauche', '<div class="cms_encart1 ''.$alignement.''">\r\n	<div class="cms_encart1_body">\r\n		<h1>''.$titre.''</h1>\r\n		<div class="cms_encart1_content">\r\n			''.$texte.''\r\n			<div class="clear"> </div>\r\n		</div>\r\n	</div>\r\n</div>'),
 (41, 1, 400, 1, 'Encart focus : Titre + Texte', 'item:Titre*|titre|text,Texte*|texte|html,Alignement*|alignement|enum[gauche/droite(gauche', '<div class="cms_encart2 ''.$alignement.''">\r\n	<div class="cms_encart2_body">\r\n		<h1>''.$titre.''</h1>\r\n		<div class="cms_encart2_content">\r\n			''.$texte.''\r\n			<div class="clear"> </div>\r\n		</div>\r\n	</div>\r\n</div>'),
 (42, 1, 410, 1, 'Colonne focus : Texte', 'item:Texte*|texte|html,Alignement*|alignement|enum[gauche/droite(gauche', '<div class="cms_encart3 ''.$alignement.''">\r\n	<div class="cms_encart3_body">\r\n		''.$texte.''\r\n		<div class="clear"> </div>\r\n	</div>\r\n</div>'),
-(43, 1, 420, 4, 'Formulaire contact', 'item:Titre*|titre|text,Texte*|texte|html,Image|image|image', '<div class="breaker"> </div>'';\r\nob_start();\r\nrequire($wwwRoot.''_contact.php'');\r\n$html .= ob_get_contents();\r\nob_end_clean();\r\n$html .=''\r\n<div class="contact_colonne">\r\n	<div style="text-align:right">\r\n		''.( $image_popup == 1 ? ''<a href="''.$image_grande.''" class="lightwindow"  title="''.$image_legende.''">'' : '''').\r\n		''<img src="''.$image_src.''" alt="''.$image_titre.''"  border="0"/>''.\r\n		( $image_popup == 1 ? ''</a>'' : '''').\r\n		(!empty($image_legende) ? ''<cite>''.$image_legende.''</cite>'' : '''').\r\n		(!empty($image_auteur) ? ''<cite>''.$image_auteur.''</cite>'' : '''').\r\n		(!empty($image_credits) ? ''<cite>''.$image_credits.''</cite>'' : '''').\r\n		(!empty($image_date) ? ''<cite>''.$image_date.''</cite>'' : '''')\r\n		.''\r\n	</div>\r\n	\r\n\r\n	''.$texte.''\r\n</div>\r\n<div class="breaker"> </div>'),
+(43, 1, 420, 4, 'Formulaire contact', 'item:Titre*|titre|text,Texte*|texte|html,Image|image|image', '<div class="breaker"> </div>'';\r\nob_start();\r\nrequire($wwwRoot.''_form_contact.php'');\r\n$html .= ob_get_contents();\r\nob_end_clean();\r\n$html .=''\r\n<div class="contact_colonne">\r\n	<div style="text-align:right">\r\n		''.( $image_popup == 1 ? ''<a href="''.$image_grande.''" class="lightwindow"  title="''.$image_legende.''">'' : '''').\r\n		''<img src="''.$image_src.''" alt="''.$image_titre.''"  border="0"/>''.\r\n		( $image_popup == 1 ? ''</a>'' : '''').\r\n		(!empty($image_legende) ? ''<cite>''.$image_legende.''</cite>'' : '''').\r\n		(!empty($image_auteur) ? ''<cite>''.$image_auteur.''</cite>'' : '''').\r\n		(!empty($image_credits) ? ''<cite>''.$image_credits.''</cite>'' : '''').\r\n		(!empty($image_date) ? ''<cite>''.$image_date.''</cite>'' : '''')\r\n		.''\r\n	</div>\r\n	\r\n\r\n	''.$texte.''\r\n</div>\r\n<div class="breaker"> </div>'),
 (44, 1, 430, 4, 'Lien page interne', 'item:Page*|page|func[getPages,Titre du lien|titrelien|text,Cible|cible|enum[_blank/_self(_blank', '<div class="cms_a_download">\r\n	<div class="d1">\r\n		<div class="d2">\r\n			<a href="''.$page.''">''.($titrelien ? $titrelien : $page).''</a>\r\n		</div>\r\n	</div>\r\n</div>');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `cms_pages`
--- 
+--
 
-DROP TABLE IF EXISTS `cms_pages`;
-CREATE TABLE `cms_pages` (
+CREATE TABLE IF NOT EXISTS `cms_pages` (
   `id` int(8) NOT NULL auto_increment,
   `ordre` int(4) NOT NULL default '1',
   `actif` tinyint(1) NOT NULL default '1',
@@ -197,17 +181,17 @@ CREATE TABLE `cms_pages` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `type_id` (`type_id`)
-)  AUTO_INCREMENT=73 ;
+)    AUTO_INCREMENT=73 ;
 
--- 
+--
 -- Contenu de la table `cms_pages`
--- 
+--
 
-INSERT INTO `cms_pages` (`id`, `ordre`, `actif`, `pid`, `type_id`, `lien_fr`, `lien_uk`, `menu`, `plan`, `titre_fr`, `titre_uk`, `titre_page_fr`, `titre_page_uk`, `meta_titre_fr`, `meta_titre_uk`, `meta_url_fr`, `meta_url_uk`, `meta_description_fr`, `meta_description_uk`, `meta_key_fr`, `meta_key_uk`) VALUES 
-(1, 60, 1, 0, 1, '', '', 0, 1, 'Accueil', 'Home', 'Bienvenu sur notre site', '', 'Salon Immobilier du Pays d''Aix 2008', 'Salon Immobilier du Pays d''Aix 2008', '', '', 'Nous vous donnons d''ores et dÃ©jÃ  rendez-vous pour vivre ensemble le 1er Salon de l''Immobilier qui rÃ©unira la majoritÃ© des acteurs qui font l''Immobilier sur le Pays d''Aix', 'Nous vous donnons d''ores et dÃ©jÃ  rendez-vous pour vivre ensemble le 1er Salon de l''Immobilier qui rÃ©unira la majoritÃ© des acteurs qui font l''Immobilier sur le Pays d''Aix', 'Agences immobiliÃ¨res, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et dÃ©fiscalisation, Assurances, FÃ©dÃ©rations, Institutions, Syndicats professionnels, Architectes, Presse, ActivitÃ©s annexes Ã  la construction', 'Agences immobiliÃ¨res, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et dÃ©fiscalisation, Assurances, FÃ©dÃ©rations, Institutions, Syndicats professionnels, Architectes, Presse, ActivitÃ©s annexes Ã  la construction'),
+INSERT INTO `cms_pages` (`id`, `ordre`, `actif`, `pid`, `type_id`, `lien_fr`, `lien_uk`, `menu`, `plan`, `titre_fr`, `titre_uk`, `titre_page_fr`, `titre_page_uk`, `meta_titre_fr`, `meta_titre_uk`, `meta_url_fr`, `meta_url_uk`, `meta_description_fr`, `meta_description_uk`, `meta_key_fr`, `meta_key_uk`) VALUES
+(1, 60, 1, 0, 1, '', '', 0, 1, 'Accueil', 'Home', 'Bienvenu sur notre site', '', 'Titre (méta) provenant de la page d''accueil du site', 'Salon Immobilier du Pays d''Aix 2008', '', '', 'Hello world of SEO', 'Nous vous donnons d''ores et dÃ©jÃ  rendez-vous pour vivre ensemble le 1er Salon de l''Immobilier qui rÃ©unira la majoritÃ© des acteurs qui font l''Immobilier sur le Pays d''Aix', '', 'Agences immobiliÃ¨res, Promoteurs et commercialistateurs, Constructeurs de Maisons Individuelles, Etablissements financiers, Gestion de Patrimoine et dÃ©fiscalisation, Assurances, FÃ©dÃ©rations, Institutions, Syndicats professionnels, Architectes, Presse, ActivitÃ©s annexes Ã  la construction'),
 (67, 30, 1, 0, 4, '', '', 0, 1, 'CGU', 'CGU', '', '', 'Conditions gÃ©nÃ©rales d''utilisations', 'Conditions gÃ©nÃ©rales d''utilisations', '', '', '', '', '', ''),
-(68, 50, 1, 0, 13, '', '', 0, 0, 'Visiteurs', '', '', '', 'Visiteurs', '', '', '', '', '', '', ''),
-(59, 40, 1, 0, 14, '', '', 0, 1, 'Exposants', '', '', '', '', '', '', '', '', '', '', ''),
+(68, 50, 1, 0, 13, '', '', 1, 0, 'Visiteurs', '', '', '', 'Visiteurs', '', '', '', '', '', '', ''),
+(59, 40, 1, 0, 14, '', '', 1, 1, 'Exposants', '', '', '', '', '', '', '', '', '', '', ''),
 (60, 10, 1, 68, 4, '', '', 1, 1, 'Contacts', '', '', '', '', '', '', '', '', '', '', ''),
 (61, 20, 1, 59, 4, '', '', 1, 1, 'Devenez exposant', '', '', '', '', '', '', '', '', '', '', ''),
 (62, 20, 1, 68, 15, '', '', 1, 1, 'Conférences', '', '', '', '', '', '', '', '', '', '', ''),
@@ -222,12 +206,11 @@ INSERT INTO `cms_pages` (`id`, `ordre`, `actif`, `pid`, `type_id`, `lien_fr`, `l
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `cms_pages_elements`
--- 
+--
 
-DROP TABLE IF EXISTS `cms_pages_elements`;
-CREATE TABLE `cms_pages_elements` (
+CREATE TABLE IF NOT EXISTS `cms_pages_elements` (
   `id` int(8) NOT NULL auto_increment,
   `ordre` int(4) NOT NULL default '1',
   `actif` tinyint(1) NOT NULL default '1',
@@ -238,21 +221,24 @@ CREATE TABLE `cms_pages_elements` (
   `motcle` text,
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`)
-) AUTO_INCREMENT=1 ;
+)    AUTO_INCREMENT=4 ;
 
--- 
+--
 -- Contenu de la table `cms_pages_elements`
--- 
+--
 
+INSERT INTO `cms_pages_elements` (`id`, `ordre`, `actif`, `pid`, `type_id`, `langue`, `valeurs`, `motcle`) VALUES
+(1, 10, 1, 69, 3, 'fr', 'a:1:{s:5:"titre";s:24:"Q2VjaSBlc3QgbW9uIHRpdHJl";}', 'Ceci est mon titre<br />'),
+(2, 20, 1, 69, 17, 'fr', 'a:9:{s:5:"texte";s:1724:"PHA+Q0NlY2kgZXN0IHVuIHRleHRlIENlY2kgZXN0IHVuIHRleHRlIENlY2kgZXN0IHVuIHRleHRlQ2VjaSBlc3QgdW4gdGV4dGVlY2kgZXN0IHVuIHRleHRlJm5ic3A7ICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZTwvcD4NCjxwPjxlbT48c3Ryb25nPkNlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgIENlY2kgZXN0IHVuIHRleHRlICBDZWNpIGVzdCB1biB0ZXh0ZSAgQ2VjaSBlc3QgdW4gdGV4dGUgPC9zdHJvbmc+PC9lbT48L3A+";s:5:"image";s:4:"NQ==";s:12:"image_taille";s:8:"bWVkaXVt";s:11:"image_popup";s:4:"MA==";s:13:"image_legende";s:4:"MA==";s:13:"image_credits";s:4:"MA==";s:12:"image_auteur";s:4:"MA==";s:10:"image_date";s:4:"MA==";s:10:"alignement";s:8:"Z2F1Y2hl";}', 'CCeci est un texte Ceci est un texte Ceci est un texteCeci est un texteeci est un texte   Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  Ceci est un texte  <br />5<br />medium<br />0<br />0<br />0<br />0<br />0<br />gauche<br />'),
+(3, 30, 1, 69, 43, 'fr', 'a:9:{s:5:"titre";s:20:"Q29udGFjdGV6IG5vdXM=";s:5:"texte";s:40:"PHA+UG91ciBub3VzIGNvbnRhY3Rlci4uLjwvcD4=";s:5:"image";s:4:"NQ==";s:12:"image_taille";s:8:"bWVkaXVt";s:11:"image_popup";s:4:"MA==";s:13:"image_legende";s:4:"MA==";s:13:"image_credits";s:4:"MA==";s:12:"image_auteur";s:4:"MA==";s:10:"image_date";s:4:"MA==";}', 'Contactez nous<br />Pour nous contacter... <br />5<br />medium<br />0<br />0<br />0<br />0<br />0<br />');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `cms_pages_types`
--- 
+--
 
-DROP TABLE IF EXISTS `cms_pages_types`;
-CREATE TABLE `cms_pages_types` (
+CREATE TABLE IF NOT EXISTS `cms_pages_types` (
   `id` int(8) NOT NULL auto_increment,
   `actif` tinyint(1) NOT NULL default '1',
   `titre` varchar(250) default NULL,
@@ -260,17 +246,17 @@ CREATE TABLE `cms_pages_types` (
   `description` text,
   `style` varchar(250) default NULL,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=17 ;
+)    AUTO_INCREMENT=17 ;
 
--- 
+--
 -- Contenu de la table `cms_pages_types`
--- 
+--
 
-INSERT INTO `cms_pages_types` (`id`, `actif`, `titre`, `repertoire`, `description`, `style`) VALUES 
+INSERT INTO `cms_pages_types` (`id`, `actif`, `titre`, `repertoire`, `description`, `style`) VALUES
 (1, 1, '[*] Page d''accueil', '', 'Page d''index du site', './css/home.css'),
-(2, 1, '[*] Redirection sous-rubrique', '', 'Permet de rediriger le lien d''une rubrique vers sa premiÃ¨re sous-rubrique', ''),
+(2, 1, '[*] Redirection sous-rubrique', '', 'Permet de rediriger le lien d''une rubrique vers sa première sous-rubrique', ''),
 (3, 1, '[*] Redirection lien', '', 'Rediriger une rubrique vers un lien', ''),
-(4, 1, '[*] Page CMS', '', 'Module par defaut : utlise le contenu CMS associÃ© Ã  la page', './css/cms.css'),
+(4, 1, '[*] Page CMS', '', 'Module par defaut : utlise le contenu CMS associé à  la page', './css/cms.css'),
 (5, 0, '[*] Liste sous-rubriques', '', 'Affiche les sous-rubriques d''une rubrique', ''),
 (6, 1, 'Module Liste participants', 'mod_participants', '', ''),
 (11, 0, 'Module plan du site', 'mod_plan', '', ''),
@@ -282,12 +268,11 @@ INSERT INTO `cms_pages_types` (`id`, `actif`, `titre`, `repertoire`, `descriptio
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `dat_bibliotheque_fichiers`
--- 
+--
 
-DROP TABLE IF EXISTS `dat_bibliotheque_fichiers`;
-CREATE TABLE `dat_bibliotheque_fichiers` (
+CREATE TABLE IF NOT EXISTS `dat_bibliotheque_fichiers` (
   `id` int(8) NOT NULL auto_increment,
   `cat_id` int(8) NOT NULL default '1',
   `titre_fr` varchar(150) default NULL,
@@ -296,13 +281,13 @@ CREATE TABLE `dat_bibliotheque_fichiers` (
   `date` datetime default NULL,
   `fichier` varchar(70) default NULL,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=12 ;
+)    AUTO_INCREMENT=12 ;
 
--- 
+--
 -- Contenu de la table `dat_bibliotheque_fichiers`
--- 
+--
 
-INSERT INTO `dat_bibliotheque_fichiers` (`id`, `cat_id`, `titre_fr`, `titre_uk`, `description`, `date`, `fichier`) VALUES 
+INSERT INTO `dat_bibliotheque_fichiers` (`id`, `cat_id`, `titre_fr`, `titre_uk`, `description`, `date`, `fichier`) VALUES
 (8, 1, 'Télécharger le Règlement général', 'Télécharger le Règlement général', '', '2008-03-14 17:17:00', '080314171750_reglement-salon.doc'),
 (9, 1, 'Télécharger les Mesures de sécurité', '', '', '2008-03-14 17:17:00', '080314171811_mesuresdesecurite06.pdf'),
 (10, 1, 'Télécharger le Plan du salon', '', '', '2008-03-14 17:18:00', '080314171833_plan.pdf'),
@@ -310,34 +295,32 @@ INSERT INTO `dat_bibliotheque_fichiers` (`id`, `cat_id`, `titre_fr`, `titre_uk`,
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `dat_bibliotheque_fichiers_cat`
--- 
+--
 
-DROP TABLE IF EXISTS `dat_bibliotheque_fichiers_cat`;
-CREATE TABLE `dat_bibliotheque_fichiers_cat` (
+CREATE TABLE IF NOT EXISTS `dat_bibliotheque_fichiers_cat` (
   `id` int(8) NOT NULL auto_increment,
   `ordre` int(4) NOT NULL default '1',
   `titre` varchar(150) default NULL,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=4 ;
+)    AUTO_INCREMENT=4 ;
 
--- 
+--
 -- Contenu de la table `dat_bibliotheque_fichiers_cat`
--- 
+--
 
-INSERT INTO `dat_bibliotheque_fichiers_cat` (`id`, `ordre`, `titre`) VALUES 
+INSERT INTO `dat_bibliotheque_fichiers_cat` (`id`, `ordre`, `titre`) VALUES
 (1, 20, 'Documents pdf'),
 (3, 10, 'Test');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `dat_bibliotheque_images`
--- 
+--
 
-DROP TABLE IF EXISTS `dat_bibliotheque_images`;
-CREATE TABLE `dat_bibliotheque_images` (
+CREATE TABLE IF NOT EXISTS `dat_bibliotheque_images` (
   `id` int(8) NOT NULL auto_increment,
   `cat_id` int(8) NOT NULL default '1',
   `legende_fr` text,
@@ -348,82 +331,79 @@ CREATE TABLE `dat_bibliotheque_images` (
   `date` datetime default NULL,
   `image` varchar(70) default NULL,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=6 ;
+)    AUTO_INCREMENT=6 ;
 
--- 
+--
 -- Contenu de la table `dat_bibliotheque_images`
--- 
+--
 
-INSERT INTO `dat_bibliotheque_images` (`id`, `cat_id`, `legende_fr`, `legende_uk`, `credits_fr`, `credits_uk`, `auteur`, `date`, `image`) VALUES 
+INSERT INTO `dat_bibliotheque_images` (`id`, `cat_id`, `legende_fr`, `legende_uk`, `credits_fr`, `credits_uk`, `auteur`, `date`, `image`) VALUES
 (1, 1, '<p>Alice &eacute;v&eacute;nements</p>', '', '', '', '', '2008-02-28 17:13:00', '080311193916_logo_alice.gif'),
 (2, 1, '<p>E-fiche miniature</p>', '', '', '', '', '2008-02-28 18:57:00', '080314171451_e-fiche_off.gif'),
-(5, 1, '<p>Formulaire de pr&eacute;inscription</p>', '', '', '', '', '2008-03-14 17:26:00', '080314172741_formulaire_off.gif'),
+(5, 1, '<p>Formulaire de pr&eacute;inscription</p>', '', '', '', '', '2008-03-14 17:26:00', '081116133508_dgk9jfbr_94dtbpxzg8_b.png'),
 (3, 1, '<p>T&eacute;l&eacute;chargez les plaquettes du salon</p>', '', '', '', '', '2008-02-29 17:07:00', '080314171305_telechargez_off.gif'),
 (4, 1, '<p>E-fiche exemple</p>', '', '', '', '', '2008-03-06 15:03:00', '080314171527_e-fiche.gif');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `dat_bibliotheque_images_cat`
--- 
+--
 
-DROP TABLE IF EXISTS `dat_bibliotheque_images_cat`;
-CREATE TABLE `dat_bibliotheque_images_cat` (
+CREATE TABLE IF NOT EXISTS `dat_bibliotheque_images_cat` (
   `id` int(8) NOT NULL auto_increment,
   `ordre` int(4) default NULL,
   `titre` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=2 ;
+)    AUTO_INCREMENT=2 ;
 
--- 
+--
 -- Contenu de la table `dat_bibliotheque_images_cat`
--- 
+--
 
-INSERT INTO `dat_bibliotheque_images_cat` (`id`, `ordre`, `titre`) VALUES 
+INSERT INTO `dat_bibliotheque_images_cat` (`id`, `ordre`, `titre`) VALUES
 (1, 10, 'Visuels articles');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `dat_email_alertes`
--- 
+--
 
-DROP TABLE IF EXISTS `dat_email_alertes`;
-CREATE TABLE `dat_email_alertes` (
+CREATE TABLE IF NOT EXISTS `dat_email_alertes` (
   `id` int(8) NOT NULL auto_increment,
   `titre` varchar(150) default NULL,
   `sujet` varchar(150) default NULL,
   `texte` text,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=2 ;
+)    AUTO_INCREMENT=2 ;
 
--- 
+--
 -- Contenu de la table `dat_email_alertes`
--- 
+--
 
-INSERT INTO `dat_email_alertes` (`id`, `titre`, `sujet`, `texte`) VALUES 
-(1, 'Envois des informations de connexion', 'Vos codes d''accès pour le site salon-immobilier-aix.com / Your acces code to the site salon-immobilier-aix.com', '<p>Bonjour,</p>\r\n<p>&nbsp;</p>\r\n<p>Vos informations de connexion sur le site http://www.salon-immobilier-aix.com</p>\r\n<p>sont les suivantes :</p>\r\n<p>&nbsp;</p>\r\n<p>Identifiant : #LOGIN</p>\r\n<p>Mot de passe : #MDP</p>\r\n<p>&nbsp;</p>\r\n<p>Bonne visite sur notre site</p>\r\n<p>&nbsp;</p>\r\n<p>L''&eacute;quipe salon-immobilier-aix.com</p>\r\n<p>&nbsp;</p>\r\n<p>___________________________________________________</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>Your login information on the site http://www.salon-immobilier-aix.com <br /> Are as follows :</p>\r\n<p>&nbsp;</p>\r\n<p>Login : #LOGIN</p>\r\n<p>Password : #MDP</p>\r\n<p>&nbsp;</p>\r\n<p>Enjoy your visit to our site</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>The salon-immobilier-aix.com team</p>');
+INSERT INTO `dat_email_alertes` (`id`, `titre`, `sujet`, `texte`) VALUES
+(1, 'Envois des informations de connexion', 'Vos codes d''accès pour le site site.com / Your acces code to the site site.com', '<p>Bonjour,</p>\r\n<p>&nbsp;</p>\r\n<p>Vos informations de connexion sur le site http://www.site.com</p>\r\n<p>sont les suivantes :</p>\r\n<p>&nbsp;</p>\r\n<p>Identifiant : #LOGIN</p>\r\n<p>Mot de passe : #MDP</p>\r\n<p>&nbsp;</p>\r\n<p>Bonne visite sur notre site</p>\r\n<p>&nbsp;</p>\r\n<p>L''&eacute;quipe site.com</p>\r\n<p>&nbsp;</p>\r\n<p>___________________________________________________</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>Your login information on the site http://www.site.com <br /> Are as follows :</p>\r\n<p>&nbsp;</p>\r\n<p>Login : #LOGIN</p>\r\n<p>Password : #MDP</p>\r\n<p>&nbsp;</p>\r\n<p>Enjoy your visit to our site</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>The site.com team</p>');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `dat_trad_mots`
--- 
+--
 
-DROP TABLE IF EXISTS `dat_trad_mots`;
-CREATE TABLE `dat_trad_mots` (
+CREATE TABLE IF NOT EXISTS `dat_trad_mots` (
   `id` int(8) NOT NULL auto_increment,
   `titre` varchar(150) default NULL,
   `trad_fr` tinytext,
   `trad_uk` tinytext,
   PRIMARY KEY  (`id`)
-)  AUTO_INCREMENT=46 ;
+)    AUTO_INCREMENT=46 ;
 
--- 
+--
 -- Contenu de la table `dat_trad_mots`
--- 
+--
 
-INSERT INTO `dat_trad_mots` (`id`, `titre`, `trad_fr`, `trad_uk`) VALUES 
+INSERT INTO `dat_trad_mots` (`id`, `titre`, `trad_fr`, `trad_uk`) VALUES
 (1, 'Demande par formulaire', 'Demande par formulaire', ''),
 (2, 'Pour accéder à cette page', 'Pour accéder à cette page', ''),
 (3, 'Nom', 'Nom', ''),
@@ -472,20 +452,19 @@ INSERT INTO `dat_trad_mots` (`id`, `titre`, `trad_fr`, `trad_uk`) VALUES
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `dat_trad_textes`
--- 
+--
 
-DROP TABLE IF EXISTS `dat_trad_textes`;
-CREATE TABLE `dat_trad_textes` (
+CREATE TABLE IF NOT EXISTS `dat_trad_textes` (
   `id` int(8) NOT NULL auto_increment,
   `titre` varchar(150) default NULL,
   `trad_fr` text,
   `trad_uk` text,
   PRIMARY KEY  (`id`)
-) AUTO_INCREMENT=1 ;
+)  AUTO_INCREMENT=1 ;
 
--- 
+--
 -- Contenu de la table `dat_trad_textes`
--- 
+--
 
