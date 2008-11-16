@@ -13,54 +13,78 @@ body {
 
 /* ---------------------------- STRUCTURE ---------------------------- */
 #page {
-	border:1px solid #000;
-	margin:20px auto;
-	padding:0;
-	width:978px;
-	position:relative;
-}
-
-#page_int {
-	margin:0;
-	padding:12px;
+	background-image:url(../images/images/mm.png)!important; 
+	/*background-image:url(no-image);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src='images/images/mm.png',sizingMethod='scale');*/
+	border:none;
+	margin:0 auto 20px;
+	padding:10px 0 0;
 	text-align:left;
-	background:#E6E6E6;
+	width:962px;
 }
-#page_interieur {
-	background:#FFFFFF;
-	min-height:978px;
-}
-
-#header {
-	margin:0;
-	padding:0;
-}
-
 #content {
 	font-size:1.2em;
-	margin:14px 14px 0 14px;
+	margin:0 30px;
 }
-
-#maincontent {
-	float:left;
-	height:inherit;
-	width:614px;
+#header {
+	background-image:url(../images/images/hh.png)!important; 
+	/*background-image:url(no-image);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src='images/images/hh.png',sizingMethod='crop');*/
+	background-repeat:no-repeat;
+	height:145px;
+	margin:10px auto -1px;
+	padding:0;
+	width:962px;
+	text-align:center;
 }
-
-#navigation {
-	float:right;
-	width:300px;
-}
-			
-
 #footer {
-	background:url(../images/images/bb.png) no-repeat bottom;
+	background-image:url(../images/images/bb.png)!important; 
+	/*background-image:url(no-image);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src='images/images/bb.png',sizingMethod='crop');*/
+	background-repeat:no-repeat;
+	background-position:bottom;
 	border:none;
 	clear:both;
 	height:63px;
 	margin:0;
 	padding:0;
 	width:962px;
+}
+#footer p {
+	margin:0;
+	padding:33px 0 0;
+	text-align:center;
+}
+#footer a:hover {
+	color:#EBFDE5;
+}
+
+#pagefoot {
+	background-image:url(../images/bottom.png)!important; 
+	/*background-image:url(no-image);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src='images/bottom.png',sizingMethod='crop');*/
+	background-repeat:no-repeat;
+	text-align:center;
+	width:972px;
+	height:124px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:8px;
+}
+
+#maincontent {
+	border-right:1px dotted #999;
+	color:#666;
+	float:left;
+	font-size:1.1em;
+	height:inherit;
+	line-height:1.6em;
+	padding-right:10px;
+	width:615px;
+}
+#navigation {
+	float:right;
+	width:260px;
 }
 
 /* ---------------------------- POLICES ---------------------------- */

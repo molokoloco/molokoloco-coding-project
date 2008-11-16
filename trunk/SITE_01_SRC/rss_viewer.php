@@ -11,7 +11,7 @@ $F =& new SimplePie();
 $F->set_feed_url($feed);
 $F->enable_order_by_date(false);
 if ($ajax) $F->set_output_encoding('UTF-8');
-//$F->set_image_handler('./image.php');
+//$F->set_image_handler('./rss_image.php');
 //$F->set_favicon_handler('./image.php');
 ### 
 $F->enable_cache(false);

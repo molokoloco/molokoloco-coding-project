@@ -44,30 +44,8 @@ $titre = $S->arbo[$S->rid]['titre_'.$lg];
 $titre_page = $S->arbo[$S->rid]['titre_page_'.$lg];
 if (empty($meta_titre)) $meta_titre = $titre_page;
 
-// Valeurs par defaut et infos complmentaires CMS
+// Infos complementaires page Rubrique en cours
 // $R =& new Q("SELECT * FROM cms_pages WHERE id='{$S->rid}' LIMIT 1 ");
-
-
-
-//$arr_Acc = array();
-//$infoScroll = '';
-//$A = new Q("SELECT * FROM mod_prestations WHERE actif='1' ORDER BY ordre DESC");
-//foreach($A->V as $V) { 
-//	$str = aff($V['texte']);
-//	$str = str_replace('&nbsp;', ' ', $str);
-//	$str = preg_replace('(\\n)', '', $str);
-//	$str = str_replace('<br />', '#', $str);
-//	$str = trim(strip_tags($str));
-//	$str = preg_replace('/[\\n]{2,}/', "\n", $str);
-//	$arr_Acc[] = array(
-//		'goto' => urlRewrite($V['titre'], 'r'.$S->getRidByType(($V['type']==1?'10':'6')).'-p'.$V['id']),
-//		'titre' => htmlentities(aff($V['titre'])),
-//		'texte' => $str
-//	);
-//	$infoScroll .= '<p>'.htmlentities(aff($V['titre']))."</p>\n";
-//	$infoScroll .= aff($V['texte'])."\n";
-//}
-//$js_arr_Acc = getScriptBiArray('arrAccroche', $arr_Acc);
 
 
 if ($ajax != 1) { // !!!
@@ -79,7 +57,7 @@ if ($ajax != 1) { // !!!
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta http-equiv="imagetoolbar" content="no"/>
 	<meta http-equiv="content-language" content="<?=$lg;?>"/>
-	<title><?=str_replace('&amp;#9734;', '☆', html(aff($meta_titre)));?></title>
+	<title><?=html(aff($meta_titre));?></title>
 	<meta name="description" content="<?=html(aff($meta_description));?>"/>
 	<meta name="keywords" content="<?=html(aff($meta_key));?>"/>
 	<meta name="robots" content="index, follow, all"/>
@@ -90,19 +68,17 @@ if ($ajax != 1) { // !!!
 	<meta name="language" content="Franais"/>
 	<meta name="copyright" content="copyright"/>
 	<meta name="coverage" content="Worldwide"/>
-	<link rel="alternate" type="application/rss+xml" href="<?=$WWW;?>photos.rss" title="My Piclens Galerie - http://piclens.com/" id="gallery" />
 	<link rel="alternate" type="application/rss+xml" href="<?=$WWW;?>rss.php" title="Les derniers travaux" />
 	<link rel="icon" href="<?=$WWW;?>favicon.ico" />
 	<link rel="shortcut icon" type="image/icon" href="<?=$WWW;?>favicon.ico" />
 	<link href="<?=$WWW;?>css/styles_noprint.css" rel="stylesheet" type="text/css" media="print"/>
 	<link href="<?=$WWW;?>css/styles.css" rel="stylesheet" type="text/css" media="all"/>
+	<link href="<?=$WWW;?>cms_files/css/cms.css.php" rel="stylesheet" type="text/css" media="all"/>
 	<link href="<?=$WWW;?>css/menu.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="<?=$WWW;?>cms_files/css/cms.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="<?=$WWW;?>js/lightwindow/css/lightwindow.css" rel="stylesheet" type="text/css" media="screen"/>
 	<script src="<?=$WWW;?>js/proto/init.js" type="text/javascript"></script>
 	<script src="<?=$WWW;?>js/lightwindow/javascript/lightwindow.js" type="text/javascript"></script>
-	<script src="<?=$WWW;?>js/reflex/reflex.js" type="text/javascript"></script>
-	<!--<script type="text/javascript" src="http://lite.piclens.com/current/piclens.js"></script>-->
 	<? js($js_arr_Acc); ?>
 	
 </head>
