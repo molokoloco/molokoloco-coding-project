@@ -1,7 +1,7 @@
 <?
 /*
-	// A Class writed by Crazycat and reWorked by Molokoloco // Version du 08/10/07 //
-	// Based on a SQL table containing "pid" field for pointing ancestor
+	// A Class writed by Crazycat and reWorked by Molokoloco // Version du 17/09/2008
+	// Based on a SQL table containing "pid" field for pointing ancestor (parent_id)
 
 	// INITIALISATION
 	
@@ -67,26 +67,24 @@
 
 class ARBO {
 
-	/* ------------------------------ PRIVATES PROCESSED VALUES ------------------------------ */
-	
+	/* ------------------------------ PUBLIC RESULT ------------------------------ */
 	var $rid; // id of the current rubrique
 	var $prid; // id of the direct PARENT rubrique
 	var $rrid; // id of the ROOT node of the current rubrique
 	var $arid; // id of the rubrique accueil
 	var $arbo = array(); // Array global des valeurs de la table rubriques
-	
-	var $lg; // Langue en cour
-	var $basePath; // Url relative lien
-	
+
 	/* ------------------------------ PUBLIC PARAMS ------------------------------ */
-	
 	var $accueilTypeId; // type_id si page d'accueil du site
 	var $redirtofirstTypeId; // type_id si redirection sur le firstChild
 	var $redirtoLink; // si redirection vers lien...
 	var $table; // Table rubriques
 	var $where; // Rubrique where
 	var $fields = array(); // "Fields" de la table rubrique
-
+		
+	var $lg; // Langue en cour
+	var $basePath; // Url relative to site root
+	
 	/* ------------------------------ INIT ------------------------------ */
 	/**
      * ARBO Constructeur
@@ -174,7 +172,7 @@ class ARBO {
 			else if ($V['menu'] == 1) $this->totalRootMenu++;
 		}
 
-		if ($this->arid < 1) die(getDb('[ARBO()] Il faut configurer au moins <strong>une rubrique</strong> pour l\'acceuil'));
+		if ($this->arid < 1) die(getDb('[ARBO()] Il faut configurer au moins une rubrique pour l\'acceuil'));
 		
 		//$this->arbo[$this->arid]['url'] = 'accueil.php'; // SPECIFIK !!!
 		
