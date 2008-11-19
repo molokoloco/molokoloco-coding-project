@@ -257,3 +257,232 @@ DenyFilter            \*.*/
 </Global>
 
 }}}
+
+
+= UBUNTU =
+
+{{{
+--- RACCOURCIS ---------------------------------------------------------
+
+ALT-F2 >> Open soft
+
+Ctrl+Alt+F2 >> virtual console
+
+sudo shutdown -r
+sudo mv -v /home/from.gz  /opt/to.gz
+sudo rm -rf /opt/lampp
+sudo chown molokoloco index.php
+sudo chown -R root:root eclipse
+sudo chmod 605 /var/www/phpinfo.php
+sudo chmod 755 /var/www/phpinfo.php
+sudo touch /usr/bin/eclipse
+
+Alt+PrintScreen+R+E+I+S+U+B > if really freeze
+
+autostart > System->Preferences->Session
+
+gconf-editor
+glxinfo | grep "direct rendering"
+compizconfig-settings-manager
+
+NAVIGATEUR AVEC DROIT ROOT
+gksudo nautilus
+
+EDITEUR AVEC DROIT ROOT
+sudo gedit /etc/mysql/my.cnf
+
+--- NETWORK ---------------------------------------------------------
+
+sudo ifup --force eth1
+sudo ifdown eth1
+sudo ifconfig eth1
+sudo iwconfig
+sudo iwlist scanning
+sudo /etc/init.d/networking restart
+sudo lshw -C network
+sudo ip addr show
+cat /etc/network/interfaces
+
+# explicitly release the old address
+/etc/init.d/networking stop
+sudo dhclient -r eth1
+/etc/init.d/networking start
+
+--- XAMP - LAMPP ---------------------------------------------------------
+
+http://doc.ubuntu-fr.org/xampp
+http://www.polarion.org/index.php?page=installation&project=subversive
+http://www.apachefriends.org/en/xampp-linux.html#381
+
+sudo chmod a+x /opt/lampp/htdocs
+
+sudo lampp start
+sudo lampp restart
+sudo lampp security
+sudo lampp stop
+sudo lampp
+
+sudo gedit /opt/lampp/etc/proftpd.conf
+sudo gedit /opt/lampp/etc/php.ini
+sudo gedit /opt/lampp/etc/httpd.conf
+sudo gedit /opt/lampp/etc/extra/httpd-vhosts.conf
+
+
+--- LAMP ---------------------------------------------------------
+
+http://doc.ubuntu-fr.org/lamp
+
+sudo /etc/init.d/apache2 start
+/etc/apache2/apache2.conf
+
+sudo chmod 605 /var/www/phpinfo.php
+sudo chmod 755 /var/www/phpinfo.php
+
+apt://apache2,apache2-doc,mysql-server,php5,libapache2-mod-php5,php5-mysql,phpmyadmin
+
+PHP command : /usr/bin/php
+PHP Parser command: /usr/bin/php -l -f {0}
+Start Apache: /etc/init.d/apache2 start
+Stop Apache: /etc/init.d/apache2 stop
+Restart Apache: /etc/init.d/apache2 restart
+Apache: /usr/bin/gksudo
+Path to httpd.conf: /etc/apache2/httpd.conf
+Path to etc/hosts: /etc/hosts
+Start MySQL: /etc/init.d/mysql start
+MySQL: /usr/bin/gksudo
+
+--- APT ---------------------------------------------------------
+
+sudo apt-get update
+sudo apt-get install linux-restricted-modules-$(uname -r)
+sudo apt-get autoremove
+
+# Copier un repertoirevers home
+cp cfg ~/.entertainer -R
+
+# Limiter la recherche
+cat /var/log/Xorg.0.log | grep '(EE)
+
+sudo apt-get install sun-java5-jre sun-java5-plugin # JAVA (firefox)
+
+sudo apt-get install unrar
+unrar e nom_du_fichier.rar
+
+# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
+# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
+sudo apt-get install firestarter
+
+apt://ubuntustudio-desktop;apt:ubuntustudio-icon-theme;apt:ubuntustudio-look;apt:ubuntustudio-theme;apt:ubuntustudio-wallpapers;apt:usplash-theme-ubuntustudio
+
+sudo apt-get install python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
+
+sudo aptitude remove python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
+
+apt://gnome-do
+
+fgl_glxgears # (test)
+
+
+--- EDITED FILE ---------------------------------------------------------
+
+gstreamer-properties
+
+--- GNOME MENU ITEM ---------------------------------------------------------
+
+http://flurdy.com/docs/eclipse/install.html
+
+tar xzf wtp-all-in-one-sdk-1.0-linux-gtk.tar.gz
+sudo mv eclipse /opt/eclipse cd /opt sudo chown -R root:root eclipse
+sudo chmod -R +r eclipse
+sudo chmod +x `sudo find eclipse -type d`
+
+# Then create an eclipse executable in your path
+sudo touch /usr/bin/eclipse
+sudo chmod 755 /usr/bin/eclipse
+sudoedit /usr/bin/eclipse
+
+# With this contents
+#!/bin/sh
+#export MOZILLA_FIVE_HOME="/usr/lib/mozilla/"
+export ECLIPSE_HOME="/opt/eclipse"
+
+$ECLIPSE_HOME/eclipse $*
+
+Then create a gnome menu item
+sudoedit /usr/share/applications/eclipse.desktop
+
+With this contents
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse
+Comment=Eclipse IDE
+Exec=eclipse
+Icon=/opt/eclipse/icon.xpm
+Terminal=false
+Type=Application
+Categories=GNOME;Application;Development;
+StartupNotify=true
+Configure
+
+You now have a working eclipse. But run this command first to initialise the set up.
+/opt/eclipse/eclipse -clean
+
+Then from here on you can run from the menu item applications/programming/eclipse
+
+--- CARTE GRAPHIQUE ACER ---------------------------------------------------------
+
+ATI MOBILITY RADEON X700
+http://wiki.cchtml.com/index.php/Ubuntu_Hardy_Installation_Guide#Method_2:_Manual_Method_.28installing_Catalyst_8.7.29
+
+2915ABG Network Connection
+
+--- HOW TO ----------------------------------------------------------
+http://doc.ubuntu-fr.org/catalyst
+http://doc.ubuntu-fr.org/ati.run
+http://forum.ubuntu-fr.org/viewtopic.php?id=109984
+http://forum.ubuntu-fr.org/viewtopic.php?id=109004
+http://wiki.cchtml.com/index.php/Main_Page
+http://forum.ubuntu-fr.org/viewtopic.php?id=160734
+http://forum.compiz-fusion.org/showthread.php?t=6794&highlight=ATI+X700
+
+
+The Xgl server will now be started automatically next time you login.  It is no longer necessary to use any special X session to start Xgl, and such sessions will likely fail to work properly.  Please select a regular session from your session manager next time you log in.  To disable Xgl autostart for this user, create a file named ~/.config/xserver-xgl/disable
+https://answers.launchpad.net/ubuntu/+source/xserver-xgl/+question/20589
+
+--- HUM ? -----------------------------------------------------------
+
+# Cinelerra
+# deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/cinelerra/pentium4/ ./
+# deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/cinelerra/athlonxp/ ./
+deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/cinelerra/i686/ ./
+deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/mjpegtools ./
+
+Update:
+sudo apt-get update
+
+Now install:
+sudo apt-get install cinelerra
+
+--- FLASH ---------------------------------------------------------
+
+Method #1: Install Ubuntu flash 10 Player
+Visit this url and grab .deb file. Uninstall old flashplayer 9 ( if installed ):
+    $ sudo apt-get remove flashplugin-nonfree
+    Now, install Flash 10 (make sure Firefox is not running):
+    $ sudo dpkg -i sudo dpkg -i install_flash_player_10_linux.deb
+    Start firefox and type about:plugins. You should see list of plugins including Flash 10.
+
+Method #2: Install Flash Player 10 Final in your home directory
+If you need to install flash plugin in your home directory, type the following commands. To uninstall type the command:
+    $ cd ~/.mozilla
+    $ rm flashplayer.xpt libflashplayer.so
+    Visit adobe website to grab flash player 10 tar.gz (tar ball). Download and install flash player 10 (please exit any browsers you may have running):
+    $ cd /tmp
+    $ wget http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player_10_linux.tar.gz
+    $ tar -zxvf install_flash_player_10_linux.tar.gz
+    $ cd install_flash_player_10_linux
+    $ ./flashplayer-installer
+
+
+
+}}}
