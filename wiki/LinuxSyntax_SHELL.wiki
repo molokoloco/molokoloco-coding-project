@@ -1,14 +1,175 @@
-#summary Personal notes on Linux (Debian) Shell commands
+#summary Personal notes for Linux Shell commands (Ubuntu/Debian : LAMP)
 #labels Tooltips
 
-= DEBIAN =
+= COMMAND LINE SHELL - LINUX with UBUNTU/DEBIAN/... =
 
 {{{
-SHELL AND DEBIAN
 
-==========================================================================================
+--- RACCOURCIS ---------------------------------------------------------
 
-APTITUDE
+Alt-F2 >> Open soft
+Ctrl+Alt+F2 >> virtual console
+Alt+PrintScreen+R+E+I+S+U+B > if really freeze
+
+sudo shutdown -r
+init 6 // Restart machine
+locate | grep "img"
+cat toto.log | more
+sudo mv -v /home/from.gz  /opt/to.gz
+sudo rm -rf /opt/lampp 
+sudo cp /etc/network/interfaces /etc/network/interfaces.save
+sudo chown molokoloco index.php
+sudo chown -R root:root eclipse
+sudo chown -R --recursive hairbox.www-data /home/hairbox/*
+sudo chmod 605 /var/www/phpinfo.php
+sudo chmod -R 755 /var/www/phpinfo.php
+sudo touch /usr/bin/eclipse
+echo -e 'auto lo\niface lo inet loopback\n' | sudo tee /etc/network/interfaces
+wget ftp://ftp.ovh.net/made-in-ovh/release/patch-all.sh -O patch-all.sh; sh patch-all.sh
+adduser toto
+cfdisk // Partititon
+df -h (espace libre)
+free (memoire)
+rm -rf /tmp/*.wrk
+ps auxw (processus) // ps -aux // Tous les process
+telnet localhost 80
+
+# Lien
+ln -s /etc/apache2/mods-available/userdir.load /etc/apache2/mods-enabled/userdir.load
+ln -s /etc/apache2/sites-available/theatredesdeuxreves.org.conf /etc/apache2/sites-enabled/theatredesdeuxreves.org.conf
+
+# Make link...
+bebeserv:/etc/apache2/mods-enabled# ln -s ../mods-available/userdir.load userdir.load
+
+# Recherche
+rgrep -i directoryindex -inH /etc/apache2 | grep conf  [Cherche le mot "directoryindex" dans un rep...]
+grep localhost /etc/hosts
+
+
+gconf-editor
+glxinfo | grep "direct rendering"
+compizconfig-settings-manager
+
+# NAVIGATEUR AVEC DROIT ROOT
+gksudo nautilus
+
+# EDITEUR AVEC DROIT ROOT
+sudo gedit /etc/mysql/my.cnf
+
+# Gnome : Sauvegarder sa configuration
+gconftool-2 --dump / > /tmp/ma_conf.xml
+# Restaurer sa configuration
+gconftool-2 --load=/tmp/ma_conf.xml
+
+
+# SSH TRANSFERT ... (D'un disque à un autre)
+# /root/.ssh/authorized_keys2 ?
+scp -r root@213.186.46.78:/home/bibliobus/www/ /home/bibliobu/
+chown bibliobu.users /home/bibliobu/www/*
+chown mysql.mysql /home/mysql/bibliobu/*
+
+--- UBUNTU NETWORK ---------------------------------------------------------
+
+sudo ifup eth1
+sudo ifup --force eth1
+sudo ifdown eth1
+sudo ifconfig eth1
+sudo iwconfig
+sudo iwlist scanning
+sudo /etc/init.d/networking restart
+sudo /etc/init.d/NetworkManager restart
+sudo lshw -C network
+sudo ip addr show
+cat /etc/network/interfaces
+> auto lo
+> iface lo inet loopback
+
+# explicitly release the old address
+sudo /etc/init.d/networking stop
+sudo dhclient -r eth1
+sudo /etc/init.d/networking start
+
+--- XAMP - LAMPP ---------------------------------------------------------
+
+http://doc.ubuntu-fr.org/xampp
+http://www.polarion.org/index.php?page=installation&project=subversive
+http://www.apachefriends.org/en/xampp-linux.html#381
+
+sudo chmod a+x /opt/lampp/htdocs
+
+sudo lampp start
+sudo lampp restart
+sudo lampp security
+sudo lampp stop
+sudo lampp
+
+sudo gedit /opt/lampp/etc/proftpd.conf
+sudo gedit /opt/lampp/etc/php.ini
+sudo gedit /opt/lampp/etc/httpd.conf
+sudo gedit /opt/lampp/etc/extra/httpd-vhosts.conf
+
+--- LAMP ---------------------------------------------------------
+
+http://doc.ubuntu-fr.org/lamp
+
+sudo /etc/init.d/apache2 start
+/etc/apache2/apache2.conf
+
+sudo chmod 605 /var/www/phpinfo.php
+sudo chmod 755 /var/www/phpinfo.php
+
+apt://apache2,apache2-doc,mysql-server,php5,libapache2-mod-php5,php5-mysql,phpmyadmin
+
+PHP command : /usr/bin/php
+PHP Parser command: /usr/bin/php -l -f {0}
+Start Apache: /etc/init.d/apache2 start
+Stop Apache: /etc/init.d/apache2 stop
+Restart Apache: /etc/init.d/apache2 restart
+Apache: /usr/bin/gksudo
+Path to httpd.conf: /etc/apache2/httpd.conf
+Path to etc/hosts: /etc/hosts
+Start MySQL: /etc/init.d/mysql start
+MySQL: /usr/bin/gksudo
+
+--- APT ---------------------------------------------------------
+
+sudo apt-get update
+sudo apt-get install linux-restricted-modules-$(uname -r)
+sudo apt-get autoremove
+
+# Copier un repertoirevers home
+cp cfg ~/.entertainer -R
+
+# Limiter la recherche
+cat /var/log/Xorg.0.log | grep '(EE)
+
+sudo apt-get install sun-java5-jre sun-java5-plugin # JAVA (firefox)
+
+sudo apt-get install unrar
+unrar e nom_du_fichier.rar
+
+# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
+# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
+sudo apt-get install firestarter
+
+apt://ubuntustudio-desktop;apt:ubuntustudio-icon-theme;apt:ubuntustudio-look;apt:ubuntustudio-theme;apt:ubuntustudio-wallpapers;apt:usplash-theme-ubuntustudio
+
+sudo apt-get install python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
+
+sudo aptitude remove python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
+
+apt://gnome-do
+
+fgl_glxgears # (test)
+
+sudo apt-get install azureus
+
+}}}
+
+= APTITUDE =
+
+{{{
+
 http://qref.sourceforge.net/quick/ch-package.fr.html
 
 aptitude install apt-spy
@@ -105,7 +266,11 @@ dpkg {-s|--status} paquet ... # état et description d'un paquet installé
 dpkg -l paquet ... # état du paquet installé (1 ligne)
 dpkg -L paquet ... # liste les noms des fichiers installés par le paquet
 
-==========================================================================================
+}}}
+
+= APACHE =
+
+{{{
 
 # APACHE (Hugh <:) :
 
@@ -133,7 +298,6 @@ ps -e (ca te donne tout les processus lancer)
 
 ps -e|grep httpd
 
-
 ==========================================================================================
 
 /etc/init.d/apache2 reload  {start|stop|reload|reload-modules|force-reload|restart}
@@ -142,7 +306,6 @@ ps -e|grep httpd
 /etc/init.d/xinetd reload
 
 /etc/init.d/proftpd reload
-
 
 ==========================================================================================
 
@@ -170,51 +333,6 @@ etc/mysql mysqlaccess my.conf
 # CHECK : /home/log/
 
 http://ns24436.ovh.net:10000/syslog/index.cgi
-
-==========================================================================================
-ORNIS Fedora Core 7 i386 RPM
-
-CTRL + C OU Maj + Entrée
-
-locate | grep "img"
-
-cat toto.log | more
-
-init 6 // Restart machine
-
-chown -R --recursive hairbox.www-data /home/hairbox/*
-
-rpm -K --nosignature ImageMagick-6.3.4-2.i386.rpm
-rpm -i ImageMagick-6.3.4-2.i386.rpm
-
-touch toto.txt > creer un fichier
-host google.fr srv
-dig @srv google.fr
-
-cat /etc/ovhrelease (Info)
-wget ftp://ftp.ovh.net/made-in-ovh/release/patch-all.sh -O patch-all.sh; sh patch-all.sh
-
-rpm -Uvh nom_du_paquet
-
-adduser toto
-
-cfdisk // Partititon
-
-df -h (espace libre)
-free (memoire)
-rm -rf /tmp/*.wrk
-ps auxw (processus) // ps -aux // Tous les process
-telnet localhost 80
-
-#Lien
-ln -s /etc/apache2/mods-available/userdir.load /etc/apache2/mods-enabled/userdir.load
-ln -s /etc/apache2/sites-available/theatredesdeuxreves.org.conf /etc/apache2/sites-enabled/theatredesdeuxreves.org.conf
- 
-rgrep -i directoryindex -inH /etc/apache2 | grep conf  [Cherche le mot "directoryindex" dans un rep...]
-grep localhost /etc/hosts
-
-#make link...
-bebeserv:/etc/apache2/mods-enabled# ln -s ../mods-available/userdir.load userdir.load
 
 mysql -u root
 mysql> USE mysql;
@@ -286,25 +404,12 @@ logrotate fait l'affaire:
 
 ==========================================================================================
 
-SOA - Start Of Authority record identifies who hs authoritative responsinility
-
-for this Domain.
-
-NS - NameServer Record maintains an authoritative set of resource records for
-
-the Domain.
-
+SOA - Start Of Authority record identifies who hs authoritative responsinility for this Domain.
+NS - NameServer Record maintains an authoritative set of resource records for the Domain.
 CNAME - Canonical Name record is used to identify an alias host name.
-
-MX - Records specifu a list of hosts that are configured to receive Mail sent to
-
-this Domain Name.
-
+MX - Records specifu a list of hosts that are configured to receive Mail sent to this Domain Name.
 A - Address Record maps an IP Address a Host Name.
-
-PTR - Record allows special Names to point to some other location in the Domain.
-
-( PTR Records are used only in reverse domains IN-ADDR.ARPA )
+PTR - Record allows special Names to point to some other location in the Domain. ( PTR Records are used only in reverse domains IN-ADDR.ARPA )
 
 ==========================================================================================
 IMAGE MAGICK
@@ -361,30 +466,12 @@ http://guides.ovh.net/InstallQmailAntiSpam
 
 Update perl.. http://www.cpan.org/authors/id/F/FE/FELICITY/Mail-SpamAssassin-3.1.8.tar.gz
 
-==========================================================================================
 
-SSH Transfert ... D'un disque à un autre
+}}}
 
-/root/.ssh/authorized_keys2 ?
+= UTILITY =
 
-scp -r root@213.186.46.78:/home/saintdes/www/ /home/saintdes/
-scp -r root@213.186.46.78:/home/bibliobus/www/ /home/bibliobu/
-scp -r root@213.186.46.78:/home/steve/www/ /home/steve/
-scp -r root@213.186.46.78:/home/doudiv/www/ /home/doudiv/
-scp -r root@213.186.46.78:/home/casimir/ /home/casimir/
-scp -r root@213.186.46.78:/home/miro/www /home/miro/
-
-chown bibliobu.users /home/bibliobu/www/*
-chown steve.users /home/steve/www/*
-chown doudiv.users /home/doudiv/www/*
-chown casimir.users /home/casimir/*
-chown miro.users /home/miro/*
-
-chown mysql.mysql /home/mysql/bibliobu/*
-chown mysql.mysql /home/mysql/steve/*
-chown mysql.mysql /home/mysql/saintdes/*
-
-==========================================================================================
+{{{
 
 MODULES WEBMIN
 
@@ -393,19 +480,7 @@ Majordormo
 qmail
 .htpassword
 php.ini
-
 Perl version 5.6.0
-
-Perl5 module for reading configuration files and parsing command line arguments.
-DBD::Pg
-PostgreSQL database driver for the DBI module
-DBI
-Digest::MD5
-Perl interface to the MD5 Algorithm
-File::MMagic
-Guess file type
-MD5
-Net::SSLeay
 
 ==========================================================================================
 
@@ -419,139 +494,12 @@ Enter same passphrase again:
 Your identification has been saved in /root/.ssh/id_rsa.
 Your public key has been saved in /root/.ssh/id_rsa.pub.
 The key fingerprint is:
-cf:7e:72:df:8a:9d:3b:b3:9c:d2:a6:db:0d:63:be:0a root@ns24436.ovh.net
-
 
 }}}
 
 = UBUNTU (is great !!!) =
 
 {{{
-
---- RACCOURCIS ---------------------------------------------------------
-
-ALT-F2 >> Open soft
-
-Ctrl+Alt+F2 >> virtual console
-
-sudo shutdown -r
-sudo mv -v /home/from.gz  /opt/to.gz
-sudo rm -rf /opt/lampp
-sudo chown molokoloco index.php
-sudo chown -R root:root eclipse
-sudo chmod 605 /var/www/phpinfo.php
-sudo chmod 755 /var/www/phpinfo.php
-sudo touch /usr/bin/eclipse
-
-Alt+PrintScreen+R+E+I+S+U+B > if really freeze
-
-autostart > System->Preferences->Session
-
-gconf-editor
-glxinfo | grep "direct rendering"
-compizconfig-settings-manager
-
-NAVIGATEUR AVEC DROIT ROOT
-gksudo nautilus
-
-EDITEUR AVEC DROIT ROOT
-sudo gedit /etc/mysql/my.cnf
-
---- NETWORK ---------------------------------------------------------
-
-sudo ifup --force eth1
-sudo ifdown eth1
-sudo ifconfig eth1
-sudo iwconfig
-sudo iwlist scanning
-sudo /etc/init.d/networking restart
-sudo lshw -C network
-sudo ip addr show
-cat /etc/network/interfaces
-
-# explicitly release the old address
-/etc/init.d/networking stop
-sudo dhclient -r eth1
-/etc/init.d/networking start
-
---- XAMP - LAMPP ---------------------------------------------------------
-
-http://doc.ubuntu-fr.org/xampp
-http://www.polarion.org/index.php?page=installation&project=subversive
-http://www.apachefriends.org/en/xampp-linux.html#381
-
-sudo chmod a+x /opt/lampp/htdocs
-
-sudo lampp start
-sudo lampp restart
-sudo lampp security
-sudo lampp stop
-sudo lampp
-
-sudo gedit /opt/lampp/etc/proftpd.conf
-sudo gedit /opt/lampp/etc/php.ini
-sudo gedit /opt/lampp/etc/httpd.conf
-sudo gedit /opt/lampp/etc/extra/httpd-vhosts.conf
-
-
---- LAMP ---------------------------------------------------------
-
-http://doc.ubuntu-fr.org/lamp
-
-sudo /etc/init.d/apache2 start
-/etc/apache2/apache2.conf
-
-sudo chmod 605 /var/www/phpinfo.php
-sudo chmod 755 /var/www/phpinfo.php
-
-apt://apache2,apache2-doc,mysql-server,php5,libapache2-mod-php5,php5-mysql,phpmyadmin
-
-PHP command : /usr/bin/php
-PHP Parser command: /usr/bin/php -l -f {0}
-Start Apache: /etc/init.d/apache2 start
-Stop Apache: /etc/init.d/apache2 stop
-Restart Apache: /etc/init.d/apache2 restart
-Apache: /usr/bin/gksudo
-Path to httpd.conf: /etc/apache2/httpd.conf
-Path to etc/hosts: /etc/hosts
-Start MySQL: /etc/init.d/mysql start
-MySQL: /usr/bin/gksudo
-
---- APT ---------------------------------------------------------
-
-sudo apt-get update
-sudo apt-get install linux-restricted-modules-$(uname -r)
-sudo apt-get autoremove
-
-# Copier un repertoirevers home
-cp cfg ~/.entertainer -R
-
-# Limiter la recherche
-cat /var/log/Xorg.0.log | grep '(EE)
-
-sudo apt-get install sun-java5-jre sun-java5-plugin # JAVA (firefox)
-
-sudo apt-get install unrar
-unrar e nom_du_fichier.rar
-
-# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
-# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
-sudo apt-get install firestarter
-
-apt://ubuntustudio-desktop;apt:ubuntustudio-icon-theme;apt:ubuntustudio-look;apt:ubuntustudio-theme;apt:ubuntustudio-wallpapers;apt:usplash-theme-ubuntustudio
-
-sudo apt-get install python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
-
-sudo aptitude remove python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
-
-apt://gnome-do
-
-fgl_glxgears # (test)
-
-
---- EDITED FILE ---------------------------------------------------------
-
-gstreamer-properties
 
 --- GNOME MENU ITEM ---------------------------------------------------------
 
@@ -594,40 +542,6 @@ You now have a working eclipse. But run this command first to initialise the set
 /opt/eclipse/eclipse -clean
 
 Then from here on you can run from the menu item applications/programming/eclipse
-
---- CARTE GRAPHIQUE ACER ---------------------------------------------------------
-
-ATI MOBILITY RADEON X700
-http://wiki.cchtml.com/index.php/Ubuntu_Hardy_Installation_Guide#Method_2:_Manual_Method_.28installing_Catalyst_8.7.29
-
-2915ABG Network Connection
-
---- HOW TO ----------------------------------------------------------
-http://doc.ubuntu-fr.org/catalyst
-http://doc.ubuntu-fr.org/ati.run
-http://forum.ubuntu-fr.org/viewtopic.php?id=109984
-http://forum.ubuntu-fr.org/viewtopic.php?id=109004
-http://wiki.cchtml.com/index.php/Main_Page
-http://forum.ubuntu-fr.org/viewtopic.php?id=160734
-http://forum.compiz-fusion.org/showthread.php?t=6794&highlight=ATI+X700
-
-
-The Xgl server will now be started automatically next time you login.  It is no longer necessary to use any special X session to start Xgl, and such sessions will likely fail to work properly.  Please select a regular session from your session manager next time you log in.  To disable Xgl autostart for this user, create a file named ~/.config/xserver-xgl/disable
-https://answers.launchpad.net/ubuntu/+source/xserver-xgl/+question/20589
-
---- HUM ? -----------------------------------------------------------
-
-# Cinelerra
-# deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/cinelerra/pentium4/ ./
-# deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/cinelerra/athlonxp/ ./
-deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/cinelerra/i686/ ./
-deb http://www.kiberpipa.org/~gandalf/ubuntu/dapper/mjpegtools ./
-
-Update:
-sudo apt-get update
-
-Now install:
-sudo apt-get install cinelerra
 
 --- FLASH ---------------------------------------------------------
 
