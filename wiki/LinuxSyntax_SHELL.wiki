@@ -5,12 +5,7 @@
 
 {{{
 
---- RACCOURCIS ---------------------------------------------------------
-
-Alt-F2 >> Open soft
-Ctrl+Alt+F2 >> virtual console
-Alt+PrintScreen+R+E+I+S+U+B > if really freeze
-
+--- BASIC CMD ---------------------------------------------------------
 sudo shutdown -r
 init 6 // Restart machine
 locate | grep "img"
@@ -34,17 +29,14 @@ rm -rf /tmp/*.wrk
 ps auxw (processus) // ps -aux // Tous les process
 telnet localhost 80
 
-# Lien
+# LINK
 ln -s /etc/apache2/mods-available/userdir.load /etc/apache2/mods-enabled/userdir.load
 ln -s /etc/apache2/sites-available/theatredesdeuxreves.org.conf /etc/apache2/sites-enabled/theatredesdeuxreves.org.conf
-
-# Make link...
 bebeserv:/etc/apache2/mods-enabled# ln -s ../mods-available/userdir.load userdir.load
 
-# Recherche
+# RECHERCHE
 rgrep -i directoryindex -inH /etc/apache2 | grep conf  [Cherche le mot "directoryindex" dans un rep...]
 grep localhost /etc/hosts
-
 
 gconf-editor
 glxinfo | grep "direct rendering"
@@ -61,12 +53,17 @@ gconftool-2 --dump / > /tmp/ma_conf.xml
 # Restaurer sa configuration
 gconftool-2 --load=/tmp/ma_conf.xml
 
-
 # SSH TRANSFERT ... (D'un disque à un autre)
 # /root/.ssh/authorized_keys2 ?
 scp -r root@213.186.46.78:/home/bibliobus/www/ /home/bibliobu/
 chown bibliobu.users /home/bibliobu/www/*
 chown mysql.mysql /home/mysql/bibliobu/*
+
+--- RACCOURCIS ---------------------------------------------------------
+
+Alt-F2 >> Open soft
+Ctrl+Alt+F2 >> virtual console
+Alt+PrintScreen+R+E+I+S+U+B > if really freeze
 
 --- UBUNTU NETWORK ---------------------------------------------------------
 
