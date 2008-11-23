@@ -6,6 +6,7 @@
 {{{
 
 --- BASIC CMD ---------------------------------------------------------
+
 sudo shutdown -r
 init 6 // Restart machine
 locate | grep "img"
@@ -28,6 +29,9 @@ free (memoire)
 rm -rf /tmp/*.wrk
 ps auxw (processus) // ps -aux // Tous les process
 telnet localhost 80
+gconf-editor
+glxinfo | grep "direct rendering"
+compizconfig-settings-manager
 
 # LINK
 ln -s /etc/apache2/mods-available/userdir.load /etc/apache2/mods-enabled/userdir.load
@@ -37,10 +41,6 @@ bebeserv:/etc/apache2/mods-enabled# ln -s ../mods-available/userdir.load userdir
 # RECHERCHE
 rgrep -i directoryindex -inH /etc/apache2 | grep conf  [Cherche le mot "directoryindex" dans un rep...]
 grep localhost /etc/hosts
-
-gconf-editor
-glxinfo | grep "direct rendering"
-compizconfig-settings-manager
 
 # NAVIGATEUR AVEC DROIT ROOT
 gksudo nautilus
@@ -104,62 +104,6 @@ sudo gedit /opt/lampp/etc/proftpd.conf
 sudo gedit /opt/lampp/etc/php.ini
 sudo gedit /opt/lampp/etc/httpd.conf
 sudo gedit /opt/lampp/etc/extra/httpd-vhosts.conf
-
---- LAMP ---------------------------------------------------------
-
-http://doc.ubuntu-fr.org/lamp
-
-sudo /etc/init.d/apache2 start
-/etc/apache2/apache2.conf
-
-sudo chmod 605 /var/www/phpinfo.php
-sudo chmod 755 /var/www/phpinfo.php
-
-apt://apache2,apache2-doc,mysql-server,php5,libapache2-mod-php5,php5-mysql,phpmyadmin
-
-PHP command : /usr/bin/php
-PHP Parser command: /usr/bin/php -l -f {0}
-Start Apache: /etc/init.d/apache2 start
-Stop Apache: /etc/init.d/apache2 stop
-Restart Apache: /etc/init.d/apache2 restart
-Apache: /usr/bin/gksudo
-Path to httpd.conf: /etc/apache2/httpd.conf
-Path to etc/hosts: /etc/hosts
-Start MySQL: /etc/init.d/mysql start
-MySQL: /usr/bin/gksudo
-
---- APT ---------------------------------------------------------
-
-sudo apt-get update
-sudo apt-get install linux-restricted-modules-$(uname -r)
-sudo apt-get autoremove
-
-# Copier un repertoirevers home
-cp cfg ~/.entertainer -R
-
-# Limiter la recherche
-cat /var/log/Xorg.0.log | grep '(EE)
-
-sudo apt-get install sun-java5-jre sun-java5-plugin # JAVA (firefox)
-
-sudo apt-get install unrar
-unrar e nom_du_fichier.rar
-
-# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
-# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
-sudo apt-get install firestarter
-
-apt://ubuntustudio-desktop;apt:ubuntustudio-icon-theme;apt:ubuntustudio-look;apt:ubuntustudio-theme;apt:ubuntustudio-wallpapers;apt:usplash-theme-ubuntustudio
-
-sudo apt-get install python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
-
-sudo aptitude remove python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
-
-apt://gnome-do
-
-fgl_glxgears # (test)
-
-sudo apt-get install azureus
 
 }}}
 
@@ -252,7 +196,6 @@ update-rc.d - gestion des scripts de démarrage System-V
 update-menus - système de menus Debian
 ...
 
-
 apt-get check # met à jour le cache et vérifie les dépendances
 apt-cache search texte # cherche un paquet à partir de "texte"
 apt-cache policy paquet # information sur la priorité d'un paquet
@@ -263,13 +206,75 @@ dpkg {-s|--status} paquet ... # état et description d'un paquet installé
 dpkg -l paquet ... # état du paquet installé (1 ligne)
 dpkg -L paquet ... # liste les noms des fichiers installés par le paquet
 
+--- APT ---------------------------------------------------------
+
+sudo apt-get update
+sudo apt-get install linux-restricted-modules-$(uname -r)
+sudo apt-get autoremove
+
+# Copier un repertoirevers home
+cp cfg ~/.entertainer -R
+
+# Limiter la recherche
+cat /var/log/Xorg.0.log | grep '(EE)
+
+sudo apt-get install sun-java5-jre sun-java5-plugin # JAVA (firefox)
+
+sudo apt-get install unrar
+unrar e nom_du_fichier.rar
+
+# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
+# deb http://ppa.launchpad.net/do-core/ubuntu hardy main
+sudo apt-get install firestarter
+
+apt://ubuntustudio-desktop;apt:ubuntustudio-icon-theme;apt:ubuntustudio-look;apt:ubuntustudio-theme;apt:ubuntustudio-wallpapers;apt:usplash-theme-ubuntustudio
+
+sudo apt-get install python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
+
+sudo aptitude remove python-gobject python-gtk2 python-gst0.10 python-clutter python-pysqlite2 python-cddb python-glade2 python-cairo python-feedparser python-pyinotify python-eyed3 python-pyvorbis python-imaging python-imdbpy python-notify
+
+apt://gnome-do
+
+fgl_glxgears # (test)
+
+sudo apt-get install azureus
+
 }}}
 
 = APACHE =
 
 {{{
+--- LAMP (Hugh <:) ---------------------------------------------------------
 
-# APACHE (Hugh <:) :
+http://doc.ubuntu-fr.org/lamp
+
+sudo /etc/init.d/apache2 start
+/etc/apache2/apache2.conf
+
+/etc/php5/cgi/php.ini
+
+sudo chmod 605 /var/www/phpinfo.php
+sudo chmod 755 /var/www/phpinfo.php
+
+apt://apache2,apache2-doc,mysql-server,php5,libapache2-mod-php5,php5-mysql,phpmyadmin
+
+PHP command : 		/usr/bin/php
+PHP Parser command: 	/usr/bin/php -l -f {0}
+Start Apache: 		/etc/init.d/apache2 start
+Stop Apache: 		/etc/init.d/apache2 stop
+Restart Apache: 	/etc/init.d/apache2 restart
+Apache: 		/usr/bin/gksudo
+Path to httpd.conf: 	/etc/apache2/httpd.conf
+Path to etc/hosts: 	/etc/hosts
+Start MySQL: 		/etc/init.d/mysql start
+MySQL: 			/usr/bin/gksudo
+
+/etc/init.d/apache2 reload  {start|stop|reload|reload-modules|force-reload|restart}
+/etc/init.d/apache2 restart
+/etc/init.d/xinetd reload
+/etc/init.d/proftpd reload
+
+# MOD AVAILABLE
 
 a2enmod // modules disponibles
 a2dismod // modules chargés
@@ -283,8 +288,7 @@ cd /etc/apache2/sites-available
 a2ensite mon_repertoire_virtuel // activer ce répertoire virtuel
 a2dissite toto.org.conf // désactiver ce répertoire virtuel
 
-==========================================================================================
-REINSTALL !!!
+# REINSTALL !!!
 
 apt-get remove --purge apache2
 puis au pire un rm -rf /etc/apache (mais normalement le dossier est vide)
@@ -295,25 +299,11 @@ ps -e (ca te donne tout les processus lancer)
 
 ps -e|grep httpd
 
-==========================================================================================
-
-/etc/init.d/apache2 reload  {start|stop|reload|reload-modules|force-reload|restart}
-/etc/init.d/apache2 restart
-/etc/
-/etc/init.d/xinetd reload
-
-/etc/init.d/proftpd reload
-
-==========================================================================================
-
-SSL : http://www.coagul.org/article_imprime.php3?id_article=351
 
 Fichier error log
 # /usr/local/apache/logs
 /var/log/apache2/
 
-PHP.ini
-/etc/php5/cgi/php.ini
 
 etc/mysql mysqlaccess my.conf
 
@@ -356,6 +346,8 @@ affiche les dernières requêtes au serveur Apache, "en direct" sur la pseudo-co
 On peut utiliser aussi
 less /var/log/apache/access.log puis Shift-F
 pour basculer à la fin du fichier en attente de données (Ctrl-C pour finir)
+
+SSL : http://www.coagul.org/article_imprime.php3?id_article=351
 
 ==========================================================================================
 http://formation.bearstech.com/trac/wiki/GnuLinuxAdminApache
@@ -463,12 +455,6 @@ http://guides.ovh.net/InstallQmailAntiSpam
 
 Update perl.. http://www.cpan.org/authors/id/F/FE/FELICITY/Mail-SpamAssassin-3.1.8.tar.gz
 
-
-}}}
-
-= UTILITY =
-
-{{{
 
 MODULES WEBMIN
 
