@@ -46,8 +46,8 @@ $enc .= '$__d=strrev("edoced_46esab");eval(\'$__x=$__d("$__s");\');eval($__x);db
 db($enc);
 --------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
-memcache
-Cache in memory for PHP
+memcache : distributed memory object caching system, generic in nature, but intended for use in speeding up dynamic web applications by alleviating mySQL load and speed PHP access
+http://www.danga.com/memcached/
 --------------------------------------------------------------------------------------------------------
 <?php
 session_start();
@@ -669,7 +669,15 @@ Apply fonction to ARRAY
 $motsArr = explode(',',$galerie_mots);
 function cleanMotArr($m) { return trim($m); }
 $motsArr = array_map("cleanMotArr", $motsArr);
-     
+
+________________________________________________________________________
+
+if (isset($albus))  $albert = $albus;
+else                $albert = NULL;
+// is equivalent to:
+$albert = @$albus;
+// A better solution is to assign the variable by reference, which will not trigger any notice
+$albert =& $albus
 ________________________________________________________________________     
 RECHERCHE
 if (navigator.appVersion.indexOf("Mac") != -1) whom.encoding = "multipart/form-data";
