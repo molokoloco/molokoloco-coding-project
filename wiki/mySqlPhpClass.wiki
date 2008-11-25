@@ -6,8 +6,7 @@
 exemple.php :
 
 {{{
-/*
- EXEMPLES
+// EXEMPLES
 
 	// SELECT I
 		$Q =& new Q("SELECT *toto AS  tutu FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
@@ -58,7 +57,6 @@ exemple.php :
 			ORDER BY ordre ASC, id DESC
 		", array('galeries','galerie'), './rep/file.xml');
 		db($XML);
-*/
 }}}
 
 class_sql.php
