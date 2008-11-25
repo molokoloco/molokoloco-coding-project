@@ -6,8 +6,11 @@
 exemple.php :
 
 {{{
-	// SELECT
-		$Q =& new Q("SELECT * FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
+/*
+ EXEMPLES
+
+	// SELECT I
+		$Q =& new Q("SELECT *toto AS  tutu FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
 		foreach ($Q->V as $V) echo $V['titre'].'<br />';
 	
 	// SELECT II
@@ -18,14 +21,32 @@ exemple.php :
 		//...
 	
 	// SELECT III
-		foreach (q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>';
+		foreach ((array)q("SELECT * FROM actualites ORDER BY titre ASC") as $V) echo '<option value="'.$V['id'].'">'.html(aff($V['titre'])).'<option>';
 	
-	// UPDATE // INSERT // DELETE
+	// SELECT IV
+		$R = q('SELECT temp FROM device WHERE id='10' LIMIT 1')
+		echo $R['temp'];
+	
+	// INSERT
+		$A = new Q();
+		$A->insert('mod_membres_blogs', array(
+			'titre'=> $titre,
+			'message'=> $message,
+		));
+		echo $A->id;
+	
+	// UPDATE
 		$A = new Q();
 		$A->update('mod_membres_blogs', array(
 			'titre'=> $titre,
 			'message'=> $message,
-		), " id='$id' AND membre_id='{$_SESSION[SITE_CONFIG]['MEMBRE']['id']}' LIMIT 1 ");
+		), " id='$id' LIMIT 1 ");
+		echo $A->affected;
+	
+	// DELETE
+		$A = new Q();
+		$A->update('mod_membres_blogs', " id='$id' LIMIT 1 ");
+		echo $A->affected;
 	
 	// CREATE XML
 		$X = new Q();
@@ -37,6 +58,7 @@ exemple.php :
 			ORDER BY ordre ASC, id DESC
 		", array('galeries','galerie'), './rep/file.xml');
 		db($XML);
+*/
 }}}
 
 class_sql.php
