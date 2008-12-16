@@ -3,11 +3,12 @@
 
 = Exporting article to the Words (.doc) format =
 
-./admin/lib/class/class_words/clsMsDocGenerator.php
-./admin/lib/class/class_zip/zip.lib.php
+[http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/admin/lib/class/class_words/clsMsDocGenerator.php ./admin/lib/class/class_words/clsMsDocGenerator.php]
+
+[http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/admin/lib/class/class_zip/zip.lib.php ./admin/lib/class/class_zip/zip.lib.php]
 
 {{{
-// MAKE WORD ///////////////////////////////////////////////////////////////////
+/* MAKE WORD ///////////////////////////////////////////////////////////////// */
 require_once('./admin/lib/class/class_words/clsMsDocGenerator.php');
 
 $titleFormat = array(
