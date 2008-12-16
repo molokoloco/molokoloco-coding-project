@@ -8,6 +8,27 @@
 [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/admin/lib/class/class_zip/zip.lib.php ./admin/lib/class/class_zip/zip.lib.php]
 
 {{{
+require('admin/lib/racine.php');
+
+//header('Content-Type: text/html; charset=utf-8');
+//mb_http_input("");
+mb_http_output(($isUtf8 ? 'utf-8' : 'iso-8859-1')); // utf-8 ???
+
+// ------------------------- GET VARS (Cf. HTACCESS) ----------------------------------//
+$article_id = intval(gpc('article_id'));
+if ($article_id < 1) d('D&eacute;sol&eacute; il manque la r&eacute;f&eacute;rence &agrave; l\'article (ID)');
+
+
+// Fetch article ------------------------------------------------------ //
+$A =& new Q("
+	SELECT art.*, cprma.cat_id
+	FROM mod_articles AS art, cms_pages_relation_mod_articles AS cprma
+	WHERE art.id='{$article_id}' AND cprma.prod_id=art.id
+	LIMIT 1
+");
+if (!isset($A->V[0]['id'])) d('D&eacute;sol&eacute; cet article n\'est pas accessible');
+$A = $A->V[0];
+
 /* MAKE WORD ///////////////////////////////////////////////////////////////// */
 require_once('./admin/lib/class/class_words/clsMsDocGenerator.php');
 
