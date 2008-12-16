@@ -1,0 +1,29 @@
+#summary Default .htaccess file
+#labels Featured
+
+= .htaccess=
+
+[http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/.htaccess ./.htaccess]
+[http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/cache.php ./cache.php]
+
+{{{
+RewriteEngine on
+#RewriteBase /
+
+#php_value memory_limit "99M"
+#php_value post_max_size "99M" 
+#php_value upload_max_filesize "99M"
+
+ErrorDocument 404 /404.php
+
+# COMPRESS
+#RewriteRule ^css/(.*\.css) cache.php?type=css&files=$1
+#RewriteRule ^js/(.*\.js) cache.php?type=javascript&files=$1
+
+# DYN REDIR
+RewriteRule ^([a-z,-]+)-r([0-9]+).html(.*)$ index.php?rid=$2$3 [QSA,L]
+RewriteRule ^([a-z,-]+)-r([0-9]+).html$ index.php?rid=$2 [L]
+RewriteRule ^([a-z,-]+)-r([0-9]+)-a([0-9]+).html$ index.php?rid=$2&article_id=$3$4 [QSA,L]
+RewriteRule ^([a-z,-]+)-r([0-9]+)-p([0-9]+).html$ index.php?rid=$2&page=$3$4 [QSA,L]
+
+}}}
