@@ -1,0 +1,82 @@
+#summary msDOC (Word) document generator, plus a ZIP for attached files
+#labels Featured
+
+= Exporting article to the Words (.doc) format =
+
+./admin/lib/class/class_words/clsMsDocGenerator.php
+./admin/lib/class/class_zip/zip.lib.php
+
+{{{
+// MAKE WORD ///////////////////////////////////////////////////////////////////
+require_once('./admin/lib/class/class_words/clsMsDocGenerator.php');
+
+$titleFormat = array(
+	'text-align' 	=> 'left',
+	'font-weight' 	=> 'bold',
+	'font-size'		=> '18pt',
+	'font-family'	=> 'Arial',
+	'color'			=> 'red'
+);
+	
+$doc = new clsMsDocGenerator();
+$doc->setFontFamily('Verdana');
+$doc->addParagraph('');
+$doc->addParagraph($article_ariane, array('font-weight'=>'bold','font-family'=>'Arial'));
+$doc->addParagraph(html(aff($A['titre'])), $titleFormat);
+$doc->addParagraph('Par '.html(aff($J['prenom'].' '.$J['nom'])).' / '.relativeDate($A['datepub']), array('font-family'=>'Arial'));
+$doc->addParagraph('');
+
+
+if (!empty($A['image_1'])) {
+	$img_name = $A['image_1'];
+	$img_content = file_get_contents('./medias/articles/grand/'.$A['image_1']);
+	$img_content_big = file_get_contents('./medias/articles/pop/'.$A['image_1']);
+	
+	$doc->addParagraph($doc->bufferImage($img_name,300,300), array('text-align'=> 'left'));
+	//if (!empty($A['image_1'])) $doc->addImage($WWW.'medias/articles/grand/'.$A['image_1'], 300, 300 );
+	if (!empty($A['image_leg_1'])) $doc->addParagraph('Visuel : '.html(aff($A['image_leg_1'])), array('font-family'=>'Arial'));
+	$doc->addParagraph('');
+}
+
+$doc->addParagraph(quote(aff($A['chapeau'])), array('font-weight'=>'bold','font-family'=>'Arial'));
+
+if (!empty($A['titre_inter'])) $doc->addParagraph(html(aff($A['titre_inter'])), array('font-weight'=>'bold','font-family'=>'Arial'));
+
+$doc->addParagraph(quote(aff($A['texte_1'])), array('font-family'=>'Arial'));
+$doc->addParagraph('');
+
+$doc_name = cleanName(aff($A['titre'])).'.doc';
+$doc_content = $doc->output($doc_name);
+
+
+// MAKE ZIP ///////////////////////////////////////////////////////////////////
+require_once('./admin/lib/class/class_zip/zip.lib.php');
+
+set_time_limit(3600);
+ini_set('memory_limit', 8000000);
+
+$zip =& new zipfile();
+$zip->addfile($doc_content, $doc_name);
+
+if (!empty($A['image_1'])) {
+	$zip->addfile($img_content, $img_name);
+	$zip->addfile($img_content_big,  str_replace('.'.getExt($img_name), '',$img_name).'_big.'.getExt($img_name));
+}
+$archive = $zip->file();
+
+$archive_nom = cleanName(aff($A['titre'])).'.zip';
+
+header('Content-Disposition: attachment; filename="'.$archive_nom.'"');
+header('Content-Type: application/x-zip');
+if(navDetect() == 'msie') {
+  header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+  header('Pragma: public');
+}
+else header('Pragma: no-cache');
+$maintenant = gmdate('D, d M Y H:i:s').' GMT';
+header('Last-Modified: '.$maintenant);
+header('Expires: '.$maintenant); 
+header('Content-Length: '.strlen($archive));
+
+die($archive);
+}}}
