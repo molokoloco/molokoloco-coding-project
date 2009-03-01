@@ -2,7 +2,7 @@
 #labels Tooltips
 
 =Google hack=
-==- Savoir lire, &eacute;crire .... et chercher -==
+==- Savoir lire, écrire .... et chercher -==
 
 [http://www.googleguide.com http://www.googleguide.com]
 
