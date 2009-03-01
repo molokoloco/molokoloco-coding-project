@@ -1,0 +1,65 @@
+#summary Google hack
+#labels Tooltips
+
+=Google hack=
+==- Savoir lire, &eacute;crire .... et chercher -==
+
+[http://www.googleguide.com http://www.googleguide.com]
+
+[http://www.google.com/codesearch http://www.google.com/codesearch]
+
+[http://www.scribd.com/doc/2843995/Google-Hacking http://www.scribd.com/doc/2843995/Google-Hacking]
+
+
+==*OPERATEURS*==
+
+  * *[http://www.google.fr/search?hl=fr&q=google OR yahoo google OR yahoo]* boolean...
+  * *[http://www.google.fr/search?hl=fr&q=%2Bwww.cplus%2Bfr +www.cplus+fr]* les pages d'un site ou liées à ce site
+  * *[http://www.google.fr/search?hl=fr&q=fire.fox fire.fox]* retournera les documents contenant les phrases : fire fox, fireAfox, fire1fox, fire-fox, etc...
+  * *[http://www.google.fr/search?hl=fr&q=~inexpensive ~inexpensive]* synonymes : matches &quot;inexpensive&quot;, &quot;cheap&quot;, &quot;affordable&quot;, and &quot;low cost&quot;
+  * *[http://www.google.fr/search?hl=fr&q=%2Bla+femme +la femme]* ne pas ignorer le "mot vide" "la" (c++) 
+  * *[http://www.google.fr/search?hl=fr&q=%2BFRANÇAIS +FRANÇAIS]* tenir compte des accents ou autres signes diacritiques
+  * *[http://www.google.fr/search?hl=fr&q=salsa+–dance salsa –dance]* ignorer les résultat contenants "dance"
+  * *[http://www.google.fr/search?hl=fr&q=Francis+*+Coppola Francis * Coppola]* followed by one or more words
+  * *[http://www.google.fr/search?hl=fr&q=%22how+to+change+oil%22 "how to change oil"]* obviously
+  * *[http://www.google.fr/search?hl=fr&q=russian%20revolution%201800..2000 russian revolution 1800..2000]* find the year the Russian Revolution took place
+  * *[http://www.google.fr/search?hl=fr&q=recumbent%20bicycle%20$250..$1000 recumbent bicycle $250..$1000]* searching in the price range $250 to $1000
+
+==*REQUETES SPECIFIQUES*==
+
+  * *[http://www.google.fr/search?hl=fr&q=help%20site:google.com help site:google.com]* recherche une page dans un site en particulier
+  * *[http://www.google.fr/search?hl=fr&q=weather:paris+france weather:paris france]* il fait beau ?
+  * *[http://www.google.fr/search?hl=fr&q=spell:googlue spell:googlue]* orthographe...
+  * *[http://www.google.fr/search?hl=fr&q=define:google define:google]* will provide a definition of the words you enter after
+  * *[http://www.google.fr/search?hl=fr&q=cache:www.google.com web cache:www.google.com web]* will show the cached content with the word "web" highlighted 
+  * *[http://www.google.fr/search?hl=fr&q=link:www.google.com link:www.google.com]* will list webpages that have links pointing to the Google homepage
+  * *[http://www.google.fr/search?hl=fr&q=help+site:www.google.com help site:www.google.com]* will find pages about help within www.google.com
+  * *[http://www.google.fr/search?hl=fr&q=related:www.google.com related:www.google.com]* will list web pages that are similar to the Google homepage
+  * *[http://www.google.fr/search?hl=fr&q=info:www.google.com info:www.google.com]* will list google  infos
+  * *[http://www.google.fr/search?hl=fr&q=stocks:google stocks:google]* finance...
+  * *[http://www.google.fr/search?hl=fr&q=filetype:pdf%20google filetype:pdf google]* limiter aux extensions (ou bien "ext:jpg")
+  * *[http://www.google.fr/search?hl=fr&q=allintitle: google search allintitle: google search]* will return only documents that have both "google" and "search" in the title
+  * *[http://www.google.fr/search?hl=fr&q=intitle:index.of%20+%20%22mp3%22%20+%20%22noir%20desir%22%20-htm%20-html%20-php%20-asp intitle:index.of + "mp3" + "noir desir" -htm -html -php -asp]* liste de fichiers sans page d'index...		
+  * *[http://www.google.fr/search?hl=fr&q=allinurl:%20google%20search allinurl: google search]* will return only documents that have both "google" and "search" in the url 
+  * *[http://www.google.fr/search?hl=fr&q=inurl:google%20search inurl:google search]* will return documents that mention the word "google" in their url, and mention the word "search" anywhere in the document
+  * *[http://www.google.fr/search?hl=fr&q=allinanchor:useful%20parenting%20sites allinanchor:useful parenting sites]* search for pages that are called "useful parenting sites" by others
+  * *[http://www.google.fr/search?hl=fr&q=restaurant%20paris%20inanchor:enfant restaurant paris inanchor:enfant]* search for pages on Portland restaurants for which links to the page say they are "kid friendly"
+  * *[http://www.google.fr/search?hl=fr&q=n%C2%B01%20rue%20marue%20maville n°1 rue marue maville]* map...
+
+==*CONVERSIONS*==
+
+  * *[http://www.google.fr/search?hl=fr&q=3%20euros%20en%20dollars 3 euros en dollars]*
+  * *[http://www.google.fr/search?hl=fr&q=130%20lbs%20in%20kg 130 lbs in kg]*
+  * *[http://www.google.fr/search?hl=fr&q=10%20USD%20en%20EUR 10 USD en EUR ]* 
+  * *[http://www.google.fr/search?hl=fr&q=convertir%205%20euros%20en%20pesos%20mexicains convertir 5 euros en pesos mexicains ]* 
+  * *[http://www.google.fr/search?hl=fr&q=5%2B2*2 5+2*2]*
+  * *[http://www.google.fr/search?hl=fr&q=15%25+of+93.45 15% of 93.45]*
+  * *[http://www.google.fr/search?hl=fr&q=combien%20fait%201%20kilom%C3%A8tre%20en%20milles%20? *combien fait 1 kilomètre en milles ?]*
+  * *[http://www.google.fr/search?hl=fr&q=convertir%202%20m%C3%A8tres%20en%20pieds convertir 2 mètres en pieds]* 
+  * *[http://www.google.fr/search?hl=fr&q=3%20minutes%20en%20secondes 3 minutes en secondes]*
+  * *[http://www.google.fr/search?hl=fr&q=0%20degrees%20kelvin%20in%20Celsius 0 degrees kelvin in Celsius]*
+  * *[http://www.google.fr/search?hl=fr&q=combien%20de%20mois%20dans%204%20ann%C3%A9es%20? combien de mois dans 4 années ?]*
+  * *[http://www.google.fr/search?hl=fr&q=160%20pounds%20*%204000%20feet%20in%20Calories 160 pounds * 4000 feet in Calories]*
+  * *[http://www.google.fr/search?hl=fr&q=1500%20in%20hex 1500 in hex]*
+  * *[http://www.google.fr/search?hl=fr&q=(G%20*%20mass%20of%20earth)%20/%20(radius%20of%20earth%20%5E%202) (G * mass of earth) / (radius of earth ^ 2)]*
+  * *[http://www.google.fr/search?hl=fr&q=what%20is%20googol what is googol]*
