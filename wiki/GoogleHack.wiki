@@ -58,18 +58,13 @@
   * *[http://www.google.fr/search?hl=fr&q=(G%20*%20mass%20of%20earth)%20/%20(radius%20of%20earth%20%5E%202) (G * mass of earth) / (radius of earth ^ 2)]*
   * *[http://www.google.fr/search?hl=fr&q=what%20is%20googol what is googol]*
 
-
-
+----
 
 [http://www.googleguide.com http://www.googleguide.com]
 [http://www.google.com/codesearch http://www.google.com/codesearch]
 [http://www.scribd.com/doc/2843995/Google-Hacking http://www.scribd.com/doc/2843995/Google-Hacking]
 
-
-
----
-
-
+----
 
 
 ==[http://code.google.com/intl/fr/android/ Android]==
@@ -596,5 +591,6 @@ Every  once in a while we'll invite members of the developer community on  campu
 Key Links:
   * [http://code.google.com/campfire/ Home]
 
+----
 
 ===[http://code.google.com/intl/fr/more/ http://code.google.com/intl/fr/more/]===
