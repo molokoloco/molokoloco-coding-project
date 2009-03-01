@@ -326,7 +326,7 @@ The  Google Health Data API allows client applications to view and send  Health 
 
 Here are some of the things you can do with the Health Data API:
 
-  * Upload patient medical records | Get patient medical data and provide personalized functionality based on that data </li>
+Upload patient medical records | Get patient medical data and provide personalized functionality based on that data
 
   * [http://code.google.com/intl/fr/apis/health/ Home] | [http://code.google.com/intl/fr/apis/health/developers_guide_protocol.html Documentation] | [http://groups.google.com/group/googlehealthdevelopers/ Group] | [http://code.google.com/intl/fr/apis/health/faq.html FAQ] | [http://www.google.com/health/html/terms.html Terms]
 
@@ -598,5 +598,3 @@ Key Links:
 
 
 ===[http://code.google.com/intl/fr/more/ http://code.google.com/intl/fr/more/]===
-
-
