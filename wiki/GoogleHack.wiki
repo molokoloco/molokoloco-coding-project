@@ -64,3 +64,539 @@
 [http://www.googleguide.com http://www.googleguide.com]
 [http://www.google.com/codesearch http://www.google.com/codesearch]
 [http://www.scribd.com/doc/2843995/Google-Hacking http://www.scribd.com/doc/2843995/Google-Hacking]
+
+
+
+---
+
+
+
+
+==[http://code.google.com/intl/fr/android/ Android]==
+http://code.google.com/intl/fr/android/
+
+Android  is a software stack for mobile devices including an operating system,  middleware and key applications. It is being developed by the [http://www.openhandsetalliance.com/ Open Handset Alliance],  a group of more than 30 technology and mobile companies. Android was  built from the ground-up to enable developers to create compelling  mobile applications that take full advantage of all a handset has to  offer. Developers can create applications for the platform using the  Android SDK.
+ 
+  * [http://code.google.com/intl/fr/android/ Home] | [http://code.google.com/intl/fr/android/documentation.html Documentation] | [http://groups.google.com/group/android-developers Group] | [http://android-developers.blogspot.com/ Blog] | [http://code.google.com/intl/fr/android/kb/index.html FAQ] | [http://code.google.com/intl/fr/android/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/blogger/ Blogger Data API]==
+http://code.google.com/intl/fr/apis/blogger/
+
+The  Blogger Data API allows client applications to view and update Blogger  content in the form of Google Data API feeds. Your client application  can use the Google Data API to create new blog posts, edit or delete  existing posts, and query for posts that match particular criteria.
+
+  * [http://code.google.com/intl/fr/apis/blogger/ Home] | [http://code.google.com/intl/fr/apis/blogger/developers_guide_protocol.html Documentation] | [http://groups.google.com/group/bloggerDev Group] | [http://googledataapis.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/blogger/code.html Sample Code] | [http://code.google.com/intl/fr/apis/blogger/articles/ Articles &amp; Tutorials] | [http://www.blogger.com/terms.g Terms]
+
+==[http://code.google.com/intl/fr/chromium/ Chromium]==
+http://code.google.com/intl/fr/chromium/
+
+Chromium is the open source browser project behind [http://www.google.com/chrome Google Chrome].  Built from components that include the Apple WebKit renderer and the  new V8 JavaScript engine, Chromium provides all the elements of a  functional web browser. The UI of Chromium is unobtrusive, providing  more space for content. Chromium's multi-process architecture improves  stability and security by isolating web pages in separate processes  that run in a sandbox.
+
+  * [http://code.google.com/intl/fr/chromium/ Home] | [http://dev.chromium.org/ Documentation] | [http://groups.google.com/group/chromium-discuss Group] | [http://blog.chromium.org/ Blog] | [http://dev.chromium.org/developers/faq FAQ] | [http://code.google.com/intl/fr/chromium/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/feedburner/ Feedburner APIs]==
+http://code.google.com/intl/fr/apis/feedburner/
+
+FeedBurner  offers web services for interacting with their feed management and  awareness-generating capabilities. Using the features this library  provides, anyone with a FeedBurner account may perform some of the most  common actions available on the FeedBurner service programmatically.
+
+  * [http://code.google.com/intl/fr/apis/feedburner/ Home] | [http://code.google.com/intl/fr/apis/feedburner/developers_guide.html Documentation] | [http://forums.feedburner.com/ Group] | [http://blogs.feedburner.com/ Blog] | [http://www.feedburner.com/fb/a/tos Terms]
+
+==[http://code.google.com/intl/fr/apis/gadgets/ Gadgets API]==
+http://code.google.com/intl/fr/apis/gadgets/
+
+Gadgets  are simple HTML and JavaScript mini-applications served in iFrames that  can be embedded in webpages and other apps. Built-in JavaScript  libraries make it easy to create gadgets that include tabs, Flash  content, persistent storage, dynamic resizing, and more. Many gadgets  are viewed millions of times per week and generate significant traffic  for their authors.
+ 
+  * [http://code.google.com/intl/fr/apis/gadgets/ Home] | [http://code.google.com/intl/fr/apis/gadgets/docs/dev_guide.html Documentation] | [http://groups.google.com/group/Google-Gadgets-API Group] | [http://googlegadgetsapi.blogspot.com Blog] | [http://code.google.com/support/bin/topic.py?topic=10027 FAQ] | [http://code.google.com/intl/fr/apis/gadgets/docs/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/gears/ Gears]==
+http://code.google.com/intl/fr/apis/gears/
+
+Gears  is an open source browser extension that lets you create web  applications that run offline. It lets you store and serve application  resources locally, store data locally in a fully-searchable relational  database, and run asynchronous JavaScript to improve application  responsiveness.
+
+  * [http://code.google.com/intl/fr/apis/gears/ Home] | [http://code.google.com/intl/fr/apis/gears/design.html Documentation] | [http://groups.google.com/group/google-gears/ Group] | [http://gearsblog.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=11628 FAQ] | [http://code.google.com/intl/fr/apis/gears/sample.html Sample Code] | [http://code.google.com/intl/fr/apis/gears/tutorial.html Articles &amp; Tutorials] | [http://gears.google.com/tos.html Terms]
+
+==[http://code.google.com/intl/fr/apis/gdata/faq.html#GmailAtomFeed Gmail Atom Feeds]==
+http://code.google.com/intl/fr/apis/gdata/faq.html#GmailAtomFeed
+
+This feed mechanism lets you read your Gmail inbox or labels via any aggregator that supports the Atom XML feed format.
+
+  * [http://code.google.com/intl/fr/apis/gdata/faq.html#GmailAtomFeed Home] | [http://groups.google.com/group/Gmail-Help-Discussion Group] | [http://mail.google.com/mail/help/terms_of_use.html Terms]
+
+==[http://code.google.com/intl/fr/apis/accounts/ Google Account Authentication]==
+http://code.google.com/intl/fr/apis/accounts/
+
+Writing  mashups or other applications that exchange data with your user's  Google services? Use the Authentication service to simplify the process  of getting permission from your users. Libraries are available for  desktop applications and web applications. The Authentication service  now supports the OAuth open standard.
+
+  * [http://code.google.com/intl/fr/apis/accounts/index.html Home] | [http://groups.google.com/group/Google-Accounts-API Group] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/adsense/ Google AdSense API]==
+http://code.google.com/intl/fr/apis/adsense/
+
+The  AdSense API enables you to integrate AdSense signup, ad unit  management, and reporting into your web or blog hosting platform. You  and your users can generate revenue from your users' web content on  your site by showing relevant ads and referring products.
+
+  * [http://code.google.com/intl/fr/apis/adsense/ Home] | [http://code.google.com/intl/fr/apis/adsense/developer/index.html Documentation] | [http://groups.google.com/group/adsense-api Group] | [http://adsense.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/adsense/faq/index.html FAQ] | [http://code.google.com/intl/fr/apis/adsense/developer/adsense_api_samples.html Sample Code] | [http://code.google.com/intl/fr/apis/adsense/articles/index.html Articles &amp; Tutorials] | [http://code.google.com/intl/fr/apis/adsense/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/adsenseforaudio/ Google AdSense for Audio API]==
+http://code.google.com/intl/fr/apis/adsenseforaudio/
+
+The  AdSense for Audio API enables you to integrate AdSense for Audio into a  broadcast system, such as a radio automation system. By integrating  AdSense for Audio into a broadcast system you give radio stations  access to the AdSense for Audio network, which makes their unsold  commercial inventory available to thousands of new advertisers through  the Google Audio Ads program.
+
+  * [http://code.google.com/intl/fr/apis/adsenseforaudio/ Home] | [http://code.google.com/intl/fr/apis/adsenseforaudio/docs/developer_guide.html Documentation] | [http://groups.google.com/group/audioadsense-api-support Group] | [http://code.google.com/intl/fr/apis/adsenseforaudio/docs/faq.html FAQ] | [http://code.google.com/intl/fr/apis/adsenseforaudio/docs/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/adwords/ Google AdWords API]==
+http://code.google.com/intl/fr/apis/adwords/
+
+The  AdWords API enables advertisers and third parties alike to integrate  directly with the AdWords advertising platform. Armed with direct  access, you can design a suite of applications that automate reporting,  data integration, campaign and bid management.
+
+  * [http://code.google.com/intl/fr/apis/adwords/ Home] | [http://code.google.com/intl/fr/apis/adwords/docs/developer/ Documentation] | [http://groups.google.com/group/adwords-api Group] | [http://adwordsapi.blogspot.com/ Blog] | [http://www.google.com/support/adwordsapi/ FAQ] | [http://code.google.com/intl/fr/apis/adwords/docs/samples.html Sample Code] | [http://code.google.com/intl/fr/apis/adwords/docs/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/ajax/ Google AJAX APIs]==
+http://code.google.com/intl/fr/apis/ajax/
+
+Google's  AJAX APIs let you implement rich, dynamic web sites entirely in  JavaScript and HTML. You can add a map to your site, a dynamic search  box, or download feeds with just a few lines of JavaScript.
+
+  * [http://code.google.com/intl/fr/apis/ajax/ Home] | [http://code.google.com/intl/fr/apis/ajax/documentation/ Documentation] | [http://groups.google.com/group/Google-AJAX-Search-API Group] | [http://googleajaxsearchapi.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=10021 FAQ] | [http://code.google.com/intl/fr/tos.html Terms]
+
+==[http://code.google.com/intl/fr/apis/ajaxfeeds/ Google AJAX Feed API]==
+http://code.google.com/intl/fr/apis/ajaxfeeds/
+
+The  AJAX Feed API makes it easy to access and use data feeds in your  JavaScript applications. You used to need a server to proxy feeds  before you could read and manipulate them in mashups; now you can load  RSS and Atom feeds from different sources with a few lines of  JavaScript code.
+
+  * [http://code.google.com/intl/fr/apis/ajaxfeeds/ Home] | [http://code.google.com/intl/fr/apis/ajaxfeeds/documentation/ Documentation] | [http://groups.google.com/group/Google-AJAX-Search-API Group] | [http://googleajaxsearchapi.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=10021 FAQ] | [http://code.google.com/intl/fr/apis/ajaxfeeds/examples.html Sample Code] | [http://code.google.com/intl/fr/apis/ajaxfeeds/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/ajaxlanguage/ Google AJAX Language API]==
+
+
+The AJAX Language API make it easy to translate and detect multiple languages in your JavaScript applications.
+
+  * [http://code.google.com/intl/fr/apis/ajaxlanguage/ Home] | [http://code.google.com/intl/fr/apis/ajaxlanguage/documentation/ Documentation] | [http://groups.google.com/group/Google-AJAX-Search-API Group] | [http://googleajaxsearchapi.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=10021 FAQ] | [http://code.google.com/intl/fr/apis/ajaxlanguage/documentation#Examples Sample Code] | [http://code.google.com/intl/fr/apis/ajaxlanguage/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/ajaxsearch/ Google AJAX Search API]==
+http://code.google.com/intl/fr/apis/ajaxsearch/
+
+The  Google AJAX Search API lets you use JavaScript to embed a simple,  dynamic Google search box and display search results in your own web  pages, or use search results programmatically in innovative ways. If  you don't feel like coding, you can even use our code wizards to add  custom AJAX search controls to your web page in just a few steps.
+
+  * [http://code.google.com/intl/fr/apis/ajaxsearch/ Home] | [http://code.google.com/intl/fr/apis/ajaxsearch/documentation/ Documentation] | [http://groups.google.com/group/Google-AJAX-Search-API Group] | [http://googleajaxsearchapi.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=10021 FAQ] | [http://code.google.com/intl/fr/apis/ajaxsearch/samples.html Sample Code] | [http://code.google.com/support/bin/topic.py?topic=11530 Articles &amp; Tutorials] | [http://code.google.com/intl/fr/apis/ajaxsearch/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/analytics/ Google Analytics]==
+http://code.google.com/intl/fr/apis/analytics/
+
+Google  Analytics allows you gather, view and analyze data about your website  traffic, such as content popularity, aggregated visitor behavior, and  much more. By embedding our basic JavaScript snippet into your website,  you enable your site to send key information to Google Analytics for  each pageview. Our powerful servers process your site's data and  generate over 80 reports that you can use, interpret, and act upon. The  simple administrative interface allows you to set up goals and filters  so you can control what data goes into your reports based on your  business needs. The best part: this sophisticated, full-featured web  analytics package is free.
+
+  * [http://code.google.com/intl/fr/apis/analytics/ Home] | [http://code.google.com/intl/fr/apis/analytics/docs/ Documentation] | [http://code.google.com/intl/fr/apis/analytics/groups.html Group] | [http://analytics.blogspot.com/ Blog] | [http://www.google.com/analytics/tos.html Terms]
+
+==[http://code.google.com/intl/fr/appengine/ Google App Engine]==
+http://code.google.com/intl/fr/appengine/
+
+Google  App Engine lets you run your web applications on Google's  infrastructure. App Engine applications are easy to build, easy to  maintain, and easy to scale as your traffic and data storage needs  grow. With App Engine, there are no servers to maintain: You just  upload your application, and it's ready to serve your users.
+
+  * [http://code.google.com/intl/fr/appengine/ Home] | [http://code.google.com/intl/fr/appengine/docs/ Documentation] | [http://code.google.com/intl/fr/appengine/groups.html Group] | [http://code.google.com/intl/fr/appengine/kb/ FAQ] | [http://code.google.com/intl/fr/appengine/articles/ Articles &amp; Tutorials] | [http://code.google.com/intl/fr/appengine/terms.html Terms] | [http://appgallery.appspot.com/ App Gallery]
+
+==[http://code.google.com/intl/fr/apis/apps/ Google Apps APIs]==
+http://code.google.com/intl/fr/apis/apps/
+
+Google Apps also universally supports individual service extensibility with Gadgets, Calendar, Spreadsheets, and Talk.
+
+  * [http://code.google.com/intl/fr/apis/apps/ Home] | [http://code.google.com/intl/fr/apis/apps/gdata_provisioning_api_v2.0_reference.html Documentation] | [http://groups.google.com/group/google-apps-apis Group] | [http://code.google.com/support/bin/topic.py?topic=11279 FAQ] | [http://code.google.com/intl/fr/apis/apps/libraries_and_samples.html Sample Code] | [http://code.google.com/support/bin/topic.py?topic=12142 Articles &amp; Tutorials] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/base/ Google Base Data API]==
+http://code.google.com/intl/fr/apis/base/
+
+With  the Google Base Data API, you can query Google Base data to create  applications and mashups, as well as input and manage Google Base items  programmatically. Your application can upload new data, update or  delete existing items, and execute specialized queries to find matches  for complex attribute criteria. For more information, please see the  section on Google Data APIs.
+
+  * [http://code.google.com/intl/fr/apis/base/ Home] | [http://code.google.com/intl/fr/apis/base/starting-out.html Documentation] | [http://groups.google.com/group/Google-Base-data-API Group] | [http://googlebase.blogspot.com Blog] | [http://code.google.com/intl/fr/apis/base/faq.html FAQ] | [http://code.google.com/intl/fr/apis/base/sample-apps.html Sample Code] | [http://code.google.com/support/bin/topic.py?topic=11983 Articles &amp; Tutorials] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/books/ Google Book Search APIs]==
+http://code.google.com/intl/fr/apis/books/
+
+Google [http://books.google.com Book Search] is our effort to make book content more discoverable on the Web. Using  our APIs, you too can easily and reliably integrate with this  respository from your own website or application.
+
+  * [http://code.google.com/intl/fr/apis/books/ Home] | [http://code.google.com/intl/fr/apis/books/docs/getting-started.html Documentation] | [http://groups.google.com/group/booksearch-apis Group] | [http://booksearch.blogspot.com Blog] | [http://code.google.com/intl/fr/apis/books/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/calendar/ Google Calendar APIs and Tools]==
+http://code.google.com/intl/fr/apis/calendar/
+
+The  Google Calendar Data API and other tools enable you to do many things:  create a web front end for your group's calendar, generate a public  calendar based on your organization's event database, create Calendar  Gadgets, and much more.
+
+  * [http://code.google.com/intl/fr/apis/calendar/ Home] | [http://code.google.com/intl/fr/apis/calendar/developers_guide_protocol.html Documentation] | [http://groups.google.com/group/google-calendar-help-dataapi Group] | [http://googledataapis.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/calendar/faq.html FAQ] | [http://code.google.com/intl/fr/apis/calendar/code.html Sample Code] | [http://code.google.com/intl/fr/apis/calendar/articles/ Articles &amp; Tutorials] | [http://code.google.com/intl/fr/apis/calendar/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/chart/ Google Chart API]==
+http://code.google.com/intl/fr/apis/chart/
+
+The  Google Chart API is a simple tool that lets you create many types of  charts. Send an HTTP request that includes data and formatting  parameters and the Chart API returns a PNG image of the chart. Embed in  a webpage with an image tag and you're done!
+
+  * [http://code.google.com/intl/fr/apis/chart/ Home] | [http://groups.google.com/group/google-chart-api Group] | [http://code.google.com/intl/fr/apis/chart/faq.html FAQ] | [http://code.google.com/intl/fr/apis/chart/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/checkout/ Google Checkout API]==
+http://code.google.com/intl/fr/apis/checkout/
+
+Google  Checkout provides a streamlined e-commerce checkout process that can be  integrated with Google AdWords and Analytics to attract more leads and  drive better conversion rates. The Checkout API allows you to integrate  your site with Google Checkout, either by spending 5 minutes and  dropping in simple "Buy Now" buttons, or by stepping through a complete  integration of your order management system with Checkout. It's a  message-based REST XML API involving synchronous and asynchronous  interactions between Google and the merchant's server.
+
+  * [http://code.google.com/intl/fr/apis/checkout/ Home] | [http://code.google.com/intl/fr/apis/checkout/developer/Google_Checkout_Basic_HTML_Overview.html Documentation] | [http://groups.google.com/group/google-checkout-developers-forum Group] | [http://googlecheckoutapi.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=10026 FAQ] | [http://code.google.com/intl/fr/apis/checkout/samplecode.html Sample Code] | [http://checkout.google.com/support/sell/bin/topic.py?topic=11964 Articles &amp; Tutorials] | [http://checkout.google.com/termsOfService Terms]
+
+==[http://www.google.com/codesearch Google Code Search]==
+http://www.google.com/codesearch
+
+Google  Code Search helps you find function definitions and sample code by  giving you one place to search publicly accessible source code hosted  on the Internet. With Google Code Search, you can:
+  * Use regular expressions to search more precisely | Restrict your search by language, license or filename | View the source file with links back to the entire package and the webpage where it came from
+
+  * [http://www.google.com/codesearch Home] | [http://groups.google.com/group/Google-Code-Search Group] | [http://www.google.com/help/faq_codesearch.html FAQ] | [http://code.google.com/intl/fr/tos.html Terms]
+
+==[http://code.google.com/intl/fr/apis/codesearch/ Google Code Search Data API]==
+http://code.google.com/intl/fr/apis/codesearch/
+
+The  Google Code Search Data API allows client applications to view data  from Code Search in the form of Google Data API feeds. Your client  application can use the Google Code Search Data API to query for public  source code, function definitions, and sample code.
+
+  * [http://code.google.com/intl/fr/apis/codesearch/ Home] | [http://code.google.com/intl/fr/apis/codesearch/gdata.html Documentation] | [http://groups.google.com/group/Google-Code-Search Group] | [http://googledataapis.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=10441 FAQ] | [http://code.google.com/intl/fr/apis/gdata/clientlibs.html Sample Code] | [http://code.google.com/intl/fr/tos.html Terms]
+
+==[http://code.google.com/intl/fr/apis/contacts/ Google Contacts Data API]==
+http://code.google.com/intl/fr/apis/contacts/
+
+The  Google Contacts Data API allows client applications to view and update  Contacts content in the form of Google Data API feeds. Your client  application can request a list of a user's contacts, edit or delete  content in an existing contact, and query the content in an existing  contact. Here are some of the things you can do with the Contacts Data  API:
+<li>Synchronize Google contacts with contacts on a mobile device | Maintain relationships between people in social applications | Give users the ability to communicate directly with their friends from external applications using phone, email, and IM</li>
+
+  * [http://code.google.com/intl/fr/apis/contacts/ Home] | [http://code.google.com/intl/fr/apis/contacts/developers_guide_protocol.html Documentation] | [http://groups.google.com/group/google-contacts-api Group] | [http://googledataapis.blogspot.com Blog] | [http://code.google.com/intl/fr/apis/contacts/api-terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/coupons/ Google Coupon Feeds]==
+http://code.google.com/intl/fr/apis/coupons/
+
+Google  coupon feeds enable businesses to provide coupon listings that will be  included in Google search results. Coupon feeds enable merchants to  easily distribute coupons for free via the web. Consumers can also  search for, print and redeem coupons for free.
+
+  * [http://code.google.com/intl/fr/apis/coupons/ Home] | [http://code.google.com/intl/fr/apis/coupons/ Documentation] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/customsearch/ Google Custom Search API]==
+http://code.google.com/intl/fr/apis/customsearch/
+
+Google  Custom Search enables you to create a search engine for your website,  your blog, or a collection of websites within minutes. You can harness  the power of Google to create a search engine tailored to your needs  and interests and present the results in your website. You can  fine-tune the ranking, customize the look and feel of the search  results, and invite your friends or trusted users to help you build  your custom search engine. You can even make money from your search  engine by using your Google AdSense account.
+
+  * [http://code.google.com/intl/fr/apis/customsearch/ Home] | [http://code.google.com/intl/fr/apis/customsearch/docs/start.html Documentation] | [http://groups.google.com/group/google-custom-search Group] | [http://googlecustomsearch.blogspot.com/ Blog] | [http://www.google.com/coop/docs/cse/tos.html Terms]
+
+==[http://code.google.com/intl/fr/apis/gdata/ Google Data APIs]==
+http://code.google.com/intl/fr/apis/gdata/
+
+The  Google Data APIs provide a simple, standard protocol for reading and  writing data on the web. Google Data API is a protocol based on the  Atom 1.0 and RSS 2.0 syndication formats, plus the Atom Publishing  Protocol. Several Google services provide a Google Data API, including  Google Base, Blogger, Google Calendar, Google Spreadsheets and Picasa  Web Albums.
+
+  * [http://code.google.com/intl/fr/apis/gdata/ Home] | [http://code.google.com/intl/fr/apis/gdata/overview.html Documentation] | [http://groups.google.com/group/google-help-dataapi Group] | [http://googledataapis.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/gdata/clientlibs.html Sample Code] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/desktop/ Google Desktop Gadget API]==
+http://code.google.com/intl/fr/apis/desktop/
+
+Desktop  gadgets are powerful mini-applications that can live within the Google  Desktop sidebar, or right on the user's desktop, or even inside iGoogle  home pages. You create Desktop gadgets using XML and JavaScript,  optionally adding native code for access to Windows APIs. The Desktop  Gadget API enables advanced functionality such as transparency,  animation, custom fonts, and personalization.
+
+  * [http://code.google.com/intl/fr/apis/desktop/ Home] | [http://code.google.com/intl/fr/apis/desktop/docs/gadgetapi.html Documentation] | [http://groups.google.com/group/Google-Desktop-Developer Group] | [http://googledesktopapis.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=10033 FAQ] | [http://code.google.com/intl/fr/apis/desktop/docs/examples.html Sample Code] | [http://desktop.google.com/dev/apiterms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/desktop/ Google Desktop Search APIs]==
+http://code.google.com/intl/fr/apis/desktop/
+
+Use  the power of Google Desktop in your applications and gadgets, or create  indexing plug-ins that let users search any file type — documents,  spreadsheets, music files, email, calendar, or your software  application's special file type. The Search APIs work with JavaScript,  VBScript, C, C++, C#, and VB.Net code.
+
+  * [http://code.google.com/intl/fr/apis/desktop/ Home] | [http://code.google.com/intl/fr/apis/desktop/docs/searchapi.html Documentation] | [http://groups.google.com/group/Google-Desktop-Developer Group] | [http://googledesktopapis.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/desktop/docs/examples.html Sample Code] | [http://desktop.google.com/dev/apiterms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/documents/ Google Documents List Data API]==
+http://code.google.com/intl/fr/apis/documents/
+
+The Google Documents List Data API allows client applications to view and search through documents stored in [http://docs.google.com/ Google Documents] using Google Data API feeds. Your client application can request a list  of a user's word processing documents and/or spreadsheets and upload  existing documents to Google Documents.
+
+  * [http://code.google.com/intl/fr/apis/documents/ Home] | [http://code.google.com/intl/fr/apis/documents/developers_guide_protocol.html Documentation] | [http://groups.google.com/group/Google-Docs-Data-APIs Group] | [http://googledataapis.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/documents/faq.html FAQ] | [http://code.google.com/intl/fr/apis/documents/code.html Sample Code] | [http://code.google.com/intl/fr/apis/documents/articles/ Articles &amp; Tutorials] | [http://www.google.com/google-d-s/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/earth/ Google Earth API]==
+http://code.google.com/intl/fr/apis/earth/
+
+The  Google Earth Plug-in and its JavaScript API let you embed Google Earth,  a true 3D digital globe, into your web pages. Using the API you can  draw markers and lines, drape images over the terrain, add 3D models,  or load KML files, allowing you to build sophisticated 3D map  applications. If you have an existing Maps API site, you can 3D-enable  your page with as little as one line of code.
+
+  * [http://code.google.com/intl/fr/apis/earth/ Home] | [http://code.google.com/intl/fr/apis/earth/documentation/ Documentation] | [http://groups.google.com/group/kml-support/topics Group] | [http://googlegeodevelopers.blogspot.com/ Blog]
+
+==[http://code.google.com/intl/fr/apis/finance/ Google Finance Data API]==
+http://code.google.com/intl/fr/apis/finance/
+
+The  Google Finance Portfolio Data API allows client applications to view  and update Finance content in the form of Google Data API feeds.
+
+Your  client application can use the Finance Data API to create new portfolio  and transaction entries, request a list of entries, and edit or delete  existing entries.
+
+  * [http://code.google.com/intl/fr/apis/finance/ Home] | [http://code.google.com/intl/fr/apis/finance/developers_guide_java.html Documentation]
+
+==[http://www.google.com/friendconnect Google Friend Connect]==
+http://www.google.com/friendconnect
+
+Google  Friend Connect enables webmasters to quickly and easily enhance their  site with community features; what's more, these features leverage  visitors' <em>existing</em> social ties. By simply copying and pasting a  few lines of JavaScript, you can implement the social functionality you  want, and visitors can connect with their Facebook, orkut and other  friends directly on your website.
+
+==[http://code.google.com/intl/fr/apis/health/ Google Health API]==
+http://code.google.com/intl/fr/apis/health/
+
+The  Google Health Data API allows client applications to view and send  Health content in the form of Google Data API feeds. Your client  application can use the Health Data API to create new medical records,  request a list of medical records and query for medical records that  match particular criteria. 
+
+Here are some of the things you can do with the Health Data API:
+
+  * Upload patient medical records | Get patient medical data and provide personalized functionality based on that data </li>
+
+  * [http://code.google.com/intl/fr/apis/health/ Home] | [http://code.google.com/intl/fr/apis/health/developers_guide_protocol.html Documentation] | [http://groups.google.com/group/googlehealthdevelopers/ Group] | [http://code.google.com/intl/fr/apis/health/faq.html FAQ] | [http://www.google.com/health/html/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/maps/documentation/mapplets/ Google Mapplets]==
+http://code.google.com/intl/fr/apis/maps/documentation/mapplets/
+
+Google  Mapplets are mini-applications that you can embed within the Google  Maps site. Examples include real estate search, current weather  conditions, and distance measurement. Mapplets are Gadgets that can  manipulate the map using JavaScript calls that are derived from the  Google Maps API.
+
+  * [http://code.google.com/intl/fr/apis/maps/documentation/mapplets/ Home] | [http://code.google.com/intl/fr/apis/maps/documentation/mapplets/guide.html Documentation] | [http://groups.google.com/group/Google-Maps-API Group] | [http://googlegeodevelopers.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/maps.faq.html FAQ] | [http://code.google.com/intl/fr/apis/maps/articles/ Articles &amp; Tutorials] | [http://code.google.com/intl/fr/apis/maps/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/maps/ Google Maps API]==
+http://code.google.com/intl/fr/apis/maps/
+
+The  Google Maps API allows you to create innovative online mapping  applications and helps integrate maps and geo-coding into your  websites. With it, you can easily present your geo-referenced content  in any web browser.
+
+  * [http://code.google.com/intl/fr/apis/maps/ Home] | [http://code.google.com/intl/fr/apis/maps/documentation/index.html Documentation] | [http://groups.google.com/group/Google-Maps-API Group] | [http://googlegeodevelopers.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/maps/faq.html FAQ] | [http://code.google.com/intl/fr/apis/maps/documentation/examples/index.html Sample Code] | [http://code.google.com/intl/fr/apis/maps/articles Articles &amp; Tutorials] | [http://code.google.com/intl/fr/apis/maps/terms.html Terms]
+
+
+==[http://code.google.com/intl/fr/apis/maps/documentation/flash/ Google Maps API For Flash]==
+http://code.google.com/intl/fr/apis/maps/documentation/flash/
+
+The  Google Maps API for Flash allows you to add maps to Flash applications.  Based on ActionScript 3.0, this API enables Flex developers to easily  customize maps through a variety of services.
+
+  * [http://code.google.com/intl/fr/apis/maps/documentation/flash/index.html Home] | [http://code.google.com/intl/fr/apis/maps/documentation/flash/intro.html Documentation] | [http://groups.google.com/group/google-maps-api-for-flash Group] | [http://googlegeodevelopers.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/maps/faq.html FAQ] | [http://code.google.com/intl/fr/apis/maps/terms.html Terms]
+
+
+==[http://code.google.com/intl/fr/gme/ Google Mashup Editor]==
+http://code.google.com/intl/fr/gme/
+
+Google  Mashup Editor is an AJAX development framework and a set of tools that  enable developers to quickly and easily create simple web applications  and mashups with Google services like Google Maps and Google Base.  Creating applications with Google Mashup Editor is simple, using our  declarative XML tags, JavaScript, CSS, and HTML.
+
+  * [http://code.google.com/intl/fr/gme/ Home] | [http://code.google.com/intl/fr/gme/gettingstarted.html Documentation] | [http://groups.google.com/group/google-mashup-editor Group] | [http://googlemashupeditor.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=11558 FAQ] | [http://gallery.googlemashups.com/ Sample Code] | [http://code.google.com/support/bin/topic.py?topic=12044 Articles &amp; Tutorials] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/notebook/ Google Notebook Data API]==
+http://code.google.com/intl/fr/apis/notebook/
+
+The  Google Notebook Data API allows client applications to view stored data  in the form of Google Data API feeds. Your client application can  request a list of a user's public notebooks, or query the content of an  existing public notebook.
+
+  * [http://code.google.com/intl/fr/apis/notebook/ Home] | [http://code.google.com/intl/fr/apis/notebook/gdata.html Documentation] | [http://groups.google.com/group/Google-Labs-Notebook Group] | [http://googledataapis.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/gdata/clientlibs.html Sample Code] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/gra/ Google Radio Automation API]==
+http://code.google.com/intl/fr/apis/gra/
+
+Google  Radio Automation is used by radio stations to ingest, manage, and  broadcast audio content. Using this API, you can write applications to  add functionality to Google Radio Automation or tightly integrate your  product with Google Radio Automation.
+
+  * [http://code.google.com/intl/fr/apis/gra/ Home] | [http://code.google.com/intl/fr/apis/gra/docs/developer_guide.html Documentation] | [http://code.google.com/intl/fr/apis/gra/docs/faq.html FAQ] | [http://code.google.com/intl/fr/apis/gra/docs/terms_graapi.html Terms]
+
+==[http://code.google.com/intl/fr/apis/safebrowsing/ Google Safe Browsing APIs]==
+http://code.google.com/intl/fr/apis/safebrowsing/
+
+The  Safe Browsing API is an experimental API that allows client  applications to check URLs against Google's constantly-updated  blacklists of suspected phishing and malware pages. Your client  application can use the API to download an encrypted table for local,  client-side lookups of URLs that you would like to check.
+
+  * [http://code.google.com/intl/fr/apis/safebrowsing/ Home] | [http://code.google.com/intl/fr/apis/safebrowsing/developers_guide.html Documentation] | [http://groups.google.com/group/google-safe-browsing-api Group] | [http://googleonlinesecurity.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/safebrowsing/terms.html Terms]
+
+==[https://www.google.com/webmasters/tools/docs/en/about.html Google Sitemaps]==
+https://www.google.com/webmasters/tools/docs/en/about.html
+
+Enables  Google crawlers to quickly find what pages are present and which have  recently changed. You create a file conforming to the Sitemap Protocol  on your webserver; this file informs and direct Google crawlers,  improving the time to inclusion in the index. We have an open-source [http://goog-sitemapgen.sourceforge.net/ project] that helps in the creation of these sitemaps, and many [http://code.google.com/sm_thirdparty.html third party Sitemap tools] are available.
+
+  * [https://www.google.com/webmasters/tools/docs/en/about.html Home] | [https://www.google.com/webmasters/tools/docs/en/protocol.html Documentation] | [http://groups.google.com/group/Google_Webmaster_Help Group] | [http://googlewebmastercentral.blogspot.com/ Blog] | [http://www.google.com/accounts/TOS Terms]
+
+==[http://code.google.com/intl/fr/apis/sketchup/ Google SketchUp Ruby API]==
+http://code.google.com/intl/fr/apis/sketchup/
+
+Google  SketchUp Ruby API allows you to manipulate SketchUp models and extend  the behavior of Google SketchUp. You can write macros for repeated  tasks. You can also write customs tools for Google SketchUp and other  plugins. [http://groups.google.com/group/sketchupruby/topics Show off a little].
+
+  * [http://code.google.com/intl/fr/apis/sketchup/ Home] | [http://code.google.com/intl/fr/apis/sketchup/docs/gsrubyapi_examples.html Documentation] | [http://groups.google.com/group/sketchupruby/topics Group] | [http://sketchupapi.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/sketchup/docs/tos.html Terms]
+
+==[http://code.google.com/intl/fr/apis/spreadsheets/ Google Spreadsheets Data API]==
+http://code.google.com/intl/fr/apis/spreadsheets/
+
+The  Google Spreadsheets Data API allows client applications to view and  update Spreadsheets content in the form of Google Data API feeds. Your  client application can request a list of a user's spreadsheets, edit or  delete content in an existing Spreadsheets worksheet, and query the  content in an existing Spreadsheets worksheet.
+
+  * [http://code.google.com/intl/fr/apis/spreadsheets/ Home] | [http://code.google.com/intl/fr/apis/spreadsheets/developers_guide_protocol.html Documentation] | [http://groups.google.com/group/Google-Docs-Data-APIs Group] | [http://googledataapis.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/spreadsheets/faq.html FAQ] | [http://code.google.com/intl/fr/apis/spreadsheets/code.html Sample Code] | [http://code.google.com/intl/fr/apis/spreadsheets/articles/ Articles &amp; Tutorials] | [http://code.google.com/intl/fr/apis/maps/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/maps/documentation/staticmaps/ Google Static Maps API]==
+http://code.google.com/intl/fr/apis/maps/documentation/staticmaps/
+
+The  Google Static Maps API lets you embed a Google Maps image on your  webpage without requiring JavaScript or any dynamic page loading. The  Google Static Map service creates your map based on URL parameters sent  through a standard HTTP request and returns the map as an image you can  display on your web page!
+
+  * [http://code.google.com/intl/fr/apis/maps/documentation/staticmaps/ Home] | [http://code.google.com/intl/fr/apis/maps/documentation/staticmaps/ Documentation] | [http://groups.google.com/group/Google-Maps-API Group] | [http://googlegeodevelopers.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/maps/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/talk/ Google Talk for Developers]==
+http://code.google.com/intl/fr/apis/talk/
+
+The Google Talk network uses [http://www.xmpp.org/specs/ XMPP] for its communications protocol, making it easy for client developers  to connect and other networks to federate. There are some non-standard  XMPP extensions, which are covered in the [http://code.google.com/apis/talk/jep_extensions/extensions.html Google Talk XMPP Extensions] section. Google also offers Libjingle, a set of C++ components to  interoperate with Google Talk's peer-to-peer and voice calling  capabilities. For details, see the [http://code.google.com/apis/talk/libjingle/index.html Libjingle Developer Guide]. There are multiple interfaces in a great variety of languages including Python, PHP, Java, and C#. 
+
+Web developers may be interested in [http://www.google.com/talk/service/badge/New chatback] and in the [http://code.google.com/apis/talk/talk_gadget.html Google Talk Gadget], a browser-based instant messaging client for the Google Talk network.
+
+  * [http://code.google.com/intl/fr/apis/talk/ Home] | [http://code.google.com/intl/fr/apis/talk/talk_developers_home.html Documentation] | [http://groups.google.com/group/google-talk-open Group] | [http://code.google.com/intl/fr/apis/talk/developer_faq.html FAQ] | [http://code.google.com/intl/fr/apis/talk/libjingle/index.html Sample Code] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/themes/ Google Themes API]==
+http://code.google.com/intl/fr/apis/themes/
+
+The  Google Themes API allows you to further personalize the iGoogle  homepage by specifying your own background images and colors in an XML  file. Themes can change throughout the day, making it easy to create a  visual story, a landscape that changes as the sun rises and sets, or a  dynamic piece of art.
+
+  * [http://code.google.com/intl/fr/apis/themes/ Home] | [http://code.google.com/intl/fr/apis/themes/docs/dev_guide.html Documentation] | [http://code.google.com/intl/fr/apis/themes/docs/terms.html Terms]
+
+==[http://www.google.com/tools/toolbar/buttons/apis Google Toolbar API]==
+http://www.google.com/tools/toolbar/buttons/apis
+
+The  Google Toolbar API lets you create custom buttons for the Google  Toolbar (version 4 and above) using XML. Buttons can navigate to and  search a site, display an RSS feed in a menu, and change their icon  dynamically.
+
+  * [http://www.google.com/tools/toolbar/buttons/apis Home] | [http://www.google.com/tools/toolbar/buttons/apis/howto_guide.html Documentation] | [http://groups.google.com/group/Google-Custom-Buttons Group] | [http://code.google.com/support/bin/topic.py?topic=10037 FAQ] | [http://toolbar.google.com/buttons Sample Code] | [http://www.google.com/terms_of_service.html Terms]
+
+
+==[http://code.google.com/intl/fr/transit/spec/transit_feed_specification.html Google Transit Feed Specification]==
+http://code.google.com/intl/fr/transit/spec/transit_feed_specification.html
+
+The  Google Transit Feed Specification is a common format that transit  agencies and other interested parties can use to make public  transportation information available through Google Transit Trip  Planner, Google Earth, Google Maps, and other tools.
+
+  * [http://code.google.com/intl/fr/transit/spec/transit_feed_specification.html Home] | [http://code.google.com/intl/fr/transit/spec/transit_feed_specification.html Documentation] | [http://groups.google.com/group/googletransit/ Group] | [http://spreadsheets.google.com/pub?key=puMHBiWYEbXT0UxQGLDpuBA&gid=11 Sample Code] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/visualization/ Google Visualization API]==
+http://code.google.com/intl/fr/apis/visualization/
+
+The  Google Visualization API allows you to create visualization and  reporting applications over structured data and helps integrate these  into your websites or Gadgets. With this API, you can easily create  visualizations that provide insights from relevant content and embed  those in any web browser.
+
+This API is also used to create Spreadsheet Gadgets which:
+  * Add new features to Google Spreadsheets. | Use a Google Spreadsheet as a data source for iGoogle or other gadget-enabled sites.
+
+  * [http://code.google.com/intl/fr/apis/visualization/ Home] | [http://code.google.com/intl/fr/apis/visualization/documentation/ Documentation] | [http://groups.google.com/group/google-visualization-api Group] | [http://code.google.com/intl/fr/apis/visualization/faq.html FAQ] | [http://code.google.com/intl/fr/apis/visualization/terms.html Terms]
+
+==[http://code.google.com/intl/fr/webtoolkit/ Google Web Toolkit]==
+http://code.google.com/intl/fr/webtoolkit/
+
+The  Google Web Toolkit (GWT) is an open source Java software development  framework that helps you produce user-friendly AJAX applications. With  GWT, you can use your favorite Java development tools to build AJAX  applications without having to tackle the steep learning curve of  JavaScript/CSS browser quirks.
+
+  * [http://code.google.com/intl/fr/webtoolkit/ Home] | [http://code.google.com/intl/fr/webtoolkit/documentation/ Documentation] | [http://groups.google.com/group/Google-Web-Toolkit Group] | [http://googlewebtoolkit.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=10034 FAQ] | [http://code.google.com/intl/fr/webtoolkit/download.html Sample Code] | [http://code.google.com/support/bin/topic.py?topic=11368 Articles &amp; Tutorials] | [http://code.google.com/intl/fr/tos.html Terms]
+
+==[http://code.google.com/intl/fr/apis/webmastertools/ Google Webmaster Tools Data API]==
+http://code.google.com/intl/fr/apis/webmastertools/
+
+Google Webmaster Tools Data API allows client applications to view and update site information and [http://www.google.com/support/webmasters/bin/answer.py?answer=40318 Sitemaps] in the form of Google Webmaster Tools Data API feeds. Your client  application can use the Google Webmaster Tools Data API to view sites  in your account, add and remove sites, verify site ownership, and  submit and delete Sitemaps.
+
+  * [http://code.google.com/intl/fr/apis/webmastertools/ Home] | [http://code.google.com/intl/fr/apis/webmastertools/docs/developers_guide.html Documentation] | [http://groups.google.com/group/Google_Webmaster_Help Group] | [http://googlewebmastercentral.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/webmastertools/docs/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/igoogle/ iGoogle Developer Home]==
+http://code.google.com/intl/fr/apis/igoogle/
+
+Gadgets  on iGoogle now support canvas view and OpenSocial, a common set of  APIs, HTML, and JavaScript designed to let you easily build social  applications. Build and test your gadget in the new sandbox for iGoogle.
+
+  * [http://code.google.com/intl/fr/apis/igoogle/ Home] | [http://code.google.com/intl/fr/apis/igoogle/docs/igoogledevguide.html Documentation] | [http://groups.google.com/group/Google-Gadgets-API/ Group] | [http://googlegadgetsapi.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/igoogle/faq.html FAQ] | [http://code.google.com/intl/fr/apis/gadgets/docs/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/kml/ KML]==
+http://code.google.com/intl/fr/apis/kml/
+
+KML  is a file format used to display geographic data in an Earth browser,  such as Google Earth, Google Maps and Google Maps for mobile. KML uses  a tag-based structure with nested elements and attributes and is  XML-based. Google Earth and Google Maps have millions of users, so  there's already a wide audience awaiting your content.
+
+  * [http://code.google.com/intl/fr/apis/kml/ Home] | [http://code.google.com/intl/fr/apis/kml/documentation/ Documentation] | [http://groups.google.com/group/kml-support Group] | [http://googlegeodevelopers.blogspot.com/ Blog] | [http://code.google.com/support/bin/topic.py?topic=10426 FAQ] | [http://code.google.com/intl/fr/apis/kml/documentation/kml_tut.html Sample Code] | [http://code.google.com/support/bin/topic.py?topic=11367 Articles &amp; Tutorials] | [http://www.google.com/terms_of_service.html Terms]
+
+==[http://code.google.com/intl/fr/apis/opensocial/ OpenSocial]==
+http://code.google.com/intl/fr/apis/opensocial/
+
+OpenSocial  defines a common API for social applications across multiple websites.  With standard JavaScript and HTML, developers can create apps that  access a social network's friends and update feeds. 
+
+A common  API means you have less to learn to build for multiple websites.  OpenSocial is currently being developed by a broad set of members of  the web community. The ultimate goal is for any social website to be  able to implement the API and host 3rd party social applications.
+
+  * [http://code.google.com/intl/fr/apis/opensocial/ Home] | [http://code.google.com/intl/fr/apis/opensocial/docs/index.html Documentation] | [http://groups.google.com/group/opensocial-api/ Group] | [http://opensocialapis.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/opensocial/faq.html FAQ] | [http://code.google.com/intl/fr/apis/opensocial/articles/ Articles &amp; Tutorials] | [http://code.google.com/intl/fr/apis/opensocial/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/orkut/ Orkut Developer Home]==
+http://code.google.com/intl/fr/apis/orkut/
+
+As a developer, you can create social applications for Orkut users. Orkut supports [http://code.google.com/apis/opensocial/ OpenSocial], a common set of APIs, HTML, and JavaScript designed to let developers easily build social applications.
+
+  * [http://code.google.com/intl/fr/apis/orkut/ Home]
+
+==[http://code.google.com/intl/fr/apis/picasa/ Picasa APIs]==
+http://code.google.com/intl/fr/apis/picasa/
+
+The  Picasa APIs enable you to create buttons users can install in the  Picasa client user interface (see image below). Once installed, the  button exports selected images from Picasa to another desktop  application or web-based service.
+
+  * [http://code.google.com/intl/fr/apis/picasa/ Home] | [http://code.google.com/intl/fr/apis/picasa/docs/button_api.html Documentation] | [http://groups.google.com/group/google-picasa-apis Group] | [http://code.google.com/intl/fr/apis/picasa/faq.html FAQ] | [http://code.google.com/intl/fr/apis/picasa/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/picasaweb/ Picasa Web Albums Data API]==
+http://code.google.com/intl/fr/apis/picasaweb/
+
+The  Picasa Web Albums Data API allows websites and client applications to  view and update Picasa Web Albums content. Using Google Data API feeds,  you can retrieve and update photo albums, add new comments and photos,  and even tag photos automatically. It's the easy way to get photos and  albums into your own website or application.
+
+  * [http://code.google.com/intl/fr/apis/picasaweb/ Home] | [http://code.google.com/intl/fr/apis/picasaweb/gdata.html Documentation] | [http://groups.google.com/group/Google-Picasa-Data-API Group] | [http://googledataapis.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/picasaweb/faq.html FAQ] | [http://code.google.com/intl/fr/apis/picasaweb/code.html Sample Code] | [http://code.google.com/intl/fr/apis/picasaweb/articles/ Articles &amp; Tutorials] | [http://code.google.com/intl/fr/apis/picasaweb/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/socialgraph/ Social Graph API]==
+http://code.google.com/intl/fr/apis/socialgraph/
+
+The  Social Graph API makes information about the public connections between  people on the Web easily available and useful for developers.  Developers can query this public information to offer their users  dramatically streamlined "add friends" functionality and other useful  features.
+
+  * [http://code.google.com/intl/fr/apis/socialgraph/ Home] | [http://code.google.com/intl/fr/apis/socialgraph/docs/ Documentation] | [http://groups.google.com/group/social-graph-api Group] | [http://code.google.com/intl/fr/more/apis/socialgraph/faq.html FAQ] | [http://code.google.com/intl/fr/apis/socialgraph/terms.html Terms]
+
+==[http://www.google.com/coop/docs/guide_subscribed_links.html Subscribed Links]==
+http://www.google.com/coop/docs/guide_subscribed_links.html
+
+Google  Subscribed Links enables you to create custom search results and define  search keywords for triggering the results. Web users who have signed  into their Google account and subscribed to your subscribed links can  use keywords that you defined to see your custom search results appear  in the Google results page. Your subscribed links can answer questions,  display links to your services, provide news and status information,  and calculate quantities, among other things.
+
+  * [http://www.google.com/coop/docs/guide_subscribed_links.html Home] | [http://www.google.com/coop/docs/guide_subscribed_links.html Documentation] | [http://groups.google.com/group/google-subscribed-link Group] | [http://www.google.com/coop/docs/subscribedlinks/tos.html Terms]
+
+==[http://code.google.com/intl/fr/apis/v8/ V8]==
+http://code.google.com/intl/fr/apis/v8/
+
+Embed  V8 in your own C++ application to make your application's objects and  methods available to JavaScript, and to make JavaScript objects and  functions available to your application.
+
+  * [http://code.google.com/intl/fr/apis/v8/ Home] | [http://code.google.com/intl/fr/apis/v8/intro.html Documentation] | [http://code.google.com/intl/fr/apis/v8/terms.html Terms]
+
+==[http://code.google.com/intl/fr/apis/youtube/ YouTube APIs]==
+http://code.google.com/intl/fr/apis/youtube/
+
+YouTube  offers open access to key parts of the YouTube video repository and  user community, via an open API interface and RSS feeds. Using our  APIs, you can easily integrate online videos from YouTube's rapidly  growing repository of videos into your application.
+
+  * [http://code.google.com/intl/fr/apis/youtube/ Home] | [http://code.google.com/intl/fr/apis/youtube/developers_guide_protocol.html Documentation] | [http://groups.google.com/group/youtube-api Group] | [http://apiblog.youtube.com/ Blog] | [http://code.google.com/intl/fr/apis/youtube/faq.html FAQ] | [http://code.google.com/intl/fr/apis/youtube/code.html Sample Code] | [http://code.google.com/intl/fr/apis/youtube/articles/ Articles &amp; Tutorials] | [http://code.google.com/intl/fr/apis/youtube/terms.html Terms]
+
+==[http://code.google.com/hosting/ Project Hosting]==
+http://code.google.com/hosting/
+
+Project  Hosting on Google Code is a free service to the open source community.  Featuring a Subversion back-end, wiki support, file downloads, issue  tracking and a clean, Google-style interface, our project hosting  service is the world's second largest open source hosting site after [http://sourceforge.net/index.php SourceForge.net].
+
+==[http://code.google.com/intl/fr/opensource/ OpenSource]==
+http://code.google.com/intl/fr/opensource/
+
+Google  is a proud user and supporter of open source software and development  methodologies. As a company, Google contributes back to the Open Source  community in a variety of ways.
+
+Key Links:
+  * [http://code.google.com/projects.html Source Code] - From our [http://code.google.com/p/google-perftools/ performance tools] to application layer projects like [http://gears.google.com/ Gears], Google releases internally developed code as open source. | [http://code.google.com/hosting/ Project Hosting on Google Code] - Project Hosting on Google Code is a free service to the open source community. | [http://code.google.com/soc/ Google Summer of Code] - Now in its third year, Google Summer of Code is our program to  introduce students to open source development and real-world  programming challenges.
+
+==[http://code.google.com/soc/ Google Summer of Code]==
+http://code.google.com/soc/
+
+<em>Google Summer of Code</em> is a program that offers student developers stipends to write code for  various open source projects. Google will be working with several open  source, free software, and technology-related groupsto identify and  fund several projects over a three month period. Historically, the  program has brought together over 1,500 students with over 130 open  source projects to create millions of lines of code. 
+We'll be regularly posting news and updates about the program to the [http://google-opensource.blogspot.com/search/label/gsoc Google Open Source Blog].   If you're interested in participating in the program in the future, you can still   check out our [http://code.google.com/opensource/gsoc/2008/faqs.html FAQs].   Many of our mentoring organizations have also added program write ups to their websites. 
+The program, which kicked off in [http://code.google.com/soc/2005/ 2005],  is now in its fourth year. If you're feeling nostalgic or are  interested in learning more about the projects we have worked with in  the past, check out the [http://code.google.com/soc/2006/ 2006] and [http://code.google.com/soc/2007/ 2007] program pages. 
+==[http://code.google.com/intl/fr/opensource/ghop/2007-8/ Highly Open Participation Contest]==
+http://code.google.com/intl/fr/opensource/ghop/2007-8/
+
+Following on from the success of the [http://code.google.com/soc/ Google Summer of Code] program, Google is pleased to announce this new effort to get young  people involved in open source development. We've teamed up with the  open source projects listed here to give student contestants the  opportunity to learn more about and contribute to all aspects of open  source software development, from writing code and documentation to  preparing training materials and conducting user experience research.
+
+==[http://code.google.com/intl/fr/mac/ Google Mac Developer Playground]==
+http://code.google.com/intl/fr/mac/
+
+The  Google Mac Developer Playground is a collection of open-source projects  Mac developers at Google work on during their 20% time or on their own  time.
+
+==[http://code.google.com/intl/fr/edu/ Google Code University]==
+http://code.google.com/intl/fr/edu/
+
+This  website provides tutorials and sample course content so CS students and  educators can learn more about current computing technologies and  paradigms. In particular, this content is Creative Commons licensed  which makes it easy for CS educators to use in their own classes. 
+
+Key Links:
+  * [http://code.google.com/edu/index.html Home] | [http://groups.google.com/group/Google-Code-for-Educators Groups] | [http://code.google.com/edu/curriculumsearch/index.html CS Curriculum Search]
+
+ Course materials: 
+  * [http://code.google.com/edu/ajax/index.html Ajax Programming] | [http://code.google.com/edu/parallel/index.html Distributed Systems] | [http://code.google.com/edu/security/index.html Web Security] | [http://code.google.com/edu/languages/index.html Languages] | [http://code.google.com/edu/tools101/index.html Tools 101]
+
+==[http://code.google.com/intl/fr/doctype/ Google DocType]==
+http://code.google.com/intl/fr/doctype/
+
+Google  Doctype is an 100% open encyclopedia -- by web developers, for web  developers. It includes sample code, test cases, and articles on web  security, JavaScript, and CSS.
+
+==[http://code.google.com/intl/fr/events/ Developer Events]==
+http://code.google.com/intl/fr/events/
+
+Learn  more about developer events like Google I/O, a two-day developer  gathering in San Francisco, and Google Developer Days, a series of  events around the globe. The Google Developer Events Calendar can be  used to find upcoming developer events, including hackathons, meetups,  and presentations on all things code.
+
+You can add the Google Developer Events Calendar to your Google Calendar or you can add it to your feed reader.
+
+==[http://code.google.com/intl/fr/campfire/ Google Campfire One]==
+http://code.google.com/intl/fr/campfire/
+
+Every  once in a while we'll invite members of the developer community on  campus to talk shop, share some news, and eat S'mores. We're calling  this "Google Campfire One." 
+
+Key Links:
+  * [http://code.google.com/campfire/ Home]
+
+
+===[http://code.google.com/intl/fr/more/ http://code.google.com/intl/fr/more/]===
+
+
