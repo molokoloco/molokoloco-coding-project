@@ -850,19 +850,7 @@ CACHE
    Si l'on atteint finir_cache.php, c'est que le cache n'a pas été affiché et qu'un nouveau cache tampon a été créé. Il nous faut donc ouvrir un accès fichier, y placer le contenu du tampon, fermer le fichier... et envoyer le contenu du tampon vers le navigateur. Pendant les douze prochaines heures, c'est ce fichier cache qui sera envoyé au navigateur, économisant ainsi de nombreux accès inutiles au compilateur PHP et à la base MySQL.
 
 _______________________________________________________________________________________
-Date de la transaction  16 Juin 2005 08:30:10 (UTC/GMT)
-Adresse du web commerçant  www.lafraise.com
-http://www.bigboobs.hu/index.php?c=1
-Identifiant commerçant twistedlinks.net 039009052000029
-Référence de la transaction  10586
-Montant de la  bigboobsalert.com transaction  25,00 €
-gigagalleries.com transaction  25,00 €
-Numéro de la carte 4971 #### #### ##94   03/06
-Autorisation  073285  http://isohunt.com/
-http://www.seedler.org/ transaction  bc2de91a4165
-http://www.bigbreastarchive.com/
-Certificat de la transaction  bc2de91a4165
-Certificat de la transaction  bc2de91a4165
+
 <?php
 $nav = get_browser();
 if (!$nav->frames) {
@@ -877,9 +865,7 @@ if (!$nav->javascript) {
 ?>
 ____________________________________________________________
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam auctor erat vel est. Fusce elit nisl, tempor convallis, aliquam non, auctor tempus, orci. Nullam suscipit arcu quis lorem lobortis malesuada. Donec odio. Vestibulum erat libero, ultrices viverra, nonummy ut, fermentum ac, odio. Donec diam. Mauris et ligula eu est consequat interdum. Fusce mattis nibh non elit. Mauris a felis. Cras pulvinar magna. Cras interdum, ante nec lacinia tristique, velit felis iaculis tellus, varius consequat purus tortor eu neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam interdum elementum ipsum. Vestibulum quis lacus. Suspendisse bibendum ipsum euismod purus. Ut ac augue. Praesent pharetra neque sed sem. Sed ac est. Praesent imperdiet consectetuer lacus.
-http://www.smokinmovies.com/ http://movies1.the-female-orgasm.com/1105-01k/index.html
-http://www.nsgalleries.com/hosted1/sq/movies/arianna_jollee2/index.php?id=102648
-http://www.truly-movies.com/ek/kreamsolo31/kreamsolo31.html
+
 Pellentesque eleifend laoreet nunc. Donec iaculis sem sed risus pellentesque rutrum. Integer in tortor. Phasellus aliquam, justo ut vulputate blandit, libero orci adipiscing turpis, sed tincidunt purus urna non nulla. Donec ut nisi. In auctor malesuada enim. Curabitur mattis suscipit felis. Mauris volutpat dui eget odio. In hac habitasse platea dictumst. Pellentesque dolor. In et leo elementum quam molestie faucibus.
 ____________________________________________________________
  
