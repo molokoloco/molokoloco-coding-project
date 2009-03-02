@@ -1,24 +1,24 @@
-#summary TableOfContents
+#sidebar TableOfContents
 
   * Class et fonctions
     * [PHPSample]
     * [mySqlPhpClass]
     * [javascriptAccordeonClass]
   * Examples
+    * [importCsvToSQL]
+    * [JavascriptWindowOpenExtended]
+    * [PHPJavascriptDiaporama]
     * [DocGenerator]
     * [RSSGeneratorSample]
     * [JavascriptSample]
     * [TinyMce_PHP]
-    * [importCsvToSQL]
-    * [JavascriptWindowOpenExtended]
-    * [PHPJavascriptDiaporama]
   * Personal Tips
     * [PHPSyntax]
+    * [PrototypeSyntax]
     * [HtAccess]
     * [LinuxSyntax_SHELL]
     * [mySQLSyntax]
     * [RegexSyntax]
-    * [PrototypeSyntax]
     * [CSSSyntax]
   * Documentation
     * [HowToVirtualAdmin]
