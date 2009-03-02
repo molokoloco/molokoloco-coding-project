@@ -1,10 +1,10 @@
 #sidebar TableOfContents
 
-  * Class et fonctions
+  * *Class et fonctions*
     * [PHPSample]
     * [mySqlPhpClass]
     * [javascriptAccordeonClass]
-  * Examples
+  * *Examples*
     * [importCsvToSQL]
     * [JavascriptWindowOpenExtended]
     * [PHPJavascriptDiaporama]
@@ -12,7 +12,7 @@
     * [RSSGeneratorSample]
     * [JavascriptSample]
     * [TinyMce_PHP]
-  * Personal Tips
+  * *Personal Tips*
     * [PHPSyntax]
     * [PrototypeSyntax]
     * [HtAccess]
@@ -20,6 +20,6 @@
     * [mySQLSyntax]
     * [RegexSyntax]
     * [CSSSyntax]
-  * Documentation
+  * *Documentation*
     * [HowToVirtualAdmin]
     * [GoogleHack]
