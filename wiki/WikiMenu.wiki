@@ -1,5 +1,4 @@
 #summary TableOfContents
-#labels Featured
 
   * Class et fonctions
     * [PHPSample]
