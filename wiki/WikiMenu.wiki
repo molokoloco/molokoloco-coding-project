@@ -1,25 +1,25 @@
-#sidebar TableOfContents
+#summary TableOfContents
 
-  * Class et fonctions
-    * [PHPSample]
-    * [mySqlPhpClass]
-    * [javascriptAccordeonClass]
-  * Examples
-    * [importCsvToSQL]
-    * [JavascriptWindowOpenExtended]
-    * [PHPJavascriptDiaporama]
-    * [DocGenerator]
-    * [RSSGeneratorSample]
-    * [JavascriptSample]
-    * [TinyMce_PHP]
-  * Personal Tips
-    * [PHPSyntax]
-    * [PrototypeSyntax]
-    * [HtAccess]
-    * [LinuxSyntax_SHELL]
-    * [mySQLSyntax]
-    * [RegexSyntax]
-    * [CSSSyntax]
-  * Documentation
-    * [HowToVirtualAdmin]
-    * [GoogleHack]
+Class et fonctions
+  * [PHPSample]
+  * [mySqlPhpClass]
+  * [javascriptAccordeonClass]
+Examples
+  * [DocGenerator]
+  * [RSSGeneratorSample]
+  * [JavascriptSample]
+  * [TinyMce_PHP]
+  * [importCsvToSQL]
+  * [JavascriptWindowOpenExtended]
+  * [PHPJavascriptDiaporama]
+Personal Tips
+  * [PHPSyntax]
+  * [HtAccess]
+  * [LinuxSyntax_SHELL]
+  * [mySQLSyntax]
+  * [RegexSyntax]
+  * [PrototypeSyntax]
+  * [CSSSyntax]
+Documentation
+  * [HowToVirtualAdmin]
+  * [GoogleHack]
