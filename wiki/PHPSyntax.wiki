@@ -1,6 +1,8 @@
 #summary some notes and tips for PHP
 #labels Tooltips
 
+Certaines fonctions ci-dessous sont reprises (proprement ;) dans le [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC#SITE_01_SRC/admin/lib framework]
+
 = En vrac... =
 
 {{{
