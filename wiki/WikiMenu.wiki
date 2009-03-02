@@ -1,5 +1,3 @@
-#summary TableOfContents
-
 Class et fonctions
   * [PHPSample]
   * [mySqlPhpClass]
