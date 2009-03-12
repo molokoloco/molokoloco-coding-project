@@ -64,7 +64,7 @@
 
 ----
 
-MOLOKOLOCO GOOOGLE BOOKMARKZ...
+==Google redirectory bookmarks by molokoloco== 
 
 Google 
 http://www.google.com/
@@ -190,15 +190,11 @@ Depuis ce matin, il est possible à certains utilisateurs de Google de découvri
 Vivek live and kickin': Google Clean search without searchwiki results 
 http://blog.vivekjishtu.com/2008/11/google-clean-search-without-wiki.html
 
-Vivek"s personal take on technology
-
 nativeclient - Google Code 
 http://code.google.com/p/nativeclient/?tbbrand=GZEZ&utm_campaign=en&utm_source=en-et-osrcblog&utm_medium=et
 
 Google Maps: 100+ Best Tools and Mashups 
 http://mashable.com/2009/01/08/google-maps-mashups-tools/
-
-From mapping the weather and news to mapping things that aren't maps at all, Google Maps has a lot to offer. Here are 100+ best Google Maps tools and mashups.
 
 Google Maps Directory PLUGGINS 
 http://maps.google.com/ig/directory?synd=mpl&pid=mpl&backlink=http%3A%2F%2Fmaps.google.com%2Fmaps%2Fmm%3Fie%3DUTF8%26hl%3Den%26ll%3D37.0625%2C-95.677068%26spn%3D47.972233%2C82.265625%26z%3D4%26om%3D1&hl=en&num=24&cat=all
@@ -221,10 +217,12 @@ http://google.b2bweb.fr/
 Google Latitude 
 http://www.google.com/latitude/intro.html
 
-http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js 
+JQuery.min.js from google... 
 http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js
 
 ----
+
+= Google Official directory =
 
 ==[http://code.google.com/intl/fr/android/ Android]==
 http://code.google.com/intl/fr/android/
