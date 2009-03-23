@@ -15,6 +15,7 @@
   * *Personal Tips*
     * [PHPSyntax]
     * [PrototypeSyntax]
+    * [JavascriptJquery]
     * [HtAccess]
     * [LinuxSyntax_SHELL]
     * [mySQLSyntax]
