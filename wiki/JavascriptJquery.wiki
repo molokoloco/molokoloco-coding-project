@@ -6,6 +6,8 @@
 http://docs.jquery.com/
 http://www.gscottolson.com/jquery/jQuery1.2.cheatsheet.v1.0.pdf
 
+{{{
+
 // --------------------------------------------------------------- //
 
 $(function(){ ... });
