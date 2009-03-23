@@ -1,0 +1,379 @@
+#summary My JQuery personnal notes
+#labels Tooltips
+
+= FAQ JQUERY =
+
+http://docs.jquery.com/
+http://www.gscottolson.com/jquery/jQuery1.2.cheatsheet.v1.0.pdf
+
+// --------------------------------------------------------------- //
+
+$(function(){ ... });
+
+$(document).ready(function(){
+    $('a').click(function(event){
+        event.preventDefault();
+    });
+});
+
+// --------------------------------------------------------------- //
+
+$('p')
+$('body').attr('onload')
+$('#quicktimePlayer').empty();
+$('#quicktimePlayer').append(plug);
+$('#element_id').click(...)
+$('.class').click(...)
+$(document.getElementById('el'))
+$(document).ready(...)
+$(window).load(...)
+$('ul').find('li:last-child');
+$('p', document).size();
+$('p[a]').hide();
+$(xml.responseXML);
+$('title', xml.responseXML); // Finds all title elements within an XML document
+$('p').height()
+jQuery('/html/body//p')
+$('body').css({'overflow' : 'hidden'});
+$('button:gt(1)').attr('disabled','disabled'); // Disables buttons greater than the 1st button.
+
+$('ul li:last').after('<li>Added text ' + p + '</li>');
+$('div:contains('John')').css('text-decoration', 'underline');
+$(':input'); // Matches all input, textarea, select and button elements
+$('form input:text') // type text
+$('form > *'); // formChildren 
+if ($(this).is(':first-child')) {}
+if ( $(this).hasClass('protected') )
+$('div').show().fadeOut('slow');
+
+// --------------------------------------------------------------- //
+
+var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
+
+$('img').attr({
+    src: '/images/hat.gif',
+    alt: 'jQuery Logo'
+});
+$('div').text($('img').attr('alt'));
+
+$('button').each(function()  {
+    var el = $(this);
+    var elId = el.attr('id');
+});
+
+var targetOffset = $('li.selectedShow').offset().top;
+targetOffset = targetOffset-14;
+$('html,body').animate({scrollTop: targetOffset},5);
+
+$('div.scrollable:eq(1) div.items div').click(function() { 
+    $(this).fadeOut().fadeIn();   
+});
+
+
+root.hover(function() {            
+    clearInterval(timer);        
+}, function() {        
+    setTimer();    
+});
+
+setTimeout('initCar();', 500);
+
+$(document.body).click(function () {
+    $(document.body).append($('<div>'));
+    var n = $('div').length;
+}).trigger('click');
+
+
+$('div').attr('id', function(arr) { return 'div-id' + arr; }).each(function() { $('span', this).html('(ID = '<b>' + this.id + '</b>')'); });
+
+$('p').eq(0).css('color', 'red') // First
+
+$('<div><p>Hello</p></div>').appendTo('body');
+
+$(document.body).click(function () {
+    $('div').each(function (i) {
+        if (this.style.color != 'blue') this.style.color = 'blue';
+        else this.style.color = '';
+    });
+});
+
+// --------------------------------------------------------------- //
+
+jQuery.isArray( obj )    Returns: Boolean // Added in jQuery 1.3 Determine if the parameter passed is an array.
+jQuery.isFunction( obj )    Returns: Boolean // Determine if the parameter passed is a Javascript function object.
+jQuery.trim( str )
+jQuery.param({width:160, height:105}); // width=160&height=105
+jQuery.each( object, callback )    Returns: Object // A generic iterator function
+jQuery.extend( deep, target, object1, objectN )    Returns: Object // Extend one object with one or more others, returning the modified object.
+jQuery.grep( array, callback, invert )    Returns: Array // Filter items out of an array, by using a filter function.
+jQuery.makeArray( obj )    Returns: Array // Turns anything into a true array.
+jQuery.map( array, callback )    Returns: Array // Translate all items in an array to another array of items.
+jQuery.inArray( value, array )    Returns: Number // Determine the index of the first parameter in the Array (-1 if not found).
+jQuery.merge( first, second )    Returns: Array // Merge two arrays together.
+jQuery.unique( array )    Returns: Array // Remove all duplicate elements from an array of elements. Note that this only works on arrays of DOM elements
+
+// --------------------------------------------------------------- //
+
+var x = [];
+x.push(1);
+var x = [0, 3, 1, 2];
+x.reverse() // [2, 1, 3, 0]
+x.join(' – ') // '2 - 1 - 3 - 0'
+x.pop() // [2, 1, 3]
+x.unshift(-1) // [-1, 2, 1, 3]
+x.shift() // [2, 1, 3]
+x.sort() // [1, 2, 3]
+x.splice(1, 2) // [2, 3]
+
+// --------------------------------------------------------------- //
+
+x = Math.ceil(6.01); //donne x = 7
+x = Math.floor(6.01); /donne x = 6
+x = Math.round(6.01); //donne x = 6
+x = Math.max(6,7.25); //donne x = 7.25
+x = Math.min(6,7.25); //donne x = 6
+x = Math.pow(3,3); //donne x = 27
+x = Math.random(); //donne x = 0.6489534931546957
+
+// --------------------------------------------------------------- //
+
+// blur, focus, load, resize, scroll, unload, beforeunload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, error
+
+$(window).bind('resize', function() {
+    resizeFrame();
+});
+
+$('div').one('click', ... // Only first time
+
+$('.thumbLien').hover(
+    function () {
+        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
+        cvi_glossy.modify($(imgId)[0], {shadow:66});
+    }, 
+    function () {
+        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
+        cvi_glossy.modify($(imgId)[0], {shadow:20});
+    }
+);
+
+// --------------------------------------------------------------- //
+
+http://www.robertpenner.com/easing/easing_demo.html
+http://www.learningjquery.com/2009/02/quick-tip-add-easing-to-your-animations
+
+$('#myDiv').animate(
+    { opacity: 0 }, // what we are animating
+    {
+        duration: 'fast', // how fast we are animating
+        easing: 'swing', // the type of easing
+        complete: function() { // the callback
+            alert('done');
+        }
+    }
+);
+
+// --------------------------------------------------------------- //
+
+:first           Returns: Array<Element> Matches the first selected element.
+:last            Returns: Array<Element> Matches the last selected element.
+:not(selector)   Returns: Array<Element(s)> Filters out all elements matching the given selector.
+:even            Returns: Array<Element(s)> Matches even elements, zero-indexed.
+:odd             Returns: Array<Element(s)> Matches odd elements, zero-indexed.
+:eq(index)       Returns: Array<Element> Matches a single element by its index.
+:gt(index)       Returns: Array<Element(s)> Matches all elements with an index above the given one.
+:lt(index)       Returns: Array<Element(s)> Matches all elements with an index below the given one.
+:header          Returns: Array<Element(s)> Matches all elements that are headers, like h1, h2, h3 and so on.
+:animated        Returns: Array<Element(s)> Matches all elements that are currently being animated.
+
+// --------------------------------------------------------------- //
+
+$('a:first').
+
+offset() Returns: Object{top,left} // Get the current offset of the first matched element, in pixels, relative to the document.
+position() Returns: Object{top,left} // Gets the top and left position of an element relative to its offset parent.
+scrollTop() Returns: Integer // Gets the scroll top offset of the first matched element.
+scrollTop(val) Returns: jQuery // When a value is passed in, the scroll top offset is set to that value on all matched elements.
+scrollLeft() Returns: Integer // Gets the scroll left offset of the first matched element.
+scrollLeft(val) Returns: jQuery // When a value is passed in, the scroll left offset is set to that value on all matched elements.
+
+height() Returns: Integer // Get the current computed, pixel, height of the first matched element.
+height(val)    Returns: jQuery // Set the CSS height of every matched element.
+width() Returns: Integer // Get the current computed, pixel, width of the first matched element.
+width(val) Returns: jQuery // Set the CSS width of every matched element.
+innerHeight() Returns: Integer // Gets the inner height (excludes the border and includes the padding) for the first matched element.
+innerWidth() Returns: Integer // Gets the inner width (excludes the border and includes the padding) for the first matched element.
+outerHeight(margin) Returns: Integer // Gets the outer height (includes the border and padding by default) for the first matched element.
+outerWidth(margin) Returns: Integer // Get the outer width (includes the border and padding by default) for the first matched element.
+
+// --------------------------------------------------------------- //
+
+$(this).hide('puff', {}, 1000);
+
+Effects that can be used with Show/Hide/Toggle:
+    Blind - Blinds the element away or shows it by blinding it in.
+    Clip - Clips the element on or off, vertically or horizontally.
+    Drop - Drops the element away or shows it by dropping it in.
+    Explode - Explodes the element into multiple pieces.
+    Fold - Folds the element like a piece of paper.
+    Puff - Scale and fade out animations create the puff effect.
+    Slide - Slides the element out of the viewport.
+    Scale - Shrink or grow an element by a percentage factor.
+
+Effects that can be only used stand-alone:
+    Bounce - Bounces the element vertically or horizontally n-times.
+    Highlight - Highlights the background with a defined color.
+    Pulsate - Pulsates the opacity of the element multiple times.
+    Shake - Shakes the element vertically or horizontally n-times.
+    Size - Resize an element to a specified width and height.
+    Transfer - Transfers the outline of an element to another.
+
+// --------------------------------------------------------------- //
+
+$.ajax({
+    type: 'POST',
+    url: 'some.php',
+    cache: false,
+    data: 'name=John&location=Boston',
+    success: function(msg){
+        alert( 'Data Saved: ' + msg );
+    }
+});
+
+$.post('test.php', { name: 'John', time: '2pm' }, function(data){
+    alert('Data Loaded: ' + data);
+});
+
+$.post('test.php', { func: 'getNameAndTime' }, function(data){
+    alert(data.name); // John
+    console.log(data.time); //  2pm
+}, 'json');
+
+var html = $.ajax({
+    url: 'some.php',
+    async: false
+}).responseText;
+
+$.ajax({
+    url: 'page.php',
+    processData: false,
+    data: [create xml document],
+    success: handleResponse
+});
+
+// --------------------------------------------------------------- //
+
+var makeGesture = function() {
+    document.onselectstart = function() { return false; }; // ie
+    document.onmousedown = function() { return false; }; // mozilla
+    $('html').gesture(
+        function(gs){
+            //db('Gesture : ' + gs.getName() + ' : ' + gs.moves);
+            if (gs.moves.length % 5 == 0) {
+                if(gs.getName() == 'topleft' || gs.getName() == 'left' || gs.getName() == 'bottomleft') window.api.nextPage();
+                if (gs.getName() == 'topright' || gs.getName() == 'right' || gs.getName() == 'bottomright') window.api.prevPage();
+            }
+        }, {repeat: true, continuesmode: true, mindistance:30}
+    );
+};
+
+// --------------------------------------------------------------- //
+
+var div = $('div.sc_menu');
+var divWidth = div.width();
+var ul = $('ul.sc_menu');
+var lastLi = ul.find('li:last-child');
+var ulPadding = 15;
+
+div.mousemove(function(e){
+    var ulWidth = lastLi[0].offsetLeft + lastLi.outerWidth() + ulPadding;
+    var left = (e.pageX - div.offset().left) * (ulWidth-divWidth) / divWidth;
+    div.scrollLeft(left);
+});
+
+// --------------------------------------------------------------- //
+// Widget container
+(function($) {
+    // Widget container plugin
+    $.fn.widgetContainer = function() {
+        this.each(function() {
+            // Vars
+            var wc = $(this);
+
+            // Set events
+            wc.find('#add').click(function(e) { if (e) e.preventDefault(); add(wc) });
+        });
+    }
+
+    // Add a widget to the container
+    function add(wc) {
+        var widget = $($.fn.widget.template);
+        widget
+            .appendTo(wc)
+            .fadeIn('slow')
+            .widget(wc);
+    }
+
+    // Widget
+    (function() {
+        // Widget plugin
+        $.fn.widget = function(container) {
+            this.each(function() {
+                // Vars
+                var w = $(this);
+                w.parent = container;
+
+                // Set events
+                w.find('form').submit(function(e) { if (e) e.preventDefault(); submit(w) });
+                w.find('.remove').click(function(e) { if (e) e.preventDefault(); remove(w) });
+            });
+        }
+        $.fn.widget.template = '<div class="widget"><form action="" method="POST"><input type="text" value=""/><input type="submit" value="Action!"/><a href="#" class="remove">Remove</a></form></div>';
+
+        // Remove widget
+        function remove(w) {
+            w.remove();
+        }
+
+        // Submit widget data
+        function submit(w) {
+            w.css('background', 'red');
+            $.post('/', w.find('form').serialize(), function(data) {
+                w.find(':text').val((new Date()).toString());
+                w.parent.fadeOut();
+                setTimeout(function() { w.parent.fadeIn() }, 500);
+            });
+        }
+    })();
+})(jQuery);
+
+// Main
+$(function() {
+    $('.widgetContainer').widgetContainer();
+});
+
+// --------------------------------------------------------------- //
+// scale elements to fit box
+
+(function($){
+  $.fn.extend({
+    fluwi: function(opt){
+        var variate = ((opt.variate!= undefined)?opt.variate:0);
+        var contWidth = this.outerWidth();
+        var boxWidth = opt.minWidth;
+        var counted = Math.floor(contWidth/boxWidth);
+        var extra = contWidth-boxWidth*counted;
+        var eachOne = extra/counted;
+        $(opt.boxQuery).css("width", (parseInt(boxWidth)+(eachOne))-variate);
+    }
+  });
+})(jQuery);
+
+// The plugin call code
+
+$('#mydiv').fluwi({
+        minWidth: 200, //pixels
+        variate: 2, //pixels
+        boxQuery: 'li' //class name or div name, or selector for elements that are resizing
+});
+
+}}}
