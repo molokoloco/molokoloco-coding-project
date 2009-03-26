@@ -9,7 +9,7 @@ exemple.php :
 // EXEMPLES
 
 	// SELECT I
-		$Q =& new Q("SELECT *toto AS  tutu FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
+		$Q =& new Q("SELECT toto AS tutu FROM mod_actualites WHERE cat_id='$cat_id' AND actif='1' ORDER BY ordre DESC LIMIT 10");
 		foreach ($Q->V as $V) echo $V['titre'].'<br />';
 	
 	// SELECT II
