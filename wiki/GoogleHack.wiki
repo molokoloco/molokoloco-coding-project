@@ -64,6 +64,30 @@
 
 ----
 
+==Gmail Search Hack==
+
+[http://mail.google.com/support/bin/answer.py?answer=7190&topic=12796]
+
+|| Operator || Definition || Example(s) ||
+|| from: || Used to specify the sender || Example - * from:amy*  Meaning - Messages from Amy ||
+|| to: || Used to specify a recipient || Example - *to:david*  Meaning - All messages that were sent to David (by you or someone else) ||
+|| subject: || Search for words in the subject line || Example - *subject:dinner*  Meaning - Messages that have the word "dinner" in the subject ||
+|| OR || Search for messages matching term A or term B* *OR must be in all caps || Example - *from:amy OR from:david*  Meaning - Messages from Amy or from David ||
+|| -  (hyphen) || Used to exclude messages from your search || Example - *dinner -movie*  Meaning - Messages that contain the word "dinner" but do not contain the word "movie" ||
+|| *label:* || Search for messages by label* *There isn't a search operator for unlabeled messages || Example -* from:amy label:friends*  Meaning - Messages from Amy that have the label "friends"Example -* from:david label:my-family*  Meaning - Messages from David that have the label "My Family" ||
+|| has:attachment || Search for messages with an attachment || Example - * from:david has:attachment *  Meaning - Messages from David that have an attachment ||
+|| list: || Search for messages on mailing lists || Example - * list:info@example.com *  Meaning - Messages with the words info@example.com in the headers, sent to or from this list ||
+|| filename: || Search for an attachment by name or type || Example - * filename:physicshomework.txt*  Meaning -  Messages with an attachment named "physicshomework.txt"Example - * label:work filename:pdf*  Meaning -  Messages labeled "work" that also have a PDF file as an attachment ||
+|| " " *(quotes)* || Used to search for an exact phrase* *Capitalization isn't taken into consideration || Example - * "i'm feeling lucky"*  Meaning -  Messages containing the phrase "i'm feeling lucky" or "I'm feeling lucky"Example - * subject:"dinner and a movie"*  Meaning -  Messages containing the phrase "dinner and a movie" in the subject ||
+|| ( ) || Used to group words   Used to specify terms that shouldn't be excluded || Example - * from:amy(dinner OR movie)*  Meaning -  Messages from Amy that contain either the word "dinner" or the word "movie"Example - * subject:(dinner movie)*  Meaning -  Messages in which the subject contains both the word "dinner" and the word "movie" ||
+|| in:anywhere || Search for messages anywhere in Gmail* *Messages in *Spam* and *Trash* are excluded from searches by default || Example - *in:anywhere movie *  Meaning - Messages in *All Mail*, *Spam*, and *Trash* that contain the word "movie" ||
+|| in:inbox  in:trash  in:spam || Search for messages in *Inbox*, *Trash*, or *Spam* || Example - *in:trash from:amy*  Meaning -  Messages from Amy that are in *Trash* ||
+|| is:starred  is:unread  is:read || Search for messages that are starred, unread or read || Example - * is:read is:starred from:David*  Meaning - Messages from David that have been read and are marked with a star ||
+|| cc:  bcc: || Used to specify recipients in the *cc:* or *bcc:* fields* *Search on bcc: cannot retrieve messages on which you were blind carbon copied || Example - * cc:david *  Meaning - Messages that were cc-ed to David ||
+|| after:  before: || Search for messages sent during a certain period of time* *Dates must be in yyyy/mm/dd format. || Example - * after:2004/04/16 before:2004/04/18 *  Meaning -  Messages sent between April 16, 2004 and April 18, 2004.* *More precisely: Messages sent after 12:00 AM (or 00:00) April 16, 2004 and before April 18, 2004. ||
+|| is:chat || Search for chat messages || Example - * is:chat monkey*  Meaning -  Any chat message including the word "monkey". ||
+|| deliveredto: || Search for messages within a particular email address in the Delivered-To line of the message header || Example - * deliveredto:username@gmail.com*  Meaning -  Any message with username@gmail.com in the Delivered-To: field of the message header (which can help you find messages forwarded from another account or ones sent to an alias). ||
+
 ==Google redirectory bookmarks by molokoloco== 
 
 Google 
@@ -120,15 +144,11 @@ http://maps.google.com/
 Panoramio - Photos du Monde entier 
 http://www.panoramio.com/map/#lt=50.062305&ln=19.915885&z=4&k=2&a=1&tab=1
 
-Communauté de partage de photos. Découvrez le monde à travers les images satellites.
-
 Google Traduction 
 http://translate.google.com/translate_t
 
 Google Apps – business apps 
 http://www.google.com/a/help/intl/en/index.html
-
-Google Apps offers business email, calendar, word processing, spreadsheet, intranet and security applications. Google manages it all, so you can scale quickly and get new features continuously.
 
 Google Video 
 http://video.google.com/
@@ -166,12 +186,8 @@ http://gmailblog.blogspot.com/
 10th Birthday 
 http://www.google.com/tenthbirthday/
 
-Google's 10th birthday celebration. Check out our interactive timeline, Project 10 to the 100, and stories about how to use our products.
-
 YouTube Insight - Résumé - molokoloco 
 http://fr.youtube.com/my_videos_insight#c.molokoloco.channel_summary.world..14145.10..
-
-Partagez vos vidéos avec vos amis, vos proches et le monde entier
 
 iGoogle new gadgets 
 http://www.google.com/ig/v2landing
@@ -190,7 +206,7 @@ Depuis ce matin, il est possible à certains utilisateurs de Google de découvri
 Vivek live and kickin': Google Clean search without searchwiki results 
 http://blog.vivekjishtu.com/2008/11/google-clean-search-without-wiki.html
 
-nativeclient - Google Code 
+Nativeclient - Google Code 
 http://code.google.com/p/nativeclient/?tbbrand=GZEZ&utm_campaign=en&utm_source=en-et-osrcblog&utm_medium=et
 
 Google Maps: 100+ Best Tools and Mashups 
