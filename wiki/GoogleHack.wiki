@@ -201,8 +201,6 @@ http://code.google.com/apis/socialgraph/docs/edges.html
 Chercher son avenir dans Google SearchWiki | ReadWriteWeb France 
 http://fr.readwriteweb.com/2008/11/21/analyse/chercher-son-avenir-dans-google-searchwiki/
 
-Depuis ce matin, il est possible à certains utilisateurs de Google de découvrir de nouvelles fonctionnalités sous le nom de Google SearchWiki. Les ajouts son
-
 Vivek live and kickin': Google Clean search without searchwiki results 
 http://blog.vivekjishtu.com/2008/11/google-clean-search-without-wiki.html
 
