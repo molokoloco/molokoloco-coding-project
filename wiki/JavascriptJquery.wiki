@@ -10,7 +10,7 @@ http://www.gscottolson.com/jquery/jQuery1.2.cheatsheet.v1.0.pdf
 
 // --------------------------------------------------------------- //
 
-$(function(){ ... });
+$(function(){ /*...*/ });
 
 $(document).ready(function(){
     $('a').click(function(event){
@@ -24,11 +24,11 @@ $('p')
 $('body').attr('onload')
 $('#quicktimePlayer').empty();
 $('#quicktimePlayer').append(plug);
-$('#element_id').click(...)
-$('.class').click(...)
+$('#element_id').click(/*...*/)
+$('.class').click(/*...*/)
 $(document.getElementById('el'))
-$(document).ready(...)
-$(window).load(...)
+$(document).ready(/*...*/)
+$(window).load(/*...*/)
 $('ul').find('li:last-child');
 $('p', document).size();
 $('p[a]').hide();
@@ -40,7 +40,7 @@ $('body').css({'overflow' : 'hidden'});
 $('button:gt(1)').attr('disabled','disabled'); // Disables buttons greater than the 1st button.
 
 $('ul li:last').after('<li>Added text ' + p + '</li>');
-$('div:contains('John')').css('text-decoration', 'underline');
+$("div:contains('John')").css('text-decoration', 'underline');
 $(':input'); // Matches all input, textarea, select and button elements
 $('form input:text') // type text
 $('form > *'); // formChildren 
@@ -86,7 +86,7 @@ $(document.body).click(function () {
 }).trigger('click');
 
 
-$('div').attr('id', function(arr) { return 'div-id' + arr; }).each(function() { $('span', this).html('(ID = '<b>' + this.id + '</b>')'); });
+$('div').attr('id', function(arr) { return 'div-id' + arr; }).each(function() { $('span', this).html('(ID = <b>' + this.id + '</b>)'); });
 
 $('p').eq(0).css('color', 'red') // First
 
@@ -101,18 +101,18 @@ $(document.body).click(function () {
 
 // --------------------------------------------------------------- //
 
-jQuery.isArray( obj )    Returns: Boolean // Added in jQuery 1.3 Determine if the parameter passed is an array.
-jQuery.isFunction( obj )    Returns: Boolean // Determine if the parameter passed is a Javascript function object.
+jQuery.isArray( obj )   //  Returns: Boolean // Added in jQuery 1.3 Determine if the parameter passed is an array.
+jQuery.isFunction( obj )   //  Returns: Boolean // Determine if the parameter passed is a Javascript function object.
 jQuery.trim( str )
 jQuery.param({width:160, height:105}); // width=160&height=105
-jQuery.each( object, callback )    Returns: Object // A generic iterator function
-jQuery.extend( deep, target, object1, objectN )    Returns: Object // Extend one object with one or more others, returning the modified object.
-jQuery.grep( array, callback, invert )    Returns: Array // Filter items out of an array, by using a filter function.
-jQuery.makeArray( obj )    Returns: Array // Turns anything into a true array.
-jQuery.map( array, callback )    Returns: Array // Translate all items in an array to another array of items.
-jQuery.inArray( value, array )    Returns: Number // Determine the index of the first parameter in the Array (-1 if not found).
-jQuery.merge( first, second )    Returns: Array // Merge two arrays together.
-jQuery.unique( array )    Returns: Array // Remove all duplicate elements from an array of elements. Note that this only works on arrays of DOM elements
+jQuery.each( object, callback )   //  Returns: Object // A generic iterator function
+jQuery.extend( deep, target, object1, objectN )   //  Returns: Object // Extend one object with one or more others, returning the modified object.
+jQuery.grep( array, callback, invert )   //  Returns: Array // Filter items out of an array, by using a filter function.
+jQuery.makeArray( obj )   //  Returns: Array // Turns anything into a true array.
+jQuery.map( array, callback )   //  Returns: Array // Translate all items in an array to another array of items.
+jQuery.inArray( value, array )   //  Returns: Number // Determine the index of the first parameter in the Array (-1 if not found).
+jQuery.merge( first, second )   //  Returns: Array // Merge two arrays together.
+jQuery.unique( array )   //  Returns: Array // Remove all duplicate elements from an array of elements. Note that this only works on arrays of DOM elements
 
 // --------------------------------------------------------------- //
 
@@ -120,7 +120,7 @@ var x = [];
 x.push(1);
 var x = [0, 3, 1, 2];
 x.reverse() // [2, 1, 3, 0]
-x.join(' – ') // '2 - 1 - 3 - 0'
+x.join(' - ') // '2 - 1 - 3 - 0'
 x.pop() // [2, 1, 3]
 x.unshift(-1) // [-1, 2, 1, 3]
 x.shift() // [2, 1, 3]
@@ -130,7 +130,7 @@ x.splice(1, 2) // [2, 3]
 // --------------------------------------------------------------- //
 
 x = Math.ceil(6.01); //donne x = 7
-x = Math.floor(6.01); /donne x = 6
+x = Math.floor(6.01); //donne x = 6
 x = Math.round(6.01); //donne x = 6
 x = Math.max(6,7.25); //donne x = 7.25
 x = Math.min(6,7.25); //donne x = 6
@@ -145,7 +145,7 @@ $(window).bind('resize', function() {
     resizeFrame();
 });
 
-$('div').one('click', ... // Only first time
+$('div').one('click', function() {/*... Only first time*/ });
 
 $('.thumbLien').hover(
     function () {
@@ -160,8 +160,8 @@ $('.thumbLien').hover(
 
 // --------------------------------------------------------------- //
 
-http://www.robertpenner.com/easing/easing_demo.html
-http://www.learningjquery.com/2009/02/quick-tip-add-easing-to-your-animations
+// http://www.robertpenner.com/easing/easing_demo.html
+// http://www.learningjquery.com/2009/02/quick-tip-add-easing-to-your-animations
 
 $('#myDiv').animate(
     { opacity: 0 }, // what we are animating
@@ -174,38 +174,38 @@ $('#myDiv').animate(
     }
 );
 
-// --------------------------------------------------------------- //
+/* --------------------------------------------------------------- //
 
-:first           Returns: Array<Element> Matches the first selected element.
-:last            Returns: Array<Element> Matches the last selected element.
-:not(selector)   Returns: Array<Element(s)> Filters out all elements matching the given selector.
-:even            Returns: Array<Element(s)> Matches even elements, zero-indexed.
-:odd             Returns: Array<Element(s)> Matches odd elements, zero-indexed.
-:eq(index)       Returns: Array<Element> Matches a single element by its index.
-:gt(index)       Returns: Array<Element(s)> Matches all elements with an index above the given one.
-:lt(index)       Returns: Array<Element(s)> Matches all elements with an index below the given one.
-:header          Returns: Array<Element(s)> Matches all elements that are headers, like h1, h2, h3 and so on.
-:animated        Returns: Array<Element(s)> Matches all elements that are currently being animated.
+:first          //  Returns: Array<Element> Matches the first selected element.
+:last           //  Returns: Array<Element> Matches the last selected element.
+:not(selector)  //  Returns: Array<Element(s)> Filters out all elements matching the given selector.
+:even           //  Returns: Array<Element(s)> Matches even elements, zero-indexed.
+:odd            //  Returns: Array<Element(s)> Matches odd elements, zero-indexed.
+:eq(index)      //  Returns: Array<Element> Matches a single element by its index.
+:gt(index)      //  Returns: Array<Element(s)> Matches all elements with an index above the given one.
+:lt(index)      //  Returns: Array<Element(s)> Matches all elements with an index below the given one.
+:header         //  Returns: Array<Element(s)> Matches all elements that are headers, like h1, h2, h3 and so on.
+:animated       //  Returns: Array<Element(s)> Matches all elements that are currently being animated.
 
 // --------------------------------------------------------------- //
 
 $('a:first').
 
-offset() Returns: Object{top,left} // Get the current offset of the first matched element, in pixels, relative to the document.
-position() Returns: Object{top,left} // Gets the top and left position of an element relative to its offset parent.
-scrollTop() Returns: Integer // Gets the scroll top offset of the first matched element.
-scrollTop(val) Returns: jQuery // When a value is passed in, the scroll top offset is set to that value on all matched elements.
-scrollLeft() Returns: Integer // Gets the scroll left offset of the first matched element.
-scrollLeft(val) Returns: jQuery // When a value is passed in, the scroll left offset is set to that value on all matched elements.
+offset()//  Returns: Object{top,left} // Get the current offset of the first matched element, in pixels, relative to the document.
+position()//  Returns: Object{top,left} // Gets the top and left position of an element relative to its offset parent.
+scrollTop()//  Returns: Integer // Gets the scroll top offset of the first matched element.
+scrollTop(val)//  Returns: jQuery // When a value is passed in, the scroll top offset is set to that value on all matched elements.
+scrollLeft()//  Returns: Integer // Gets the scroll left offset of the first matched element.
+scrollLeft(val)//  Returns: jQuery // When a value is passed in, the scroll left offset is set to that value on all matched elements.
 
-height() Returns: Integer // Get the current computed, pixel, height of the first matched element.
-height(val)    Returns: jQuery // Set the CSS height of every matched element.
-width() Returns: Integer // Get the current computed, pixel, width of the first matched element.
-width(val) Returns: jQuery // Set the CSS width of every matched element.
-innerHeight() Returns: Integer // Gets the inner height (excludes the border and includes the padding) for the first matched element.
-innerWidth() Returns: Integer // Gets the inner width (excludes the border and includes the padding) for the first matched element.
-outerHeight(margin) Returns: Integer // Gets the outer height (includes the border and padding by default) for the first matched element.
-outerWidth(margin) Returns: Integer // Get the outer width (includes the border and padding by default) for the first matched element.
+height()//  Returns: Integer // Get the current computed, pixel, height of the first matched element.
+height(val)   //  Returns: jQuery // Set the CSS height of every matched element.
+width()//  Returns: Integer // Get the current computed, pixel, width of the first matched element.
+width(val)//  Returns: jQuery // Set the CSS width of every matched element.
+innerHeight()//  Returns: Integer // Gets the inner height (excludes the border and includes the padding) for the first matched element.
+innerWidth()//  Returns: Integer // Gets the inner width (excludes the border and includes the padding) for the first matched element.
+outerHeight(margin)//  Returns: Integer // Gets the outer height (includes the border and padding by default) for the first matched element.
+outerWidth(margin)//  Returns: Integer // Get the outer width (includes the border and padding by default) for the first matched element.
 
 // --------------------------------------------------------------- //
 
@@ -229,7 +229,7 @@ Effects that can be only used stand-alone:
     Size - Resize an element to a specified width and height.
     Transfer - Transfers the outline of an element to another.
 
-// --------------------------------------------------------------- //
+// --------------------------------------------------------------- */
 
 $.ajax({
     type: 'POST',
@@ -258,7 +258,7 @@ var html = $.ajax({
 $.ajax({
     url: 'page.php',
     processData: false,
-    data: [create xml document],
+    data: [/*create xml document*/],
     success: handleResponse
 });
 
