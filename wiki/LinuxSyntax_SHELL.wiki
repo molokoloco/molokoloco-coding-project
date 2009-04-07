@@ -802,4 +802,10 @@ If you need to install flash plugin in your home directory, type the following c
     $ cd install_flash_player_10_linux
     $ ./flashplayer-installer
 
+
+
+#  attendre que la chanson soit chargée dans le lecteur de Deezer
+# lancer la commande : 
+mplayer -vc dummy -vo null -dumpaudio -dumpfile ~/monbofichier.mp3 /tmp/Flash*
+
 }}}
