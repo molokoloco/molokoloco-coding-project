@@ -18,11 +18,11 @@
 
 // ------------------------------------------------------------------------- //
 
-Add Class Path to get DATAPROVIDER
-C:\Program Files\Adobe\Adobe Flash CS3\fr\Configuration\Component Source\ActionScript 3.0\User Interface\
+// Add Class Path to get DATAPROVIDER
+// C:\Program Files\Adobe\Adobe Flash CS3\fr\Configuration\Component Source\ActionScript 3.0\User Interface\
 
-Ajout du fichier de commande : Create FlashDevelop Project.jsfl
-C:\Documents and Settings\mediabox\Local Settings\Application Data\Adobe\Flash CS3\fr\Configuration\Commands
+// Ajout du fichier de commande : Create FlashDevelop Project.jsfl
+// C:\Documents and Settings\mediabox\Local Settings\Application Data\Adobe\Flash CS3\fr\Configuration\Commands
 
 // ------------------------------------------------------------------------- //
 (loader.content as Bitmap).smoothing = true;
@@ -122,7 +122,7 @@ trace(describeType(param)); // XML decrivant le type de donnée
 }
 toto2(2, 'toto', new MovieClip());
 
-Ratio 0--1
+// Ratio 0--1
 var frame:int = 1 + pRatio * (totalFrames - 1);
 
 
@@ -141,13 +141,12 @@ private function updateInfo():void {
 
 // ------------------------------------------------------------------------- //
 
-// FROM SCRIPT
+// FROM SCRIPT // (code to access AS from JS)
 
     var myFile = new window.runtime.flash.filesystem.File();
-    app:/images
+    // app:/images
     var urlReq = new URLRequest("http://www.adobe.com/");
 
-  code to acces AS from JS :
     
     html.runtimeApplicationDomain = ApplicationDomain.currentDomain;
     var customClassObject = new window.runtime.CustomClass();
@@ -172,13 +171,13 @@ private function updateInfo():void {
 // ------------------------------------------------------------------------- //
 
 package com.pfp.rsscube.vos { 
-[Bindable] 
-public class RssItem { 
-public var title:String; 
-public var date:String;
-public var link:String; 
-public var author:String;
-}
+ [Bindable] 
+  public class RssItem { 
+   public var title:String; 
+   public var date:String;
+   public var link:String; 
+   public var author:String;
+  }
 }
 
 // ------------------------------------------------------------------------- //
@@ -227,14 +226,14 @@ return _contactsList.slice(); // SLICE >> RETOURNE UNE COPIE DU TABLEAU !!!
 }
 
 // déploiement d'une application Adobe Air sur Internet
->Badger
+// >Badger
 
 // Destroy vars
 var a:Object = {foo:a};
 delete(a);
 
 // Remote debugging
-> Flash Debug Player.
+// > Flash Debug Player.
 
 // creates a Timer
 var ticker:Timer = new Timer(1000); // once per second
@@ -404,7 +403,7 @@ mainStage.setStyle("backgroundAttachment", "fixed");
 
 
 // ------------------------------------------------------------------------- //
-
+/*
     * color
     * fontFamily
     * fontSize
@@ -417,11 +416,9 @@ mainStage.setStyle("backgroundAttachment", "fixed");
     * textAlign
     * textDecoration
     * textIndent
+*/
 
-
-
-
-/* styles/runtime/assets/ComplexStyles.css */
+// styles/runtime/assets/ComplexStyles.css
 
 Application {
 backgroundImage: "greenBackground.gif";
@@ -631,13 +628,13 @@ resetForm();
 
 
 // ------------------------------------------------------------------------- //
-
+/*
     * File.applicationStorageDirectory—a storage directory unique to each installed AIR application
     * File.applicationDirectory—the read-only directory where the application is installed (along with any installed assets)
     * File.desktopDirectory—the user's desktop directory
     * File.documentsDirectory—the user's documents directory
     * File.userDirectory—the user directory
-
+*/
 
 
 // ------------------------------------------------------------------------- //
@@ -739,10 +736,9 @@ public static function resampleBitmapData (bmp:BitmapData, ratio:Number):BitmapD
 
 }}}
 
+http://www.yazo.net/
+
 {{{
-
-// http://www.yazo.net/index.php?option=com_content&task=view&id=35&Itemid=50
-
 
 // ------------ ROOT LOADING ----------------------------------- //
 
@@ -813,7 +809,6 @@ function completeHandler(event:Event):void {
     dynText_txt.text = URLLoader(event.target).data;
     myScrollBar.update();
 }
-
 
 
 // SEND FORM ----------------------------------- //
@@ -1045,7 +1040,7 @@ for (i = 1; i <= 7; i++) {
 
 
 // ------------ TWEEN FILTER LITE ----------------------------------- //
-
+/*
 TweenFilterLite.to(target:DisplayObject, duration:Number, variables:Object);
 
     * Description: Tweens the target's properties from whatever they are at the time you call the method to whatever you define in the variables parameter.
@@ -1167,9 +1162,11 @@ FAQ
          2. TweenFilterLite.to(clip_mc, 2, {type:"color", colorize:0xFF0000, amount:1});
          3. TweenFilterLite.to(clip_mc, 1, {type:"blur", blurX:20, blurY:20, delay:2, overwrite:false});
 
+*/
 
 
 // -------------- getChildByName ---------------------------//
+
 
 // =============== SOLUTION =============== //
 var clipStock:Array = [];
@@ -1184,7 +1181,7 @@ mc1.label = "Mon texte";
 
 
 
-
+/*
 Mise en situation :
 
     * on dispose d’un clip que créé graphiquement
@@ -1227,7 +1224,7 @@ nomDeLaClasse(getChildByName(propriété name de l'instance de nomDeLaClasse)).p
 Accès à la propriété d’une instance de la classe nomDeLaClasse2 enfante d’une instance de la classe nomDeLaClasse1…
 nomDeLaClasse2(nomDeLaClasse1(getChildByName(propriété name de l'instance de nomDeLaClasse1)).getChildByName(propriété name de l'instance de nomDeLaClasse2)).propriété de la classe nomDeLaClasse2;
 
-
+*/
 
 // -------------------------------- //
 
@@ -1268,7 +1265,7 @@ function mouseMoveHandler(event:MouseEvent):void {
 
 // -------------- DISPATCH EVENTS !!!!!!!!!!!! ----------------------------- //
 
-
+/*
 Action Script
 voir codecopier dans le presse papierimprimer?
 
@@ -1578,5 +1575,7 @@ class Chargement extends EventDispatcher
         }
     }
 }
+
+*/
 
 }}}
