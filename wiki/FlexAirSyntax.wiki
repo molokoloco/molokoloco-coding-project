@@ -49,6 +49,9 @@ return null;
 
 <mx:TextInput width="90%" height="49" id="locationBar" text="http://www.google.com" backgroundImage="@Embed('icons/nav_nav_c2.png')"/>
 
+// use weak references so when the listOwner changes, we garbage collect old listeners
+listOwner.addEventListener(FlexEvent.VALUE_COMMIT, updatePosition, false, 0, true);
+
 
 // ------------------------------------------------------------------------- //
 
