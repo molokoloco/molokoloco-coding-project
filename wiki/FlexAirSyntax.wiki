@@ -1,0 +1,736 @@
+#summary Personnal tooltips for Flex and Air RIA
+#labels Tooltips
+
+= FLEX - AIR --- AS3 =
+
+{{{
+
+// ------------------------------------------------------------------------- //
+// FlashDevelop
+
+ctrl + Q »» Commentaire
+ctrl + shift + 1 »» passer une variable en variable membre
+ctrl + shift + espace =» infobulle arguments
+ctrl + B =» SNIPPETS !!!!!
+crtl + T »» Intervertir ligne
+F4 »» définition du mot cliqué (héritage/super class...)
+
+// ------------------------------------------------------------------------- //
+
+Add Class Path to get DATAPROVIDER
+C:\Program Files\Adobe\Adobe Flash CS3\fr\Configuration\Component Source\ActionScript 3.0\User Interface\
+
+Ajout du fichier de commande : Create FlashDevelop Project.jsfl
+C:\Documents and Settings\mediabox\Local Settings\Application Data\Adobe\Flash CS3\fr\Configuration\Commands
+
+// ------------------------------------------------------------------------- //
+(loader.content as Bitmap).smoothing = true;
+
+mainStage.filters = [new BlurFilter(8)];
+
+if (_visualProgress && contains(_visualProgress)) removeChild(_visualProgress);
+
+const CANT_CHANGE:uint = 3; // Contante positive
+
+dispatchEvent(new Event(Event.COMPLETE));
+
+private function _getInstanceFromString(pClassName:String):DisplayObject
+{
+try {
+var classobj:Class = getDefinitionByName(pClassName) as Class;
+return new classobj() as DisplayObject;
+}
+catch (err:Error) {
+trace('la class "' + pClassName + '" n\'existe pas');
+}
+return null;
+}
+
+<mx:TextInput width="90%" height="49" id="locationBar" text="http://www.google.com" backgroundImage="@Embed('icons/nav_nav_c2.png')"/>
+
+
+// ------------------------------------------------------------------------- //
+
+import flash.html.HTMLLoader;
+import flash.net.URLRequest;
+import flash.events.HTMLUncaughtScriptExceptionEvent;
+import flash.events.InvokeEvent;
+
+private var html:HTMLLoader;
+private var urlReq:URLRequest;
+
+html = new HTMLLoader();
+html.addEventListener(Event.COMPLETE, onHtmlLoadComplete);
+html.addEventListener(HTMLUncaughtScriptExceptionEvent.UNCAUGHT_SCRIPT_EXCEPTION, onScriptException);
+html.textEncodingFallback = "UTF-8";
+html.paintsDefaultBackground = false;
+
+var holder:UIComponent = new UIComponent();
+holder.addChild(html);
+addChild(holder);
+urlReq = new URLRequest(locationBar.text);
+html.load(urlReq);
+
+// ------------------------------------------------------------------------- //
+
+var url:String = "http://www.adobe.com";
+var variables:URLVariables = new URLVariables();
+variables.exampleSessionId = new Date().getTime();
+variables.exampleUserLabel = "Your Name";
+var request:URLRequest = new URLRequest(url);
+request.data = variables;
+try { navigateToURL(request); }
+catch (e:Error) {}
+
+
+// ------------------------------------------------------------------------- //
+
+var myDate:Date = new Date();
+trace(DateField.dateToString(myDate, 'DD/MM/YYYY'));
+
+var today:Date = new Date();
+var halloween:String = "31/10/2007";
+
+var todayString:String = DateField.dateToString(today, "DD/MM/YYYY");
+todayLabel.text = todayString;
+
+var halloweenDate:Date = DateField.stringToDate(halloween, "DD/MM/YYYY");
+halloweenLabel.text = halloweenDate.toDateString();
+
+// ------------------------------------------------------------------------- //
+
+private function handleSlideChange():void {
+scroll.maxScrollPosition = slider.value; 
+scroll.invalidateDisplayList();
+}
+
+// addchild
+var myComponent:UIComponent=new UIComponent();
+myComponent.addChild(loader);
+addChild(myComponent);
+//instead of..
+rawChildren.addChild(loader);
+// argument "rest" (...)
+function toto2(...param):void {
+trace(param, param is Array);
+trace(getQualifiedClassName(param));
+trace(describeType(param)); // XML decrivant le type de donnée
+}
+toto2(2, 'toto', new MovieClip());
+
+Ratio 0--1
+var frame:int = 1 + pRatio * (totalFrames - 1);
+
+
+new String(maString.getBytes("ISO-8859-1"), "UTF-8")
+
+// ------------------------------------------------------------------------- //
+
+[Bindable(event="nameChanged")]
+private var personName:String;
+
+
+private function updateInfo():void {
+    dispatchEvent(new Event("nameChanged"));
+}
+
+
+// ------------------------------------------------------------------------- //
+
+// FROM SCRIPT
+
+    var myFile = new window.runtime.flash.filesystem.File();
+    app:/images
+    var urlReq = new URLRequest("http://www.adobe.com/");
+
+  code to acces AS from JS :
+    
+    html.runtimeApplicationDomain = ApplicationDomain.currentDomain;
+    var customClassObject = new window.runtime.CustomClass();
+
+
+// FROM AIR
+
+    function helloFromJS(message:String):void {
+        trace("JavaScript says:", message);
+    }
+    html.load(urlReq);
+
+    function loaded(e:Event):void{
+        html.window.foo = foo;
+        html.window.helloFromJS = helloFromJS;
+    }
+    
+    html.window.document.getElementById('airDrivedLink').onclick = closePopWindow;
+    
+ 
+
+// ------------------------------------------------------------------------- //
+
+package com.pfp.rsscube.vos { 
+[Bindable] 
+public class RssItem { 
+public var title:String; 
+public var date:String;
+public var link:String; 
+public var author:String;
+}
+}
+
+// ------------------------------------------------------------------------- //
+// VARIABLES ET REFERENCE
+// Valeurs : Number, int, uint, String, Boolean : Types simples (primitifs)
+var a1:String = 'toto';
+var a2:String = a1; // Copie
+
+// Références : Array, ....
+var b1:Array = new Array('toto');
+var b2:Array = b1; // Passage de référence
+var b3:Array = b1.slice(); // Clonage...
+
+
+// ------------------------------------------------------------------------- //
+// EVENEMENTS
+// 3 objets : cible / distributeur / ecouteur
+
+function maFctEcouteur(e:MouseEvent):void {
+trace('You click me');
+}
+clip_mc.addEventListener(MouseEvent.CLICK, maFctEcouteur);
+
+
+// ------------------------------------------------------------------------- //
+// DRAW and CHILD
+
+var shape:Shape = new Shape();
+shape.graphics.beginFill(0xCC33FF, 0.5);
+shape.graphics.lineStyle(2);
+shape.graphics.drawCircle(0, 0, 133);
+shape.graphics.endFill();
+shape.x = shape.y = 200;
+this.addChild(shape);
+
+trace(this.numChildren, getChildAt(0));
+
+
+// ------------------------------------------------------------------------- //
+
+// Copier un tableau
+var copy:Array = sourceArray.concat();
+
+public function get contactsList():Array {
+return _contactsList.slice(); // SLICE >> RETOURNE UNE COPIE DU TABLEAU !!!
+}
+
+// déploiement d'une application Adobe Air sur Internet
+>Badger
+
+// Destroy vars
+var a:Object = {foo:a};
+delete(a);
+
+// Remote debugging
+> Flash Debug Player.
+
+// creates a Timer
+var ticker:Timer = new Timer(1000); // once per second
+ticker.addEventListener(TimerEvent.TIMER, onTick);
+ticker.start();
+public function onTick(event:TimerEvent):void {}
+
+// ------------------------------------------------------------------------- //
+
+
+// DOMAIN POLICY
+<cross-domain-policy>
+<!-- Place top level domain name -->
+<allow-access-from domain="yourdomain.com" secure="false"/>
+<allow-access-from domain="yourdomain.com" to-ports="80,443"/>
+<allow-http-request-headers-from domain="yourdomain.com" headers="*" />
+<!-- use if you need access from subdomains. testing/www/staging.domain.com -->
+<allow-access-from domain="*.yourdomain.com" secure="false" />
+<allow-access-from domain="*.yourdomain.com" to-ports="80,443" />
+<allow-http-request-headers-from domain="*.yourdomain.com" headers="*" />
+</cross-domain-policy>
+
+<cross-domain-policy>
+<site-control permitted-cross-domain-policies="all">
+<allow-access-from domain="*.yourdomain.com">
+</allow-access-from>
+<allow-http-request-headers-from domain="*.yourdomain.com" headers="*">
+</allow-http-request-headers-from>
+</site-control>
+</cross-domain-policy>
+
+// ------------------------------------------------------------------------- //
+
+// ROUNDED MASK FOR IMAGE
+private var roundedMask:Sprite;
+private function init():void {
+roundedMask = new Sprite();
+canvas.rawChildren.addChild(roundedMask);
+}
+private function image_resize(evt:ResizeEvent):void {
+var w:Number = evt.currentTarget.width;
+var h:Number = evt.currentTarget.height;
+var cornerRadius:uint = 60;
+roundedMask.graphics.clear();
+roundedMask.graphics.beginFill(0xFF0000);
+roundedMask.graphics.drawRoundRect(0, 0, w, h, cornerRadius, cornerRadius);
+roundedMask.graphics.endFill();
+image.mask = roundedMask;
+}
+
+// ------------------------------------------------------------------------- //
+
+addChild(child:DisplayObject):DisplayObject
+Adds a child DisplayObject after the end of this child list. IChildList
+addChildAt(child:DisplayObject, index:int):DisplayObject
+Adds a child DisplayObject to this child list at the index specified. IChildList
+contains(child:DisplayObject):Boolean
+Determines if a DisplayObject is in this child list, or is a descendant of an child in this child list. IChildList
+getChildAt(index:int):DisplayObject
+Gets the child DisplayObject at the specified index in this child list. IChildList
+getChildByName(name:String):DisplayObject
+Gets the child DisplayObject with the specified name in this child list. IChildList
+getChildIndex(child:DisplayObject):int
+Gets the index of a specific child in this child list. IChildList
+getObjectsUnderPoint(point:Point):Array
+Returns an array of DisplayObjects that lie under the specified point and are in this child list. IChildList
+removeChild(child:DisplayObject):DisplayObject
+Removes the specified child DisplayObject from this child list. IChildList
+removeChildAt(index:int):DisplayObject
+Removes the child DisplayObject at the specified index from this child list. IChildList
+setChildIndex(child:DisplayObject, newIndex:int):void
+Changes the index of a particular child in this child list.
+
+
+// ------------------------------------------------------------------------- //
+
+<mx:WindowedApplication
+Properties
+alwaysInFront="false"
+autoExit="true"
+dockIconMenu="null"
+maxHeight="10000"
+maxWidth="10000"
+menu="null"
+minHeight="100"
+minWidth="100"
+showGripper="true"
+showStatusBar="true"
+showTitleBar="true"
+status=""
+statusBarFactory="mx.core.ClassFactory"
+systemTrayIconMenu="null"
+title=""
+titleBarFactory="mx.core.ClassFactory"
+titleIcon="null"
+
+Styles
+buttonAlignment="auto"
+buttonPadding="2"
+closeButtonSkin="mx.skins.halo.windowCloseButtonSkin"
+gripperPadding="3"
+gripperStyleName="gripperStyle"
+headerHeight="undefined"
+maximizeButtonSkin="mx.skins.halo.WindowMaximizeButtonSkin"
+minimizeButtonSkin="mx.skins.halo.WindowMinimizeButtonSkin"
+restoreButtonSkin="mx.skins.halo.WindowRestoreButtonSkin"
+showFlexChrome="true"
+statusBarBackgroundColor="0xC0C0C0"
+statusBarBackgroundSkin="mx.skins.halo.StatusBarBackgroundSkin"
+statusTextStyleName="undefined"
+titleAlignment="auto"
+titleBarBackgroundSkin="mx.skins.halo.ApplicationTitleBarBackgroundSkin"
+titleBarButtonPadding="5"
+titleBarColors="[ 0x000000, 0x000000 ]"
+titleTextStyleName="undefined"
+
+Effects
+closeEffect="No default"
+minimizeEffect="No default"
+unminimizeEffect="No default"
+
+Events
+applicationActivate="No default"
+applicationDeactivate="No default"
+closing="No default"
+displayStateChange="No default"
+displayStateChanging="No default"
+invoke="No default"
+moving="No default"
+networkChange="No default"
+resizing="No default"
+windowComplete="No default"
+windowMove="No default"
+windowResize="No default"
+/>
+
+// ------------------------------------------------------------------------- //
+
+mainStage.setStyle("backgroundImage", "icons/bg.gif");
+mainStage.setStyle("backgroundAttachment", "fixed");
+
+
+  <mx:Style>
+     .myFontStyle {
+        fontSize: 15;
+        color: #9933FF;
+     }
+  </mx:Style>
+ 
+  <mx:Script><![CDATA[
+     public function changeStyles(e:Event):void {
+        StyleManager.getStyleDeclaration('.myFontStyle').setStyle('color',0x3399CC);
+     }
+  ]]></mx:Script>
+ 
+  <mx:Button id="myButton" label="Click Here" styleName="myFontStyle" click="changeStyles(event)"/>
+
+
+// ------------------------------------------------------------------------- //
+
+<mx:HBox id="mainStage" styleName="mainStage" width="98%" fontSize="11" paddingTop="0" paddingLeft="0" paddingRight="0" paddingBottom="0" horizontalGap="5" backgroundImage="@Embed('icons/bg.gif')" backgroundAttachment="scroll">
+
+<mx:Image id="closeButton" source="@Embed(source='icons/av_close.png')" width="50" height="49" click="html.htmlLoader.historyForward()" buttonMode="true"/>
+
+
+<mx:HBox borderStyle="solid" horizontalGap="0">
+
+
+// ------------------------------------------------------------------------- //
+
+    * color
+    * fontFamily
+    * fontSize
+    * fontStyle
+    * fontWeight
+    * paddingBottom
+    * paddingLeft
+    * paddingRight
+    * paddingTop
+    * textAlign
+    * textDecoration
+    * textIndent
+
+
+
+
+/* styles/runtime/assets/ComplexStyles.css */
+
+Application {
+backgroundImage: "greenBackground.gif";
+theme-color: #9DBAEB;
+}
+
+Button {
+fontFamily: Tahoma;
+color: #000000;
+fontSize: 11;
+fontWeight: normal;
+text-roll-over-color: #000000;
+upSkin: Embed(source="orb_up_skin.gif");
+overSkin: Embed(source="orb_over_skin.gif");
+downSkin: Embed(source="orb_down_skin.gif");
+}
+
+.noMargins {
+margin-right: 0;
+margin-left: 0;
+margin-top: 0;
+margin-bottom: 0;
+horizontal-gap: 0;
+vertical-gap: 0;
+}
+
+ApplicationControlBar {
+borderStyle: "solid";
+cornerRadius: 10;
+backgroundColor: #FF9933;
+alpha: 1;
+dottedMap: Embed(source="beige_dotted_map.png");
+}
+
+
+<mx:TextInput id="locationBar" styleName="locationBar" text="http://www.google.com" width="585" height="39" backgroundImage="@Embed(source='icons/nav_nav_c2.png')"/>
+
+.locationBar {
+    backgroundColor:'';
+    borderStyle:none;
+    fontSize:18px;
+    color:#FF6600;
+    paddingTop:6px;
+    paddingLeft:6px;
+    /*
+    backgroundImage: Embed("icons/nav_nav_c2.png");
+    background-repeat:no-repeat;
+    backgroundAttachment: fixed;
+    backgroundSize:'100%';
+    backgroundAlpha:1;
+    */
+}
+
+// ------------------------------------------------------------------------- //
+
+// URLLOADER
+
+private function loadSomething():void {
+
+var paramsUserCheckConnexion:URLVariables = new URLVariables();
+var urlUserCheckConnexion:URLRequest = new URLRequest(siteRoot+'index.php');
+var loadUserCheckConnexion:URLLoader = new URLLoader();
+
+paramsUserCheckConnexion.ACTION = 'check_login';
+//paramsUserCheckConnexion.openid_url = openid; // openid en STOCK // Don't know it for the moment
+paramsUserCheckConnexion.frob = frob;
+
+urlUserCheckConnexion.data = paramsUserCheckConnexion;
+urlUserCheckConnexion.method = URLRequestMethod.POST;
+//urlUserCheckConnexion.contentType = 'text/xml';
+
+//var loadUserCheckConnexion:URLLoader = new URLLoader();
+loadUserCheckConnexion.addEventListener(Event.COMPLETE, completeUserCheckConnexion);
+loadUserCheckConnexion.addEventListener(IOErrorEvent.IO_ERROR, errorHandler);
+
+try { loadUserCheckConnexion.load(urlUserCheckConnexion); }
+catch (error:ArgumentError) { debug.db("An ArgumentError has occurred."); debug.db(error); }
+catch (error:SecurityError) { debug.db("A SecurityError has occurred."); debug.db(error); }
+
+private function completeUserCheckConnexion(evt:Event):void {
+debug.db('completeUserCheckConnexion()');
+loadUserCheckConnexion.removeEventListener(Event.COMPLETE, completeUserCheckConnexion);
+var responseData:String = loadUserCheckConnexion.data;
+debug.db('responseData = '+responseData);
+if (responseData != '0' && responseData != '') {
+openid = responseData; // Get and stock user validated open ID
+openidChecked = true;
+//UT.show(repBox);
+dock();
+}
+else {
+//openid = '';
+openidChecked = false;
+callDistantPage();
+}
+}
+}
+
+// ------------------------------------------------------------------------- //
+
+var doc:Object = html.htmlLoader.window.document;
+parsedSource.text = html.htmlLoader.window.document.documentElement.innerHTML;
+var scriptElement:Object = doc.createElement("script");
+scriptElement.setAttribute("type", "text/javascript");
+scriptElement.text = "function getTypeof(obj) {return typeof obj};";
+doc.body.appendChild(scriptElement);
+
+// ------------------------------------------------------------------------- //
+
+// AMFPHP SERVICES
+import flash.net.*;
+import flash.display.Bitmap;
+import flash.events.FileListEvent;
+import flash.events.NetStatusEvent;
+import flash.events.SecurityErrorEvent;
+
+private function checkUserAuthentification():void {
+debug.db('checkUserAuthentification()');
+
+gateway = new NetConnection();
+gateway.addEventListener(NetStatusEvent.NET_STATUS, errorHandler);
+gateway.addEventListener(SecurityErrorEvent.SECURITY_ERROR, securityHandler);
+gateway.connect(gatewayUrl);
+gateway.call('UserManager.checkId', new Responder(onAmfResult, onAmfFault), frob);
+
+// Handle a successful AMF call. This method is defined by the responder.
+function onAmfResult(result:*):void {
+debug.db('onAmfResult()');
+
+gateway.removeEventListener(NetStatusEvent.NET_STATUS, errorHandler);
+gateway.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, securityHandler);
+
+var responseData:String = result as String;
+if (responseData != '0' && responseData != '') {
+openid = responseData; // Get and stock user validated open ID
+openidChecked = true;
+dock();
+}
+else {
+openidChecked = false;
+callDistantPage();
+}
+}
+
+// Handle an unsuccessfull AMF call. This is method is dedined by the responder.
+function onAmfFault(fault:Object):void {
+debug.db('onAmfFault()');
+debug.db('PAS OK AMFphp > '+ "code:\n" + fault.fault.faultCode + "\n\nMessage:\n" + fault.fault.faultString + "\n\nDetail:\n" + fault.fault.faultDetail);
+}
+}
+
+// ------------------------------------------------------------------------- //
+
+
+// ASPECT RATIO
+
+function appliquerContrainte(loader:Loader, contrainte:DisplayObject):void
+{
+
+// Rapport L/H de l'élément chargé puis du cadre de contrainte
+var ratioLI:Number = loader.contentLoaderInfo.width / loader.contentLoaderInfo.height;
+var ratioContrainte:Number = contrainte.width / contrainte.height;
+
+// Dimensions
+if (ratioLI > ratioContrainte)
+{
+loader.width = contrainte.width;
+loader.scaleY = loader.scaleX;
+}
+else
+{
+loader.height = contrainte.height;
+loader.scaleX = loader.scaleY;
+}
+
+// Position
+loader.x = contrainte.x + (contrainte.width - loader.width) / 2;
+loader.y = contrainte.y + (contrainte.height - loader.height) / 2;
+
+}
+ 
+
+
+// LOAD, SCALE AND WRITE IMAGE
+
+var loader:Loader = Loader(event.target.loader);
+var myBitmap:Bitmap = Bitmap(loader.content);
+var duplicate:Bitmap = new Bitmap(myBitmap.bitmapData.clone());
+
+var bitmap:BitmapData = new BitmapData(150, 150, false, 0x000000);
+var nScaleX:Number = 150/duplicate.width;
+var nScaleY:Number = 150/duplicate.height;
+
+var matrix:Matrix = new Matrix();
+matrix.scale(nScaleX, nScaleY);
+
+bitmap.draw(duplicate,matrix, null, null, null, true);
+
+var jpg:JPEGEncoder = new JPEGEncoder();
+var ba:ByteArray = jpg.encode(bitmap);
+var newImage:File = new File();
+newImage.nativePath='C:\\MyRep\\CG\\Vignettes\\'+fileName+'.jpg';
+var fileStream:FileStream = new FileStream();
+fileStream.open(newImage, FileMode.UPDATE);
+fileStream.writeBytes(ba);
+resetForm();
+
+
+// ------------------------------------------------------------------------- //
+
+    * File.applicationStorageDirectory—a storage directory unique to each installed AIR application
+    * File.applicationDirectory—the read-only directory where the application is installed (along with any installed assets)
+    * File.desktopDirectory—the user's desktop directory
+    * File.documentsDirectory—the user's documents directory
+    * File.userDirectory—the user directory
+
+
+
+// ------------------------------------------------------------------------- //
+
+<?php
+
+$errors = array();
+$data = "";
+$success = "false";
+
+function return_result($success,$errors,$data) {
+echo("<?xml version="1.0" encoding="utf-8"?>");
+?>
+<results>
+<success><?=$success;?></success>
+<?=$data;?>
+<?=echo_errors($errors);?>
+</results>
+<?
+}
+
+function echo_errors($errors) {
+
+for($i=0;$i<count($errors);$i++) {
+?>
+<error><?=$errors[$i];?></error>
+<?
+}
+
+}
+
+switch($_REQUEST['action']) {
+
+    case "upload":
+
+    $file_temp = $_FILES['file']['tmp_name'];
+    $file_name = $_FILES['file']['name'];
+
+    $file_path = $_SERVER['DOCUMENT_ROOT']."/personnalisation/logos_clients/";
+
+    //checks for duplicate files
+    if(!file_exists($file_path."/".$file_name)) {
+
+         //complete upload
+         $filestatus = move_uploaded_file($file_temp,$file_path."/".$file_name);
+
+         if(!$filestatus) {
+         $success = "false";
+         array_push($errors,"Upload failed. Please try again.");
+         }
+
+    }
+    else {
+    $success = "false";
+    array_push($errors,"File already exists on server.");
+    }
+
+    break;
+
+    default:
+    $success = "false";
+    array_push($errors,"No action was requested.");
+
+}
+
+return_result($success,$errors,$data);
+
+?>
+
+
+// ------------------------------------------------------------------------- //
+var loader:Loader = Loader(event.target.loader); var myBitmap:Bitmap = Bitmap(loader.content); var duplicate:Bitmap = new Bitmap(myBitmap.bitmapData.clone()); var bitmap:BitmapData = new BitmapData(150, 150, false, 0x000000); var nScaleX:Number = 150/duplicate.width; var nScaleY:Number = 150/duplicate.height; var matrix:Matrix = new Matrix(); matrix.scale(nScaleX, nScaleY); bitmap.draw(duplicate,matrix, null, null, null, true); var jpg:JPEGEncoder = new JPEGEncoder(); var ba:ByteArray = jpg.encode(bitmap); var newImage:File = new File(); newImage.nativePath='D:\\myRepertoire\\Vignettes\\'+__file.name; var fileStream:FileStream = new FileStream(); fileStream.open(newImage, FileMode.UPDATE); fileStream.writeBytes(ba);
+
+
+// Scale multiple time to avoid scalling more than 50% and keep good smooth version
+
+public static function resampleBitmapData (bmp:BitmapData, ratio:Number):BitmapData {
+	if (ratio >= 1) {
+	return (BitmapManager.resizeBitmapData(bmp, ratio));
+	}
+	else {
+	var bmpData:BitmapData = bmp.clone();
+	var appliedRatio:Number = 1;
+	
+	do {
+	if (ratio < 0.5 * appliedRatio) {
+	bmpData = BitmapManager.resizeBitmapData(bmpData, 0.5);
+	appliedRatio = 0.5 * appliedRatio;
+	}
+	else {
+	bmpData = BitmapManager.resizeBitmapData(bmpData, ratio / appliedRatio);
+	appliedRatio = ratio;
+	}
+	} while (appliedRatio != ratio);
+	
+	return (bmpData);
+	}
+}
+
+}}}
