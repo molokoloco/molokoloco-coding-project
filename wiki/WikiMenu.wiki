@@ -16,6 +16,7 @@
     * [PHPSyntax]
     * [PrototypeSyntax]
     * [JavascriptJquery]
+    * [FlexAirSyntax]
     * [HtAccess]
     * [LinuxSyntax_SHELL]
     * [mySQLSyntax]
