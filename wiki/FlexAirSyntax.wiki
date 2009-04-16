@@ -54,6 +54,14 @@ listOwner.addEventListener(FlexEvent.VALUE_COMMIT, updatePosition, false, 0, tru
 
 // ------------------------------------------------------------------------- //
 
+import flash.filters.DropShadowFilter;
+
+var shadow:DropShadowFilter = new DropShadowFilter(10, 45, 0x2C4677, 0.36, 8, 8, 1, 4, false, false, false);
+//shadow.distance = 10;
+image.filters = [shadow];
+
+// ------------------------------------------------------------------------- //
+
 import mx.collections.ArrayCollection;
 import mx.rpc.events.ResultEvent;
 import mx.rpc.http.HTTPService;
