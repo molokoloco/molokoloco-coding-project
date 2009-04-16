@@ -52,6 +52,34 @@ return null;
 // use weak references so when the listOwner changes, we garbage collect old listeners
 listOwner.addEventListener(FlexEvent.VALUE_COMMIT, updatePosition, false, 0, true);
 
+// ------------------------------------------------------------------------- //
+
+import mx.collections.ArrayCollection;
+import mx.rpc.events.ResultEvent;
+import mx.rpc.http.HTTPService;
+import mx.utils.ArrayUtil;
+
+private var service:HTTPService;
+
+private function loadRelated():void
+{
+	service = new HTTPService();
+	service.url = 'http://www.labconvergent.net/infos.xml';
+	service.addEventListener(ResultEvent.RESULT, resultHandler);
+	service.send();
+}
+
+private function resultHandler(event:ResultEvent):void
+{
+	var result:ArrayCollection = event.result.rubriques is ArrayCollection ? event.result.rubriques as ArrayCollection : new ArrayCollection(ArrayUtil.toArray(event.result.rubriques));
+	for (var i:int=0; i < result[0].rubrique.length; i++)
+	{
+		var titre:String = result[0].rubrique[i].titre;
+		var url:String = result[0].rubrique[i].url;
+		
+		trace(titre+' : '+url);
+	}
+}
 
 // ------------------------------------------------------------------------- //
 
