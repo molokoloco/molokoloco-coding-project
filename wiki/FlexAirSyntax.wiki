@@ -52,6 +52,8 @@ return null;
 // use weak references so when the listOwner changes, we garbage collect old listeners
 listOwner.addEventListener(FlexEvent.VALUE_COMMIT, updatePosition, false, 0, true);
 
+var frameColor:uint = getStyle("frameColor");
+
 // ------------------------------------------------------------------------- //
 
 import flash.filters.DropShadowFilter;
@@ -122,7 +124,6 @@ request.data = variables;
 try { navigateToURL(request); }
 catch (e:Error) {}
 
-
 // ------------------------------------------------------------------------- //
 
 var myDate:Date = new Date();
@@ -136,6 +137,14 @@ todayLabel.text = todayString;
 
 var halloweenDate:Date = DateField.stringToDate(halloween, "DD/MM/YYYY");
 halloweenLabel.text = halloweenDate.toDateString();
+
+// ------------------------------------------------------------------------- //
+
+var g:Shape = new Shape();
+g.lineStyle(1, 0x000000, 1);
+g.beginFill(0xCCCCCC);
+g.drawRoundRect(0, 0, 300, 200, 10);
+g.endFill();
 
 // ------------------------------------------------------------------------- //
 
