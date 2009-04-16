@@ -245,6 +245,8 @@ public function onTick(event:TimerEvent):void {}
 
 
 // DOMAIN POLICY
+/*
+
 <cross-domain-policy>
 <!-- Place top level domain name -->
 <allow-access-from domain="yourdomain.com" secure="false"/>
@@ -264,6 +266,8 @@ public function onTick(event:TimerEvent):void {}
 </allow-http-request-headers-from>
 </site-control>
 </cross-domain-policy>
+
+*/
 
 // ------------------------------------------------------------------------- //
 
