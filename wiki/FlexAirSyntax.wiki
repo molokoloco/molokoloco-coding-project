@@ -1,7 +1,7 @@
 #summary Personnal tooltips for Flex and Air RIA
 #labels Tooltips
 
-= FLEX - AIR (ActionScript 3 : AS3) =
+= FLEX - AIR (Actionscript 3 : AS3) =
 
 {{{
 
