@@ -141,10 +141,10 @@ halloweenLabel.text = halloweenDate.toDateString();
 // ------------------------------------------------------------------------- //
 
 var g:Shape = new Shape();
-g.lineStyle(1, 0x000000, 1);
-g.beginFill(0xCCCCCC);
-g.drawRoundRect(0, 0, 300, 200, 10);
-g.endFill();
+g.graphics.lineStyle(1, 0x000000, 1);
+g.graphics.beginFill(0xCCCCCC);
+g.graphics.drawRoundRect(0, 0, 300, 200, 10);
+g.graphics.endFill();
 
 // ------------------------------------------------------------------------- //
 
