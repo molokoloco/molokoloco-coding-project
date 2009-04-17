@@ -2,7 +2,7 @@
 #labels Tooltips
 
 = FLEX - AIR (Actionscript 3 : AS3) =
-x
+
 {{{
 
 // ------------------------------------------------------------------------- //
@@ -52,7 +52,19 @@ return null;
 // use weak references so when the listOwner changes, we garbage collect old listeners
 listOwner.addEventListener(FlexEvent.VALUE_COMMIT, updatePosition, false, 0, true);
 
+
 var frameColor:uint = getStyle("frameColor");
+image.setStyle("verticalAlign", "middle");
+
+// ------------------------------------------------------------------------- //
+// Auto-Closing for Dev
+
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" 
+	deactivate="application_deactivate(event);">
+	
+private function application_deactivate(e:Event):void {
+    stage.nativeWindow.close();
+}
 
 // ------------------------------------------------------------------------- //
 
@@ -140,14 +152,6 @@ halloweenLabel.text = halloweenDate.toDateString();
 
 // ------------------------------------------------------------------------- //
 
-var g:Shape = new Shape();
-g.graphics.lineStyle(1, 0x000000, 1);
-g.graphics.beginFill(0xCCCCCC);
-g.graphics.drawRoundRect(0, 0, 300, 200, 10);
-g.graphics.endFill();
-
-// ------------------------------------------------------------------------- //
-
 private function handleSlideChange():void {
 scroll.maxScrollPosition = slider.value; 
 scroll.invalidateDisplayList();
@@ -178,11 +182,9 @@ new String(maString.getBytes("ISO-8859-1"), "UTF-8")
 [Bindable(event="nameChanged")]
 private var personName:String;
 
-
 private function updateInfo():void {
     dispatchEvent(new Event("nameChanged"));
 }
-
 
 // ------------------------------------------------------------------------- //
 
@@ -192,10 +194,9 @@ private function updateInfo():void {
     // app:/images
     var urlReq = new URLRequest("http://www.adobe.com/");
 
-    
+
     html.runtimeApplicationDomain = ApplicationDomain.currentDomain;
     var customClassObject = new window.runtime.CustomClass();
-
 
 // FROM AIR
 
@@ -260,6 +261,13 @@ this.addChild(shape);
 
 trace(this.numChildren, getChildAt(0));
 
+// ------------------------------------------------------------------------- //
+// (this)
+
+graphics.lineStyle(1, 0x000000, 1);
+graphics.beginFill(0xCCCCCC);
+graphics.drawRoundRect(0, 0, 300, 200, 10);
+graphics.endFill();
 
 // ------------------------------------------------------------------------- //
 
@@ -1283,7 +1291,7 @@ monClip1.monText1.text = "texte que l'on veut";
 Mais cela ne marche pas, pour y parvenir, il faut utiliser la méthode getChildByName(), voici des exemples d’utilisation pour bien comprendre comment cela marche :
 
     * getChildByName(monClip1) renvoie un objet de type maClasse
-    * getChildByName(monClip1).name renvoie une chaine de caractères “monClip1″
+    * getChildByName(monClip1).name renvoie une chaine de caractères “monClip1?
     * getChildByName(monClip1).numChildren renvoie une erreur à la place d’indiquer le nombre d’enfants (qui devrait être d’1, il s’agit de monText1 associé à monClip1 via monClip.addChild(monTexte))
 
 Pour obtenir effectivement numChildren, il ne faut pas oublier de faire ce qu’on appelle du cast d’objet, il faut écrire :
