@@ -138,6 +138,20 @@ catch (e:Error) {}
 
 // ------------------------------------------------------------------------- //
 
+import mx.events.FlexEvent;
+
+stage.addEventListener(KeyboardEvent.KEY_DOWN, listenKeyBoard, false, 0, true);
+
+private function listenKeyBoard(event:KeyboardEvent):void
+{
+	//trace('listenKeyBoard() : '+event.keyCode);
+	if (event.keyCode == Keyboard.LEFT) showPrev();
+	else if (event.keyCode == Keyboard.RIGHT) showNext();
+	else if (event.keyCode == Keyboard.ENTER) loadUrl();
+}
+
+// ------------------------------------------------------------------------- //
+
 var myDate:Date = new Date();
 trace(DateField.dateToString(myDate, 'DD/MM/YYYY'));
 
