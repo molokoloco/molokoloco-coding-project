@@ -442,6 +442,31 @@ mainStage.setStyle("backgroundAttachment", "fixed");
 
 
 // ------------------------------------------------------------------------- //
+// Flash TWEEN in FLEX
+
+// FlashDevelop -> Project set properties
+// add ClassPaths
+//../../../../Program Files/Adobe Flash CS3/fr/Configuration/ActionScript 3.0/Class
+
+import fl.transitions.easing.Regular;
+import fl.transitions.Tween;
+
+private var myTween:Tween;
+
+myTween = new Tween(this, 'alpha', Regular.easeOut, 0, 1, 0.5, true);
+//myTween.addEventListener(TweenEvent.MOTION_FINISH, buttonAnimationComplete);
+
+// ------------------------------------------------------------------------- //
+
+// initialize="Font.registerFont(myriad_font);">
+
+import flash.text.Font;
+            
+[Embed("assets/MyriadWebPro.ttf", fontName="MyMyriad")]
+public var myriad_font:Class;
+
+
+<mx:Label text="Nokia 9930" fontFamily="MyMyriad" fontSize="14" visible="{cb1.selected}" hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
 
 <mx:HBox id="mainStage" styleName="mainStage" width="98%" fontSize="11" paddingTop="0" paddingLeft="0" paddingRight="0" paddingBottom="0" horizontalGap="5" backgroundImage="@Embed('icons/bg.gif')" backgroundAttachment="scroll">
 
