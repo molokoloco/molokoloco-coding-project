@@ -205,6 +205,36 @@ private function updateInfo():void {
 
 // ------------------------------------------------------------------------- //
 
+package mlklc 
+{
+	/*
+		import mlklc.MyEvent;
+		
+		myFavoriteManager.addEventListener(Config.ADDLINK, iListen);
+		function iListen(event:MyEvent):void {
+			var message:String = (event.message != undefined ? event.message : '');
+		}
+		
+		// ...
+		
+		var thisEvent:MyEvent = new MyEvent(Config.ADDLINK);
+		thisEvent.message = 'Test';
+		dispatchEvent(thisEvent);
+	*/
+	
+	import flash.events.Event;
+	
+	public class MyEvent extends Event
+	{
+		public var message:*;
+		
+		public function MyEvent(type:String) {
+			super(type);
+        }
+	}
+}
+// ------------------------------------------------------------------------- //
+
 // FROM SCRIPT // (code to access AS from JS)
 
     var myFile = new window.runtime.flash.filesystem.File();
