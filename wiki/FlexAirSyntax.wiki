@@ -126,6 +126,9 @@ urlReq = new URLRequest(locationBar.text);
 html.load(urlReq);
 
 // ------------------------------------------------------------------------- //
+import flash.net.navigateToURL;
+import flash.net.URLRequest;
+import flash.net.URLVariables;
 
 var url:String = "http://www.adobe.com";
 var variables:URLVariables = new URLVariables();
