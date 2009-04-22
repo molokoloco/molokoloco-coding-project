@@ -1,14 +1,14 @@
 #sidebar TableOfContents
 
   * *Class et fonctions*
-    * [PHPSample PHP class file]
+    * [PHPSample PHP class File]
     * [mySqlPhpClass PHP class mySQL]
-    * [javascriptAccordeonClass JS Accordéon]
+    * [javascriptAccordeonClass JS Accordeon]
   * *Examples*
     * [importCsvToSQL PHP csv2mysql]
     * [JavascriptWindowOpenExtended JS Window]
-    * [PHPJavascriptDiaporama PHP/JS slide]
-    * [DocGenerator PHP Word export]
+    * [PHPJavascriptDiaporama PHP/JS Slideshow]
+    * [DocGenerator PHP export .doc]
     * [RSSGeneratorSample PHP RSS feed]
     * [JavascriptSample JS Exemple]
     * [TinyMce_PHP PHP Rich Editor]
@@ -17,7 +17,7 @@
     * [PrototypeSyntax JS Prototype]
     * [JavascriptJquery JS JQuery]
     * [FlexAirSyntax AS3/FLEX tooltips]
-    * [HtAccess Apache htaccess]
+    * [HtAccess Apache HTaccess]
     * [LinuxCmdShell Linux tooltips]
     * [mySQLSyntax mySQL tooltips]
     * [RegexSyntax REGEXP tooltips]
