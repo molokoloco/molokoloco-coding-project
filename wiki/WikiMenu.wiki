@@ -4,7 +4,6 @@
     * [PHPSample PHP class File]
     * [mySqlPhpClass PHP class mySQL]
     * [javascriptAccordeonClass JS Accordeon]
-  * *Examples*
     * [importCsvToSQL PHP csv2mysql]
     * [JavascriptWindowOpenExtended JS Window]
     * [PHPJavascriptDiaporama PHP/JS Slideshow]
