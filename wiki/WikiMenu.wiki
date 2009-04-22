@@ -24,4 +24,4 @@
     * [CSSSyntax CSS tooltips]
   * *Documentation*
     * [HowToVirtualAdmin Virtual Admin howto]
-    * [GoogleHack Gooogle o_O]
+    * [GoogleHack Go_Ogle]
