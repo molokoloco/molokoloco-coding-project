@@ -52,6 +52,8 @@ $('div').show().fadeOut('slow');
 
 // --------------------------------------------------------------- //
 
+if (/^[\w\d\_\.]{4,}$/.test($('#username').attr('value'))) alert('Ok');
+
 var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
 
 $('img').attr({
