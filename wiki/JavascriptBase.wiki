@@ -1,0 +1,181 @@
+#summary Personal Tooltips for Javascript
+#labels Tooltips
+
+= JAVASCRIPT BASE =
+
+{{{    
+
+  // --- ITERATIONS ------------------------------------ //
+
+  for each (var item in [1, 2, 3]) alert(item);
+
+  [1, 2, 3].forEach(function(item) { alert(item) });
+
+  var squares = [item * item for each (item in [1, 2, 3])];
+
+  [alert(item) for each (item in [1, 2, 3])];
+
+  var obj = { foo: 1, bar: 2, baz: 3 };
+  [alert(name + "=" + obj[name]) for (name in obj)];
+
+
+  [alert(key + "=" + val) for ([key, val] in Iterator({a:1,b:2,c:3}))]
+
+  // --- STRINGS ------------------------------------ //
+
+    Chaine.anchor("nom_a_donner"); Transforme le texte Chaine en ancrage HTML.
+    Chaine.big() Augmente la taille de la police.
+    Chaine.blink() Transforme la chaîne en texte clignotant.
+    Chaine.bold() Met le texte en gras (balise <B>).
+    Chaine.charAt(position) Retourne le caractère situé à la position donnée en paramètre
+    Chaine.charCodeAt(position) Renvoie le code Unicode du caractère situé à la position donnée en paramètre
+    concat(chaîne1, chaîne2[, ...]) Permet de concaténer les chaînes passées en paramètre, c est-à-dire de les joindre bout à bout.
+    Chaine.fixed() Transforme la Chaine en caractères de police fixe (balise <TT>)
+    Chaine.fontcolor(couleur) Modifie la couleur du texte (admet comme argument la couleur en hexadécimal ou en valeur littérale)  
+    Chaine.fontsize(Size) Modifie la taille de la police, en afectant la valeur passée en paramètre
+    Chaine.fromCharCode(code1[, code2, ..]) Renvoie une chaîne de caractères composée de caractères correspondant au(x) code(s) Unicode donné(s) en paramètre.
+    Chaine.indexOf(sous-chaîne, position) Retourne la position d une sous-chaîne (lettre ou groupe de lettres) dans une chaîne de caractère, en effectuant la recherche de gauche à droite, à partir de la position spécifiée en paramètre.
+    Chaine.italics() Transforme le texte en italique (balise <I>)
+    Chaine.lastIndexOf(sous-chaîne, position) La méthode est similaire à indexOf(), à la différence que la recherche se fait de droite à gauche:
+    Retourne la position d une sous-chaîne (lettre ou groupe de lettres) dans une chaîne de caractère, en effectuant la recherche de droite à gauche, à partir de la position spécifiée en paramètre.
+    Chaine.link(URL) Transforme le texte en hypertexte (balise <A href>)
+    Chaine.small() Diminue la taille de la police
+    Chaine.strike() Transforme le texte en texte barré (balise <strike>)
+    Chaine.sub() Transforme le texte en indice (balise <sub>)
+    Chaine.substr(position1, longueur) La méthode retourne une sous-chaîne commençant à l index dont la position est donnée en argument et de la longueur donnée en paramètre.
+    Chaine.substring(position1, position2) La méthode retourne la sous-chaîne (lettre ou groupe de lettres) comprise entre les positions 1 et 2 données en paramètre.
+    Chaine.sup() Transforme le texte en exposant (balise <sup>).
+    Chaine.toLowerCase() Convertit tous les caractères d une chaîne en minuscule.
+    Chaine.toSource() Renvoie le code source de création de l objet.
+    Chaine.toUpperCase() Convertit tous les caractères d une chaîne en majuscule.
+    Chaine.valueOf() Renvoie la valeur de l objet String.
+      
+    // ----- Built-In Functions ---------------------------------- //
+
+    escape()     Many special characters cause problems when submitting information to a 0CGI server. These characters include $ # ! spaces and tabs. An example of a safely encoded string is coded = escape('& '). [returns "%26%20"]. See also unescape.
+    eval()     Evaluates a string and returns a numeric value. An example is eval(x) + eval(y); If x and y are strings '1' and '2' the result is three. Without the eval function the value would be 12!
+    isFinite()     Tests whether the variable is a finite number. Returns false if contents is not a number or is infinite. An example of usage is flag = isFinite(var_name);
+    isNaN()     Tests whether the variable is not a number. Returns true if contents is not a decimal based number. An example of usage is flag = isNaNum(var_name);
+    Number()     Converts the object argument to a number representing the object s value. If the value cannot be represented by a legitimate number, the "Not-a-Number" value, NaN is returned.Note the inconsistency in case!!
+    parseFloat()     Turns a string into a floating-point number. If the first character can t be converted the result is NaN. Otherwise the conversion stops at first character that can t be converted. The function is decimal base only! an example of usage is n = parseFloat('23.45');
+    parseInt()     Turns a string into an integer number. If the first character can t be converted the result is NaN. Otherwise the conversion stops at first character that can t be converted. If a second parameter is included, the numeric base can be binary, octal, decimal or hexadecimal. An example is n = parseInt('55',10); which places the number 55 into the base 10 variable n.
+    unescape()     Recovers an escaped string. An example is decoded = unescape('%26%20') [returns "& "].
+    
+    new     Creates a copy or instance of an object for use or modification within a program. For example now = new Date; creates a Date object called now that can be affected by all the Date properties and methods. Technically new is an operator but it works very much like a function!
+    this     A shorthand convention to allow working with the current object method without naming it. This is used to save retyping a method name.
+    with     A shorthand convention to allow working with the current object without naming it. This is used to save retyping a long object name. An example is:
+    
+    with (document) {
+       writeln(lastmodified);
+       writeln(location);
+       writeln(title);
+     }
+   
+   // ----- Objects Functions ---------------------------------- //
+   
+    * Array Object
+          o properties - constructor, length, prototype
+          o methods - concat(), join(), pop(), push(), reverse(), shift(), slice(), sort(), splice(), toLocaleString(), toString(), unshift(), valueOf()
+    * Boolean Object
+          o properties - constructor, prototype
+          o methods - toString(), valueOf()
+    * Date Object
+          o properties - constructor, prototype
+          o methods - getDate(), getDay(), getFullYear(), getHours(), getMilliseconds(), getMinutes(), getMonth(), getSeconds(), getTime(), getTimeZoneOffset(), getUTCDate(), getUTCDay(), getUTCFullYear(), getUTCHours(), getUTCMilliseconds(), getUTCMinutes(), getUTCMonth(), getUTCSeconds(), getVarDate(), getYear(), parse(), setDate(), setFullYear(), setHours(), setMilliseconds(), setMinutes(), setMonth(), setSeconds(), setTime(), setUTCDate(), setUTCFullYear(), setUTCHours(), setUTCMilliseconds(), setUTCMinutes(), setUTCMonth(), setUTCSeconds(), setUTCTime(), setUTCYear(), setYear(), toLocaleString(), toUTCString(), toString(), UTC(), valueOf()
+    * Error Object
+          o properties - description, number
+          o methods -
+    * Function Object
+          o properties - arguments[], caller, constructor, prototype
+          o methods - toString(), valueOf()
+    * Global Object
+          o properties - Infinity, NaN, undefined
+          o methods - escape(), eval(), isFinite(), isNaN(), parseFloat(), parseInt(), unescape()
+    * Math Object
+          o properties - E, LN10, LN2, LOG10E, LOG2E, PI, SQRT2, SQRT1_2
+          o methods - abs(), acos(), asin(), atan(), atan2(), ceil(), cos(), exp(), floor(), log(), max(), min(), pow(), random(), round(), sin(), sqrt(), tan()
+    * Number Object
+          o properties - MAX_VALUE, MIN_VALUE, NaN, NEGATIVE _INFINITY, POSITIVE_INFINITY, constructor, prototype
+          o methods - toLocaleString(), toString(), valueOf()
+    * Object Object
+          o properties - constructor, prototype
+          o methods - toLocaleString(), toString(), unwatch(), valueOf(), watch()
+    * RegExp Object
+          o properties - $1 - $9, index, input, lastIndex, lastMatch, lastParen, leftContext, rightContext
+    * String Object
+          o properties - constructor, length, prototype
+          o display methods - anchor(), big(), blink(), bold(), fixed(), fontcolor(), fontsize(), italics(), small(), strike(), sub(), sup()
+          o manipulation methods - charAt(), charCodeAt(), concat(), fromCharCode(), indexOf(), lastIndexOf(), link(), match(), replace(), search(), slice(), split(), substr(), substring(), toLowerCase(), toUpperCase(), toString(), valueOf()
+
+     * Document Object - Primary Output
+          o content properties - anchors[], applets[], embeds[], forms[], images[], links [], plugins[]
+          o display properties - alinkColor, bgColor, fgColor, linkColor, vlinkColor
+          o information properties - cookie, domain, lastModified, location, mimeTypes, referrer, title, URL
+          o methods - open(), write(), writeln()
+    * Form Objects - Primary Input
+          o form properties - name, target, action, method, encoding, elements, length
+          o form methods - submit(), reset()
+          o button, hidden, reset, and submit object properties - name, value, type
+          o checkbox properties - name, value, type, checked, default checked
+          o password properties - name, value, type, default value
+          o radio button properties - name, value, type, checked, default checked, length
+          o select properties - name, value, type, length, options, defaultSelected, index, selected, selectedIndex
+          o text, textarea properties - name, value, defaultvalue
+          o input, textarea and select methods - focus(), blur(), select()
+    * History Object - Access the browser s history file
+          o properties - length
+          o methods - back(), forward(), go()
+    * Location Object
+          o properties - hash, hostname, href, pathname, port, protocol, search
+          o methods - reload(), replace()
+    * Navigator Object - Root of all Objects
+          o properties - appCodeName, appName, appVersion, platform, userAgent
+          o methods - javaEnabled()
+    * Window Object
+          o properties - defaultStatus, frames, length, name, opener, parent, self, status, top, window
+          o methods - alert(), blur(), clearInterval(), clearTimeout(), close(), confirm(), focus(), open(), print(), prompt(), scroll(), setInterval(), setTimeout(), timeoutID()
+          o contained objects -
+                + Screen Object
+                + properties - availHeight, availLeft, availTop, availWidth, colorDepth, height, pixelDepth, width
+
+   // ----- HANDLERs ---------------------------------- //
+
+    Interface Event Handlers:
+        onBlur [window, frame, select, text, textarea]     focus is lost (ie. changed or blurred) to a new element.
+        onFocus [window, frame, select, text, textarea]     object gains focus. aka anti-blur!
+        onLoad [window, frame, image]     window, complete frame or image(s) finishes loading.
+        onResize     a window or object(MSIE only) is resized.
+        onScroll     window scrolled with scrollbar or mousewheel.
+        onUnload [window, frame]     window or all windows in a frame have been exited.
+    
+    Key Event Handlers:
+        nHelp     GUI F1 key pressed. Used to override browser Help.
+        onKeydown     alphanumeric key is pressed.
+        onKeypress     alphanumeric key is fully pressed/released.
+        onKeyup     alphanumeric key is released.
+        onStop     GUI STOP key is pressed or user leaves page.
+
+    Mouse Event Handlers:
+        Event Name     Handler Executes When
+        onClick [clickable form element]     left mouse clicks om element. Can be stopped if executing
+        procedure (such as validation) returns a false signal.
+        onContextmenu     right mouse button clicked.
+        onDblclick     mouse button is double-clicked.
+        onMousedown     either mouse button is clicked.
+        onMousemove     mouse is moved.
+        onMouseOut [link, area]     cursor leaves a link or area.
+        onMouseOver [link, area]     cursor enters a link or area.
+        
+    Form Event Handlers:
+        Event Name     Handler Executes When
+        onChange [select, text, textarea]     last element has been changed before focus change.
+        onReset [form]     the reset button is clicked.
+        onSelect [text, textarea]     some text is highlighted in either of these form boxes.
+        onSubmit [form]     Executes after return key is pressed or submit button is clicked.
+        Allows bailout similar to the onclick event. Failure in validation
+        routine is the most common reason for bailout.
+    Miscellaneous Event Handlers:
+        Event Name     Handler Executes When
+        onAbort [image]     image load has been abandoned by hitting the STOP icon.
+        onError [window, image]     window or image fails to load.
+}}}
