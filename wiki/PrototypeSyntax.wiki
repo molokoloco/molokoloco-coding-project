@@ -669,13 +669,21 @@ http://prototypejs.org/api/
 
 {{{    
 
-for each (var item in [1, 2, 3]) alert(item);
+  for each (var item in [1, 2, 3]) alert(item);
 
-[1, 2, 3].forEach(function(item) { alert(item) });
+  [1, 2, 3].forEach(function(item) { alert(item) });
 
-var squares = [item * item for each (item in [1, 2, 3])];
+  var squares = [item * item for each (item in [1, 2, 3])];
+
+  [alert(item) for each (item in [1, 2, 3])];
+
+  var obj = { foo: 1, bar: 2, baz: 3 };
+  [alert(name + "=" + obj[name]) for (name in obj)];
 
 
+  [alert(key + "=" + val) for ([key, val] in Iterator({a:1,b:2,c:3}))]
+
+  // --------------------------------------- //
 
     Chaine.anchor("nom_a_donner"); Transforme le texte Chaine en ancrage HTML.
     Chaine.big() Augmente la taille de la police.
@@ -704,7 +712,7 @@ var squares = [item * item for each (item in [1, 2, 3])];
     Chaine.toUpperCase() Convertit tous les caractères d une chaîne en majuscule.
     Chaine.valueOf() Renvoie la valeur de l objet String.
       
-    // Built-In Functions
+    // ----- Built-In Functions ---------------------------------- //
 
     escape()     Many special characters cause problems when submitting information to a 0CGI server. These characters include $ # ! spaces and tabs. An example of a safely encoded string is coded = escape('& '). [returns "%26%20"]. See also unescape.
     eval()     Evaluates a string and returns a numeric value. An example is eval(x) + eval(y); If x and y are strings '1' and '2' the result is three. Without the eval function the value would be 12!
@@ -725,7 +733,7 @@ var squares = [item * item for each (item in [1, 2, 3])];
        writeln(title);
      }
    
-   
+   // ----- Objects Functions ---------------------------------- //
    
     * Array Object
           o properties - constructor, length, prototype
@@ -792,7 +800,9 @@ var squares = [item * item for each (item in [1, 2, 3])];
                 + Screen Object
                 + properties - availHeight, availLeft, availTop, availWidth, colorDepth, height, pixelDepth, width
 
-    HANDLER
+   // ----- HANDLERs ---------------------------------- //
+
+   
     Interface Event Handlers:
         onBlur [window, frame, select, text, textarea]     focus is lost (ie. changed or blurred) to a new element.
         onFocus [window, frame, select, text, textarea]     object gains focus. aka anti-blur!
@@ -831,6 +841,5 @@ var squares = [item * item for each (item in [1, 2, 3])];
         Event Name     Handler Executes When
         onAbort [image]     image load has been abandoned by hitting the STOP icon.
         onError [window, image]     window or image fails to load.
-
 
 }}}
