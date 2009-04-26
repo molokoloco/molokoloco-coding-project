@@ -1,10 +1,9 @@
 #summary 200_tools.js example
 #labels Featured,Phase-Requirements
 
-=My Javascript ToolsBox=
+=My Javascript Toolbox=
 
 == 200_tools.js ==
-
 
 {{{
 
