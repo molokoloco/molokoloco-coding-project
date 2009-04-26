@@ -13,6 +13,7 @@
     * [TinyMce_PHP PHP Rich Editor]
   * *Personal Tips*
     * [PHPSyntax PHP tooltips]
+    * [JavascriptBase Bases Javascript]
     * [PrototypeSyntax JS Prototype]
     * [JavascriptJquery JS JQuery]
     * [FlexAirSyntax AS3/FLEX tooltips]
