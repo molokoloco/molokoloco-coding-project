@@ -5,6 +5,11 @@
 
 == 200_tools.js ==
 
+
+All Framework here :
+[http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/ trunk/SITE_01_SRC/js/proto/optional/] - [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/200_tools.js 200_tools.js]
+
+
 {{{
 
 /* ////////////////////////////////////////////////////////////////////////////////////
@@ -441,5 +446,3 @@ var printPage = function(){
 
 == For more information : svn/trunk/trunk/SITE_01_SRC/ ==
 http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/
-
-http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/init.js?r=86
