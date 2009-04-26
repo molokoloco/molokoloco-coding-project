@@ -669,6 +669,14 @@ http://prototypejs.org/api/
 
 {{{    
 
+for each (var item in [1, 2, 3]) alert(item);
+
+[1, 2, 3].forEach(function(item) { alert(item) });
+
+var squares = [item * item for each (item in [1, 2, 3])];
+
+
+
     Chaine.anchor("nom_a_donner"); Transforme le texte Chaine en ancrage HTML.
     Chaine.big() Augmente la taille de la police.
     Chaine.blink() Transforme la chaîne en texte clignotant.
