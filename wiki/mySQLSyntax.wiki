@@ -103,25 +103,38 @@ INSERT INTO new_table(date_field) SELECT DATEADD(s, timestamp_field, '19700101')
 
 SELECT SUBSTRING(datedeb,1,4) as year
 
+--------------------------------------------------------------------------------------------------------
+
+// Selecting a database:
+USE database;
+
+// Listing databases:
+SHOW DATABASES;
+
+// Listing tables in a db:
+SHOW TABLES;
+
+// Describing the format of a table:
+DESCRIBE table;
+
+// Creating a database:
+CREATE DATABASE db_name;
+
+// Creating a table:
+CREATE TABLE table_name (field1_name TYPE(SIZE), field2_name TYPE(SIZE));
+// Ex: mysql> CREATE TABLE pet (name VARCHAR(20), sex CHAR(1), birth DATE);
+
+// Load tab-delimited data into a table:
+LOAD DATA LOCAL INFILE "infile.txt" INTO TABLE table_name;
+// (Use \n for NULL)
+
+// Inserting one row at a time:
+mysql> INSERT INTO table_name VALUES ('MyName', 'MyOwner', '2002-08-31');
+// (Use NULL for NULL)
 
 --------------------------------------------------------------------------------------------------------
 
-PROCESS
-
-$pList = mysql_query('SHOW PROCESSLIST') or die(mysql_error());
-while($process = mysql_fetch_array($pList,MYSQL_ASSOC)) {
-if(intval($process['Time'])>$processTimeLimit) {
-
-mysql_query('KILL '.$process['Id']) or die(mysql_error());
-echo "<tr>\n" ;
-echo "\t<td>".$process['Id']."</td>\n" ;
-echo "\t<td>".$process['db']."</td>\n" ;
-echo "\t<td>".$process['Time']."</td>\n" ;
-echo "</tr>\n" ;
-}
-}
-
---------------------------------------------------------------------------------------------------------
+// MYSQL TO PHP
 
 mysql_pconnect($this->server, $this->user, $this->password);
 mysql_select_db($this->dbname);
@@ -140,18 +153,34 @@ mysql_free_result($query_id);
 mysql_close($this->db_connect_id);
 
 --------------------------------------------------------------------------------------------------------
-RANDOM
-//
+
+// PROCESS
+
+$pList = mysql_query('SHOW PROCESSLIST') or die(mysql_error());
+while($process = mysql_fetch_array($pList,MYSQL_ASSOC)) {
+    if(intval($process['Time'])>$processTimeLimit) {
+        mysql_query('KILL '.$process['Id']) or die(mysql_error());
+        echo "<tr>\n" ;
+        echo "\t<td>".$process['Id']."</td>\n" ;
+        echo "\t<td>".$process['db']."</td>\n" ;
+        echo "\t<td>".$process['Time']."</td>\n" ;
+        echo "</tr>\n" ;
+    }
+}
+
+--------------------------------------------------------------------------------------------------------
+
+// RANDOM
+
 $REQ = mysql_query("SELECT media_thumb_id,galerie_id FROM Media WHERE galerie_id='$galerie_id_select' ",$db) or die(mysql_error());
 $nb = mysql_num_rows($REQ);
 if ($nb > 0) {
-
-//srand ((float)microtime()*1000000);
-$rand_row = rand(1, $nb);
-mysql_data_seek($REQ, $rand_row-1);
-$row = mysql_fetch_array($REQ);
-$media_thumb_id_select = $row["media_thumb_id"];
-$galerie_id_reselect = $row["galerie_id"];
+    //srand ((float)microtime()*1000000);
+    $rand_row = rand(1, $nb);
+    mysql_data_seek($REQ, $rand_row-1);
+    $row = mysql_fetch_array($REQ);
+    $media_thumb_id_select = $row["media_thumb_id"];
+    $galerie_id_reselect = $row["galerie_id"];
 }
 
 --------------------------------------------------------------------------------------------------------
@@ -185,7 +214,9 @@ select * from test_date;
 -> '2028-02-07 23:12:00'
 
 --------------------------------------------------------------------------------------------------------
+
 // GET Min/Max date
+
 $D = new Q("
 SELECT MIN(actu_date) AS min, MAX(actu_date) AS max
 FROM mod_actus
@@ -194,10 +225,10 @@ LIMIT 2
 $maxDate = dateToArray($D->V[0]['max']);
 $minDate = dateToArray($D->V[0]['min']);
 
-
 --------------------------------------------------------------------------------------------------------
 
-RECHERCHE SQL BOLEENNE
+// RECHERCHE SQL BOLEENNE
+
 http://developpeur.journaldunet.com/tutoriel/out/051006-mysql-recherche-fulltext-booleenne.shtml
 
 SELECT * FROM cuisine WHERE MATCH(ingredients, recette, plat) AGAINST ('>lapin <civet ~rabbit') IN BOOLEAN MODE;
@@ -215,14 +246,15 @@ mot* Le mot commence par...
 
 --------------------------------------------------------------------------------------------------------
 
-RECHERCHE APPROXIMATIVES
+// RECHERCHE APPROXIMATIVES
+
 Pour utiliser LIKE, il nous faut transformer le mot-clé "exemple" en "%e%x%e%m%p%l%e%":
 
 function approx($rech) {
-for ($i = 0; $i < strlen($rech); $i++) {
-$tableau[]=$rech[$i];
-}
-return implode("%", $tableau);
+    for ($i = 0; $i < strlen($rech); $i++) {
+        $tableau[]=$rech[$i];
+    }
+    return implode("%", $tableau);
 }
 
 $sql_req = "SELECT * FROM dictionnaire WHERE mot LIKE ";
@@ -239,21 +271,22 @@ $requetesql = "SELECT mot FROM table WHERE champ REGEXP '$recherche';");
 
 MYSQL TO XML
 function parseQuery($requete) {
-$i=1;
-$str = "<?xml version='1.0' encoding='UTF-8'?><result_xml>";
-$result = mysql_query($requete) or die('Erreur SQL !<br>'.$this->s_query.'<br>'.mysql_error());
-if ($n_result) {
-while($data = mysql_fetch_object($result)) {
-$str .= "<result_".$i.">\n";
-foreach($data as $ident=>$valeur) {
-$str.="<".$ident.">".utf8_encode($valeur)."</".$ident. ">\n";
-}
-$str .="</result_".$i.">\n";
-$i++;
-}
-}
-$str.="</result_xml>";
-echo $str;
+    $i=1;
+    $str = '<?xml version="1.0" encoding="UTF-8"?>
+    $str .= '<result_xml>';
+    $result = mysql_query($requete) or die('Erreur SQL !<br>'.$this->s_query.'<br>'.mysql_error());
+    if ($result) {
+        while($data = mysql_fetch_object($result)) {
+            $str .= "<result_".$i.">\n";
+            foreach($data as $ident=>$valeur) {
+                $str.="<".$ident.">".utf8_encode($valeur)."</".$ident. ">\n";
+            }
+            $str .="</result_".$i.">\n";
+            $i++;
+        }
+    }
+    $str.="</result_xml>";
+    echo $str;
 }
 
 --------------------------------------------------------------------------------------------------------
@@ -285,7 +318,6 @@ PRIMARY KEY (ref_id)
 
 salary DECIMAL(5,2)
 In this example, 5 is the precision and 2 is the scale. The precision represents the number of significant decimal digits that will be stored for values, and the scale represents the number of digits that will be stored following the decimal point.
-
 
 
 TINYINT[(M)] [UNSIGNED] [ZEROFILL]
