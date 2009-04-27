@@ -136,21 +136,36 @@ mysql> INSERT INTO table_name VALUES ('MyName', 'MyOwner', '2002-08-31');
 
 // MYSQL TO PHP
 
-mysql_pconnect($this->server, $this->user, $this->password);
-mysql_select_db($this->dbname);
-mysql_query($query, $this->db_connect_id);
-mysql_num_rows($query_id);
 mysql_affected_rows($this->db_connect_id)
-mysql_num_fields($query_id);
+mysql_close
+mysql_connect($this->server, $this->user, $this->password);
+mysql_data_seek
+mysql_db_name
+mysql_errno
+mysql_error
+mysql_fetch_array
+mysql_fetch_assoc
+mysql_fetch_field
+mysql_fetch_lengths
+mysql_fetch_object
+mysql_fetch_row
+mysql_field_flags
+mysql_field_len
 mysql_field_name($query_id, $offset);
-mysql_field_type($query_id, $offset);
-mysql_fetch_array($query_id);
-mysql_data_seek($query_id, $rownum);
-mysql_error($this->db_connect_id);
-mysql_errno($this->db_connect_id);
-$nextid = @mysql_insert_id($this->db_connect_id);
+mysql_field_seek
+mysql_field_table
+mysql_field_type
 mysql_free_result($query_id);
-mysql_close($this->db_connect_id);
+mysql_insert_id
+mysql_list_dbs
+mysql_list_processes
+mysql_list_tables
+mysql_num_fields($query_id);
+mysql_num_rows($query_id);
+mysql_pconnect
+mysql_query($query, $this->db_connect_id);
+mysql_real_escape_string
+mysql_select_db($this->dbname);
 
 --------------------------------------------------------------------------------------------------------
 
