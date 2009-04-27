@@ -9,6 +9,8 @@ http://dev.mysql.com/doc/refman/5.0/fr/index.html
 
 http://dev.mysql.com/doc/refman/5.0/fr/string-functions.html
 
+{{{
+
 --------------------------------------------------------------------------------------------------------
 
 // OPERATORS
@@ -408,3 +410,5 @@ ENUM('value1','value2',...)
 An enumeration. A string object that can have only one value, chosen from the list of values 'value1', 'value2', ..., NULL or the special "" error value. An ENUM can have a maximum of 65535 distinct values. See section 6.2.3.3 The ENUM Type <ENUM.html>.
 SET('value1','value2',...)
 A set. A string object that can have zero or more values, each of which must be chosen from the list of values 'value1', 'value2', ... A SET can have a maximum of 64 members. See section 6.2.3.4 The SET Type <SET.html>.
+
+}}}
