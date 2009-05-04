@@ -57,6 +57,27 @@ var frameColor:uint = getStyle("frameColor");
 image.setStyle("verticalAlign", "middle");
 
 // ------------------------------------------------------------------------- //
+
+private function loadImages():void {
+	var context:LoaderContext = new LoaderContext();
+	context.checkPolicyFile = true;
+	for (var key:String in IMAGES) {
+		var image:URLRequest = new URLRequest(IMAGES[key]['src']);
+		var conteneurImage:Loader = new Loader();
+		conteneurImage.addEventListener(Event.COMPLETE, addImageHandler); 
+		conteneurImage.contentLoaderInfo.addEventListener(Event.COMPLETE, loadImagesHandler);
+		conteneurImage.load(image, context);
+	}
+}
+
+private function loadImagesHandler(event:Event):void {
+	var loader:Loader = Loader(event.target.loader);
+	var image:Bitmap = Bitmap(loader.content);
+	image.smoothing = true;
+	addChild(image);
+}
+
+// ------------------------------------------------------------------------- //
 // Auto-Closing for Dev
 
 <mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" 
