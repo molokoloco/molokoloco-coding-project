@@ -97,6 +97,23 @@ image.filters = [shadow];
 
 // ------------------------------------------------------------------------- //
 
+import flash.utils.*;
+import flash.events.*;
+import flash.ui.Keyboard;
+
+function startListenKey():void {
+	addEventListener(KeyboardEvent.KEY_DOWN, listenKeyBoard, false, 0, true);
+}
+
+function listenKeyBoard(event:KeyboardEvent):void {
+	if (_currentCarousel == null) return;
+	if (event.keyCode == Keyboard.ENTER) makeAction();
+	else if (event.keyCode == Keyboard.LEFT) _currentCarousel.moveLeft();
+	else if (event.keyCode == Keyboard.RIGHT) _currentCarousel.moveRight();
+}
+
+// ------------------------------------------------------------------------- //
+
 import mx.collections.ArrayCollection;
 import mx.rpc.events.ResultEvent;
 import mx.rpc.http.HTTPService;
