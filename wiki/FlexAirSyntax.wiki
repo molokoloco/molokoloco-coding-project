@@ -99,6 +99,23 @@ function onProgressHandler(mProgress:ProgressEvent) {
 }
 
 // ------------------------------------------------------------------------- //
+
+var url:String = 'stb.php?action=validClient&openid='+escape(itemsId[itemSelected].id_txt.text);
+var chargeur:URLLoader = new URLLoader();
+var adresseFichier:URLRequest = new URLRequest(url);
+
+function chargementTermine(evt:Event) {
+	var xmlData:XML = new XML((evt.target as URLLoader).data);
+	if (xmlData != null && xmlData.client[0] != null) {
+		clientId = int(xmlData.client[0].id.toString());
+		nettoyer();
+	}
+	else showAlert("Veuillez verifier votre code PIN");
+}
+chargeur.addEventListener(Event.COMPLETE, chargementTermine);
+chargeur.load(adresseFichier);
+
+// ------------------------------------------------------------------------- //
 // Auto-Closing for Dev
 
 <mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" 
