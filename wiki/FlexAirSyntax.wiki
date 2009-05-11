@@ -1,7 +1,7 @@
 #summary Personnal tooltips for Flex and Air RIA
 #labels Tooltips
 
-= FLEX - AIR (Actionscript 3 : AS3) =
+= FLASH, FLEX, AIR et AS3 =
 
 {{{
 
@@ -228,6 +228,21 @@ private function listenKeyBoard(event:KeyboardEvent):void
 	else if (event.keyCode == Keyboard.RIGHT) showNext();
 	else if (event.keyCode == Keyboard.ENTER) loadUrl();
 }
+
+// ------------------------------------------------------------------------- //
+
+<mx:Script>
+<![CDATA[
+	private function showLinks(event:Event):void  {
+		var dom:JavaScriptObject = event.currentTarget.javaScriptDocument;
+		var links:Object = dom.getElementsByTagName("a");
+		for(var i:Number = 0; i < links.length; i++) {
+			trace(links[i].getAttribute("href"));
+		}
+	}
+]]>
+</mx:Script>
+<mx:HTML id="html" x="10" y="10" width="824" height="497" complete="showLinks(event);"/>  
 
 // ------------------------------------------------------------------------- //
 
