@@ -105,6 +105,14 @@ $(document.body).click(function () {
 
 // --------------------------------------------------------------- //
 
+$('#browser').html( 'You are using the browser: ' + $.browser.browser() );
+$.browser.version.string();
+$.browser.version.number();
+$.browser.OS();
+var firefox = $.browser.firefox();
+
+// --------------------------------------------------------------- //
+
 jQuery.isArray( obj )   //  Returns: Boolean // Added in jQuery 1.3 Determine if the parameter passed is an array.
 jQuery.isFunction( obj )   //  Returns: Boolean // Determine if the parameter passed is a Javascript function object.
 jQuery.trim( str )
