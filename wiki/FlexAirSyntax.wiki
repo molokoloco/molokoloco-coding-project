@@ -57,6 +57,18 @@ var frameColor:uint = getStyle("frameColor");
 image.setStyle("verticalAlign", "middle");
 
 // ------------------------------------------------------------------------- //
+itemsId[key] = new openID_mc();
+addChild(itemsId[key]);
+itemsId[key].stockID = key;
+itemsId[key].mouseChildren = false;
+itemsId[key].addEventListener(MouseEvent.CLICK, itemClicked);
+
+function itemClicked(e:MouseEvent):void {
+	itemSelected = e.currentTarget.stockID;
+	idSetSelected();
+}
+
+// ------------------------------------------------------------------------- //
 
 private function loadImages():void {
 	var context:LoaderContext = new LoaderContext();
