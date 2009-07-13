@@ -751,6 +751,21 @@ callDistantPage();
 
 // ------------------------------------------------------------------------- //
 
+import mx.managers.CursorManagerPriority;
+import mx.managers.CursorManager;
+
+[Embed("/cursors/cc.png")]
+private var customCursor:Class;
+
+private function showCursor():void{
+	CursorManager.setCursor(customCursor, CursorManagerPriority.HIGH, 3, 2);
+}
+private function removeCursor():void {
+	CursorManager.removeAllCursors();
+}
+
+// ------------------------------------------------------------------------- //
+
 var doc:Object = html.htmlLoader.window.document;
 parsedSource.text = html.htmlLoader.window.document.documentElement.innerHTML;
 var scriptElement:Object = doc.createElement("script");
