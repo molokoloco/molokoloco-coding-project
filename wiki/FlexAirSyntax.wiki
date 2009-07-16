@@ -191,6 +191,26 @@ private function resultHandler(event:ResultEvent):void
 	}
 }
 
+
+
+// ------------------------------------------------------------------------- //
+
+function eventoMator(e:*) { // NO ERROR WHATEVER HAPPEN
+	trace(e.toString());
+}
+
+var chargeur:URLLoader = new URLLoader();
+var adresseFichier:URLRequest = new URLRequest(thisUrl);
+
+chargeur.addEventListener(Event.COMPLETE, eventoMator);
+chargeur.addEventListener(Event.OPEN, eventoMator);
+chargeur.addEventListener(ProgressEvent.PROGRESS, eventoMator);
+chargeur.addEventListener(SecurityErrorEvent.SECURITY_ERROR, eventoMator);
+chargeur.addEventListener(HTTPStatusEvent.HTTP_STATUS, eventoMator);
+chargeur.addEventListener(IOErrorEvent.IO_ERROR, eventoMator);
+
+chargeur.load(adresseFichier);
+
 // ------------------------------------------------------------------------- //
 
 import flash.html.HTMLLoader;
