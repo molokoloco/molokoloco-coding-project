@@ -1,0 +1,10 @@
+#summary Let's test some android "hello world"
+#labels Tooltips
+
+= Eclipse =
+
+http://developer.android.com/guide/tutorials/hello-world.html
+
+Ctrl-Shift-O (Cmd-Shift-O, on Mac). This is an Eclipse shortcut that identifies missing packages based on your code and adds them for you
+
+= Android SDK =
