@@ -6,6 +6,7 @@ http://developer.android.com/guide/tutorials/hello-world.html
 = Eclipse =
 
 http://www.eclipse.org/downloads/
+
 http://developer.android.com/intl/fr/guide/developing/eclipse-adt.html
 
 Ctrl-Shift-O (Cmd-Shift-O, on Mac). This is an Eclipse shortcut that identifies missing packages based on your code and adds them for you
