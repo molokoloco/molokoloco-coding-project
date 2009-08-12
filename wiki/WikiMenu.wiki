@@ -22,6 +22,7 @@
     * [mySQLSyntax mySQL tooltips]
     * [RegexSyntax REGEXP tooltips]
     * [CSSSyntax CSS tooltips]
+    * [Android Android tooltips]
   * *Documentation*
     * [HowToVirtualAdmin Virtual Admin HowTo]
     * [GoogleHack Go_Ogle]
