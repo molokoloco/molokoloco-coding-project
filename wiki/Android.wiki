@@ -9,6 +9,8 @@ Ctrl-Shift-O (Cmd-Shift-O, on Mac). This is an Eclipse shortcut that identifies 
 
 = Android SDK example =
 
+http://senior.ceng.metu.edu.tr/2009/praeda/2009/01/11/a-simple-restful-client-at-android/
+
 http://developerlife.com/tutorials/?p=369
 
 {{{
