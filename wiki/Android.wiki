@@ -183,3 +183,34 @@ public void onCreate(Bundle icicle) {
 }
 
 }}}
+
+
+
+AndroidManifest.xml
+
+<activity android:name=".MyThemeTest" android:label="@string/app_name" android:theme="@style/Theme.MyTheme">
+
+res/values/styles.xml
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="Theme" parent="android:Theme"></style>
+<style name="Theme.MyTheme">
+    <item name="android:windowBackground">@drawable/blue_filled_box</item>
+</style>
+</resources>
+}}}
+
+res/drawable/blue_filled_box.xml
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#0000FF"/>
+    <stroke android:width="3dp" color="0000FF80"/>
+    <corners android:radius="3dp"/>
+    <padding android:left="10dp" android:top="10dp"
+        android:right="10dp" android:bottom="10dp" />
+</shape>
+}}}
