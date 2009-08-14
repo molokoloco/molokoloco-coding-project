@@ -184,11 +184,13 @@ public void onCreate(Bundle icicle) {
 
 }}}
 
-
+== Style & drawable ==
 
 AndroidManifest.xml
 
+{{{
 <activity android:name=".MyThemeTest" android:label="@string/app_name" android:theme="@style/Theme.MyTheme">
+}}}
 
 res/values/styles.xml
 
