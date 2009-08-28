@@ -1,3 +1,4 @@
+#labels Featured
 #sidebar TableOfContents
 
   * *Class et fonctions*
@@ -24,6 +25,7 @@
     * [CSSSyntax CSS tooltips]
     * [Android Android tooltips]
     * [AndroidRest Android RESTfull]
+    * [AndroidMarket Android Appz]
   * *Documentation*
     * [HowToVirtualAdmin Virtual Admin HowTo]
     * [GoogleHack Go_Ogle]
