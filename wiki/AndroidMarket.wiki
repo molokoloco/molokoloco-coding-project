@@ -13,7 +13,7 @@ Testé sur mon HTC Magic G2 (merci la sphère ;)<br>
 <br>
 <h2>GOOGLESQUE</h2>
 <ul>
-	<li><b><font color="red">Maps</font></b> : On ne présente plus, mais un peu trop léger dans les fonctions à mongoût. Latitude, qui est intégré peut rendre paranoïde, voyeur, ou lesdeux....&nbsp;&nbsp; tous vos amis se transforment en punaise ou en avatar sur la carte... n'est ce pas les gars du labo ;p</li>
+	<li><b><font color="red">Maps</font></b> : On ne présente plus, mais un peu trop léger dans les fonctions à mongoût. Latitude, qui est intégré peut rendre paranoïde, voyeur, ou lesdeux.... tous vos amis se transforment en punaise ou en avatar sur la carte... n'est ce pas les gars du labo ;p</li>
 	<li><b><font color="red">My Tracks</font></b> : Big brother... suis moi partout et upload mon tracé sur google map (publique) avec toutes les stats o_O</li>
 	<li><b><font color="red">Places Directory</font></b> : Liste des points d'intérêts autour de votre coordonnée géographique</li>
 	<li><b><font color="red">Sky Map</font></b> : Epate tout le monde en montrant le ciel étoilés a travers l'objectif de ton téléphone</li>
@@ -26,7 +26,7 @@ Testé sur mon HTC Magic G2 (merci la sphère ;)<br>
 <h2>ANDROIDI</h2>
 <ul>
 	<li><b>Appeler</b> : Allo ?</li>
-	<li><b>Contact</b> : &nbsp; Oui c'est qui ?</li>
+	<li><b>Contact</b> :  Oui c'est qui ?</li>
 	<li><b>Musique</b> : Play/Pause</li>
 	<li><b>Galerie</b> : Scan les images et les videos de tout l'appareil</li>
 	<li><b>Navigateur</b> : Standard bien, sans fioritures...</li>
