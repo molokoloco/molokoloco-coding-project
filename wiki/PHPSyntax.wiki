@@ -9,6 +9,15 @@ Certaines fonctions ci-dessous sont reprises (proprement ;) dans le [http://code
 
 --------------------------------------------------------------------------------------------------------
 
+//It wasn't easy to find this beautiful example how to start a process under Windows without waiting for its termination:
+
+<?php
+$commandString = 'start /b c:\\programToRun.exe -attachment "c:\\temp\file1.txt"';
+pclose(popen($commandString, 'r'));
+?>
+
+--------------------------------------------------------------------------------------------------------
+
 WITH CACHE FOR PAGE
 
 # 'Expires' in the past
