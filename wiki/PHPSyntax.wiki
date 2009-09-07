@@ -16,6 +16,18 @@ $commandString = 'start /b c:\\programToRun.exe -attachment "c:\\temp\file1.txt"
 pclose(popen($commandString, 'r'));
 ?>
 
+// Here is a nice little script for monitoring your http access log.
+<?php
+$handle = popen("tail -f /etc/httpd/logs/access.log 2>&1", 'r');
+while(!feof($handle)) {
+    $buffer = fgets($handle);
+    echo "$buffer<br/>\n";
+    ob_flush();
+    flush();
+}
+pclose($handle);
+?>
+
 --------------------------------------------------------------------------------------------------------
 
 WITH CACHE FOR PAGE
