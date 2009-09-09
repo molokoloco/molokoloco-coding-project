@@ -53,6 +53,46 @@ header("Cache-Control: max-age=315360000");
 
 
 --------------------------------------------------------------------------------------------------------
+/*
+<tv>
+	<channel id="TMC1.kazer.org">
+		<display-name>TMC</display-name>
+	</channel>
+	...
+	...
+</tv>
+*/
+
+@set_time_limit(999);
+
+$i = 0;
+$xml = new XMLReader();
+$xml->open($file_xml);
+while($xml->read()){
+	if ($xml->nodeType == XMLREADER::ELEMENT && $xml->localName == 'channel') {
+
+		// Extract XML value 
+		if ($xml->hasAttributes) {
+			while($xml->moveToNextAttribute()) {
+				switch($xml->name) {
+					case 'id' : $channelId = $xml->value; break;
+				}
+			}
+		}
+		
+		$channel = new SimpleXMLElement('<channel>'.$xml->readInnerXML().'</channel>');
+		$name = 'display-name';
+		$title = utf8_decode($channel->$name);
+
+		/* DO what you have to do */
+		
+		$i++;
+		if ($i % 100 == 0) flush();
+	}
+}
+$xml->close();
+
+--------------------------------------------------------------------------------------------------------
 
 
 $nom_fichier = '_colonnes.php';
