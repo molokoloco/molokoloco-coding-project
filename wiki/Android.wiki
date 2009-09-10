@@ -13,6 +13,20 @@ Ctrl-Shift-O (Cmd-Shift-O, on Mac). This is an Eclipse shortcut that identifies 
 
 = Android SDK example =
 
+Notification
+
+{{{
+Button button = (Button) findViewById(R.id.short_notify);
+button.setOnClickListener(new Button.OnClickListener() {
+    public void onClick(View v) {
+        // Note also that we use the version of makeText that takes a resource id (R.string.short_notification_text).  There is also
+        // a version that takes a CharSequence if you must construct the text yourself.
+        Toast.makeText(NotifyWithText.this, R.string.short_notification_text,
+            Toast.LENGTH_SHORT).show();
+    }
+});
+}}}
+
 http://senior.ceng.metu.edu.tr/2009/praeda/2009/01/11/a-simple-restful-client-at-android/
 
 {{{
@@ -216,3 +230,5 @@ res/drawable/blue_filled_box.xml
         android:right="10dp" android:bottom="10dp" />
 </shape>
 }}}
+
+public void printAlert(String message) {  
