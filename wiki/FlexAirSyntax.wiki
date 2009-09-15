@@ -8,14 +8,15 @@
 // ------------------------------------------------------------------------- //
 // FlashDevelop
 /*
-    ctrl + Q »» Commentaire
-    ctrl + shift + 1 »» passer une variable en variable membre
-    ctrl + shift + espace =» infobulle arguments
-    ctrl + B =» SNIPPETS !!!!!
-    crtl + T »» Intervertir ligne
-    F4 »» définition du mot cliqué (héritage/super class...)
+	* Escape: Close the completion list and method call-tip (or press Ctrl key to hide them).
+	* F1: when you see "..." in a (yellow) tip, you can press F1 to see a more detailed tip.
+	* F4: go to declaration of element at cursor location.
+	* Shift+F4: jump back after F4 or code generation.
+	* Ctrl+Space: contextual completion list - also, press Tab to expand snippets like 'for', 'while', etc.
+	* Ctrl+Shift+Space: method call-tip (the yellow window with current method's signature)
+	* Ctrl+Alt+Space: list all project classes (as after ':' or keywords like "new")
+	* Ctrl+Shift+1: contextual code generation
 */
-
 // ------------------------------------------------------------------------- //
 
 // Add Class Path to get DATAPROVIDER
