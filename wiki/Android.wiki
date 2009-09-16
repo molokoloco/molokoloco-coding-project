@@ -131,5 +131,88 @@ res/drawable/blue_filled_box.xml
         android:right="10dp" android:bottom="10dp" />
 </shape>
 }}}
+Capture WebView as Bitmap
 
-public void printAlert(String message) {  
+{{{
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    w = new WebView(this);
+    w.setWebViewClient(new WebViewClient() {
+        public void onPageFinished(WebView webview, String url) {
+            Picture picture = webview.capturePicture();
+
+            Log.d("Height", "" + picture.getHeight());
+            Log.d("Width", "" + picture.getWidth());
+            Bitmap b = Bitmap.createBitmap(picture.getWidth(), picture
+                    .getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas c = new Canvas(b);
+            picture.draw(c);
+        }
+    });
+
+    w.getSettings().setJavaScriptEnabled(true);
+
+    setContentView(w);
+
+    //w.loadUrl("http://www.yahoo.com"); //yes
+    //w.loadUrl("http://search.yahoo.com/search?p=android"); // usually not???
+    //w.loadUrl("http://www.yahoo.com?foo=bar"); // nope
+    //w.loadUrl("http://www.google.com"); // yep
+    //w.loadUrl("http://www.google.com?q=android"); // yep
+    //w.loadUrl("http://www.google.com?foo=bar"); // yes
+}
+}}}
+
+Video Progressive Download
+
+{{{
+
+import android.app.Activity;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.SurfaceHolder;
+import android.view.View;
+import android.widget.*;
+
+public class playerActivity extends Activity 
+{
+Button b;
+VideoView preview;
+SurfaceHolder holder;
+MediaPlayer mp;
+
+ private String path = "/data/data/payoda.android/funny.mp4";
+
+//private String path = "http://www.daily3gp.com/vids/3.3gp";
+
+public void onCreate(Bundle savedInstanceState) 
+{
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        preview=(VideoView)findViewById(R.id.surface);
+        holder=preview.getHolder();
+        b=(Button)findViewById(R.id.cmd_play);
+        b.setOnClickListener(new View.OnClickListener()
+        {
+        public void onClick(View v)
+        {
+                try
+                {
+                        mp=new MediaPlayer(); 
+                    mp.setDataSource(path);
+                    mp.setScreenOnWhilePlaying(true);
+                    mp.setDisplay(holder);
+                    mp.prepare();
+                    mp.start();
+                }
+                catch(Exception e)
+                {
+
+                }
+        }
+        });
+}
+}
+
+}}}
