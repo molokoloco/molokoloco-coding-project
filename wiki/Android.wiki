@@ -131,38 +131,6 @@ res/drawable/blue_filled_box.xml
         android:right="10dp" android:bottom="10dp" />
 </shape>
 }}}
-Capture WebView as Bitmap
-
-{{{
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    w = new WebView(this);
-    w.setWebViewClient(new WebViewClient() {
-        public void onPageFinished(WebView webview, String url) {
-            Picture picture = webview.capturePicture();
-
-            Log.d("Height", "" + picture.getHeight());
-            Log.d("Width", "" + picture.getWidth());
-            Bitmap b = Bitmap.createBitmap(picture.getWidth(), picture
-                    .getHeight(), Bitmap.Config.ARGB_8888);
-            Canvas c = new Canvas(b);
-            picture.draw(c);
-        }
-    });
-
-    w.getSettings().setJavaScriptEnabled(true);
-
-    setContentView(w);
-
-    //w.loadUrl("http://www.yahoo.com"); //yes
-    //w.loadUrl("http://search.yahoo.com/search?p=android"); // usually not???
-    //w.loadUrl("http://www.yahoo.com?foo=bar"); // nope
-    //w.loadUrl("http://www.google.com"); // yep
-    //w.loadUrl("http://www.google.com?q=android"); // yep
-    //w.loadUrl("http://www.google.com?foo=bar"); // yes
-}
-}}}
 
 Video Progressive Download
 
