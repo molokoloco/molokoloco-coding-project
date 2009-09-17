@@ -216,3 +216,30 @@ public void onCreate(Bundle savedInstanceState)
 }
 
 }}}
+
+WEBVIEW CAPTURE TO BITMAP
+
+{{{
+public void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+
+	WebView w = new WebView(this);
+	w.getSettings().setJavaScriptEnabled(true);
+	w.setWebViewClient(new WebViewClient() {
+		public void onPageFinished(WebView webview, String url) {
+			Picture picture = webview.capturePicture();
+			Bitmap b = Bitmap.createBitmap(picture.getWidth(), picture.getHeight(), Bitmap.Config.ARGB_8888);
+			Canvas c = new Canvas(b);
+			picture.draw(c);
+		}
+	});
+
+	setContentView(w);
+
+	w.loadUrl("http://www.yahoo.com"); // yes
+	// w.loadUrl("http://search.yahoo.com/search?p=android"); // usually not???
+	// w.loadUrl("http://www.yahoo.com?foo=bar"); // nope
+	// w.loadUrl("http://www.google.com"); // yep
+	// w.loadUrl("http://www.google.com?q=android"); // yep
+}
+}}}
