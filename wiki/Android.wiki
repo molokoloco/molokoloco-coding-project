@@ -225,3 +225,14 @@ public void onCreate(Bundle savedInstanceState) {
 	// w.loadUrl("http://www.google.com?q=android"); // yep
 }
 }}}
+
+Send custom SMS
+
+{{{
+
+Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+sendIntent.putExtra("sms_body", titre); // address=0139154205
+sendIntent.setType("vnd.android-dir/mms-sms"); 
+startActivity(sendIntent);
+
+}}}
