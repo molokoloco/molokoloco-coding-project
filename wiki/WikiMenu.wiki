@@ -2,8 +2,8 @@
 #sidebar TableOfContents
 
   * *Class et fonctions*
-    * [PHPSample PHP class File]
-    * [mySqlPhpClass PHP class mySQL]
+    * *[PHPSample PHP class File]*
+    * *[mySqlPhpClass PHP class mySQL]*
     * [javascriptAccordeonClass JS Accordéon]
     * [importCsvToSQL PHP csv2mysql]
     * [JavascriptWindowOpenExtended JS Window Ext]
@@ -16,12 +16,12 @@
     * [PHPSyntax PHP tooltips]
     * [JavascriptBase JS tooltips]
     * [PrototypeSyntax JS Prototype]
-    * [JavascriptJquery JS JQuery]
+    * *[JavascriptJquery JS JQuery]*
     * [FlexAirSyntax AS3/FLEX tooltips]
     * [HtAccess HTaccess (Apache)]
-    * [LinuxCmdShell Linux tooltips]
-    * [mySQLSyntax mySQL tooltips]
-    * [RegexSyntax REGEXP tooltips]
+    * *[LinuxCmdShell Linux tooltips]*
+    * *[mySQLSyntax mySQL tooltips]*
+    * *[RegexSyntax REGEXP tooltips]*
     * [CSSSyntax CSS tooltips]
     * [Android Android tooltips]
     * [AndroidRest Android RESTfull]
@@ -29,4 +29,4 @@
     * [AndroidMarket Android Appz]
     * [HowToVirtualAdmin Virtual Admin HowTo]
     * [TwittEr Twitter tooltips]
-    * [GoogleHack Go_Ogle]
+    * *[GoogleHack Go_Ogle]*
