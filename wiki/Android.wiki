@@ -289,3 +289,39 @@ public void onClick(View v) {
 }
 
 }}}
+
+DO IT IN BACKGROUND
+http://developerlife.com/tutorials/?p=290
+
+{{{
+blic void execute(NetworkActivity activity) {
+
+  _activity = activity;
+
+  uid = activity.ttfUserid.getText().toString();
+  pwd = activity.ttfPassword.getText().toString();
+
+  // allows non-"edt" thread to be re-inserted into the "edt" queue
+  final Handler uiThreadCallback = new Handler();
+
+  // performs rendering in the "edt" thread, after background operation is complete
+  final Runnable runInUIThread = new Runnable() {
+    public void run() {
+      _showInUI(); // UI TREAT
+    }
+  };
+
+  new Thread() {
+    @Override public void run() {
+      _doInBackgroundPost();  // PROCESS TREAT
+      uiThreadCallback.post(runInUIThread);
+    }
+  }.start();
+
+  Toast.makeText(_activity,
+                 "Getting data from servlet",
+                 Toast.LENGTH_LONG).show();
+
+}
+
+}}}
