@@ -248,3 +248,15 @@ sendIntent.setType("message/rfc822");
 startActivity(Intent.createChooser(sendIntent, "Choisir votre client email :"));
 
 }}}
+
+No killing me but..
+
+{{{
+
+android.os.Process.killProcess(android.os.Process.myPid())  
+System.exit(0);
+ActivityManager.restartPackage(packageName);
+
+<activity android:clearTaskOnLaunch="true" ... >
+
+}}}
