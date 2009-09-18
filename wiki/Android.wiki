@@ -294,7 +294,7 @@ DO IT IN BACKGROUND
 http://developerlife.com/tutorials/?p=290
 
 {{{
-blic void execute(NetworkActivity activity) {
+public void execute(NetworkActivity activity) {
 
   _activity = activity;
 
