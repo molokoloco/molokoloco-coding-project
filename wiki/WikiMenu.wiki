@@ -27,6 +27,6 @@
     * [AndroidRest Android RESTfull]*
     * [AndroidJsonList Android Json List]
     * [AndroidMarket Android Appz]
-  * *Documentation*
     * [HowToVirtualAdmin Virtual Admin HowTo]
+    * [TwittEr Twitter tooltips]
     * [GoogleHack Go_Ogle]
