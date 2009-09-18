@@ -226,7 +226,7 @@ public void onCreate(Bundle savedInstanceState) {
 }
 }}}
 
-Send custom SMS
+Call SMS
 
 {{{
 
@@ -234,5 +234,17 @@ Intent sendIntent = new Intent(Intent.ACTION_VIEW);
 sendIntent.putExtra("sms_body", titre); // address=0139154205
 sendIntent.setType("vnd.android-dir/mms-sms"); 
 startActivity(sendIntent);
+
+}}}
+
+Call Email
+
+{{{
+
+Intent sendIntent = new Intent(Intent.ACTION_SEND);
+sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Je te recommande une emission");
+sendIntent.putExtra(Intent.EXTRA_TEXT, emailTexte);
+sendIntent.setType("message/rfc822");
+startActivity(Intent.createChooser(sendIntent, "Choisir votre client email :"));
 
 }}}
