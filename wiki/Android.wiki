@@ -27,7 +27,7 @@ http://code.google.com/p/apps-for-android
 
 = Android SDK example =
 
-Notification
+NOTIFICATION
 
 {{{
 Button button = (Button) findViewById(R.id.short_notify);
@@ -41,7 +41,7 @@ button.setOnClickListener(new Button.OnClickListener() {
 });
 }}}
 
-Android UNITS
+UNITES
 
 {{{
 px
@@ -62,7 +62,7 @@ sp
 http://blog.pocketjourney.com/2008/04/04/tutorial-custom-media-streaming-for-androids-mediaplayer/
 
 {{{
-Media Player
+MEDIA PLAYER
 }}}
 
 http://developerlife.com/tutorials/?p=369
@@ -113,7 +113,7 @@ public void onCreate(Bundle icicle) {
 
 }}}
 
-== Style & drawable ==
+== STYLE & DRAWABLE ==
 
 AndroidManifest.xml
 
@@ -146,7 +146,7 @@ res/drawable/blue_filled_box.xml
 </shape>
 }}}
 
-Video Progressive Download
+VIDEO STREAM
 
 {{{
 
@@ -226,7 +226,7 @@ public void onCreate(Bundle savedInstanceState) {
 }
 }}}
 
-Call SMS
+CALL SMS
 
 {{{
 
@@ -237,7 +237,7 @@ startActivity(sendIntent);
 
 }}}
 
-Call Email
+CALL Email
 
 {{{
 
@@ -249,7 +249,7 @@ startActivity(Intent.createChooser(sendIntent, "Choisir votre client email :"));
 
 }}}
 
-No killing me but..
+KILLER APP
 
 {{{
 
@@ -272,6 +272,7 @@ Toast.makeText(myApp, "Vous pouvez coller les infos de l'émission (long clic + 
 }}}
 
 SIMPLE ANIMATION
+
 {{{
 
 @Override
