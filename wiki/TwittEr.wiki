@@ -1,0 +1,35 @@
+#summary Twitter
+#labels Tooltips
+
+= Some command line =
+
+    * @username + message
+      directs a twitter at another person, and causes your twitter to save in their "replies" tab.
+      Example: @meangrape I love that song too!
+
+    * D username + message
+      sends a person a private message that goes to their device, and saves in their web archive.
+      Example: d krissy want to pick a Jamba Juice for me while you're there?
+
+    * WHOIS username
+      retrieves the profile information for any public user on Twitter.
+      Example: whois jack
+
+    * GET username
+      retrieves the latest Twitter update posted by the person.
+      Example: get goldman
+
+    * NUDGE username
+      reminds a friend to update by asking what they're doing on your behalf.
+      Example: nudge biz
+
+    * FAV username
+      marks a person's last twitter as a favorite. (hint: reply to any update with FAV to mark it as a favorite if you're receiving it in real time)
+      Example: fav al3x 
+
+    * STATS
+      this command returns your number of followers, how many people you're following, and your bio information.
+
+    * INVITE phone number
+      will send an SMS invite to a friend's mobile phone.
+      Example: Invite 415 555 1212
