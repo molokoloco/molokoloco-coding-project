@@ -24,7 +24,7 @@
     * [RegexSyntax REGEXP tooltips]
     * [CSSSyntax CSS tooltips]
     * [Android Android tooltips]
-    * [AndroidRest Android RESTfull]*
+    * [AndroidRest Android RESTfull]
     * [AndroidJsonList Android Json List]
     * [AndroidMarket Android Appz]
     * [HowToVirtualAdmin Virtual Admin HowTo]
