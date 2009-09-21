@@ -5,12 +5,11 @@
     * *[PHPSample PHP class File]*
     * *[mySqlPhpClass PHP class mySQL]*
     * [javascriptAccordeonClass JS Accordéon]
-    * [importCsvToSQL PHP csv2mysql]
     * [JavascriptWindowOpenExtended JS Window Ext]
     * [PHPJavascriptDiaporama PHP/JS Slideshow]
     * [DocGenerator PHP export .doc]
     * [RSSGeneratorSample PHP RSS feed]
-    * [JavascriptSample JS Tools]
+    * *[JavascriptSample JS Tools]*
     * [TinyMce_PHP PHP Rich Editor]
   * *Personal Tips*
     * [PHPSyntax PHP tooltips]
