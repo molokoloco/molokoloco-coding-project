@@ -216,7 +216,7 @@ http://maps.google.com/ig/directory?synd=mpl&pid=mpl&backlink=http%3A%2F%2Fmaps.
 Liens Abonné 
 http://www.google.com/coop/subscribedlinks/
 
-Google Mashup Editor 
+~~Google Mashup Editor~~
 http://editor.googlemashups.com/editor
 
 favicons (Image PNG, 16x16 pixels) 
@@ -518,7 +518,7 @@ The  Google Maps API for Flash allows you to add maps to Flash applications.  Ba
 
   * [http://code.google.com/intl/fr/apis/maps/documentation/flash/index.html Home] | [http://code.google.com/intl/fr/apis/maps/documentation/flash/intro.html Documentation] | [http://groups.google.com/group/google-maps-api-for-flash Group] | [http://googlegeodevelopers.blogspot.com/ Blog] | [http://code.google.com/intl/fr/apis/maps/faq.html FAQ] | [http://code.google.com/intl/fr/apis/maps/terms.html Terms]
 
-==[http://code.google.com/intl/fr/gme/ Google Mashup Editor]==
+==~~[http://code.google.com/intl/fr/gme/ Google Mashup Editor]~~==
 http://code.google.com/intl/fr/gme/
 
 Google  Mashup Editor is an AJAX development framework and a set of tools that  enable developers to quickly and easily create simple web applications  and mashups with Google services like Google Maps and Google Base.  Creating applications with Google Mashup Editor is simple, using our  declarative XML tags, JavaScript, CSS, and HTML.
