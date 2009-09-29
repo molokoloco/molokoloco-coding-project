@@ -7,15 +7,15 @@
 
   * *[http://www.google.fr/search?hl=fr&q=google yahoo OR google]* recherche booléenne (AND/OR)...
   * *[http://www.google.fr/search?hl=fr&q=%2Bwww.cplus%2Bfr +www.cplus+fr]* les pages d'un site ou liées à ce site
-  * *[http://www.google.fr/search?hl=fr&q=fire.fox fire.fox]* retournera les documents contenant les phrases : fire fox, fireAfox, fire1fox, fire-fox, etc...
-  * *[http://www.google.fr/search?hl=fr&q=~inexpensive ~inexpensive]* synonymes : matches inexpensive, cheap, affordable, and  low cost
-  * *[http://www.google.fr/search?hl=fr&q=%2Bla+femme +la femme]* ne pas ignorer le "mot vide" "la" (c++) 
-  * *[http://www.google.fr/search?hl=fr&q=%2BFRANÇAIS +FRANÇAIS]* tenir compte des accents ou autres signes diacritiques
-  * *[http://www.google.fr/search?hl=fr&q=salsa+–dance salsa –dance]* ignorer les résultat contenants "dance"
-  * *[http://www.google.fr/search?hl=fr&q=Francis+*+Coppola Francis * Coppola]* followed by one or more words
-  * *[http://www.google.fr/search?hl=fr&q=%22how+to+change+oil%22 "how to change oil"]* obviously
+  * *[http://www.google.fr/search?hl=fr&q=fire.fox fire.fox]* le "." égale tout les caractères : retournera les documents contenant les phrases : fire fox, fireAfox, fire1fox, fire-fox, etc...
+  * *[http://www.google.fr/search?hl=fr&q=~inexpensive ~inexpensive]* "~" renvois les synonymes (en anglais) : inexpensive, cheap, affordable, and  low cost
+  * *[http://www.google.fr/search?hl=fr&q=%2Bla+femme +la femme]* le "+" force la présence du mot (même court)
+  * *[http://www.google.fr/search?hl=fr&q=%2BFRANÇAIS +FRANÇAIS]* le "+" force à tenir compte des accents ou autres signes diacritiques
+  * *[http://www.google.fr/search?hl=fr&q=salsa+–dance salsa –dance]* "-" ignorer les résultat contenants "dance"
+  * *[http://www.google.fr/search?hl=fr&q=Francis+*+Coppola Francis * Coppola]* suivi par 1 ou plusieurs mots
+  * *[http://www.google.fr/search?hl=fr&q=%22how+to+change+oil%22 "how to change oil"]* "how to"... 
   * *[http://www.google.fr/search?hl=fr&q=russian%20revolution%201800..2000 russian revolution 1800..2000]* find the year the Russian Revolution took place
-  * *[http://www.google.fr/search?hl=fr&q=recumbent%20bicycle%20$250..$1000 recumbent bicycle $250..$1000]* searching in the price range $250 to $1000
+  * *[http://www.google.fr/search?hl=fr&q=blue%20bicycle%20$250..$1000 blue bicycle $250..$1000]* searching in the price range $250 to $1000
 
 ==REQUETES SPECIFIQUES==
 
