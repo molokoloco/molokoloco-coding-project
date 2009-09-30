@@ -321,10 +321,11 @@ public void execute(NetworkActivity activity) {
   Toast.makeText(_activity,
                  "Getting data from servlet",
                  Toast.LENGTH_LONG).show();
+}
 
 }}}
 
-Fetch Image by http Json Object
+FETCH IMAGE BY HTTP JSON OBJECT
 
 {{{
 
@@ -357,5 +358,19 @@ catch (IOException e) {
 }
 
 }}}
+
+TIMER
+
+{{{
+
+// WE START VIDEO AFTER 3D ROTATION
+new CountDownTimer(1000, 500) { // 1 seconde (millisecondes), 2 fois (500 millisecondes)
+	public void onTick(long millisUntilFinished) {
+		mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+	}
+	public void onFinish() {
+		//...
+	}
+}.start();
 
 }}}
