@@ -322,6 +322,40 @@ public void execute(NetworkActivity activity) {
                  "Getting data from servlet",
                  Toast.LENGTH_LONG).show();
 
+}}}
+
+Fetch Image by http Json Object
+
+{{{
+
+ Pre-load the image then start the animation
+JSONObject myCurrentEmission = null;
+try {
+	GetJsonHttp jsonObj = new GetJsonHttp(SITE_URL+"?action=current&current="+(position+1));
+
+	myCurrentEmission = jsonObj.json.toJSONArray(jsonObj.json.names()).getJSONObject(0);
+
+	URL myFileUrl = null;
+	myFileUrl = new URL(myCurrentEmission.getString("icone_emission"));
+	if (myFileUrl != null) {
+		HttpURLConnection conn = (HttpURLConnection) myFileUrl.openConnection();
+		conn.setDoInput(true);
+		conn.connect();
+		mVideoView.setImageBitmap(BitmapFactory.decodeStream(conn.getInputStream()));
+		conn.disconnect();
+	}
+	else mVideoView.setImageResource(R.drawable.accueil_intro);
 }
+catch (MalformedURLException e) {
+	Log.e(LOG_TAG, "onItemClick() There was a malformed url based error", e);
+}
+catch (JSONException e) {
+	Log.e(LOG_TAG, "getView() There was a Json parsing based error", e);  
+}
+catch (IOException e) {
+	Log.e(LOG_TAG, "getView() There was a url access to image based error", e);  
+}
+
+}}}
 
 }}}
