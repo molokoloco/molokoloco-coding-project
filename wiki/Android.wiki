@@ -374,3 +374,89 @@ new CountDownTimer(1000, 500) { // 1 seconde (millisecondes), 2 fois (500 millis
 }.start();
 
 }}}
+
+ALERTS
+
+{{{
+
+new AlertDialog.Builder(myApp)  
+	.setTitle("Information")  
+	.setMessage(message)  
+	.setPositiveButton(android.R.string.ok, null)  
+	.setCancelable(false)  
+	.create()  
+	.show(); 
+
+new AlertDialog.Builder(myApp)  
+	.setTitle("JavaScript dialog")  
+	.setMessage(message)  
+	.setPositiveButton(android.R.string.ok,  
+		new AlertDialog.OnClickListener() {  
+			public void onClick(DialogInterface dialog, int which) {  
+				result.confirm();  
+			}
+		})
+	.setCancelable(false)  
+	.create()  
+	.show();
+}}}
+
+RESIZE IMAGE
+
+{{{
+
+public static Drawable resizeImage(Context ctx, int resId, int w, int h) {
+
+	// load the original Bitmap
+	Bitmap BitmapOrg = BitmapFactory.decodeResource(ctx.getResources(), resId);
+
+	int width = BitmapOrg.getWidth();
+	int height = BitmapOrg.getHeight();
+	int newWidth = w;
+	int newHeight = h;
+
+	// calculate the scale
+	float scaleWidth = ((float) newWidth) / width;
+	float scaleHeight = ((float) newHeight) / height;
+
+	// create a matrix for the manipulation
+	Matrix matrix = new Matrix();
+	// resize the Bitmap
+	matrix.postScale(scaleWidth, scaleHeight);
+	// if you want to rotate the Bitmap
+	// matrix.postRotate(45);
+
+	// recreate the new Bitmap
+	Bitmap resizedBitmap = Bitmap.createBitmap(BitmapOrg, 0, 0, width, height, matrix, true);
+
+	// make a Drawable from Bitmap to allow to set the Bitmap
+	// to the ImageView, ImageButton or what ever
+	return new BitmapDrawable(resizedBitmap);
+}
+
+}}}
+
+CATCH ALL ERROR
+
+{{{
+
+protected void onCreate(Bundle savedInstanceState) {
+	/* ... */
+	Thread.setDefaultUncaughtExceptionHandler(onBlooey);
+}
+
+private Thread.UncaughtExceptionHandler onBlooey = new Thread.UncaughtExceptionHandler() {
+	public void uncaughtException(Thread thread, Throwable ex) {
+		Log.e(LOG_TAG, "MOONWALKER IS DOWN, BUT WITHOUT BLUESCREEN OF DEATH", ex);
+		new AlertDialog.Builder(getBaseContext())  
+			.setTitle("Information")  
+			.setMessage("MOONWALKER IS DOWN :-/")  
+			.setPositiveButton(android.R.string.ok, null)  
+			.setCancelable(false)  
+			.create()  
+			.show(); 
+		System.exit(0);
+	}
+};
+
+}}}
