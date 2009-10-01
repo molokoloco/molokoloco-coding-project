@@ -118,7 +118,7 @@ public void onCreate(Bundle icicle) {
 AndroidManifest.xml
 
 {{{
-<activity android:name=".MyThemeTest" android:label="@string/app_name" android:theme="@style/Theme.MyTheme">
+<activity android:name=".MyThemeTest" android:label="@string/app_name" android:theme="@style/MyTheme">
 }}}
 
 res/values/styles.xml
@@ -126,10 +126,15 @@ res/values/styles.xml
 {{{
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<style name="Theme" parent="android:Theme"></style>
-<style name="Theme.MyTheme">
-    <item name="android:windowBackground">@drawable/blue_filled_box</item>
-</style>
+	<style name="MyTheme" parent="android:style/Theme.Light.NoTitleBar">
+		<item name="android:windowBackground">@drawable/blue_filled_box</item>
+	</style>
+	<style name="titreList">
+		<item name="android:textSize">14px</item>
+		<item name="android:textColor">#999999</item>
+		<item name="android:background">@drawable/pattern</item>
+	</style>
+
 </resources>
 }}}
 
