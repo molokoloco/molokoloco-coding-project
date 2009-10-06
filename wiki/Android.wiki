@@ -151,6 +151,13 @@ res/drawable/blue_filled_box.xml
 </shape>
 }}}
 
+Activitie Thème
+
+{{{
+setTheme(R.style.bytelTheme);
+setTheme(android.R.style.Theme_Translucent);
+}}}
+
 VIDEO STREAM
 
 {{{
