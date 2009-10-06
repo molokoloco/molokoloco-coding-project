@@ -3,6 +3,8 @@
 
 = CSS TIPS =
 
+Ex. http://www.smashingmagazine.com/2009/10/05/mastering-css-coding-getting-started/
+
 {{{
 
 body {
@@ -10,6 +12,42 @@ body {
     marging : 1em; /* = 10px */
 }
 
+img.center {  
+ margin: 0 auto;  
+ display: block; /*--Since IMG is an inline element--*/  
+} 
+
+h1.verticalCenter {  
+ font-size: 3em;  
+ height: 100px;  
+ line-height: 100px;  
+}  
+
+.verticalHorizontalCenteredBox {  
+ width: 600px; /*--Specify Width--*/  
+ height: 300px; /*--Specify Height--*/  
+ position: absolute; /*--Set positioning to absolute--*/  
+ top: 50%; /*--Set top coordinate to 50%--*/  
+ left: 50%; /*--Set left coordinate to 50%--*/  
+ margin: -150px 0 0 -300px; /*--Set negative top/left margin--*/  
+}
+
+ul.product_checklist {  
+ list-style: none; /*--Takes out the default bullets--*/  
+ margin: 0;  
+ padding: 0;  
+}
+
+ul.product_checklist li {  
+ padding: 5px 5px 5px 25px; /*--Adds padding around each item--*/  
+ margin: 0;  
+ background: url(icon_checklist.gif) no-repeat left center; /*--Adds a bullet icon as a background image--*/  
+} 
+
+h1 {  
+background: url(home_h1.gif) no-repeat;  
+text-indent: -99999px;  
+}
 ________________________________________________________________________
 
 /***** Selector Hacks ******/
