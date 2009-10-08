@@ -261,6 +261,16 @@ startActivity(Intent.createChooser(sendIntent, "Choisir votre client email :"));
 
 }}}
 
+CALL VIDEO
+
+{{{
+
+Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+sendIntent.setDataAndType(Uri.parse("myvideo.3gp"), "video/*");
+startActivity(sendIntent);
+
+}}}
+
 KILLER APP
 
 {{{
