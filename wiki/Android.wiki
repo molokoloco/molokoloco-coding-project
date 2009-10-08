@@ -59,6 +59,25 @@ sp
 
 }}}
 
+LAYOUT
+
+{{{
+
+FrameLayout  	Layout that acts as a view frame to display a single object.
+Gallery 	A horizontal scrolling display of images, from a bound list.
+GridView 	Displays a scrolling grid of m columns and n rows.
+LinearLayout 	A layout that organizes its children into a single horizontal or vertical row. It creates a scrollbar if the length of the window exceeds the length of the screen.
+ListView 	Displays a scrolling single column list.
+RelativeLayout 	Enables you to specify the location of child objects relative to each other (child A to the left of child B) or to the parent (aligned to the top of the parent).
+ScrollView 	A vertically scrolling column of elements.
+Spinner 	Displays a single item at a time from a bound list, inside a one-row textbox. Rather like a one-row listbox that can scroll either horizontally or vertically.
+SurfaceView 	Provides direct access to a dedicated drawing surface. It can hold child views layered on top of the surface, but is intended for applications that need to draw pixels, rather than using widgets.
+TabHost 	Provides a tab selection list that monitors clicks and enables the application to change the screen whenever a tab is clicked.
+TableLayout 	A tabular layout with an arbitrary number of rows and columns, each cell holding the widget of your choice. The rows resize to fit the largest column. The cell borders are not visible.
+ViewFlipper 	A list that displays one item at a time, inside a one-row textbox. It can be set to swap items at timed intervals, like a slide show.
+ViewSwitcher 	Same as ViewFlipper. 
+
+}}}
 http://blog.pocketjourney.com/2008/04/04/tutorial-custom-media-streaming-for-androids-mediaplayer/
 
 {{{
