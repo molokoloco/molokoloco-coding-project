@@ -52,6 +52,8 @@ $('form > *'); // formChildren
 if ($(this).is(':first-child')) {}
 if ( $(this).hasClass('protected') )
 $('div').show().fadeOut('slow');
+$("#myselect").val();
+$("#myselect option:selected").text();
 
 // --------------------------------------------------------------- //
 
@@ -68,6 +70,10 @@ $('img').attr({
     alt: 'jQuery Logo'
 });
 $('div').text($('img').attr('alt'));
+
+if ($('#myDiv').is('.pretty')) $('#myDiv').show();
+
+$('#myDiv:visible').animate({left: '+=200px'}, 'slow');
 
 $('button').each(function()  {
     var el = $(this);
