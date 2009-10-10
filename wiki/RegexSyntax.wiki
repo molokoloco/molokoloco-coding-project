@@ -227,6 +227,8 @@ Match New line --- [\r\n]|$
 
 // Javascript
 
+if (searchVal.indexOf('quot') >= 0) searchVal.replace(/&quot;/g, '"');
+
 var reWhiteSpace = /^\s+$/;
 var reDigit = /^\d$/;
 var reInteger = /^\d+$/;
