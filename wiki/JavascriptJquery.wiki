@@ -61,6 +61,8 @@ if (/(_on)/.test($(this).attr('src'))) $(this).attr({src: $(this).attr('src').sp
 
 var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
 
+var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
+
 $('img').attr({
     src: '/images/hat.gif',
     alt: 'jQuery Logo'
