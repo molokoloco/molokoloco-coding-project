@@ -54,6 +54,9 @@ if ( $(this).hasClass('protected') )
 $('div').show().fadeOut('slow');
 $("#myselect").val();
 $("#myselect option:selected").text();
+$("span").fadeIn("slow");
+
+
 
 // --------------------------------------------------------------- //
 
