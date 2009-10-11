@@ -418,4 +418,48 @@ $('#mydiv').fluwi({
         boxQuery: 'li' //class name or div name, or selector for elements that are resizing
 });
 
+
+// MENU
+
+<ul id="menu">
+  <li class="menu">Sub 1
+    <ul>
+      <li>test 1</li>
+      <li>test 2</li>
+      <li>test 3</li>
+      <li>test 4</li>
+    </ul>
+  </li>
+  <li class="menu">Sub 2
+    <ul>
+      <li>test 1</li>
+      <li>test 2</li>
+      <li>test 3</li>
+      <li>test 4</li>
+    </ul>
+  </li>
+</ul>
+
+// Code:
+
+$(document).ready(function() {
+  var toggle = function(direction, display) {
+    return function() {
+      var self = this;
+      var ul = $("ul", this);
+      if( ul.css("display") == display && !self["block" + direction] ) {
+        self["block" + direction] = true;
+        ul["slide" + direction]("slow", function() {
+          self["block" + direction] = false;
+        });
+      }
+    };
+  }
+  $("li.menu").hover(toggle("Down", "none"), toggle("Up", "block"));
+  $("li.menu ul").hide();
+});
+
+
+
+
 }}}
