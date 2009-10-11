@@ -460,6 +460,17 @@ $(document).ready(function() {
 });
 
 
+// Fetch Links FavIcons
+$('.l').hover(
+	function(){
+		var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
+		$(this).html($(this).html()+' <img class="ico" width="16" height="16" src="http://www.google.com/s2/favicons?domain='+domaine+'"/>');
+	},
+	function(){
+		var html = $(this).html().split('<')[0];
+		$(this).html(html);
+	}
+);
 
 
 }}}
