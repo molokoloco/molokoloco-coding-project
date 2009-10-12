@@ -57,6 +57,9 @@ $("#myselect option:selected").text();
 $("span").fadeIn("slow");
 
 
+// --------------------------------------------------------------- //
+
+bind()blur()change()click()dblclick()error()focus()hover()keydown()keypress()keyup()load()mousedown()mousemove()mouseout()mouseover()mouseup()one()ready()resize()scroll()select()submit()toggle()trigger()unbind()unload()live()die()
 
 // --------------------------------------------------------------- //
 
