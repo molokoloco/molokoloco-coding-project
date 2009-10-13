@@ -280,6 +280,32 @@ startActivity(Intent.createChooser(sendIntent, "Choisir votre client email :"));
 
 }}}
 
+CALL EMAIL 2
+
+{{{
+
+Button sendBtn = (Button) findViewById(R.id.send_btn_id);
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+            	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+            	emailIntent.setType("text/html");
+            	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
+                  new String[]{ sendToAddress } );
+
+            	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject );
+            	emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, msg );
+
+            	hideKeyboard();
+
+            	NoteToMe.this.startActivity(emailIntent);
+            	NoteToMe.this.finish();
+            }
+        });
+
+
+}}}
+
 CALL VIDEO
 
 {{{
