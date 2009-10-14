@@ -50,6 +50,22 @@ text-indent: -99999px;
 }
 ________________________________________________________________________
 
+-moz-box-shadow: inset 1px 1px 10px #888;
+-moz-box-shadow: 0px 20px 10px -10px #888;
+-moz-box-shadow: 0 0 20px black, 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;
+-moz-box-shadow: inset 5px 5px 0 rgba(0, 0, 0, .5);
+
+ -moz-box-shadow: 1px 1px 10px #00f;
+ -webkit-box-shadow: 1px 1px 10px #00f;
+ box-shadow: 1px 1px 10px #00f;
+
+border-radius:4px;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+
+text-shadow:#1395B8 1px 1px 3px; 
+________________________________________________________________________
+
 /***** Selector Hacks ******/
 
 /* IE 6 and below */
