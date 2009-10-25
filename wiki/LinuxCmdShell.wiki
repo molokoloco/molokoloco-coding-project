@@ -4,6 +4,7 @@
 = LINUX with UBUNTU, FEDORA, DEBIAN or whatever you want =
 == COMMAND LINE (CMD, SHELL) ==
 
+http://www.techieblogger.com/2009/10/linux-unix-ubuntu-solaris-cheat-sheets.html
 
 {{{
 
