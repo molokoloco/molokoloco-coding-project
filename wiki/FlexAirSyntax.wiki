@@ -128,6 +128,46 @@ function chargementTermine(evt:Event) {
 chargeur.addEventListener(Event.COMPLETE, chargementTermine);
 chargeur.load(adresseFichier);
 
+
+// ------------------------------------------------------------------------- //
+
+var monXML:XML = new XML ("<balise><test>BlaBla</test></balise>");
+
+trace(monXML.test); // affiche "BlaBla"
+
+var xml:XML = <root><balise name="Test" text="Je suis un attributs" /></root>;
+trace( xml.balise.@name ); // trace Test
+
+var xml:XML = <root><balise name="Test" text="Je suis un attributs" /></root>;
+trace( xml.balise.@["name"] ); // trace Test
+
+var xml:XML = <root><balise name="Test" text="Je suis un attributs" /></root>;
+trace(xml.balise.attribute("name") ); // trace Test
+
+var xml:XML = <root>
+<balise name="balise1" />
+<balise name="balise2"/>
+<balise name="balise3"/>
+</root>;
+
+for(var i:String in xml..balise) {
+	trace(xml.balise[i].@name);
+}
+
+trace(xml..balise.@name);
+
+for each(var bal:XML in xml..balise) { // Soit la variable bal, car le nom "balise" est déja utilisé ici
+	trace(bal.@name);
+}
+
+var balise:XMLList = xml..balise.(@name=="balise2");
+trace(balise.toXMLString());
+
+var xml:XML = <root><balise name="Test" text="Je suis un attribut" /></root>;
+var nom:String = "noeuds (dynamique cette fois)";
+var monNoeud:XML = <balise name={nom} text="Je suis un attribut" />;
+xml.appendChild(monNoeud);
+
 // ------------------------------------------------------------------------- //
 // Auto-Closing for Dev
 
