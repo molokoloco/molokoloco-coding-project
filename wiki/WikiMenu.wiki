@@ -11,6 +11,7 @@
     * [RSSGeneratorSample PHP RSS feed]
     * *[JavascriptSample JS Tools]*
     * [TinyMce_PHP PHP Rich Editor]
+    * [snifftv.php]
   * *Personal Tips*
     * [PHPSyntax PHP tooltips]
     * [JavascriptBase JS tooltips]
