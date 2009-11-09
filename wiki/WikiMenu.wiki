@@ -10,7 +10,7 @@
     * [DocGenerator PHP export .doc]
     * [RSSGeneratorSample PHP RSS feed]
     * *[JavascriptSample JS Tools]*
-    * [TinyMce_PHP PHP Rich Editor]
+    * [TinyMce_PHP PHP/JS Rich Text Editor]
     * [PhpSniff PHP IP sniffer)
   * *Personal Tips*
     * [PHPSyntax PHP tooltips]
