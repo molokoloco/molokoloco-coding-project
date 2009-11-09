@@ -1,6 +1,10 @@
 #summary Personnal tooltips for Flex and Air RIA
 #labels Tooltips
 
+
+THIS IS FUCKING FLASH BORDEL ! I KNOW............
+
+
 = FLASH, FLEX, AIR et AS3 =
 
 {{{
@@ -109,6 +113,31 @@ function onCompleteHandler(loadEvent:Event) {
 }
 function onProgressHandler(mProgress:ProgressEvent) {
 	var percent:Number = mProgress.bytesLoaded/mProgress.bytesTotal;
+}
+
+// ------------------------------------------------------------------------- //
+
+private function createConsole():void {
+
+	var txtFmt:TextFormat = new TextFormat();
+	//txtFmt.font = 'Courrier';
+	txtFmt.color = 0x333333;
+	txtFmt.size = 14;
+	txtFmt.leading = 6;
+	txtFmt.leftMargin = 10;
+	txtFmt.rightMargin = 10;
+	
+	_console = new TextField();
+	_console.width = 500;
+	_console.height = 200;
+	_console.text = "it's working :)";
+	_console.border = true;
+	//_console.background = true;
+	//_console.backgroundColor = 0xEEEEEE;
+	_console.defaultTextFormat = txtFmt;
+	//_console.embedFonts = true;
+	
+	Sprite(_displayObj).addChild(_console);
 }
 
 // ------------------------------------------------------------------------- //
