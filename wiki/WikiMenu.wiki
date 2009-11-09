@@ -11,7 +11,7 @@
     * [RSSGeneratorSample PHP RSS feed]
     * *[JavascriptSample JS Tools]*
     * [TinyMce_PHP PHP/JS Rich Text Editor]
-    * [PhpSniff PHP IP sniffer)
+    * [PhpSniff PHP IP sniffer]
   * *Personal Tips*
     * [PHPSyntax PHP tooltips]
     * [JavascriptBase JS tooltips]
