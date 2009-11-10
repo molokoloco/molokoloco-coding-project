@@ -73,6 +73,20 @@ function itemClicked(e:MouseEvent):void {
 	idSetSelected();
 }
 
+
+// ------------------------------------------------------------------------- //
+// YOYO TWEEN
+
+// Create a new Tween object which will fade the text field's alpha property.
+var fadeTween:Tween = new Tween(myTextField, "alpha", Strong.easeIn, 1, 0, 2, true);
+fadeTween.addEventListener(TweenEvent.MOTION_FINISH, motionFinishHandler);
+
+/* Handler for the fade tween. When the tween dispatches the motionFinish 
+   event, this function gets called and reverses the direction of the tween. */
+function motionFinishHandler(event:TweenEvent):void {
+    Tween(event.currentTarget).yoyo();
+}
+
 // ------------------------------------------------------------------------- //
 
 private function loadImages():void {
