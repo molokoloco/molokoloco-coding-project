@@ -31,9 +31,10 @@ sudo tcpdump -i eth0 ip proto 2 -t -N -q -l | tee /home/votrenomutilisateur/Bure
 sudo sniffer.sh
 }}}
 
-# 3 Créer un fichier PHP
+# 3 Créer un fichier PHP (cf. code ci-dessous)
 {{{
-sudo gedit /opt/lampp/htdocs/index.php
+touch snifftv.php
+sudo gedit /opt/lampp/htdocs/snifftv.php
 }}}
 
 # 4 Commande linux pour le démarrage du serveur local (lampp par exemple)
