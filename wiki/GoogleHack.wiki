@@ -58,6 +58,33 @@
 
 ----
 
+*Les commutateurs suivants sont ajoutés dans la barre d’adresses :*
+
+Afficher les options : &tbo=1
+
+Vidéos : &tbs=vid:1
+Actualités : &tbs=nws:1
+Blogs : &tbo=1&tbs=blg:1
+Forums : &tbo=1&tbs=frm:1
+
+Déjà consultés : &tbs=whv:1
+Par encore consultés : &tbs=whnv:1
+
+Recherches associés : &tbs=clue:1
+Chronologie : &tbs=tl:1
+
+Images de la page : &tbs=img:1
+Extraits plus longs : &tbs=sts:1
+
+Vidéos - Qualité élevée : &tbs=vid:1,hq:h
+Vidéos - Sous-titres : &tbs=vid:1,cc:1
+
+Résultats récents : &tbs=rcnt:1
+
+Trier par date : ,sbd:1
+
+----
+
 [http://www.googleguide.com Googleguide.com]
 [http://www.google.com/codesearch Google.com/codesearch]
 [http://www.scribd.com/doc/2843995/Google-Hacking Scribd.com/Google-Hacking]
