@@ -117,7 +117,7 @@ function getLiveStream($liveStream) {
 }
 
 // Initialisation
-getLiveStream('/home/labconvergent/Bureau/packet'); 
+getLiveStream('/home/votrenomutilisateur/Bureau/packet'); 
 
 ?>
 
