@@ -131,27 +131,35 @@ function onProgressHandler(mProgress:ProgressEvent) {
 
 // ------------------------------------------------------------------------- //
 
-private function createConsole():void {
-
+// var titre:TextField = createText(articleText.titre, {size:14, width:bmp.width, height:20, alias:AntiAliasType.ADVANCED});
+private function createText(textText:String, obj:Object=null):TextField {
+	
+	var Arial:Font = new Arial14(); // From librairie
+	
 	var txtFmt:TextFormat = new TextFormat();
-	//txtFmt.font = 'Courrier';
-	txtFmt.color = 0x333333;
-	txtFmt.size = 14;
-	txtFmt.leading = 6;
-	txtFmt.leftMargin = 10;
-	txtFmt.rightMargin = 10;
+	txtFmt.font = Arial.fontName;
+	txtFmt.color = 0xFFFFFF;
+	txtFmt.size = obj.size || 14;
+	txtFmt.leading = 4;
+	txtFmt.leftMargin = 2;
+	txtFmt.rightMargin = 2;
 	
-	_console = new TextField();
-	_console.width = 500;
-	_console.height = 200;
-	_console.text = "it's working :)";
-	_console.border = true;
-	//_console.background = true;
-	//_console.backgroundColor = 0xEEEEEE;
+	var _console:TextField = new TextField();
+	_console.width = obj.width || 200;
+	_console.height = obj.height || 30;
+	_console.embedFonts = true;
+	_console.antiAliasType = (obj.alias ? obj.alias : AntiAliasType.NORMAL);
+	_console.wordWrap = true; 
+	_console.multiline = true;
+	_console.selectable = false;
+	_console.border = false;
 	_console.defaultTextFormat = txtFmt;
-	//_console.embedFonts = true;
+	_console.background = true;
+	_console.backgroundColor = 0x000000;
+	_console.htmlText = textText;
+	_console.autoSize = TextFieldAutoSize.LEFT;
 	
-	Sprite(_displayObj).addChild(_console);
+	return _console;
 }
 
 // ------------------------------------------------------------------------- //
