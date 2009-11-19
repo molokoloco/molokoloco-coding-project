@@ -61,6 +61,7 @@ gconftool-2 --load=/tmp/ma_conf.xml
 
 # SSH TRANSFERT ... (D'un disque à un autre)
 # /root/.ssh/authorized_keys2 ?
+# sur le serveur a copier : ssh loginExtern@serveurExtern.com
 scp -r root@213.186.46.78:/home/bibliobus/www/ /home/bibliobu/
 chown bibliobu.users /home/bibliobu/www/*
 chown mysql.mysql /home/mysql/bibliobu/*
