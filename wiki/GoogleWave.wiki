@@ -1,0 +1,15 @@
+#summary exploring some tips for Google Wave
+#labels Tooltips
+
+= Introduction =
+
+Quelques exemples d’extensions :
+  * Rendre une Wave public : public@a.gwave.com
+  * Utiliser des flux RSS : rssybot@appspot.com
+  * Robot Wikipédia : wave-pedia@appspot.com
+  * Utiliser Windows Live Messenger : wavelivemessenger@appspot.com
+  * …
+
+Une liste d’extensions est déjà disponible ici : http://sites.google.com/site/gwaveextensions/extensions-list
+ainsi qu’un compte Twitter pour suivre l’évolution de cette liste : 
+http://twitter.com/GWaveExtensions
