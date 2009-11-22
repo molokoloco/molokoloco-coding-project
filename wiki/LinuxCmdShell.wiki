@@ -70,6 +70,14 @@ Lancez PuTTY
 putty -i 
 Entrez dans le champs Host Name* entrez l'adresse ip du serveur puis cliquez sur Load**. 
 
+
+#Connaitre sa version (etch , sarge...)
+apt-cache policy
+#ou alors
+cat /etc/apt/preferences
+#ou alors
+cat /etc/apt/apt.conf
+
 --- RACCOURCIS ---------------------------------------------------------
 
 Alt-F2 >> Open soft
