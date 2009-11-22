@@ -325,6 +325,22 @@ mysql> flush privileges;
 exit;
 
 
+#Restaurer la base sivitsytem
+#Un dump régulier est effectué chaque jour sur les serveurs en V2
+#dans /var/backups/sivit sous forme de fichiers compréssés.
+#Pour restaurer le dernier dump Mysql de cette base:
+
+1/ Supprimer la base sivitsystem ( DROP )
+2/ Creer une base sivitsystem vierge
+3/ En console:
+
+vdxxx:cd /var/backups/sivit
+vdxxx:/var/backups/sivit# bunzip2 dump-sivitsystem-20070725.sql.bz2
+vdxxx:/var/backups/sivit# ls
+dump-sivitsystem-20070714.sql.bz2  dump-sivitsystem-20070725.bz2 dump-sivitsystem-20070725.sql
+vdxxx:/var/backups/sivit# mysql -uroot -p sivitsystem < dump-sivitsystem-20070725.sql
+Enter password: *********
+
 *** PHP 5 ****
 # Php 4 + php5 : http://www.generation-linux.net/article.php3?id_article=2
 # Php 4 // aptitude install libapache2-mod-php4 php4-mysql php4-gd php4-cli php4-cgi php4-common php4-curl
