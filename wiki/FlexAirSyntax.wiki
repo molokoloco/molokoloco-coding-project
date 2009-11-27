@@ -131,6 +131,32 @@ function onProgressHandler(mProgress:ProgressEvent) {
 
 // ------------------------------------------------------------------------- //
 
+package {
+    import flash.display.Sprite;
+    public class Array_filter extends Sprite {
+        public function Array_filter() {
+            var employees:Array = new Array();
+            employees.push({name:"Employee 1", manager:false});
+            employees.push({name:"Employee 2", manager:true});
+            employees.push({name:"Employee 3", manager:false});
+            trace("Employees:");
+            employees.forEach(traceEmployee);
+            
+            var managers:Array = employees.filter(isManager);
+            trace("Managers:");
+            managers.forEach(traceEmployee);
+        }
+        private function isManager(element:*, index:int, arr:Array):Boolean {
+            return (element.manager == true);
+        }
+        private function traceEmployee(element:*, index:int, arr:Array):void {
+            trace("\t" + element.name + ((element.manager) ? " (manager)" : ""));
+        }
+    }
+}
+
+// ------------------------------------------------------------------------- //
+
 // var titre:TextField = createText(articleText.titre, {size:14, width:bmp.width, height:20, alias:AntiAliasType.ADVANCED});
 private function createText(textText:String, obj:Object=null):TextField {
 	
