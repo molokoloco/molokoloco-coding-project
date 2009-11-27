@@ -32,6 +32,8 @@ THIS IS FUCKING FLASH BORDEL ! I KNOW............
 // ------------------------------------------------------------------------- //
 (loader.content as Bitmap).smoothing = true;
 
+var thisMc:MovieClip = getChildByName(elementArr) as MovieClip;
+
 mainStage.filters = [new BlurFilter(8)];
 
 if (_visualProgress && contains(_visualProgress)) removeChild(_visualProgress);
