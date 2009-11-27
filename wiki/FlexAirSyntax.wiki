@@ -247,6 +247,50 @@ var nom:String = "noeuds (dynamique cette fois)";
 var monNoeud:XML = <balise name={nom} text="Je suis un attribut" />;
 xml.appendChild(monNoeud);
 
+// ------ //
+
+var urlRequest:URLRequest = new URLRequest("xml/contacts.xml");
+var urlLoader:URLLoader = new URLLoader(urlRequest);
+urlLoader.addEventListener(Event.COMPLETE, xmlCharge);
+
+function xmlCharge(e:Event):void {
+	//trace(e.target.data);
+	var xml:XML = new XML(e.target.data);
+	
+	// Accès au nom du contact dont l'ID est "2"
+	trace( xml.contact.(@id=="2").nom );
+	
+	// Récupération des contacts qui ont le prénom "Prenom3"
+	trace( xml.contact.(prenom=="Prenom3"));
+	
+	// Idem avec une variable contenant le prénom
+	var prenomRecherche:String = "Prenom3";
+	trace( xml.contact.(prenom==prenomRecherche));
+	
+	// Idem avec une variable contenant le contact
+	var contactRecherche:String = "contact";
+	trace( xml[contactRecherche].(prenom=="Prenom3"));
+	
+	//var contactRecherche:String = "contact";
+	 var recherche:String = "prenom";
+	 trace( xml[contactRecherche].(elements(recherche)=="Prenom3"));
+	
+	// Récupération des noms de contacts qui
+	// ont le prénom "Prenom3"
+	 var contactRecherche:String = "contact";
+	 trace( xml.contact.(prenom=="Prenom3").nom );
+	 
+	 test(xml);
+}
+
+function test(xml:XML):void {
+	var searchResult:XMLList = xml.contact.(hasOwnProperty("prenom") && prenom=="Prenom3");
+	for each(var element:XML in searchResult) {
+		trace(element.nom, element.prenom, element.telephone);
+	}
+}
+
+
 // ------------------------------------------------------------------------- //
 // Auto-Closing for Dev
 
