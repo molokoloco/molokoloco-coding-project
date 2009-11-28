@@ -3,6 +3,8 @@
 
 = .htaccess=
 
+Doc here : http://www.askapache.com/htaccess/mod_rewrite-tips-and-tricks.html
+
 {{{
 RewriteEngine on
 #RewriteBase /
