@@ -78,6 +78,23 @@ cat /etc/apt/preferences
 #ou alors
 cat /etc/apt/apt.conf
 
+--- VI ---------------------------------------------------------
+
+VI (pico, nano)
+
+y = copier la ligne en cour 
+p = coller en dessous
+	
+i = insert text
+o = creer une nouvelle ligne
+x = efface un caractere
+	
+esc  = sortie edition
+	
+: = commande
+w = write
+q = quitter
+
 --- RACCOURCIS ---------------------------------------------------------
 
 Alt-F2 >> Open soft
@@ -169,23 +186,6 @@ apt://gnome-do
 fgl_glxgears # (test)
 
 sudo apt-get install azureus
-
---- VI ---------------------------------------------------------
-
-VI (pico, nano)
-
-y = copier la ligne en cour 
-p = coller en dessous
-	
-i = insert text
-o = creer une nouvelle ligne
-x = efface un caractere
-	
-esc  = sortie edition
-	
-: = commande
-w = write
-q = quitter
 
 --- APTITUDE ---------------------------------------------------------
 
