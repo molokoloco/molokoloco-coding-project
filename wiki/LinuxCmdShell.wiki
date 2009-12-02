@@ -170,6 +170,23 @@ fgl_glxgears # (test)
 
 sudo apt-get install azureus
 
+--- VI ---------------------------------------------------------
+
+VI (pico, nano)
+
+y = copier la ligne en cour 
+p = coller en dessous
+	
+i = insert text
+o = creer une nouvelle ligne
+x = efface un caractere
+	
+esc  = sortie edition
+	
+: = commande
+w = write
+q = quitter
+
 --- APTITUDE ---------------------------------------------------------
 
 http://qref.sourceforge.net/quick/ch-package.fr.html
