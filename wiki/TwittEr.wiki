@@ -33,3 +33,53 @@
     * INVITE phone number
       will send an SMS invite to a friend's mobile phone.
       Example: Invite 415 555 1212
+
+
+== Some code... ==
+
+
+    * Get the public timeline in RSS format, unauthenticated: curl http://twitter.com/statuses/public_timeline.rss
+    * Get updates from users you follow in XML, authenticated: curl -u username:password http://twitter.com/statuses/friends_timeline.xml
+    * See just the headers for that last request: curl --head -u username:password http://twitter.com/statuses/friends_timeline.xml
+    * Post a status update and get the resulting status back as JSON: curl -u username:password -d status="your message here" http://twitter.com/statuses/update.json
+
+Learn more about cURL and the API here. 
+http://www.sakana.fr/blog/2007/03/18/scripting-twitter-with-curl/
+
+== PHP CURL ACCESSOR ==
+
+{{{
+
+// url qui pointe vers l'action update, en xml ou json
+$api_url = 'http://twitter.com/statuses/update.xml';
+
+// l'information de votre compte
+$username = 'usr';
+$password = 'pwd';
+$args = array('status'=>'Mon premier statut par curl');
+
+// initialiser une session cUrl
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $api_url);
+curl_setopt($ch, CURLOPT_HEADER, true);
+curl_setopt($ch, CURLOPT_NOBODY, false);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $args);
+curl_setopt($ch, CURLOPT_USERPWD, $username.':'.$password );
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2); // en secondes
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+// pour éviter l'erreur HTTP 417 - Expectation Failed
+$headers = array('Expect:', 'X-Twitter-Client: ', 'X-Twitter-Client-Version: ', 'X-Twitter-Client-URL: ');
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+// envoyer le message
+$response = curl_exec($ch);
+$info = curl_getinfo($ch);
+curl_close($ch);
+
+if( intval( $info['http_code'] ) == 200 ) echo 'Message envoyé';  
+else echo 'Erreur HTTP ' . $info['http_code'];  
+
+
+}}}
