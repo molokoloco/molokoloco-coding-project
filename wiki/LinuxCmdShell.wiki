@@ -564,6 +564,8 @@ sudo /etc/init.d/apache2 start
 sudo chmod 605 /var/www/phpinfo.php
 sudo chmod 755 /var/www/phpinfo.php
 
+tail -f /var/log/apache2/error.log
+
 apt://apache2,apache2-doc,mysql-server,php5,libapache2-mod-php5,php5-mysql,phpmyadmin
 
 PHP command : 		/usr/bin/php
