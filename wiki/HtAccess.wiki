@@ -5,6 +5,9 @@
 
 Doc here : http://www.askapache.com/htaccess/mod_rewrite-tips-and-tricks.html
 
+
+=== URL rewriting ===
+
 {{{
 RewriteEngine on
 #RewriteBase /
@@ -25,6 +28,25 @@ RewriteRule ^([a-z,-]+)-r([0-9]+).html$ index.php?rid=$2 [L]
 RewriteRule ^([a-z,-]+)-r([0-9]+)-a([0-9]+).html$ index.php?rid=$2&article_id=$3$4 [QSA,L]
 RewriteRule ^([a-z,-]+)-r([0-9]+)-p([0-9]+).html$ index.php?rid=$2&page=$3$4 [QSA,L]
 }}}
+
+=== Restriction d'acces ===
+
+http://httpd.apache.org/docs/2.0/howto/auth.html
+
+1/ en ligne de commande
+
+# htpasswd -c /home/passwd/ficherMdpACreer nomUtilisateur
+
+2/ dans un .htaccess situé dans le répertoire à protéger  (les sous répertoires seront aussi protégés):
+
+{{{
+AuthType Basic
+AuthName "Restricted Files"
+AuthUserFile /home/passwd/ficherMdpACreer
+Require user nomUtilisateur
+}}}
+
+=== Utilisation avancée avec système de cache ===
 
 [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/.htaccess ./.htaccess]
 
