@@ -48,9 +48,6 @@ http://www.sakana.fr/blog/2007/03/18/scripting-twitter-with-curl/
 
 == PHP CURL ACCESSOR ==
 
-See the whole PHP Clean Class here :
-http://www.phpclasses.org/browse/package/4216.html
-
 {{{
 
 // url qui pointe vers l'action update, en xml ou json
@@ -86,3 +83,11 @@ else echo 'Erreur HTTP ' . $info['http_code'];
 
 
 }}}
+
+== RESSOURCES ==
+
+See the whole PHP Clean Class here :
+http://www.phpclasses.org/browse/package/4216.html
+
+And here a Javascript Framework
+http://code.google.com/p/realtime-related-tweets-bar/
