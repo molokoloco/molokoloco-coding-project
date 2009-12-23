@@ -281,6 +281,32 @@ Effects that can be only used stand-alone:
     Transfer - Transfers the outline of an element to another.
 
 // --------------------------------------------------------------- */
+
+var xmlParse = function (xml) {
+	 if ($.browser.msie) {  // IE !!!
+		 var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");  
+		 xmlDoc.loadXML(xml);  
+		 xml = xmlDoc;  
+	 }
+	$(xml).find("article").each(function(i) {
+		$('#news').append($(this).find("titre").text());
+	});
+};
+
+$(document).ready(function(){
+	$.ajax({
+		type: 'GET',
+		url: './xml/parisien.xml',
+		cache: true,
+		processData: true,
+		dataType: ($.browser.msie) ? 'text' : 'xml',
+		//error: function(xml) { db('error()'); },
+		success: function(xml) { xmlParse(xml); }
+	});
+});	
+
+// --------------------------------------------------------------- */
+
 $.ajax({
     type: 'POST',
     url: 'some.php',
