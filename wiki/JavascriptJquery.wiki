@@ -43,7 +43,7 @@ $('p').height()
 jQuery('/html/body//p')
 $('body').css({'overflow' : 'hidden'});
 $('button:gt(1)').attr('disabled','disabled'); // Disables buttons greater than the 1st button.
-
+$(xml).find("article").each(function(i) { alert($(this).find("titre").text()); });
 $('ul li:last').after('<li>Added text ' + p + '</li>');
 $("div:contains('John')").css('text-decoration', 'underline');
 $(':input'); // Matches all input, textarea, select and button elements
