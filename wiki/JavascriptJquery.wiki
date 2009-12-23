@@ -24,8 +24,7 @@ $(document).ready(function(){
 $(window).bind('load', function()  { /* ... */ });
 
 // --------------------------------------------------------------- //
-
-$('p')
+$('#p').html('Test');
 $('body').attr('onload')
 $('#quicktimePlayer').empty();
 $('#quicktimePlayer').append(plug);
