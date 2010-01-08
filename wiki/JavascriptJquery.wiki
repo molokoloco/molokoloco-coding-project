@@ -54,7 +54,12 @@ $('div').show().fadeOut('slow');
 $("#myselect").val();
 $("#myselect option:selected").text();
 $("span").fadeIn("slow");
-
+if($(element).is(":visible") == "true") {}
+$('#target div:not(#exclude)').hide();
+var foundin = $('*:contains("some string bla bla")');
+$('#myTable tr:last').after('<tr>...</tr>');
+var elements = $('#someid input[type=sometype][value=somevalue]').get();
+$('a').slice(0,10);
 
 // --------------------------------------------------------------- //
 
@@ -119,6 +124,35 @@ $(document.body).click(function () {
         else this.style.color = '';
     });
 });
+
+// Toggle all checkboxes
+var tog = false; // or true if they are checked on load
+$('a').click(function() {
+    $("input[type=checkbox]").attr("checked",!tog);
+    tog = !tog;
+});
+
+// index of an element
+$("ul > li").click(function () {
+    var index = $(this).prevAll().length;
+});
+
+// see if an image is loaded
+var imgsrc = 'img/image1.png';
+$('<img/>').load(function(){alert('image loaded');}).error(function(){alert('error loading image');}).attr('src', imgsrc);
+
+// --------------------------------------------------------------- //
+
+// Center an element on the screen
+jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css("top", ( $(window).height() - this.height() ) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
+    return this;
+}
+
+//Use the above function as:
+$(element).center();
 
 
 // --------------------------------------------------------------- //
@@ -306,7 +340,7 @@ $(document).ready(function(){
 
 // --------------------------------------------------------------- */
 
-$.ajax({
+var req = $.ajax({
     type: 'POST',
     url: 'some.php',
     cache: false,
@@ -315,6 +349,9 @@ $.ajax({
         alert( 'Data Saved: ' + msg );
     }
 });
+
+//Cancel the Ajax Request ?
+req.abort()
 
 $.post('test.php', { name: 'John', time: '2pm' }, function(data){
     alert('Data Loaded: ' + data);
