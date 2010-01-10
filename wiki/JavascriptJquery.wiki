@@ -65,6 +65,14 @@ $('a').slice(0,10);
 
 bind()blur()change()click()dblclick()error()focus()hover()keydown()keypress()keyup()load()mousedown()mousemove()mouseout()mouseover()mouseup()one()ready()resize()scroll()select()submit()toggle()trigger()unbind()unload()live()die()
 
+$('#btnG').hide();
+var showButton = function(e) { 
+	$(document).unbind('mousemove', showButton);
+	$('#btnG').show();
+	$('#q').focus();
+};
+$(document).mousemove(showButton);
+
 // --------------------------------------------------------------- //
 
 if (/^[\w\d\_\.]{4,}$/.test($('#username').attr('value'))) alert('Ok');
