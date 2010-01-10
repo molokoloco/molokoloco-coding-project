@@ -171,6 +171,21 @@ function evalJs(script) {
    else return window.eval(script);
 }
 
+// ------------------------- Sort Array ---------------------------------- //
+// myArray.sort(objSortByTitle);
+var objSortByTitle = function (a, b) {
+	var x = a.title.toLowerCase();
+	var y = b.title.toLowerCase();
+	return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+};
+
+// ------------------------- Load new script file  ---------------------------------- //
+var _loadJs = function(src) {
+	var s = document.createElement('script');
+	s.setAttribute('type', 'text/javascript');
+	s.setAttribute('src', src);
+	document.getElementsByTagName('head')[0].appendChild(s);
+};
 
 // ------------------------- ECHO ;) ---------------------------------- //
 var echo = function(str) { document.write(str); }
