@@ -855,6 +855,17 @@ If you need to install flash plugin in your home directory, type the following c
 
 }}}
 
+--- MOT DE PASSE OUBLIE ? ----------------------------------------------------------
+
+Voici une petite astuce toute simple pour changer le mot de passe de votre Ubuntu si vous l’avez perdu sans passer 3h à tout réinstaller.
+
+   1. Il suffit de redémarrer votre PC et d’appuyer sur la touche ESC (Echap) lors du boot sur Grub
+   2. Ensuite, vous choisissez le boot de type « Recovery Mode« 
+   3. Une fois que c’est booté, vous aurez un shell à votre disposition
+   4. Tapez alors la commande « passwd votre_nom_d_utilisateur » en remplçant votre_nom_d_utilisateur par le login que vous utilisez pour vous identifié. SI vous ne vous en souvenez plus, allez faire un « ls /home » pour connaitre les répertoires home présents sur votre Ubuntu qui portent généralement le même nom que le login.
+   5. Entrez ensuite votre mot de passe quand on vous le demande (en tout, 2 fois !)
+   6. Puis redemarrez avec un petit « shutdown -r now« 
+
 --- HOW TO ----------------------------------------------------------
 http://doc.ubuntu-fr.org/
 http://forum.ubuntu-fr.org/
