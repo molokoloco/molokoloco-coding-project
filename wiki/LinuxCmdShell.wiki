@@ -22,6 +22,7 @@ sudo chown -R root:root eclipse
 sudo chown -R --recursive hairbox.www-data /home/hairbox/*
 sudo chmod 605 /var/www/phpinfo.php
 sudo chmod -R 755 /var/www/phpinfo.php
+sudo chmod u+x proxytunnel-i386-linux // +x (execution)
 sudo touch /usr/bin/eclipse
 echo -e 'auto lo\niface lo inet loopback\n' | sudo tee /etc/network/interfaces
 wget ftp://ftp.ovh.net/made-in-ovh/release/patch-all.sh -O patch-all.sh; sh patch-all.sh
