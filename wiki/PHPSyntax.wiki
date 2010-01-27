@@ -7,17 +7,10 @@ Certaines fonctions ci-dessous sont reprises (proprement ;) dans le [http://code
 
 {{{
 
---------------------------------------------------------------------------------------------------------
-
-//It wasn't easy to find this beautiful example how to start a process under Windows without waiting for its termination:
-
-<?php
-$commandString = 'start /b c:\\programToRun.exe -attachment "c:\\temp\file1.txt"';
-pclose(popen($commandString, 'r'));
-?>
+// -------------------------------------------------------------------------------------------------------- //
 
 // Here is a nice little script for monitoring your http access log.
-<?php
+
 $handle = popen("tail -f /etc/httpd/logs/access.log 2>&1", 'r');
 while(!feof($handle)) {
     $buffer = fgets($handle);
@@ -26,7 +19,41 @@ while(!feof($handle)) {
     flush();
 }
 pclose($handle);
-?>
+
+// -------------------------------------------------------------------------------------------------------- //
+
+// It wasn't easy to find this beautiful example how to start a process under Windows without waiting for its termination
+
+exec("cmd");
+exec("cmd >NUL");
+exec("start /b cmd");
+
+In each case, PHP waits for cmd to quit before continuing.
+
+There are several workarounds mentioned in the comments of the PHP documentation of exec. Here is a summary of those methods, by order of preference.
+
+Start background process using the WScript.Shell object
+    You can start the process using the Run method of the WScript.Shell object, which is built-in to Windows. By varying the second parameter, you can make the window hidden, visible, minimized, etc. By setting the third parameter to false, Run does not wait for the process to finish executing. This code only works on Windows.
+
+    $WshShell = new COM("WScript.Shell");
+    $oExec = $WshShell->Run("cmd /C dir /S %windir%", 0, false);
+
+Start background process using popen and pclose
+    This code should work on Linux and Windows. 
+    pclose(popen("start \"bla\" \"" . $exe . "\" " . escapeshellarg($args), "r")); 
+
+    <?php
+    $commandString = 'start /b c:\\programToRun.exe -attachment "c:\\temp\file1.txt"';
+    pclose(popen($commandString, 'r'));
+    ?>
+
+Start background process with psexec
+    This method requires installing the freeware pstools from sysinternals:
+    exec("psexec -d blah.bat"); 
+Start process without a window
+    This is not really for background processes, but worth mentioning. Use the windows start command with /B switch to hide the window.
+    exec('start /B "window_name" "path to your exe"',$output,$return); 
+
 
 --------------------------------------------------------------------------------------------------------
 
