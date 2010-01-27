@@ -24,9 +24,12 @@ pclose($handle);
 
 // It wasn't easy to find this beautiful example how to start a process under Windows without waiting for its termination
 
-exec("cmd");
-exec("cmd >NUL");
-exec("start /b cmd");
+function cmd($cmd, $escape=FALSE) {
+        if ($escape) $cmd = escapeshellarg($cmd); // to check
+        if (!isWindow()) $cmd = str_replace( array('(', ')'), array('\\(', '\\)'), $cmd);
+        exec($cmd, $output, $exit);
+        return implode('\n', $output);
+}
 
 In each case, PHP waits for cmd to quit before continuing.
 
@@ -37,6 +40,15 @@ Start background process using the WScript.Shell object
 
     $WshShell = new COM("WScript.Shell");
     $oExec = $WshShell->Run("cmd /C dir /S %windir%", 0, false);
+
+    // start Notepad.exe minimized in the background:
+    $oExec = $WshShell->Run("notepad.exe", 7, false);
+
+    // start a shell command invisible in the background:
+    $oExec = $WshShell->Run("cmd /C dir /S %windir%", 0, false);
+
+    // start MSPaint maximized and wait for you to close it before continuing the script:
+    $oExec = $WshShell->Run("mspaint.exe", 3, true); 
 
 Start background process using popen and pclose
     This code should work on Linux and Windows. 
