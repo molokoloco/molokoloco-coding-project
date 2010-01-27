@@ -22,8 +22,6 @@ pclose($handle);
 
 // -------------------------------------------------------------------------------------------------------- //
 
-// It wasn't easy to find this beautiful example how to start a process under Windows without waiting for its termination
-
 function cmd($cmd, $escape=FALSE) {
         if ($escape) $cmd = escapeshellarg($cmd); // to check
         if (!isWindow()) $cmd = str_replace( array('(', ')'), array('\\(', '\\)'), $cmd);
@@ -31,11 +29,11 @@ function cmd($cmd, $escape=FALSE) {
         return implode('\n', $output);
 }
 
-In each case, PHP waits for cmd to quit before continuing.
-
+PHP waits for cmd to quit before continuing.
 There are several workarounds mentioned in the comments of the PHP documentation of exec. Here is a summary of those methods, by order of preference.
 
 Start background process using the WScript.Shell object
+
     You can start the process using the Run method of the WScript.Shell object, which is built-in to Windows. By varying the second parameter, you can make the window hidden, visible, minimized, etc. By setting the third parameter to false, Run does not wait for the process to finish executing. This code only works on Windows.
 
     $WshShell = new COM("WScript.Shell");
@@ -51,6 +49,7 @@ Start background process using the WScript.Shell object
     $oExec = $WshShell->Run("mspaint.exe", 3, true); 
 
 Start background process using popen and pclose
+
     This code should work on Linux and Windows. 
     pclose(popen("start \"bla\" \"" . $exe . "\" " . escapeshellarg($args), "r")); 
 
@@ -60,6 +59,7 @@ Start background process using popen and pclose
     ?>
 
 Start background process with psexec
+
     This method requires installing the freeware pstools from sysinternals:
     exec("psexec -d blah.bat"); 
 Start process without a window
