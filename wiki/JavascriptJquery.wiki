@@ -38,6 +38,7 @@ $(window).load(/*...*/)
 $('ul').find('li:last-child');
 $('p', document).size();
 $('p[a]').hide();
+$('a[(text()="Suivante")]').show();
 $(xml.responseXML);
 $('title', xml.responseXML); // Finds all title elements within an XML document
 $('p').height()
