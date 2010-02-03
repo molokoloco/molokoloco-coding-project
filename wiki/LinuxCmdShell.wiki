@@ -781,14 +781,45 @@ Your identification has been saved in /root/.ssh/id_rsa.
 Your public key has been saved in /root/.ssh/id_rsa.pub.
 The key fingerprint is:
 
+==========================================================================================
+
+CRON JOB
+
+-> DANS PUTTY
+# c'est prêt, pour l'enclencher il suffit de faire:
+crontab ~/etc/crontab.save
+
+# faire ceci (pas avant d'avoir activer ma modif sinon tu la perd) :
+crontab -l > ~/etc/crontab.save  (sauve le cron dans un fichier)
+pico -w  ~/etc/crontab.save  (cela edite le  fichier, ctrl-x pour sortir)
+crontab ~/etc/crontab.save    (rafraîchit le cron en prenant le fichier en question comme donnée)
+
+-> DANS CRON.SAVE
+0 0 * * * /usr/local/bin/lynx -dump 'http://www.autogir.fr/admin/maj?action=Update' >/dev/null
+
+// Update images FTP
+0 0 * * * /usr/local/bin/lynx -auth=autogir:web -dump 'http://www.autogir.fr/admin/maj/index.php?action=Update' >/dev/null
+
+
+28 14 * * * /usr/local/bin/php -q /myscript.phtml
+6 3 20 4 * /usr/local/bin/php -q /htdocs/www/x.php 
+
+The first cron line above will run myscript.phtml located in your home directory every day at 2:28PM. The second line will run the script x.php from your /htdocs/www/ directory once a year on April 20th at 3:06AM. 
+When you explicitly specify the php interpreter /usr/local/bin/php your scripts need not have filenames ending in .php .phtml .php3 .php4. Conversely, if your script filenames do not end in one of those PHP extensions, then you must explicitly use the php interpreter in the command portion of your cron as above.
+The -q flag suppresses HTTP header output. As long as your script itself does not send anything to stdout, -q will prevent cron from sending you an email every time the script runs. For example, print and echo send to stdout. Avoid using these functions if you want to prevent cron from sending you email.
+If your PHP scripts do have executable permissions like 755 or -rwxr-xr-x and they have one of the PHP filename extensions above, then you do not need to specify the php interpreter in the command portion of your cron line, like this:
+
+5 17 * * 2 /myscript.php
+The above cron would run myscript.php in your home directory every Tuesday at 5:05PM.
+
 }}}
 
 = UBUNTU (is great !!!) =
 
+{{{
+
 To check your Ubuntu version, read the /etc/lsb-release file:
 #cat /etc/lsb-release
-
-{{{
 
 --- ECLIPSE + GNOME MENU ITEM ---------------------------------------------------------
 
@@ -855,35 +886,6 @@ If you need to install flash plugin in your home directory, type the following c
     $ ./flashplayer-installer
 
 }}}
-
---- CRON JOB ---------------------------------------------------------------
-
------- DANS PUTTY
-# c'est prêt, pour l'enclencher il suffit de faire:
-crontab ~/etc/crontab.save
-
-# faire ceci (pas avant d'avoir activer ma modif sinon tu la perd) :
-crontab -l > ~/etc/crontab.save  (sauve le cron dans un fichier)
-pico -w  ~/etc/crontab.save  (cela edite le  fichier, ctrl-x pour sortir)
-crontab ~/etc/crontab.save    (rafraîchit le cron en prenant le fichier en question comme donnée)
-
------- DANS CRON.SAVE
-0 0 * * * /usr/local/bin/lynx -dump 'http://www.autogir.fr/admin/maj?action=Update' >/dev/null
-
-# ex. -> Update images FTP
-0 0 * * * /usr/local/bin/lynx -auth=autogir:web -dump 'http://www.autogir.fr/admin/maj/index.php?action=Update' >/dev/null
-
-------
-28 14 * * * /usr/local/bin/php -q /myscript.phtml
-6 3 20 4 * /usr/local/bin/php -q /htdocs/www/x.php 
-
-The first cron line above will run myscript.phtml located in your home directory every day at 2:28PM. The second line will run the script x.php from your /htdocs/www/ directory once a year on April 20th at 3:06AM. 
-When you explicitly specify the php interpreter /usr/local/bin/php your scripts need not have filenames ending in .php .phtml .php3 .php4. Conversely, if your script filenames do not end in one of those PHP extensions, then you must explicitly use the php interpreter in the command portion of your cron as above.
-The -q flag suppresses HTTP header output. As long as your script itself does not send anything to stdout, -q will prevent cron from sending you an email every time the script runs. For example, print and echo send to stdout. Avoid using these functions if you want to prevent cron from sending you email.
-If your PHP scripts do have executable permissions like 755 or -rwxr-xr-x and they have one of the PHP filename extensions above, then you do not need to specify the php interpreter in the command portion of your cron line, like this:
-
-5 17 * * 2 /myscript.php
-The above cron would run myscript.php in your home directory every Tuesday at 5:05PM.
 
 --- MOT DE PASSE OUBLIE ? ----------------------------------------------------------
 
