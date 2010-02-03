@@ -818,6 +818,11 @@ If your PHP scripts do have executable permissions like 755 or -rwxr-xr-x and th
 5 17 * * 2 /myscript.php
 The above cron would run myscript.php in your home directory every Tuesday at 5:05PM.
 
+
+Last try :)
+
+30 13 * * * root wget -O /dev/null http://toto.com/tv/index.php
+
 }}}
 
 = UBUNTU (is great !!!) =
