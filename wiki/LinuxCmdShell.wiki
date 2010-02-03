@@ -417,7 +417,12 @@ UserDir disabled root
 /etc/init.d/apache2 restart
 
 
-#Apache propose aux utilisateurs du système d'avoir un espace public pour mettre des documents web en général. Ce répertoire est assez #réstrictif, ce qui est bien, et root n'y a pas le droit. Le module userdir d'Apache utilise les fichiers de configuration: #/etc/apache2/mods-available/userdir.conf et /etc/apache2/mods-available/userdir.load Pour que le module fonctionne, il faut créer des #liens symboliques de ces fichiers, vers le répertoire /etc/apache2/mods-enable.
+#Apache propose aux utilisateurs du système d'avoir un espace public pour mettre des
+documents web en général. Ce répertoire est assez #réstrictif, ce qui est bien, et root
+n'y a pas le droit. Le module userdir d'Apache utilise les fichiers de configuration: 
+#/etc/apache2/mods-available/userdir.conf et /etc/apache2/mods-available/userdir.load 
+Pour que le module fonctionne, il faut créer des #liens symboliques de ces fichiers, 
+vers le répertoire /etc/apache2/mods-enable.
 
 #/home/user/public_html. Le répertoire public est ensuite accessible depuis l'url de la machine suivi de ~/user:
 
