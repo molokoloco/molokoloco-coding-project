@@ -64,6 +64,16 @@ var frameColor:uint = getStyle("frameColor");
 image.setStyle("verticalAlign", "middle");
 
 // ------------------------------------------------------------------------- //
+
+private function main():void {
+	if (stage) addedToStage();
+	else addEventListener(Event.ADDED_TO_STAGE, addedToStage);
+}
+private function addedToStage(e:Event = null):void {
+	/* ici on commence */
+}
+
+// ------------------------------------------------------------------------- //
 itemsId[key] = new openID_mc();
 addChild(itemsId[key]);
 itemsId[key].stockID = key;
