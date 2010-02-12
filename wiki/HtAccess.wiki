@@ -48,6 +48,8 @@ Require user nomUtilisateur
 
 === Utilisation avancée avec système de cache ===
 
+{{{
+
 <IfModule mod_expires.c>
 
 	ExpiresActive On
@@ -92,6 +94,8 @@ Require user nomUtilisateur
 	</FilesMatch> 
 
 </IfModule> 
+
+}}}
 
 [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/.htaccess ./.htaccess]
 
