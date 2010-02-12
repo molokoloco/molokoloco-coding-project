@@ -606,4 +606,38 @@ $('.l').hover(
 );
 
 
+///////////////// SAMPLE PLUGIN STRUCTURE ///////////////////////////////
+// http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
+
+
+(function($){
+
+ 	$.fn.extend({ 
+ 		
+		//pass the options variable to the function
+ 		pluginname: function(options) {
+
+			//Set the default values, use comma to separate the settings, example:
+			var defaults = {
+				padding: 20,
+				mouseOverColor : '#000000',
+				mouseOutColor : '#ffffff'
+			}
+				
+			var options =  $.extend(defaults, options);
+
+    			return this.each(function() {
+				var o = options;
+				
+				//code to be inserted here you can access the value like this
+				alert(o.padding);
+			
+    			});
+    		}
+	});
+	
+})(jQuery);
+
+
+
 }}}
