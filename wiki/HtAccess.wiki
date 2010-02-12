@@ -84,10 +84,12 @@ Require user nomUtilisateur
 		expiresdefault A7200
 	</FilesMatch> 
 	
+	# Infrequent htaccess file
 	<FilesMatch "\.(gif¦jpe?g¦png¦css¦js¦ico¦pdf¦swf¦flv)$">
 		expiresdefault A604800
 	</FilesMatch> 
 
+	# Frequent htaccess file 
 	<FilesMatch "\.(gif¦jpe?g¦png¦css¦js¦ico¦pdf¦swf¦flv)$">
 		expiresdefault A604800
 		Header set cache-control: "no-cache, public, must-revalidate"
@@ -96,6 +98,7 @@ Require user nomUtilisateur
 </IfModule> 
 
 }}}
+
 
 [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/.htaccess ./.htaccess]
 
