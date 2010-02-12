@@ -605,10 +605,13 @@ $('.l').hover(
 	}
 );
 
+}}}
 
 ///////////////// SAMPLE PLUGIN STRUCTURE ///////////////////////////////
 // http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
+// http://docs.jquery.com/Plugins/Authoring
 
+{{{
 
 (function($){
 
@@ -637,7 +640,5 @@ $('.l').hover(
 	});
 	
 })(jQuery);
-
-
 
 }}}
