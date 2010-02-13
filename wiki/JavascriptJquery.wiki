@@ -156,21 +156,28 @@ $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('err
 
 // Center an element on the screen
 (function($){
- 	$.fn.extend({
-		center: function (options) {
-			var options =  $.extend({inside:window, transition: 300, minX:0, minY:0, vertical:true, horizontal:true}, options);
-			return this.each(function() {
-				$(this).css('position', 'absolute');
-				var top = ($(options.inside).height() - $(this).outerHeight())/2 + (options.inside == window ? $(window).scrollTop() : 0);
-				var left = ($(options.inside).width() - $(this).outerWidth())/2 + (options.inside == window ? $(window).scrollLeft() : 0);
-				var props = {};
-				if (options.vertical) $.extend(props, {top: (top > options.minY ? top : options.minY)+'px'});
-				if (options.horizontal) $.extend(props, {left: (left > options.minX ? left : options.minX)+'px'});
-				$(this).animate(props, options.transition);
-				return $(this);
-			});
-		}
-	});
+    $.fn.extend({
+        center: function (options) {
+            var options =  $.extend({ // Default values
+                inside:window, // element : center into window
+                transition: 300, // millisecond : transition time
+                minX:0, // pixel : minimum left element value
+                minY:0, // pixel : minimum top element value
+                vertical:true, // booleen : center vertical ?
+                horizontal:true // booleen : center horizontal ?
+            }, options);
+            return this.each(function() {
+                $(this).css('position', 'absolute');
+                var top = ($(options.inside).height() - $(this).outerHeight())/2 + (options.inside == window ? $(window).scrollTop() : 0);
+                var left = ($(options.inside).width() - $(this).outerWidth())/2 + (options.inside == window ? $(window).scrollLeft() : 0);
+                var props = {};
+                if (options.vertical) $.extend(props, {top: (top > options.minY ? top : options.minY)+'px'});
+                if (options.horizontal) $.extend(props, {left: (left > options.minX ? left : options.minX)+'px'});
+                $(this).animate(props, options.transition);
+                return $(this);
+            });
+        }
+    });
 })(jQuery);
 
 $('#SearchBot').center({transition:0}); // Center main div
