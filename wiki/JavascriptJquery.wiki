@@ -161,8 +161,8 @@ $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('err
 			var options =  $.extend({transition:300, minX:0, minY:0}, options);
 			return this.each(function() {
 				$(this).css('position', 'absolute');
-				var top = ($(window).height() - $(this).height())/2+$(window).scrollTop();
-				var left = ($(window).width() - $(this).width())/2+$(window).scrollLeft();
+				var top = ($(window).height() - $(this).outerHeight())/2+$(window).scrollTop();
+				var left = ($(window).width() - $(this).outerWidth())/2+$(window).scrollLeft();
 				$(this).animate({
 					top: (top > options.minY ? top : options.minY)+'px',
 					left: (left > options.minX ? left : options.minX)+'px'
