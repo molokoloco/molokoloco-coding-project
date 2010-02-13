@@ -161,8 +161,8 @@ $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('err
 			var options =  $.extend({inside:window, transition: 300, minX:0, minY:0, vertical:true, horizontal:true}, options);
 			return this.each(function() {
 				$(this).css('position', 'absolute');
-				var top = ($(options.inside).height() - $(this).outerHeight())/2 + $(window).scrollTop();
-				var left = ($(options.inside).width() - $(this).outerWidth())/2 + $(window).scrollLeft();
+				var top = ($(options.inside).height() - $(this).outerHeight())/2 + (options.inside == window ? $(window).scrollTop() : 0);
+				var left = ($(options.inside).width() - $(this).outerWidth())/2 + (options.inside == window ? $(window).scrollLeft() : 0);
 				var props = {};
 				if (options.vertical) $.extend(props, {top: (top > options.minY ? top : options.minY)+'px'});
 				if (options.horizontal) $.extend(props, {left: (left > options.minX ? left : options.minX)+'px'});
