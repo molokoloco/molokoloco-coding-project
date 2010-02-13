@@ -158,12 +158,15 @@ $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('err
 (function($){
  	$.fn.extend({
 		center: function (options) {
-			var options =  $.extend({transition: 300}, options);
+			var options =  $.extend({transition: 300, minX:0, minY:0}, options);
 			return this.each(function() {
 				$(this).css('position', 'absolute');
 				var top = ($(window).height() - $(this).height())/2+$(window).scrollTop();
 				var left = ($(window).width() - $(this).width())/2+$(window).scrollLeft();
-				$(this).animate({top: (top > 0 ? top : 0)+'px', left: (left > 0 ? left : 0)+'px'}, options.transition);
+				$(this).animate({
+					top: (top > options.minY ? top : options.minY)+'px',
+					left: (left > options.minX ? left : options.minX)+'px'
+				}, options.transition);
 				return $(this);
 			});
 		}
