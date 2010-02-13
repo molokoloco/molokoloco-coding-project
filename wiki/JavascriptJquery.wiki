@@ -155,16 +155,22 @@ $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('err
 // --------------------------------------------------------------- //
 
 // Center an element on the screen
-jQuery.fn.center = function () {
-    this.css("position","absolute");
-    this.css("top", ( $(window).height() - this.height() ) / 2+$(window).scrollTop() + "px");
-    this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
-    return this;
-}
+(function($){
+ 	$.fn.extend({
+		center: function (options) {
+			var options =  $.extend({transition: 300}, options);
+			return this.each(function() {
+				$(this).css('position', 'absolute');
+				var top = ($(window).height() - $(this).height())/2+$(window).scrollTop();
+				var left = ($(window).width() - $(this).width())/2+$(window).scrollLeft();
+				$(this).animate({top: (top > 0 ? top : 0)+'px', left: (left > 0 ? left : 0)+'px'}, options.transition);
+				return $(this);
+			});
+		}
+	});
+})(jQuery);
 
-//Use the above function as:
-$(element).center();
-
+$('#divId').center({transition: 1000});
 
 // --------------------------------------------------------------- //
 
