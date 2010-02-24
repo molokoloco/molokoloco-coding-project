@@ -179,6 +179,30 @@ L'exemple ci-dessus va afficher :
 
 <a href="file.php?PHPSESSID=xxx&var=value">link</a>
 <a href="file.php">link</a>
+
+// ----------------
+
+session_start();
+if(!isset($_SESSION['foo'])) $_SESSION['foo'] = 'bar'; 
+echo $_SESSION['foo'];
+ 
+Les données de session sont protégées en écriture : cela signifie qu'un seul script à la fois sera en mesure de les modifier.  Ce comportement peut ralentir l'exécution de requêtes simultanées (avec les frames ou Ajax par exemple), l'enregistrement de la session sera retardé en attendant que le ou les autre(s) script(s) soi(en)t terminé(s). Pour limiter cette attente, vous pouvez appeler explicitement la fonction session_write_close() (ou son alias session_commit())
+
+Si on utilise un cookie, la durée de vie d'une session dépendra de la durée de vie d'un cookie. Cette durée est définie à l'aide de la directive session.cookie_lifetime. Si cette valeur vaut 0, alors le cookie sera maintenu par le navigateur tant que ce dernier ne sera pas fermé par l'utilisateur
+La durée de vie des données sur le serveur est définie par la directive session.gc_maxlifetime
+
+// Durée de vie de la session (Time To Live)
+
+$ttl = 3600; // Une heure, en secondes
+$local_sessions_save_path = ini_get('session.save_path').'/monsiteweb';
+     
+session_set_cookie_params($ttl);
+ini_set('session.gc_maxlifetime', $ttl);
+ini_set('session.save_path', $local_sessions_save_path);
+
+session_start();
+
+
 --------------------------------------------------------------------------------------------------------
 conversion minuscules/majuscules des chaînes accentuées pose un problème si on emploie strtoupper: en fonction des paramètres locaux de la machine, ils restent en minuscule.
 solution: employez mb_strtoupper()  qui utilise l'unicode (et passe donc sur la majorité des systèmes).
