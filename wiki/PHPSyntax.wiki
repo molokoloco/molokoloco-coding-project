@@ -34,7 +34,7 @@ There are several workarounds mentioned in the comments of the PHP documentation
 
 Start background process using the WScript.Shell object
 
-    You can start the process using the Run method of the WScript.Shell object, which is built-in to Windows. By varying the second parameter, you can make the window hidden, visible, minimized, etc. By setting the third parameter to false, Run does not wait for the process to finish executing. This code only works on Windows.
+    If your on a local window machine... you can start the process using the Run method of the WScript.Shell object, which is built-in to Windows. By varying the second parameter, you can make the window hidden, visible, minimized, etc. By setting the third parameter to false, Run does not wait for the process to finish executing. This code only works on Windows.
 
     $WshShell = new COM("WScript.Shell");
     $oExec = $WshShell->Run("cmd /C dir /S %windir%", 0, false);
