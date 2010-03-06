@@ -33,6 +33,10 @@ RewriteRule ^([a-z,-]+)-r([0-9]+)-p([0-9]+).html$ index.php?rid=$2&page=$3$4 [QS
 RewriteCond %{HTTP_HOST} ^seo\.com$
 RewriteRule (.*) http://www.seo.com/$1 [R=301,L]
 
+# If file not exists condition
+RewriteCond %{REQUEST_fileNAME} !-f
+RewriteRule ^([^.]+)\.s?html$ /app.php?file=$1 [L,R=301] 
+
 }}}
 
 === Restriction d'acces ===
