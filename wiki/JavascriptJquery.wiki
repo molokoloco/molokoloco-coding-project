@@ -154,7 +154,12 @@ $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('err
 
 // --------------------------------------------------------------- //
 
-// Center an element on the screen
+// CSS CENTER an element on the screen
+
+$('#myDiv').css({top:'50%',left:'50%',margin:'-'+($('#myDiv').height() / 2)+'px 0 0 -'+($('#myDiv').width() / 2)+'px'});
+
+// Javascript CENTER an element on the screen
+
 (function($){
     $.fn.extend({
         center: function (options) {
