@@ -158,6 +158,27 @@ $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('err
 
 $('#myDiv').css({top:'50%',left:'50%',margin:'-'+($('#myDiv').height() / 2)+'px 0 0 -'+($('#myDiv').width() / 2)+'px'});
 
+// Who give...
+
+var posItem = function() {
+	if ($(window).height() < $('#SearchBot').height() || $(window).width() < $('#SearchBot').width())
+		$('body').css({overflow:'auto'});
+	else
+		$('body').css({overflow:'hidden'});
+
+	if ($(window).height() < $('#SearchBot').height() && $(window).width() < $('#SearchBot').width())
+		$('#SearchBot').css({top:'0',left:'0',margin:'4px'});
+	else if ($(window).height() < $('#SearchBot').height())
+		$('#SearchBot').css({top:'0',left:'50%',margin:'-0px 0 0 -'+($('#SearchBot').width() / 2)+'px'});
+	else if ($(window).width() < $('#SearchBot').width())
+		$('#SearchBot').css({top:'50%',left:'0',margin:'-'+($('#SearchBot').height() / 2)+'px 0 0 -0px'});
+	else
+		$('#SearchBot').css({top:'50%',left:'50%',margin:'-'+($('#SearchBot').height() / 2)+'px 0 0 -'+($('#SearchBot').width() / 2)+'px'});
+};
+posItem();
+$(window).bind('resize', posItem);
+
+
 // Javascript CENTER an element on the screen
 
 (function($){
