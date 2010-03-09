@@ -1,7 +1,7 @@
 #labels Featured
 #sidebar TableOfContents
 
-  * *Class et fonctions*
+  * *Class and fonctions examples*
     * *[PHPSample PHP class File]*
     * *[mySqlPhpClass PHP class mySQL]*
     * [javascriptAccordeonClass JS Accordéon]
