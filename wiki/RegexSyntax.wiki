@@ -25,6 +25,7 @@ $pattern_img_src = '!.*<img.+src=("|\')([^\1]+)\1.*!Ui'; // '!<([biu])>(.)*<\1>!
 preg_match($pattern_img_src,$desc,$links);
 if (!$links[2]) continue;
 
+
 // EXTRACT URL
 function _striplinks($document) { 
         preg_match_all("'<\s*a\s+.*href\s*=\s*           # find <a href=
@@ -69,6 +70,10 @@ preg_match_all('/<img[^>]+>/i',$html, $result);
 $img = array();
 foreach( $result as $img_tag) preg_match_all('/(alt|title|src)=("[^"]*")/i', $img_tag, $img[$img_tag]);
 print_r($img);
+
+
+backgroundStyle.match(/^url\(["']?(.*\.png)["']?\)$/i))
+image = RegExp.$1;
 
 ________________________________________________________________________
 /*
