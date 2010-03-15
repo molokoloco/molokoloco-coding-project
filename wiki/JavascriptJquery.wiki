@@ -45,7 +45,6 @@ $('p').height()
 jQuery('/html/body//p')
 $('body').css({'overflow' : 'hidden'});
 $('button:gt(1)').attr('disabled','disabled'); // Disables buttons greater than the 1st button.
-$(xml).find("article").each(function(i) { alert($(this).find("titre").text()); });
 $('ul li:last').after('<li>Added text ' + p + '</li>');
 $("div:contains('John')").css('text-decoration', 'underline');
 $(':input'); // Matches all input, textarea, select and button elements
@@ -63,6 +62,10 @@ var foundin = $('*:contains("some string bla bla")');
 $('#myTable tr:last').after('<tr>...</tr>');
 var elements = $('#someid input[type=sometype][value=somevalue]').get();
 $('a').slice(0,10);
+
+$(xml).find("article").each(function(i) { alert($(this).find("titre").text()); });
+$.each({a:'A', b:'B'}, function(key, val) { console.log('%s => %s', key, val); });
+this.columns.each(function(item) { this.buildHeader(item); }, this);
 
 // --------------------------------------------------------------- //
 
