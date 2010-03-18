@@ -19,11 +19,12 @@ preg_match("/$debut(.*)$fin/s", $contenu_html, $valeur);
 echo 'Le nombre de pages Web recensées par Google est de '.$valeur[1].'.';
 
 ________________________________________________________________________
-
 // EXTRACT IMAGE
-$pattern_img_src = '!.*<img.+src=("|\')([^\1]+)\1.*!Ui'; // '!<([biu])>(.)*<\1>!Ui'
-preg_match($pattern_img_src,$desc,$links);
-if (!$links[2]) continue;
+function getFirstImage($document) { 
+	preg_match('/<img[^>]+>/i',$document, $result);
+	preg_match('/src=[\'|"](.+?)[\'|"]/i', $result[0], $img);
+	return $img[1];
+}
 
 
 // EXTRACT URL
@@ -44,11 +45,11 @@ function _striplinks($document) {
     }
 
 
-/*
-http://regexlib.com/Search.aspx?k=image
+
+// http://regexlib.com/Search.aspx?k=image
 
 ### Extract image source from RSS feed for Yahoo pipe.... PERL like syntax
-
+/*
 <img.*?src=['|"](.+?)['|"].*?>
 src=\"([^\"]*)\"[^>]*
 (.*)?src=['|"](.+?)['|"](.*)?
@@ -59,18 +60,21 @@ src=\"([^\"]*)\"[^>]*
 .+src=("|\')([^\1]+)\1.*
 ^(http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?(?:[a-zA-Z0-9_])+\.(?:jpg|jpeg|gif|png))$
 .*?(http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?(?:[a-zA-Z0-9_])+\.(?:jpg|jpeg|gif|png)).*?
-
+*/
 ## OK :) ###
 
 .+src=['|"](.+?)['|"].+
 
 */
 
+$pattern_img_src = '!.*<img.+src=("|\')([^\1]+)\1.*!Ui'; // '!<([biu])>(.)*<\1>!Ui'
+preg_match($pattern_img_src,$desc,$links);
+if (!$links[2]) continue;
+
 preg_match_all('/<img[^>]+>/i',$html, $result);
 $img = array();
 foreach( $result as $img_tag) preg_match_all('/(alt|title|src)=("[^"]*")/i', $img_tag, $img[$img_tag]);
 print_r($img);
-
 
 backgroundStyle.match(/^url\(["']?(.*\.png)["']?\)$/i))
 image = RegExp.$1;
