@@ -62,6 +62,7 @@ var foundin = $('*:contains("some string bla bla")');
 $('#myTable tr:last').after('<tr>...</tr>');
 var elements = $('#someid input[type=sometype][value=somevalue]').get();
 $('a').slice(0,10);
+$.each($('form#formEdit').serializeArray(), function(i, o){ siteObj[o.name] = o.value; });
 
 $(xml).find("article").each(function(i) { alert($(this).find("titre").text()); });
 $.each({a:'A', b:'B'}, function(key, val) { console.log('%s => %s', key, val); });
