@@ -116,6 +116,10 @@ $('div.scrollable:eq(1) div.items div').click(function() {
 
 root.hover(function() { clearInterval(timer); }, function() { setTimer(); });
 
+if (!$(event.target).is('div') && !$(event.target).parents().is('div')) { // outside div
+    $('div').hide();
+}
+
 setTimeout('initCar();', 500);
 
 $('div').attr('id', function(arr) { return 'div-id' + arr; }).each(function() { $('span', this).html('(ID = <b>' + this.id + '</b>)'); });
