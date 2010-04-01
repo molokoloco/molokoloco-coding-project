@@ -164,6 +164,23 @@ $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('err
 
 // --------------------------------------------------------------- //
 
+<ul class="sortUlLink">
+	<li class="sortLink"><a href="http://image-swirl.googlelabs.com">Swirl</a></li>
+	<li class="sortLink"><a href="http://translate.google.fr/">Traductions</a></li>
+	<!--// Insert Here //-->
+	<li class="liAddLink"><a class="addLink" href="javascript:void(0);" onclick="add(this);">[+]</a></li>
+</ul>
+
+<script type="text/javascript">
+var add = function(elm) {
+	var liParent = $(elm).parent();
+	var liBefore = liParent.prev();
+	$('<li class="sortLink"><a href="" rel="" title="" style="cursor:move;">Something</a></li>').insertAfter(liBefore);
+};
+</script>
+
+// --------------------------------------------------------------- //
+
 // CSS CENTER an element on the screen
 
 $('#myDiv').css({top:'50%',left:'50%',margin:'-'+($('#myDiv').height() / 2)+'px 0 0 -'+($('#myDiv').width() / 2)+'px'});
