@@ -80,6 +80,8 @@ var showButton = function(e) {
 };
 $(document).mousemove(showButton);
 
+$(window).bind('resize', posItem);
+
 // --------------------------------------------------------------- //
 
 if (/^[\w\d\_\.]{4,}$/.test($('#username').attr('value'))) alert('Ok');
