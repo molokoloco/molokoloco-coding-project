@@ -689,7 +689,7 @@ $('.l').hover(
 
 }}}
 
-== LITTLE FUNCTION I USE ==
+== LITTLES FUNCTIONS I USE ==
 
 {{{
 var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } if (('console' in window) && ('firebug' in console)) { console.info('db('+typeof something+')'); console.log(info); }};
