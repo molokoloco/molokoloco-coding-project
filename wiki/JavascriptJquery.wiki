@@ -689,6 +689,26 @@ $('.l').hover(
 
 }}}
 
+== LITTLE FUNCTION I USE ==
+
+{{{
+var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } if (('console' in window) && ('firebug' in console)) { console.info('db('+typeof something+')'); console.log(info); }};
+var die = function(mess) { throw(( mess ? mess : "JS says that you killing him softly : Oh my god moonWalker is down...")); };
+var trim = function(string) { return string.replace(/^\s+|\s+$/g, ''); };
+var escapeURI = function(url) { if (encodeURIComponent) return encodeURIComponent(url); else if (encodeURI) return encodeURI(url); else if (escape) return escape(url); else return url; };
+var event2key = {'97':'a', '98':'b', '99':'c', '100':'d', '101':'e', '102':'f', '103':'g', '104':'h', '105':'i', '106':'j', '107':'k', '108':'l', '109':'m', '110':'n', '111':'o', '112':'p', '113':'q', '114':'r', '115':'s', '116':'t', '117':'u', '118':'v', '119':'w', '120':'x', '121':'y', '122':'z'};
+var pad = function(s) { return (s < 10 ? '0'+s : s); };
+var addslashes = function (str) { return (str+'').replace(/([\\"'])/g, "\\$1").replace(/\u0000/g, "\\0"); };
+// index.html?name=foo -> var name = getUrlVars()[name]; 
+var getUrlVars = function() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) { vars[key] = value; }); return vars; };
+// sites['link'].sort($.objSortByTitle);
+var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }; 
+// loadJs('http://other.com/other.js'); // For external link
+var loadJs = function(src) { var s = document.createElement('script'); s.setAttribute('type', 'text/javascript'); s.setAttribute('src', src); document.getElementsByTagName('head')[0].appendChild(s); };
+// getScript('./other.js', function() { ok(); });
+var getScript = function(src, callback) { $.ajax({dataType:'script', async:false, cache:true, url:src, success:function(response) { if (callback && typeof callback == 'function') callback(); }}); };
+}}}
+
 == SAMPLE PLUGIN STRUCTURE ==
 
   * http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
