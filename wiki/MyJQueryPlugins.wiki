@@ -32,6 +32,7 @@ Plugin who load (at the first demand) and switch stylesheet, with cookie :
 ===JavaScript===
 
 Source here : http://plugins.jquery.com/project/AddOrSwitchStylesheet
+
 Use cookie manager from : http://plugins.jquery.com/project/cookie
 
 {{{
