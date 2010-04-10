@@ -2,7 +2,7 @@
 #labels Featured
 
 
-= AddOrSwitchStylesheet =
+= Add Or Switch Stylesheet =
 
 Plugin who load (at the first demand) and switch stylesheet, with cookie :
   * Manage links to change style
