@@ -1,6 +1,5 @@
-#summary My contribution to jQuery
+#summary Personnal contribution to jQuery
 #labels Featured
-
 
 = Add Or Switch Stylesheet =
 
@@ -32,7 +31,8 @@ Plugin who load (at the first demand) and switch stylesheet, with cookie :
 
 ===JavaScript===
 
-Use cookie manager from http://plugins.jquery.com/project/cookie
+Source here : http://plugins.jquery.com/project/AddOrSwitchStylesheet
+Use cookie manager from : http://plugins.jquery.com/project/cookie
 
 {{{
 (function($){
