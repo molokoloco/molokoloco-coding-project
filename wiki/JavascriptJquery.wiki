@@ -168,6 +168,16 @@ $("ul > li").click(function () {
 var imgsrc = 'img/image1.png';
 $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('error loading image');}).attr('src', imgsrc);
 
+Storing DATAS with elements...
+var adiv = $("div").get(0);
+jQuery.data(adiv, "test", { first: 16, last: "pizza!" });
+$("span:first").text(jQuery.data(adiv, "test").first);
+$("span:last").text(jQuery.data(adiv, "test").last);
+
+When you bind a "live" event it will bind also to future elements
+$("p").live("click", function(){
+    $(this).after("<p>Another paragraph!</p>");
+});
 // --------------------------------------------------------------- //
 /*
 <ul class="sortUlLink">
