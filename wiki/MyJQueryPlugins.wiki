@@ -1,0 +1,81 @@
+#summary My contribution to jQuery
+#labels Featured
+
+
+= AddOrSwitchStylesheet =
+
+Plugin who load (at the first demand) and switch stylesheet, with cookie :
+  * Manage links to change style
+  * Add stylesheet to head if not exist
+  * If already exist, switch style with the disabled attribute
+  * Prevent style flickering with a little timeout (between one is disabled and other not totaly loaded)
+  * Prevent changing other styles who are not related to theme
+  * Stock and autoload user style preference, with a cookie
+
+===HTML===
+
+{{{
+<head>
+     <link rel="stylesheet" type="text/css" media="all" href="css/styles.css" id="themeDefault"/>
+     ...
+</head>
+<body>
+<div>
+     <ul>
+          <li><a href="javascript:void(0);" rel="css/styles.css" class="css">Original</a></li>
+          <li><a href="javascript:void(0);" rel="css/style_light.css" class="css">Blanc</a></li>
+          <li><a href="javascript:void(0);" rel="css/style_dark.css" class="css">Sombre</a></li>
+     </ul>
+</div>
+</body>
+}}}
+
+===JavaScript===
+
+Use cookie manager from http://plugins.jquery.com/project/cookie
+
+{{{
+(function($){
+
+     // Stylesheet management... by molokoloco 2010
+     // Source here : http://plugins.jquery.com/project/AddOrSwitchStylesheet
+     $.fn.extend({
+          styleDisable: function(disabled) {
+               setTimeout(function() {
+                    $(disabled).each(function() { $(this).attr('disabled', 'disabled'); });
+               }, 250);
+          },
+          styleSwitch: function(stylePath) {
+               var exist = false;
+               var disabled = [];
+               // No modification for other styles -who can be on the page- without id attribute
+               $('link[@rel*=style][id]').each(function() { 
+                    if (stylePath == $(this).attr('href')) {
+                         $(this).removeAttr('disabled');
+                         exist = true;
+                    }
+                    else disabled.push(this);
+               });
+               if (exist == false) $('head').append('<link rel="stylesheet" type="text/css" href="'+stylePath+'" id="theme'+Math.random()+'"/>');
+               $.fn.styleDisable(disabled);
+               $.cookie('css', stylePath, {expires:365, path:'/'});
+          },
+          styleInit: function(linksWithRel) {
+               if ($.cookie('css')) {
+                    var isSet = false;
+                    $('link[rel*=style][id]').each(function() {
+                         if ($.cookie('css') == $(this).attr('href')) isSet = true;
+                    });
+                    if (isSet == false) $.fn.styleSwitch($.cookie('css'));
+               }
+               $(linksWithRel).click(function(event) {
+                    event.preventDefault();
+                    $.fn.styleSwitch($(this).attr('rel'));
+                    $(this).blur();
+               });
+          }
+     });
+     $.fn.styleInit('a.css');
+     
+})(jQuery);
+}}}
