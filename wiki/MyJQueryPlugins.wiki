@@ -93,6 +93,8 @@ $('#q').selectRange(searchVal.indexOf('{'), (searchVal.indexOf('}')+1));
 
 ===JAVASCRIPT===
 
+Source here : http://plugins.jquery.com/project/selectRange
+
 {{{
 $.fn.selectRange = function(start, end) {
     var e = document.getElementById($(this).attr('id')); // I don't know why... but $(this) don't want to work today :-/
