@@ -81,7 +81,7 @@ Use cookie manager from : http://plugins.jquery.com/project/cookie
 })(jQuery);
 }}}
 
-
+----
 =Plugin for a text range select=
 
 ===USE CASE===
@@ -105,7 +105,7 @@ $.fn.selectRange = function(start, end) {
 };
 }}}
 
-
+----
 =Plugin to center an element into an other=
 
 ===USE CASE===
