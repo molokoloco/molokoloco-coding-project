@@ -59,7 +59,7 @@ Plugin who load (at the first demand) and switch stylesheet, with cookie :
                     }
                     else disabled.push(this);
                });
-               if (exist == false) styleLoad(stylePath);
+               if (exist == false) $.fn.styleLoad(stylePath);
                $.fn.styleDisable(disabled);
                $.cookie('css', stylePath, {
                     expires: 365,
