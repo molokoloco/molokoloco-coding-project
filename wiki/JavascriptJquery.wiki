@@ -723,6 +723,25 @@ var loadJs = function(src) { var s = document.createElement('script'); s.setAttr
 var getScript = function(src, callback) { $.ajax({dataType:'script', async:false, cache:true, url:src, success:function(response) { if (callback && typeof callback == 'function') callback(); }}); };
 }}}
 
+== jQUery version 1.4 ==
+
+Parmi les changements et améliorations apportées dans la version 1.4 :
+
+  * de nombreuses améliorations pour les fonctions Ajax et les données manipulées (sérialisation, parsing, json), 
+  * de nouvelles méthodes pour le parcours des éléments (first, last, eq...),
+  * une création rapide d'éléments avec la fonction jQuery, attributs et événements inclus,
+  * des fonctions .css(), .attr() et équivalentes plus évoluées (permettant l'usage d'un appel de fonction),
+  * des fonctions d'accélération (easing) par propriété CSS dans les animations,
+  * un appel multiple à .bind() possible, pour plusieurs types d'événements distincts,
+  * .proxy() pour s'assurer de la pérennité de this dans une fonction, 
+  * de nouveaux événements : focusin et focusout, équivalents à focus et blur mais qui remontent dans la hiérarchie du DOM (qui bubblent)
+  * .live() supporte désormais tous les événements (à l'exception des cas particuliers ready, blur, et focus), 
+  * de nouvelles méthodes : .detach(), .unwrap(),
+  * de nouvelles files d'attente avec .delay(), .queue() et .clearQueue(),
+  * de nouvelles fonctions de parcours : .index(), .has, .nextUntil(), .prevUntil(), parentsUntil() et des améliorations pour .add(), .closest(),
+  * les callbacks sont possibles sur les fonctions DOM,
+  * et bien d'autres perfectionnements...
+
 == SAMPLE PLUGIN STRUCTURE ==
 
   * http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
