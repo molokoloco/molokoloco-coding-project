@@ -3,18 +3,16 @@
 
 = Add Or Switch Stylesheet =
 
-
-Source here : http://home.b2bweb.fr/js/jquery.style.js
-
-Official : http://plugins.jquery.com/project/AddOrSwitchStylesheet
-
-Use cookie manager from : http://plugins.jquery.com/project/cookie
+Ressources :
+  * Source here : http://home.b2bweb.fr/js/jquery.style.js
+  * Official : http://plugins.jquery.com/project/AddOrSwitchStylesheet
+  * Use cookie manager from : http://plugins.jquery.com/project/cookie
 
 Plugin who load (at the first demand) and switch stylesheet, with cookie :
   * Manage links to change style
   * Add stylesheet to head if not exist
   * If already exist, switch style with the disabled attribute
-  * Prevent style flickering with a little timeout (between one is disabled and other not totaly loaded)
+  * Prevent changing styles who are not related to theme : No modification on styles without id attribute
   * Prevent changing other styles who are not related to theme
   * Stock and autoload user style preference, with a cookie
 
