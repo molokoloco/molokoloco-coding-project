@@ -88,7 +88,7 @@ Plugin who load (at the first demand) and switch stylesheet, with cookie :
 }}}
 
 ----
-=Plugin for a text range select=
+=Select a text range (input/textarea)=
 
 ===USE CASE===
 
@@ -112,7 +112,7 @@ $.fn.selectRange = function(start, end) {
 }}}
 
 ----
-=Plugin to center an element into an other=
+=Center element into an other=
 
 ===USE CASE===
 
