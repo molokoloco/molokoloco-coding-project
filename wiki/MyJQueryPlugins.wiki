@@ -61,7 +61,7 @@ Use cookie manager from : http://plugins.jquery.com/project/cookie
                $.fn.styleDisable(disabled);
                $.cookie('css', stylePath, {expires:365, path:'/'});
           },
-          styleInit: function(linksWithRel) {
+          styleInit: function() {
                if ($.cookie('css')) {
                     var isSet = false;
                     $('link[rel*=style][id]').each(function() {
@@ -69,16 +69,17 @@ Use cookie manager from : http://plugins.jquery.com/project/cookie
                     });
                     if (isSet == false) $.fn.styleSwitch($.cookie('css'));
                }
-               $(linksWithRel).click(function(event) {
+               $(this).click(function(event) {
                     event.preventDefault();
                     $.fn.styleSwitch($(this).attr('rel'));
                     $(this).blur();
                });
           }
      });
-     $.fn.styleInit('a.css');
-     
 })(jQuery);
+
+$('a.css').styleInit(); // That it's :)
+
 }}}
 
 ----
