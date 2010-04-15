@@ -136,8 +136,8 @@ Source here : http://plugins.jquery.com/project/autocenter
                     transition: 0, // millisecond, transition time
                     minX:0, // pixel, minimum left element value
                     minY:0, // pixel, minimum top element value
+                    withScrolling:true, // booleen, take care of element inside scrollTop
                     vertical:true, // booleen, center vertical
-                    withScrolling:true, // booleen, take care of element inside scrollTop when minX < 0 and window is small or when window is big 
                     horizontal:true // booleen, center horizontal
                }, options);
                return this.each(function() {
