@@ -134,8 +134,8 @@ Source here : http://plugins.jquery.com/project/autocenter
                var options =  $.extend({ // Default values
                     inside:window, // element, center into window
                     transition: 0, // millisecond, transition time
-                    minX:-900, // pixel, minimum left element value
-                    minY:-900, // pixel, minimum top element value
+                    minX:0, // pixel, minimum left element value
+                    minY:0, // pixel, minimum top element value
                     vertical:true, // booleen, center vertical
                     withScrolling:true, // booleen, take care of element inside scrollTop when minX < 0 and window is small or when window is big 
                     horizontal:true // booleen, center horizontal
