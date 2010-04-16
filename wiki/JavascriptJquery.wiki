@@ -80,7 +80,27 @@ var showButton = function(e) {
 };
 $(document).mousemove(showButton);
 
-$(window).bind('resize', posItem);
+$(window).bind('resize', function() {
+    resizeFrame();
+});
+
+$('div').one('click', function() { /*... Only first time*/ });
+
+$('div#fox img, div#ie img, div#saf img').hover(
+	function(event) { $(this).stop(true, true).animate({marginTop:'0px'}, {duration:500}); }, 
+	function(event) { $(this).stop(true, true).animate({marginTop:'-28px'}, {duration:500}); }
+);
+
+$('.thumbLien').hover(
+    function () {
+        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
+        cvi_glossy.modify($(imgId)[0], {shadow:66});
+    }, 
+    function () {
+        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
+        cvi_glossy.modify($(imgId)[0], {shadow:20});
+    }
+);
 
 // --------------------------------------------------------------- //
 
@@ -120,8 +140,6 @@ $('html,body').animate({scrollTop: targetOffset},5);
 $('div.scrollable:eq(1) div.items div').click(function() { 
     $(this).fadeOut().fadeIn();   
 });
-
-root.hover(function() { clearInterval(timer); }, function() { setTimer(); });
 
 if (!$(event.target).is('div') && !$(event.target).parents().is('div')) { // outside div
     $('div').hide();
@@ -327,27 +345,6 @@ x = Math.max(6,7.25); //donne x = 7.25
 x = Math.min(6,7.25); //donne x = 6
 x = Math.pow(3,3); //donne x = 27
 x = Math.random(); //donne x = 0.6489534931546957
-
-// --------------------------------------------------------------- //
-
-// blur, focus, load, resize, scroll, unload, beforeunload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, error
-
-$(window).bind('resize', function() {
-    resizeFrame();
-});
-
-$('div').one('click', function() {/*... Only first time*/ });
-
-$('.thumbLien').hover(
-    function () {
-        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
-        cvi_glossy.modify($(imgId)[0], {shadow:66});
-    }, 
-    function () {
-        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
-        cvi_glossy.modify($(imgId)[0], {shadow:20});
-    }
-);
 
 // --------------------------------------------------------------- //
 
