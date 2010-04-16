@@ -11,9 +11,17 @@ http://www.gscottolson.com/jquery/jQuery1.2.cheatsheet.v1.0.pdf
 
 http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
 
+----
+
 This is some fonctions i take from jQuery DOC and others i made...
+
 My previous framework was build (some years ago) on Prototype.js
-Some old functions here : http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/200_tools.js
+
+Some old functions here : 
+
+http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/200_tools.js
+
+----
 
 {{{
 
