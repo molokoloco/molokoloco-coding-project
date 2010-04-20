@@ -88,6 +88,7 @@ Trier par date : ,sbd:1
 [http://www.googleguide.com Googleguide.com]
 [http://www.google.com/codesearch Google.com/codesearch]
 [http://www.scribd.com/doc/2843995/Google-Hacking Scribd.com/Google-Hacking]
+[http://www.google.com/press/blogs/directory.html Blogs directory]
 
 ----
 
