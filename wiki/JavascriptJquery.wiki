@@ -220,76 +220,7 @@ $("p").live("click", function(){
 
 var add = function(elm) {
 	var liParent = $(elm).parent();
-	var liBefore = liParent.prev();
-	$('<li class="sortLink"><a href="#">Something</a></li>').insertAfter(liBefore);
-};
-
-// --------------------------------------------------------------- //
-
-// CSS CENTER an element on the screen
-
-$('#myDiv').css({top:'50%',left:'50%',margin:'-'+($('#myDiv').height() / 2)+'px 0 0 -'+($('#myDiv').width() / 2)+'px'});
-
-// Who give...
-
-var posItem = function() {
-	if ($(window).height() < $('#SearchBot').height() || $(window).width() < $('#SearchBot').width())
-		$('body').css({overflow:'auto'});
-	else
-		$('body').css({overflow:'hidden'});
-
-	if ($(window).height() < $('#SearchBot').height() && $(window).width() < $('#SearchBot').width())
-		$('#SearchBot').css({top:'0',left:'0',margin:'4px'});
-	else if ($(window).height() < $('#SearchBot').height())
-		$('#SearchBot').css({top:'0',left:'50%',margin:'-0px 0 0 -'+($('#SearchBot').width() / 2)+'px'});
-	else if ($(window).width() < $('#SearchBot').width())
-		$('#SearchBot').css({top:'50%',left:'0',margin:'-'+($('#SearchBot').height() / 2)+'px 0 0 -0px'});
-	else
-		$('#SearchBot').css({top:'50%',left:'50%',margin:'-'+($('#SearchBot').height() / 2)+'px 0 0 -'+($('#SearchBot').width() / 2)+'px'});
-};
-posItem();
-$(window).bind('resize', posItem);
-
-
-// Javascript CENTER an element on the screen
-
-(function($){
-    $.fn.extend({
-        center: function (options) {
-            var options =  $.extend({ // Default values
-                inside:window, // element : center into window
-                transition: 300, // millisecond : transition time
-                minX:0, // pixel : minimum left element value
-                minY:0, // pixel : minimum top element value
-                vertical:true, // booleen : center vertical ?
-                horizontal:true // booleen : center horizontal ?
-            }, options);
-            return this.each(function() {
-                $(this).css('position', 'absolute');
-                var top = ($(options.inside).height() - $(this).outerHeight())/2 + (options.inside == window ? $(window).scrollTop() : 0);
-                var left = ($(options.inside).width() - $(this).outerWidth())/2 + (options.inside == window ? $(window).scrollLeft() : 0);
-                var props = {};
-                if (options.vertical) $.extend(props, {top: (top > options.minY ? top : options.minY)+'px'});
-                if (options.horizontal) $.extend(props, {left: (left > options.minX ? left : options.minX)+'px'});
-                $(this).animate(props, options.transition);
-                return $(this);
-            });
-        }
-    });
-})(jQuery);
-
-$('#SearchBot').center({transition:0}); // Center main div
-$(window).bind('resize', function() { $('#SearchBot').center(); });
-
-// --------------------------------------------------------------- //
-// Select Text Range : selectRange
-
-$.fn.selectRange = function(start, end) {
-    var e = document.getElementById($(this).attr('id')); // I don't know why... but $(this) don't want to work today :-/
-    if (!e) return;
-    else if (e.setSelectionRange) { e.focus(); e.setSelectionRange(start, end); } /* WebKit */ 
-    else if (e.createTextRange) { var range = e.createTextRange(); range.collapse(true); range.moveEnd('character', end); range.moveStart('character', start); range.select(); } /* IE */
-    else if (e.selectionStart) { e.selectionStart = start; e.selectionEnd = end; }
+	$('<li class="sortLink"><a href="#">Something</a></li>').insertBefore(liParent);
 };
 
 // --------------------------------------------------------------- //
