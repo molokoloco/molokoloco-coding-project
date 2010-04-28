@@ -63,6 +63,9 @@ listOwner.addEventListener(FlexEvent.VALUE_COMMIT, updatePosition, false, 0, tru
 var frameColor:uint = getStyle("frameColor");
 image.setStyle("verticalAlign", "middle");
 
+stage.displayState = StageDisplayState.FULL_SCREEN;
+stage.scaleMode = StageScaleMode.NO_BORDER; // EXACT_FIT // SHOW_ALL // NO_BORDER // NO_SCALE
+
 // ------------------------------------------------------------------------- //
 
 private function main():void {
