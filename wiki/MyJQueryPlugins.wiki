@@ -179,6 +179,13 @@ Source here : http://plugins.jquery.com/project/autocenter
 })(jQuery);
 }}}
 
+
+===VERY SHORT VERSION===
+
+{{{
+$('#myDiv').css({top:'50%',left:'50%',margin:'-'+($('#myDiv').height() / 2)+'px 0 0 -'+($('#myDiv').width() / 2)+'px'});
+}}}
+
 ----
 =Others jQuery related=
 
