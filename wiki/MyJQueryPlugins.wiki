@@ -34,7 +34,7 @@ Plugin who load (at the first demand) and switch stylesheet, with cookie :
 </body>
 }}}
 
-===JAVASCRIPT===
+===JQUERY PLUGIN===
 
 {{{
 (function($){
@@ -97,7 +97,7 @@ $('#q').selectRange(0, 10);
 $('#q').selectRange(searchVal.indexOf('{'), (searchVal.indexOf('}')+1));
 }}}
 
-===JAVASCRIPT===
+===JQUERY PLUGIN===
 
 Source here : http://plugins.jquery.com/project/selectRange
 
@@ -123,7 +123,7 @@ $(window).bind('resize', function() {
 });
 }}}
 
-===JAVASCRIPT===
+===JQUERY PLUGIN===
 
 Source here : http://plugins.jquery.com/project/autocenter
 
