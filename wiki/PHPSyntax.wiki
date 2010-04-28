@@ -868,7 +868,23 @@ print_r($files);
 ________________________________________________________________________
 
 # // generate unique string  
-# echo uniqid();  
+# echo uniqid();
+
+________________________________________________________________________
+
+// When you use register_shutdown_function(), your code will execute no matter why the // script has stopped running:
+
+$start_time = microtime(true);  
+   
+register_shutdown_function('my_shutdown');  
+  
+// do some stuff  
+
+function my_shutdown() {  
+     global $start_time;  
+   
+     echo "execution took: ".(microtime(true) - $start_time)." seconds.";  
+}  
 ________________________________________________________________________
 
 XML OUTPUT INPUT XML OUTPUT INPUT XML OUTPUT INPUT XML OUTPUT INPUT
