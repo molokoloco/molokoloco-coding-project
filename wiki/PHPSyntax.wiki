@@ -848,7 +848,24 @@ closedir($dir);
 ?>
 <br><a href="?dwnzip=ok">Télécharger le zip (<?echo @sizeof($_SESSION["zip"])?> fichiers)</a>
 - <a href="?videzip=ok">Vider le zip</a>
+
 ________________________________________________________________________
+
+$files = glob('*.{php,txt}', GLOB_BRACE);  
+print_r($files);  
+
+// output looks like: 
+# Array 
+# ( 
+#     [0] => phptest.php 
+#     [1] => pi.php 
+#     [2] => post_output.php 
+#     [3] => test.php 
+#     [4] => log.txt 
+#     [5] => test.txt 
+# )
+________________________________________________________________________
+
 XML OUTPUT INPUT XML OUTPUT INPUT XML OUTPUT INPUT XML OUTPUT INPUT
     // PHP GENERATE XML //////////////////////////////////////////////////
  
