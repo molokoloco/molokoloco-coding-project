@@ -864,6 +864,11 @@ print_r($files);
 #     [4] => log.txt 
 #     [5] => test.txt 
 # )
+
+________________________________________________________________________
+
+# // generate unique string  
+# echo uniqid();  
 ________________________________________________________________________
 
 XML OUTPUT INPUT XML OUTPUT INPUT XML OUTPUT INPUT XML OUTPUT INPUT
