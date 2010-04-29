@@ -45,6 +45,29 @@ while(!feof($handle)) {
 }
 pclose($handle);
 
+
+// -------------------------------------------------------------------------------------------------------- //
+
+PHP intègre depuis sa version 5 un client SOAP. Toutes les fonctions permettant d'effectuer une telle requête sont déjà à notre portée. Il ne reste plus qu'à les appeler.
+
+Tout d'abord, créons un nouvel objet, qui prendra comme paramètre le endpoint à requêter :
+
+$client = new soapclient("http://monendpoint.com/soap");
+
+Si vous passez une telle url dans votre navigateur, elle est sensée vous retourner notre élément WSDL. On peut alors, par exemple, demander à voir a liste des méthodes disponibles :
+
+<pre>var_dump($client->__getFunctions());</pre>
+
+Une fois ceci fait, il ne reste plus qu'à appeler la méthode souhaitée :
+
+$response = $client->GetList('macleAPI');
+
+Les méthodes en questions prennent comme paramètres ceux définis par le WSDL. Il ne reste plus qu'à traiter le contenu récupéré qui est au format JSON, ce qui se traite alors de manière extrêmement simple en PHP.
+
+Et voilà, le tour est joué. Il ne reste plus qu'à vous amuser avec votre API.
+
+http://romain.typepad.fr/mon_weblog/2010/03/api-mon-amour-épisode-3-réaliser-une-requête-soapwsdl-via-http.html
+
 // -------------------------------------------------------------------------------------------------------- //
 
 function cmd($cmd, $escape=FALSE) {
