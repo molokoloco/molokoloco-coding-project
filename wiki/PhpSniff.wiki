@@ -51,6 +51,8 @@ http://localhost/snifftv.php
 
 = snifftv.php =
 
+Fichier à lancer sur son localhost, dans son navigateur favoris
+
 {{{
 
 <?php 
@@ -152,7 +154,7 @@ function startMpg2UdpStream($videoId='', $hostPort='239.192.1.1:1235') {
 }
 
 
-$udp_url = 'C:\\WebSmash\\eclipse_project\\demo_bouygues\\public\\img\\lci\\zapnet20080923.mp4.mpg';
+$udp_url = 'C:\\eclipse_project\\demo\\img\\lci\\zapnet20080923.mp4.mpg';
 $udp_port = (!empty($_GET['udp_port']) ? $_GET['udp_port'] : '239.192.1.1:1235');
 
 startMpg2UdpStream($udp_url, $udp_port);
