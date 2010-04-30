@@ -127,7 +127,7 @@ getLiveStream('/home/votrenomutilisateur/Bureau/packet');
 
 == STREAM VIDEO (FILE/URL) WITH VLC MEDIA PLAYER ==
 
-ORIGINAL CMD :
+Example of cmd.exe commands for VLC :
 
 {{{
 
