@@ -118,6 +118,8 @@ $('.thumbLien').hover(
 
 if (/^[\w\d\_\.]{4,}$/.test($('#username').attr('value'))) alert('Ok');
 
+if (! (ext && /^(jpg|png|jpeg|gif)$/i.test(ext))) return;
+
 if (/(_on)/.test($(this).attr('src'))) $(this).attr({src: $(this).attr('src').split('_on.png')[0]+'.png'});
 
 var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
