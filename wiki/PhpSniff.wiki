@@ -125,7 +125,9 @@ getLiveStream('/home/votrenomutilisateur/Bureau/packet');
 
 }}}
 
-== STREAM VIDEO (FILE/URL) WITH VLC MEDIA PLAYER ==
+== HOW TO STREAM VIDEOS (FILE or URL) WITH VLC MEDIA PLAYER ==
+
+http://www.videolan.org/doc/streaming-howto/en/ch04.html
 
 Example of cmd.exe commands for VLC :
 
