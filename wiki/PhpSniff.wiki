@@ -155,12 +155,12 @@ function cmd($cmd, $escape=FALSE) {
 }
 
 function startMpg2UdpStream($videoId='', $hostPort='239.192.1.1:1235') {
-        $cmd = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc\" $videoId --quiet --sout=#transcode{vcodec=h264,vb=768,scale=0.5,acodec=mpga,ab=96,channels=1}:duplicate{dst=display,dst=std{access=udp,mux=ts,dst=$hostPort}} vlc:quit"; //,
+        $cmd = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc\" \"".$videoId."\" --quiet --sout=#transcode{vcodec=h264,vb=768,scale=0.5,acodec=mpga,ab=96,channels=1}:duplicate{dst=display,dst=std{access=udp,mux=ts,dst=$hostPort}} vlc:quit"; //,
         cmd($cmd);
 }
 
 
-$udp_url = 'C:\\eclipse_project\\demo\\img\\lci\\zapnet20080923.mp4.mpg';
+$udp_url = 'C:\\eclipse_project\\demo\\img\\lci\\zapnet20080923.mpg';
 $udp_port = (!empty($_GET['udp_port']) ? $_GET['udp_port'] : '239.192.1.1:1235');
 
 startMpg2UdpStream($udp_url, $udp_port);
