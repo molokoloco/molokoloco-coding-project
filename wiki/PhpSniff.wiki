@@ -132,7 +132,13 @@ ORIGINAL CMD :
 {{{
 
 "C:\Program Files\VideoLAN\VLC\vlc" -vvv http://sl.tf1.fr/lci/vod/zapnet/zapnet20080926.mp4 --sout=#transcode{vcodec=mp2v,vb=800,scale=1,acodec=mpga,ab=128,channels=2}:duplicate{dst=std{access=udp,mux=ts,dst=239.192.1.1:1235}}
-       
+
+}}}
+
+or 
+
+{{{
+
 "C:\Program Files\VideoLAN\VLC\vlc" -vvv "C:\eclipse_project\public\videos\lci\zapnet20080922.mp4" --sout=#transcode{vcodec=mp2v,vb=800,scale=1,acodec=mpga,ab=128,channels=2}:duplicate{dst=std{access=udp,mux=ts,dst=239.192.1.1:1235}}
 
 }}}
