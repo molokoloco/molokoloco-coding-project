@@ -6,6 +6,8 @@
 
 http://www.techieblogger.com/2009/10/linux-unix-ubuntu-solaris-cheat-sheets.html
 
+http://linuxmanua.blogspot.com/2010/05/top-logiciels-installer-sur-linux_02.html
+
 {{{
 
 --- BASIC CMD ---------------------------------------------------------
