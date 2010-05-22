@@ -1,6 +1,10 @@
 #summary Personnal contribution to jQuery
 #labels Featured
 
+Au sommaire :
+
+<wiki:toc max_depth="2" />
+
 = Add Or Switch Stylesheet =
 
 Ressources :
