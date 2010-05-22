@@ -3,7 +3,6 @@
   * *jQuery*
     * *[JavascriptJquery JS jQuery]*
     * *[MyJQueryPlugins My jQuery plugins]*
-
   * *Class and fonctions examples*
     * *[PHPSample PHP class File]*
     * *[mySqlPhpClass PHP class mySQL]*
@@ -18,7 +17,6 @@
     * [AndroidRest Android RESTfull]
     * [AndroidJsonList Android Json List]
     * [AndroidMarket Android Appz]
-
   * *Personal Tips*
     * [PHPSyntax PHP tooltips]
     * [JavascriptBase JS tooltips]
