@@ -1,7 +1,7 @@
 #summary Personnal contribution to jQuery
 #labels Featured
 
-Au sommaire :
+*Au sommaire :*
 
 <wiki:toc max_depth="2" />
 
