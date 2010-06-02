@@ -4,6 +4,7 @@
 
 = Some sources =
 
+http://www.herewithme.fr/wordpress-plugins/simple-tags#adv-use-tag-cloud
 
 = Some snippets =
 
@@ -35,4 +36,3 @@ function publish_later_on_feed($where) {
 
 add_filter('posts_where', 'publish_later_on_feed');
 }}}
-
