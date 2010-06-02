@@ -1,0 +1,38 @@
+#summary My personnal note for WordPress hack
+#labels Tooltips
+
+
+= Some sources =
+
+
+= Some snippets =
+
+
+=== Scheduling Posts for RSS ===
+From : http://webdesignledger.com/tips/13-useful-code-snippets-for-wordpress-development
+
+If you regularly publish articles and you care about the quality of your posts then this is a good hack for you. The main purpose of this hack is that it lets you schedule your posts to be viewed in your RSS at a later time, this will allow you enough time to get those last minute fixes and additions in before your post is forever published in your feed. Place the following code in your .htaccess file. In order to change the length of the delay, change the value of the $waitvariable on line 9.
+
+{{{
+function publish_later_on_feed($where) {
+	global $wpdb;
+
+	if ( is_feed() ) {
+		// timestamp in WP-format
+		$now = gmdate('Y-m-d H:i:s');
+
+		// value for wait; + device
+		$wait = '5'; // integer
+
+		// http://dev.mysql.com/doc/refman/5.0/en/date-and-time-functions.html#function_timestampdiff
+		$unit = 'MINUTE'; //MINUTE, HOUR, DAY, WEEK, MONTH, YEAR
+
+		// add SQL-sytax to default $where
+		$where .= " AND TIMESTAMPDIFF($unit, $wpdb->posts.post_date_gmt, '$now') > $wait ";
+	}
+	return $where;
+}
+
+add_filter('posts_where', 'publish_later_on_feed');
+}}}
+
