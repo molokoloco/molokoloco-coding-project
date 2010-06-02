@@ -56,6 +56,19 @@ AuthUserFile /home/passwd/ficherMdpACreer
 Require user nomUtilisateur
 }}}
 
+et 
+
+{{{
+AuthUserFile /dev/null
+AuthGroupFile /dev/null
+AuthName "Example Access Control"
+AuthType Basic
+<LIMIT GET>
+order deny,allow
+deny from all
+allow from xx.xx.xx.xx
+</LIMIT>
+}}}
 === Utilisation avancée avec système de cache ===
 
 {{{
