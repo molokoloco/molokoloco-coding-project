@@ -6,8 +6,7 @@
   * Doc here : http://www.askapache.com/htaccess/mod_rewrite-tips-and-tricks.html
   * HTaccess  Generator here : http://cooletips.de/htaccess/
   * HTpasswd Generator : http://www.htaccesstools.com/htpasswd-generator/
-
-CODEBOT : http://home.b2bweb.fr/#code
+  * And, of course, CODEBOT : http://home.b2bweb.fr/#code
 
 === URL rewriting ===
 
