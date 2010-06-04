@@ -14,10 +14,6 @@
 RewriteEngine on
 #RewriteBase /
 
-#php_value memory_limit "99M"
-#php_value post_max_size "99M" 
-#php_value upload_max_filesize "99M"
-
 ErrorDocument 404 /404.php
 
 # COMPRESS
@@ -49,6 +45,14 @@ RewriteRule ^([^.]+)\.s?html$ /app.php?file=$1 [L,R=301]
  RewriteRule ^feed/?([_0-9a-z-]+)?/?$ http://feeds.feedburner.com/WebDesignLedger [R=302,NC,L]
 </IfModule>
 
+}}}
+
+=== PHP.ini ===
+
+{{{
+#php_value memory_limit "99M"
+#php_value post_max_size "99M" 
+#php_value upload_max_filesize "99M"
 }}}
 
 === Restriction d'acces ===
