@@ -21,7 +21,9 @@ h1.verticalCenter {
  font-size: 3em;  
  height: 100px;  
  line-height: 100px;  
-}  
+}
+
+div.alwaysdownright { position:fixed; bottom:5px; right:5px; display:block; padding:3px; }
 
 .verticalHorizontalCenteredBox {  
  width: 600px; /*--Specify Width--*/  
