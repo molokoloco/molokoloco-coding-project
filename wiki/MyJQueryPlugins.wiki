@@ -140,7 +140,7 @@ Source here : http://plugins.jquery.com/project/autocenter
                     transition: 0, // millisecond, transition time
                     minX:0, // pixel, minimum left element value
                     minY:0, // pixel, minimum top element value
-                    withScrolling:true, // booleen, take care of element inside scrollTop
+                    withScrolling:true, // booleen, take care of the scrollbar (scrollTop)
                     vertical:true, // booleen, center vertical
                     horizontal:true // booleen, center horizontal
                }, options);
@@ -181,6 +181,8 @@ Source here : http://plugins.jquery.com/project/autocenter
 	}
      });
 })(jQuery);
+
+$('#myDiv').center();
 }}}
 
 
