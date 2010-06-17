@@ -9,6 +9,23 @@ Certaines fonctions ci-dessous sont reprises (proprement ;) dans le [http://code
 
 highlight_file(__FILE__);
 
+function afficher_code_php() {
+    if (isset($_GET['source'])) {
+        echo '<p><a href="',$_SERVER['PHP_SELF'],'">Retour</a></p>';
+        echo '<p>Ceci est le code php du fichier :</p>';
+        $page = highlight_file($_SERVER['SCRIPT_FILENAME'], TRUE);
+        $page = str_replace(
+          array('<code>','/code>','&nbsp;','</font>','<font color="'),
+          array('<pre style="padding:1em;border:2px solid black;overflow:scroll">','/pre>',' ','</span>','<span style="color:'),$page);
+        echo $page;
+        echo '<p><a href="',$_SERVER['PHP_SELF'],'">Retour</a></p>';
+        echo '</body></html>';
+        exit;
+    }
+}
+
+
+
 // -------------------------------------------------------------------------------------------------------- //
 
 if (function_exists('curl_init')) {
