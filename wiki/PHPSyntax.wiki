@@ -24,7 +24,7 @@ function afficher_code_php() {
     }
 }
 
-
+<a href="view-source:http://monsite.com/<?=$_SERVER['PHP_SELF']?>">Source html</a>
 
 // -------------------------------------------------------------------------------------------------------- //
 
