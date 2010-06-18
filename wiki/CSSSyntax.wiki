@@ -50,12 +50,40 @@ h1 {
 background: url(home_h1.gif) no-repeat;  
 text-indent: -99999px;  
 }
-________________________________________________________________________
+
+/*________________________________________________________________________*/
+
+/* <input type="button" class="new-aqua" value="Login"/> */
+
+input[type=button].new-aqua {
+  width: 155px;
+  height: 35px;
+  background: #cde;
+  border: 2px solid #ccc;
+  border-color: #8ba2c1 #5890bf #4f93ca #768fa5;
+  font: 600 16px/1 Lucida Sans, Verdana, sans-serif;
+  color: #fff;
+  text-shadow: rgba(10, 10, 10, 0.5) 1px 2px 2px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-radius: 16px; -moz-border-radius: 16px; -webkit-border-radius: 16px;
+  box-shadow: 0 10px 16px rgba(66, 140, 240, 0.5), inset 0 -8px 12px 0 #6bf, inset 0 -8px 0 8px #48c, inset 0 -35px 15px -10px #7ad;
+  -moz-box-shadow: 0 10px 16px rgba(66, 140, 240, 0.5), inset 0 -8px 12px 0 #6bf, inset 0 -8px 0 8px #48c, inset 0 -35px 15px -10px #7ad;
+  -webkit-box-shadow: 0 10px 16px rgba(66, 140, 240, 0.5), inset 0 -8px 12px 0 #6bf, inset 0 -8px 0 8px #48c, inset 0 -35px 15px -10px #7ad;
+}
+.new-aqua:hover {
+  text-shadow: rgb(255, 255, 255) 0px 0px 5px;
+}
+
+/*________________________________________________________________________*/
 
 opacity : 0.7;
 -moz-opacity : 0.7; 
 filter : alpha(opacity=70); 
-________________________________________________________________________
+/*________________________________________________________________________*/
 
 #box {
 	/* Just a box */
@@ -99,7 +127,7 @@ table {
       width: 600px; /* à adapter selon vos contraintes */
       table-layout: fixed; /* non breaking long link */
 }
-________________________________________________________________________
+/*________________________________________________________________________*/
 
 -moz-box-shadow: inset 1px 1px 10px #888;
 -moz-box-shadow: 0px 20px 10px -10px #888;
@@ -115,7 +143,7 @@ border-radius:4px;
 -webkit-border-radius:4px;
 
 text-shadow:#1395B8 1px 1px 3px; 
-________________________________________________________________________
+/*________________________________________________________________________*/
 
 /***** Selector Hacks ******/
 
@@ -156,7 +184,7 @@ body:first-of-type #ocho {  color: red }
 /* ie7 and below */
 #doce { *color: blue } /* or #color:blue */
 
-________________________________________________________________________
+/*________________________________________________________________________*/
 
 IE BG PNG TRANSPARENCY
 /* HACK png transparent sur IE en background */
@@ -213,8 +241,7 @@ span.tool:hover span.tip {
   padding-left: 2px;            /* eye candy */
   content: url(/img/bubble.gif);
 }
-
-________________________________________________________________________
+/*________________________________________________________________________*/
 
 .noprint {
     display : none;
@@ -267,7 +294,7 @@ fieldset {
 input, select, textarea {
     font-size: 100%;
 }
-________________________________________________________________________
+/*________________________________________________________________________*/
 
 .clipInHalf {
     position: absolute;
@@ -283,7 +310,8 @@ table { background-color:#FFF; border: 1px solid #3366FF; border-collapse: separ
 th { background-color:#3366FF; color:#FFCC66; }
 tr:hover>td { background-color:#B9CFFF; }
 
-________________________________________________________________________
+/*________________________________________________________________________*/
+
 position:relative is very important. The children of this <div> are absolutely positioned.
 Absolutely positioned elements are positioned relative to the nearest positioned ancestor.
 Since we want them to be positioned relative to the diagram itself, we have to make it positioned.
