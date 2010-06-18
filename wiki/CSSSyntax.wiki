@@ -87,6 +87,13 @@ ________________________________________________________________________
 	word-wrap: break-word;
 	overflow:hidden;
 }
+
+p.text-overflow {
+      width: 200px; /* à modifier selon vos besoins */
+      overflow: hidden;
+      -o-text-overflow: ellipsis; /* pour Opera 9 */
+      text-overflow: ellipsis; /* ajoute ... apres la coupure, pour le reste du monde */
+}
 ________________________________________________________________________
 
 -moz-box-shadow: inset 1px 1px 10px #888;
