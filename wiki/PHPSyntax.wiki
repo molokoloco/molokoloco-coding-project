@@ -7,6 +7,24 @@ Certaines fonctions ci-dessous sont reprises (proprement ;) dans le [http://code
 
 {{{
 
+
+// -------------------------------------------------------------------------------------------------------- //
+
+function object2array($object) {
+    $return = NULL;   
+    if (is_array($object)) {
+        foreach($object as $key => $value) $return[$key] = object2array($value);
+    }
+    else {
+        $var = get_object_vars($object);
+        if ($var) foreach($var as $key => $value) $return[$key] = ($key && !$value) ? NULL : object2array($value);
+        else return $object;
+    }
+    return $return;
+}
+
+// -------------------------------------------------------------------------------------------------------- //
+
 highlight_file(__FILE__);
 
 function afficher_code_php() {
@@ -50,6 +68,54 @@ if (function_exists('curl_init')) {
 	curl_close ($ch);
 }
 else $result = file_get_contents($url);
+
+
+// -------------------------------------------------------------------------------------------------------- //
+
+$xmlEpgUrl = $xmlTodayDir.$fileName;
+$xmlEpgString = file_get_contents($xmlEpgUrl);
+$xmlEpgString = str_replace(array('PCCAD_CD:','PCCAD_st:','PCCAD_TV:'), array(), $xmlEpgString); // Clean Nasty Random NameSpace :-/
+
+$X = @simplexml_load_string($xmlEpgString); // CORE XML FUNCTION
+//$namespaces = $X->getDocNamespaces();
+//$X->registerXPathNamespace('__empty_ns', $namespaces['']);
+
+if (!$X) {
+	$infos .= 'Error parsing XML file ! ('.$xmlEpgUrl.')<br />';
+	continue;
+}
+
+$channelEpgId = (string)$X->ServiceTable->Service['serviceID'];
+$channelEpgName = (string)$X->ServiceTable->Service->Name;
+
+if (!$channelEpgId) {
+	$infos .= 'Error with XML file ! ('.$xmlEpgUrl.')<br />';
+	continue;
+}
+
+foreach($X->xpath('//ContentLocationTable/TVContentLocation') as $TVContentLocation) {
+	$contentID = (string)$TVContentLocation['contentID'];
+	$DiffusionTitle = (string)$TVContentLocation->DiffusionTitle;
+}
+
+// EN VRAC.... // SIMPLE XML
+
+$xml['xmlns'] = ''; 
+simplexml_load_file($file_xml, 'SimpleXMLElement',LIBXML_NOCDATA); 
+echo $xml->asXML();
+
+foreach($produits -> produit[0] ->attributes() as $a => $b) {  
+
+// convert string from utf-8 to iso8859-1
+$horoscope = iconv( "UTF-8", "ISO-8859-1//TRANSLIT", $horoscope );
+
+// EN VRAC XPATH >>>> http://fr.wikipedia.org/wiki/XPath
+
+$xml->xpath('/a/b/c');
+$xml->xpath("/rss/channel/item/content:encoded/text()");
+$v = $row->xpath('//field[@name="id"]'); 
+$xml->xpath("//adressname[contains(.,'Ci')]");
+$data = $xml->xpath("//adressname[contains(.,'Ci') and not(./text()=preceding-sibling::adressname/text())]");
 
 // -------------------------------------------------------------------------------------------------------- //
 
