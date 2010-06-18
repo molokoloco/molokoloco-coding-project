@@ -94,6 +94,11 @@ p.text-overflow {
       -o-text-overflow: ellipsis; /* pour Opera 9 */
       text-overflow: ellipsis; /* ajoute ... apres la coupure, pour le reste du monde */
 }
+
+table {
+      width: 600px; /* à adapter selon vos contraintes */
+      table-layout: fixed; /* non breaking long link */
+}
 ________________________________________________________________________
 
 -moz-box-shadow: inset 1px 1px 10px #888;
