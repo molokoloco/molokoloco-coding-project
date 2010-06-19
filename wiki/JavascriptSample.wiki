@@ -461,3 +461,51 @@ var printPage = function(){
 
 == For more information : svn/trunk/trunk/SITE_01_SRC/ ==
 http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/
+
+= Later addons=
+
+== Loading Javascript file ==
+
+===For external domain JS link ===
+
+{{{
+var loadJs = function(jsPath) { 
+    var s = document.createElement('script');
+    s.setAttribute('type', 'text/javascript');
+    s.setAttribute('src', jsPath);
+    document.getElementsByTagName('head')[0].appendChild(s);
+};
+loadJs('http://other.com/other.js'); 
+}}}
+
+=== For same domain JS link (Using jQuery) ===
+{{{
+var getScript = function(jsPath, callback) {
+    $.ajax({
+        dataType:'script',
+        async:false,
+        cache:true,
+        url:jsPath,
+        success:function(response) {
+            if (callback && typeof callback == 'function') callback();
+        }
+    });
+};
+getScript('js/other.js', function() { functionFromOther(); });
+}}}
+
+== En vrac ==
+
+{{{
+var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } if (('console' in window) && ('firebug' in console)) { console.info('db('+typeof something+')'); console.log(info); }};
+var die = function(mess) { throw(( mess ? mess : "JS says that you killing him softly : Oh my god moonWalker is down...")); };
+var trim = function(string) { return string.replace(/^\s+|\s+$/g, ''); };
+var escapeURI = function(url) { if (encodeURIComponent) return encodeURIComponent(url); else if (encodeURI) return encodeURI(url); else if (escape) return escape(url); else return url; };
+var pad = function(n) { return (n < 10 ? '0'+n : n); };
+var addslashes = function (str) { return (str+'').replace(/([\\"'])/g, "\\$1").replace(/\u0000/g, "\\0"); };
+// index.html?name=foo -> var name = getUrlVars()[name]; 
+var getUrlVars = function() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) { vars[key] = value; }); return vars; };
+// sites['link'].sort($.objSortByTitle);
+var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }; 
+var loadCss = function(stylePath) { $('head').append('<link rel="stylesheet" type="text/css" href="'+stylePath+'"/>'); };
+}}}
