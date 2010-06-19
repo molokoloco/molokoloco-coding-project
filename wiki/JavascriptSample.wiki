@@ -462,7 +462,7 @@ var printPage = function(){
 == For more information : svn/trunk/trunk/SITE_01_SRC/ ==
 http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/
 
----- 
+----
 
 
 = Later addons=
