@@ -1,13 +1,16 @@
+#summary 200_tools.js example
 #labels Featured,Phase-Requirements
-<h2>My Javascript Toolbox</h2>
 
-<ul>
-	<li><a href="http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/ trunk/SITE_01_SRC/js/proto/optional/" target="_blank">All Framework here</a></li>
-	<li><a href="http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/200_tools.js" target="_blank">200_tools.js</a></li>
-</ul>
+=My Javascript Toolbox=
+
+== 200_tools.js ==
 
 
-<xmp><pre lang="javascript">
+All Framework here :
+[http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/ trunk/SITE_01_SRC/js/proto/optional/] - [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/200_tools.js 200_tools.js]
+
+
+{{{
 
 /* ////////////////////////////////////////////////////////////////////////////////////
 //    Code mixing by Molokoloco - www.b2bweb.fr - BETA TESTING FOR EVER ! (o_O)     //
@@ -17,37 +20,65 @@
 // ------------------------- REQUIRE :) ---------------------------------- //
 if (typeof Element == 'undefined') throw("tools.js requires prototype.js library");
 
+var loadingImagePath = 'images/common/loading.gif';
+
 // ------------------------- DEBUG SOMETHING ---------------------------------- //
 var db = function(something) {
-	if (arguments.length > 1) {
-		for (var i=0, length=arguments.length; i < length; i++ ) db(arguments[i]);
-		return;
-	}
+        if (arguments.length > 1) {
+                for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]);
+                return;
+        }
+        var info = '';
+        //if (db.caller != null) info += '[call by '+db.caller+']\n';
+        //else info += '[direct call]\n';
+        //if (typeof something == 'array' || typeof something == 'object') {
+                //info += ' | CONSTRUCTOR : ['+something.constructor+']';
+                //info += ' | INSPECT : ['+Object.inspect(something)+']';
+        //}
+    if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf();
+        else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false');
+    //else if (typeof something == 'object') return vd(something);
+    else {
+        for (var key in something) {
+            if (typeof something[key] != 'function') // (bad prototype noise)
+                info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n';
+        }
+    }
+        if (('console' in window) && ('firebug' in console)) {
+                console.info('db('+typeof something+')');
+                console.log(info);
+        }
+    else {
+                info = 'db('+typeof something+') :\n'+info;
+                alert(info);
+                //var dbWin = window.open('javascript:void(0)','','resizabe=1,scrollbars=1,width=400,height=300,left=100,top=100');
+                //with (dbWin.document) { writeln('<xmp>'+info+'</xmp>'); close(); }
+        }
 };
 
 var dbNode = function(element) {
-	if (('console' in window) && ('firebug' in console)) {
-		console.info('dbNode('+element+')');
-		console.dirxml($(element));
-	}
+        if (('console' in window) && ('firebug' in console)) {
+                console.info('dbNode('+element+')');
+                console.dirxml($(element));
+        }
 }
 
 /* ------------------------- DEBUG OBJET ---------------------------------- */
 var vd = function(obj, parent) {
-	if (typeof obj != 'object') return db(obj);
-	for (var attr in obj) {
-		if (parent) console.log(parent + "+" + attr + "\n" + obj[attr]);
-		else console.log(attr + "\n" + obj[attr]);
-		if (typeof obj[attr] == 'object') {
-			if (parent) vd(obj[attr], parent + "+" + attr);
-			else vd(obj[attr], attr);
-		}
-	}
+        if (typeof obj != 'object') return db(obj);
+        for (var attr in obj) {
+                if (parent) console.log(parent + "+" + attr + "\n" + obj[attr]);
+                else console.log(attr + "\n" + obj[attr]);
+                if (typeof obj[attr] == 'object') {
+                        if (parent) vd(obj[attr], parent + "+" + attr);
+                        else vd(obj[attr], attr);
+                }
+        }
 }
 
 /* ---------------- AFFICHE TOUTES LES PROPRIETES D'UN OBJET ------------- */
 var showKey = function(obj) {
-	var props = [];
+        var props = [];
     for (var prop in obj) props.push(prop);
     db(props.join(', '));
 };
@@ -59,75 +90,75 @@ var die = function(mess) {
 
 // ------------------------- IS SET ? ---------------------------------- //
 var isSet = function(myVar) {
-	if (typeof(myVar) == 'undefined' || myVar === '' || myVar === null) return false;
-	else return true;
+        if (typeof(myVar) == 'undefined' || myVar === '' || myVar === null) return false;
+        else return true;
 };
 // ------------------------- ID ELEMENT EXIST ? ---------------------------------- //
 var isId = function(element) {
-	if (!isSet(element)) return false;
-	try { 
-		if ($(element)) return true;
-		else return false;
-	}
-   	catch(e) { return false; }
+        if (!isSet(element)) return false;
+        try {
+                if ($(element)) return true;
+                else return false;
+        }
+        catch(e) { return false; }
 };
 
 // ------------------------- Type of ---------------------------------- //
 var isWhat = function(myVar) {
-	if (!isSet(myVar)) return '';
-	else return typeof myVar; // number | string | object | boolean | function
+        if (!isSet(myVar)) return '';
+        else return typeof myVar; // number | string | object | boolean | function
 };
 
 // ------------------------- isFrame ---------------------------------- //
 var isFrame = function() {
-	return ( window.self == window.parent ? false : true ); // Checks that page is in iframe
+        return ( window.self == window.parent ? false : true ); // Checks that page is in iframe
 };
 
 // ------------------------- Execute function ---------------------------------- //
 var exec = function(func) {
-	if (isSet(func) && typeof(func) == 'string') func = eval(func);
-	else if (typeof(func) != 'function') die(func+' n\'est pas une fonction');
-	try { func(); return true; }
-	catch(e) { func; return true; }
-	return die(func+' n\'est pas une fonction connue');
+        if (isSet(func) && typeof(func) == 'string') func = eval(func);
+        else if (typeof(func) != 'function') die(func+' n\'est pas une fonction');
+        try { func(); return true; }
+        catch(e) { func; return true; }
+        return die(func+' n\'est pas une fonction connue');
 }
 
 var arrayCount = function (arr) {
-	i = 0;
-	for (var attr in arr) i++;
-	return i;
+        i = 0;
+        for (var attr in arr) i++;
+        return i;
 };
 // ------------------------- makeClass ---------------------------------- //
 // By John Resig (MIT Licensed)
 /*
-	var User = makeClass();
-	User.prototype.init = function(first, last){
-		this.name = first + " " + last;
-	};
-	var user = User("John", "Resig");
-	user.name
-	// => "John Resig"
+        var User = makeClass();
+        User.prototype.init = function(first, last){
+                this.name = first + " " + last;
+        };
+        var user = User("John", "Resig");
+        user.name
+        // => "John Resig"
 
 function makeClass(){
-	return function(args) {
-		if (this instanceof arguments.callee) {
-			if (typeof this.init == 'function') this.init.apply(this, args);
-		}
-		else return new arguments.callee(arguments);
-	};
+        return function(args) {
+                if (this instanceof arguments.callee) {
+                        if (typeof this.init == 'function') this.init.apply(this, args);
+                }
+                else return new arguments.callee(arguments);
+        };
 }
 */
 // ------------------------- Eval JS string ---------------------------------- //
 /*
-	onComplete: function( transport ) {
-		if (transport.status == 200) = {
-			var script = transport.responseText.extractScripts();
-			var html = transport.responseText.stripScripts();
-			$(id_dst).innerHTML = html;
-			evalJs( script );
-		} 
-		else alert('There was a problem with the request.');
-	}
+        onComplete: function( transport ) {
+                if (transport.status == 200) = {
+                        var script = transport.responseText.extractScripts();
+                        var html = transport.responseText.stripScripts();
+                        $(id_dst).innerHTML = html;
+                        evalJs( script );
+                }
+                else alert('There was a problem with the request.');
+        }
 */
 function evalJs(script) {
    if (window.execScript) return window.execScript(script);
@@ -143,17 +174,17 @@ function evalJs(script) {
 // ------------------------- Sort Array ---------------------------------- //
 // myArray.sort(objSortByTitle);
 var objSortByTitle = function (a, b) {
-	var x = a.title.toLowerCase();
-	var y = b.title.toLowerCase();
-	return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        var x = a.title.toLowerCase();
+        var y = b.title.toLowerCase();
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
 };
 
 // ------------------------- Load new script file  ---------------------------------- //
 var _loadJs = function(src) {
-	var s = document.createElement('script');
-	s.setAttribute('type', 'text/javascript');
-	s.setAttribute('src', src);
-	document.getElementsByTagName('head')[0].appendChild(s);
+        var s = document.createElement('script');
+        s.setAttribute('type', 'text/javascript');
+        s.setAttribute('src', src);
+        document.getElementsByTagName('head')[0].appendChild(s);
 };
 
 // ------------------------- ECHO ;) ---------------------------------- //
@@ -161,15 +192,16 @@ var echo = function(str) { document.write(str); }
 
 // ------------------------- GOTO LOCATION ---------------------------------- //
 var redir = function(myUrl) {
-	if (isFrame()) {
-		if (!isSet(myUrl)) window.parent.document.location.reload();
-		else window.parent.document.location.href = myUrl;
-	}
-	else {
-		if (!isSet(myUrl)) window.document.location.reload();
-		else window.document.location.href = myUrl;
-	}
+        if (isFrame()) {
+                if (!isSet(myUrl)) window.parent.document.location.reload();
+                else window.parent.document.location.href = myUrl;
+        }
+        else {
+                if (!isSet(myUrl)) window.document.location.reload();
+                else window.document.location.href = myUrl;
+        }
 };
+
 
 // ------------------------- TIMER ---------------------------------- //
 var startTime = null;
@@ -185,12 +217,12 @@ var stopClock = function() {
 
 // ------------------------- Convert to string ---------------------------------- //
 var parseStr = function(str) {
-	return str.toString();
+        return str.toString();
 };
 
 // ------------------------- Get Html Att from Array ---------------------------------- //
 var getAtt = function(name, value) {
-	return ' '+name+'="'+value+'"';
+        return ' '+name+'="'+value+'"';
 }
 
 // ------------------------- PARSE QUERY ---------------------------------- //
@@ -209,7 +241,7 @@ var parseQuery = function(query) {
 // ------------------------- STRING UNIQUE ---------------------------------- //
 var incId = 0;
 var getUniqueId = function() {
-	incId++;
+        incId++;
     return 'id_'+incId;
 };
 
@@ -220,18 +252,18 @@ var setSrc = function(element, newSrc) { // DEPRECIATED
     setTimeout( function() { element.src = newSrc; }, 100);
 };
 var loadImg = function(imgSrc) {
-	if (!isSet(imgSrc)) return;
+        if (!isSet(imgSrc)) return;
     loadArr[imgSrc]= new Image();
     setSrc(loadArr[imgSrc], imgSrc);
-	return loadArr[imgSrc];
+        return loadArr[imgSrc];
 };
 var setImg = function(imgId,imgSrc) {
     if (!isId(imgId) || !isSet(imgSrc)) return;
-	var img = loadImg(imgSrc);
-	img.onload = function() {
-		$(imgId).src = imgSrc;
-		$(imgId).style.width = 'auto';
-		$(imgId).style.height = 'auto';
+        var img = loadImg(imgSrc);
+        img.onload = function() {
+                $(imgId).src = imgSrc;
+                $(imgId).style.width = 'auto';
+                $(imgId).style.height = 'auto';
 };
 };
 
@@ -263,16 +295,16 @@ var baseName = function(path) {
         vb = path.substring(i,i+1)
         if (vb == '/' || vb == '\\') return path.substring(i+1, path.length);
     }
-	return path; // Si n'est pas-path..
+        return path; // Si n'est pas-path..
 };
 
 // ------------------------- GetExt ---------------------------------- //
 var getExt = function(string) {
-	var vb;
-	for (var i=string.length; i>0; i--) {
-		vb = string.substring(i, i+1);
-		if (vb == '.') return string.substring(i+1, string.length);
-	}
+        var vb;
+        for (var i=string.length; i>0; i--) {
+                vb = string.substring(i, i+1);
+                if (vb == '.') return string.substring(i+1, string.length);
+        }
 };
 
 // ------------------------- CLEAN FILE NAME ---------------------------------- //
@@ -289,12 +321,12 @@ var affCleanName = function(filetitle) { // 070305142221_c-est_aussi_ca.jpg >>> 
 
 // ------------------------- inArray ---------------------------------- //
 var inArray = function(myValue, myArray) {
-	if (isWhat(myArray) != 'object') return false;
+        if (isWhat(myArray) != 'object') return false;
     for (var k in myArray) { if (myArray[k] == myValue) return true; }
     return false;
 };
 var keyInArray = function(myKey, myArray) {
-	if (isWhat(myArray) != 'object') return false;
+        if (isWhat(myArray) != 'object') return false;
     for (var k in myArray) { if (k === myKey) return true; }
     return false;
 };
@@ -306,19 +338,19 @@ var strRep = function(string, strSearch, strRep) {
 };
 
 var nl2br = function(string) {
-	return strRep(string, "\n", '<br />');
+        return strRep(string, "\n", '<br />');
 };
 
 // -------------------- GET CLASS NAMES -------------------- //
 var getClassNames = function(id){
-	return $(id).className.split(' ');
+        return $(id).className.split(' ');
 };
 
 // -------------------- FIND ID IN CLASS -------------------- //
 var findId = function(str) {
-	var regexp = /_([0-9a-z_-]+)/;
-	var mymatch = regexp.exec(str);
-	return (mymatch ? mymatch[1] : false);
+        var regexp = /_([0-9a-z_-]+)/;
+        var mymatch = regexp.exec(str);
+        return (mymatch ? mymatch[1] : false);
 };
 
 // -------------------- FIND PARAM IN CLASS -------------------- //
@@ -359,57 +391,58 @@ var checkDate = function(strDate) {
 
 // -------------------- Format Time -------------------- //
 var formatTime = function(seconds) {
-	var printDate = false;
-	var timeFormat = '';
-	var myHtml = '';
-	var Stamp = new Date();
-	switch(timeFormat) {
-		case 'locale' : Stamp.toLocaleString(); break;
-		case 'gtmdiff' : Stamp.getTimezoneOffset(); break;
-		case 'gtm' : Stamp.toGMTString(); break;
-	}
-	// DATE
-	if (printDate) { 
-		var y = Stamp.getFullYear();
-		var m = (Stamp.getMonth() + 1).toPaddedString(2);
-		var d = Stamp.getDate();
-		myHtml += d+'/'+m+'/'+y;
-	}
-	// TEMPS
-	var he = Stamp.getHours().toPaddedString(2);
-	var mi = Stamp.getMinutes().toPaddedString(2);
-	var se = Stamp.getSeconds().toPaddedString(2);
-	myHtml += he+'h'+mi+'min'+se+'sec';
+        var printDate = false;
+        var timeFormat = '';
+        var myHtml = '';
+        var Stamp = new Date();
+        switch(timeFormat) {
+                case 'locale' : Stamp.toLocaleString(); break;
+                case 'gtmdiff' : Stamp.getTimezoneOffset(); break;
+                case 'gtm' : Stamp.toGMTString(); break;
+        }
+        // DATE
+        if (printDate) {
+                var y = Stamp.getFullYear();
+                var m = (Stamp.getMonth() + 1).toPaddedString(2);
+                var d = Stamp.getDate();
+                myHtml += d+'/'+m+'/'+y;
+        }
+        // TEMPS
+        var he = Stamp.getHours().toPaddedString(2);
+        var mi = Stamp.getMinutes().toPaddedString(2);
+        var se = Stamp.getSeconds().toPaddedString(2);
+        myHtml += he+'h'+mi+'min'+se+'sec';
     return myHtml;
 };
+
 
 // -------------------- Listen and Get KEY -------------------- //
 // Also see // Event.observe('myInput','keypress', functions);
 
 var getKey = function(e) { // Call it with : getKey(event) ! // 13 = Enter
-	var keycode = ( window.event ? window.event.keyCode : e.which );
-	switch(keycode) { case '' : return ''; case 0 : return ''; case 8 : return 'backspace'; case 9 : return 'tab'; case 13 : return 'return'; case 27 : return 'esc'; case 33 : return 'pageup'; case 34 : return 'pagedown'; case 35 : return 'end'; case 36 : return 'home'; case 37 : return 'left'; case 38 : return 'up'; case 39 : return 'right'; case 40 : return 'down'; case 46 : return 'del'; default : return String.fromCharCode(keycode).toLowerCase(); }
+        var keycode = ( window.event ? window.event.keyCode : e.which );
+        switch(keycode) { case '' : return ''; case 0 : return ''; case 8 : return 'backspace'; case 9 : return 'tab'; case 13 : return 'return'; case 27 : return 'esc'; case 33 : return 'pageup'; case 34 : return 'pagedown'; case 35 : return 'end'; case 36 : return 'home'; case 37 : return 'left'; case 38 : return 'up'; case 39 : return 'right'; case 40 : return 'down'; case 46 : return 'del'; default : return String.fromCharCode(keycode).toLowerCase(); }
 };
 // Event.KEY_RETURN
 var inputListen = {};
 var enterEvent = function(element, func) { // onFocus="enterEvent('password',submitForm);"
-	if (isSet(inputListen[element])) Event.stopObserving(element, 'keypress');
-	else inputListen[element] = 1;
-	var makeAction = function(e) {
-		if (getKey(e) == 'return') { //Event.KEY_RETURN
-				Event.stopObserving(element, 'keypress');
-			return exec(func);
-			}
+        if (isSet(inputListen[element])) Event.stopObserving(element, 'keypress');
+        else inputListen[element] = 1;
+        var makeAction = function(e) {
+                if (getKey(e) == 'return') { //Event.KEY_RETURN
+                                Event.stopObserving(element, 'keypress');
+                        return exec(func);
+                        }
 };
-	Event.observe(element, 'keypress', makeAction);
+        Event.observe(element, 'keypress', makeAction);
 };
 var listenKey = function(makeAction) { document.onkeypress = makeAction(getKey(event)); };
 
 
 // ------------------------- SHOW HIDE BLOCK ELEMENTS FOR IE ------------------------------ //
 var showHideBoxes = function(v) {
-	if (!isSet(detectedBrowser)) var detectedBrowser = client.browser();
-	if (detectedBrowser == 'msie 6' || detectedBrowser == 'msieOld') $$('select', 'iframe', 'embed', 'object').invoke((v == 'hidden' || v == 'hide' ? 'hide' : 'show'));
+        if (!isSet(detectedBrowser)) var detectedBrowser = client.browser();
+        if (detectedBrowser == 'msie 6' || detectedBrowser == 'msieOld') $$('select', 'iframe', 'embed', 'object').invoke((v == 'hidden' || v == 'hide' ? 'hide' : 'show'));
 };
 
 // -------------------- FAVORIS -------------------- //
@@ -425,7 +458,7 @@ var printPage = function(){
    else alert('Pour imprimer cette page : Ctrl + P');
 }
 
-</pre></xmp>
+}}}
 
 
 == For more information : svn/trunk/trunk/SITE_01_SRC/ ==
@@ -440,18 +473,18 @@ http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_S
 
 ===For external domain JS link ===
 
-<pre lang="javascript">
-var loadJs = function(jsPath) { 
+{{{
+var loadJs = function(jsPath) {
     var s = document.createElement('script');
     s.setAttribute('type', 'text/javascript');
     s.setAttribute('src', jsPath);
     document.getElementsByTagName('head')[0].appendChild(s);
 };
-loadJs('http://other.com/other.js'); 
-</pre>
+loadJs('http://other.com/other.js');
+}}}
 
 === For same domain JS link (Using jQuery) ===
-<pre lang="javascript">
+{{{
 var getScript = function(jsPath, callback) {
     $.ajax({
         dataType:'script',
@@ -464,20 +497,20 @@ var getScript = function(jsPath, callback) {
     });
 };
 getScript('js/other.js', function() { functionFromOther(); });
-</pre>
+}}}
 
 == En vrac ==
 
-<pre lang="javascript">
-var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<'+typeof something[key]+'> '+something[key]+'\n'; } } if (('console' in window) && ('firebug' in console)) { console.info('db('+typeof something+')'); console.log(info); }};
+{{{
+var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } if (('console' in window) && ('firebug' in console)) { console.info('db('+typeof something+')'); console.log(info); }};
 var die = function(mess) { throw(( mess ? mess : "JS says that you killing him softly : Oh my god moonWalker is down...")); };
 var trim = function(string) { return string.replace(/^\s+|\s+$/g, ''); };
 var escapeURI = function(url) { if (encodeURIComponent) return encodeURIComponent(url); else if (encodeURI) return encodeURI(url); else if (escape) return escape(url); else return url; };
 var pad = function(n) { return (n < 10 ? '0'+n : n); };
 var addslashes = function (str) { return (str+'').replace(/([\\"'])/g, "\\$1").replace(/\u0000/g, "\\0"); };
-// index.html?name=foo -> var name = getUrlVars()[name]; 
+// index.html?name=foo -> var name = getUrlVars()[name];
 var getUrlVars = function() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) { vars[key] = value; }); return vars; };
 // sites['link'].sort($.objSortByTitle);
-var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }; 
+var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); };
 var loadCss = function(stylePath) { $('head').append('<link rel="stylesheet" type="text/css" href="'+stylePath+'"/>'); };
-</pre>
+}}}
