@@ -1,16 +1,13 @@
-#summary 200_tools.js example
 #labels Featured,Phase-Requirements
+<h2>My Javascript Toolbox</h2>
 
-=My Javascript Toolbox=
-
-== 200_tools.js ==
-
-
-All Framework here :
-[http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/ trunk/SITE_01_SRC/js/proto/optional/] - [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/200_tools.js 200_tools.js]
+<ul>
+	<li><a href="http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/ trunk/SITE_01_SRC/js/proto/optional/" target="_blank">All Framework here</a></li>
+	<li><a href="http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/200_tools.js" target="_blank">200_tools.js</a></li>
+</ul>
 
 
-{{{
+<xmp><pre lang="javascript">
 
 /* ////////////////////////////////////////////////////////////////////////////////////
 //    Code mixing by Molokoloco - www.b2bweb.fr - BETA TESTING FOR EVER ! (o_O)     //
@@ -20,39 +17,11 @@ All Framework here :
 // ------------------------- REQUIRE :) ---------------------------------- //
 if (typeof Element == 'undefined') throw("tools.js requires prototype.js library");
 
-var loadingImagePath = 'images/common/loading.gif';
-
 // ------------------------- DEBUG SOMETHING ---------------------------------- //
 var db = function(something) {
 	if (arguments.length > 1) {
-		for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]);
+		for (var i=0, length=arguments.length; i < length; i++ ) db(arguments[i]);
 		return;
-	}
-	var info = '';
-	//if (db.caller != null) info += '[call by '+db.caller+']\n';
-	//else info += '[direct call]\n';
-	//if (typeof something == 'array' || typeof something == 'object') {
-		//info += ' | CONSTRUCTOR : ['+something.constructor+']';
-		//info += ' | INSPECT : ['+Object.inspect(something)+']';
-	//}
-    if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf();
-	else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false');
-    //else if (typeof something == 'object') return vd(something);
-    else {
-        for (var key in something) {
-            if (typeof something[key] != 'function') // (bad prototype noise)
-                info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n';
-        }
-    }
-	if (('console' in window) && ('firebug' in console)) {
-		console.info('db('+typeof something+')');
-		console.log(info);
-	}
-    else {
-		info = 'db('+typeof something+') :\n'+info;
-		alert(info);
-		//var dbWin = window.open('javascript:void(0)','','resizabe=1,scrollbars=1,width=400,height=300,left=100,top=100');
-		//with (dbWin.document) { writeln('<xmp>'+info+'</xmp>'); close(); }
 	}
 };
 
@@ -456,7 +425,7 @@ var printPage = function(){
    else alert('Pour imprimer cette page : Ctrl + P');
 }
 
-}}}
+</pre></xmp>
 
 
 == For more information : svn/trunk/trunk/SITE_01_SRC/ ==
@@ -471,7 +440,7 @@ http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_S
 
 ===For external domain JS link ===
 
-{{{
+<pre lang="javascript">
 var loadJs = function(jsPath) { 
     var s = document.createElement('script');
     s.setAttribute('type', 'text/javascript');
@@ -479,10 +448,10 @@ var loadJs = function(jsPath) {
     document.getElementsByTagName('head')[0].appendChild(s);
 };
 loadJs('http://other.com/other.js'); 
-}}}
+</pre>
 
 === For same domain JS link (Using jQuery) ===
-{{{
+<pre lang="javascript">
 var getScript = function(jsPath, callback) {
     $.ajax({
         dataType:'script',
@@ -495,12 +464,12 @@ var getScript = function(jsPath, callback) {
     });
 };
 getScript('js/other.js', function() { functionFromOther(); });
-}}}
+</pre>
 
 == En vrac ==
 
-{{{
-var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } if (('console' in window) && ('firebug' in console)) { console.info('db('+typeof something+')'); console.log(info); }};
+<pre lang="javascript">
+var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<'+typeof something[key]+'> '+something[key]+'\n'; } } if (('console' in window) && ('firebug' in console)) { console.info('db('+typeof something+')'); console.log(info); }};
 var die = function(mess) { throw(( mess ? mess : "JS says that you killing him softly : Oh my god moonWalker is down...")); };
 var trim = function(string) { return string.replace(/^\s+|\s+$/g, ''); };
 var escapeURI = function(url) { if (encodeURIComponent) return encodeURIComponent(url); else if (encodeURI) return encodeURI(url); else if (escape) return escape(url); else return url; };
@@ -511,4 +480,4 @@ var getUrlVars = function() { var vars = {}; var parts = window.location.href.re
 // sites['link'].sort($.objSortByTitle);
 var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }; 
 var loadCss = function(stylePath) { $('head').append('<link rel="stylesheet" type="text/css" href="'+stylePath+'"/>'); };
-}}}
+</pre>
