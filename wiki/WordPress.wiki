@@ -4,8 +4,8 @@
 
 = Some sources =
 
-http://www.herewithme.fr/wordpress-plugins/simple-tags#adv-use-tag-cloud
-
+  * http://www.herewithme.fr/wordpress-plugins/simple-tags#adv-use-tag-cloud
+  * http://codex.wordpress.org
 
 http://codex.wordpress.org/images/1/18/Template_Hierarchy.png
 
