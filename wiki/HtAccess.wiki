@@ -10,6 +10,8 @@
 
 === URL rewriting ===
 
+http://www.askapache.com/htaccess/crazy-advanced-mod_rewrite-tutorial.html
+
 {{{
 RewriteEngine on
 #RewriteBase /
@@ -87,6 +89,8 @@ allow from xx.xx.xx.xx
 }}}
 
 === Utilisation avancée avec système de cache ===
+
+http://www.askapache.com/htaccess/speed-up-sites-with-htaccess-caching.html
 
 {{{
 
