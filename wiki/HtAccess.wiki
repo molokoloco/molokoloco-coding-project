@@ -91,6 +91,7 @@ allow from xx.xx.xx.xx
 {{{
 
 <IfModule mod_headers.c>
+
 	# 1 YEAR
 	<FilesMatch "\.(ico|pdf|flv)$">
 	Header set Cache-Control "max-age=29030400, public"
@@ -106,7 +107,7 @@ allow from xx.xx.xx.xx
 	# 1 MIN
 	<FilesMatch "\.(html|htm|php)$">
 	Header set Cache-Control "max-age=60, private, proxy-revalidate"
-</FilesMatch>
+	</FilesMatch>
 
 </IfModule>
 
@@ -124,8 +125,7 @@ allow from xx.xx.xx.xx
 	ExpiresByType application/x-shockwave-flash A604800
 	ExpiresByType application/pdf A604800
 	ExpiresByType text/html A900
-	
-	
+		
 	# Set up Cache Control headers
 	ExpiresActive On
 	# Default - Set http header to expire everything 1 week from last access, set must-revalidate
