@@ -84,6 +84,12 @@ if ($category) {
 <?php get_footer(); ?>
 }}}
 
+=== Categories list ===
+
+{{{
+wp_list_categories('orderby=name&title_li=' . __('Categories') . '' );
+}}}
+
 === Post Pagination ===
 
 {{{
