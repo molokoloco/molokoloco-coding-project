@@ -22,6 +22,17 @@ print_r(ini_get_all());
 print_r(apache_get_modules());
 
 
+$selfPageName = basename($_SERVER['PHP_SELF']);
+$selfPageQuery = (!empty($_SERVER['QUERY_STRING']) ? $selfPageName.'?'.$_SERVER['QUERY_STRING'] : $selfPageName );
+$selfDir = $_SERVER['REQUEST_URI'];
+$host = $_SERVER['HTTP_HOST'];
+$hostIp = $_SERVER['SERVER_ADDR'];
+
+function isLocal() {
+    global $host;
+    return ($host == 'localhost' || $host == '127.0.0.1' ? true : false);
+}
+
 // -------------------------------------------------------------------------------------------------------- //
 
 function object2array($object) {
