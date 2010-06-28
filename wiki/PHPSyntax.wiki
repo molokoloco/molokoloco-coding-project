@@ -49,6 +49,48 @@ function object2array($object) {
 
 // -------------------------------------------------------------------------------------------------------- //
 
+hose of you with PHP 5 don't have to come up with these wild functions to scan a directory recursively: the SPL can do it.
+
+<?php
+
+$dir_iterator = new RecursiveDirectoryIterator("/path");
+$iterator = new RecursiveIteratorIterator($dir_iterator, RecursiveIteratorIterator::SELF_FIRST);
+// could use CHILD_FIRST if you so wish
+
+foreach ($iterator as $file) {
+    echo $file, "\n";
+}
+
+?>
+
+Not to mention the fact that $file will be an SplFileInfo class, so you can do powerful stuff really easily:
+
+<?php
+
+$size = 0;
+foreach ($iterator as $file) {
+    if ($file->isFile()) {
+        echo substr($file->getPathname(), 27) . ": " . $file->getSize() . " B; modified " . date("Y-m-d", $file->getMTime()) . "\n";
+        $size += $file->getSize();
+    }
+}
+
+echo "\nTotal file size: ", $size, " bytes\n";
+
+?>
+
+\Luna\luna.msstyles: 4190352 B; modified 2008-04-13
+\Luna\Shell\Homestead\shellstyle.dll: 362496 B; modified 2006-02-28
+\Luna\Shell\Metallic\shellstyle.dll: 362496 B; modified 2006-02-28
+\Luna\Shell\NormalColor\shellstyle.dll: 361472 B; modified 2006-02-28
+\Luna.theme: 1222 B; modified 2006-02-28
+\Windows Classic.theme: 3025 B; modified 2006-02-28
+
+Total file size: 5281063 bytes
+
+
+// -------------------------------------------------------------------------------------------------------- //
+
 highlight_file(__FILE__);
 
 function afficher_code_php() {
