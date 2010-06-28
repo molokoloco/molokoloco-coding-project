@@ -51,7 +51,7 @@ background: url(home_h1.gif) no-repeat;
 text-indent: -99999px;  
 }
 
-/*________________________________________________________________________*/
+/* --------------------------------------------------------------- */
 
 /* <input type="button" class="new-aqua" value="Login"/> */
 
@@ -78,12 +78,24 @@ input[type=button].new-aqua {
   text-shadow: rgb(255, 255, 255) 0px 0px 5px;
 }
 
-/*________________________________________________________________________*/
+
+div.xbutton {
+	-moz-border-radius:3px 3px 3px 3px;
+	-moz-box-shadow:0 0 2px rgba(255, 255, 255, 0.4) inset, 0 4px 6px rgba(255, 255, 255, 0.4) inset, 0 11px 0 -2px rgba(255, 255, 255, 0.2) inset, 0 13px 8px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
+	-moz-user-focus:normal;
+	-moz-user-select:none;
+	border:1px solid rgba(0, 0, 0, 0.6);
+	height:18px;
+	width:300px;
+}
+
+/* --------------------------------------------------------------- */
 
 opacity : 0.7;
 -moz-opacity : 0.7; 
 filter : alpha(opacity=70); 
-/*________________________________________________________________________*/
+
+/* --------------------------------------------------------------- */
 
 #box {
 	/* Just a box */
@@ -127,23 +139,24 @@ table {
       width: 600px; /* à adapter selon vos contraintes */
       table-layout: fixed; /* non breaking long link */
 }
-/*________________________________________________________________________*/
+/* --------------------------------------------------------------- */
 
 -moz-box-shadow: inset 1px 1px 10px #888;
 -moz-box-shadow: 0px 20px 10px -10px #888;
 -moz-box-shadow: 0 0 20px black, 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;
 -moz-box-shadow: inset 5px 5px 0 rgba(0, 0, 0, .5);
 
- -moz-box-shadow: 1px 1px 10px #00f;
- -webkit-box-shadow: 1px 1px 10px #00f;
- box-shadow: 1px 1px 10px #00f;
+-moz-box-shadow: 1px 1px 10px #00f;
+-webkit-box-shadow: 1px 1px 10px #00f;
+box-shadow: 1px 1px 10px #00f;
 
 border-radius:4px;
 -moz-border-radius:4px;
 -webkit-border-radius:4px;
 
 text-shadow:#1395B8 1px 1px 3px; 
-/*________________________________________________________________________*/
+
+/* --------------------------------------------------------------- */
 
 /***** Selector Hacks ******/
 
@@ -184,7 +197,7 @@ body:first-of-type #ocho {  color: red }
 /* ie7 and below */
 #doce { *color: blue } /* or #color:blue */
 
-/*________________________________________________________________________*/
+/* --------------------------------------------------------------- */
 
 IE BG PNG TRANSPARENCY
 /* HACK png transparent sur IE en background */
@@ -194,7 +207,7 @@ background-image:url(no-image);
 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='images/common/h_contenu2.png');
 background-repeat:no-repeat;
 
-________________________________________________________________________
+/* --------------------------------------------------------------- */
 a.warning {
       cursor:url(.././themes/original/img/error.ico), default;
 }
@@ -203,7 +216,6 @@ a.warning {
 
 <q><a href="http://www.wikipedia.org/wiki/Wiki"><span class="tool">Wikipedia!
 <span class="tip">Wikipedia! on Wiki<br/>http://www.wikipedia.org/wiki/Wiki</span></span></a></q>
-
 
 
 /* css/tooltip.css -- fancy tooltips */
@@ -241,7 +253,7 @@ span.tool:hover span.tip {
   padding-left: 2px;            /* eye candy */
   content: url(/img/bubble.gif);
 }
-/*________________________________________________________________________*/
+/* --------------------------------------------------------------- */
 
 .noprint {
     display : none;
@@ -294,7 +306,7 @@ fieldset {
 input, select, textarea {
     font-size: 100%;
 }
-/*________________________________________________________________________*/
+/* --------------------------------------------------------------- */
 
 .clipInHalf {
     position: absolute;
@@ -310,7 +322,7 @@ table { background-color:#FFF; border: 1px solid #3366FF; border-collapse: separ
 th { background-color:#3366FF; color:#FFCC66; }
 tr:hover>td { background-color:#B9CFFF; }
 
-/*________________________________________________________________________*/
+/* --------------------------------------------------------------- */
 
 position:relative is very important. The children of this <div> are absolutely positioned.
 Absolutely positioned elements are positioned relative to the nearest positioned ancestor.
@@ -331,7 +343,8 @@ About.com
 
 table-layout: (auto | fixed)
 According to Quackit.com The CSS table-layout property allows you to fix the table layout so that the table renders much faster
-________________________________________________________________________
+
+/* --------------------------------------------------------------- */
 
 .pullquote {
     width: 20%;
@@ -353,7 +366,7 @@ ________________________________________________________________________
 <blockquote class="pullquote">The most impressive thing about read em!</blockquote>
        
        
-________________________________________________________________________
+/* --------------------------------------------------------------- */
 
 /* The CSS that's required to position the footer */
 
@@ -401,9 +414,8 @@ body {
     <div id="nonFooter"> Page </div>
 </div>
 <div id="footer"> TOTO </div>
-________________________________________________________________________
 
-Shadow Image
+/* ---------------------------- Shadow Image ---------------------------- */
 
 .img-shadow {
   clear: both;
@@ -457,7 +469,7 @@ Shadow Image
 
 <br style="clear:both;" />
 
-/////
+/* ---------------------------- SHADOW ---------------------------- */
 
 .dropshadow2{
     float:left;
@@ -494,9 +506,8 @@ Shadow Image
       <p>This has two wrapping div's. one for the shadow, and one for the border.</p>
     </div>
 </div>
-________________________________________________________________________
 
-ROund BOX
+/* ---------------------------- Round BOX ---------------------------- */
 
 #xsnazzy h1, #xsnazzy h2, #xsnazzy p {margin:0 10px; letter-spacing:1px;}
 #xsnazzy h1 {font-size:2.5em; color:#fff;}
@@ -515,8 +526,6 @@ ROund BOX
 .xb4 {height:2px; margin:0 1px;}
 
 .xboxcontent {display:block; background:#ccc; border:0 solid #08c; border-width:0 1px;}
-
-
 
 <div id="xsnazzy">
 <b class="xtop"><b class="xb1"></b><b class="xb2"></b><b class="xb3"></b><b class="xb4"></b></b>
