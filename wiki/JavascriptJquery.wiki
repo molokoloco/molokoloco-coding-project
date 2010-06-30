@@ -19,6 +19,8 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 }}}
 
+ou
+
 {{{
 <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 }}}
