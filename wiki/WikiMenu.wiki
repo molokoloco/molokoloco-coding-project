@@ -5,7 +5,7 @@
     * *[MyJQueryPlugins My jQuery plugins]*
     * *[JavascriptBase JS tooltips]*
     * [PrototypeSyntax JS Prototype]
-  * *Class and fonctions*
+  * *PHP/JS mixed Class and Fonctions*
     * *[PHPSample PHP class File]*
     * *[mySqlPhpClass PHP class mySQL]*
     * [javascriptAccordeonClass JS Accordéon]
@@ -16,18 +16,19 @@
     * *[JavascriptSample JS Tools]*
     * [TinyMce_PHP PHP/JS Rich Text Editor]
     * [PhpSniff PHP IP sniffer]
-    * [AndroidRest Android RESTfull]
-    * [AndroidJsonList Android Json List]
-    * [AndroidMarket Android Appz]
   * *Mixed Tips*
-    * [CSSSyntax CSS tooltips]
     * [PHPSyntax PHP tooltips]
     * *[mySQLSyntax mySQL tooltips]*
     * [HtAccess HTaccess (Apache)]
     * *[LinuxCmdShell Linux tooltips]*
     * *[RegexSyntax REGEXP tooltips]*
+    * [CSSSyntax CSS tooltips]
     * [FlexAirSyntax AS3/FLEX tooltips]
+  * *Android*
     * [Android Android tooltips]
+    * [AndroidRest Android RESTfull]
+    * [AndroidJsonList Android Json List]
+    * [AndroidMarket Android Appz]
   * *Others Services Tips*
     * *[GoogleHack Go_Ogle]*
     * [GoogleWave Google Wave tooltips]
