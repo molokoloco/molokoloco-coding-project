@@ -3,7 +3,7 @@
   * *jQuery*
     * *[JavascriptJquery JS jQuery]*
     * *[MyJQueryPlugins My jQuery plugins]*
-  * *Mixed Class and fonctions*
+  * *Good Class and fonctions*
     * *[PHPSample PHP class File]*
     * *[mySqlPhpClass PHP class mySQL]*
     * [javascriptAccordeonClass JS Accordéon]
