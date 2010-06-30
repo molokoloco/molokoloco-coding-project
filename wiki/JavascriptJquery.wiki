@@ -391,6 +391,8 @@ $(this).hide('puff', {}, 1000);
 
 $('a:first').offset();
 
+/*
+
 offset()//  Returns: Object{top,left} // Get the current offset of the first matched element, in pixels, relative to the document.
 position()//  Returns: Object{top,left} // Gets the top and left position of an element relative to its offset parent.
 scrollTop()//  Returns: Integer // Gets the scroll top offset of the first matched element.
@@ -406,6 +408,8 @@ innerHeight()//  Returns: Integer // Gets the inner height (excludes the border 
 innerWidth()//  Returns: Integer // Gets the inner width (excludes the border and includes the padding) for the first matched element.
 outerHeight(margin)//  Returns: Integer // Gets the outer height (includes the border and padding by default) for the first matched element.
 outerWidth(margin)//  Returns: Integer // Get the outer width (includes the border and padding by default) for the first matched element.
+
+*/
 
 }}}
 
@@ -555,7 +559,7 @@ $('#mydiv').fluwi({
 });
 
 // MENU
-
+/*
 <ul id="menu">
   <li class="menu">Sub 1
     <ul>
@@ -574,8 +578,9 @@ $('#mydiv').fluwi({
     </ul>
   </li>
 </ul>
+*/
 
-// Code:
+// Code
 
 $(document).ready(function() {
   var toggle = function(direction, display) {
