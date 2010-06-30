@@ -3,7 +3,7 @@
   * *jQuery*
     * *[JavascriptJquery JS jQuery]*
     * *[MyJQueryPlugins My jQuery plugins]*
-  * *Class and fonctions*
+  * *Mixed Class and fonctions*
     * *[PHPSample PHP class File]*
     * *[mySqlPhpClass PHP class mySQL]*
     * [javascriptAccordeonClass JS Accordéon]
@@ -17,7 +17,7 @@
     * [AndroidRest Android RESTfull]
     * [AndroidJsonList Android Json List]
     * [AndroidMarket Android Appz]
-  * *Personal Tips*
+  * *Mixed Personal Tips*
     * [PHPSyntax PHP tooltips]
     * [JavascriptBase JS tooltips]
     * [PrototypeSyntax JS Prototype]
