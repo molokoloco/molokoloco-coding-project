@@ -1,6 +1,6 @@
 #labels Featured
 #sidebar TableOfContents
-  * *JAVASCRIPTS/php Class & Fonctions*
+  * *JS/php Class & Fonctions*
     * *[JavascriptJquery JS jQuery]*
     * *[MyJQueryPlugins My jQuery plugins]*
     * *[JavascriptBase JS tooltips]*
