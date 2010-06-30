@@ -13,7 +13,7 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
   * http://plugins.jquery.com
   * http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf
 
-=== Source vers jQuery ===
+=== Inclure jQuery ===
 
 {{{
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
