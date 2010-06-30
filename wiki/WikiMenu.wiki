@@ -1,22 +1,22 @@
 #labels Featured
 #sidebar TableOfContents
-  * *JAVASCRIPTS*
+  * *JAVASCRIPTS(/php) mixed Class and Fonctions*
     * *[JavascriptJquery JS jQuery]*
     * *[MyJQueryPlugins My jQuery plugins]*
     * *[JavascriptBase JS tooltips]*
     * *[JavascriptSample JS Tools]*
     * [PrototypeSyntax JS Prototype]
-  * *PHP(/JS) mixed Class and Fonctions*
-    * *[PHPSample PHP class File]*
-    * *[mySqlPhpClass PHP class mySQL]*
     * [javascriptAccordeonClass JS Accordéon]
     * [JavascriptWindowOpenExtended JS Window Ext]
     * [PHPJavascriptDiaporama PHP/JS Slideshow]
+  * *PHP(/js) mixed Class and Fonctions*
+    * *[PHPSample PHP class File]*
+    * *[mySqlPhpClass PHP class mySQL]*
     * [DocGenerator PHP export .doc]
     * [RSSGeneratorSample PHP RSS feed]
     * [TinyMce_PHP PHP/JS Rich Text Editor]
     * [PhpSniff PHP IP sniffer]
-  * *Mixed TIPS*
+  * *Mixed LAMPX TIPS*
     * [PHPSyntax PHP tooltips]
     * *[mySQLSyntax mySQL tooltips]*
     * [HtAccess HTaccess (Apache)]
