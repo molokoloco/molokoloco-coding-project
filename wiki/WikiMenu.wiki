@@ -1,6 +1,6 @@
 #labels Featured
 #sidebar TableOfContents
-  * *JAVASCRIPTS(/php) mixed Class and Fonctions*
+  * *JAVASCRIPTS/php Class & Fonctions*
     * *[JavascriptJquery JS jQuery]*
     * *[MyJQueryPlugins My jQuery plugins]*
     * *[JavascriptBase JS tooltips]*
@@ -9,7 +9,7 @@
     * [javascriptAccordeonClass JS Accordéon]
     * [JavascriptWindowOpenExtended JS Window Ext]
     * [PHPJavascriptDiaporama PHP/JS Slideshow]
-  * *PHP(/js) mixed Class and Fonctions*
+  * *PHP/js Class and Fonctions*
     * *[PHPSample PHP class File]*
     * *[mySqlPhpClass PHP class mySQL]*
     * [DocGenerator PHP export .doc]
