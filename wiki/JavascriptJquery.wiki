@@ -1,33 +1,31 @@
 #summary My JQuery personnal notes
 #labels Tooltips
 
-= FAQ JQUERY =
+= JQUERY TIPS =
 
-http://api.jquery.com/
+This is some fonctions i take from the web, jQuery DOC, ... and others i made...
 
-http://docs.jquery.com/
+== FAQ JQUERY ==
 
-http://www.gscottolson.com/jquery/jQuery1.2.cheatsheet.v1.0.pdf
+  * http://api.jquery.com/
+  * http://docs.jquery.com/
+  * http://www.gscottolson.com/jquery/jQuery1.2.cheatsheet.v1.0.pdf
+
+== Source vers jQuery ==
 
 {{{
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+/* ou */
+
+<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+
 }}}
 
-----
-
-This is some fonctions i take from jQuery DOC and others i made...
-
-My previous framework was build (some years ago) on Prototype.js
-
-Some old functions here : 
-
-http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/js/proto/optional/200_tools.js
-
-----
+===jQuery INIT===
 
 {{{
-
-// --------------------------------------------------------------- //
 
 $(function(){ /*...*/ });
 
@@ -39,7 +37,12 @@ $(document).ready(function(){
 
 $(window).bind('load', function()  { /* ... */ });
 
-// --------------------------------------------------------------- //
+}}}
+
+=== Easy TIPS ===
+
+{{{
+
 $('#p').html('Test');
 $('body').attr('onload')
 $('#quicktimePlayer').empty();
@@ -82,9 +85,18 @@ $(xml).find("article").each(function(i) { alert($(this).find("titre").text()); }
 $.each({a:'A', b:'B'}, function(key, val) { console.log('%s => %s', key, val); });
 this.columns.each(function(item) { this.buildHeader(item); }, this);
 
-// --------------------------------------------------------------- //
+}}}
 
-bind()blur()change()click()dblclick()error()focus()hover()keydown()keypress()keyup()load()mousedown()mousemove()mouseout()mouseover()mouseup()one()ready()resize()scroll()select()submit()toggle()trigger()unbind()unload()live()die()
+=== BINDABLES EVENTS ===
+
+{{{
+
+/*
+	bind() blur() change() click() dblclick() error() focus() hover() 
+	keydown() keypress() keyup() load() mousedown() mousemove() mouseout() mouseover() mouseup() 
+	one() ready() resize() scroll() select() submit() toggle() trigger() unbind() unload() live() die()
+*/
+
 
 $('#btnG').hide();
 var showButton = function(e) { 
@@ -116,7 +128,18 @@ $('.thumbLien').hover(
     }
 );
 
-// --------------------------------------------------------------- //
+// Horloge
+var pad = function(s) { return (s < 10 ? '0'+s : s); }
+var timer = setInterval(function() {
+	var dt = new Date();
+	('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
+}, 1000);
+
+}}}
+
+=== SHORTCUT MEMO ===
+
+{{{
 
 if (/^[\w\d\_\.]{4,}$/.test($('#username').attr('value'))) alert('Ok');
 
@@ -212,7 +235,13 @@ $("span:last").text(jQuery.data(adiv, "test").last);
 $("p").live("click", function(){
     $(this).after("<p>Another paragraph!</p>");
 });
-// --------------------------------------------------------------- //
+
+}}}
+
+=== INSERT ELEMENT ===
+
+{{{
+
 /*
 <ul class="sortUlLink">
 	<li class="sortLink"><a href="http://image-swirl.googlelabs.com">Swirl</a></li>
@@ -227,7 +256,11 @@ var add = function(elm) {
 	$('<li class="sortLink"><a href="#">Something</a></li>').insertBefore(liParent);
 };
 
-// --------------------------------------------------------------- //
+}}}
+
+=== KEYS ===
+
+{{{
 
 var event2key = {'97':'a', '98':'b', '99':'c', '100':'d', '101':'e', '102':'f', '103':'g', '104':'h', '105':'i', '106':'j', '107':'k', '108':'l', '109':'m', '110':'n', '111':'o', '112':'p', '113':'q', '114':'r', '115':'s', '116':'t', '117':'u', '118':'v', '119':'w', '120':'x', '121':'y', '122':'z'};
 
@@ -238,16 +271,11 @@ $(document).keypress(function(e) {
 	});
 });
 
-// --------------------------------------------------------------- //
-var pad = function(s) { return (s < 10 ? '0'+s : s); }
+}}}
 
-// Horloge
-var timer = setInterval(function() {
-	var dt = new Date();
-	$('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
-}, 1000);
+=== BROWSERS ===
 
-// --------------------------------------------------------------- //
+{{{
 
 $('#browser').html( 'You are using the browser: ' + $.browser.browser() );
 $.browser.version.string();
@@ -255,7 +283,11 @@ $.browser.version.number();
 $.browser.OS();
 var firefox = $.browser.firefox();
 
-// --------------------------------------------------------------- //
+}}}
+
+===ARRAY Build in functions ===
+
+{{{
 
 jQuery.isArray( obj )   //  Returns: Boolean // Added in jQuery 1.3 Determine if the parameter passed is an array.
 jQuery.isFunction( obj )   //  Returns: Boolean // Determine if the parameter passed is a Javascript function object.
@@ -269,9 +301,9 @@ jQuery.map( array, callback )   //  Returns: Array // Translate all items in an 
 jQuery.inArray( value, array )   //  Returns: Number // Determine the index of the first parameter in the Array (-1 if not found).
 jQuery.merge( first, second )   //  Returns: Array // Merge two arrays together.
 jQuery.unique( array )   //  Returns: Array // Remove all duplicate elements from an array of elements. Note that this only works on arrays of DOM elements
-
+ 
 // --------------------------------------------------------------- //
-
+ 
 var x = [];
 x.push(1);
 var x = [0, 3, 1, 2];
@@ -282,9 +314,9 @@ x.unshift(-1) // [-1, 2, 1, 3]
 x.shift() // [2, 1, 3]
 x.sort() // [1, 2, 3]
 x.splice(1, 2) // [2, 3]
-
+ 
 // --------------------------------------------------------------- //
-
+ 
 x = Math.ceil(6.01); //donne x = 7
 x = Math.floor(6.01); //donne x = 6
 x = Math.round(6.01); //donne x = 6
@@ -293,10 +325,14 @@ x = Math.min(6,7.25); //donne x = 6
 x = Math.pow(3,3); //donne x = 27
 x = Math.random(); //donne x = 0.6489534931546957
 
-// --------------------------------------------------------------- //
+}}}
 
-// http://www.robertpenner.com/easing/easing_demo.html
-// http://www.learningjquery.com/2009/02/quick-tip-add-easing-to-your-animations
+=== ANIMATE ===
+
+  * http://www.robertpenner.com/easing/easing_demo.html
+  * http://www.learningjquery.com/2009/02/quick-tip-add-easing-to-your-animations
+
+{{{
 
 $('#myDiv').animate(
     { opacity: 0 }, // what we are animating
