@@ -345,7 +345,35 @@ $('#myDiv').animate(
     }
 );
 
-/* --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+ 
+$(this).hide('puff', {}, 1000);
+ 
+/*
+	Effects that can be used with Show/Hide/Toggle:
+		Blind - Blinds the element away or shows it by blinding it in.
+		Clip - Clips the element on or off, vertically or horizontally.
+		Drop - Drops the element away or shows it by dropping it in.
+		Explode - Explodes the element into multiple pieces.
+		Fold - Folds the element like a piece of paper.
+		Puff - Scale and fade out animations create the puff effect.
+		Slide - Slides the element out of the viewport.
+		Scale - Shrink or grow an element by a percentage factor.
+ 
+	Effects that can be only used stand-alone:
+		Bounce - Bounces the element vertically or horizontally n-times.
+		Highlight - Highlights the background with a defined color.
+		Pulsate - Pulsates the opacity of the element multiple times.
+		Shake - Shakes the element vertically or horizontally n-times.
+		Size - Resize an element to a specified width and height.
+		Transfer - Transfers the outline of an element to another.
+*/
+
+}}}
+
+=== XPATH ===
+
+{{{
 
 :first          //  Returns: Array<Element> Matches the first selected element.
 :last           //  Returns: Array<Element> Matches the last selected element.
@@ -358,9 +386,13 @@ $('#myDiv').animate(
 :header         //  Returns: Array<Element(s)> Matches all elements that are headers, like h1, h2, h3 and so on.
 :animated       //  Returns: Array<Element(s)> Matches all elements that are currently being animated.
 
-// --------------------------------------------------------------- //
+}}}
 
-$('a:first').
+=== Elements methodes ===
+
+{{{
+
+$('a:first').offset();
 
 offset()//  Returns: Object{top,left} // Get the current offset of the first matched element, in pixels, relative to the document.
 position()//  Returns: Object{top,left} // Gets the top and left position of an element relative to its offset parent.
@@ -378,29 +410,11 @@ innerWidth()//  Returns: Integer // Gets the inner width (excludes the border an
 outerHeight(margin)//  Returns: Integer // Gets the outer height (includes the border and padding by default) for the first matched element.
 outerWidth(margin)//  Returns: Integer // Get the outer width (includes the border and padding by default) for the first matched element.
 
-// --------------------------------------------------------------- //
+}}}
 
-$(this).hide('puff', {}, 1000);
+=== PARSING XML (IE compatible) ===
 
-Effects that can be used with Show/Hide/Toggle:
-    Blind - Blinds the element away or shows it by blinding it in.
-    Clip - Clips the element on or off, vertically or horizontally.
-    Drop - Drops the element away or shows it by dropping it in.
-    Explode - Explodes the element into multiple pieces.
-    Fold - Folds the element like a piece of paper.
-    Puff - Scale and fade out animations create the puff effect.
-    Slide - Slides the element out of the viewport.
-    Scale - Shrink or grow an element by a percentage factor.
-
-Effects that can be only used stand-alone:
-    Bounce - Bounces the element vertically or horizontally n-times.
-    Highlight - Highlights the background with a defined color.
-    Pulsate - Pulsates the opacity of the element multiple times.
-    Shake - Shakes the element vertically or horizontally n-times.
-    Size - Resize an element to a specified width and height.
-    Transfer - Transfers the outline of an element to another.
-
-// --------------------------------------------------------------- */
+{{{
 
 var xmlParse = function (xml) {
 	 if ($.browser.msie) {  // IE !!!
@@ -423,9 +437,13 @@ $(document).ready(function(){
 		//error: function(xml) { db('error()'); },
 		success: function(xml) { xmlParse(xml); }
 	});
-});	
+});
 
-// --------------------------------------------------------------- //
+}}}
+
+=== AJAX AND JSON ===
+
+{{{
 
 $.getJSON(
     "http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?",
@@ -495,10 +513,12 @@ $.ajax({
     success: handleResponse
 });
 
+}}}
 
+=== Somes Functions i made… ===
 
+{{{
 
-// --------------------------------------------------------------- //
 // Get URL parameters values
 
 $.extend({
@@ -511,7 +531,110 @@ $.extend({
 
 var name = $.getUrlVars()['name'];
 
+
 // --------------------------------------------------------------- //
+// scale elements to fit box
+
+(function($){
+  $.fn.extend({
+    fluwi: function(opt){
+        var variate = ((opt.variate!= undefined)?opt.variate:0);
+        var contWidth = this.outerWidth();
+        var boxWidth = opt.minWidth;
+        var counted = Math.floor(contWidth/boxWidth);
+        var extra = contWidth-boxWidth*counted;
+        var eachOne = extra/counted;
+        $(opt.boxQuery).css("width", (parseInt(boxWidth)+(eachOne))-variate);
+    }
+  });
+})(jQuery);
+
+// The plugin call code
+
+$('#mydiv').fluwi({
+        minWidth: 200, //pixels
+        variate: 2, //pixels
+        boxQuery: 'li' //class name or div name, or selector for elements that are resizing
+});
+
+// MENU
+
+<ul id="menu">
+  <li class="menu">Sub 1
+    <ul>
+      <li>test 1</li>
+      <li>test 2</li>
+      <li>test 3</li>
+      <li>test 4</li>
+    </ul>
+  </li>
+  <li class="menu">Sub 2
+    <ul>
+      <li>test 1</li>
+      <li>test 2</li>
+      <li>test 3</li>
+      <li>test 4</li>
+    </ul>
+  </li>
+</ul>
+
+// Code:
+
+$(document).ready(function() {
+  var toggle = function(direction, display) {
+    return function() {
+      var self = this;
+      var ul = $("ul", this);
+      if( ul.css("display") == display && !self["block" + direction] ) {
+        self["block" + direction] = true;
+        ul["slide" + direction]("slow", function() {
+          self["block" + direction] = false;
+        });
+      }
+    };
+  }
+  $("li.menu").hover(toggle("Down", "none"), toggle("Up", "block"));
+  $("li.menu ul").hide();
+});
+
+
+// Fetch Links FavIcons
+$('.l').hover(
+	function(){
+		var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
+		$(this).html($(this).html()+' <img class="ico" width="16" height="16" src="http://www.google.com/s2/favicons?domain='+domaine+'"/>');
+	},
+	function(){
+		var html = $(this).html().split('<')[0];
+		$(this).html(html);
+	}
+);
+
+}}}
+
+=== Mouse event ===
+
+{{{
+
+var div = $('div.sc_menu');
+var divWidth = div.width();
+var ul = $('ul.sc_menu');
+var lastLi = ul.find('li:last-child');
+var ulPadding = 15;
+
+div.mousemove(function(e){
+    var ulWidth = lastLi[0].offsetLeft + lastLi.outerWidth() + ulPadding;
+    var left = (e.pageX - div.offset().left) * (ulWidth-divWidth) / divWidth;
+    div.scrollLeft(left);
+});
+
+}}}
+
+=== Gesture (Managing touch event) ===
+
+  * http://plugins.jquery.com/project/jGesture
+
+{{{
 
 var makeGesture = function() {
     document.onselectstart = function() { return false; }; // ie
@@ -527,22 +650,12 @@ var makeGesture = function() {
     );
 };
 
-// --------------------------------------------------------------- //
+}}}
 
-var div = $('div.sc_menu');
-var divWidth = div.width();
-var ul = $('ul.sc_menu');
-var lastLi = ul.find('li:last-child');
-var ulPadding = 15;
+=== Widget container ===
 
-div.mousemove(function(e){
-    var ulWidth = lastLi[0].offsetLeft + lastLi.outerWidth() + ulPadding;
-    var left = (e.pageX - div.offset().left) * (ulWidth-divWidth) / divWidth;
-    div.scrollLeft(left);
-});
+{{{
 
-// --------------------------------------------------------------- //
-// Widget container
 (function($) {
     // Widget container plugin
     $.fn.widgetContainer = function() {
@@ -602,90 +715,12 @@ $(function() {
     $('.widgetContainer').widgetContainer();
 });
 
-// --------------------------------------------------------------- //
-// scale elements to fit box
-
-(function($){
-  $.fn.extend({
-    fluwi: function(opt){
-        var variate = ((opt.variate!= undefined)?opt.variate:0);
-        var contWidth = this.outerWidth();
-        var boxWidth = opt.minWidth;
-        var counted = Math.floor(contWidth/boxWidth);
-        var extra = contWidth-boxWidth*counted;
-        var eachOne = extra/counted;
-        $(opt.boxQuery).css("width", (parseInt(boxWidth)+(eachOne))-variate);
-    }
-  });
-})(jQuery);
-
-// The plugin call code
-
-$('#mydiv').fluwi({
-        minWidth: 200, //pixels
-        variate: 2, //pixels
-        boxQuery: 'li' //class name or div name, or selector for elements that are resizing
-});
-
-
-// MENU
-
-<ul id="menu">
-  <li class="menu">Sub 1
-    <ul>
-      <li>test 1</li>
-      <li>test 2</li>
-      <li>test 3</li>
-      <li>test 4</li>
-    </ul>
-  </li>
-  <li class="menu">Sub 2
-    <ul>
-      <li>test 1</li>
-      <li>test 2</li>
-      <li>test 3</li>
-      <li>test 4</li>
-    </ul>
-  </li>
-</ul>
-
-// Code:
-
-$(document).ready(function() {
-  var toggle = function(direction, display) {
-    return function() {
-      var self = this;
-      var ul = $("ul", this);
-      if( ul.css("display") == display && !self["block" + direction] ) {
-        self["block" + direction] = true;
-        ul["slide" + direction]("slow", function() {
-          self["block" + direction] = false;
-        });
-      }
-    };
-  }
-  $("li.menu").hover(toggle("Down", "none"), toggle("Up", "block"));
-  $("li.menu ul").hide();
-});
-
-
-// Fetch Links FavIcons
-$('.l').hover(
-	function(){
-		var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
-		$(this).html($(this).html()+' <img class="ico" width="16" height="16" src="http://www.google.com/s2/favicons?domain='+domaine+'"/>');
-	},
-	function(){
-		var html = $(this).html().split('<')[0];
-		$(this).html(html);
-	}
-);
-
 }}}
 
-== LITTLES FUNCTIONS I USE ==
+== LITTLES FUNCTIONS FOR QUICK USE ==
 
 {{{
+
 var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } if (('console' in window) && ('firebug' in console)) { console.info('db('+typeof something+')'); console.log(info); }};
 var die = function(mess) { throw(( mess ? mess : "JS says that you killing him softly : Oh my god moonWalker is down...")); };
 var trim = function(string) { return string.replace(/^\s+|\s+$/g, ''); };
@@ -701,6 +736,7 @@ var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.
 var loadJs = function(src) { var s = document.createElement('script'); s.setAttribute('type', 'text/javascript'); s.setAttribute('src', src); document.getElementsByTagName('head')[0].appendChild(s); };
 // getScript('./other.js', function() { ok(); });
 var getScript = function(src, callback) { $.ajax({dataType:'script', async:false, cache:true, url:src, success:function(response) { if (callback && typeof callback == 'function') callback(); }}); };
+
 }}}
 
 == jQUery version 1.4 ==
