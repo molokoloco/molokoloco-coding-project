@@ -1,8 +1,10 @@
 #labels Featured
 #sidebar TableOfContents
-  * *jQuery*
+  * *JavaScripts*
     * *[JavascriptJquery JS jQuery]*
     * *[MyJQueryPlugins My jQuery plugins]*
+    * *[JavascriptBase JS tooltips]*
+    * [PrototypeSyntax JS Prototype]
   * *Good Class and fonctions*
     * *[PHPSample PHP class File]*
     * *[mySqlPhpClass PHP class mySQL]*
@@ -17,19 +19,17 @@
     * [AndroidRest Android RESTfull]
     * [AndroidJsonList Android Json List]
     * [AndroidMarket Android Appz]
-  * *Mixed Personal Tips*
+  * *Mixed Tips*
+    * [CSSSyntax CSS tooltips]
     * [PHPSyntax PHP tooltips]
-    * [JavascriptBase JS tooltips]
-    * [PrototypeSyntax JS Prototype]
-    * *[JavascriptJquery JS JQuery]*
-    * [FlexAirSyntax AS3/FLEX tooltips]
+    * *[mySQLSyntax mySQL tooltips]*
     * [HtAccess HTaccess (Apache)]
     * *[LinuxCmdShell Linux tooltips]*
-    * *[mySQLSyntax mySQL tooltips]*
     * *[RegexSyntax REGEXP tooltips]*
-    * [CSSSyntax CSS tooltips]
+    * [FlexAirSyntax AS3/FLEX tooltips]
     * [Android Android tooltips]
-    * [GoogleWave  Google Wave tooltips]
+  * *Others Services Tips*
+    * *[GoogleHack Go_Ogle]*
+    * [GoogleWave Google Wave tooltips]
     * [HowToVirtualAdmin Virtual Admin HowTo]
     * [TwittEr Twitter tooltips]
-    * *[GoogleHack Go_Ogle]*
