@@ -1,11 +1,11 @@
 #labels Featured
 #sidebar TableOfContents
-  * *JavaScripts*
+  * *Javascripts*
     * *[JavascriptJquery JS jQuery]*
     * *[MyJQueryPlugins My jQuery plugins]*
     * *[JavascriptBase JS tooltips]*
     * [PrototypeSyntax JS Prototype]
-  * *Good Class and fonctions*
+  * *Class and fonctions*
     * *[PHPSample PHP class File]*
     * *[mySqlPhpClass PHP class mySQL]*
     * [javascriptAccordeonClass JS Accordéon]
