@@ -7,9 +7,11 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
 
 === FAQ JQUERY ===
 
-  * http://api.jquery.com/
-  * http://docs.jquery.com/
-  * http://www.gscottolson.com/jquery/jQuery1.2.cheatsheet.v1.0.pdf
+  * http://api.jquery.com
+  * http://docs.jquery.com
+  * http://jqueryui.com
+  * http://plugins.jquery.com
+  * http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf
 
 === Source vers jQuery ===
 
