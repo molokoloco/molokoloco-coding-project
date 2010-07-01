@@ -2,10 +2,16 @@
 #labels Tooltips
 
 = JQUERY TIPS =
-
 This is some fonctions i take from the web, jQuery DOC, ... and others i made...
 
+----
+
+*Sommaire :*
+
 <wiki:toc max_depth="3" />
+
+----
+
 
 == FAQ JQUERY ==
 
