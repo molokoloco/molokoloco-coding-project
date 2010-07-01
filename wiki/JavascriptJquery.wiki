@@ -11,7 +11,7 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
   * http://docs.jquery.com
   * http://jqueryui.com
   * http://plugins.jquery.com
-  * http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf
+  * http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf [http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4.png Version PNG]
 
 === Inclure jQuery ===
 
