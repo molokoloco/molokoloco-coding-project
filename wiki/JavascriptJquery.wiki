@@ -5,7 +5,9 @@
 
 This is some fonctions i take from the web, jQuery DOC, ... and others i made...
 
-=== FAQ JQUERY ===
+<wiki:toc max_depth="3" />
+
+== FAQ JQUERY ==
 
   * http://api.jquery.com
   * http://docs.jquery.com
