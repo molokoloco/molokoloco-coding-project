@@ -21,7 +21,7 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
   * http://plugins.jquery.com
   * http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf Version [http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4.png Image PNG]
 
-=== Inclure jQuery ===
+== Inclure jQuery ==
 
 {{{
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -33,7 +33,7 @@ ou
 <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 }}}
 
-=== jQuery INIT ===
+== jQuery INIT ==
 
 {{{
 
@@ -49,7 +49,7 @@ $(window).bind('load', function()  { /* ... */ });
 
 }}}
 
-=== Easy TIPS ===
+== Easy TIPS ==
 
 {{{
 
@@ -97,7 +97,7 @@ this.columns.each(function(item) { this.buildHeader(item); }, this);
 
 }}}
 
-=== BINDABLES EVENTS ===
+== BINDABLES EVENTS ==
 
 {{{
 
@@ -147,7 +147,7 @@ var timer = setInterval(function() {
 
 }}}
 
-=== SHORTCUT MEMO ===
+== SHORTCUT MEMO ==
 
 {{{
 
@@ -248,7 +248,7 @@ $("p").live("click", function(){
 
 }}}
 
-=== INSERT ELEMENT ===
+== INSERT ELEMENT ==
 
 {{{
 
@@ -268,7 +268,7 @@ var add = function(elm) {
 
 }}}
 
-=== KEYS ===
+== KEYS ==
 
 {{{
 
@@ -283,7 +283,7 @@ $(document).keypress(function(e) {
 
 }}}
 
-=== BROWSERS ===
+== BROWSERS ==
 
 {{{
 
@@ -295,7 +295,7 @@ var firefox = $.browser.firefox();
 
 }}}
 
-===ARRAY Build in functions ===
+==ARRAY Build in functions ==
 
 {{{
 
@@ -337,7 +337,7 @@ x = Math.random(); //donne x = 0.6489534931546957
 
 }}}
 
-=== ANIMATE ===
+== ANIMATE ==
 
   * http://www.robertpenner.com/easing/easing_demo.html
   * http://www.learningjquery.com/2009/02/quick-tip-add-easing-to-your-animations
@@ -381,7 +381,7 @@ $(this).hide('puff', {}, 1000);
 
 }}}
 
-=== XPATH ===
+== XPATH ==
 
 {{{
 
@@ -398,7 +398,7 @@ $(this).hide('puff', {}, 1000);
 
 }}}
 
-=== Elements methodes ===
+== Elements methodes ==
 
 {{{
 
@@ -426,7 +426,7 @@ outerWidth(margin)//  Returns: Integer // Get the outer width (includes the bord
 
 }}}
 
-=== PARSING XML (IE compatible) ===
+== PARSING XML (IE compatible) ==
 
 {{{
 
@@ -455,7 +455,7 @@ $(document).ready(function(){
 
 }}}
 
-=== AJAX AND JSON ===
+== AJAX AND JSON ==
 
 {{{
 
@@ -479,7 +479,7 @@ if (isset($_GET['callback'])) echo $_GET['callback'].'('.$json.');';
 else echo $json; 
 
 ?> 
-
+<script>
 $(function() { 
     $.ajax({ 
         dataType:'jsonp', 
@@ -489,7 +489,8 @@ $(function() {
                 alert("Réponse : "+ response.data); 
             } 
     }); 
-}); 
+});
+</script>
 
 // --------------------------------------------------------------- //
 
@@ -499,6 +500,7 @@ var req = $.ajax({
     cache: false,
     data: 'name=John&location=Boston',
     success: function(msg){
+		
         alert( 'Data Saved: ' + msg );
     }
 });
@@ -529,7 +531,7 @@ $.ajax({
 
 }}}
 
-=== Somes Functions ... ===
+== Somes Functions ... ==
 
 {{{
 
@@ -627,7 +629,7 @@ $('.l').hover(
 
 }}}
 
-=== Mouse event ===
+== Mouse event ==
 
 {{{
 
@@ -645,7 +647,7 @@ div.mousemove(function(e){
 
 }}}
 
-=== Gesture (Managing touch event) ===
+== Gesture (Managing touch event) ==
 
   * http://plugins.jquery.com/project/jGesture
 
@@ -667,7 +669,7 @@ var makeGesture = function() {
 
 }}}
 
-=== Widget container ===
+== Widget container ==
 
 {{{
 
