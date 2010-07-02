@@ -1,17 +1,15 @@
 #summary My JQuery personnal notes
 #labels Tooltips
 
-= JQUERY TIPS =
-This is some fonctions i take from the web, jQuery DOC, ... and others i made...
-
-----
-
 *Sommaire :*
 
 <wiki:toc max_depth="3" />
 
 ----
 
+= JQUERY TIPS =
+
+This is some fonctions i take from the web, jQuery DOC, ... and others i made...
 
 == FAQ JQUERY ==
 
@@ -97,6 +95,49 @@ $.each($('form#formEdit').serializeArray(), function(i, o){ siteObj[o.name] = o.
 $(xml).find("article").each(function(i) { alert($(this).find("titre").text()); });
 $.each({a:'A', b:'B'}, function(key, val) { console.log('%s => %s', key, val); });
 this.columns.each(function(item) { this.buildHeader(item); }, this);
+
+}}}
+
+= SAMPLE PLUGIN STRUCTURE =
+
+  * http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
+  * http://docs.jquery.com/Plugins/Authoring
+
+{{{
+
+// Déclaration d'un nouveau plugin pour étendre les fonctions ($.fn) de jQuery
+
+(function($){
+
+ 	$.fn.extend({ 
+ 		
+		//pass the options variable to the function
+ 		pluginname: function(options) {
+
+			//Set the default values, use comma to separate the settings, example:
+			var defaults = {
+				padding: 20,
+				mouseOverColor : '#000000',
+				mouseOutColor : '#ffffff'
+			}
+				
+			var options =  $.extend(defaults, options);
+
+    			return this.each(function() {
+				// Accès arguments appel de la function
+				var o = options;
+				alert(o.padding);
+				// Acces à l'élément sur lequel la fonction s'applique
+				var e = $(this);
+				alert(e.width());
+    			});
+    		}
+	});
+	
+})(jQuery);
+
+// Appel du plugin
+$('div#monId').pluginname({padding:0, mouseOutColor:'#A4A4A4'});
 
 }}}
 
@@ -776,43 +817,5 @@ var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.
 var loadJs = function(src) { var s = document.createElement('script'); s.setAttribute('type', 'text/javascript'); s.setAttribute('src', src); document.getElementsByTagName('head')[0].appendChild(s); };
 // getScript('./other.js', function() { ok(); });
 var getScript = function(src, callback) { $.ajax({dataType:'script', async:false, cache:true, url:src, success:function(response) { if (callback && typeof callback == 'function') callback(); }}); };
-
-}}}
-
-
-= SAMPLE PLUGIN STRUCTURE =
-
-  * http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
-  * http://docs.jquery.com/Plugins/Authoring
-
-{{{
-
-(function($){
-
- 	$.fn.extend({ 
- 		
-		//pass the options variable to the function
- 		pluginname: function(options) {
-
-			//Set the default values, use comma to separate the settings, example:
-			var defaults = {
-				padding: 20,
-				mouseOverColor : '#000000',
-				mouseOutColor : '#ffffff'
-			}
-				
-			var options =  $.extend(defaults, options);
-
-    			return this.each(function() {
-				var o = options;
-				
-				//code to be inserted here you can access the value like this
-				alert(o.padding);
-			
-    			});
-    		}
-	});
-	
-})(jQuery);
 
 }}}
