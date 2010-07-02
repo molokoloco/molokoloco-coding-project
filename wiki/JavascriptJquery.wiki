@@ -430,6 +430,9 @@ $(this).hide('puff', {}, 1000);
 
 {{{
 
+$('/html/body//p').attr({align:'center'});
+
+
 :first          //  Returns: Array<Element> Matches the first selected element.
 :last           //  Returns: Array<Element> Matches the last selected element.
 :not(selector)  //  Returns: Array<Element(s)> Filters out all elements matching the given selector.
