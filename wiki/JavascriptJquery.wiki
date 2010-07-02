@@ -22,7 +22,7 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
   * http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf
     * jQuery Cheat Sheet [http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4.png Image PNG]
 
-http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4.png
+http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4-small.png
 
 == Inclure jQuery ==
 
