@@ -55,6 +55,7 @@ $(window).bind('load', function()  { /* ... */ });
 {{{
 
 $('#p').html('Test');
+$('#p, #td').addClass('bigText');
 $('body').attr('onload')
 $('#quicktimePlayer').empty();
 $('#quicktimePlayer').append(plug);
@@ -70,13 +71,13 @@ $('a[(text()="Suivante")]').show();
 $(xml.responseXML);
 $('title', xml.responseXML); // Finds all title elements within an XML document
 $('p').height()
-jQuery('/html/body//p')
+$('/html/body//p').attr({align:'center'});
 $('body').css({'overflow' : 'hidden'});
 $('button:gt(1)').attr('disabled','disabled'); // Disables buttons greater than the 1st button.
 $('ul li:last').after('<li>Added text ' + p + '</li>');
 $("div:contains('John')").css('text-decoration', 'underline');
 $(':input'); // Matches all input, textarea, select and button elements
-$('form input:text') // type text
+$('form input:text') // iniput type=text
 $('form > *'); // formChildren 
 if ($(this).is(':first-child')) {}
 if ( $(this).hasClass('protected') )
