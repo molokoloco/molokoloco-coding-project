@@ -775,10 +775,32 @@ var makeGesture = function() {
     })();
 })(jQuery);
 
+
 // Main
 $(function() {
     $('.widgetContainer').widgetContainer();
 });
+
+}}}
+
+== Code isolation ==
+
+{{{
+
+// Enclose all our code within an anonymous function and we call that function.
+// The variables we create in our functions won’t interfere with the rest of the
+page.
+
+var foo = "Hello World!";
+document.write("<p>Before our anonymous function foo means '" + foo + '".</p>');
+
+(function() {
+    // The following code will be enclosed within an anonymous function
+    var foo = "Goodbye World!";
+    document.write("<p>Inside our anonymous function foo means '" + foo + '".</p>');
+})(); // We call our anonymous function immediately
+
+document.write("<p>After our anonymous function foo means '" + foo + '".</p>');
 
 }}}
 
