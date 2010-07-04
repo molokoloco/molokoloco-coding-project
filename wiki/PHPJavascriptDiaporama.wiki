@@ -1,4 +1,4 @@
-#summary Diaporama Image with PHP and Javascript
+#summary Diaporama Image with PHP and Javascript (based on Prototype JS)
 #labels Featured,Phase-Requirements
 
 == PHP (fonctions.php) + HTML ==
