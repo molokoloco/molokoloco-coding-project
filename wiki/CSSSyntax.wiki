@@ -3,7 +3,10 @@
 
 = CSS TIPS =
 
-Ex. http://www.smashingmagazine.com/2009/10/05/mastering-css-coding-getting-started/
+  * http://www.smashingmagazine.com/2009/10/05/mastering-css-coding-getting-started/
+  * [http://media.smashingmagazine.com/wp-content/uploads/images/css3-cheat-sheet/css3-cheat-sheet.pdf CSS 3 Cheat Sheet]
+  * [http://www.box.net/shared/8qnxj922oc HTML 5 Visual Cheat Sheet]
+
 
 {{{
 
