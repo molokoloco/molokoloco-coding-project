@@ -97,6 +97,9 @@ $(xml).find("article").each(function(i) { alert($(this).find("titre").text()); }
 $.each({a:'A', b:'B'}, function(key, val) { console.log('%s => %s', key, val); });
 this.columns.each(function(item) { this.buildHeader(item); }, this);
 
+var css_link = $('<link>', {rel: 'stylesheet', type: 'text/css', href: 'style.css'});
+css_link.appendTo('head');
+
 }}}
 
 = SAMPLE PLUGIN STRUCTURE =
