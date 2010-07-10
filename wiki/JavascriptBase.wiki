@@ -7,17 +7,23 @@
 
 // --- FUNCTIONS ------------------------------------ //
 
-//anonymous function expression
+// Function Declarations
+function a() {
+    return 3;
+}
+
+
+// Anonymous function expression
 var a = function() {
     return 3;
 }
 
-//named function expression
+// Named function expression
 var a = function bar() {
     return 3;
 }
 
-//self invoking function expression
+// Self invoking function expression
 (function sayHello() {
     alert("hello!");
 })();
