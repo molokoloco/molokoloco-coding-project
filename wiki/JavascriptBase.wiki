@@ -5,6 +5,24 @@
 
 {{{    
 
+// --- FUNCTIONS ------------------------------------ //
+
+//anonymous function expression
+var a = function() {
+    return 3;
+}
+
+//named function expression
+var a = function bar() {
+    return 3;
+}
+
+//self invoking function expression
+(function sayHello() {
+    alert("hello!");
+})();
+
+
 // --- ITERATIONS ------------------------------------ //
 
 for each (var item in [1, 2, 3]) alert(item);
