@@ -88,6 +88,15 @@ allow from xx.xx.xx.xx
 </LIMIT>
 }}}
 
+Pour un fichier..
+
+{{{
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+}}}
+
 === Utilisation avancée avec système de cache ===
 
 http://www.askapache.com/htaccess/speed-up-sites-with-htaccess-caching.html
