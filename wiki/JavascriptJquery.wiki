@@ -190,7 +190,7 @@ $('.thumbLien').hover(
 var pad = function(s) { return (s < 10 ? '0'+s : s); }
 var timer = setInterval(function() {
 	var dt = new Date();
-	('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
+	$('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
 }, 1000);
 
 }}}
