@@ -186,6 +186,23 @@ $('.thumbLien').hover(
     }
 );
 
+$('#foo').bind({
+    click: function() {
+        // do something
+    },
+    mouseover: function() {
+        // do something
+    },
+    mouseout: function() {
+        // do something
+    }
+});
+
+$("table").delegate("td", "hover", function(){
+    $(this).toggleClass("active");
+});
+
+
 // Horloge
 var pad = function(s) { return (s < 10 ? '0'+s : s); }
 var timer = setInterval(function() {
@@ -288,6 +305,13 @@ var adiv = $("div").get(0);
 jQuery.data(adiv, "test", { first: 16, last: "pizza!" });
 $("span:first").text(jQuery.data(adiv, "test").first);
 $("span:last").text(jQuery.data(adiv, "test").last);
+
+// Or
+$("div").data('storeName', 'stockValue');
+alert($("div").data("storeName"));
+$("div").removeData();
+$("div").remove();
+
 
 // When you bind a "live" event it will bind also to future elements
 $("p").live("click", function(){
@@ -402,6 +426,8 @@ $('#myDiv').animate(
         }
     }
 );
+
+$('div#mydiv').slideUp(300).delay(800).fadeIn(400);
 
 // --------------------------------------------------------------- //
  
@@ -579,6 +605,10 @@ $.ajax({
     data: [/*create xml document*/],
     success: handleResponse
 });
+
+var obj = jQuery.parseJSON('{"name":"Larry King", "age": "5000"}');
+alert(obj.name);
+
 
 }}}
 
