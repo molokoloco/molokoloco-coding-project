@@ -30,6 +30,22 @@ var a = function bar() {
     alert("hello!");
 })();
 
+// --- CLASS ------------------------------------ //
+
+function Dog(race, name){
+	this.race = race;
+	this.name = name;
+ 
+	this.getRace = function(){
+		return this.race;
+	};
+	this.getName = function(){
+		return this.name;
+	}
+}
+
+var mydog = new Dog('greyhound', 'Rusty');
+mydog.getRace();
 
 // --- ITERATIONS ------------------------------------ //
 
