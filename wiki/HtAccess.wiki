@@ -172,7 +172,7 @@ http://www.askapache.com/htaccess/speed-up-sites-with-htaccess-caching.html
 
 }}}
 
-=== Systeme de cache ex. jqtouch.js ===
+=== Systeme de cache ex : http://jqtouch.com/ ===
 
 {{{
 
