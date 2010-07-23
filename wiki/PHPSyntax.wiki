@@ -88,6 +88,31 @@ echo "\nTotal file size: ", $size, " bytes\n";
 
 Total file size: 5281063 bytes
 
+// -------------------------------------------------------------------------------------------------------- //
+class BigNumberException extends Exception { }
+class FavouriteNumberException extends Exception { }
+ 
+function takeTwoNumbers($a, $b) {
+    if($a > 15 || $b > 15) {
+        throw new BigNumberException('Keep it simple with smaller numbers');
+    } elseif($a != 3 && $b != 3) {
+        throw new FavouriteNumberException('But three is my favourite number!');
+    } else {
+        return $a + $b;
+    }
+}
+ 
+try {
+    echo takeTwoNumbers(3,9) . "\n";
+    echo takeTwoNumbers(4,16) . "\n";
+    echo takeTwoNumbers(7,5) . "\n";
+} catch(BigNumberException $e) {
+    echo "Big Number: " . $e->getMessage() . "\n";
+} catch(FavouriteNumberException $e) {
+    echo "Favourite Number: " . $e->getMessage() . "\n";
+} catch(Exception $e) {
+    echo $e->getMessage() . "\n";
+}
 
 // -------------------------------------------------------------------------------------------------------- //
 
