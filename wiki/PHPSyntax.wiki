@@ -89,6 +89,8 @@ echo "\nTotal file size: ", $size, " bytes\n";
 Total file size: 5281063 bytes
 
 // -------------------------------------------------------------------------------------------------------- //
+// http://thinkvitamin.com/dev/exception-handling-in-php5/
+
 class BigNumberException extends Exception { }
 class FavouriteNumberException extends Exception { }
  
