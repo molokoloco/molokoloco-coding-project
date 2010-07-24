@@ -253,6 +253,19 @@ AddType text/cache-manifest .manifest
 
 }}}
 
+=== SSL ===
+// To check
+
+{{{
+
+SSLEngine on
+SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
+SSLCertificateFile /etc/ssl/certs/apache.crt
+SSLCertificateKeyFile /etc/ssl/private/apache.key
+SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown downgrade-1.0 force-response-1.0
+php_admin_flag safe_mode off
+
+}}}
 
 [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC/.htaccess ./.htaccess]
 
