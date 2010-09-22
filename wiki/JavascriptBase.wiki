@@ -1,51 +1,90 @@
-#summary Personal Tooltips for Javascript
 #labels Tooltips
 
-= JAVASCRIPT BASE =
 
-  * Good advice gere : http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
+// --- OBJECTS ------------------------------------ //
+// inspired from Angus Croll http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
 
-{{{    
 
-// --- FUNCTIONS ------------------------------------ //
+// 1. Simple Object Literal
 
-// Function Declarations
-function a() {
-    return 3;
+var rabbit = {};
+var rabbit.run = true;
+rabbit.speak = function(s) {
+    print("The rabbit says '", s, "'");
+};
+
+rabbit.speak("Well, now you're asking me.");
+
+// 2. Nested Object Literal
+
+myApp.notepad  = {
+    writeable: true,
+    font: 'helvetica',
+    setFont: function(theFont) {
+        this.font = theFont;
+    }
 }
 
+// 3. Constructor using Object Literal
 
-// Anonymous function expression
-var a = function() {
-    return 3;
+myApp.Notepad = function(defaultFont) {
+    var  that = {};
+    that.writeable = true;
+    that.font = defaultFont;
+    that.setFont = function(theFont) {
+        that.font = theFont;
+    }
+    return that;
 }
 
-// Named function expression
-var a = function bar() {
-    return 3;
+myApp.notepad1 =  myApp.Notepad('helvetica');
+
+// 4. Simple Constructor for new
+
+myApp.Notepad = function(defaultFont) {
+    this.writeable = true;
+    this.font = defaultFont;
+    this.setFont = function(theFont) {
+        this.font = theFont;
+    }
 }
 
-// Self invoking function expression
-(function sayHello() {
-    alert("hello!");
-})();
+myApp.notepad1 = new myApp.Notepad('helvetica');
 
-// --- CLASS ------------------------------------ //
+// 5. Prototype with Constructor for new
+// Extending functionality to the pre-built string() object
 
-function Dog(race, name){
-	this.race = race;
-	this.name = name;
- 
-	this.getRace = function(){
-		return this.race;
-	};
-	this.getName = function(){
-		return this.name;
-	}
+
+String.prototype.writeback = function() {
+    for (i=this.length-1;i>=0;i--)
+    document.write(this.charAt(i))
+};
+
+var test = "Welcome to my site!";
+test.writeback();
+
+// Extending functionality to the pre-built object() object
+
+Object.prototype.properties = function() {
+  var result = [];
+  for (var property in this) result.push(property);
+  return result;
+};
+
+var test = {x: 10, y: 3};
+show(test.properties());
+
+// Extending functionality to a custom JavaScript object
+
+myApp.Notepad = function(defaultFont) {
+    this.font = defaultFont;
 }
-
-var mydog = new Dog('greyhound', 'Rusty');
-mydog.getRace();
+myApp.Notepad.prototype.writeable  = true;
+myApp.Notepad.prototype.setFont = function(theFont) {
+    this.font = theFont;
+}
+myApp.notepad1  = new myApp.Notepad('helvetica');
+myApp.notepad1.setFont('arial');
 
 // --- ITERATIONS ------------------------------------ //
 
@@ -80,31 +119,6 @@ var paragraphs = document.getElementsByTagName('p');
 for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
   doSomething(paragraph);
 }
-
-// --- OBJET ------------------------------------ //
-
-var roads = {"Point Kiukiu": [{to: "Hanaiapa", distance: 19},
-                              {to: "Mt Feani", distance: 15},
-                              {to: "Taaoa", distance: 15}],
-             "Taaoa": [/* et cetera */]};
-
-var rabbit = {};
-rabbit.speak = function(line) {
-  print("The rabbit says '", line, "'");
-};
-
-rabbit.speak("Well, now you're asking me.");
-
-
-Object.prototype.properties = function() {
-  var result = [];
-  for (var property in this)
-    result.push(property);
-  return result;
-};
-
-var test = {x: 10, y: 3};
-show(test.properties());
 
 // --- Stats analytics de manière asynchrone ------------------------------------ //
 
