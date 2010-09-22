@@ -13,7 +13,6 @@ function a() {
     return 3;
 }
 
-
 // Anonymous function expression
 var a = function() {
     return 3;
@@ -127,7 +126,11 @@ myApp.notepad1.setFont('arial');
 
 // --- ITERATIONS ------------------------------------ //
 
-for each (var item in [1, 2, 3]) alert(item);
+var arr = ['va1', 'val2', 300];
+for (var item in arr) alert(item);
+
+var obj = {'x':200, 'y': 300, 'color':'white'};
+for (var key in obj) alert(key+' : '+obj[key]);
 
 [1, 2, 3].forEach(function(item) { alert(item) });
 
@@ -137,7 +140,6 @@ var squares = [item * item for each (item in [1, 2, 3])];
 
 var obj = { foo: 1, bar: 2, baz: 3 };
 [alert(name + "=" + obj[name]) for (name in obj)];
-
 
 [alert(key + "=" + val) for ([key, val] in Iterator({a:1,b:2,c:3}))]
 
