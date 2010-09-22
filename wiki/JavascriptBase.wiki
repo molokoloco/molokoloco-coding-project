@@ -1,5 +1,44 @@
+#summary Personal Tooltips for Javascript
 #labels Tooltips
 
+=JAVASCRIPT BASE=
+Good advices gere : http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
+
+{{{
+
+// --- FUNCTIONS ------------------------------------ //
+
+// Function Declarations
+function a() {
+    return 3;
+}
+
+
+// Anonymous function expression
+var a = function() {
+    return 3;
+}
+
+// Named function expression
+var a = function bar() {
+    return 3;
+}
+
+// Self invoking function expression
+(function sayHello() {
+    alert("hello!");
+})();
+
+// --- DATA OBJECTS ------------------------------------ //
+
+var intkeys = ['val1', 'val2'];
+
+var obj1 = {x: 10, y: 3};
+
+var obj2 = {'Point Kiukiu': [{to: 'Hanaiapa', distance: 19},
+                             {to: 'Mt Feani', distance: 15},
+                             {to: 'Taaoa', distance: 15}],
+             'Taaoa': [/* ... */]};
 
 // --- OBJECTS ------------------------------------ //
 // inspired from Angus Croll http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
@@ -52,8 +91,8 @@ myApp.Notepad = function(defaultFont) {
 myApp.notepad1 = new myApp.Notepad('helvetica');
 
 // 5. Prototype with Constructor for new
-// Extending functionality to the pre-built string() object
 
+// Extending functionality to the pre-built string() object
 
 String.prototype.writeback = function() {
     for (i=this.length-1;i>=0;i--)
@@ -72,7 +111,7 @@ Object.prototype.properties = function() {
 };
 
 var test = {x: 10, y: 3};
-show(test.properties());
+console.log(test.properties());
 
 // Extending functionality to a custom JavaScript object
 
@@ -101,7 +140,6 @@ var obj = { foo: 1, bar: 2, baz: 3 };
 
 
 [alert(key + "=" + val) for ([key, val] in Iterator({a:1,b:2,c:3}))]
-
 
 // Node lists are often implemented as node iterators with a filter. 
 // This means that getting a property like length is O(n), 
