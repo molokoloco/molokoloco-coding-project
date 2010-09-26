@@ -53,6 +53,9 @@ Source here : http://plugins.jquery.com/project/autocenter
           }
      });
 })(jQuery);
+
+$('#myDiv').center();
+
 }}}
 
 ===SHORT VERSION===
