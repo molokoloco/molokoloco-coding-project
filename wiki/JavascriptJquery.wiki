@@ -202,6 +202,16 @@ $("table").delegate("td", "hover", function(){
     $(this).toggleClass("active");
 });
 
+// "return false" is actually doing three very separate things when you call it:
+//   1. event.preventDefault();
+//   2. event.stopPropagation();
+//   3. Stops callback execution and returns immediately when called.
+
+$('a').click(function (e) {
+    // here your code
+    e.preventDefault(); // cancel default behavior
+});
+
 
 // Horloge
 var pad = function(s) { return (s < 10 ? '0'+s : s); }
