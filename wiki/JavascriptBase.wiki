@@ -39,6 +39,11 @@ var obj2 = {'Point Kiukiu': [{to: 'Hanaiapa', distance: 19},
                              {to: 'Taaoa', distance: 15}],
              'Taaoa': [/* ... */]};
 
+typeof "abc"; //"string"
+typeof String("abc"); //"string"
+typeof new String("abc"); //"object"
+typeof (new String("abc")).valueOf(); //"string"
+
 // --- OBJECTS ------------------------------------ //
 // inspired from Angus Croll http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
 
