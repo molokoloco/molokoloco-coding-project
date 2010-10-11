@@ -345,6 +345,12 @@ mysql> UPDATE user
 mysql> flush privileges;
 exit;
 
+// DEBUG MYSQL (Lecture des fichiers logs binaire)
+// http://dev.mysql.com/doc/refman/5.0/en/mysqlbinlog.html
+
+cd /var/log/mysql/
+sudo mysqlbinlog mysql-bin.[0-9]*
+
 
 #Restaurer la base sivitsytem
 #Un dump régulier est effectué chaque jour sur les serveurs en V2
