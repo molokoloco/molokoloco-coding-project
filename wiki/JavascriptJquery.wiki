@@ -354,13 +354,22 @@ var add = function(elm) {
 
 {{{
 
-var event2key = {'97':'a', '98':'b', '99':'c', '100':'d', '101':'e', '102':'f', '103':'g', '104':'h', '105':'i', '106':'j', '107':'k', '108':'l', '109':'m', '110':'n', '111':'o', '112':'p', '113':'q', '114':'r', '115':'s', '116':'t', '117':'u', '118':'v', '119':'w', '120':'x', '121':'y', '122':'z'};
+var event2key = {'97':'a', '98':'b', '99':'c', '100':'d', '101':'e', '102':'f', '103':'g', '104':'h', '105':'i', '106':'j', '107':'k', '108':'l', '109':'m', '110':'n', '111':'o', '112':'p', '113':'q', '114':'r', '115':'s', '116':'t', '117':'u', '118':'v', '119':'w', '120':'x', '121':'y', '122':'z', '37':'left', '39':'right', '38':'up', '40':'down', '13':'enter'};
 
 $(document).keypress(function(e) {
 	$('.l').each(function() {
 		if (event2key[e.which] != '' && $(this).html().charAt(0).toLowerCase() ==  event2key[e.which]) $(this).attr('class', 'l hightlight');
 		else $(this).attr('class', 'l');
 	});
+
+        switch(event2key[(e.which || e.keyCode)]) {
+		case 'left': break;
+		case 'right': break;
+		case 'up': break;
+		case 'down': break;
+		case 'enter': break;
+                case 'a': break;
+	}
 });
 
 }}}
