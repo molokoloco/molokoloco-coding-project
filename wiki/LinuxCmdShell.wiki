@@ -936,3 +936,78 @@ web/	23-Nov-2008 07:16 	- 	my website and blog
 gpg.asc	26-Sep-2007 04:52 	3.1K	my GPG public key
 
 Apache Server at [http://doc.ubuntu-fr.org/] Port 80
+
+
+=== /etc/mysql/my.cnf EXAMPLE ===
+
+{{{
+[client]
+port		= 3306
+socket		= /var/run/mysqld/mysqld.sock
+
+[mysqld_safe]
+socket		= /var/run/mysqld/mysqld.sock
+nice		= 0
+#err-log	= /var/log/mysql/error.log
+
+[mysqld]
+user		= mysql
+pid-file	= /var/run/mysqld/mysqld.pid
+socket = /var/run/mysqld/mysqld.sock
+port = 3306
+basedir	= /usr
+datadir = /home/mysql-data
+tmpdir		= /tmp
+language	= /usr/share/mysql/english
+#long_query_time	= 5
+#log-slow-queries	= /var/log/mysql/slow_queries.log
+#log-error	= /var/log/mysql/error.log
+
+skip-external-locking
+skip-bdb
+
+# JUJU ###############
+skip-slave-start
+skip-innodb
+skip-name-resolve
+######################
+
+key_buffer		= 24M
+max_allowed_packet	= 16M
+thread_stack		= 128K
+thread_cache_size	= 8
+myisam-recover	= BACKUP
+query_cache_limit	= 1M
+query_cache_size	= 16M
+
+# JUJU ###############
+sort_buffer_size = 4M
+read_buffer_size = 4M
+binlog_cache_size = 2M
+table_cache = 128
+thread_cache = 256
+thread_concurrency = 4
+myisam_sort_buffer_size = 1M
+tmp_table_size = 12M
+max_heap_table_size = 12M
+wait_timeout = 200
+interactive_timeout = 300
+max_connect_errors = 10000
+######################
+
+expire_logs_days	= 2
+max_binlog_size	= 32M
+max_connections 	= 100
+bind-address 		= 127.0.0.1
+
+[mysqldump]
+quick
+quote-names
+max_allowed_packet	= 16M
+
+[mysql]
+
+[isamchk]
+key_buffer		= 24M
+!includedir /etc/mysql/conf.d/
+}}}
