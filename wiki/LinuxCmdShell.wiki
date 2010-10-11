@@ -966,7 +966,7 @@ language	= /usr/share/mysql/english
 skip-external-locking
 skip-bdb
 
-# JUJU ###############
+# Test ###############
 skip-slave-start
 skip-innodb
 skip-name-resolve
@@ -980,7 +980,7 @@ myisam-recover	= BACKUP
 query_cache_limit	= 1M
 query_cache_size	= 16M
 
-# JUJU ###############
+# Test ###############
 sort_buffer_size = 4M
 read_buffer_size = 4M
 binlog_cache_size = 2M
