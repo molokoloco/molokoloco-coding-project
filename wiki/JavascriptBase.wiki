@@ -3,6 +3,7 @@
 
 =JAVASCRIPT BASE=
 Good advices here : https://developer.mozilla.org/en/JavaScript/Reference/
+
 and there : http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
 
 {{{
