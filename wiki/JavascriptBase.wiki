@@ -2,7 +2,7 @@
 #labels Tooltips
 
 =JAVASCRIPT BASE=
-Good advices here : [https://developer.mozilla.org/en/JavaScript/Reference/ <br />
+Good advices here : https://developer.mozilla.org/en/JavaScript/Reference/ <br />
 And there : http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml 
 
 {{{
