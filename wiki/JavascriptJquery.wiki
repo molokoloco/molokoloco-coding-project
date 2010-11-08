@@ -303,6 +303,8 @@ $(document.body).click(function () {
     });
 });
 
+$('li').slice(2, 4).css('background-color', 'green');  
+
 // Toggle all checkboxes
 var tog = false; // or true if they are checked on load
 $('a').click(function() {
