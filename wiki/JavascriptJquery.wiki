@@ -205,6 +205,8 @@ $('#foo').bind({
     }
 });
 
+// Listen to events from a particular context
+
 $("table").delegate("td", "hover", function(){
     $(this).toggleClass("active");
 });
