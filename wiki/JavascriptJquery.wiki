@@ -608,14 +608,17 @@ else echo $json;
 ?> 
 <script>
 $(function() { 
-    $.ajax({ 
-        dataType:'jsonp', 
-        url: 'http://www.monsitedistant.com/api.php', 
-        data: { param:'hello' }, 
-            success:function(response) { 
-                alert("Réponse : "+ response.data); 
-            } 
-    }); 
+	$.ajax({ 
+		dataType:'jsonp', 
+		url: 'http://www.monsitedistant.com/api.php', 
+		data: { param:'hello' }, 
+		success:function(response) { 
+			alert("Réponse : "+ response.data); 
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) { 
+			console.log('JSON error :(', XMLHttpRequest, textStatus, errorThrown);
+		} 
+	}); 
 });
 </script>
 
