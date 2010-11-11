@@ -1,5 +1,5 @@
-#summary My JQuery personnal notes
 #labels Tooltips
+ev#summary My JQuery personnal notes
 
 *Sommaire :*
 
@@ -220,6 +220,10 @@ $('a').click(function (e) {
     // here your code
     e.preventDefault(); // cancel default behavior
 });
+
+$('#myImage').attr('src', 'image.jpg').load(function() {
+	alert('Image Loaded');
+}); 
 
 
 // Horloge
