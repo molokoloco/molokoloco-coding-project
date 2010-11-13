@@ -555,6 +555,16 @@ outerWidth(margin)//  Returns: Integer // Get the outer width (includes the bord
 
 */
 
+// To get the width and height of the whole page (document)
+
+var pageWidth = $(document).width();
+var pageHeight = $(document).height();
+
+// To get the width and height of the viewport (window)
+
+var viewportWidth = $(window).width();
+var viewportHeight = $(window).height();
+
 }}}
 
 == PARSING XML (IE compatible) ==
