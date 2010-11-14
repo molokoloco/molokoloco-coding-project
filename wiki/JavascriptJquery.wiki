@@ -992,10 +992,10 @@ Parmi les changements et améliorations apportées dans la version 1.4 :
 {{{
 
 // SIMPLE DEBUG :)
-var db = function(x) { 'console' in window && console.log.call(console,arguments); };
+var db = function(x) { 'console' in window && console.log.call(console, arguments); };
 
 // Other one...
-var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } if ('console' in window) { console.info('db('+typeof something+')'); console.log(info); }};
+var db = function(something) { if (!('console' in window)) return; if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } console.info('db('+typeof something+')'); console.log(info); };
 
 var die = function(mess) { throw(( mess ? mess : "JS says that you killing him softly : Oh my god moonWalker is down...")); };
 
