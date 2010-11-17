@@ -80,6 +80,17 @@ print_r($img);
 backgroundStyle.match(/^url\(["']?(.*\.png)["']?\)$/i))
 image = RegExp.$1;
 
+// Extract script to find redirect...
+
+if (preg_match_all('/<script[^<](.+?)<\/script>/si', $content, $value)) {
+	foreach((array)$value[1] as $scriptFragment) {
+		if (preg_match("/window\.location ?= ?['|\"](.+?)['|\"]/si", $scriptFragment, $value1) || preg_match("/window\.location\.replace\(['|\"](.+?)[^'|\"]\)/si", $scriptFragment, $valu1e)) {
+			return $value1[1];
+			break;
+		}
+	}
+}
+
 ________________________________________________________________________
 /*
 SYNTAXE REGEX  preg_match_all("/([\w\._-]+\@([\w_-]+\.)+[\w_-]+)/", $contenu, $cleanMail);
