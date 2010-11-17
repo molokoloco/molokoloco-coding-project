@@ -49,6 +49,86 @@ function object2array($object) {
 
 // -------------------------------------------------------------------------------------------------------- //
 
+function bdd2sqlite() {
+	global $sqliteBaseRootDir;
+	global $sqliteBddBasePath;
+	global $wwwRoot;
+	global $MondadoryDayBefore;
+	global $exportDate;
+	global $sqliteEmissionsBasePath;
+	
+	boostPhpLimit();
+
+	// -------------------------- LET's GO -------------------------- //
+	if (is_file($sqliteBddBasePath)) unlink($sqliteBddBasePath);
+	
+	$LITE = new PDO('sqlite:'.$sqliteBddBasePath); // Init SQLite
+	$LITE->exec((string)file_get_contents($wwwRoot.'php_manager/SQL/setup_sqlite_bdd_config.txt')); // Create new EPG tables schemes
+	$LITE->exec((string)file_get_contents($wwwRoot.'php_manager/SQL/setup_sqlite_bdd_chaines.txt'));
+	$LITE->exec((string)file_get_contents($wwwRoot.'php_manager/SQL/setup_sqlite_bdd_genres.txt'));
+	$LITE->exec((string)file_get_contents($wwwRoot.'php_manager/SQL/setup_sqlite_bdd_emission.txt')); // Create new EPG tables schemes
+	
+	function addMySlashes($v) { // Protect fields // Check for utf8 for iphone ?
+		// return str_replace('\'', '\\\'', $v);
+		//return str_replace('"', '\"', $v);
+		//return str_replace('"', '"', unhtmlentities($v));
+		return str_replace("'", "''", $v);
+	}
+	
+	$Q = new Q();
+	foreach(array('epg_config', 'epg_chaines', 'epg_genres', 'epg_sous_genres') as $table) {
+		$Q->QUERY("SELECT * FROM $table ORDER BY id DESC");
+		$sqliteInsert = '';
+		foreach($Q->V as $V) {
+			$valueArr = array_map('addMySlashes', array_values($V));
+			$sqliteInsert .= "INSERT INTO ".$table." ('".implode("','", array_keys($V))."') VALUES ('".implode("','", $valueArr)."');";
+		}
+		$LITE->exec(utf8_encode(substr($sqliteInsert, 0, -1)));
+		if ((int)$LITE->errorCode() > 0 || count($LITE->errorInfo()) > 1) {
+			eko('<h1 class="error">Error with MySQLite ('.(string)$LITE->errorCode().' : '.implode(' - ', $LITE->errorInfo()).')</h1>');
+		}
+		else eko('SQLite creation of table '.$table.' : Ok<br />');
+	}
+	
+	// CRON FOR UPDATE IS 3:00 AM
+	// getDateTimeOf(0, 0, 0, date("m"),date("d")+1, date("Y")) // +$MondadoryDayBefore
+	$Q = new Q("SELECT * FROM epg_emissions WHERE ( TO_DAYS(diffusion)=TO_DAYS(NOW()) OR TO_DAYS(diffusion_fin)=TO_DAYS(NOW()) ) ORDER BY id"); // LIMIT 200
+	$sqliteInsert = array();
+	$i = 0;
+	foreach($Q->V as $V) {
+		$valueArr = array_map('addMySlashes', array_values($V));
+		$sqliteInsert[] = "INSERT INTO epg_emissions ('".implode("','", array_keys($V))."') VALUES ('".implode("','", $valueArr)."')";
+		$i++;
+	}
+	if (count($sqliteInsert) < 1) {
+		eko('<h1 class="error">No emissions for this date</h1>');
+	}
+	else {
+		$LITE->exec(utf8_encode(implode(';', $sqliteInsert)));
+		if ((int)$LITE->errorCode() > 0 || count($LITE->errorInfo()) > 1) {
+			eko('<h1 class="error">Error with MySQLite ('.(string)$LITE->errorCode().' : '.implode(' - ', $LITE->errorInfo()).')</h1>');
+		}
+		else eko('SQLite creation of table emissions : Ok<br />');
+	}
+	
+	eko('SQLite creation of table BDD All (<strong>'.$i.'</strong> emissions added)<br />'); //LITE->lastInsertId()
+	
+	
+	$zipFile = $sqliteBddBasePath.'.zip';
+	if (is_file($zipFile)) @unlink($zipFile);
+	
+	$zip = new ZipArchive();
+	if ($zip->open($zipFile, ZIPARCHIVE::CREATE) !== TRUE) eko("Cannot open <$filename>");
+	$zip->addfile($sqliteBddBasePath, basename($sqliteBddBasePath));
+	$zip->close();
+	
+	eko('BDD All is zipped again<br />');
+
+	unBoostPhpLimit();
+}
+
+// -------------------------------------------------------------------------------------------------------- //
+
 hose of you with PHP 5 don't have to come up with these wild functions to scan a directory recursively: the SPL can do it.
 
 <?php
