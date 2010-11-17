@@ -69,9 +69,6 @@ function bdd2sqlite() {
 	$LITE->exec((string)file_get_contents($wwwRoot.'php_manager/SQL/setup_sqlite_bdd_emission.txt')); // Create new EPG tables schemes
 	
 	function addMySlashes($v) { // Protect fields // Check for utf8 for iphone ?
-		// return str_replace('\'', '\\\'', $v);
-		//return str_replace('"', '\"', $v);
-		//return str_replace('"', '"', unhtmlentities($v));
 		return str_replace("'", "''", $v);
 	}
 	
