@@ -18,6 +18,8 @@ while (!feof ($page)) $contenu_html .= trim(fgets($page, 4096));
 preg_match("/$debut(.*)$fin/s", $contenu_html, $valeur);
 echo 'Le nombre de pages Web recensées par Google est de '.$valeur[1].'.';
 
+________________________________________________________________________
+
 // Javascript.. GET URL vars...
 
 var GET = function() { 
@@ -27,7 +29,9 @@ var GET = function() {
 };
 
 ________________________________________________________________________
-// EXTRACT IMAGE
+
+// PHP.. EXTRACT IMAGE
+
 function getFirstImage($document) { 
 	preg_match('/<img[^>]+>/i',$document, $result);
 	preg_match('/src=[\'|"](.+?)[\'|"]/i', $result[0], $img);
@@ -53,28 +57,12 @@ function _striplinks($document) {
     }
 
 
-
 // http://regexlib.com/Search.aspx?k=image
+// Extract image source from RSS feed for Yahoo pipe.... PERL like syntax
 
-### Extract image source from RSS feed for Yahoo pipe.... PERL like syntax
-/*
-<img.*?src=['|"](.+?)['|"].*?>
-src=\"([^\"]*)\"[^>]*
-(.*)?src=['|"](.+?)['|"](.*)?
-/src=("[^"]*")/
-.*?src=['|"](.+?)['|"].*? >>>>>>>>>>>>>> http://pipes.yahoo.com/pipes
-.*?(src=['|"](.+?)['|"]).*?>> with $2
-.*?src=['|"](.+?)['|"].*? >>> with $1
-.+src=("|\')([^\1]+)\1.*
-^(http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?(?:[a-zA-Z0-9_])+\.(?:jpg|jpeg|gif|png))$
-.*?(http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?(?:[a-zA-Z0-9_])+\.(?:jpg|jpeg|gif|png)).*?
-*/
-## OK :) ###
 .+src=['|"](.+?)['|"].+
 
 '#<\s*?img\s+.*[^>]*>#i'
-
-*/
 
 $pattern_img_src = '!.*<img.+src=("|\')([^\1]+)\1.*!Ui'; // '!<([biu])>(.)*<\1>!Ui'
 preg_match($pattern_img_src,$desc,$links);
@@ -341,6 +329,7 @@ for ($i=0 ; $i<count($cleanMail[0]); $i++) {
 _________________________________________________________
 
 RECHERCHE MOT CLE DANS UN FICHIER
+
 <pre>
 <?php
 $fichier = "server_log.txt";
