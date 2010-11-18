@@ -342,3 +342,12 @@ Miscellaneous Event Handlers:
 	onAbort [image]     image load has been abandoned by hitting the STOP icon.
 	onError [window, image]     window or image fails to load.
 }}}
+
+== Et le meilleur pour la fin ;) ==
+
+{{{
+
+// Pour debugger X variables dans la console du navigateur...
+
+var db = function(x) { 'console' in window && console.log.call(console, arguments); };
+}}}
