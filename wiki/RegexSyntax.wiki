@@ -18,6 +18,14 @@ while (!feof ($page)) $contenu_html .= trim(fgets($page, 4096));
 preg_match("/$debut(.*)$fin/s", $contenu_html, $valeur);
 echo 'Le nombre de pages Web recensées par Google est de '.$valeur[1].'.';
 
+// Javascript.. GET URL vars...
+
+var GET = function() { 
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) { vars[key] = value; });
+	return vars;
+};
+
 ________________________________________________________________________
 // EXTRACT IMAGE
 function getFirstImage($document) { 
