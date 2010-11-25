@@ -112,6 +112,9 @@ filter : alpha(opacity=70);
 }
 
 
+image-rendering: optimizeQuality; /* Gecko */
+-ms-interpolation-mode: bicubic; /* IE */
+
 /* --------------------------------------------------------------- */
 
 html {
