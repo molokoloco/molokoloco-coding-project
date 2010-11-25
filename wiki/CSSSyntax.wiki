@@ -1,6 +1,9 @@
 #summary Personal notes for CSS
 #labels Tooltips
 
+_TODO ... CSS3 CLEAN NOTES !!!_
+
+
 = CSS TIPS =
 
   * http://www.smashingmagazine.com/2009/10/05/mastering-css-coding-getting-started/
@@ -106,6 +109,14 @@ filter : alpha(opacity=70);
   -webkit-border-image: url(border-image.jpg) 45 20 45 30 repeat;
   -moz-border-image: url(border-image.jpg) 45 20 45 30 repeat;
   border-image: url(border-image.jpg) 45 20 45 30 repeat;
+}
+
+html {
+        background: url(images/bg.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
 }
 
 /* --------------------------------------------------------------- */
