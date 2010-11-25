@@ -130,6 +130,48 @@ myApp.Notepad.prototype.setFont = function(theFont) {
 myApp.notepad1  = new myApp.Notepad('helvetica');
 myApp.notepad1.setFont('arial');
 
+// --- SINGLETON PATERN ------------------------------------ //
+// http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/
+
+var SingletonTester = (function(){
+ 
+  //args: an object containing arguments for the singleton
+  function Singleton(args) {
+ 
+   //set args variable to args passed or empty object if none provided.
+    var args = args || {};
+    //set the name parameter
+    this.name = 'SingletonTester';
+    //set the value of pointX
+    this.pointX = args.pointX || 6; //get parameter from arguments or set default
+    //set the value of pointY
+    this.pointY = args.pointY || 10;  
+ 
+  }
+   
+ //this is our instance holder
+  var instance;
+ 
+ //this is an emulation of static variables and methods
+  var _static = {
+    name: 'SingletonTester',
+   //This is a method for getting an instance
+ 
+   //It returns a singleton instance of a singleton object
+    getInstance: function (args){
+      if (instance === undefined) {
+        instance = new Singleton(args);
+      }
+      return instance;
+    }
+  };
+  return _static;
+})();
+ 
+var singletonTest = SingletonTester.getInstance({pointX: 5});
+console.log(singletonTest.pointX); // outputs 5
+
+
 // --- ITERATIONS ------------------------------------ //
 
 var arr = ['va1', 'val2', 300];
