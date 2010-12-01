@@ -28,6 +28,10 @@ var GET = function() {
 	return vars;
 };
 
+// Check URL...
+
+return /^https?:\/\/[A-Za-z0-9\-_%&\?\/.=]{5,}$/.test(url);
+
 ________________________________________________________________________
 
 // PHP.. EXTRACT IMAGE
