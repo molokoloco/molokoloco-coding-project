@@ -107,10 +107,10 @@ $myInput
     .blur(function() { if ($(this).val() === '') $(this).val($(this).data('valInit')); });
 
 $(window).load(function(){
-  if ( window.location.hash ) {
-    var destination = $( window.location.hash ).offset().top;
-    $('html:not(:animated),body:not(:animated)').scrollTop( destination );
-  }
+	if (window.location.hash) {
+		var destination = $( window.location.hash ).offset().top;
+		$('html, body').animate({scrollTop:0}, 1600);
+	}
 });
 
 }}}
@@ -128,10 +128,10 @@ $(window).load(function(){
 
  	$.fn.extend({ 
  		
-		//pass the options variable to the function
+		// Pass the options variable to the function
  		pluginname: function(options) {
 
-			//Set the default values, use comma to separate the settings, example:
+			// Set the default values, use comma to separate the settings, example:
 			var defaults = {
 				padding: 20,
 				mouseOverColor : '#000000',
