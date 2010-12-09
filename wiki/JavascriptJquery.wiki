@@ -513,6 +513,15 @@ $(this).hide('puff', {}, 1000);
 		Transfer - Transfers the outline of an element to another.
 */
 
+
+// Be carefull when use animate...
+$page6Now.stop().animate({width: '20%'}, 200);
+
+// jQuery automaticcaly put overflow:hidden no element..
+// to override this... put in CSS :
+
+overflow: visible !important;
+
 }}}
 
 == XPATH ==
