@@ -7,30 +7,33 @@ Certaines fonctions ci-dessous sont reprises (proprement ;) dans le [http://code
 
 {{{
 
-die(phpinfo());
+// die(phpinfo());
+// var_export(ini_get_all());
 
-@ini_set('error_reporting', E_ALL & ~E_NOTICE);
-@ini_set('display_errors', 'on'); 
-@ini_set('track_errors', '1'); ### echo $php_errormsg;
-@ignore_user_abort(true);
+
 @ini_set('magic_quotes_runtime', 0);
 @ini_set('memory_limit', '64M');
 @set_time_limit(500);
-print_r(ini_get_all());
+// @ignore_user_abort(true);
+
 @set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__).'/'.PATH_SEPARATOR.'../');
 print_r(apache_get_modules());
 
+
+@ini_set('error_reporting', E_ALL & ~E_NOTICE);
+@ini_set('display_errors','Off');
+@ini_set('log_errors','On');
+@ini_set('error_log','/home/example.com/logs/php_error.log');
+
+// @ini_set('track_errors', '1'); ### echo $php_errormsg;
 
 $selfPageName = basename($_SERVER['PHP_SELF']);
 $selfPageQuery = (!empty($_SERVER['QUERY_STRING']) ? $selfPageName.'?'.$_SERVER['QUERY_STRING'] : $selfPageName );
 $selfDir = $_SERVER['REQUEST_URI'];
 $host = $_SERVER['HTTP_HOST'];
 $hostIp = $_SERVER['SERVER_ADDR'];
+$isLocal = ($hostIp == '127.0.0.1' ? true : false);
 
-function isLocal() {
-    global $host;
-    return ($host == 'localhost' || $host == '127.0.0.1' ? true : false);
-}
 
 // -------------------------------------------------------------------------------------------------------- //
 
