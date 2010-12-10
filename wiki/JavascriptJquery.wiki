@@ -108,8 +108,8 @@ $myInput
 
 $(window).load(function(){
 	if (window.location.hash) {
-		var destination = $( window.location.hash ).offset().top;
-		$('html, body').animate({scrollTop:0}, 1600);
+		var destination = $(window.location.hash).offset().top;
+		$('html, body').animate({scrollTop:destination}, 1600);
 	}
 });
 
