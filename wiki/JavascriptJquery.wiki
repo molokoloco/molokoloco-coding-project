@@ -113,6 +113,18 @@ $(window).load(function(){
 	}
 });
 
+var popUp = function(message, delay) {
+	delay = delay || 5000;
+	$('<div />')
+		.addClass('ui-loader ui-overlay-shadow ui-corner-all')
+		.css({opacity: 0.96, top: $(window).scrollTop() + 100})
+		.html('<h1>Message...</h1><p>'+message+'</p>')
+		.appendTo('body')
+		.hide().fadeIn(200)
+		.delay(delay)
+		.fadeOut(400, function(){ $(this).remove(); });
+};
+
 }}}
 
 = SAMPLE PLUGIN STRUCTURE =
