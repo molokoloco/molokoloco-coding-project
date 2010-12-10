@@ -1,37 +1,40 @@
 #labels Featured
-#sidebar TableOfContents
-  * *JS/php Class & Fonctions*
-    * *[JavascriptJquery JS jQuery]*
-    * *[MyJQueryPlugins My jQuery plugins]*
-    * *[JavascriptBase JS tooltips]*
-    * *[JavascriptSample JS Tools]*
-    * [PrototypeSyntax JS Prototype]
-    * [javascriptAccordeonClass JS Accordéon]
-    * [JavascriptWindowOpenExtended JS Window Ext]
-    * [PHPJavascriptDiaporama PHP/JS Slideshow]
-  * *PHP/js Class and Fonctions*
-    * *[PHPSample PHP class File]*
-    * *[mySqlPhpClass PHP class mySQL]*
-    * [DocGenerator PHP export .doc]
-    * [RSSGeneratorSample PHP RSS feed]
-    * [TinyMce_PHP PHP/JS Rich Text Editor]
-    * [PhpSniff PHP IP sniffer]
-  * *Mixed LAMPX TIPS*
-    * [PHPSyntax PHP tooltips]
-    * *[mySQLSyntax mySQL tooltips]*
-    * [HtAccess HTaccess (Apache)]
-    * *[LinuxCmdShell Linux tooltips]*
-    * *[RegexSyntax REGEXP tooltips]*
-    * [CSSSyntax CSS tooltips]
-    * [FlexAirSyntax AS3/FLEX tooltips]
-    * [VirtualAdmin Virtual Admin Framework]
-  * *Android*
-    * [Android Android tooltips]
-    * [AndroidRest Android RESTfull]
-    * [AndroidJsonList Android Json List]
-    * [AndroidMarket Android Appz]
-  * *Others Services Tips*
-    * *[GoogleHack Go_Ogle]*
-    * [GoogleWave Google Wave tooltips]
-    * [HowToVirtualAdmin Virtual Admin HowTo]
-    * [TwittEr Twitter tooltips]
+#sidebar TableOfContents<br />
+<h4>JS/php Class & Fonctions</h4>
+<ul>
+	<li>[JavascriptJquery JS jQuery]</li>
+	<li>[MyJQueryPlugins My jQuery plugins]</li>
+	<li>[JavascriptBase JS tooltips]</li>
+	<li>[JavascriptSample JS Tools]</li>
+	<li>[PrototypeSyntax JS Prototype]</li>
+	<li>[javascriptAccordeonClass JS Accordéon]</li>
+	<li>[JavascriptWindowOpenExtended JS Window Ext]</li>
+	<li>[PHPJavascriptDiaporama PHP/JS Slideshow]</li>
+</ul>
+<h4>PHP/js Class and Fonctions</h4>
+<ul>
+	<li>[PHPSample PHP class File]</li>
+	<li>[mySqlPhpClass PHP class mySQL]</li>
+	<li>[DocGenerator PHP export .doc]</li>
+	<li>[RSSGeneratorSample PHP RSS feed]</li>
+	<li>[TinyMce_PHP PHP/JS Rich Text Editor]</li>
+	<li>[PhpSniff PHP IP sniffer]</li>
+</ul>
+<h4>Mixed LAMPX TIPS</h4>
+<ul>
+	<li>[PHPSyntax PHP tooltips]</li>
+	<li>[mySQLSyntax mySQL tooltips]</li>
+	<li>[HtAccess HTaccess (Apache)]</li>
+	<li>[LinuxCmdShell Linux tooltips]</li>
+	<li>[RegexSyntax REGEXP tooltips]</li>
+	<li>[CSSSyntax CSS tooltips]</li>
+	<li>[FlexAirSyntax AS3/FLEX tooltips]</li>
+	<li>[VirtualAdmin Virtual Admin Framework]</li>
+</ul>
+<h4>Others Services Tips</h4>
+<ul>
+	<li>[GoogleHack Go_Ogle]</li>
+	<li>[GoogleWave Google Wave tooltips]</li>
+	<li>[HowToVirtualAdmin Virtual Admin HowTo]</li>
+	<li>[TwittEr Twitter tooltips]</li>
+</ul>
