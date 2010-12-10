@@ -102,9 +102,9 @@ css_link.appendTo('head');
 
 var $myInput = $('input#search');
 $myInput
-    .data('valInit', input.val())
-    .focus(function() { if ($(this).val() === $(this).data('valInit')) $(this).val(''); })
-    .blur(function() { if ($(this).val() === '') $(this).val($(this).data('valInit')); });
+    .data('valInit', $myInput.val())
+    .focus(function() { if ($(this).val() == $(this).data('valInit')) $(this).val(''); })
+    .blur(function() { if ($(this).val() == '') $(this).val($(this).data('valInit')); });
 
 $(window).load(function(){
 	if (window.location.hash) {
