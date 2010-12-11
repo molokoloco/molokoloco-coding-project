@@ -475,6 +475,7 @@ $('#myDiv').animate(
         easing: 'swing', // the type of easing
         complete: function() { // the callback
             alert('done');
+            $(this).addClass('done');
         }
     }
 );
