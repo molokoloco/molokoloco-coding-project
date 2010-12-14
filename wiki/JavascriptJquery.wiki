@@ -251,6 +251,12 @@ var timer = setInterval(function() {
 	$('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
 }, 1000);
 
+
+// When clicking on an image we keep track of the index (child item index)
+$('#thumbs_container').delegate('li','click tap',function(){
+	current = $(this).index();
+});
+
 }}}
 
 == SHORTCUT MEMO ==
