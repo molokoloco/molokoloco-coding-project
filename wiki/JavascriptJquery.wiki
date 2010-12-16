@@ -1022,28 +1022,27 @@ $('img:regex(data:extension, png|jpg)');
 http://www.jquery.info/spip.php?article82
 
 {{{
-:external
+
 // Vérifie si les liens sont externes
 // (Ne fonctionne que pour les éléments qui ont un href) :
-$.extend($.expr[':'],{
-external: function(a,i,m) {
-if(!a.href) {return false;}
-return a.hostname && a.hostname !== window.location.hostname;
-}
+$.extend($.expr[':'], {
+       external: function(a,i,m) {
+        if (!a.href) return false;
+        return a.hostname && a.hostname !== window.location.hostname;
+    }
 });
 
 // Utilisation :
-$('a:external'); // Sélectionne toutes les ancres qui pointent vers une page ou un site externe.
+$('a:external'); // Sélectionne toutes les ancres qui pointent vers une page ou un site externe
 
-:inView
 // Vérifier si l'élément est actuellement dans la zone de vue (viewport) :
-$.extend($.expr[':'],{
-inView: function(a) {
-var st = (document.documentElement.scrollTop || document.body.scrollTop),
-ot = $(a).offset().top,
-wh = (window.innerHeight && window.innerHeight < $(window).height()) ? window.innerHeight : $(window).height();
-return ot > st && ($(a).height() + ot) < (st + wh);
-}
+$.extend($.expr[':'], {
+    inView: function(a) {
+        var st = (document.documentElement.scrollTop || document.body.scrollTop),
+        ot = $(a).offset().top,
+        wh = (window.innerHeight && window.innerHeight < $(window).height()) ? window.innerHeight : $(window).height();
+        return ot > st && ($(a).height() + ot) < (st + wh);
+    }
 });
 
 // Utilisation :
