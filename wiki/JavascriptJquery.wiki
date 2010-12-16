@@ -982,9 +982,9 @@ function main() {
 
 == REGEX ==
 
-{{{
+http://www.jquery.info/spip.php?article91
 
-// http://www.jquery.info/spip.php?article91
+{{{
 
 // Sélectionne tous les éléments dont l'id commence par une voyelle :
 $(':regex(id,^[aeiou])');
@@ -1014,6 +1014,40 @@ $(this).data('extension', $(this)[0].src.match(/\.(.{1,4})$/)[1]);
 
 // Sélectionner toutes les images avec une extension PNG ou JPG :
 $('img:regex(data:extension, png|jpg)');
+
+}}}
+
+== Selector (Advanced) ==
+
+http://www.jquery.info/spip.php?article82
+
+{{{
+:external
+// Vérifie si les liens sont externes
+// (Ne fonctionne que pour les éléments qui ont un href) :
+$.extend($.expr[':'],{
+external: function(a,i,m) {
+if(!a.href) {return false;}
+return a.hostname && a.hostname !== window.location.hostname;
+}
+});
+
+// Utilisation :
+$('a:external'); // Sélectionne toutes les ancres qui pointent vers une page ou un site externe.
+
+:inView
+// Vérifier si l'élément est actuellement dans la zone de vue (viewport) :
+$.extend($.expr[':'],{
+inView: function(a) {
+var st = (document.documentElement.scrollTop || document.body.scrollTop),
+ot = $(a).offset().top,
+wh = (window.innerHeight && window.innerHeight < $(window).height()) ? window.innerHeight : $(window).height();
+return ot > st && ($(a).height() + ot) < (st + wh);
+}
+});
+
+// Utilisation :
+$('div:inView'); // Sélectionne tous les éléments div qui sont dans la zone de vue actuelle
 
 }}}
 
