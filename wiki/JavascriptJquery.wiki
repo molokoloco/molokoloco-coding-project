@@ -981,6 +981,9 @@ function main() {
 }}}
 
 == REGEX ==
+
+{{{
+
 // http://www.jquery.info/spip.php?article91
 
 // Sélectionne tous les éléments dont l'id commence par une voyelle :
@@ -1011,6 +1014,8 @@ $(this).data('extension', $(this)[0].src.match(/\.(.{1,4})$/)[1]);
 
 // Sélectionner toutes les images avec une extension PNG ou JPG :
 $('img:regex(data:extension, png|jpg)');
+
+}}}
 
 == Code isolation ==
 
