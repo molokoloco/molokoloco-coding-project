@@ -980,6 +980,38 @@ function main() {
 
 }}}
 
+== REGEX ==
+// http://www.jquery.info/spip.php?article91
+
+// Sélectionne tous les éléments dont l'id commence par une voyelle :
+$(':regex(id,^[aeiou])');
+
+// Sélectionne tous les divs dont la classe contient un chiffre :
+$('div:regex(class,[0-9])');
+
+// Sélectionne toutes les balises script dont la source contient jQuery :
+$('script:regex(src,jQuery)');
+
+// Oui, je sais que le dernier exemple peut être fait avec les sélecteur d'attributs CSS3. C'est juste un exemple...
+
+Note : toutes les recherches sont insensibles à la casse ; vous pouvez changer ça en retirant le drapeau "i" dans le plugin.
+
+Ce plugin vous permet aussi d'interroger les styles CSS avec des expressions régulières, par exemple :
+// Sélectionne tous les éléments dont la largeur est comprise entre 100 et 300 pixels :
+$(':regex(css:width, ^[1-3]\\d{2}px$)');
+
+// Sélectionne tous les divs qui ne sont pas en display: block :
+$('div:not(:regex(css:display, ^block$))');
+
+De plus, vous pouvez interroger les chaînes "data" ajoutées aux éléments au travers de la méthode "data" de jQuery :
+// Ajouter une propriété data à toutes les images (c'est juste un exemple) :
+$('img').each(function(){
+$(this).data('extension', $(this)[0].src.match(/\.(.{1,4})$/)[1]);
+});
+
+// Sélectionner toutes les images avec une extension PNG ou JPG :
+$('img:regex(data:extension, png|jpg)');
+
 == Code isolation ==
 
 {{{
