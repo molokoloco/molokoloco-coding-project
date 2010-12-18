@@ -711,6 +711,25 @@ var obj = jQuery.parseJSON('{"name":"Larry King", "age": "5000"}');
 alert(obj.name);
 
 
+// MAPPING COMPLEX JSON 
+function youtube(callback) {
+    var url = "http://gdata.youtube.com/feeds/api/videos/-/Comedy?v=2&alt=json-in-script&start-index=" + startIndex + "&callback=?";
+
+    jQuery.getJSON(url, function (data) {
+        var images = jQuery.map(data.feed.entry, function (item) {
+            return {
+                title: item.title.$t,
+                thumb: item.media$group.media$thumbnail[0].url,
+                ytvideoid: item.media$group.yt$videoid.$t,
+                videoloader: youtubevideo,
+                link: item.link[0].href
+            };
+        });
+        startIndex += images.length;
+        callback(images);
+    });
+}
+
 }}}
 
 == Somes Functions ... ==
