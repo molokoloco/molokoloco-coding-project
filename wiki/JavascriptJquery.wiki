@@ -211,6 +211,10 @@ $('.thumbLien').hover(
     }
 );
 
+$('#foo').bind('mouseenter mouseleave', function() {
+    $(this).toggleClass('focus');
+});
+
 $('#foo').bind({
     click: function() {
         // do something
@@ -222,6 +226,7 @@ $('#foo').bind({
         // do something
     }
 });
+$('#foo').trigger('click'); // Do event
 
 // Listen to events from a particular context
 
@@ -238,6 +243,7 @@ $('a').click(function (e) {
     // here your code
     e.preventDefault(); // cancel default behavior
 });
+$('a').click();
 
 $('#myImage').attr('src', 'image.jpg').load(function() {
 	alert('Image Loaded');
