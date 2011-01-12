@@ -200,7 +200,9 @@ $.fn.selectRange = function(start, end) {
 
 ----
 
-=Get browser specific CSS style name properties=
+=Get browser CSS style name properties (-Moz -Webkit, ... CSS support) =
+
+The famous -moz-border-radius and -webkit-border-radius !
 
 ===USE CASE===
 
