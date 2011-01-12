@@ -83,6 +83,7 @@ $('#myDiv').center();
 $('#myDiv').css({top:'50%',left:'50%',margin:'-'+($('#myDiv').height() / 2)+'px 0 0 -'+($('#myDiv').width() / 2)+'px'});
 }}}
 
+----
 
 = Add Or Switch Stylesheet =
 
@@ -171,6 +172,7 @@ Plugin who load (at the first demand) and switch stylesheet, with cookie :
 }}}
 
 ----
+
 =Select a text range (input/textarea)=
 
 ===USE CASE===
@@ -194,6 +196,7 @@ $.fn.selectRange = function(start, end) {
 };
 }}}
 
+----
 
 =Get browser specific CSS style name properties=
 
