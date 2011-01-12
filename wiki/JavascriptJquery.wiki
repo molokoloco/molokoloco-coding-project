@@ -513,6 +513,11 @@ $('div#mydiv').slideUp(300).delay(800).fadeIn(400);
 $(this).css('-moz-transform', 'scale(' + dist + ') skew(' + skew2 +'deg, 0deg)');  
 $(this).css('-webkit-transform', 'scale(' + dist + ') skew(' + skew2 +'deg, 0deg)');  
 
+var d = 0;
+setInterval(
+    function () { div.style['MozTransform'] = 'rotate(' + (d++ % 360) + 'deg)'; },
+    100
+);
 
 // --------------------------------------------------------------- //
  
