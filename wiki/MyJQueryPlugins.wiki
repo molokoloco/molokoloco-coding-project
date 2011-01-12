@@ -193,3 +193,42 @@ $.fn.selectRange = function(start, end) {
     else if (e.selectionStart) { e.selectionStart = start; e.selectionEnd = end; }
 };
 }}}
+
+
+=Get browser specific CSS style name properties=
+
+===USE CASE===
+
+{{{
+var cssTransform = cssPrefix('transform');
+$('#myDiv').css({cssTransform:'rotate(20deg)'}); // How it's possible that jQuery don't get it ? o_O
+document.getElementById('myDiv').style[cssTransform] = 'rotate(20deg)'; // Ok
+
+document.getElementById('myDiv').style[cssPrefix('border-radius')] = '5px'; // Ok
+}}}
+
+===JQUERY "ADD-ON"...===
+
+{{{
+String.prototype.camelize = function() {
+    var tmp = '';
+    var words = this.split('-');
+    for (var i in words) tmp += words[i].toLowerCase().charAt(0).toUpperCase() + words[i].slice(1);
+    return tmp;
+};
+
+var cssPrefixString = null;
+var cssPrefix = function(propertie) {
+    if (cssPrefixString !== null) return cssPrefixString + propertie.camelize();
+    var e = document.createElement('div');
+    var prefixes = ['', 'Moz', 'Webkit', 'O', 'ms', 'Khtml']; // Various supports...
+    for (var i in prefixes) {
+        if ((i == 0 && typeof e.style[propertie] != 'undefined') || typeof e.style[prefixes[i] + propertie.camelize()] != 'undefined') {
+            cssPrefixString = prefixes[i];
+            return prefixes[i] + propertie.camelize();
+        }
+    }
+    return false;
+};
+
+}}}
