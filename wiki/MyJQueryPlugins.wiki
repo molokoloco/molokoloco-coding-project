@@ -3,6 +3,8 @@
 
 *Au sommaire :*
 
+<wiki:toc max_depth="1" />
+
 ----
 =Center element into an other=
 
