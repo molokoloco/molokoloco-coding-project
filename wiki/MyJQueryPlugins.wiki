@@ -216,6 +216,8 @@ document.getElementById('myDiv').style[cssPrefix('border-radius')] = '5px'; // O
 
 ===JQUERY "ADD-ON"...===
 
+Playground here : http://jsfiddle.net/molokoloco/f6Z3D/
+
 {{{
 String.prototype.camelize = function() {
     var tmp = '';
