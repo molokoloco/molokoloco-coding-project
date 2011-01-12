@@ -202,16 +202,20 @@ $.fn.selectRange = function(start, end) {
 
 =Get browser CSS style name properties (-Moz -Webkit, ... CSS support) =
 
-The famous -moz-border-radius and -webkit-border-radius !
+A function to get browser specific CSS style name properties...
+eg. "MozBorderRadius" or "WebkitTransform" ...
 
 ===USE CASE===
 
 {{{
 var cssTransform = cssPrefix('transform');
-$('#myDiv').css({cssTransform:'rotate(20deg)'}); // How it's possible that jQuery don't get it ? o_O
-document.getElementById('myDiv').style[cssTransform] = 'rotate(20deg)'; // Ok
-
-document.getElementById('myDiv').style[cssPrefix('border-radius')] = '5px'; // Ok
+if (cssTransform ) {
+    var cssProp = {};
+    cssProp['border'] = '1px solid rgba(0, 0, 0, .5)';
+    cssProp[cssTransform] = 'rotate(20deg)';
+    cssProp[cssPrefix('border-radius')] = '5px'; // eg. "MozBorderRadius"
+    $('#myDiv').css(cssProp);
+}
 }}}
 
 ===JQUERY "ADD-ON"...===
@@ -239,5 +243,4 @@ var cssPrefix = function(propertie) {
     }
     return false;
 };
-
 }}}
