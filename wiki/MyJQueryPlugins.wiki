@@ -244,3 +244,30 @@ var cssPrefix = function(propertie) {
     return false;
 };
 }}}
+
+----
+
+=Disabling element selection=
+
+===USE CASE===
+
+{{{
+$('*').disableTextSelect();
+}}}
+
+===JQUERY PLUGIN===
+
+{{{
+
+$.fn.disableTextSelect = function () {
+	return this.each(function () {
+		$(this).css({'-webkit-user-select':'none', '-moz-user-select':'none','user-select':'none'});
+	})
+};
+$.fn.enableTextSelect = function () {
+	return this.each(function () {
+		$(this).css({'-webkit-user-select':'', '-moz-user-select':'','user-select':''});
+	})
+};
+
+}}}
