@@ -142,3 +142,16 @@ function publish_later_on_feed($where) {
 
 add_filter('posts_where', 'publish_later_on_feed');
 }}}
+
+===External access...===
+
+{{{
+$link = get_permalink($post->ID);
+$key = 'YOURKEY';
+
+$url = 'http://api.backtype.com/tweetcount.xml?q='.$link.'&amp;key='.$key;
+$request = new WP_Http();
+$result = $request->request($url);
+
+echo $result['body'].' tweets';
+}}}
