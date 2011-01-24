@@ -208,6 +208,12 @@ for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
   doSomething(paragraph);
 }
 
+// --- FUNCTIONS on functions ------------------------------------ //
+
+var value = myFunction.apply(this, args);
+
+var db = function(){ 'console' in window && console.log.call(console, arguments) };
+
 // --- Stats analytics de manière asynchrone ------------------------------------ //
 
 <script type="text/javascript">
