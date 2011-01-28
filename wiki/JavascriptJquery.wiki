@@ -38,14 +38,17 @@ ou
 
 {{{
 
+// When jQuery is ready
 $(function(){ /*...*/ });
 
+// When document DOM is ready
 $(document).ready(function(){
     $('a').click(function(event){
         event.preventDefault();
     });
 });
 
+// When all is loaded, includind external files
 $(window).bind('load', function()  { /* ... */ });
 
 }}}
@@ -54,16 +57,14 @@ $(window).bind('load', function()  { /* ... */ });
 
 {{{
 
-$('#p').html('Test');
-$('#p, #td').addClass('bigText');
+$('p#info').html('Test'); // <p id="info">Test</p>
+$('p:first, td.odd').addClass('bigText'); // <td class="odd bigText">
 $('body').attr('onload')
 $('#quicktimePlayer').empty();
-$('#quicktimePlayer').append(plug);
-$('#element_id').click(/*...*/)
-$('.class').click(/*...*/)
-$(document.getElementById('el'))
+$('#player').append(otherElement);
+$('#id').click(/*...*/)
 $(document).ready(/*...*/)
-$(window).load(/*...*/)
+$('img').load(function(e) { /*...*/ })
 $('ul').find('li:last-child');
 $('p', document).size();
 $('p[a]').hide();
