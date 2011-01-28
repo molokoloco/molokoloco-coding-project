@@ -18,7 +18,7 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
   * http://jqueryui.com
   * http://plugins.jquery.com
 
-jQuery Cheat Sheet [http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4.png Image PNG] [http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf PDF]
+jQuery Cheat Sheet [http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4.png Image PNG]|[http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf FichierPDF]
 
 [http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4-small.png]
 
