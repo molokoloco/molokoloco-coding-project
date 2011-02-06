@@ -84,6 +84,7 @@ if ($(this).is(':first-child')) {}
 if ( $(this).hasClass('protected') )
 $('div').show().fadeOut('slow');
 $("#myselect").val();
+$('<div/>').text('This is fun & stuff').html(); // htmlentities == "This is fun &amp; stuff"
 $("#myselect option:selected").text();
 $("span").fadeIn("slow");
 if($(element).is(":visible") == "true") {}
