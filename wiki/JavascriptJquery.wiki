@@ -481,6 +481,29 @@ x = Math.random(); //donne x = 0.6489534931546957
 
 }}}
 
+== Wait finish ==
+
+{{{
+function getData(){
+   return $.get('/echo/html/');
+}
+
+function showDiv(){
+    var dfd = $.Deferred();
+    
+    $('#foo').fadeIn( 1000, dfd.resolve );
+    
+    return dfd.promise();
+}
+
+$.when( getData(), showDiv() )
+    .then(function( ajaxResult ){
+        console.log('The animation AND the AJAX request are both done!');
+
+        // ‘ajaxResult’ is the server’s response
+    });
+}}}
+
 == ANIMATE ==
 
   * http://www.robertpenner.com/easing/easing_demo.html
