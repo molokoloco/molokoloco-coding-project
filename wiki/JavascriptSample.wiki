@@ -1,36 +1,6 @@
 #summary 200_tools.js example
 #labels Featured,Phase-Requirements
 
-== Loading Javascript file ==
-
-===For external domain JS link ===
-
-{{{
-var loadJs = function(jsPath) {
-    var s = document.createElement('script');
-    s.setAttribute('type', 'text/javascript');
-    s.setAttribute('src', jsPath);
-    document.getElementsByTagName('head')[0].appendChild(s);
-};
-loadJs('http://other.com/other.js');
-}}}
-
-=== For same domain JS link (Using jQuery) ===
-{{{
-var getScript = function(jsPath, callback) {
-    $.ajax({
-        dataType:'script',
-        async:false,
-        cache:true,
-        url:jsPath,
-        success:function(response) {
-            if (callback && typeof callback == 'function') callback();
-        }
-    });
-};
-getScript('js/other.js', function() { functionFromOther(); });
-}}}
-
 == En vrac ==
 
 {{{ 
@@ -48,10 +18,40 @@ var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.
 var loadCss = function(stylePath) { $('head').append('<link rel="stylesheet" type="text/css" href="'+stylePath+'"/>'); };
 }}}
 
+
+== Loading Javascript file ==
+
+====For external domain JS link ====
+
+{{{
+var loadJs = function(jsPath) {
+    var s = document.createElement('script');
+    s.setAttribute('type', 'text/javascript');
+    s.setAttribute('src', jsPath);
+    document.getElementsByTagName('head')[0].appendChild(s);
+};
+loadJs('http://other.com/other.js');
+}}}
+
+==== For same domain JS link (Using jQuery) ====
+
+{{{
+var getScript = function(jsPath, callback) {
+    $.ajax({
+        dataType:'script',
+        async:false,
+        cache:true,
+        url:jsPath,
+        success:function(response) {
+            if (callback && typeof callback == 'function') callback();
+        }
+    });
+};
+getScript('js/other.js', function() { functionFromOther(); });
+}}}
+
 =My Javascript Toolbox=
-
 _Library edited from 2005 to 2007..._
-
 
 == 200_tools.js ==
 
