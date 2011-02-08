@@ -33,7 +33,8 @@ getScript('js/other.js', function() { functionFromOther(); });
 
 == En vrac ==
 
-{{{ // TOUTES PETITES... :)
+{{{ 
+// TOUTES PETITES... :)
 var db = function() { 'console' in window && console.log.call(console, arguments); }; // Usage : db('(Debug) maVar : ', maVar);
 var die = function(mess) { throw(( mess ? mess : "JS says that you killing him softly : Oh my god moonWalker is down...")); };
 var trim = function(string) { return string.replace(/^\s+|\s+$/g, ''); };
