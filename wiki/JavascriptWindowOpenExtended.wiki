@@ -1,74 +1,10 @@
 #summary The famous window.open / window.document / navigator.userAgent
 #labels Featured
 
-= JAVASCRIPT window.open() extended =
-
-=== Auto sized and centered in the screen ===
-
-{{{
-
-// ------------------------- POPUP URL ---------------------------------- //
-/*
- * Exemple :
- * <a href="pop_media.php" onclick="return windowOpen('pop_media.php',{width:240, height:180});">Test</a>
- * Properties : 
- * width, height, left, top, name, scrollbars, menubar, locationbar, resizable, fullscreen
- */
-
-var windowOpen = function(url) {  
-	var options = Object.extend({url:url}, arguments[1] || {});
-	var args = '';
-	var wide = client.screenWidth();
-	var high = client.screenHeight();
-	if (options.fullscreen) args += "width="+wide+",height="+high+",screenx=0,screeny=0,left=0,top=0,scrollbars=0,statusbar=0,menubar=0,location=0,resizable=0,";
-	else {
-		options.x = 0;  
-		options.y = 0;  
-		if (options.width) {
-			options.width = parseInt(options.width);
-			if (wide > options.width) options.x = Math.floor((wide - options.width) / 2);
-			else options.width = wide;
-			args += "width="+options.width+",";  
-		}  
-		if (options.height) {
-			options.height = parseInt(options.height);
-			if (high > options.height) options.y = Math.floor((high - options.height) / 2);
-			else options.height = high;
-			args += "height="+options.height+",";   
-		}
-		args += "screenx=" + options.x + ",";  
-		args += "screeny=" + options.y + ",";  
-		args += "left=" + options.x + ",";  
-		args += "top=" + options.y + ",";  
-		
-		args += 'scrollbars='+( !options.scrollbars ? '0' : '1' )+',';
-		args += 'statusbar='+( !options.statusbar ? '0' : '1' )+',';
-		args += 'menubar='+( !options.menubar ? '0' : '1' )+',';
-		args += 'locationbar='+( !options.locationbar ? '0' : '1' )+',';
-		args += 'resizable='+( !options.resizable ? '0' : '1' )+',';
-	}  
-	
-	if (!options.name) options.name = '_blank';
-	var win = window.open(options.url, options.name, args);
-	if (!win) {
-		alert('Votre navigateur interdit les popups : réglez vos préférences');
-		return true; // Open HREF
-	}
-	else {
-		win.focus();
-		return false;
-	}
-};
-
-// Alias... <a href="pop_media.php" onclick="return pop('pop_media.php','pimpMyPop','260','120');">
-
-var pop = function(url, name, wide, high) {
-	return windowOpen(url, {name:name, width:wide, height:high, scrollbars:1, statusbar:1, resizable:1});
-};
-
-}}}
-
 = JAVASCRIPT window.document extended =
+
+_Library edited from 2005 to 2007..._
+Framework here : trunk/SITE_01_SRC/js/proto/optional/
 
 === getScroll / getViewport / getWindow / getMaxScroll / getScreen / ... ===
 
@@ -297,5 +233,72 @@ var client = { // Testé FF/IE
 var DOM = (document.getElementById ? true : false); // FF / IE / NS...
 var IE = client.isIe;
 var NS = (document.layers ? true : false);
+
+}}}
+<br/>
+= JAVASCRIPT window.open() extended =
+
+=== Auto sized and centered in the screen ===
+
+{{{
+
+// ------------------------- POPUP URL ---------------------------------- //
+/*
+ * Exemple :
+ * <a href="pop_media.php" onclick="return windowOpen('pop_media.php',{width:240, height:180});">Test</a>
+ * Properties : 
+ * width, height, left, top, name, scrollbars, menubar, locationbar, resizable, fullscreen
+ */
+
+var windowOpen = function(url) {  
+	var options = Object.extend({url:url}, arguments[1] || {});
+	var args = '';
+	var wide = client.screenWidth();
+	var high = client.screenHeight();
+	if (options.fullscreen) args += "width="+wide+",height="+high+",screenx=0,screeny=0,left=0,top=0,scrollbars=0,statusbar=0,menubar=0,location=0,resizable=0,";
+	else {
+		options.x = 0;  
+		options.y = 0;  
+		if (options.width) {
+			options.width = parseInt(options.width);
+			if (wide > options.width) options.x = Math.floor((wide - options.width) / 2);
+			else options.width = wide;
+			args += "width="+options.width+",";  
+		}  
+		if (options.height) {
+			options.height = parseInt(options.height);
+			if (high > options.height) options.y = Math.floor((high - options.height) / 2);
+			else options.height = high;
+			args += "height="+options.height+",";   
+		}
+		args += "screenx=" + options.x + ",";  
+		args += "screeny=" + options.y + ",";  
+		args += "left=" + options.x + ",";  
+		args += "top=" + options.y + ",";  
+		
+		args += 'scrollbars='+( !options.scrollbars ? '0' : '1' )+',';
+		args += 'statusbar='+( !options.statusbar ? '0' : '1' )+',';
+		args += 'menubar='+( !options.menubar ? '0' : '1' )+',';
+		args += 'locationbar='+( !options.locationbar ? '0' : '1' )+',';
+		args += 'resizable='+( !options.resizable ? '0' : '1' )+',';
+	}  
+	
+	if (!options.name) options.name = '_blank';
+	var win = window.open(options.url, options.name, args);
+	if (!win) {
+		alert('Votre navigateur interdit les popups : réglez vos préférences');
+		return true; // Open HREF
+	}
+	else {
+		win.focus();
+		return false;
+	}
+};
+
+// Alias... <a href="pop_media.php" onclick="return pop('pop_media.php','pimpMyPop','260','120');">
+
+var pop = function(url, name, wide, high) {
+	return windowOpen(url, {name:name, width:wide, height:high, scrollbars:1, statusbar:1, resizable:1});
+};
 
 }}}
