@@ -34,7 +34,8 @@ getScript('js/other.js', function() { functionFromOther(); });
 == En vrac ==
 
 {{{
-var db = function(something) { if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } if (('console' in window) && ('firebug' in console)) { console.info('db('+typeof something+')'); console.log(info); }};
+// SIMPLE DEBUG :)
+var db = function() { 'console' in window && console.log.call(console, arguments); }; // Usage : db('(Debug) maVar : ', maVar);
 var die = function(mess) { throw(( mess ? mess : "JS says that you killing him softly : Oh my god moonWalker is down...")); };
 var trim = function(string) { return string.replace(/^\s+|\s+$/g, ''); };
 var escapeURI = function(url) { if (encodeURIComponent) return encodeURIComponent(url); else if (encodeURI) return encodeURI(url); else if (escape) return escape(url); else return url; };
