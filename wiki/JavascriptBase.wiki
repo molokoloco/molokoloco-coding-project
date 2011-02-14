@@ -4,6 +4,7 @@
 =JAVASCRIPT BASE=
 Good advices here : https://developer.mozilla.org/en/JavaScript/Reference/ <br />
 And there : http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml 
+ANd there : http://bonsaiden.github.com/JavaScript-Garden/
 
 {{{
 
@@ -171,6 +172,34 @@ var SingletonTester = (function(){
 var singletonTest = SingletonTester.getInstance({pointX: 5});
 console.log(singletonTest.pointX); // outputs 5
 
+// --- PROTOTYPE INHERANCE ------------------------------------ //
+
+// Employee inherit from human... the custom way
+
+// Define Human class
+function Human() {
+    this.setName = function (fname, lname) {
+        this.fname = fname;
+        this.lname = lname;
+    }
+    this.getFullName = function () {
+        return this.fname + " " + this.lname;
+    }
+}
+ 
+// Define the Employee class
+function Employee(num) {
+    this.getNum = function () {
+        return num;
+    }
+};
+// Let Employee from Human
+Employee.prototype = new Human();
+ 
+// Instantiate an Employee object
+var john = new Employee("4815162342");
+john.setName("John", "Doe");
+alert(john.getFullName() + "'s employee number is " + john.getNum());
 
 // --- ITERATIONS ------------------------------------ //
 
