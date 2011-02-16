@@ -10,6 +10,7 @@ _TODO ... CSS3 CLEAN NOTES !!!_
   * [http://media.smashingmagazine.com/wp-content/uploads/images/css3-cheat-sheet/css3-cheat-sheet.pdf CSS 3 Cheat Sheet]
   * [http://www.box.net/shared/8qnxj922oc HTML 5 Visual Cheat Sheet]
   * http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/
+  * http://css-tricks.com/examples/ShapesOfCSS/
 
 
 {{{
