@@ -11,6 +11,7 @@ _TODO ... CSS3 CLEAN NOTES !!!_
   * [http://www.box.net/shared/8qnxj922oc HTML 5 Visual Cheat Sheet]
   * http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/
   * http://css-tricks.com/examples/ShapesOfCSS/
+  * http://www.impressivewebs.com/css3-click-chart/
 
 
 {{{
@@ -191,6 +192,16 @@ img.bg {
         min-width:50%;
         min-height:50%;
 }
+
+/* --------------------------------------------------------------- */
+
+-webkit-border-radius: 10px;
+opacity: 0.5;
+-webkit-box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+text-shadow: 3px 3px 1px rgba(0,0,0,0.3);
+-webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(white));
+-webkit-text-stroke: 2px #006600;
+-webkit-transform: rotateZ(15deg);
 
 /* --------------------------------------------------------------- */
 
