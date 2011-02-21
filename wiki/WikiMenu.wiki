@@ -6,18 +6,18 @@
 	<li>[MyJQueryPlugins My jQuery plugins]</li>
 	<li>[JavascriptBase JS tooltips]</li>
 	<li>[JavascriptSample JS Tools]</li>
-	<li>[PrototypeSyntax JS Prototype]</li>
-	<li>[javascriptAccordeonClass JS Accordéon]</li>
+	<li>[PrototypeSyntax JS Prototype] (Old)</li>
+	<li>[javascriptAccordeonClass JS Accordéon] (Old)</li>
 	<li>[JavascriptWindowOpenExtended JS Window Ext]</li>
-	<li>[PHPJavascriptDiaporama PHP/JS Slideshow]</li>
+	<li>[PHPJavascriptDiaporama PHP/JS Slideshow] (Old)</li>
 </ul>
 <h4>PHP/js Class and Fonctions</h4>
 <ul>
 	<li>[PHPSample PHP class File]</li>
 	<li>[mySqlPhpClass PHP class mySQL]</li>
-	<li>[DocGenerator PHP export .doc]</li>
-	<li>[RSSGeneratorSample PHP RSS feed]</li>
-	<li>[TinyMce_PHP PHP/JS Rich Text Editor]</li>
+	<li>[DocGenerator PHP export .doc] (Old)</li>
+	<li>[RSSGeneratorSample PHP RSS feed] (Old)</li>
+	<li>[TinyMce_PHP PHP/JS Rich Text Editor] (Old)</li>
 	<li>[PhpSniff PHP IP sniffer]</li>
 </ul>
 <h4>Mixed LAMPX TIPS</h4>
@@ -28,13 +28,13 @@
 	<li>[LinuxCmdShell Linux tooltips]</li>
 	<li>[RegexSyntax REGEXP tooltips]</li>
 	<li>[CSSSyntax CSS tooltips]</li>
-	<li>[FlexAirSyntax AS3/FLEX tooltips]</li>
-	<li>[VirtualAdmin Virtual Admin Framework]</li>
+	<li>[FlexAirSyntax AS3/FLEX tooltips] (Old)</li>
+	<li>[VirtualAdmin Virtual Admin Framework] (Old)</li>
 </ul>
 <h4>Others Services Tips</h4>
 <ul>
-	<li>[GoogleHack Go_Ogle]</li>
-	<li>[GoogleWave Google Wave tooltips]</li>
-	<li>[HowToVirtualAdmin Virtual Admin HowTo]</li>
-	<li>[TwittEr Twitter tooltips]</li>
+	<li>[GoogleHack Go_Ogle] (Old)</li>
+	<li>[GoogleWave Google Wave tooltips] (Old)</li>
+	<li>[HowToVirtualAdmin Virtual Admin HowTo] (Old)</li>
+	<li>[TwittEr Twitter tooltips] (Old)</li>
 </ul>
