@@ -5,9 +5,9 @@
 
 Good advices here : 
 
-  * https://developer.mozilla.org/en/JavaScript/Reference/ <br />
-  * http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml <br />
-  * http://bonsaiden.github.com/JavaScript-Garden/ <br />
+  * https://developer.mozilla.org/en/JavaScript/Reference/
+  * http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
+  * http://bonsaiden.github.com/JavaScript-Garden/
   * https://developer.mozilla.org/en/Introduction_to_Object-Oriented_JavaScript
   * http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Tips_and_Tricks
 
