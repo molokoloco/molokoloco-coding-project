@@ -585,6 +585,45 @@ overflow: visible !important;
 
 }}}
 
+== Templating ==
+
+{{{
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>  
+<script src="jquery.tmpl.js"></script>  
+}}}
+
+{{{
+<script id="tweets" type="text/x-jquery-tmpl">  
+    <li>  
+        <img src="${imgSource}" alt="${username}" />  
+        <h2> ${username} </h2>  
+        <p> ${tweet} </p>  
+        {{if geo}}  
+        <span> ${geo} </span>  
+        {{/if}}  
+    </li>  
+</script>  
+}}}
+
+{{{
+ $.ajax({  
+    type : 'GET',  
+    dataType : 'jsonp',  
+    url : 'http://search.twitter.com/search.json?q=nettuts',  
+  
+    success : function(tweets) {  
+       var twitter = $.map(tweets.results, function(obj, index) {  
+          return {  
+             username : obj.from_user,  
+             tweet : obj.text,  
+             imgSource : obj.profile_image_url,  
+             geo : obj.geo  
+          };  
+       });  
+    }  
+});
+}}}
+
 == XPATH ==
 
 {{{
