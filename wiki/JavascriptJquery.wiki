@@ -484,6 +484,40 @@ x = Math.random(); //donne x = 0.6489534931546957
 == Wait finish ==
 
 {{{
+
+$.ajaxSetup({
+	dataType: "jsonp"
+});
+
+function getTweets() {
+	$.ajax("http://api.twitter.com/statuses/user_timeline/danwellman.json", {
+		success: function(data) {
+			var arr = [];
+			for (var x = 0; x < 5; x++) {
+				var dataItem = {};
+				dataItem["tweetlink"] = data[x].id_str;
+				dataItem["timestamp"] = convertDate(data, x);
+				dataItem["text"] = breakTweet(data, x);
+				arr.push(dataItem);
+			}
+			tweetData = arr;
+		}
+	});
+}
+function getFriends() {
+	/* ... */
+}
+function getFollows() {
+	/* ... */
+}
+
+//execute once all requests complete
+$.when(getTweets(), getFriends(), getFollows()).then(function(){
+	//apply templates
+});
+}}}
+
+{{{
 function getData(){
    return $.get('/echo/html/');
 }
