@@ -133,6 +133,8 @@ var popUp = function(message, delay) {
 		.fadeOut(400, function(){ $(this).remove(); });
 };
 
+$('body').css('zoom', $(window).width() / 1920);
+
 }}}
 
 = SAMPLE PLUGIN STRUCTURE =
