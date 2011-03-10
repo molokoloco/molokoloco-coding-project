@@ -146,37 +146,74 @@ $('body').css('zoom', $(window).width() / 1920);
 
 // Déclaration d'un nouveau plugin pour étendre les fonctions ($.fn) de jQuery
 
-(function($){
+(function( $ ){
 
- 	$.fn.extend({ 
- 		
-		// Pass the options variable to the function
- 		pluginname: function(options) {
+  var methods = {
+     init : function( options ) {
 
-			// Set the default values, use comma to separate the settings, example:
-			var defaults = {
-				padding: 20,
-				mouseOverColor : '#000000',
-				mouseOutColor : '#ffffff'
-			}
-				
-			var options =  $.extend(defaults, options);
+       return this.each(function(){
+         
+         var $this = $(this),
+             data = $this.data('tooltip'),
+             tooltip = $('<div />', {
+               text : $this.attr('title')
+             });
+         
+         // If the plugin hasn't been initialized yet
+         if ( ! data ) {
+         
+           /*
+             Do more setup stuff here
+           */
 
-    			return this.each(function() {
-				// Accès arguments appel de la function
-				var o = options;
-				alert(o.padding);
-				// Acces à l'élément sur lequel la fonction s'applique
-				var e = $(this);
-				alert(e.width());
-    			});
-    		}
-	});
-	
-})(jQuery);
+           $(this).data('tooltip', {
+               target : $this,
+               tooltip : tooltip
+           });
+
+         }
+       });
+     },
+     destroy : function( ) {
+
+       return this.each(function(){
+
+         var $this = $(this),
+             data = $this.data('tooltip');
+
+         // Namespacing FTW
+         $(window).unbind('.tooltip');
+         data.tooltip.remove();
+         $this.removeData('tooltip');
+
+       })
+
+     },
+     reposition : function( ) { // ... },
+     show : function( ) { // ... },
+     hide : function( ) { // ... },
+     update : function( content ) { // ...}
+  };
+
+  $.fn.tooltip = function( method ) {
+    if ( methods[method] ) {
+      return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+    } else if ( typeof method === 'object' || ! method ) {
+      return methods.init.apply( this, arguments );
+    } else {
+      $.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
+    }
+  };
+
+})( jQuery );
+
 
 // Appel du plugin
-$('div#monId').pluginname({padding:0, mouseOutColor:'#A4A4A4'});
+$('#fun').tooltip();
+$('#fun').tooltip('update', 'This is the new tooltip content!');
+
+// Some time later...
+$('#fun').tooltip('destroy');
 
 }}}
 
