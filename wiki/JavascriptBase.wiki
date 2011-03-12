@@ -249,6 +249,12 @@ var value = myFunction.apply(this, args);
 
 var db = function(){ 'console' in window && console.log.call(console, arguments) };
 
+
+function(a, b){
+    var args = msg ? ' (' + [].join.call( arguments, ', ' ) + ')' : '';
+    $('body').append( '<br/>' + msg + args );
+}
+
 // --- Stats analytics de manière asynchrone ------------------------------------ //
 
 <script type="text/javascript">
