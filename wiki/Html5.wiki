@@ -86,3 +86,7 @@ E:checked 	a user interface element E which is checked (for instance a radio-but
 E:not(s) 	an E element that does not match simple selector s 	Negation pseudo-class 	3
 
 }}}
+
+http://blog.websourcing.fr/ontheweb/infographie-la-cheatsheat-html5-ultime/
+
+http://img1.websourcing.fr/files/2011/03/HTML5-Cheatsheet-580px.png
