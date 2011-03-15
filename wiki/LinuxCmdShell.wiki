@@ -402,6 +402,9 @@ aptitude install webmin/unstable
 Ca marche ?
 https://nsxxxxx.ovh.net:10000/
 https://ns2xxxx.ovh.net:10000/file/
+
+
+sudo /usr/share/webmin/changepass.pl /etc/webmin root votre_mot_de_passe
  
 *** APACHE CONF ****
 /etc/apache2/apache2.conf
