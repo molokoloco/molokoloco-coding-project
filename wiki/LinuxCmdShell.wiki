@@ -468,6 +468,30 @@ dpkg-reconfigure --all
 # locate httpd
 
 
+*** FAIL2BAN ***
+// http://www.generation-linux.fr/index.php?post/2010/12/27/Securisation-de-son-serveur-%3A-fail2ban
+
+apt-get install fail2ban
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+# jail.local :
+[DEFAULT]
+ignoreip = 127.0.0.1
+bantime = 3600
+findtime = 600
+maxretry = 3
+
+[ssh]
+enabled = true
+port = ssh
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 6
+
+fail2ban-client reload
+fail2ban-client status
+iptables -L -v 
+
 *** E-MAILS ****
 # heu..
 http://aide.sivit.fr/index.php?2007/02/01/158-installation-d-un-webmail-sous-debian-squirrelmail
