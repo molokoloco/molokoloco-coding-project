@@ -4,9 +4,9 @@
 = LINUX with UBUNTU, FEDORA, DEBIAN or whatever you want =
 == COMMAND LINE (CMD, SHELL) ==
 
-http://www.techieblogger.com/2009/10/linux-unix-ubuntu-solaris-cheat-sheets.html
-
-http://linuxmanua.blogspot.com/2010/05/top-logiciels-installer-sur-linux_02.html
+  * http://www.techieblogger.com/2009/10/linux-unix-ubuntu-solaris-cheat-sheets.html
+  * http://linuxmanua.blogspot.com/2010/05/top-logiciels-installer-sur-linux_02.html
+  * http://www.alsacreations.com/tuto/lire/622-Securite-firewall-iptables.html
 
 {{{
 
