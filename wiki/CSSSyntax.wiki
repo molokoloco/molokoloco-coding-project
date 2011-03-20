@@ -100,6 +100,18 @@ div.xbutton {
 
 /* --------------------------------------------------------------- */
 
+@font-face {
+	font-family: 'FanwoodRegular';
+	src: url('../fonts/Fanwood-webfont.eot');
+	src: url('../fonts/Fanwood-webfont.eot?iefix') format('eot'),
+	     url('../fonts/Fanwood-webfont.woff') format('woff'),
+	     url('../fonts/Fanwood-webfont.ttf') format('truetype'),
+	     url('../fonts/Fanwood-webfont.svg#webfontVVl9NZdu') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 opacity : 0.7;
 -moz-opacity : 0.7; 
 filter : alpha(opacity=70); 
