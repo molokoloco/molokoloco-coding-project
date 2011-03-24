@@ -85,6 +85,7 @@ if ( $(this).hasClass('protected') )
 $('div').show().fadeOut('slow');
 $("#myselect").val();
 $('<div/>').text('This is fun & stuff').html(); // htmlentities == "This is fun &amp; stuff"
+$maDiv = $('<div />', {text: $this.attr('title')});
 $("#myselect option:selected").text();
 $("span").fadeIn("slow");
 if($(element).is(":visible") == "true") {}
