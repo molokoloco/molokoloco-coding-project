@@ -520,7 +520,7 @@ x = Math.random(); //donne x = 0.6489534931546957
 
 }}}
 
-== Wait finish ==
+== Wait finish // Defered Done ==
 
 {{{
 
@@ -555,6 +555,40 @@ $.when(getTweets(), getFriends(), getFollows()).then(function(){
 	//apply templates
 });
 }}}
+
+{{{
+var Menu = (function(){
+	var init = function() {
+		loadPage();
+	},
+	loadPage = function() {
+		$ac_loading.show();
+		$.when(loadImages()).done(function(){
+			/* ... */
+		});
+	},
+	loadImages = function() {
+		return $.Deferred(
+			function(dfd) {
+				var total_images = $ItemImages.length,
+				loaded = 0;
+				for(var i = 0; i < total_images; ++i){
+					$('<img/>').load(function() {
+						++loaded;
+						if (loaded === total_images) dfd.resolve();
+					}).attr('src' , $ItemImages[i]);
+				}
+			}
+		).promise();
+	};
+	return {
+		init : init
+	};
+})();
+
+Menu.init();
+}}}
+
 
 {{{
 function getData(){
