@@ -619,17 +619,46 @@ $.when( getData(), showDiv() )
 
 {{{
 
+// Full function...
 $('#myDiv').animate(
-    { opacity: 0 }, // what we are animating
+    { opacity: 0, width: 'toggle', height: '150' }, // what we are animating
     {
         duration: 'fast', // how fast we are animating
         easing: 'swing', // the type of easing
+        specialEasing: {
+            width: 'linear',
+            height: 'easeOutBounce'
+        },
+        step: function(now, fx) {
+            var data = fx.elem.id + ' ' + fx.prop + ': ' + now;     
+            $('body').append('<div>' + data + '</div>');
+        }
         complete: function() { // the callback
             alert('done');
             $(this).addClass('done');
         }
     }
 );
+
+// Optionnal parameter... milliseconds setInterval
+jQuery.fx.interval = 100;
+
+$('#clickme').click(function() {
+  $('#book').animate({
+    width: 'toggle',
+    height: 'toggle'
+  }, {
+    duration: 5000,
+    specialEasing: {
+      width: 'linear',
+      height: 'easeOutBounce'
+    },
+    complete: function() {
+      $(this).after('<div>Animation complete.</div>');
+    }
+  });
+});
+
 
 $('div#mydiv').slideUp(300).delay(800).fadeIn(400);
 
