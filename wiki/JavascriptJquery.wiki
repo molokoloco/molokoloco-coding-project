@@ -116,9 +116,9 @@ $myInput
     .blur(function() { if ($(this).val() == '') $(this).val($(this).data('valInit')); });
 
 $(window).load(function(){
-	if (window.location.hash) {
-		var destination = $(window.location.hash).offset().top;
-		$('html, body').animate({scrollTop:destination}, 1600);
+	if ( window.location.hash ) {
+		var destination = $( window.location.hash ).offset().top;
+		$('html:not(:animated),body:not(:animated)').scrollTop( destination );
 	}
 });
 
