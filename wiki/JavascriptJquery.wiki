@@ -619,6 +619,9 @@ $.when( getData(), showDiv() )
 
 {{{
 
+$('.block').animate({width: '70%',fontSize: '3em',borderWidth: '10px'}, 1500);
+
+
 // Full function...
 $('#myDiv').animate(
     { opacity: 0, width: 'toggle', height: '150' }, // what we are animating
@@ -639,6 +642,7 @@ $('#myDiv').animate(
         }
     }
 );
+
 
 // Optionnal parameter... milliseconds setInterval
 jQuery.fx.interval = 100;
