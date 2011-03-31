@@ -152,6 +152,11 @@ $('body').css('zoom', $(window).width() / 1920);
   var methods = {
      init : function( options ) {
 
+       options = $.extend({
+              defaultFeed : 'http://feeds.feedburner.com/b2bweb', // Feed
+              inputFeed : 'input#url', // Feed URL input
+       }, options || {});
+
        return this.each(function(){
          
          var $this = $(this),
