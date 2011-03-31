@@ -127,6 +127,11 @@ sudo /etc/init.d/networking start
 
 apt-get install wireshark
 
+
+dig b2bweb.fr
+hostname
+netstat
+
 --- XAMP - LAMPP ---------------------------------------------------------
 
 http://doc.ubuntu-fr.org/xampp
