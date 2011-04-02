@@ -11,6 +11,7 @@ Good advices here :
   * https://developer.mozilla.org/en/Introduction_to_Object-Oriented_JavaScript
   * http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Tips_and_Tricks
   * http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/
+  * http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
   * http://addyosmani.com/blog/tools-for-jquery-application-architecture-the-printable-chart/
 
 {{{
@@ -53,7 +54,7 @@ var MODULE = (function () {
     }; 
      
     return my; 
-}(MODULE || {})); // Module is self global
+}(MODULE || {})); // Module augmented
 
 // --- DATA OBJECTS ------------------------------------ //
 
