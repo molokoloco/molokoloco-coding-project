@@ -376,6 +376,8 @@ dump-sivitsystem-20070714.sql.bz2  dump-sivitsystem-20070725.bz2 dump-sivitsyste
 vdxxx:/var/backups/sivit# mysql -uroot -p sivitsystem < dump-sivitsystem-20070725.sql
 Enter password: *********
 
+sudo service mysql restart
+
 *** PHP 5 ****
 # Php 4 + php5 : http://www.generation-linux.net/article.php3?id_article=2
 # Php 4 // aptitude install libapache2-mod-php4 php4-mysql php4-gd php4-cli php4-cgi php4-common php4-curl
