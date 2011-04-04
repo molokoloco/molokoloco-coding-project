@@ -25,21 +25,23 @@ sudo chown -R root:root eclipse
 sudo chown -R --recursive hairbox.www-data /home/hairbox/*
 sudo chmod 605 /var/www/phpinfo.php
 sudo chmod -R 755 /var/www/phpinfo.php
-sudo chmod u+x proxytunnel-i386-linux // +x (execution)
+sudo chmod u+x proxytunnel-i386-linux // +x //execution
 sudo touch /usr/bin/eclipse
 echo -e 'auto lo\niface lo inet loopback\n' | sudo tee /etc/network/interfaces
 wget ftp://ftp.ovh.net/made-in-ovh/release/patch-all.sh -O patch-all.sh; sh patch-all.sh
 adduser toto
 cfdisk // Partititon
-df -h (espace libre)
-free (memoire)
+df -h // espace libre
+free // memoire
 rm -rf /tmp/*.wrk
 ps auxw (processus) // ps -aux (Tous les process)
+ps -auxf | sort -nr -k 3 | head -10 // Top 10 process
+top // memoire
 telnet localhost 80
 gconf-editor
 glxinfo | grep "direct rendering"
 compizconfig-settings-manager
-cp cfg ~/.entertainer -R (COPIER VERS /HOME)
+cp cfg ~/.entertainer -R // COPIER VERS /HOME
 
 # LINK
 ln -s /etc/apache2/mods-available/userdir.load /etc/apache2/mods-enabled/userdir.load
@@ -134,6 +136,11 @@ hostname
 netstat
 nslookup www.sgmtribe.org sd-15726.dedibox.fr
 ping www.sgmtribe.org
+
+// Oups
+nmap -sS -v -sV -p0-65535 www.XXX.com
+
+
 
 --- XAMP - LAMPP ---------------------------------------------------------
 
