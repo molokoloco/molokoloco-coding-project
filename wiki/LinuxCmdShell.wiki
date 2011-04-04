@@ -137,10 +137,8 @@ netstat
 nslookup www.sgmtribe.org sd-15726.dedibox.fr
 ping www.sgmtribe.org
 
-// Oups
+// Check security
 nmap -sS -v -sV -p0-65535 www.XXX.com
-
-
 
 --- XAMP - LAMPP ---------------------------------------------------------
 
@@ -162,6 +160,24 @@ sudo gedit /opt/lampp/etc/httpd.conf
 sudo gedit /opt/lampp/etc/extra/httpd-vhosts.conf
 
 }}}
+
+=== TCPdump ===
+
+{{{
+Tcpdump - Detailed Network Traffic Analysis
+Simple command that dump traffic on a network. However, you need good understanding of TCP/IP protocol to utilize this tool. For.e.g to display traffic info about DNS, enter:
+# tcpdump -i eth1 'udp port 53'
+
+To display all IPv4 HTTP packets to and from port 80, i.e. print only packets that contain data, not, for example, SYN and FIN packets and ACK-only packets, enter:
+# tcpdump 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+
+To display all FTP session to 202.54.1.5, enter:
+# tcpdump -i eth1 'dst 202.54.1.5 and (port 21 or 20'
+To display all HTTP session to 192.168.1.5:
+# tcpdump -ni eth0 'dst 192.168.1.5 and tcp and port http'
+
+}}}
+
 
 = APTITUDE / APT-GET (IL FAUT CHOISIR :) =
 
