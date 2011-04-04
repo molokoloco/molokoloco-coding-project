@@ -13,20 +13,23 @@
 
 --- BASIC CMD ---------------------------------------------------------
 
-sudo shutdown -r
+sudo... !
+
+reboot
 init 6 (Restart machine)
 locate | grep "img"
 cat toto.log | more
-sudo mv -v /home/from.gz  /opt/to.gz
-sudo rm -rf /opt/lampp 
-sudo cp /etc/network/interfaces /etc/network/interfaces.save
-sudo chown molokoloco index.php
-sudo chown -R root:root eclipse
-sudo chown -R --recursive hairbox.www-data /home/hairbox/*
-sudo chmod 605 /var/www/phpinfo.php
-sudo chmod -R 755 /var/www/phpinfo.php
-sudo chmod u+x proxytunnel-i386-linux // +x //execution
-sudo touch /usr/bin/eclipse
+nano text.conf
+mv -v /home/from.gz  /opt/to.gz
+rm -rf /opt/lampp 
+cp /etc/network/interfaces /etc/network/interfaces.save
+chown molokoloco index.php
+chown -R root:root eclipse
+chown -R --recursive hairbox.www-data /home/hairbox/*
+chmod 605 /var/www/phpinfo.php
+chmod -R 755 /var/www/phpinfo.php
+chmod u+x proxytunnel-i386-linux // +x //execution
+touch /usr/bin/eclipse
 echo -e 'auto lo\niface lo inet loopback\n' | sudo tee /etc/network/interfaces
 wget ftp://ftp.ovh.net/made-in-ovh/release/patch-all.sh -O patch-all.sh; sh patch-all.sh
 adduser toto
