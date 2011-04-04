@@ -2,13 +2,14 @@
 #labels Tooltips
 
 = LINUX with UBUNTU, FEDORA, DEBIAN or whatever you want =
-== COMMAND LINE (CMD, SHELL) ==
 
   * http://www.techieblogger.com/2009/10/linux-unix-ubuntu-solaris-cheat-sheets.html
   * http://linuxmanua.blogspot.com/2010/05/top-logiciels-installer-sur-linux_02.html
   * http://www.alsacreations.com/tuto/lire/622-Securite-firewall-iptables.html
   * Exemple config serveur : http://www.dedibox-news.com/sujet-6593-resolu-probleme-ping-domaine-config-bind-apache
   * http://www.cyberciti.biz/tips/top-linux-monitoring-tools.html
+
+== COMMAND LINE (CMD, SHELL) ==
 
 {{{
 
@@ -141,8 +142,15 @@ netstat
 nslookup www.sgmtribe.org sd-15726.dedibox.fr
 ping www.sgmtribe.org
 
+// Graphs network
+sudo apt-get install ntop
+
 // Check security
 nmap -sS -v -sV -p0-65535 www.XXX.com
+
+// iptable, no brute force ?
+iptables -A INPUT -i eth0 -p tcp –dport 22 -m state –state NEW -m recent –set –name SSH
+iptables -A INPUT -i eth0 -p tcp –dport 22 -m state –state NEW -m recent –update –seconds 60 –hitcount 3 –rttl –name SSH -j DROP
 
 --- XAMP - LAMPP ---------------------------------------------------------
 
