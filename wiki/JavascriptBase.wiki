@@ -72,6 +72,18 @@ typeof String("abc"); //"string"
 typeof new String("abc"); //"object"
 typeof (new String("abc")).valueOf(); //"string"
 
+
+var shapes = [
+    [5, "Pentagon"],
+    [3, "Triangle"],
+    [8, "Octagon"],
+    [4, "Rectangle"]
+    ];
+shapes.sort(function(a, b)
+{
+    return a[0] - b[0];
+});
+
 // --- OBJECTS ------------------------------------ //
 // inspired from Angus Croll http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
 
