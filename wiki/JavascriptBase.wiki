@@ -73,16 +73,23 @@ typeof new String("abc"); //"object"
 typeof (new String("abc")).valueOf(); //"string"
 
 
+// Sorting multi-Array...
 var shapes = [
     [5, "Pentagon"],
     [3, "Triangle"],
     [8, "Octagon"],
     [4, "Rectangle"]
-    ];
-shapes.sort(function(a, b)
-{
-    return a[0] - b[0];
-});
+];
+shapes.sort(function(a, b) { return a[1] - b[1]; });
+
+
+var movies = [
+    {id:5, title:"Pentagon"},
+    {id:3, title:"Triangle"}
+];
+var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); };
+
+movies.sort(objSortByTitle);
 
 // --- OBJECTS ------------------------------------ //
 // inspired from Angus Croll http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
