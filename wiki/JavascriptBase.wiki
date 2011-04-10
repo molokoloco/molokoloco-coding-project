@@ -1,6 +1,11 @@
 #summary Personal Tooltips for Javascript
 #labels Tooltips
 
+*Sommaire :*
+
+<wiki:toc max_depth="3" />
+
+
 =JAVASCRIPT BASE=
 
 Good advices here : 
@@ -15,10 +20,11 @@ Good advices here :
   * http://addyosmani.com/blog/tools-for-jquery-application-architecture-the-printable-chart/
   * http://www.timmywillison.com/pres/operators/
 
+
+
+== FUNCTIONS ==
+
 {{{
-
-// --- FUNCTIONS ------------------------------------ //
-
 // Function Declarations
 function a() {
     return 3;
@@ -56,17 +62,17 @@ var MODULE = (function () {
      
     return my; 
 }(MODULE || {})); // Module augmented
+}}}
 
-// --- DATA OBJECTS ------------------------------------ //
+== DATA OBJECTS ==
 
+{{{
 var intkeys = ['val1', 'val2'];
 
 var obj1 = {x: 10, y: 3};
 
-var obj2 = {'Point Kiukiu': [{to: 'Hanaiapa', distance: 19},
-                             {to: 'Mt Feani', distance: 15},
-                             {to: 'Taaoa', distance: 15}],
-             'Taaoa': [/* ... */]};
+var obj2 = {'Point Kiukiu': [{to: 'Hanaiapa', distance: 19}, {to: 'Mt Feani', distance: 15}, {to: 'Taaoa', distance: 15}],
+            'Taaoa': []};
 
 typeof "abc"; //"string"
 typeof String("abc"); //"string"
@@ -91,13 +97,14 @@ var movies = [
 var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); };
 
 movies.sort(objSortByTitle);
+}}}
 
-// --- OBJECTS ------------------------------------ //
-// inspired from Angus Croll http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
+== OBJECTS ==
 
+inspired from Angus Croll http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
+{{{
 
 // 1. Simple Object Literal
-
 var rabbit = {};
 var rabbit.run = true;
 rabbit.speak = function(s) {
@@ -107,7 +114,6 @@ rabbit.speak = function(s) {
 rabbit.speak("Well, now you're asking me.");
 
 // 2. Nested Object Literal
-
 myApp.notepad  = {
     writeable: true,
     font: 'helvetica',
@@ -117,7 +123,6 @@ myApp.notepad  = {
 }
 
 // 3. Constructor using Object Literal
-
 myApp.Notepad = function(defaultFont) {
     var  that = {};
     that.writeable = true;
@@ -131,7 +136,6 @@ myApp.Notepad = function(defaultFont) {
 myApp.notepad1 =  myApp.Notepad('helvetica');
 
 // 4. Simple Constructor for new
-
 myApp.Notepad = function(defaultFont) {
     this.writeable = true;
     this.font = defaultFont;
@@ -143,9 +147,7 @@ myApp.Notepad = function(defaultFont) {
 myApp.notepad1 = new myApp.Notepad('helvetica');
 
 // 5. Prototype with Constructor for new
-
 // Extending functionality to the pre-built string() object
-
 String.prototype.writeback = function() {
     for (i=this.length-1;i>=0;i--)
     document.write(this.charAt(i))
@@ -155,7 +157,6 @@ var test = "Welcome to my site!";
 test.writeback();
 
 // Extending functionality to the pre-built object() object
-
 Object.prototype.properties = function() {
   var result = [];
   for (var property in this) result.push(property);
@@ -166,7 +167,6 @@ var test = {x: 10, y: 3};
 console.log(test.properties());
 
 // Extending functionality to a custom JavaScript object
-
 myApp.Notepad = function(defaultFont) {
     this.font = defaultFont;
 }
@@ -176,8 +176,11 @@ myApp.Notepad.prototype.setFont = function(theFont) {
 }
 myApp.notepad1  = new myApp.Notepad('helvetica');
 myApp.notepad1.setFont('arial');
+}}}
 
-// --- SINGLETON PATERN ------------------------------------ //
+== SINGLETON PATERN ==
+
+{{{
 // http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/
 
 var SingletonTester = (function(){
@@ -217,9 +220,11 @@ var SingletonTester = (function(){
  
 var singletonTest = SingletonTester.getInstance({pointX: 5});
 console.log(singletonTest.pointX); // outputs 5
+}}}
 
-// --- PROTOTYPE INHERANCE ------------------------------------ //
+== PROTOTYPE INHERANCE ==
 
+{{{
 // Employee inherit from human... the custom way
 
 // Define Human class
@@ -246,9 +251,11 @@ Employee.prototype = new Human();
 var john = new Employee("4815162342");
 john.setName("John", "Doe");
 alert(john.getFullName() + "'s employee number is " + john.getNum());
+}}}
 
-// --- ITERATIONS ------------------------------------ //
+== ITERATIONS==
 
+{{{
 var arr = ['va1', 'val2', 300];
 for (var item in arr) alert(item);
 
@@ -282,25 +289,29 @@ var paragraphs = document.getElementsByTagName('p');
 for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
   doSomething(paragraph);
 }
+}}}
 
-// --- OPERATOR && COMPARAISONS ------------------------------------ //
+== OPERATOR && COMPARAISONS==
 
-Arithmetic : +, -, *, /, %, ++, --, unary -, unary +
-Assignment : =, *=, /=, %=, +=, -=, <<=, >>=, >>>=, &=, ^=, |=
-Bitwise : &, |, ^, ~, <<, >>, >>>
-Comparison : ==, !=, ===, !==, >, >=, <, <=
-Logical : &&, ||, !
-String : + and +=
+  * Arithmetic : +, -, *, /, %, ++, --, unary -, unary +
+  * Assignment : =, *=, /=, %=, +=, -=, <<=, >>=, >>>=, &=, ^=, |=
+  * Bitwise : &, |, ^, ~, <<, >>, >>>
+  * Comparison : ==, !=, ===, !==, >, >=, <, <=
+  * Logical : &&, ||, !
+  * String : + and +=
 
+{{{
 var foo = "baz",
     checkFoo = foo.indexOf("bar");
 
 if ( checkFoo !== -1 ) {}
 // We can do
 if ( ~checkFoo ) {}
+}}}
 
-// --- FUNCTIONS on functions ------------------------------------ //
+== FUNCTIONS on functions==
 
+{{{
 var value = myFunction.apply(this, args);
 
 var db = function(){ 'console' in window && console.log.call(console, arguments) };
@@ -310,10 +321,11 @@ function(a, b){
     var args = msg ? ' (' + [].join.call( arguments, ', ' ) + ')' : '';
     $('body').append( '<br/>' + msg + args );
 }
+}}}
 
-// --- Stats analytics de manière asynchrone ------------------------------------ //
+== Stats analytics de manière asynchrone==
 
-<script type="text/javascript">
+{{{
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-XXXXX-X']);
@@ -326,10 +338,11 @@ function(a, b){
     document.documentElement.firstChild.appendChild(ga);
   })();
 
-</script>
+}}}
 
-// --- STRINGS ------------------------------------ //
+== STRINGS==
 
+{{{
 Chaine.anchor("nom_a_donner"); Transforme le texte Chaine en ancrage HTML.
 Chaine.big() Augmente la taille de la police.
 Chaine.blink() Transforme la chaîne en texte clignotant.
@@ -356,9 +369,11 @@ Chaine.toLowerCase() Convertit tous les caractères d une chaîne en minuscule.
 Chaine.toSource() Renvoie le code source de création de l objet.
 Chaine.toUpperCase() Convertit tous les caractères d une chaîne en majuscule.
 Chaine.valueOf() Renvoie la valeur de l objet String.
+}}}
   
-// ----- Built-In Functions ---------------------------------- //
+== Built-In Functions ==
 
+{{{
 escape()     Many special characters cause problems when submitting information to a 0CGI server. These characters include $ # ! spaces and tabs. An example of a safely encoded string is coded = escape('& '). [returns "%26%20"]. See also unescape.
 eval()     Evaluates a string and returns a numeric value. An example is eval(x) + eval(y); If x and y are strings '1' and '2' the result is three. Without the eval function the value would be 12!
 isFinite()     Tests whether the variable is a finite number. Returns false if contents is not a number or is infinite. An example of usage is flag = isFinite(var_name);
@@ -378,121 +393,128 @@ with (document) {
 	writeln(title);
 }
 
-// ----- Objects Functions ---------------------------------- //
+}}}
 
-* Array Object
-	  o properties - constructor, length, prototype
-	  o methods - concat(), join(), pop(), push(), reverse(), shift(), slice(), sort(), splice(), toLocaleString(), toString(), unshift(), valueOf()
-* Boolean Object
-	  o properties - constructor, prototype
-	  o methods - toString(), valueOf()
-* Date Object
-	  o properties - constructor, prototype
-	  o methods - getDate(), getDay(), getFullYear(), getHours(), getMilliseconds(), getMinutes(), getMonth(), getSeconds(), getTime(), getTimeZoneOffset(), getUTCDate(), getUTCDay(), getUTCFullYear(), getUTCHours(), getUTCMilliseconds(), getUTCMinutes(), getUTCMonth(), getUTCSeconds(), getVarDate(), getYear(), parse(), setDate(), setFullYear(), setHours(), setMilliseconds(), setMinutes(), setMonth(), setSeconds(), setTime(), setUTCDate(), setUTCFullYear(), setUTCHours(), setUTCMilliseconds(), setUTCMinutes(), setUTCMonth(), setUTCSeconds(), setUTCTime(), setUTCYear(), setYear(), toLocaleString(), toUTCString(), toString(), UTC(), valueOf()
-* Error Object
-	  o properties - description, number
-	  o methods -
-* Function Object
-	  o properties - arguments[], caller, constructor, prototype
-	  o methods - toString(), valueOf()
-* Global Object
-	  o properties - Infinity, NaN, undefined
-	  o methods - escape(), eval(), isFinite(), isNaN(), parseFloat(), parseInt(), unescape()
-* Math Object
-	  o properties - E, LN10, LN2, LOG10E, LOG2E, PI, SQRT2, SQRT1_2
-	  o methods - abs(), acos(), asin(), atan(), atan2(), ceil(), cos(), exp(), floor(), log(), max(), min(), pow(), random(), round(), sin(), sqrt(), tan()
-* Number Object
-	  o properties - MAX_VALUE, MIN_VALUE, NaN, NEGATIVE _INFINITY, POSITIVE_INFINITY, constructor, prototype
-	  o methods - toLocaleString(), toString(), valueOf()
-* Object Object
-	  o properties - constructor, prototype
-	  o methods - toLocaleString(), toString(), unwatch(), valueOf(), watch()
-* RegExp Object
-	  o properties - $1 - $9, index, input, lastIndex, lastMatch, lastParen, leftContext, rightContext
-* String Object
-	  o properties - constructor, length, prototype
-	  o display methods - anchor(), big(), blink(), bold(), fixed(), fontcolor(), fontsize(), italics(), small(), strike(), sub(), sup()
-	  o manipulation methods - charAt(), charCodeAt(), concat(), fromCharCode(), indexOf(), lastIndexOf(), link(), match(), replace(), search(), slice(), split(), substr(), substring(), toLowerCase(), toUpperCase(), toString(), valueOf()
+==Objects Functions==
 
- * Document Object - Primary Output
-	  o content properties - anchors[], applets[], embeds[], forms[], images[], links [], plugins[]
-	  o display properties - alinkColor, bgColor, fgColor, linkColor, vlinkColor
-	  o information properties - cookie, domain, lastModified, location, mimeTypes, referrer, title, URL
-	  o methods - open(), write(), writeln()
-* Form Objects - Primary Input
-	  o form properties - name, target, action, method, encoding, elements, length
-	  o form methods - submit(), reset()
-	  o button, hidden, reset, and submit object properties - name, value, type
-	  o checkbox properties - name, value, type, checked, default checked
-	  o password properties - name, value, type, default value
-	  o radio button properties - name, value, type, checked, default checked, length
-	  o select properties - name, value, type, length, options, defaultSelected, index, selected, selectedIndex
-	  o text, textarea properties - name, value, defaultvalue
-	  o input, textarea and select methods - focus(), blur(), select()
-* History Object - Access the browser s history file
-	  o properties - length
-	  o methods - back(), forward(), go()
-* Location Object
-	  o properties - hash, hostname, href, pathname, port, protocol, search
-	  o methods - reload(), replace()
-* Navigator Object - Root of all Objects
-	  o properties - appCodeName, appName, appVersion, platform, userAgent
-	  o methods - javaEnabled()
-* Window Object
-	  o properties - defaultStatus, frames, length, name, opener, parent, self, status, top, window
-	  o methods - alert(), blur(), clearInterval(), clearTimeout(), close(), confirm(), focus(), open(), print(), prompt(), scroll(), setInterval(), setTimeout(), timeoutID()
-	  o contained objects -
-			+ Screen Object
-			+ properties - availHeight, availLeft, availTop, availWidth, colorDepth, height, pixelDepth, width
+  * Array Object
+    * properties - constructor, length, prototype
+    * methods - concat(), join(), pop(), push(), reverse(), shift(), slice(), sort(), splice(), toLocaleString(), toString(), unshift(), valueOf()
+  * Boolean Object
+    * properties - constructor, prototype
+    * methods - toString(), valueOf()
+  * Date Object
+    * properties - constructor, prototype
+    * methods - getDate(), getDay(), getFullYear(), getHours(), getMilliseconds(), getMinutes(), getMonth(), getSeconds(), getTime(), getTimeZoneOffset(), getUTCDate(), getUTCDay(), getUTCFullYear(), getUTCHours(), getUTCMilliseconds(), getUTCMinutes(), getUTCMonth(), getUTCSeconds(), getVarDate(), getYear(), parse(), setDate(), setFullYear(), setHours(), setMilliseconds(), setMinutes(), setMonth(), setSeconds(), setTime(), setUTCDate(), setUTCFullYear(), setUTCHours(), setUTCMilliseconds(), setUTCMinutes(), setUTCMonth(), setUTCSeconds(), setUTCTime(), setUTCYear(), setYear(), toLocaleString(), toUTCString(), toString(), UTC(), valueOf()
+  * Error Object
+    * properties - description, number
+    * methods -
+  * Function Object
+    * properties - arguments[], caller, constructor, prototype
+    * methods - toString(), valueOf()
+  * Global Object
+    * properties - Infinity, NaN, undefined
+    * methods - escape(), eval(), isFinite(), isNaN(), parseFloat(), parseInt(), unescape()
+  * Math Object
+    * properties - E, LN10, LN2, LOG10E, LOG2E, PI, SQRT2, SQRT1_2
+    * methods - abs(), acos(), asin(), atan(), atan2(), ceil(), cos(), exp(), floor(), log(), max(), min(), pow(), random(), round(), sin(), sqrt(), tan()
+  * Number Object
+    * properties - MAX_VALUE, MIN_VALUE, NaN, NEGATIVE _INFINITY, POSITIVE_INFINITY, constructor, prototype
+    * methods - toLocaleString(), toString(), valueOf()
+  * Object Object
+    * properties - constructor, prototype
+    * methods - toLocaleString(), toString(), unwatch(), valueOf(), watch()
+  * RegExp Object
+    * properties - $1 - $9, index, input, lastIndex, lastMatch, lastParen, leftContext, rightContext
+  * String Object
+    * properties - constructor, length, prototype
+    * display methods - anchor(), big(), blink(), bold(), fixed(), fontcolor(), fontsize(), italics(), small(), strike(), sub(), sup()
+    * manipulation methods - charAt(), charCodeAt(), concat(), fromCharCode(), indexOf(), lastIndexOf(), link(), match(), replace(), search(), slice(), split(), substr(), substring(), toLowerCase(), toUpperCase(), toString(), valueOf()
 
-// ----- HANDLERs ---------------------------------- //
+   * Document Object - Primary Output
+    * content properties - anchors[], applets[], embeds[], forms[], images[], links [], plugins[]
+    * display properties - alinkColor, bgColor, fgColor, linkColor, vlinkColor
+    * information properties - cookie, domain, lastModified, location, mimeTypes, referrer, title, URL
+    * methods - open(), write(), writeln()
+  * Form Objects - Primary Input
+    * form properties - name, target, action, method, encoding, elements, length
+    * form methods - submit(), reset()
+    * button, hidden, reset, and submit object properties - name, value, type
+    * checkbox properties - name, value, type, checked, default checked
+    * password properties - name, value, type, default value
+    * radio button properties - name, value, type, checked, default checked, length
+    * select properties - name, value, type, length, options, defaultSelected, index, selected, selectedIndex
+    * text, textarea properties - name, value, defaultvalue
+    * input, textarea and select methods - focus(), blur(), select()
+  * History Object - Access the browser s history file
+    * properties - length
+    * methods - back(), forward(), go()
+  * Location Object
+    * properties - hash, hostname, href, pathname, port, protocol, search
+    * methods - reload(), replace()
+  * Navigator Object - Root of all Objects
+    * properties - appCodeName, appName, appVersion, platform, userAgent
+    * methods - javaEnabled()
+  * Window Object
+    * properties - defaultStatus, frames, length, name, opener, parent, self, status, top, window
+    * methods - alert(), blur(), clearInterval(), clearTimeout(), close(), confirm(), focus(), open(), print(), prompt(), scroll(), setInterval(), setTimeout(), timeoutID()
+    * contained objects -
+      * Screen Object
+      * properties - availHeight, availLeft, availTop, availWidth, colorDepth, height, pixelDepth, width
+
+
+== HANDLERs ==
 
 Interface Event Handlers:
-	onBlur [window, frame, select, text, textarea]     focus is lost (ie. changed or blurred) to a new element.
-	onFocus [window, frame, select, text, textarea]     object gains focus. aka anti-blur!
-	onLoad [window, frame, image]     window, complete frame or image(s) finishes loading.
-	onResize     a window or object(MSIE only) is resized.
-	onScroll     window scrolled with scrollbar or mousewheel.
-	onUnload [window, frame]     window or all windows in a frame have been exited.
+
+  * onBlur [window, frame, select, text, textarea]     focus is lost (ie. changed or blurred) to a new element.
+  * onFocus [window, frame, select, text, textarea]     object gains focus. aka anti-blur!
+  * onLoad [window, frame, image]     window, complete frame or image(s) finishes loading.
+  * onResize     a window or object(MSIE only) is resized.
+  * onScroll     window scrolled with scrollbar or mousewheel.
+  * onUnload [window, frame]     window or all windows in a frame have been exited.
 
 Key Event Handlers:
-	nHelp     GUI F1 key pressed. Used to override browser Help.
-	onKeydown     alphanumeric key is pressed.
-	onKeypress     alphanumeric key is fully pressed/released.
-	onKeyup     alphanumeric key is released.
-	onStop     GUI STOP key is pressed or user leaves page.
+
+  * nHelp     GUI F1 key pressed. Used to override browser Help.
+  * onKeydown     alphanumeric key is pressed.
+  * onKeypress     alphanumeric key is fully pressed/released.
+  * onKeyup     alphanumeric key is released.
+  * onStop     GUI STOP key is pressed or user leaves page.
 
 Mouse Event Handlers:
-	Event Name     Handler Executes When
-	onClick [clickable form element]     left mouse clicks om element. Can be stopped if executing
-	procedure (such as validation) returns a false signal.
-	onContextmenu     right mouse button clicked.
-	onDblclick     mouse button is double-clicked.
-	onMousedown     either mouse button is clicked.
-	onMousemove     mouse is moved.
-	onMouseOut [link, area]     cursor leaves a link or area.
-	onMouseOver [link, area]     cursor enters a link or area.
-	
+
+  * Event Name     Handler Executes When
+  * onClick [clickable form element]     left mouse clicks om element. Can be stopped if executing
+  * procedure (such as validation) returns a false signal.
+  * onContextmenu     right mouse button clicked.
+  * onDblclick     mouse button is double-clicked.
+  * onMousedown     either mouse button is clicked.
+  * onMousemove     mouse is moved.
+  * onMouseOut [link, area]     cursor leaves a link or area.
+  * onMouseOver [link, area]     cursor enters a link or area.
+  * 
 Form Event Handlers:
-	Event Name     Handler Executes When
-	onChange [select, text, textarea]     last element has been changed before focus change.
-	onReset [form]     the reset button is clicked.
-	onSelect [text, textarea]     some text is highlighted in either of these form boxes.
-	onSubmit [form]     Executes after return key is pressed or submit button is clicked.
-	Allows bailout similar to the onclick event. Failure in validation
-	routine is the most common reason for bailout.
-	
+
+  * Event Name     Handler Executes When
+  * onChange [select, text, textarea]     last element has been changed before focus change.
+  * onReset [form]     the reset button is clicked.
+  * onSelect [text, textarea]     some text is highlighted in either of these form boxes.
+  * onSubmit [form]     Executes after return key is pressed or submit button is clicked.
+  * Allows bailout similar to the onclick event. Failure in validation
+  * routine is the most common reason for bailout.
+  * 
 Miscellaneous Event Handlers:
-	Event Name     Handler Executes When
-	onAbort [image]     image load has been abandoned by hitting the STOP icon.
-	onError [window, image]     window or image fails to load.
-}}}
+
+  * Event Name     Handler Executes When
+  * onAbort [image]     image load has been abandoned by hitting the STOP icon.
+  * onError [window, image]     window or image fails to load.
 
 == Et le meilleur pour la fin ;) ==
 
 {{{
 
 // Pour debugger X variables dans la console du navigateur...
-
 var db = function(x) { 'console' in window && console.log.call(console, arguments); };
+
 }}}
