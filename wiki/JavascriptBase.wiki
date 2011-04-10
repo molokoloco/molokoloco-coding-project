@@ -13,6 +13,7 @@ Good advices here :
   * http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/
   * http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
   * http://addyosmani.com/blog/tools-for-jquery-application-architecture-the-printable-chart/
+  * http://www.timmywillison.com/pres/operators/
 
 {{{
 
@@ -281,6 +282,22 @@ var paragraphs = document.getElementsByTagName('p');
 for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
   doSomething(paragraph);
 }
+
+// --- OPERATOR && COMPARAISONS ------------------------------------ //
+
+Arithmetic : +, -, *, /, %, ++, --, unary -, unary +
+Assignment : =, *=, /=, %=, +=, -=, <<=, >>=, >>>=, &=, ^=, |=
+Bitwise : &, |, ^, ~, <<, >>, >>>
+Comparison : ==, !=, ===, !==, >, >=, <, <=
+Logical : &&, ||, !
+String : + and +=
+
+var foo = "baz",
+    checkFoo = foo.indexOf("bar");
+
+if ( checkFoo !== -1 ) {}
+// We can do
+if ( ~checkFoo ) {}
 
 // --- FUNCTIONS on functions ------------------------------------ //
 
