@@ -530,6 +530,33 @@ x = Math.random(); //donne x = 0.6489534931546957
 
 {{{
 
+// http://tutorialzine.com/2011/03/custom-facebook-wall-jquery-graph/
+
+var graphUSER = 'http://graph.facebook.com/'+options.id+'/?fields=name,picture&callback=?',
+	graphPOSTS = 'http://graph.facebook.com/'+options.id+'/posts/?callback=?&date_format=U&limit='+options.limit;
+
+$.when($.getJSON(graphUSER),$.getJSON(graphPOSTS)).done(function(user,posts){
+	// user[0] contains information about the user (name and picture);
+	// posts[0].data is an array with wall posts;
+	var fb = {
+		user : user[0],
+		posts : []
+	};
+	$.each(posts[0].data,function(){
+		if(this.type != 'link' && this.type!='status'){
+			return true;
+		}
+		this.from.picture = fb.user.picture;
+		fb.posts.push(this);
+	});
+	// Rendering the templates:
+	$('#headingTpl').tmpl(fb.user).appendTo('body');
+});
+
+}}}
+
+{{{
+
 $.ajaxSetup({
 	dataType: "jsonp"
 });
