@@ -281,10 +281,16 @@ $('#foo').bind({
 });
 $('#foo').trigger('click'); // Do event
 
-// Listen to events from a particular context
+// Listen to events from a particular context // OPTIMISATION !
 
-$("table").delegate("td", "hover", function(){
+$('table').delegate('td', 'hover', function(){
     $(this).toggleClass("active");
+});
+
+// Or...
+
+$('table#data').bind('click', function(event) { 
+    var cell = $(event.target).closest('td');
 });
 
 // "return false" is actually doing three very separate things when you call it:
