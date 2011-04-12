@@ -12,6 +12,7 @@ _TODO ... CSS3 CLEAN NOTES !!!_
   * http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/
   * http://css-tricks.com/examples/ShapesOfCSS/
   * http://www.impressivewebs.com/css3-click-chart/
+  * Infinite pattern http://designfestival.com/the-cicada-principle-and-why-it-matters-to-web-designers/
 
 
 {{{
