@@ -47,6 +47,7 @@ gconf-editor
 glxinfo | grep "direct rendering"
 compizconfig-settings-manager
 cp cfg ~/.entertainer -R // COPIER VERS /HOME
+update-rc.d postfix disable // Désactiver postif au démarrage....
 
 # LINK
 ln -s /etc/apache2/mods-available/userdir.load /etc/apache2/mods-enabled/userdir.load
