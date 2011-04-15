@@ -42,10 +42,10 @@ INSERT INTO table (cle,blabla) VALUES (1337,'truc') ON DUPLICATE KEY UPDATE blab
 
 REPLACE INTO user_pref (prf_idt, uid, prf_usr_val) VALUES ($prf_idt, $uid, $prf_usr_val)
 
-Trouver les doublons....
+// Trouver les doublons....
 SELECT ref FROM produits GROUP BY ref HAVING COUNT( ref ) > 1
 
-La clause HAVING peut utiliser des fonctions d'agrégation, alors que la clause WHERE ne le peut pas :
+// La clause HAVING peut utiliser des fonctions d'agrégation, alors que la clause WHERE ne le peut pas :
 SELECT user, MAX(salary) FROM users GROUP BY user HAVING MAX(salary)>10;
 
 SELECT a, COUNT(b) FROM test_table GROUP BY a DESC
@@ -81,13 +81,13 @@ SELECT t1.name, t2.salary FROM employee AS t1, info AS t2 WHERE t1.name = t2.nam
 SELECT * FROM mod_blocs_vip WHERE actif='1' AND datedeb<=NOW() AND datefin>=NOW() ORDER BY ordre DESC LIMIT 4
 SELECT CURRENT_DATE() as date
 
-La ligne contenant le maximum d'une certaine colonne
+// La ligne contenant le maximum d'une certaine colonne
 SELECT article, dealer, price FROM shop WHERE price=(SELECT MAX(price) FROM shop);
 
 SELECT * FROM Livres WHERE Prix NOT IN (40, 50, 72);
 SELECT * FROM Livres WHERE Prix BETWEEN 40 AND 50;
 
-les enregistrements dans une table qui n'ont pas de correspondances dans une autre :
+// les enregistrements dans une table qui n'ont pas de correspondances dans une autre :
 SELECT table1.* FROM table1 LEFT JOIN table2 ON table1.id=table2.id WHERE table2.id IS NULL;
 
 AND (e.ville_id=v.id OR e.ville_id IS NULL)
@@ -111,13 +111,11 @@ SELECT article, SUBSTRING(MAX(CONCAT(LPAD(price,6,'0'),dealer)),7) AS dealer, 0.
 INSERT INTO new_table(date_field) SELECT DATEADD(s, timestamp_field, '19700101') FROM old_table
 
 SELECT SUBSTRING(datedeb,1,4) as year
-
 }}}
 
 == Manipulating DB ==
 
 {{{
-
 // Selecting a database:
 USE database;
 
@@ -404,6 +402,7 @@ In this example, 5 is the precision and 2 is the scale. The precision represents
 
 == mySQL types ==
 
+{{{
 TINYINT[(M)] [UNSIGNED] [ZEROFILL]
 A very small integer. The signed range is -128 to 127. The unsigned range is 0 to 255.
 BIT
@@ -472,3 +471,4 @@ ENUM('value1','value2',...)
 An enumeration. A string object that can have only one value, chosen from the list of values 'value1', 'value2', ..., NULL or the special "" error value. An ENUM can have a maximum of 65535 distinct values. See section 6.2.3.3 The ENUM Type <ENUM.html>.
 SET('value1','value2',...)
 A set. A string object that can have zero or more values, each of which must be chosen from the list of values 'value1', 'value2', ... A SET can have a maximum of 64 members. See section 6.2.3.4 The SET Type <SET.html>.
+}}}
