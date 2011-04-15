@@ -139,6 +139,46 @@ LOAD DATA LOCAL INFILE "infile.txt" INTO TABLE table_name;
 mysql> INSERT INTO table_name VALUES ('MyName', 'MyOwner', '2002-08-31');
 // (Use NULL for NULL)
 
+
+--------------------------------------------------------------------------------------------------------
+
+// http://www.gsdesign.ro/blog/database-design-example-for-a-configurable-product-eshop/
+
+[http://www.gsdesign.ro/blog/wp-content/uploads/2010/12/screenshot_001.jpeg]
+
+Selecting products
+The most important thing is how do we select products, and how do we only show one product for the configurable ones. For this we use GROUP BY.
+
+SELECT * FROM `products`
+GROUP BY CASE `products`.`configurable` WHEN 'yes' THEN `products`.`id_configuration` ELSE `products`.`id` END
+
+Filtering products
+The bellow example shows the query for a single filter/feature (with id 38) and 2 values selected:
+
+SELECT * FROM `products`
+WHERE `id` IN (SELECT id_product FROM `product-features` WHERE `id_feature` = 38 AND `value` IN ('Test value', 'New Value') GROUP BY id_product HAVING COUNT(*) >= 1)
+GROUP BY CASE `products`.`configurable` WHEN 'yes' THEN `products`.`id_configuration` ELSE `products`.`id` END
+
+Get active filters
+After you have a list of filter products you will want to print out a list of filters that are applicable to this list, since not all are available to the current selected products.
+
+SELECT `id_feature` FROM `product-features`
+WHERE `id_product` IN (SELECT `id` FROM `products` WHERE ___YOUR_CONDITIONS____) GROUP BY `id_feature`
+
+Notice that i left out the GROUP BY from the product subselect.
+
+Associate count of products for a filter
+Its very useful to show the count of products for a certain value of a filter. The bellow query is how you can select that count for one filter.
+
+SELECT *, COUNT(*) AS `count` FROM (
+SELECT *
+FROM `product-features`
+WHERE
+`id_product` IN (SELECT `id` FROM `products` WHERE ___YOUR_CONDITIONS____) AND
+`id_feature` = 36
+) AS `tbl` GROUP BY `value`
+
+
 --------------------------------------------------------------------------------------------------------
 
 // MYSQL TO PHP
