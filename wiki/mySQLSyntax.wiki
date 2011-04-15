@@ -3,17 +3,12 @@
 
 =  SQL REQUEST =
 
---------------------------------------------------------------------------------------------------------
+  * http://dev.mysql.com/doc/refman/5.0/fr/index.html
+  * http://dev.mysql.com/doc/refman/5.0/fr/string-functions.html
 
-http://dev.mysql.com/doc/refman/5.0/fr/index.html
-
-http://dev.mysql.com/doc/refman/5.0/fr/string-functions.html
+== OPERATORS ==
 
 {{{
-
---------------------------------------------------------------------------------------------------------
-
-// OPERATORS
 
 :=
 ||, OR, XOR
@@ -30,9 +25,11 @@ BETWEEN, CASE, WHEN, THEN, ELSE
 NOT, !
 BINARY, COLLATE
 
---------------------------------------------------------------------------------------------------------
+}}}
 
-// REQUETES EXEMPLES
+== REQUESTS EXAMPLES ==
+
+{{{
 
 SELECT SUM(champ) FROM table WHERE ...
 
@@ -110,7 +107,11 @@ INSERT INTO new_table(date_field) SELECT DATEADD(s, timestamp_field, '19700101')
 
 SELECT SUBSTRING(datedeb,1,4) as year
 
---------------------------------------------------------------------------------------------------------
+}}}
+
+== Manipulating DB ==
+
+{{{
 
 // Selecting a database:
 USE database;
@@ -139,8 +140,9 @@ LOAD DATA LOCAL INFILE "infile.txt" INTO TABLE table_name;
 mysql> INSERT INTO table_name VALUES ('MyName', 'MyOwner', '2002-08-31');
 // (Use NULL for NULL)
 
+}}}
 
---------------------------------------------------------------------------------------------------------
+== DB Product example===
 
 // http://www.gsdesign.ro/blog/database-design-example-for-a-configurable-product-eshop/
 
@@ -149,27 +151,34 @@ mysql> INSERT INTO table_name VALUES ('MyName', 'MyOwner', '2002-08-31');
 Selecting products
 The most important thing is how do we select products, and how do we only show one product for the configurable ones. For this we use GROUP BY.
 
+{{{
 SELECT * FROM `products`
 GROUP BY CASE `products`.`configurable` WHEN 'yes' THEN `products`.`id_configuration` ELSE `products`.`id` END
+}}}
 
 Filtering products
 The bellow example shows the query for a single filter/feature (with id 38) and 2 values selected:
 
+{{{
 SELECT * FROM `products`
 WHERE `id` IN (SELECT id_product FROM `product-features` WHERE `id_feature` = 38 AND `value` IN ('Test value', 'New Value') GROUP BY id_product HAVING COUNT(*) >= 1)
 GROUP BY CASE `products`.`configurable` WHEN 'yes' THEN `products`.`id_configuration` ELSE `products`.`id` END
+}}}
 
 Get active filters
 After you have a list of filter products you will want to print out a list of filters that are applicable to this list, since not all are available to the current selected products.
 
+{{{
 SELECT `id_feature` FROM `product-features`
 WHERE `id_product` IN (SELECT `id` FROM `products` WHERE ___YOUR_CONDITIONS____) GROUP BY `id_feature`
+}}}
 
 Notice that i left out the GROUP BY from the product subselect.
 
 Associate count of products for a filter
 Its very useful to show the count of products for a certain value of a filter. The bellow query is how you can select that count for one filter.
 
+{{{
 SELECT *, COUNT(*) AS `count` FROM (
 SELECT *
 FROM `product-features`
@@ -177,12 +186,12 @@ WHERE
 `id_product` IN (SELECT `id` FROM `products` WHERE ___YOUR_CONDITIONS____) AND
 `id_feature` = 36
 ) AS `tbl` GROUP BY `value`
+}}}
 
 
---------------------------------------------------------------------------------------------------------
+== MYSQL TO PHP ==
 
-// MYSQL TO PHP
-
+{{{
 mysql_affected_rows($this->db_connect_id)
 mysql_close
 mysql_connect($this->server, $this->user, $this->password);
@@ -213,11 +222,11 @@ mysql_pconnect
 mysql_query($query, $this->db_connect_id);
 mysql_real_escape_string
 mysql_select_db($this->dbname);
+}}}
 
---------------------------------------------------------------------------------------------------------
+==PROCESS ==
 
-// PROCESS
-
+{{{
 $pList = mysql_query('SHOW PROCESSLIST') or die(mysql_error());
 while($process = mysql_fetch_array($pList,MYSQL_ASSOC)) {
     if(intval($process['Time'])>$processTimeLimit) {
@@ -229,11 +238,11 @@ while($process = mysql_fetch_array($pList,MYSQL_ASSOC)) {
         echo "</tr>\n" ;
     }
 }
+}}}
 
---------------------------------------------------------------------------------------------------------
+== RANDOM ==
 
-// RANDOM
-
+{{{
 $REQ = mysql_query("SELECT media_thumb_id,galerie_id FROM Media WHERE galerie_id='$galerie_id_select' ",$db) or die(mysql_error());
 $nb = mysql_num_rows($REQ);
 if ($nb > 0) {
@@ -244,10 +253,13 @@ if ($nb > 0) {
     $media_thumb_id_select = $row["media_thumb_id"];
     $galerie_id_reselect = $row["galerie_id"];
 }
+}}}
 
---------------------------------------------------------------------------------------------------------
+== DATE ==
 
-DATE cf : http://dev.mysql.com/doc/refman/5.0/fr/date-and-time-functions.html
+cf : http://dev.mysql.com/doc/refman/5.0/fr/date-and-time-functions.html
+
+{{{
 SELECT YEAR('98-02-03');
 -> 1998
 
@@ -272,7 +284,6 @@ set datetime_format = '%d/%m/%y %H:%i:%s';
 insert into test_date(datecol) values ('28/02/07 23:12:00');
 select * from test_date;
 
-
 -> '2028-02-07 23:12:00'
 
 --------------------------------------------------------------------------------------------------------
@@ -286,14 +297,15 @@ LIMIT 2
 ");
 $maxDate = dateToArray($D->V[0]['max']);
 $minDate = dateToArray($D->V[0]['min']);
+}}}
 
---------------------------------------------------------------------------------------------------------
-
-// RECHERCHE SQL BOLEENNE
+== RECHERCHE SQL BOLEENNE ==
 
 http://developpeur.journaldunet.com/tutoriel/out/051006-mysql-recherche-fulltext-booleenne.shtml
 
+{{{
 SELECT * FROM cuisine WHERE MATCH(ingredients, recette, plat) AGAINST ('>lapin <civet ~rabbit') IN BOOLEAN MODE;
+}}}
 
 Voici les différentes expressions disponibles :
 
@@ -306,12 +318,11 @@ mot* Le mot commence par...
 "mot1 mot2" Les mots doivent se suivre dans cet ordre
 ( ) Groupement de plusieurs expressions
 
---------------------------------------------------------------------------------------------------------
-
-// RECHERCHE APPROXIMATIVES
+== RECHERCHE APPROXIMATIVES ==
 
 Pour utiliser LIKE, il nous faut transformer le mot-clé "exemple" en "%e%x%e%m%p%l%e%":
 
+{{{
 function approx($rech) {
     for ($i = 0; $i < strlen($rech); $i++) {
         $tableau[]=$rech[$i];
@@ -328,10 +339,11 @@ lancer une recherche sur une base sans avoir à se soucier des accents ni dans l
 $recherche = sql_regcase($chaine);
 $recherche = ereg_replace("eéèêë", "e", $chaine);
 $requetesql = "SELECT mot FROM table WHERE champ REGEXP '$recherche';");
+}}}
 
---------------------------------------------------------------------------------------------------------
+== MYSQL TO XML ==
 
-MYSQL TO XML
+{{{
 function parseQuery($requete) {
     $i=1;
     $str = '<?xml version="1.0" encoding="UTF-8"?>
@@ -350,9 +362,11 @@ function parseQuery($requete) {
     $str.="</result_xml>";
     echo $str;
 }
+}}}
 
---------------------------------------------------------------------------------------------------------
+== VRAC ==
 
+{{{
 $sql = "SELECT commandes.*,clients.*
 FROM commandes LEFT JOIN clients
 ON commandes.clt_id = clients.clt_id
@@ -381,6 +395,9 @@ PRIMARY KEY (ref_id)
 salary DECIMAL(5,2)
 In this example, 5 is the precision and 2 is the scale. The precision represents the number of significant decimal digits that will be stored for values, and the scale represents the number of digits that will be stored following the decimal point.
 
+}}}
+
+== mySQL types ==
 
 TINYINT[(M)] [UNSIGNED] [ZEROFILL]
 A very small integer. The signed range is -128 to 127. The unsigned range is 0 to 255.
@@ -450,5 +467,3 @@ ENUM('value1','value2',...)
 An enumeration. A string object that can have only one value, chosen from the list of values 'value1', 'value2', ..., NULL or the special "" error value. An ENUM can have a maximum of 65535 distinct values. See section 6.2.3.3 The ENUM Type <ENUM.html>.
 SET('value1','value2',...)
 A set. A string object that can have zero or more values, each of which must be chosen from the list of values 'value1', 'value2', ... A SET can have a maximum of 64 members. See section 6.2.3.4 The SET Type <SET.html>.
-
-}}}
