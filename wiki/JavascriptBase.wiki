@@ -64,6 +64,44 @@ var MODULE = (function () {
 }(MODULE || {})); // Module augmented
 }}}
 
+== ITERATIONS==
+
+{{{
+var arr = ['va1', 'val2', 300];
+for (var index in arr) alert(index+' : '+arr[item]);
+
+var obj = {'x':200, 'y': 300, 'color':'white'};
+for (var key in obj) alert(key+' : '+obj[key]);
+
+[1, 2, 3].forEach(function(item) { alert(item) });
+
+var squares = [item * item for each (item in [1, 2, 3])];
+
+[alert(item) for each (item in [1, 2, 3])];
+
+var obj = { foo: 1, bar: 2, baz: 3 };
+[alert(name + "=" + obj[name]) for (name in obj)];
+
+[alert(key + "=" + val) for ([key, val] in Iterator({a:1,b:2,c:3}))]
+
+// Node lists are often implemented as node iterators with a filter. 
+// This means that getting a property like length is O(n), 
+// and iterating over the list by re-checking the length will be O(n^2).
+
+var paragraphs = document.getElementsByTagName('p');
+for (var i = 0; i < paragraphs.length; i++) {
+  doSomething(paragraphs[i]);
+}
+
+// It is better to do this instead:
+// This works well for all collections and arrays as long as the array does not contain things that are treated as boolean false.
+
+var paragraphs = document.getElementsByTagName('p');
+for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
+  doSomething(paragraph);
+}
+}}}
+
 == DATA OBJECTS ==
 
 {{{
@@ -251,44 +289,6 @@ Employee.prototype = new Human();
 var john = new Employee("4815162342");
 john.setName("John", "Doe");
 alert(john.getFullName() + "'s employee number is " + john.getNum());
-}}}
-
-== ITERATIONS==
-
-{{{
-var arr = ['va1', 'val2', 300];
-for (var item in arr) alert(item);
-
-var obj = {'x':200, 'y': 300, 'color':'white'};
-for (var key in obj) alert(key+' : '+obj[key]);
-
-[1, 2, 3].forEach(function(item) { alert(item) });
-
-var squares = [item * item for each (item in [1, 2, 3])];
-
-[alert(item) for each (item in [1, 2, 3])];
-
-var obj = { foo: 1, bar: 2, baz: 3 };
-[alert(name + "=" + obj[name]) for (name in obj)];
-
-[alert(key + "=" + val) for ([key, val] in Iterator({a:1,b:2,c:3}))]
-
-// Node lists are often implemented as node iterators with a filter. 
-// This means that getting a property like length is O(n), 
-// and iterating over the list by re-checking the length will be O(n^2).
-
-var paragraphs = document.getElementsByTagName('p');
-for (var i = 0; i < paragraphs.length; i++) {
-  doSomething(paragraphs[i]);
-}
-
-// It is better to do this instead:
-// This works well for all collections and arrays as long as the array does not contain things that are treated as boolean false.
-
-var paragraphs = document.getElementsByTagName('p');
-for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
-  doSomething(paragraph);
-}
 }}}
 
 == OPERATOR && COMPARAISONS==
