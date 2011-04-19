@@ -1,7 +1,7 @@
 #summary Personal notes on Prototype javascript framework
 #labels Tooltips
 
-_Builded in 2008_
+_Library edited from 2005 to 2007..._ Framework here : trunk/SITE_01_SRC/js/proto/optional/ 
 
 = Prototype 1.8 DOC =
 
