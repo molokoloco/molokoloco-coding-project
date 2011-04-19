@@ -1,7 +1,7 @@
 #summary Simple and extensible JS class to manage accordeon swapping (ie <a> and <div>).
 #labels Featured,Phase-Requirements
 
-_Builded in 2008_
+_Library edited from 2005 to 2007..._ Framework here : [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC#SITE_01_SRC%2Fjs%2Fproto%2Foptional trunk/SITE_01_SRC/js/proto/optional/]
 
 = 215_accordeon.js =
 
