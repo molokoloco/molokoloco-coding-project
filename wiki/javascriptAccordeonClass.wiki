@@ -1,6 +1,8 @@
 #summary Simple and extensible JS class to manage accordeon swapping (ie <a> and <div>).
 #labels Featured,Phase-Requirements
 
+_Builded in 2008_
+
 = 215_accordeon.js =
 
 == Exemple ==
