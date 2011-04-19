@@ -1,6 +1,8 @@
 #summary Personal notes on Prototype javascript framework
 #labels Tooltips
 
+_Builded in 2008_
+
 = Prototype 1.8 DOC =
 
 http://prototypejs.org/api/
