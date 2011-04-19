@@ -1,10 +1,9 @@
 #summary The famous window.open / window.document / navigator.userAgent
 #labels Featured
 
-= JAVASCRIPT window.document extended =
-
 _Library edited from 2005 to 2007..._ Framework here : [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC#SITE_01_SRC%2Fjs%2Fproto%2Foptional trunk/SITE_01_SRC/js/proto/optional/]
 
+= JAVASCRIPT window.document extended =
 
 === getScroll / getViewport / getWindow / getMaxScroll / getScreen / ... ===
 
