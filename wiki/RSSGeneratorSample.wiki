@@ -1,6 +1,8 @@
 #summary Exemple de création de flux RSS, à partir de mySQL
 #labels Featured
 
+_Library edited from 2005 to 2007..._ Framework here : [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC#SITE_01_SRC%2Fadmin%2Flib trunk/SITE_01_SRC/admin/lib/] et ici [http://code.google.com/p/molokoloco-coding-project/source/browse/trunk/SITE_01_SRC#SITE_01_SRC%2Fadmin%2Flib%2Fclass trunk/SITE_01_SRC/admin/lib/class/]
+
 = ./rss.php =
 
 {{{
