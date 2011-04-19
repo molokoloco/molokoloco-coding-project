@@ -1,6 +1,8 @@
 #summary Diaporama Image with PHP and Javascript (based on Prototype JS)
 #labels Featured,Phase-Requirements
 
+_Builded in 2008_
+
 == PHP (fonctions.php) + HTML ==
 
 {{{
