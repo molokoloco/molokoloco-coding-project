@@ -1,4 +1,4 @@
-#summary $Q =& new Q('SELECT * FROM mod_actualites');
+#summary $Q = new Q('SELECT * FROM mod_actualites');
 #labels Featured
 
 = Building SQL query with PHP =
