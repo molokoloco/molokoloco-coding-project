@@ -291,7 +291,7 @@ john.setName("John", "Doe");
 alert(john.getFullName() + "'s employee number is " + john.getNum());
 }}}
 
-== Observer implementation ==
+== PROTOTYPE OBSERVER IMPLEMENTATION ==
 
 From [http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/]
 {{{
@@ -342,7 +342,7 @@ obs.subscribe(fn);
 obs.unsubscribe(fn);
 }}}
 
-== OPERATOR && COMPARAISONS==
+== OPERATOR && COMPARAISONS ==
 
   * Arithmetic : +, -, *, /, %, ++, --, unary -, unary +
   * Assignment : =, *=, /=, %=, +=, -=, <<=, >>=, >>>=, &=, ^=, |=
@@ -360,7 +360,7 @@ if ( checkFoo !== -1 ) {}
 if ( ~checkFoo ) {}
 }}}
 
-== FUNCTIONS on functions==
+== FUNCTIONS on functions ==
 
 {{{
 var value = myFunction.apply(this, args);
