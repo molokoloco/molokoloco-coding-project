@@ -45,7 +45,7 @@ var a = function bar() {
     alert("hello!");
 })();
 
-// Modular closure
+// Modular closure augmented
 var MODULE = (function () {
     var my = {}, 
         privateVariable = 1; 
@@ -61,7 +61,7 @@ var MODULE = (function () {
     }; 
      
     return my; 
-}(MODULE || {})); // Module augmented
+}(MODULE || {}));
 }}}
 
 == ITERATIONS==
