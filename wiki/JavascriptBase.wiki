@@ -321,6 +321,11 @@ function(a, b){
     var args = msg ? ' (' + [].join.call( arguments, ', ' ) + ')' : '';
     $('body').append( '<br/>' + msg + args );
 }
+
+// run the code, if any inside of the script tag that included this script.
+var scripts = document.getElementsByTagName("script");
+eval.call(window, scripts[scripts.length - 1].innerHTML); 
+
 }}}
 
 == Stats analytics de manière asynchrone==
