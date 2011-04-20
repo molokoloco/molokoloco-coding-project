@@ -68,7 +68,7 @@ var MODULE = (function () {
 
 {{{
 var arr = ['va1', 'val2', 300];
-for (var index in arr) alert(index+' : '+arr[item]);
+for (var index in arr) alert(index+' : '+arr[index]);
 
 var obj = {'x':200, 'y': 300, 'color':'white'};
 for (var key in obj) alert(key+' : '+obj[key]);
