@@ -51,17 +51,6 @@ for (var index in arr) alert(index+' : '+arr[index]);
 var obj = {'x':200, 'y': 300, 'color':'white'};
 for (var key in obj) alert(key+' : '+obj[key]);
 
-[1, 2, 3].forEach(function(item) { alert(item) });
-
-var squares = [item * item for each (item in [1, 2, 3])];
-
-[alert(item) for each (item in [1, 2, 3])];
-
-var obj = { foo: 1, bar: 2, baz: 3 };
-[alert(name + "=" + obj[name]) for (name in obj)];
-
-[alert(key + "=" + val) for ([key, val] in Iterator({a:1,b:2,c:3}))]
-
 // Node lists are often implemented as node iterators with a filter. 
 // This means that getting a property like length is O(n), 
 // and iterating over the list by re-checking the length will be O(n^2).
@@ -78,6 +67,20 @@ var paragraphs = document.getElementsByTagName('p');
 for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
   doSomething(paragraph);
 }
+}}}
+
+{{{
+[1, 2, 3].forEach(function(item) { alert(item) });
+
+var squares = [item * item for each (item in [1, 2, 3])];
+
+[alert(item) for each (item in [1, 2, 3])];
+
+var obj = { foo: 1, bar: 2, baz: 3 };
+[alert(name + "=" + obj[name]) for (name in obj)];
+
+[alert(key + "=" + val) for ([key, val] in Iterator({a:1,b:2,c:3}))]
+
 }}}
 
 == DATA OBJECTS ==
