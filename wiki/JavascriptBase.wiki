@@ -61,7 +61,8 @@ for (var i = 0; i < paragraphs.length; i++) {
 }
 
 // It is better to do this instead:
-// This works well for all collections and arrays as long as the array does not contain things that are treated as boolean false.
+// This works well for all collections and arrays as long as the array 
+// does not contain things that are treated as boolean false.
 
 var paragraphs = document.getElementsByTagName('p');
 for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
