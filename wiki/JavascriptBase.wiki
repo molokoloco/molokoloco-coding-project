@@ -21,47 +21,25 @@ Good advices here :
   * http://www.timmywillison.com/pres/operators/
 
 
+== OPERATOR && COMPARAISONS ==
 
-== FUNCTIONS ==
+  * Arithmetic : +, -, *, /, %, ++, --, unary -, unary +
+  * Assignment : =, *=, /=, %=, +=, -=, <<=, >>=, >>>=, &=, ^=, |=
+  * Bitwise : &, |, ^, ~, <<, >>, >>>
+  * Comparison : ==, !=, ===, !==, >, >=, <, <=
+  * Logical : &&, ||, !
+  * String : + and +=
 
 {{{
-// Function Declarations
-function a() {
-    return 3;
-}
+var i = 0;
+alert(i++);
 
-// Anonymous function expression
-var a = function() {
-    return 3;
-}
+var foo = "baz",
+    checkFoo = foo.indexOf("bar");
 
-// Named function expression
-var a = function bar() {
-    return 3;
-}
-
-// Self invoking function expression
-(function sayHello() {
-    alert("hello!");
-})();
-
-// Modular closure augmented
-var MODULE = (function () {
-    var my = {}, 
-        privateVariable = 1; 
-     
-    function privateMethod() { 
-       my.size = {w:320, h:240};
-       // ... 
-    } 
-    
-    my.moduleProperty = 1; 
-    my.moduleMethod = function () { 
-        // ... 
-    }; 
-     
-    return my; 
-}(MODULE || {}));
+if ( checkFoo !== -1 ) {}
+// We can do
+if ( ~checkFoo ) {}
 }}}
 
 == ITERATIONS==
@@ -137,7 +115,68 @@ var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.
 movies.sort(objSortByTitle);
 }}}
 
-== OBJECTS ==
+== FUNCTIONS ==
+
+{{{
+// Function Declarations
+function a() {
+    return 3;
+}
+
+// Anonymous function expression
+var a = function() {
+    return 3;
+}
+
+// Named function expression
+var a = function bar() {
+    return 3;
+}
+
+// Self invoking function expression
+(function sayHello() {
+    alert("hello!");
+})();
+
+// Modular closure augmented
+var MODULE = (function () {
+    var my = {}, 
+        privateVariable = 1; 
+     
+    function privateMethod() { 
+       my.size = {w:320, h:240};
+       // ... 
+    } 
+    
+    my.moduleProperty = 1; 
+    my.moduleMethod = function () { 
+        // ... 
+    }; 
+     
+    return my; 
+}(MODULE || {}));
+}}}
+
+== FUNCTIONS on functions ==
+
+{{{
+var value = myFunction.apply(this, args);
+
+var db = function(){ 'console' in window && console.log.call(console, arguments) };
+
+
+function(a, b){
+    var args = msg ? ' (' + [].join.call( arguments, ', ' ) + ')' : '';
+    $('body').append( '<br/>' + msg + args );
+}
+
+// run the code, if any inside of the script tag that included this script.
+var scripts = document.getElementsByTagName("script");
+eval.call(window, scripts[scripts.length - 1].innerHTML); 
+
+}}}
+
+== OBJECTS ORIENTED PROGRAMMING ==
 
 inspired from Angus Croll http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
 {{{
@@ -340,43 +379,6 @@ obs.subscribe(fn);
 
 // Unsubscribe if you no longer wish to be notified
 obs.unsubscribe(fn);
-}}}
-
-== OPERATOR && COMPARAISONS ==
-
-  * Arithmetic : +, -, *, /, %, ++, --, unary -, unary +
-  * Assignment : =, *=, /=, %=, +=, -=, <<=, >>=, >>>=, &=, ^=, |=
-  * Bitwise : &, |, ^, ~, <<, >>, >>>
-  * Comparison : ==, !=, ===, !==, >, >=, <, <=
-  * Logical : &&, ||, !
-  * String : + and +=
-
-{{{
-var foo = "baz",
-    checkFoo = foo.indexOf("bar");
-
-if ( checkFoo !== -1 ) {}
-// We can do
-if ( ~checkFoo ) {}
-}}}
-
-== FUNCTIONS on functions ==
-
-{{{
-var value = myFunction.apply(this, args);
-
-var db = function(){ 'console' in window && console.log.call(console, arguments) };
-
-
-function(a, b){
-    var args = msg ? ' (' + [].join.call( arguments, ', ' ) + ')' : '';
-    $('body').append( '<br/>' + msg + args );
-}
-
-// run the code, if any inside of the script tag that included this script.
-var scripts = document.getElementsByTagName("script");
-eval.call(window, scripts[scripts.length - 1].innerHTML); 
-
 }}}
 
 == Stats analytics de manière asynchrone==
