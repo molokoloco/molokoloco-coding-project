@@ -291,6 +291,57 @@ john.setName("John", "Doe");
 alert(john.getFullName() + "'s employee number is " + john.getNum());
 }}}
 
+== Observer implementation ==
+
+From [http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/]
+{{{
+function Observer(){
+    this.functions = [];
+}
+
+Observer.prototype = {
+    subscribe : function(fn) {
+        this.functions.push(fn);
+    },
+    
+    unsubscribe : function(fn) {
+        this.functions = this.functions.filter(
+            function(el) {
+                if ( el !== fn ) {
+                    return el;
+                }
+            }
+        );
+    },
+    
+    update : function(o, thisObj) {
+        var scope = thisObj || window;
+        this.functions.forEach(
+            function(el) {
+                el.call(scope, o);
+            }
+        );
+    }
+};
+
+// Subscribing and publishing
+
+// Publishers are in charge of "publishing" eg: Creating the Event
+// They're also in charge of "notifying" (firing the event)
+var obs = new Observer;
+obs.update('here is some test information');
+
+// Subscribers basically... "subscribe" (or listen)
+// And once they've been "notified" their callback functions are invoked
+var fn = function() {
+    // my callback stuff
+};
+obs.subscribe(fn);
+
+// Unsubscribe if you no longer wish to be notified
+obs.unsubscribe(fn);
+}}}
+
 == OPERATOR && COMPARAISONS==
 
   * Arithmetic : +, -, *, /, %, ++, --, unary -, unary +
