@@ -19,6 +19,7 @@ Good advices here :
   * http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
   * http://addyosmani.com/blog/tools-for-jquery-application-architecture-the-printable-chart/
   * http://www.timmywillison.com/pres/operators/
+  * http://javascriptweblog.wordpress.com/2010/08/30/understanding-javascripts-this/
 
 
 == OPERATOR && COMPARAISONS ==
@@ -383,6 +384,49 @@ obs.subscribe(fn);
 
 // Unsubscribe if you no longer wish to be notified
 obs.unsubscribe(fn);
+}}}
+
+== THIS is what ? ==
+
+{{{
+var a = {
+    b: function() {
+        return this;
+    }
+};
+
+// Invoke a property
+a.b(); // a
+
+var c = {};
+c.d = a.b;
+c.d(); // c
+
+// Invoke a variable
+var foo = a.b;
+foo(); // window
+
+// Invoke using Function.prototype.apply
+a.b.apply(d); // d
+
+// Invoke from a variable
+var a = {
+    b: function() {
+        var c = function() { return this; }
+        return c();
+    }
+};
+
+a.b(); //window
+
+// The same applies to self invoking functions
+var a = {
+    b: function() {
+        return (function() { return this; })()
+    }
+};
+
+a.b(); //window
 }}}
 
 == Stats analytics de manière asynchrone==
