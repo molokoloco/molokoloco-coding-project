@@ -1,7 +1,7 @@
 #summary Personal notes for CSS
 #labels Tooltips
 
-_TODO ... CSS3 CLEAN NOTES !!!_
+_TODO ... CLEAN NOTES & ADD CSS3 BETTER SUPPORT !!!_
 
 
 = CSS TIPS =
@@ -129,6 +129,19 @@ filter : alpha(opacity=70);
 
 image-rendering: optimizeQuality; /* Gecko */
 -ms-interpolation-mode: bicubic; /* IE */
+
+/* --------------------------------------------------------------- */
+/* Sizing with rem
+// http://snook.ca/archives/html_and_css/font-size-with-rem
+
+CSS3 introduces a few new units, including the rem unit, which stands for "root em". If this hasn't put you to sleep yet, then let's look at how rem works.
+
+The em unit is relative to the font-size of the parent, which causes the compounding issue. The rem unit is relative to the root—or the html—element. That means that we can define a single font size on the html element and define all rem units to be a percentage of that. */
+
+html { font-size: 62.5%; } 
+body { font-size: 1.4rem; } /* =14px */
+h1   { font-size: 2.4rem; } /* =24px */
+
 
 /* --------------------------------------------------------------- */
 /* 3D TEXT */
