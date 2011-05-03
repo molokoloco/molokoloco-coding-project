@@ -1295,6 +1295,19 @@ Parmi les changements et améliorations apportées dans la version 1.4 :
   * les callbacks sont possibles sur les fonctions DOM,
   * et bien d'autres perfectionnements...
 
+== jQuery 1.6 RC1 ==
+
+  * La fonction .prop() permet d’obtenir la valeur d’une propriété d’un élément du DOM ;
+  * La fonction .attr() permet quand à elle d’obtenir la valeur d’un attribut d’un élément sélectionné ;
+  * Une très grosse amélioration a été apporté à .is(), jusqu’à maintenant, vous pouviez vous assurer qu’un élément sélectionné correspondait bien à un autre sélecteur. Maintenant vous pouvez aussi le comparer au résultat d’une fonction, à un élément sélectionné ou encore un objet jQuery ;
+  * .undelegate() permet de supprimer tous les gestionnaires d’évènements provenant d’un namespace. Depuis la version 1.4, elle permettait déjà de les supprimer pour un sélecteur ;
+  * .holdReady() permet d’autoriser ou non le déclenchement de l’évènement jQuery’s ready, il peut donc agir comme un retardateur permettant de s’assurer que toutes les ressources nécessaires sont bien là ;
+  * Deferred.always(), à l’équivalent du finally dans les blocs try/catch, .always() permet de l’exécution de code que votre objet Deferred soit en état résolu ou rejeté.
+  * jQuery.map() permet la création d’un tableau à partir d’un autre ou d’une sélection d’éléments (jusqu’à maintenant que depuis un autre tableau). Très pratique pour créer une liste avec des index ayants un sens plus parlant pour l’accès aux données qu’une suite numérique banale ;
+  * jQuery.Ajax est désormais compatible XHR 2, c’est à dire l’utilisation d’Access Control pour envoyer des requêtes vers des domaines différents ;
+  * jQuery.css() supporte désormais les valeurs relatives.
+  * ...
+  * http://blog.jquery.com/2011/04/26/jquery-1-6-rc-1-released/
 
 = LITTLES FUNCTIONS FOR QUICK USE =
 
