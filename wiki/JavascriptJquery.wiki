@@ -149,91 +149,6 @@ $('body').css('zoom', $(window).width() / 1920);
 
 }}}
 
-= SAMPLE PLUGIN STRUCTURE =
-
-  * http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
-  * http://docs.jquery.com/Plugins/Authoring
-
-{{{
-
-// Déclaration d'un nouveau plugin pour étendre les fonctions ($.fn) de jQuery
-
-(function( $ ){
-
-  var methods = {
-     init : function( options ) {
-
-       options = $.extend({
-              defaultFeed : 'http://feeds.feedburner.com/b2bweb', // Feed
-              inputFeed : 'input#url', // Feed URL input
-       }, options || {});
-
-       return this.each(function(){
-         
-         var $this = $(this),
-             data = $this.data('tooltip'),
-             tooltip = $('<div />', {
-               text : $this.attr('title')
-             });
-         
-         // If the plugin hasn't been initialized yet
-         if ( ! data ) {
-         
-           /*
-             Do more setup stuff here
-           */
-
-           $(this).data('tooltip', {
-               target : $this,
-               tooltip : tooltip
-           });
-
-         }
-       });
-     },
-     destroy : function( ) {
-
-       return this.each(function(){
-
-         var $this = $(this),
-             data = $this.data('tooltip');
-
-         // Namespacing FTW
-         $(window).unbind('.tooltip');
-         data.tooltip.remove();
-         $this.removeData('tooltip');
-
-       })
-
-     },
-     reposition : function( ) { // ... },
-     show : function( ) { // ... },
-     hide : function( ) { // ... },
-     update : function( content ) { // ...}
-  };
-
-  $.fn.tooltip = function( method ) {
-    if ( methods[method] ) {
-      return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
-    } else if ( typeof method === 'object' || ! method ) {
-      return methods.init.apply( this, arguments );
-    } else {
-      $.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
-    }
-  };
-
-})( jQuery );
-
-
-// Appel du plugin
-$('#fun').tooltip();
-$('#fun').tooltip('update', 'This is the new tooltip content!');
-
-// Some time later...
-$('#fun').tooltip('destroy');
-
-}}}
-
 == BINDABLES EVENTS ==
 
 {{{
@@ -518,7 +433,7 @@ jQuery.inArray( value, array )   //  Returns: Number // Determine the index of t
 jQuery.merge( first, second )   //  Returns: Array // Merge two arrays together.
 jQuery.unique( array )   //  Returns: Array // Remove all duplicate elements from an array of elements. Note that this only works on arrays of DOM elements
  
-// --------------------------------------------------------------- //
+// NATIVES...  --------------------------------------------------------------- //
  
 var x = [];
 x.push(1);
@@ -670,7 +585,6 @@ $.when( getData(), showDiv() )
 
 $('.block').animate({width: '70%',fontSize: '3em',borderWidth: '10px'}, 1500);
 
-
 // Full function...
 $('#myDiv').animate(
     { opacity: 0, width: 'toggle', height: '150' }, // what we are animating
@@ -691,7 +605,6 @@ $('#myDiv').animate(
         }
     }
 );
-
 
 // Optionnal parameter... milliseconds setInterval
 jQuery.fx.interval = 100;
@@ -1410,5 +1323,90 @@ var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.
 var loadJs = function(src) { var s = document.createElement('script'); s.setAttribute('type', 'text/javascript'); s.setAttribute('src', src); document.getElementsByTagName('head')[0].appendChild(s); };
 // getScript('./other.js', function() { ok(); });
 var getScript = function(src, callback) { $.ajax({dataType:'script', async:false, cache:true, url:src, success:function(response) { if (callback && typeof callback == 'function') callback(); }}); };
+
+}}}
+
+= (NEW) SAMPLE PLUGIN STRUCTURE =
+
+  * http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
+  * http://docs.jquery.com/Plugins/Authoring
+
+{{{
+
+// Déclaration d'un nouveau plugin pour étendre les fonctions ($.fn) de jQuery
+
+(function( $ ){
+
+  var methods = {
+     init : function( options ) {
+
+       options = $.extend({
+              defaultFeed : 'http://feeds.feedburner.com/b2bweb', // Feed
+              inputFeed : 'input#url', // Feed URL input
+       }, options || {});
+
+       return this.each(function(){
+         
+         var $this = $(this),
+             data = $this.data('tooltip'),
+             tooltip = $('<div />', {
+               text : $this.attr('title')
+             });
+         
+         // If the plugin hasn't been initialized yet
+         if ( ! data ) {
+         
+           /*
+             Do more setup stuff here
+           */
+
+           $(this).data('tooltip', {
+               target : $this,
+               tooltip : tooltip
+           });
+
+         }
+       });
+     },
+     destroy : function( ) {
+
+       return this.each(function(){
+
+         var $this = $(this),
+             data = $this.data('tooltip');
+
+         // Namespacing FTW
+         $(window).unbind('.tooltip');
+         data.tooltip.remove();
+         $this.removeData('tooltip');
+
+       })
+
+     },
+     reposition : function( ) { // ... },
+     show : function( ) { // ... },
+     hide : function( ) { // ... },
+     update : function( content ) { // ...}
+  };
+
+  $.fn.tooltip = function( method ) {
+    if ( methods[method] ) {
+      return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+    } else if ( typeof method === 'object' || ! method ) {
+      return methods.init.apply( this, arguments );
+    } else {
+      $.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
+    }
+  };
+
+})( jQuery );
+
+
+// Appel du plugin
+$('#fun').tooltip();
+$('#fun').tooltip('update', 'This is the new tooltip content!');
+
+// Some time later...
+$('#fun').tooltip('destroy');
 
 }}}
