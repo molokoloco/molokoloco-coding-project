@@ -24,6 +24,7 @@ Les codeurs derrière jQuery...
   * http://addyosmani.com
   * http://brandonaaron.net
   * http://benalman.com
+  * ...
 
 
 jQuery Cheat Sheet [http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4.png Image PNG]|[http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf FichierPDF]
