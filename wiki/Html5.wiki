@@ -3,6 +3,7 @@
 
 = HTML5 =
 
+  * http://developers.whatwg.org/ Readable specs
   * https://developer.mozilla.org/en-US/learn/html
   * http://www.html5rocks.com/tutorials/appcache/beginner/
   * http://oli.jp/2008/html5-class-cheatsheet/
