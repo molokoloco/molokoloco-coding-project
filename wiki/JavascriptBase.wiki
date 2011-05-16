@@ -179,6 +179,10 @@ function(a, b){
 var scripts = document.getElementsByTagName("script");
 eval.call(window, scripts[scripts.length - 1].innerHTML); 
 
+var i, hasOwn = Object.prototype.hasOwnProperty;  
+for (i in man) if (hasOwn.call(man, i)) { // filter only this object properties
+    console.log(i, ":", man[i]);  
+}  
 }}}
 
 == OBJECTS ORIENTED PROGRAMMING ==
