@@ -729,26 +729,6 @@ http://net.tutsplus.com/tutorials/javascript-ajax/fun-with-jquery-templating-and
 });
 }}}
 
-== XPATH ==
-
-{{{
-
-$('/html/body//p').attr({align:'center'});
-
-
-:first          //  Returns: Array<Element> Matches the first selected element.
-:last           //  Returns: Array<Element> Matches the last selected element.
-:not(selector)  //  Returns: Array<Element(s)> Filters out all elements matching the given selector.
-:even           //  Returns: Array<Element(s)> Matches even elements, zero-indexed.
-:odd            //  Returns: Array<Element(s)> Matches odd elements, zero-indexed.
-:eq(index)      //  Returns: Array<Element> Matches a single element by its index.
-:gt(index)      //  Returns: Array<Element(s)> Matches all elements with an index above the given one.
-:lt(index)      //  Returns: Array<Element(s)> Matches all elements with an index below the given one.
-:header         //  Returns: Array<Element(s)> Matches all elements that are headers, like h1, h2, h3 and so on.
-:animated       //  Returns: Array<Element(s)> Matches all elements that are currently being animated.
-
-}}}
-
 == Elements methodes ==
 
 {{{
@@ -1245,6 +1225,10 @@ $('img:regex(data:extension, png|jpg)');
 
 == JQUERY SELECTORS (XPATH) ==
 
+http://api.jquery.com/category/selectors/
+
+Returns: jQuery Array<Element(s)> Matches
+
 <strong>Selector 	Example 	Description 	Reference</strong>
 
   * `*` 	$("`*`") 	It will select all the elements 	http://api.jquery.com/all-selector/
@@ -1281,8 +1265,17 @@ $('img:regex(data:extension, png|jpg)');
   * [attribute=value] 	$("[href='index.html']") 	All elements with a href attribute value equal to "index.html" will be selected 	http://api.jquery.com/attribute-equals-selector/
   * [attribute!=value] 	$("[href!='index.html']") 	All elements with a href attribute value not equal to "index.html" will be selected 	http://api.jquery.com/attribute-not-equal-selector/
   * [attribute$=value] 	$("[href$='.jpg']") 	All elements with a href attribute value ending with ".jpg" will be selected 	http://api.jquery.com/attribute-ends-with-selector/
+  * :animated   $("div:animated") 	    // All elements that are currently being animated.
 
-== Selectors (Advanced) ==
+
+{{{
+$('div#login').show()
+$("[href$='.jpg']").attr({target:'_blank');
+$('div#header ul > li:even').attr({align:'right'});
+$('div.ok,div.error').remove()
+}}}
+
+== CUSTOM SELECTORS ==
 
 http://www.jquery.info/spip.php?article82
 
