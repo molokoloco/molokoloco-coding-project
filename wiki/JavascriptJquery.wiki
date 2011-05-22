@@ -360,7 +360,7 @@ $("p").live("click", function(){
 
 }}}
 
-== JQUERY SELECTORS (XPATH) ==
+== JQUERY SELECTORS (CSS3 like xPath) ==
 
 http://api.jquery.com/category/selectors/
 
