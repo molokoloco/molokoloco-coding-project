@@ -248,6 +248,15 @@ $('#thumbs_container').delegate('li','click tap',function(){
 	current = $(this).index();
 });
 
+// Listening mouse mouve only when mouse down...
+
+var mouseIsMove = function(evt) { disturb(evt.pageX, evt.pageY); };
+var mouseIsDown = function(evt) { $('body').bind('mousemove', mouseIsMove); };
+var mouseIsUp = function(evt) { $('body').unbind('mousemove', mouseIsMove); };
+$('body')
+	.bind('mousedown', mouseIsDown)
+	.bind('mouseup', mouseIsUp);
+
 }}}
 
 == SHORTCUT MEMO ==
