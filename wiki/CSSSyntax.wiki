@@ -130,6 +130,23 @@ filter : alpha(opacity=70);
 image-rendering: optimizeQuality; /* Gecko */
 -ms-interpolation-mode: bicubic; /* IE */
 
+
+/* --------------------------------------------------------------- */
+
+h1 { position: relative; }
+h1:hover { color: transparent; }
+
+h1:hover:after {
+	content: attr(data-hover-response);
+	color: black;
+	position: absolute;
+	left: 0;
+
+}
+
+<h1 data-hover-response="I Said Don't Touch Me!">Don't Touch Me</h1>
+
+
 /* --------------------------------------------------------------- */
 /* Sizing with rem
 // http://snook.ca/archives/html_and_css/font-size-with-rem
