@@ -1387,88 +1387,110 @@ var getScript = function(src, callback) { $.ajax({dataType:'script', async:false
 
 = (NEW) SAMPLE PLUGIN STRUCTURE =
 
-  * http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
+
   * http://docs.jquery.com/Plugins/Authoring
+  * http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
+
+Workable / Testable jQuery Default Plugin : http://jsfiddle.net/molokoloco/DzYdE/
+
+
+... Comments or suggests ? http://www.b2bweb.fr/molokoloco/jquery-default-plugin/
 
 {{{
+
+
+
+// Log utilitie
+var db = function() {
+    'console' in window && console.log.call(console, arguments);
+};
 
 // Déclaration d'un nouveau plugin pour étendre les fonctions ($.fn) de jQuery
 
 (function($) {
-
+    var plugName = 'tooltip'; // Base name
     var methods = {
         init: function(options) {
-
-            options = $.extend({
-                defaultFeed: 'http://feeds.feedburner.com/b2bweb',
-                css: '',
+            options = $.extend({ // Custom arguments
+                parent: 'body', // Default
+                css: plugName,
             }, options || {});
-
-            return this.each(function() {
-
+            
+            return this.each(function() { // Iterate current(s) element(s)
                 var $this = $(this),
-                    data = $this.data('tooltip'),
-                    tooltip = $('<div class="' + options.css + '" />', {
-                        text: $this.attr('title')
-                    });
-
-                // If the plugin hasn't been initialized yet
-                if (!data) {
-
-                   /*
-                     Do more setup stuff here
-                   */
-
-                    $(this).data('tooltip', {
-                        target: $this,
-                        tooltip: tooltip
-                    });
-
-                }
+                    data = $this.data(plugName);
+                if (data) return; // If the plugin has already been initialized
+                
+                var $element = $('<div />', { // Create Tooltip Div
+                    class: options.css,
+                    text: $this.attr('title') // Fetch tooltip text...
+                }).appendTo(options.parent).hide();
+                
+                var stock = {}; // Stock properties
+                stock[plugName] = $element; // Stock element or create unik Id...
+                stock['options'] = options;
+                
+                $this
+                    .data(plugName, stock)
+                    .attr('title', '') // Remove default title
+                    .bind('mouseenter.'+plugName, methods.show) // Event + this plugin NameSpace
+                    .bind('mouseleave.'+plugName, methods.hide);
+                
+                $(window).bind('resize.'+plugName, methods.reposition);
+                db('data', $this.data(plugName)); // Time to Log in console ;)
             });
         },
-        destroy: function() {
-
-            return this.each(function() {
-
-                var $this = $(this),
-                    data = $this.data('tooltip');
-
-                // Namespacing FTW
-                $(window).unbind('.tooltip');
-                data.tooltip.remove();
-                $this.removeData('tooltip');
-
-            })
-
-        },
-        reposition: function() { },
-        show: function() { },
-        hide: function() { },
         update: function(content) {
-            $(this).text(content);
+            db('update');
+        },
+        reposition: function() {
+            db('reposition');
+        },
+        show: function(event) {
+            var mousex = event.pageX + 20, // Get event X mouse coordinates
+                mousey = event.pageY + 20;
+            
+            var $this = $(this), // Only one link trigger show()
+                data = $this.data(plugName); // Fetch data
+            
+            data[plugName]
+                .css({top: mousey+'px', left: mousex+'px'})
+                .show();
+        },
+        hide: function(event) {
+            var $this = $(this),
+                data = $this.data(plugName);
+            data[plugName].hide();
+        },
+        destroy: function() {
+            return this.each(function() {
+                var $this = $(this),
+                    data = $this.data(plugName);
+                
+                data[plugName].remove(); // Clear tooltip element
+                $(window).unbind('.'+plugName); // clear all events of the plugin namespace
+                $this
+                    .unbind('.'+plugName) // Remove tooltip event(s)
+                    .removeData(plugName); // Clear DOM data
+            })
         }
-
     };
-
-    $.fn.tooltip = function(method) {
-        if (methods[method]) {
-            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
-            return methods.init.apply(this, arguments);
-        } else {
-            $.error('Method ' + method + ' does not exist on jQuery.tooltip');
-        }
+    $.fn[plugName] = function(method) { // Don't touch ;)
+        if (methods[method]) return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        else if (typeof method === 'object' || !method) return methods.init.apply(this, arguments);
+        else $.error('Method ' + method + ' does not exist on jQuery.'+plugName);
     };
-
 })(jQuery);
 
 
 // Appel du plugin
-$('#fun').tooltip({css:'myTtClass'}); // Init with optional obj of optionals args
-$('#fun').tooltip('update', 'This is the new tooltip content!'); // Call internal methode
+$('a#fun').tooltip({ // Init with optional obj of optionals args
+    css: 'myTtClass'
+});
+//$('a#fun').tooltip('update', 'This is the new tooltip content!'); // Call internal methode
 
-// Some time later...
-$('#fun').tooltip('destroy');
+$('a#remove').bind('click', function() {
+    $('a#fun').tooltip('destroy');
+});
 
 }}}
