@@ -372,6 +372,18 @@ $("p").live("click", function(){
     $(this).after("<p>Another paragraph!</p>");
 });
 
+
+
+// Toggle multiple classes
+$('div').toggleClass( "a b" ); 
+// <div class="c">
+$('div').toggleClass( "a c" );
+// <div class="a">
+$('div').toggleClass( "a b c", false );
+// <div>
+$('div').toggleClass( "a b c", true ); 
+// <div class="a b c">
+
 }}}
 
 == JQUERY SELECTORS (CSS3 like xPath) ==
