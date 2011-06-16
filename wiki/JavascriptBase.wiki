@@ -43,6 +43,29 @@ if ( checkFoo !== -1 ) {}
 if ( ~checkFoo ) {}
 }}}
 
+== REGEX ==
+
+  * http://code.google.com/p/molokoloco-coding-project/wiki/RegexSyntax
+
+{{{
+
+alert('10 13 21 48 52'.replace(/d+/g, '*')); //replace all numbers with *
+
+
+alert('10 13 21 48 52'.replace(/d+/g, function(match) {
+	return parseInt(match) < 30 ? '*' : match;
+}));
+
+alert(/w{3,}/.test('Hello')); //alerts 'true'
+
+function findWord(word, string) {
+	var instancesOfWord = string.match(new RegExp('\b'+word+'\b', 'ig'));
+	alert(instancesOfWord);
+}
+findWord('car', 'Carl went to buy a car but had forgotten his credit card.');
+
+}}}
+
 == ITERATIONS==
 
 {{{
