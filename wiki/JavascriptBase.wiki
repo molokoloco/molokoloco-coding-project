@@ -20,6 +20,7 @@ Good advices here :
   * http://addyosmani.com/blog/tools-for-jquery-application-architecture-the-printable-chart/
   * http://www.timmywillison.com/pres/operators/
   * http://javascriptweblog.wordpress.com/2010/08/30/understanding-javascripts-this/
+  * http://engineering.socialcast.com/2011/06/javascript-memory-management/
 
 
 == OPERATOR && COMPARAISONS ==
