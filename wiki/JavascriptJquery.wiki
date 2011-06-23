@@ -154,116 +154,6 @@ $('body').css('zoom', $(window).width() / 1920);
 
 }}}
 
-== BINDABLES EVENTS ==
-
-{{{
-
-/*
-	bind() blur() change() click() dblclick() error() focus() hover() 
-	keydown() keypress() keyup() load() mousedown() mousemove() mouseout() mouseover() mouseup() 
-	one() ready() resize() scroll() select() submit() toggle() trigger() unbind() unload() live() die()
-*/
-
-
-$('#btnG').hide();
-var showButton = function(e) { 
-	$(document).unbind('mousemove', showButton);
-	$('#btnG').show();
-	$('#q').focus();
-};
-$(document).mousemove(showButton);
-
-$(window).bind('resize', function() {
-    resizeFrame();
-});
-
-$('div').one('click', function() { /*... Only first time*/ });
-
-$('div#fox img, div#ie img, div#saf img').hover(
-	function(event) { $(this).stop(true, true).animate({marginTop:'0px'}, {duration:500}); }, 
-	function(event) { $(this).stop(true, true).animate({marginTop:'-28px'}, {duration:500}); }
-);
-
-$('.thumbLien').hover(
-    function () {
-        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
-        cvi_glossy.modify($(imgId)[0], {shadow:66});
-    }, 
-    function () {
-        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
-        cvi_glossy.modify($(imgId)[0], {shadow:20});
-    }
-);
-
-$('#foo').bind('mouseenter mouseleave', function() {
-    $(this).toggleClass('focus');
-});
-
-$('#foo').bind({
-    click: function() {
-        // do something
-    },
-    mouseover: function() {
-        // do something
-    },
-    mouseout: function() {
-        // do something
-    }
-});
-$('#foo').trigger('click'); // Do event
-
-// Listen to events from a particular context // OPTIMISATION !
-
-$('table').delegate('td', 'hover', function(){
-    $(this).toggleClass("active");
-});
-
-// Or...
-
-$('table#data').bind('click', function(event) { 
-    var cell = $(event.target).closest('td');
-});
-
-// "return false" is actually doing three very separate things when you call it:
-//   1. event.preventDefault();
-//   2. event.stopPropagation();
-//   3. Stops callback execution and returns immediately when called.
-
-$('a').click(function (e) {
-    // here your code
-    e.preventDefault(); // cancel default behavior
-});
-$('a').click();
-
-$('#myImage').attr('src', 'image.jpg').load(function() {
-	alert('Image Loaded');
-}); 
-
-
-// Horloge
-var pad = function(s) { return (s < 10 ? '0'+s : s); }
-var timer = setInterval(function() {
-	var dt = new Date();
-	$('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
-}, 1000);
-
-
-// When clicking on an image we keep track of the index (child item index)
-$('#thumbs_container').delegate('li','click tap',function(){
-	current = $(this).index();
-});
-
-// Listening mouse move only when mouse down...
-
-var mouseIsMove = function(evt) { disturb(evt.pageX, evt.pageY); };
-var mouseIsDown = function(evt) { $('body').bind('mousemove', mouseIsMove); };
-var mouseIsUp = function(evt) { $('body').unbind('mousemove', mouseIsMove); };
-$('body')
-	.bind('mousedown', mouseIsDown)
-	.bind('mouseup', mouseIsUp);
-
-}}}
-
 == SHORTCUT MEMO ==
 
 {{{
@@ -383,6 +273,116 @@ $('div').toggleClass( "a b c", false );
 // <div>
 $('div').toggleClass( "a b c", true ); 
 // <div class="a b c">
+
+}}}
+
+== BINDABLES EVENTS ==
+
+{{{
+
+/*
+	bind() blur() change() click() dblclick() error() focus() hover() 
+	keydown() keypress() keyup() load() mousedown() mousemove() mouseout() mouseover() mouseup() 
+	one() ready() resize() scroll() select() submit() toggle() trigger() unbind() unload() live() die()
+*/
+
+
+$('#btnG').hide();
+var showButton = function(e) { 
+	$(document).unbind('mousemove', showButton);
+	$('#btnG').show();
+	$('#q').focus();
+};
+$(document).mousemove(showButton);
+
+$(window).bind('resize', function() {
+    resizeFrame();
+});
+
+$('div').one('click', function() { /*... Only first time*/ });
+
+$('div#fox img, div#ie img, div#saf img').hover(
+	function(event) { $(this).stop(true, true).animate({marginTop:'0px'}, {duration:500}); }, 
+	function(event) { $(this).stop(true, true).animate({marginTop:'-28px'}, {duration:500}); }
+);
+
+$('.thumbLien').hover(
+    function () {
+        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
+        cvi_glossy.modify($(imgId)[0], {shadow:66});
+    }, 
+    function () {
+        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
+        cvi_glossy.modify($(imgId)[0], {shadow:20});
+    }
+);
+
+$('#foo').bind('mouseenter mouseleave', function() {
+    $(this).toggleClass('focus');
+});
+
+$('#foo').bind({
+    click: function() {
+        // do something
+    },
+    mouseover: function() {
+        // do something
+    },
+    mouseout: function() {
+        // do something
+    }
+});
+$('#foo').trigger('click'); // Do event
+
+// Listen to events from a particular context // OPTIMISATION !
+
+$('table').delegate('td', 'hover', function(){
+    $(this).toggleClass("active");
+});
+
+// Or...
+
+$('table#data').bind('click', function(event) { 
+    var cell = $(event.target).closest('td');
+});
+
+// "return false" is actually doing three very separate things when you call it:
+//   1. event.preventDefault();
+//   2. event.stopPropagation();
+//   3. Stops callback execution and returns immediately when called.
+
+$('a').click(function (e) {
+    // here your code
+    e.preventDefault(); // cancel default behavior
+});
+$('a').click();
+
+$('#myImage').attr('src', 'image.jpg').load(function() {
+	alert('Image Loaded');
+}); 
+
+
+// Horloge
+var pad = function(s) { return (s < 10 ? '0'+s : s); }
+var timer = setInterval(function() {
+	var dt = new Date();
+	$('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
+}, 1000);
+
+
+// When clicking on an image we keep track of the index (child item index)
+$('#thumbs_container').delegate('li','click tap',function(){
+	current = $(this).index();
+});
+
+// Listening mouse move only when mouse down...
+
+var mouseIsMove = function(evt) { disturb(evt.pageX, evt.pageY); };
+var mouseIsDown = function(evt) { $('body').bind('mousemove', mouseIsMove); };
+var mouseIsUp = function(evt) { $('body').unbind('mousemove', mouseIsMove); };
+$('body')
+	.bind('mousedown', mouseIsDown)
+	.bind('mouseup', mouseIsUp);
 
 }}}
 
