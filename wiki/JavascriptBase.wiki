@@ -116,28 +116,30 @@ var intkeys = ['val1', 'val2'];
 
 var obj1 = {x: 10, y: 3};
 
+var elements = 'div a p quote all tags'.split(' ');
+
 var obj2 = {'Point Kiukiu': [{to: 'Hanaiapa', distance: 19}, {to: 'Mt Feani', distance: 15}, {to: 'Taaoa', distance: 15}],
             'Taaoa': []};
 
-typeof "abc"; //"string"
-typeof String("abc"); //"string"
-typeof new String("abc"); //"object"
-typeof (new String("abc")).valueOf(); //"string"
+typeof 'abc'; // string
+typeof String('abc'); // string
+typeof new String('abc'); // object
+typeof (new String('abc')).valueOf(); // string
 
 
 // Sorting multi-Array...
 var shapes = [
-    [5, "Pentagon"],
-    [3, "Triangle"],
-    [8, "Octagon"],
-    [4, "Rectangle"]
+    [5, 'Pentagon'],
+    [3, 'Triangle'],
+    [8, 'Octagon'],
+    [4, 'Rectangle']
 ];
 shapes.sort(function(a, b) { return a[1] - b[1]; });
 
 
 var movies = [
-    {id:5, title:"Pentagon"},
-    {id:3, title:"Triangle"}
+    {id:5, title:'Pentagon'},
+    {id:3, title:'Triangle'}
 ];
 var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); };
 
