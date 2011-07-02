@@ -571,6 +571,8 @@ x = Math.random(); //donne x = 0.6489534931546957
 
 == Wait finish // Defered Done ==
 
+Live example : http://jsfiddle.net/molokoloco/2ZmjC/
+
 {{{
 
 // http://tutorialzine.com/2011/03/custom-facebook-wall-jquery-graph/
