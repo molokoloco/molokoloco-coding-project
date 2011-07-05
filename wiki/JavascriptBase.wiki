@@ -513,9 +513,7 @@ a.b(); //window
 {{{
 //// thread definition
 function Thread( name ) {
-
     for ( var i = 0; i < 5; i++ ) {
-
         Print(name+': '+i);
         yield;
     }
@@ -530,7 +528,6 @@ threads.push( new Thread('bar') );
 
 // scheduler
 while (threads.length) {
-
     var thread = threads.shift();
     try {
         thread.next();
