@@ -6,7 +6,7 @@
 <wiki:toc max_depth="3" />
 
 
-=JAVASCRIPT BASE=
+==JAVASCRIPT RELATED LINKS==
 
 Good advices here : 
 
