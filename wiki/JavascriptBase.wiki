@@ -200,6 +200,11 @@ var MODULE = (function () {
      
     return my; 
 }(MODULE || {}));
+
+
+// Multiple-value returns (JavaScript 1.7)
+function f() { return [1, 2]; }
+var [a, b] = f();
 }}}
 
 == FUNCTIONS on functions ==
