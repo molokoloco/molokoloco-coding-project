@@ -21,6 +21,7 @@ Good advices here :
   * http://www.timmywillison.com/pres/operators/
   * http://javascriptweblog.wordpress.com/2010/08/30/understanding-javascripts-this/
   * http://engineering.socialcast.com/2011/06/javascript-memory-management/
+  * http://code.google.com/p/jslibs/wiki/JavascriptTips#language_advanced_Tips_&_Tricks
 
 
 == OPERATOR && COMPARAISONS ==
@@ -504,7 +505,54 @@ a.b(); //window
 
 }}}
 
-== STRINGS==
+
+==Simulate threads==
+
+ using yield operator (JavaScript 1.7)
+
+{{{
+//// thread definition
+function Thread( name ) {
+
+    for ( var i = 0; i < 5; i++ ) {
+
+        Print(name+': '+i);
+        yield;
+    }
+}
+
+//// thread management
+var threads = [];
+
+// thread creation
+threads.push( new Thread('foo') );
+threads.push( new Thread('bar') );
+
+// scheduler
+while (threads.length) {
+
+    var thread = threads.shift();
+    try {
+        thread.next();
+        threads.push(thread);
+    } catch(ex if ex instanceof StopIteration) {}
+}
+}}}
+
+prints :
+
+foo: 0
+bar: 0
+foo: 1
+bar: 1
+foo: 2
+bar: 2
+foo: 3
+bar: 3
+foo: 4
+bar: 4
+
+== STRINGS ==
 
 {{{
 Chaine.anchor("nom_a_donner"); Transforme le texte Chaine en ancrage HTML.
