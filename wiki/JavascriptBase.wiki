@@ -748,6 +748,20 @@ Miscellaneous Event Handlers:
   * onAbort [image]     image load has been abandoned by hitting the STOP icon.
   * onError [window, image]     window or image fails to load.
 
+== Various ==
+
+{{{
+
+// No need to remove the child text node, as the garbage collector (GC memory manager) will.
+String.prototype.EntityDecode = function() {
+    var t = document.createElement('div');
+    t.innerHTML = this;
+    return t.firstChild.nodeValue;
+}
+var hello = "Hello Jos&eacute;";
+alert(hello.unescapeHtml());
+}}}
+
 == Et le meilleur pour la fin ;) ==
 
 {{{
