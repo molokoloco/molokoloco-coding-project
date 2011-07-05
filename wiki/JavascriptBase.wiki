@@ -731,6 +731,9 @@ Miscellaneous Event Handlers:
 {{{
 
 // Pour debugger X variables dans la console du navigateur...
-var db = function(x) { 'console' in window && console.log.call(console, arguments); };
+// "Ctrl + Maj + C" pour ouvrir la console
 
+var db = function() { 'console' in window && console.log.call(console, arguments); };
+
+db('Test', window);
 }}}
