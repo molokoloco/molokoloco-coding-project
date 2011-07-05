@@ -144,7 +144,7 @@ var shapes = [
 ];
 shapes.sort(function(a, b) { return a[1] - b[1]; });
 
-
+// Sorting complex object
 var movies = [
     {id:5, title:'Pentagon'},
     {id:3, title:'Triangle'}
@@ -152,6 +152,12 @@ var movies = [
 var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); };
 
 movies.sort(objSortByTitle);
+
+// Remove an item by value in an Array object
+var arr = ['a', 'b', 'c', 'd'];
+var pos = arr.indexOf( 'c' );
+pos > -1 && arr.splice( pos, 1 );
+Print( arr ); // prints: a,b,d
 }}}
 
 == FUNCTIONS ==
