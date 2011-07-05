@@ -53,7 +53,6 @@ if ( ~checkFoo ) {}
 
 alert('10 13 21 48 52'.replace(/d+/g, '*')); //replace all numbers with *
 
-
 alert('10 13 21 48 52'.replace(/d+/g, function(match) {
 	return parseInt(match) < 30 ? '*' : match;
 }));
@@ -158,6 +157,11 @@ var arr = ['a', 'b', 'c', 'd'];
 var pos = arr.indexOf( 'c' );
 pos > -1 && arr.splice( pos, 1 );
 Print( arr ); // prints: a,b,d
+
+// indexOf() and lastIndexOf() Works on Array (JavaScript 1.6)
+var obj = {};
+var arr = [ 'foo', 567, obj, 12.34 ];
+Print( arr.indexOf(obj) ); // prints: 2
 }}}
 
 == FUNCTIONS ==
