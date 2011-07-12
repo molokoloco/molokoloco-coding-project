@@ -69,6 +69,35 @@ $(window).bind('load', function()  { /* ... */ });
 
 }}}
 
+== What is jQuery ? ==
+
+  * http://jsfiddle.net/molokoloco/8t6Qk/
+
+{{{
+$('<img/>')
+    .load(function(event) {
+        $(this)
+            .css({
+                opacity: 0,
+                top: (($(window).scrollTop() || 0) - $(this).height()) + 'px',
+                position: 'absolute',
+                left: '50%',
+                margin: '0 0 0 -' + ($(this).width() / 2) + 'px' // horizontal center
+            })
+            .animate({
+                opacity: 1,
+                top: ($(window).scrollTop() || 0) + 'px'
+            }, 800)
+            .delay(3000)
+            .fadeOut(600, function() {
+                $(this).remove();
+            });
+    })
+    .error(function() {})
+    .attr('src', 'http://jsfiddle.net/img/logo.png')
+    .appendTo('body');
+}}}
+
 == Easy TIPS ==
 
 {{{
