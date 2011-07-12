@@ -133,6 +133,8 @@ typeof String('abc'); // string
 typeof new String('abc'); // object
 typeof (new String('abc')).valueOf(); // string
 
+if ('a' in {a: 1, b: 2}) // true
+
 
 // Sorting multi-Array...
 var shapes = [
