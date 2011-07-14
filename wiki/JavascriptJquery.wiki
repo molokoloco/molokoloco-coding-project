@@ -307,12 +307,16 @@ $('div').toggleClass( "a b c", true );
 
 == BINDABLES EVENTS ==
 
+  * http://api.jquery.com/category/events/
+
 {{{
 
 /*
-	bind() blur() change() click() dblclick() error() focus() hover() 
-	keydown() keypress() keyup() load() mousedown() mousemove() mouseout() mouseover() mouseup() 
-	one() ready() resize() scroll() select() submit() toggle() trigger() unbind() unload() live() die()
+	bind() trigger() unbind() delegate() undelegate() live() die() 
+	blur() focus()  change() error() load() unload()
+	keydown() keypress() keyup()
+	one() click() dblclick() mouseenter() mouseleave() hover() mousedown() mousemove() mouseout() mouseover() mouseup() 
+	ready() resize() scroll() select() submit() toggle()
 */
 
 
@@ -411,8 +415,7 @@ var mouseIsDown = function(evt) { $('body').bind('mousemove', mouseIsMove); };
 var mouseIsUp = function(evt) { $('body').unbind('mousemove', mouseIsMove); };
 $('body')
 	.bind('mousedown', mouseIsDown)
-	.bind('mouseup', mouseIsUp);
-
+	.bind('mouseup mouseleave', mouseIsUp);
 }}}
 
 == JQUERY SELECTORS (CSS3 like xPath) ==
