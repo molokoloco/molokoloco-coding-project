@@ -415,7 +415,7 @@ var mouseIsDown = function(evt) { $('body').bind('mousemove', mouseIsMove); };
 var mouseIsUp = function(evt) { $('body').unbind('mousemove', mouseIsMove); };
 $('body')
 	.bind('mousedown', mouseIsDown)
-	.bind('mouseup mouseleave', mouseIsUp);
+	.bind('mouseup click', mouseIsUp);
 }}}
 
 == JQUERY SELECTORS (CSS3 like xPath) ==
