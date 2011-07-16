@@ -1,25 +1,16 @@
 #summary One-sentence summary of this page.
 #labels Phase-Support
 
-= Introduction =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
-
+= TODO=
 
 
   * http://gitref.org/branching/#tag
 
 {{{
-
 $ git tag -a v0.9 558151a
 $ git log --oneline --decorate --graph
 
+
+$ git checkout develop
+$ git push --tags
 }}}
