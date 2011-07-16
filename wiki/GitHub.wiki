@@ -14,5 +14,12 @@ Add your content here.  Format your content with:
   * Automatic links to other wiki pages
 
 
+
+  * http://gitref.org/branching/#tag
+
+{{{
+
 $ git tag -a v0.9 558151a
 $ git log --oneline --decorate --graph
+
+}}}
