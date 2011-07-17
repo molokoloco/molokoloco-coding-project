@@ -197,7 +197,14 @@ var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
 
 var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
 
-var loadJs = function(src) { $('head').append('<' + 'script type="text/javascript" src="'+src+'"></sc'+'ript>'); }; 
+var loadJs = function(src) { $('head').append('<' + 'script type="text/javascript" src="'+src+'"></sc'+'ript>'); };
+
+
+for (var i = 0; i < Slides.totalSlides; i++ ) {  
+    $('<div id="#slide-' + i + '"></div>')  
+       .load('slides/' + i + '.html')  // INCLUDE
+       .appendTo($container);  
+}
 
 $('img').attr({
     src: '/images/hat.gif',
