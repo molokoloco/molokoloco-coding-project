@@ -320,6 +320,13 @@ table {
       table-layout: fixed; /* non breaking long link */
 }
 
+
+.container {
+   min-height: 10em;
+   display: table-cell;
+   vertical-align: middle;
+}
+
 /* --------------------------------------------------------------- */
 
 /***** Selector Hacks ******/
