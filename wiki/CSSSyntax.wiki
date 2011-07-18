@@ -61,7 +61,11 @@ background: url(home_h1.gif) no-repeat;
 text-indent: -99999px;  
 }
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 /* <input type="button" class="new-aqua" value="Login"/> */
 
@@ -99,7 +103,11 @@ div.xbutton {
 	width:300px;
 }
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 @font-face {
 	font-family: 'FanwoodRegular';
@@ -111,7 +119,6 @@ div.xbutton {
 	font-weight: normal;
 	font-style: normal;
 }
-
 
 opacity : 0.7;
 -moz-opacity : 0.7; 
@@ -127,12 +134,14 @@ padding-bottom: expression(this.scrollWidth > this.offsetWidth ? 15 : 0);
   border-image: url(border-image.jpg) 45 20 45 30 repeat;
 }
 
-
 image-rendering: optimizeQuality; /* Gecko */
 -ms-interpolation-mode: bicubic; /* IE */
 
+}}}
 
-/* --------------------------------------------------------------- */
+--
+
+{{{
 
 h1 { position: relative; }
 h1:hover { color: transparent; }
@@ -142,13 +151,15 @@ h1:hover:after {
 	color: black;
 	position: absolute;
 	left: 0;
-
 }
 
 <h1 data-hover-response="I Said Don't Touch Me!">Don't Touch Me</h1>
 
+}}}
 
-/* --------------------------------------------------------------- */
+--
+
+{{{
 /* Sizing with rem
 // http://snook.ca/archives/html_and_css/font-size-with-rem
 
@@ -161,7 +172,11 @@ body { font-size: 1.4rem; } /* =14px */
 h1   { font-size: 2.4rem; } /* =24px */
 
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 /* 3D TEXT */
 
 h1 {
@@ -179,7 +194,11 @@ h1 {
                0 20px 20px rgba(0,0,0,.15);
 }
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 html {
         background: url(images/bg.jpg) no-repeat center center fixed;
@@ -237,7 +256,11 @@ img.bg {
         min-height:50%;
 }
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 -moz-box-shadow: inset 1px 1px 10px #888;
 -moz-box-shadow: 0px 20px 10px -10px #888;
@@ -254,7 +277,11 @@ border-radius:4px;
 
 text-shadow:#1395B8 1px 1px 3px; 
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 transition: all 1s ease-in-out;
 	-webkit-transition: all 1s ease-in-out;
@@ -274,7 +301,11 @@ text-shadow: 3px 3px 1px rgba(0,0,0,0.3);
 -webkit-text-stroke: 2px #006600;
 -webkit-transform: rotateZ(15deg);
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 #infinity {
     position: relative;
@@ -312,7 +343,11 @@ text-shadow: 3px 3px 1px rgba(0,0,0,0.3);
             transform:rotate(45deg);
 }	
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 #box {
 	/* Just a box */
@@ -364,9 +399,11 @@ table {
    vertical-align: middle;
 }
 
-/* --------------------------------------------------------------- */
+}}}
 
-/***** Selector Hacks ******/
+==Selector Hacks==
+
+{{{
 
 /* IE 6 and below */
 * html #uno  { color: red }
@@ -405,7 +442,11 @@ body:first-of-type #ocho {  color: red }
 /* ie7 and below */
 #doce { *color: blue } /* or #color:blue */
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 IE BG PNG TRANSPARENCY
 /* HACK png transparent sur IE en background */
@@ -415,7 +456,11 @@ background-image:url(no-image);
 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='images/common/h_contenu2.png');
 background-repeat:no-repeat;
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 a.warning {
       cursor:url(.././themes/original/img/error.ico), default;
 }
@@ -461,7 +506,11 @@ span.tool:hover span.tip {
   padding-left: 2px;            /* eye candy */
   content: url(/img/bubble.gif);
 }
-/* --------------------------------------------------------------- */
+}}}
+
+==No Print==
+
+{{{
 
 .noprint {
     display : none;
@@ -514,7 +563,11 @@ fieldset {
 input, select, textarea {
     font-size: 100%;
 }
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 .clipInHalf {
     position: absolute;
@@ -530,7 +583,11 @@ table { background-color:#FFF; border: 1px solid #3366FF; border-collapse: separ
 th { background-color:#3366FF; color:#FFCC66; }
 tr:hover>td { background-color:#B9CFFF; }
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 position:relative is very important. The children of this <div> are absolutely positioned.
 Absolutely positioned elements are positioned relative to the nearest positioned ancestor.
@@ -552,7 +609,11 @@ About.com
 table-layout: (auto | fixed)
 According to Quackit.com The CSS table-layout property allows you to fix the table layout so that the table renders much faster
 
-/* --------------------------------------------------------------- */
+}}}
+
+--
+
+{{{
 
 .pullquote {
     width: 20%;
@@ -574,9 +635,13 @@ According to Quackit.com The CSS table-layout property allows you to fix the tab
 <blockquote class="pullquote">The most impressive thing about read em!</blockquote>
        
        
-/* --------------------------------------------------------------- */
+}}}
 
-/* The CSS that's required to position the footer */
+==The CSS that's required to position the footer==
+
+{{{
+
+/*  */
 
 body {
     margin:0px;
@@ -622,8 +687,12 @@ body {
     <div id="nonFooter"> Page </div>
 </div>
 <div id="footer"> TOTO </div>
+}}}
 
-/* ---------------------------- Shadow Image ---------------------------- */
+==Shadow Image==
+
+{{{
+
 
 .img-shadow {
   clear: both;
@@ -676,8 +745,12 @@ body {
 <div class="p-shadow"><div><p style="font-size: 1.3em;">The rain in Spain falls mainly on the plain.</p></div></div>
 
 <br style="clear:both;" />
+}}}
 
-/* ---------------------------- SHADOW ---------------------------- */
+==SHADOW==
+
+{{{
+
 
 .dropshadow2{
     float:left;
@@ -715,7 +788,11 @@ body {
     </div>
 </div>
 
-/* ---------------------------- Round BOX ---------------------------- */
+}}}
+
+==Round BOX==
+
+{{{
 
 #xsnazzy h1, #xsnazzy h2, #xsnazzy p {margin:0 10px; letter-spacing:1px;}
 #xsnazzy h1 {font-size:2.5em; color:#fff;}
@@ -756,7 +833,7 @@ body {
 
 }}}
 
-= STARTING ./STYLES.CSS =
+== STARTING ./STYLES.CSS ==
 
 {{{
 
@@ -773,7 +850,11 @@ body {
 	text-align:center;
 }
 
-/* ---------------------------- STRUCTURE ---------------------------- */
+}}}
+
+==STRUCTURE==
+
+{{{
 #page {
 	border:1px solid #000;
 	margin:20px auto;
@@ -825,7 +906,11 @@ body {
 	width:962px;
 }
 
-/* ---------------------------- POLICES ---------------------------- */
+}}}
+
+--POLICES
+
+{{{
 
 h1, h2, h3, h4 {
 	color:#CCC;
@@ -885,7 +970,11 @@ a:hover {
 }
 
 
-/* ---------------------------- DEFAULT FOR SOME TAGS ---------------------------- */
+}}}
+
+==DEFAULT FOR SOME TAGS==
+
+{{{
 a img {
 	border:none;
 }
@@ -908,7 +997,11 @@ img.miniature_liste {
 	float:left;
 }
 
-/* ---------------------------- LISTES ---------------------------- */
+}}}
+
+==LISTES==
+
+{{{
 
 ul, blockquote {
 	margin:Opx;
@@ -942,7 +1035,12 @@ ul.site li a {
 	width:80px;
 }
 
-/* ---------------------------- UTILITIES 1 ---------------------------- */
+}}}
+
+== UTILITIES 1 ==
+
+{{{
+
 
 .centered {
 	display:block;
@@ -995,7 +1093,12 @@ ul.site li a {
 .pad10 {
 	padding:10px;
 }
-/* ---------------------------- FORMULAIRE ---------------------------- */
+}}}
+
+== FORMULAIRE ==
+
+{{{
+
 
 form {
 	display:inline;
