@@ -43,6 +43,7 @@ var foo = "baz",
 if ( checkFoo !== -1 ) {}
 // We can do
 if ( ~checkFoo ) {}
+
 }}}
 
 == REGEX ==
@@ -135,6 +136,9 @@ typeof (new String('abc')).valueOf(); // string
 
 if ('a' in {a: 1, b: 2}) // true
 
+// Objects in JavaScript don’t have an order. They’re dictionaries;
+// If the order is important, use an array, not an object
+// But for some purpose... :
 
 // Sorting multi-Array...
 var shapes = [
