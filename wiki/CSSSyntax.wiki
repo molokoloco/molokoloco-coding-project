@@ -274,6 +274,43 @@ text-shadow: 3px 3px 1px rgba(0,0,0,0.3);
 -webkit-text-stroke: 2px #006600;
 -webkit-transform: rotateZ(15deg);
 
+/* --------------------------------------------------------------- */
+
+#infinity {
+    position: relative;
+    width: 212px;
+    height: 100px;
+}
+
+#infinity:before,
+#infinity:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;    
+    border: 20px solid red;
+    -moz-border-radius: 50px 50px 0 50px;
+         border-radius: 50px 50px 0 50px;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+
+#infinity:after {
+    left: auto;
+    right: 0;
+    -moz-border-radius: 50px 50px 50px 0;
+         border-radius: 50px 50px 50px 0;
+    -webkit-transform:rotate(45deg);
+       -moz-transform:rotate(45deg);
+        -ms-transform:rotate(45deg);
+         -o-transform:rotate(45deg);
+            transform:rotate(45deg);
+}	
 
 /* --------------------------------------------------------------- */
 
