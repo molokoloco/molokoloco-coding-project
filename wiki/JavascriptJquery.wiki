@@ -14,13 +14,13 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
 == SITES JQUERY ==
 
   * http://api.jquery.com
-  * http://docs.jquery.com
+  * http://docs.jquery.com || http://docs.jquery.com/Alternative_Resources
   * http://jqueryui.com
   * http://plugins.jquery.com
 
 Les codeurs derrière jQuery...
 
-  * http://ejohn.org (Créateur de jQuery)
+  * http://ejohn.org (Father of jQuery)
   * http://addyosmani.com
   * http://brandonaaron.net
   * http://benalman.com
