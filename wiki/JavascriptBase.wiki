@@ -768,7 +768,7 @@ var hello = "Hello Jos&eacute;";
 alert(hello.unescapeHtml());
 }}}
 
-== Et le meilleur pour la fin ;) ==
+== DEBUG and CONSOLE ==
 
 {{{
 
@@ -779,7 +779,7 @@ var db = function() { 'console' in window && console.log.call(console, arguments
 
 db('Test', window);
 
-// Well ok, somebody got better ^^ // http://html5boilerplate.com/
+// Well ok, somebody got better ? ^^ // http://html5boilerplate.com/
 window.log = function(){
   log.history = log.history || [];  
   log.history.push(arguments);
@@ -788,4 +788,18 @@ window.log = function(){
 };
 (function(b){function c(){}for(var d="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","),a;a=d.pop();)b[a]=b[a]||c})(window.console=window.console||{});
 
+}}}
+
+{{{
+console.log('Niveau 1');
+console.group('Voilà un groupe');
+console.log('Niveau 2');
+console.log('Niveau 2 toujours');
+console.group('Voilà un sous-groupe !');
+console.log('Niveau 3');
+console.info('Niveau 3');
+console.warn('Niveau 3');
+console.groupEnd();
+console.groupEnd();
+console.log("De retour au niveau 1 ");
 }}}
