@@ -1254,7 +1254,7 @@ $(function() {
 
 }}}
 
-=== Widgets ===
+== Widgets Extends ==
 
 Source : http://www.novius-labs.com/developper-plugin-jquery-fonctionnalites-avancees,24.html
 
