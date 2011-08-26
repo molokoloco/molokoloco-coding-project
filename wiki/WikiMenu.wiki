@@ -38,3 +38,5 @@
 	<li>~~[GoogleWave Google Wave tooltips]~~</li>
 	<li>~~[TwittEr Twitter tooltips]~~</li>
 </ul>
+
++ [http://www.b2bweb.fr/molokoloco/best-must-know-ressources-for-building-the-new-web-%E2%98%85/ Best “must know” open sources to build the new Web]
