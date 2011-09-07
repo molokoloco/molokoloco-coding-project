@@ -29,8 +29,13 @@ var GET = function() {
 };
 
 // Check URL...
-
 return /^https?:\/\/[A-Za-z0-9\-_%&\?\/.=]{5,}$/.test(url);
+
+// http://stackoverflow.com/questions/2662485/simple-php-regex-question
+var isUrl = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#$*'()\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+var youtubeUrl = /(https?\:\/\/(www\.)?youtu(\.)?be(\.com)?\/.*(\?v=|\/v\/)([a-zA-Z0-9_\-]+).*)/g;
+var dailymotionUrl = /https?:\/\/(?:www\.)?dailymotion.com\/video\/([\w-_]+)/g;
+var vimeoUrl = /http:\/\/(www\.)?vimeo\.com\/(clip\:)?(\d+)/g;
 
 ________________________________________________________________________
 
