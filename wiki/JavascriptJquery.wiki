@@ -732,6 +732,7 @@ $.when( getData(), showDiv() )
 
   * http://www.robertpenner.com/easing/easing_demo.html
   * http://www.learningjquery.com/2009/02/quick-tip-add-easing-to-your-animations
+  * http://coding.smashingmagazine.com/2011/10/04/quick-look-math-animations-javascript/ 
 
 {{{
 
