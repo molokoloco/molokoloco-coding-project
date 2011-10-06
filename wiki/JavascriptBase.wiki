@@ -489,6 +489,32 @@ obs.subscribe(fn);
 obs.unsubscribe(fn);
 }}}
 
+== FACADE ==
+
+  * http://www.addyosmani.com/futureproofjs/
+
+{{{
+var module = (function() {
+   var _private = {
+		i:5,
+		get: function() {
+		   console.log('current : '+this.i);
+		},
+		set: function(val) {
+		   this;i = val;
+		}
+   };
+   return {
+	   facade : function(args) {
+		   _private.set(args.val);
+		   _private.get()
+	   }
+   }
+}());
+
+module.facade({run:true, val:10});
+}}}
+
 == THIS is what ? ==
 
 {{{
