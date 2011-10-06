@@ -501,7 +501,7 @@ var module = (function() {
 		   console.log('current : '+this.i);
 		},
 		set: function(val) {
-		   this;i = val;
+		   this.i = val;
 		}
    };
    return {
