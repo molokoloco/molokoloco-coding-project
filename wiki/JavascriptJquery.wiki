@@ -250,9 +250,9 @@ if (!$(event.target).is('div') && !$(event.target).parents().is('div')) { // out
     $('div').hide();
 }
 
-setTimeout('initCar();', 500);
-
-$('div').attr('id', function(arr) { return 'div-id' + arr; }).each(function() { $('span', this).html('(ID = <b>' + this.id + '</b>)'); });
+$('div')
+    .attr('id', function(arr) { return 'div-id' + arr; })
+    .each(function() { $('span', this).html('(ID = <b>' + this.id + '</b>)'); });
 
 $('p').eq(0).css('color', 'red') // First
 
@@ -747,6 +747,7 @@ $.when( getData(), showDiv() )
   * http://www.learningjquery.com/2009/02/quick-tip-add-easing-to-your-animations
   * http://coding.smashingmagazine.com/2011/10/04/quick-look-math-animations-javascript/ 
 
+
 {{{
 
 $('.block').animate({width: '70%',fontSize: '3em',borderWidth: '10px'}, 1500);
@@ -771,6 +772,19 @@ $('#myDiv').animate(
         }
     }
 );
+
+// HELPERS native SETTIMEOUT (setTimeout)
+
+setTimeout("alert('bouh');"); // buys you some time until the DOM elements are loaded
+
+setTimeout("alert('bouh');", 60 * 1000); // in 60 seconds
+
+var arg = 'bouh ! ';
+    myTimeout = setTimeout(function(arg) {
+        alert(arg);
+    }, 10*1000, arg);
+if (Math.rand() > 0.5) clearTimeout(myTimeout);
+
 
 // Optionnal parameter... milliseconds setInterval
 jQuery.fx.interval = 100;
