@@ -490,8 +490,7 @@ http://www.jquery.info/spip.php?article82
 
 {{{
 
-// Vérifie si les liens sont externes
-// (Ne fonctionne que pour les éléments qui ont un href) :
+// Vérifie si les liens sont externes (Ne fonctionne que pour les éléments qui ont un href) :
 $.extend($.expr[':'], {
        external: function(a,i,m) {
         if (!a.href) return false;
@@ -509,11 +508,19 @@ $.extend($.expr[':'], {
         ot = $(a).offset().top,
         wh = (window.innerHeight && window.innerHeight < $(window).height()) ? window.innerHeight : $(window).height();
         return ot > st && ($(a).height() + ot) < (st + wh);
+    },
+    block: function(elem) {
+        return $(elem).css("display") === "block";
+    },
+    hasData : function(elem) {
+        return !$.isEmptyObject( $(elem).data() );
     }
 });
 
 // Utilisation :
 $('div:inView'); // Sélectionne tous les éléments div qui sont dans la zone de vue actuelle
+
+$("p:hasData").text("has data"); // grabs paras that have data attached
 
 }}}
 
