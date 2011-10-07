@@ -29,6 +29,7 @@ Les codeurs derrière jQuery...
 
 Others :
 
+  * http://www.b2bweb.fr/molokoloco/best-must-know-ressources-for-building-the-new-web-%E2%98%85/ (My personnel webdev bookmarks)
   * http://net.tutsplus.com/tutorials/javascript-ajax/14-helpful-jquery-tricks-notes-and-best-practices/
 
 == jQuery 1.6 Cheat Sheet ==
