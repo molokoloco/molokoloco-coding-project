@@ -206,17 +206,23 @@ var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
 
 var loadJs = function(src) { $('head').append('<' + 'script type="text/javascript" src="'+src+'"></sc'+'ript>'); };
 
+$('<div id="#slide-' + i + '"></div>')  
+    .load('slides/' + i + '.html')  // INCLUDE
+    .appendTo($container);
 
-for (var i = 0; i < Slides.totalSlides; i++ ) {  
-    $('<div id="#slide-' + i + '"></div>')  
-       .load('slides/' + i + '.html')  // INCLUDE
-       .appendTo($container);  
-}
-
-$('img').attr({
-    src: '/images/hat.gif',
+// Update tag
+$('img.hate').attr({
+    src: '/images/love.gif',
     alt: 'jQuery Logo'
 });
+
+// Create tag (link)
+var $a = $('<a/>', {  
+    id : 'someId',  
+    className : 'someClass',  
+    href : 'somePath.html'  
+}).appentTo('body');
+
 $('div').text($('img').attr('alt'));
 
 $('div.example').css('width', function(index) {
