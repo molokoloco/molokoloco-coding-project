@@ -27,6 +27,9 @@ Les codeurs derrière jQuery...
   * ...
   * https://github.com/jquery/jquery
 
+Others :
+
+  * http://net.tutsplus.com/tutorials/javascript-ajax/14-helpful-jquery-tricks-notes-and-best-practices/
 
 == jQuery 1.6 Cheat Sheet ==
 
@@ -140,6 +143,7 @@ $('#myTable tr:last').after('<tr>...</tr>');
 var elements = $('#someid input[type=sometype][value=somevalue]').get();
 $('a').slice(0,10);
 $.each($('form#formEdit').serializeArray(), function(i, o){ siteObj[o.name] = o.value; });
+var id = $('#someAnchor').get(0).id; // The get method is particularly helpful, as it can translate your jQuery collection into an array
 $(xml).find('article').each(function(i) {
 	alert($(this).find('titre').text()); 
 });
