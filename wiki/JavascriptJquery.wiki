@@ -490,23 +490,15 @@ http://www.jquery.info/spip.php?article82
 
 {{{
 
-// Vérifie si les liens sont externes (Ne fonctionne que pour les éléments qui ont un href) :
 $.extend($.expr[':'], {
-       external: function(a,i,m) {
+    external: function(a,i,m) { // Vérifie si les liens sont externes (Ne fonctionne que pour les éléments qui ont un href)
         if (!a.href) return false;
         return a.hostname && a.hostname !== window.location.hostname;
-    }
-});
-
-// Utilisation :
-$('a:external'); // Sélectionne toutes les ancres qui pointent vers une page ou un site externe
-
-// Vérifier si l'élément est actuellement dans la zone de vue (viewport) :
-$.extend($.expr[':'], {
-    inView: function(a) {
+    },
+    inView: function(a) { // Vérifier si l'élément est actuellement dans la zone de vue (viewport)
         var st = (document.documentElement.scrollTop || document.body.scrollTop),
-        ot = $(a).offset().top,
-        wh = (window.innerHeight && window.innerHeight < $(window).height()) ? window.innerHeight : $(window).height();
+            ot = $(a).offset().top,
+            wh = (window.innerHeight && window.innerHeight < $(window).height()) ? window.innerHeight : $(window).height();
         return ot > st && ($(a).height() + ot) < (st + wh);
     },
     block: function(elem) {
@@ -518,8 +510,9 @@ $.extend($.expr[':'], {
 });
 
 // Utilisation :
-$('div:inView'); // Sélectionne tous les éléments div qui sont dans la zone de vue actuelle
 
+$('a:external'); // Sélectionne toutes les ancres qui pointent vers une page ou un site externe
+$('div:inView'); // Sélectionne tous les éléments div qui sont dans la zone de vue actuelle
 $("p:hasData").text("has data"); // grabs paras that have data attached
 
 }}}
