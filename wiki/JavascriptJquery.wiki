@@ -809,6 +809,7 @@ $('#clickme').click(function() {
 $('div#mydiv').slideUp(300).delay(800).fadeIn(400);
 
 
+
 /* Emulating 3D with CSS...
 #
 # .photoflat {  
@@ -866,6 +867,27 @@ $page6Now.stop().animate({width: '20%'}, 200);
 
 overflow: visible !important;
 
+}}}
+
+Request animation
+
+{{{
+window.requestAnimFrame = (function(){
+      return  window.requestAnimationFrame       || 
+              window.webkitRequestAnimationFrame || 
+              window.mozRequestAnimationFrame    || 
+              window.oRequestAnimationFrame      || 
+              window.msRequestAnimationFrame     || 
+              function(/* function */ callback, /* DOMElement */ element){
+                window.setTimeout(callback, 1000 / 60);
+              };
+    })();
+
+function render() {
+      // do something
+      window.requestAnimFrame(render);
+}
+render();
 }}}
 
 == Templating ==
