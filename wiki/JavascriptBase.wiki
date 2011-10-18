@@ -68,6 +68,21 @@ findWord('car', 'Carl went to buy a car but had forgotten his credit card.');
 
 }}}
 
+== STRING ==
+
+{{{
+
+var str = 'hello world';
+var pointer = str.indexOf('wor'); // pointer is equal to 6
+var pointer = str.search('wor');
+var pointer = str.search(/wor/); // regexp
+
+var newstr = str.slice(0,-1); // Remove the Last Character of a String
+var newstr = str.substring(1, str.length); // Remove the first Character
+var newstr = str.substr(0,1).toUpperCase()+str.substr(1); // UC first
+
+}}}
+
 == ITERATIONS==
 
 {{{
