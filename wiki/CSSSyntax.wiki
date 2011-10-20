@@ -330,6 +330,24 @@ text-shadow: 3px 3px 1px rgba(0,0,0,0.3);
 -webkit-text-stroke: 2px #006600;
 -webkit-transform: rotateZ(15deg);
 
+
+div {
+  animation-name: 'diagonal-slide';
+  animation-duration: 5s;
+  animation-iteration-count: 10;
+}
+
+@keyframes 'diagonal-slide' {
+  from {
+    left: 0;
+    top: 0;
+  }
+  to {
+    left: 100px;
+    top: 100px;
+  }
+}
+
 }}}
 
 --
