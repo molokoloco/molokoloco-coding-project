@@ -773,27 +773,14 @@ $('#myDiv').animate(
     }
 );
 
-}}}
-
-{{{
-// HELPERS native SETTIMEOUT (setTimeout)
-
-setTimeout("alert('bouh');"); // buys you some time until the DOM elements are loaded
-
-setTimeout(maFonction, 60 * 1000); // in 60 seconds
-
-var arg = 'bouh !',
-    myTimeout = setTimeout(function(_arg) {
-        alert(_arg);
-    }, 10*1000, arg); // Pass callback argument at the end !
-if (Math.rand() > 0.5) clearTimeout(myTimeout); // Don't bouh ?
-
-}}}
-
-{{{
-
 // Optionnal parameter... milliseconds setInterval
 jQuery.fx.interval = 100;
+
+// hook into jQuery's animation mechanism by adding a property to the jQuery.fx.step object:
+
+$.fx.step["someCSSProp"] = function(fx){
+     $.cssHooks["someCSSProp"].set( fx.elem, fx.now + fx.unit );
+};
 
 $('#clickme').click(function() {
   $('#book').animate({
@@ -811,14 +798,22 @@ $('#clickme').click(function() {
   });
 });
 
-
+// Short !
 $('div#mydiv').slideUp(300).delay(800).fadeIn(400);
+}}}
 
-// hook into jQuery's animation mechanism by adding a property to the jQuery.fx.step object:
+{{{
+// HELPERS native SETTIMEOUT (setTimeout)
 
-$.fx.step["someCSSProp"] = function(fx){
-  $.cssHooks["someCSSProp"].set( fx.elem, fx.now + fx.unit );
-};
+setTimeout("alert('bouh');"); // buys you some time until the DOM elements are loaded
+
+setTimeout(maFonction, 60 * 1000); // in 60 seconds
+
+var arg = 'bouh !',
+    myTimeout = setTimeout(function(_arg) {
+        alert(_arg);
+    }, 10*1000, arg); // Pass callback argument at the end !
+if (Math.rand() > 0.5) clearTimeout(myTimeout); // Don't bouh ?
 
 }}}
 
