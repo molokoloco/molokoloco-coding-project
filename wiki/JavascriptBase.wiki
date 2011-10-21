@@ -173,6 +173,9 @@ var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.
 
 movies.sort(objSortByTitle);
 
+// Randomize array/obj
+card_values.sort(function() { return Math.round(Math.random()) - 0.5; });
+
 // Remove an item by value in an Array object
 var arr = ['a', 'b', 'c', 'd'];
 var pos = arr.indexOf( 'c' );
