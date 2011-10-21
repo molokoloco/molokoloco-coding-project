@@ -773,6 +773,9 @@ $('#myDiv').animate(
     }
 );
 
+}}}
+
+{{{
 // HELPERS native SETTIMEOUT (setTimeout)
 
 setTimeout("alert('bouh');"); // buys you some time until the DOM elements are loaded
@@ -785,6 +788,9 @@ var arg = 'bouh ! ';
     }, 10*1000, arg);
 if (Math.rand() > 0.5) clearTimeout(myTimeout);
 
+}}}
+
+{{{
 
 // Optionnal parameter... milliseconds setInterval
 jQuery.fx.interval = 100;
@@ -808,8 +814,15 @@ $('#clickme').click(function() {
 
 $('div#mydiv').slideUp(300).delay(800).fadeIn(400);
 
+// hook into jQuery's animation mechanism by adding a property to the jQuery.fx.step object:
 
+$.fx.step["someCSSProp"] = function(fx){
+  $.cssHooks["someCSSProp"].set( fx.elem, fx.now + fx.unit );
+};
 
+}}}
+
+{{{
 /* Emulating 3D with CSS...
 #
 # .photoflat {  
