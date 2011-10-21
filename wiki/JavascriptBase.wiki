@@ -190,6 +190,11 @@ var b = [4,5,6]
 var insertIndex = 3;
 a.splice.apply(a, Array.concat(insertIndex, 0, b));
 Print(a); // prints: 1,2,3,4,5,6,7,8,9
+
+// Cloning ARRAY
+var a = [[1], [2], [3]];
+var b = a.slice(0);
+var c = $.extend(true, [], a);
 }}}
 
 == FUNCTIONS ==
