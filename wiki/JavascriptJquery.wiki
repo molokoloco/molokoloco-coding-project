@@ -750,13 +750,17 @@ $.when( getData(), showDiv() )
 
 {{{
 
-$('.block').animate({width: '70%',fontSize: '3em',borderWidth: '10px'}, 1500);
+// Short !
+$('.block').animate({width:'70%', fontSize:'3em', borderWidth:'10px'}, 1500);
+$('div#mydiv').slideUp(300).delay(800).fadeIn(400);
 
 // Full function...
-$('#myDiv').animate(
-    { opacity: 0, width: 'toggle', height: '150' }, // what we are animating
-    {
-        duration: 'fast', // how fast we are animating
+$('#myDiv').animate({ // what we are animating
+        opacity:0,
+        width:'toggle', 
+        height:150
+    }, {
+        duration: 'fast', // how fast we are animating or in seconds
         easing: 'swing', // the type of easing
         specialEasing: {
             width: 'linear',
@@ -777,29 +781,16 @@ $('#myDiv').animate(
 jQuery.fx.interval = 100;
 
 // hook into jQuery's animation mechanism by adding a property to the jQuery.fx.step object:
-
 $.fx.step["someCSSProp"] = function(fx){
      $.cssHooks["someCSSProp"].set( fx.elem, fx.now + fx.unit );
 };
 
-$('#clickme').click(function() {
-  $('#book').animate({
-    width: 'toggle',
-    height: 'toggle'
-  }, {
-    duration: 5000,
-    specialEasing: {
-      width: 'linear',
-      height: 'easeOutBounce'
-    },
-    complete: function() {
-      $(this).after('<div>Animation complete.</div>');
-    }
-  });
-});
+// Be carefull when use animate...
+$('.page').stop().animate({width: '20%'}, 200);
+// jQuery automaticcaly put overflow:hidden no element..
+// to override this... put in CSS style :
+.page { overflow: visible !important; }
 
-// Short !
-$('div#mydiv').slideUp(300).delay(800).fadeIn(400);
 }}}
 
 {{{
@@ -814,7 +805,6 @@ var arg = 'bouh !',
         alert(_arg);
     }, 10*1000, arg); // Pass callback argument at the end !
 if (Math.rand() > 0.5) clearTimeout(myTimeout); // Don't bouh ?
-
 }}}
 
 {{{
@@ -841,11 +831,11 @@ setInterval(
     function () { div.style['MozTransform'] = 'rotate(' + (d++ % 360) + 'deg)'; },
     100
 );
+}}}
 
-// --------------------------------------------------------------- //
- 
+{{{
 $(this).hide('puff', {}, 1000);
- 
+
 /*
 	Effects that can be used with Show/Hide/Toggle:
 		Blind - Blinds the element away or shows it by blinding it in.
@@ -865,16 +855,6 @@ $(this).hide('puff', {}, 1000);
 		Size - Resize an element to a specified width and height.
 		Transfer - Transfers the outline of an element to another.
 */
-
-
-// Be carefull when use animate...
-$page6Now.stop().animate({width: '20%'}, 200);
-
-// jQuery automaticcaly put overflow:hidden no element..
-// to override this... put in CSS :
-
-overflow: visible !important;
-
 }}}
 
 Request animation
