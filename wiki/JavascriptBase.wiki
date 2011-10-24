@@ -81,6 +81,10 @@ var newstr = str.slice(0,-1); // Remove the Last Character of a String
 var newstr = str.substring(1, str.length); // Remove the first Character
 var newstr = str.substr(0,1).toUpperCase()+str.substr(1); // UC first
 
+// String to array
+'0100'.split(''); // ['0','1','0','0'];
+'toto,tutu,tata'.split(','); // ['toto','tutu','tata'];
+
 }}}
 
 == ITERATIONS==
