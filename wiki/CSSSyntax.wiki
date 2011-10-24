@@ -263,6 +263,19 @@ img.bg {
 
 }}}
 
+{{{
+body {
+  background-image: url("image.png");
+  background-position: top left;
+  background-size: 95% 95%;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-origin: padding-box;
+  background-clip: content-box;
+  background-color: #333};
+}
+}}}
+
   * http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/
 
 {{{
