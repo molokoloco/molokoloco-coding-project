@@ -276,3 +276,192 @@ $.fn.enableTextSelect = function () {
 };
 
 }}}
+
+= Others =
+
+{{{
+$.fn.extend({
+
+	selectRange: function(start, end) { // $('#myInput').selectRange(searchVal.indexOf('{'), (searchVal.indexOf('}')+1))
+		var e = document.getElementById($(this).attr('id')); // I don't know why... but $(this) don't want to work today :-/
+		if (!e) return;
+		else if (e.setSelectionRange) { e.focus(); e.setSelectionRange(start, end); } /* WebKit */ 
+		else if (e.createTextRange) { var range = e.createTextRange(); range.collapse(true); range.moveEnd('character', end); range.moveStart('character', start); range.select(); } /* IE */
+		else if (e.selectionStart) { e.selectionStart = start; e.selectionEnd = end; }
+	},
+	
+	center: function (parent) { // I have added the (expanded) source here : http://plugins.jquery.com/project/autocenter
+		return this.each(function() {		  
+			var top = ( (parent ? $(this).closest(parent).height() : $(window).height()) - $(this).outerHeight()) / 2;
+			var left = ( (parent ? $(this).closest(parent).width() : $(window).width()) - $(this).outerWidth()) / 2;
+			$(this).css({position:'absolute', margin:0, top: (top > 0 ? top : 0)+'px', left: (left > 0 ? left : 0)+'px'});
+		 });
+	},
+
+	styleSwitch: function (stylePath) { // I have added the (expanded) source here : http://plugins.jquery.com/project/AddOrSwitchStylesheet
+		var exist = false, disabled = [];
+		$('link[@rel*=style][id]').each(function () {
+			if (stylePath == $(this).attr('href')) { $(this).removeAttr('disabled'); exist = true; }
+			else disabled.push(this);
+		});
+		if (exist === false) $('head').append('<link rel="stylesheet" type="text/css" href="'+stylePath+'" id="theme'+Math.random()+'"/>');
+		setTimeout(function () { $(disabled).each(function () { $(this).attr('disabled', 'disabled'); }); }, 900);
+		if ($.cookie) $.cookie('css', stylePath, {expires: 365, path: '/'});
+	},
+
+	styleInit: function () {
+		if ($.cookie && $.cookie('css')) {
+			var isSet = false;
+			$('link[rel*=style][id]').each(function () { if ($.cookie('css') == $(this).attr('href')) isSet = true; });
+			if (isSet === false) $.fn.styleSwitch($.cookie('css'));
+		}
+		return $(this).click(function (event) {
+			event.preventDefault();
+			$.fn.styleSwitch($(this).attr('rel'));
+			$(this).blur();
+		});
+	},
+
+	myToggle: function() {
+		return this.each(function(i){
+			var src = $(this).attr('src');
+			if (/(_on)/.test(src)) $(this).attr({src: src.split('_on.png')[0]+'_off.png'}).toggleClass('selected', true);
+			else $(this).attr({src: src.split('_off.png')[0]+'_on.png'}).toggleClass('selected', false);
+			//console.log($(this).data('desc'));
+		});
+	},
+
+	shuffle: function() {
+		var allElems = this.get(),
+			getRandom = function(max) {
+				return Math.floor(Math.random() * max);
+			},
+			shuffled = $.map(allElems, function(){
+				var random = getRandom(allElems.length),
+					randEl = $(allElems[random]).clone(true)[0];
+				allElems.splice(random, 1);
+				return randEl;
+		   });
+		this.each(function(i){
+			$(this).replaceWith($(shuffled[i]));
+		});
+		return $(shuffled);
+	},
+
+	smartresize: function(fn) {
+		return fn ? this.bind('smartresize', fn ) : this.trigger('smartresize', ['execAsap']);
+	},
+// Cross browsers CSS rotate
+        rotate: function(val) { // $('div').rotate('90deg');
+            return this.each(function() {
+                var rotate = 'rotate('+val+')';
+                return $(this).css({'-moz-transform':rotate, '-webkit-transform':rotate, '-ms-transform':rotate, '-o-transform':rotate, transform:rotate});
+            });
+        },
+        
+        // Distribute elements clockwise inside a box
+        circalise: function(options) { // $('div').circalise({targets:'div.unit'});
+            options = $.extend({
+                targets          :'> *', // childs elements to distribute inside this box
+                rotateTargets    :false,
+                startAngle       :270, // 270deg, start at top center (like a clock)
+                xRadius          :null, // default radius to the radius of the box, minus target width
+                yRadius          :null
+            }, options || {});
+            
+            return this.each(function() {  
+                var $this = $(this),
+                    thisW = parseInt($this.innerWidth(), 10),
+                    thisH = parseInt($this.innerHeight(), 10),
+                    $targets = $this.find(options.targets),
+                    increase = (Math.PI * 2) / $targets.length, // Rad cheeseCake  
+                    angle = Math.PI * (options.startAngle / 180); // convert from DEG to RAD
+                $targets.each(function() {
+                    var $target = $(this),
+                        xCenter = (thisW - parseInt($target.outerWidth(), 10)) / 2,
+                        yCenter = (thisH - parseInt($target.outerHeight(), 10)) / 2,
+                        xRadius = (options.xRadius || options.xRadius === 0 ? options.xRadius : xCenter),
+                        yRadius = (options.yRadius || options.yRadius === 0 ? options.yRadius : yCenter),
+                        params = {
+                            left: xRadius * Math.cos(angle) + xCenter,
+                            top: yRadius * Math.sin(angle) + yCenter
+                        };
+                    $target.css(params);
+                    if (options.rotateTargets)
+                        $target.rotate((Math.atan2(params.top-yCenter, params.left-xCenter)+(Math.PI/2))+'rad'); // (Math.PI/2) == 90deg in rad : rotate to keep tangent
+                    angle += increase;
+                });
+                return $this;
+            });
+        }
+});
+
+
+
+$.getRand = function(miin, maax) {
+	return parseInt(miin + (Math.random() * (maax - miin)), 10);
+};
+
+// Convert % to (int)px
+$.getSize = function(size, ratioWidth) {
+	if (size && /\%/.test(size))
+		size = (parseInt(size, 10) / 100) * ratioWidth;
+	return parseInt(size, 10);
+};
+
+// Inspired by my old work here http://goo.gl/hL3om
+$.getBrowser = (function() { // Closure for putting result in cache
+	var userAgentStr = navigator.userAgent.toLowerCase();
+	var browsers = { // Various CSS prefix for browsers...
+		firefox     :'Moz',
+		applewebkit :'Webkit',
+		webkit      :'Webkit',
+		opera       :'O',
+		msie        :'ms', // lower
+		Konqueror   :'Khtml'
+	};
+	for (var prefix in browsers)
+		if (userAgentStr.indexOf(prefix) !== -1)
+			return browsers[prefix];
+	return false;
+})();
+
+// $.cssPrefix('Transform') return 'MozTransform' or 'msTransform' or ...
+// See http://jsfiddle.net/molokoloco/f6Z3D/
+$.cssPrefixString = {};
+$.cssPrefix = function(propertie) {
+	if ($.cssPrefixString[propertie] || $.cssPrefixString[propertie] === '') return $.cssPrefixString[propertie] + propertie;
+	var e = document.createElement('div');
+	var prefixes = ['', 'Moz', 'Webkit', 'O', 'ms', 'Khtml']; // Various browsers...
+	for (var i in prefixes) {
+		if (typeof e.style[prefixes[i] + propertie] !== 'undefined') {
+			$.cssPrefixString[propertie] = prefixes[i];
+			return prefixes[i] + propertie;
+		}
+	}
+	return false;
+};
+
+// Fix and apply styles on element with correct browsers prefix
+// $(e).crossCss({borderRadius:'10px'}) >>> $(e).css({WebkitBorderRadius:'10px'})
+$.fn.crossCss = function(css) {
+	return this.each(function() { // I've implemented only the one i need, do yours !
+		var $this = $(this);
+		if (typeof css != 'object') return $this;
+		if (css.transition)
+			css[$.cssPrefix('Transition')]      = css.transition; // ANIM
+		if (css.borderRadius || css.borderRadius === 0)
+			css[$.cssPrefix('borderRadius')]    = css.borderRadius;
+		if (css.borderImage)
+			css[$.cssPrefix('borderImage')]     = css.borderImage;
+		if (css.maskImage)
+			css[$.cssPrefix('maskImage')]       = css.maskImage;
+		if (css.transform)
+			css[$.cssPrefix('Transform')]       = css.transform;
+		if (css.boxShadow)
+			css[$.cssPrefix('boxShadow')]       = css.boxShadow;
+		return $this.css(css);
+	 });
+};
+
+}}}
