@@ -865,3 +865,42 @@ console.groupEnd();
 console.groupEnd();
 console.log("De retour au niveau 1 ");
 }}}
+
+= ES5 compatibility table=
+
+  * http://kangax.github.com/es5-compat-table/
+
+{{{
+Object.create
+Object.defineProperty
+Object.defineProperties
+Object.getPrototypeOf
+Object.keys
+Object.seal
+Object.freeze
+Object.preventExtensions
+Object.isSealed
+Object.isFrozen
+Object.isExtensible
+Object.getOwnPropertyDescriptor
+Object.getOwnPropertyNames
+Date.prototype.toISOString
+Date.now
+Array.isArray
+JSON
+Function.prototype.bind
+String.prototype.trim
+Array.prototype.indexOf
+Array.prototype.lastIndexOf
+Array.prototype.every
+Array.prototype.some
+Array.prototype.forEach
+Array.prototype.map
+Array.prototype.filter
+Array.prototype.reduce
+Array.prototype.reduceRight
+Getter in property initializer
+Setter in property initializer
+Property access on strings
+Reserved words as property names
+}}}
