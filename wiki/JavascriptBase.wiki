@@ -5,6 +5,8 @@
 
 <wiki:toc max_depth="3" />
 
+Work in progress : ECMAScript 5 compatibility table
+  * http://kangax.github.com/es5-compat-table/
 
 ==JAVASCRIPT RELATED LINKS==
 
