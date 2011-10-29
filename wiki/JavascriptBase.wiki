@@ -101,18 +101,46 @@ for (var key in obj) alert(key+' : '+obj[key]);
 // and iterating over the list by re-checking the length will be O(n^2).
 
 var paragraphs = document.getElementsByTagName('p');
-for (var i = 0; i < paragraphs.length; i++) {
+for (var i = 0, len = paragraphs.length; i < len; i++) {
   doSomething(paragraphs[i]);
 }
 
-// It is better to do this instead:
-// This works well for all collections and arrays as long as the array 
-// does not contain things that are treated as boolean false.
+// cached outside loop
+var len = myArray.length;
+for (var i = 0; i < len; i++) { alert(i+' : '+myArray[i]); }
 
-var paragraphs = document.getElementsByTagName('p');
-for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
-  doSomething(paragraph);
-}
+// cached inside loop
+for (var i = 0, len = myArray.length; i < len; i++) {}
+
+// cached outside loop using while
+var len = myArray.length;
+while (len--) {}
+
+// Functions perfs : http://jsperf.com/map-an-object-s-keys-to-an-array/5
+
+var dimensions = {};
+    for (var i = 0; i < 1000; i++) dimensions[i] = i;
+    
+    Object.prototype.properties = function() {
+        var p = [];
+        for (var k in this) p.push(k);
+        return p;
+    };
+    
+    var properties = function(obj) {
+        var p = [];
+        for (var k in obj) p.push(k);
+        return p;
+    };
+
+// Execute
+var arr1 = $.map(dimensions, function(value, index) {
+    return index;
+});
+var arr2 = dimensions.properties();
+var arr3 = properties(dimensions);
+var arr4 = Object.keys(dimensions);
+
 }}}
 
 Generator Expressions - JavaScript 1.7
