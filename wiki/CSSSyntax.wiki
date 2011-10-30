@@ -13,6 +13,7 @@ _TODO ... CLEAN NOTES & ADD CSS3 BETTER SUPPORT !!!_
   * http://css-tricks.com/examples/ShapesOfCSS/
   * http://www.impressivewebs.com/css3-click-chart/
   * Infinite pattern http://designfestival.com/the-cicada-principle-and-why-it-matters-to-web-designers/
+  * http://css-tricks.com/examples/ShapesOfCSS/
 
 
 {{{
