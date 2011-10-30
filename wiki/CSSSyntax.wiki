@@ -9,11 +9,11 @@ _TODO ... CLEAN NOTES & ADD CSS3 BETTER SUPPORT !!!_
   * http://www.smashingmagazine.com/2009/10/05/mastering-css-coding-getting-started/
   * [http://media.smashingmagazine.com/wp-content/uploads/images/css3-cheat-sheet/css3-cheat-sheet.pdf CSS 3 Cheat Sheet]
   * [http://www.box.net/shared/8qnxj922oc HTML 5 Visual Cheat Sheet]
-  * http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/
-  * http://css-tricks.com/examples/ShapesOfCSS/
+  * CSS selectors http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/
+  * Shapes Of CSS http://css-tricks.com/examples/ShapesOfCSS/
   * http://www.impressivewebs.com/css3-click-chart/
   * Infinite pattern http://designfestival.com/the-cicada-principle-and-why-it-matters-to-web-designers/
-  * http://css-tricks.com/examples/ShapesOfCSS/
+  * boxShadows http://www.viget.com/uploads/file/boxshadows/
 
 
 {{{
