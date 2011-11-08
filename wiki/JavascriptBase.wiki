@@ -22,7 +22,7 @@ Good advices here :
   * http://engineering.socialcast.com/2011/06/javascript-memory-management/
   * http://code.google.com/p/jslibs/wiki/JavascriptTips#language_advanced_Tips_&_Tricks
 
-Work in progress : ECMAScript 5 compatibility table
+*Work in progress : ECMAScript 5 compatibility table*
   * http://kangax.github.com/es5-compat-table/
 
 == OPERATOR && COMPARAISONS ==
@@ -315,7 +315,16 @@ eval.call(window, scripts[scripts.length - 1].innerHTML);
 var i, hasOwn = Object.prototype.hasOwnProperty;  
 for (i in man) if (hasOwn.call(man, i)) { // filter only this object properties
     console.log(i, ":", man[i]);  
-}  
+}
+
+Change current object (this) of a function call
+function test(arg) {
+
+  Print( this[0]+' '+this[1]+' '+arg );
+}
+
+var arr = ['foo', 'bar'];
+test.call(arr, 'toto'); // prints: foo bar toto
 }}}
 
 == OBJECTS ORIENTED PROGRAMMING ==
