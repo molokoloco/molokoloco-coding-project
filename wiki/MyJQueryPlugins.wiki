@@ -1,15 +1,15 @@
 #summary Personnal contribution to jQuery
 #labels Featured
 
-=== UPDATE ! *Sources are now on Github :* https://github.com/molokoloco/FRAMEWORK/tree/master/jquery.plugins ===
-=== UPDATE 2 ! *Sources are also on jsFiddle :* http://jsfiddle.net/user/molokoloco/ ===
-=== UPDATE 3 ! _But you can found everything here :_ http://www.b2bweb.fr/category/coding-project/ ===
+==== UPDATE ! *Sources are now on Github :* https://github.com/molokoloco/FRAMEWORK/tree/master/jquery.plugins ====
+==== UPDATE 2 ! *Sources are also on jsFiddle :* http://jsfiddle.net/user/molokoloco/ ====
+==== UPDATE 3 ! _But you can found everything here :_ http://www.b2bweb.fr/category/coding-project/ ====
 
 ----
 
 <a href="https://github.com/molokoloco/FRAMEWORK/" title="See source code on GITHUB..." target="_blank"><img src="http://www.b2bweb.fr/wall/img/github-ribbon.png" width="100" height="100" alt="Fork me on GitHub" align="right">*Au sommaire :*
 
-<wiki:toc max_depth="4" />
+<wiki:toc max_depth="3" />
 
 ----
 
