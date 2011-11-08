@@ -231,6 +231,12 @@ Print(a); // prints: 1,2,3,4,5,6,7,8,9
 var a = [[1], [2], [3]];
 var b = a.slice(0);
 var c = $.extend(true, [], a);
+
+//Remove an item by value in an Array object
+var arr = ['a', 'b', 'c', 'd'];
+var pos = arr.indexOf( 'c' );
+pos > -1 && arr.splice( pos, 1 );
+Print( arr ); // prints: a,b,d
 }}}
 
 == FUNCTIONS ==
