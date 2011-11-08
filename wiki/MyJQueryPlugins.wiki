@@ -465,3 +465,27 @@ $.fn.crossCss = function(css) {
 };
 
 }}}
+
+== LighTest TPL ==
+
+  * http://jsfiddle.net/molokoloco/w8xSx/ ;)
+  * http://stackoverflow.com/questions/170168/jquery-templating-engines/8057706#8057706
+
+{{{
+Only to be the foolish ^^
+
+    // LighTest TPL
+    $.tpl = function(tpl, val) {
+        for (var p in val)
+            tpl = tpl.replace(new RegExp('({'+p+'})', 'g'), val[p] || '');
+        return tpl;
+    };
+    // Routine...
+    var dataObj = [{id:1, title:'toto'}, {id:2, title:'tutu'}],
+        tplHtml = '<div>N°{id} - {title}</div>',
+        newHtml    = '';
+    $.each(dataObj, function(i, val) {
+         newHtml += $.tpl(tplHtml, val);
+    });
+    var $newHtml = $(newHtml).appendTo('body');
+}}}
