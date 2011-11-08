@@ -920,7 +920,7 @@ Miscellaneous Event Handlers:
 {{{
 
 // No need to remove the child text node, as the garbage collector (GC memory manager) will.
-String.prototype.EntityDecode = function() {
+String.prototype.unescapeHtml= function() {
     var t = document.createElement('div');
     t.innerHTML = this;
     return t.firstChild.nodeValue;
