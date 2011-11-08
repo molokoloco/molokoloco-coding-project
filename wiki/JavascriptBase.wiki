@@ -99,6 +99,16 @@ var newstr = str.substr(0,1).toUpperCase()+str.substr(1); // UC first
 '0100'.split(''); // ['0','1','0','0'];
 'toto,tutu,tata'.split(','); // ['toto','tutu','tata'];
 
+var str = <><![CDATA[
+This string spans multiple lines
+Doesn't need quoting of single quotes
+And the same goes for "double quotes".
+Because of the CDATA, I can also include some <span>html</span>
+Which can make use of <attributes with="double quotes"/> but at the same
+time, I can make use of the > and < signs without worrying about
+xml validity.
+]]></>;
+
 }}}
 
 == ITERATIONS==
