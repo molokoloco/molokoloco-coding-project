@@ -418,6 +418,22 @@ var counter = (function (i) {
 
 }}}
 
+==== Closures by example - JavaScript 1.5====
+
+{{{
+function CreateAdder(add) {
+   return function(value) {
+       return value+add;
+   }
+}
+
+// usage:
+var myAdder5 = CreateAdder( 5 );
+var myAdder6 = CreateAdder( 6 );
+Print( myAdder5( 2 ) ); // prints 7
+Print( myAdder6( 4 ) ); // prints 10
+}}}
+
 
 == SINGLETON PATERN ==
 
