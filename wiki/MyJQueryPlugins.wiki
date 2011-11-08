@@ -1,8 +1,8 @@
 #summary Personnal contribution to jQuery
 #labels Featured
 
-=== UPDATED ! *Sources are now on Github :* https://github.com/molokoloco/FRAMEWORK/tree/master/jquery.plugins ===
-=== UPDATED 2 ! *Sources are also on jsFiddle :* http://jsfiddle.net/user/molokoloco/ ===
+=== UPDATE ! *Sources are now on Github :* https://github.com/molokoloco/FRAMEWORK/tree/master/jquery.plugins ===
+=== UPDATE 2 ! *Sources are also on jsFiddle :* http://jsfiddle.net/user/molokoloco/ ===
 === UPDATE 3 ! _But you can found everything here :_ http://www.b2bweb.fr/category/coding-project/ ===
 
 ----
