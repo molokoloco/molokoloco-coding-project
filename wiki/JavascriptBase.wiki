@@ -446,7 +446,7 @@ var counter = (function (i) {
 
 }}}
 
-==== Closures by example - JavaScript 1.5====
+===Closures by example===
 
 {{{
 function CreateAdder(add) {
@@ -462,6 +462,22 @@ Print( myAdder5( 2 ) ); // prints 7
 Print( myAdder6( 4 ) ); // prints 10
 }}}
 
+==Constructor==
+{{{
+function toto( val ) { // parent class
+        this.print = function() {
+                Print( val );
+        }
+}
+
+titi.prototype = new toto;
+
+function titi( val ) { // child class
+        this.constructor(val);
+}
+
+(new titi(7)).print(); // prints 7
+}}}
 
 == SINGLETON PATERN ==
 
