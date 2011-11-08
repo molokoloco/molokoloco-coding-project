@@ -59,13 +59,26 @@ alert('10 13 21 48 52'.replace(/d+/g, function(match) {
 	return parseInt(match) < 30 ? '*' : match;
 }));
 
-alert(/w{3,}/.test('Hello')); //alerts 'true'
+alert(/w{3,}/.test('Hello')); // w == word : alerts 'true'
 
 function findWord(word, string) {
 	var instancesOfWord = string.match(new RegExp('\b'+word+'\b', 'ig'));
 	alert(instancesOfWord);
 }
 findWord('car', 'Carl went to buy a car but had forgotten his credit card.');
+
+
+function Replacer( conversionObject ) {
+        var regexpStr = '';
+        for ( var k in conversionObject )
+                regexpStr += (regexpStr.length ? '|' : '') + k;
+        var regexpr = new RegExp(regexpStr,'ig'); // g: global, m:multi-line i: ignore case
+        return function(s) { return s.replace(regexpr, function(str, p1, p2, offset, s) { var a = conversionObject[str]; return a == undefined ? str : a }) }
+}
+
+var myReplacer = Replacer( { '<BR>':'\n', '&amp;':'&', '&lt;':'<', '&gt;':'>', '&quot;':'"' } );
+
+Print( myReplacer('aa<BR>a &amp;&amp;&amp;&lt;') );
 
 }}}
 
