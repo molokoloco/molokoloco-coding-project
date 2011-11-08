@@ -111,7 +111,7 @@ xml validity.
 
 }}}
 
-== ITERATIONS==
+==ARRAYS / OBJECTS & ITERATIONS==
 
 {{{
 var arr = ['va1', 'val2', 300];
@@ -138,24 +138,18 @@ for (var i = 0, len = myArray.length; i < len; i++) {}
 
 // cached outside loop using while
 var len = myArray.length;
-while (len--) {}
+while (len--) { }
 
 // Functions perfs : http://jsperf.com/map-an-object-s-keys-to-an-array/5
 
 var dimensions = {};
-    for (var i = 0; i < 1000; i++) dimensions[i] = i;
+for (var i = 0; i < 1000; i++) dimensions[i] = i;
     
-    Object.prototype.properties = function() {
-        var p = [];
-        for (var k in this) p.push(k);
-        return p;
-    };
-    
-    var properties = function(obj) {
-        var p = [];
-        for (var k in obj) p.push(k);
-        return p;
-    };
+Object.prototype.properties = function() {
+    var p = [];
+    for (var k in this) p.push(k);
+    return p;
+};
 
 // Execute
 var arr1 = $.map(dimensions, function(value, index) {
@@ -164,6 +158,16 @@ var arr1 = $.map(dimensions, function(value, index) {
 var arr2 = dimensions.properties();
 var arr3 = properties(dimensions);
 var arr4 = Object.keys(dimensions);
+
+
+// To transform the arguments object into an array you should make :
+function foo() {
+  Array().slice(arguments);
+}
+// or better :
+function foo() {
+  Array.prototype.slice.call(arguments);
+}
 
 }}}
 
@@ -260,6 +264,22 @@ var arr = ['a', 'b', 'c', 'd'];
 var pos = arr.indexOf( 'c' );
 pos > -1 && arr.splice( pos, 1 );
 Print( arr ); // prints: a,b,d
+
+// Get the number of properties of an object  
+// JavaScript 1.8
+
+Object.keys({ foo:55, bar:99 }).length // is: 2 
+
+// JavaScript 1.2:
+
+(function (obj) { 
+   var m, count = 0; 
+   for (m in obj ) { 
+   if (Object.prototype.hasOwnProperty.call(obj, m)) count += 1; 
+   }
+   return count;
+})({ foo:55, bar:99 }); // is 2
+
 }}}
 
 == FUNCTIONS ==
