@@ -36,7 +36,7 @@ $isLocal = ($hostIp == '127.0.0.1' ? true : false);
 
 
 // -------------------------------------------------------------------------------------------------------- //
-/ /Avoid JSONP security breach // http://www.metaltoad.com/blog/using-jsonp-safely
+// Avoid JSONP security breach // http://www.metaltoad.com/blog/using-jsonp-safely
 
 function generate_jsonp($data) {
   if (preg_match('/\W/', $_GET['callback'])) {
