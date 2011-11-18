@@ -341,6 +341,26 @@ foo({ project:'jslibs', name:'soubok'})
 == FUNCTIONS on functions ==
 
 {{{
+
+/*
+The first invocation of f() will display the value of 10, because this references the global object. The second invocation (via the call method) however, will display the value 15. 15 is the value of the x property inside object o. The call() method invokes the function and uses its first parameter as the this pointer inside the body of the function. In other words - we've told the runtime what object to reference as this while executing inside of function f(). 
+*/
+
+var x = 10;
+var o = { x: 15 };
+
+function f(message) {
+    alert(message);
+    alert(this.x);
+}
+
+f("invoking f");
+f.call(o, "invoking f via call");
+
+/*
+The apply() method is identical to call(), except apply() requires an array as the second parameter. The array represents the arguments for the target method. 
+*/
+
 var value = myFunction.apply(this, args);
 
 var db = function(){ 'console' in window && console.log.call(console, arguments) };
