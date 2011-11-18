@@ -724,6 +724,7 @@ var Menu = (function(){
 Menu.init();
 }}}
 
+The Promise exposes only the Deferred methods needed to attach additional handlers or determine the state (then, done, fail, always,pipe, progress, and state), but not ones that change the state (resolve, reject, progress, resolveWith, rejectWith, and progressWith).
 
 {{{
 function getData(){
