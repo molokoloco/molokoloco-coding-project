@@ -632,6 +632,10 @@ Live example : http://jsfiddle.net/molokoloco/2ZmjC/
 
 {{{
 
+promise.then( doneCallback, failCallback )
+// is equivalent to
+promise.done( doneCallback ).fail( failCallback )
+
 // http://tutorialzine.com/2011/03/custom-facebook-wall-jquery-graph/
 
 var graphUSER = 'http://graph.facebook.com/'+options.id+'/?fields=name,picture&callback=?',
@@ -654,11 +658,9 @@ $.when($.getJSON(graphUSER),$.getJSON(graphPOSTS)).done(function(user,posts){
 	// Rendering the templates:
 	$('#headingTpl').tmpl(fb.user).appendTo('body');
 });
-
 }}}
 
 {{{
-
 $.ajaxSetup({
 	dataType: "jsonp"
 });
