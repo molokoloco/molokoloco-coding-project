@@ -510,6 +510,7 @@ Print( myAdder6( 4 ) ); // prints 10
 }}}
 
 ==Constructor==
+
 {{{
 function toto(val) { // parent class
         this.print = function() {
@@ -599,6 +600,36 @@ Employee.prototype = new Human();
 var john = new Employee("4815162342");
 john.setName("John", "Doe");
 alert(john.getFullName() + "'s employee number is " + john.getNum());
+}}}
+
+== Class Inheritance ==
+
+{{{
+var Animal = function(opts){}
+Animal.prototype.talk   = function(){ return 'mumble';  }
+Animal.prototype.sleep  = function(){ return 'zzzzz';   }
+
+var Cat = function(opts){
+    // call the parent class constructor (one line)
+    Animal.call(this, opts)
+}
+
+// inherit from Animal methods (two lines)
+Cat.prototype = new Animal();
+Cat.prototype.constructor = Animal;
+
+// override talk method
+Cat.prototype.talk = function(){
+    return "maow"
+}
+
+var cat = new Cat()
+console.log("cat sleep as ", cat.sleep()); // cat sleep as zzzzz
+console.log("cat talk as ", cat.talk()); // cat talk as maow
+
+console.log("Cat instanceof Cat", cat instanceof Cat); // Cat instanceof Cat true
+console.log("Cat instanceof Animal", cat instanceof Animal); // Cat instanceof Animal true
+
 }}}
 
 == PROTOTYPE OBSERVER IMPLEMENTATION ==
