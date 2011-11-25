@@ -17,6 +17,28 @@ _TODO ... CLEAN NOTES & ADD CSS3 BETTER SUPPORT !!!_
 
 
 {{{
+/* Select only h1s that contain a 'data-text' attribute */
+h1[data-text] {
+	position: relative;
+        color: red;
+}
+
+h1[data-text]::after {
+	content: attr(data-text);
+	z-index: 2;
+	color: green;
+	position: absolute;
+	left: 0;
+	-webkit-mask-image: -webkit-gradient(
+		linear,
+		left top, left bottom,
+		from(rgba(0,0,0,1)),
+		color-stop(40%, rgba(0,0,0,0))
+	);
+
+}}}
+
+{{{
 
 body {
     font-size : 62.5%;
