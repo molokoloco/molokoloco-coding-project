@@ -83,11 +83,12 @@ git commit -a -m 'Fixing some code...'
 //---
 // Undo a commit and redo
 
-$ git commit ...
-$ git reset --soft HEAD^      (1)
-$ edit                        (2)
-$ git add ....                (3)
-$ git commit -c ORIG_HEAD     (4)
+// If it's a private branch you can amend the commit:
+git commit --amend
+
+// If it's a shared branch you'll have to make a new commit:
+git commit -m 'Remove accidental .class files.'
+git push
 
 }}}
 
