@@ -80,6 +80,15 @@ git push ssh://git@github.com/molokoloco/jQuery.boxFx.git master:master
 
 git commit -a -m 'Fixing some code...'
 
+//---
+// Undo a commit and redo
+
+$ git commit ...
+$ git reset --soft HEAD^      (1)
+$ edit                        (2)
+$ git add ....                (3)
+$ git commit -c ORIG_HEAD     (4)
+
 }}}
 
   * http://gitref.org/branching/#tag
