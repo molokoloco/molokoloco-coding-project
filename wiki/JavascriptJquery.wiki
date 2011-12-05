@@ -751,6 +751,19 @@ $.when( getData(), showDiv() )
     });
 }}}
 
+jQuery.Deferred()	A constructor that creates a new Deferred object, can take an optional initFunction parameter that will be called right after the deferred has been constructed.
+jQuery.when()	A way to execute callback functions based on one or more objects that represent asynchronous tasks.
+jQuery.ajax()	Performs an asynchronous Ajax requests where the jqXHR objects returned by $.ajax() implement the Promise interface, giving them all the properties, methods, and behaviour of a Promise.
+deferred.then(resolveCallback,rejectCallback)	Handlers to be called when the Deferred object is resolved or rejected.
+deferred.done()	Functions or array of functions that are called when the Deferred object is resolved.
+deferred.fail()	Functions or array of functions that are called when the Deferred is rejected.
+deferred.resolve(arg1, arg2, ...)	Resolve a Deferred object and call any 'done' Callback with the given arguments.
+deferred.resolveWith(context,args)	Resolve a Deferred object and call any 'done' Callback with the given context and arguments.
+deferred.isResolved	Determine whether a Deferred object has been resolved.
+deferred.reject(arg1, arg2, ...)	Reject a Deferred object and call any 'fail' Callback with the given arguments.
+deferred.rejectWith(context,args)	Reject a Deferred object and call any 'fail' Callback with the given context and arguments.
+deferred.promise()	Returns a promise, that is an immutable view of the deferred object: the promise can be passed around safely since the underlying deferred cannot be resolved or rejected through it.
+
 == ANIMATE ==
 
   * http://www.robertpenner.com/easing/easing_demo.html
