@@ -630,7 +630,8 @@ x = Math.random(); //donne x = 0.6489534931546957
 
 == Wait finish // Defered Done ==
 
-Live example : http://jsfiddle.net/molokoloco/2ZmjC/
+  * Live example : http://jsfiddle.net/molokoloco/2ZmjC/
+  * http://msdn.microsoft.com/en-us/scriptjunkie/gg723713.aspx
 
 {{{
 
