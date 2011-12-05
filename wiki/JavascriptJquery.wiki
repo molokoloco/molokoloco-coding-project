@@ -47,7 +47,9 @@ http://woorkup.com/wp-content/uploads/2011/05/jQuery-1.6-Visual-Cheat-Sheet.pdf
 == Inclure jQuery ==
 
 {{{
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
 }}}
 
 ou
