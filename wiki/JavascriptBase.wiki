@@ -109,6 +109,13 @@ time, I can make use of the > and < signs without worrying about
 xml validity.
 ]]></>;
 
+
+if (totalViews > 0) {
+    for (var i = 0, views = ''; i < totalViews; i++)
+        views += '<li><a href="#screen_'+(i+1)+'">'+(i+1)+'</a></li>';
+    document.write(views); views = null;
+}
+
 }}}
 
 ==ARRAYS / OBJECTS & ITERATIONS==
