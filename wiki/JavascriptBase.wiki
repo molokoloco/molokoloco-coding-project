@@ -25,6 +25,11 @@ Good advices here :
 *Work in progress : ECMAScript 5 compatibility table*
   * http://kangax.github.com/es5-compat-table/
 
+== CONSOLE in your browser ==
+
+  * Firefox, Firebug : http://getfirebug.com/wiki/index.php/Main_Page
+  * Chrome, Developer Tools : http://code.google.com/intl/fr-FR/chrome/devtools/docs/overview.html
+
 == OPERATOR && COMPARAISONS ==
 
   * Arithmetic : +, -, *, /, %, ++, --, unary -, unary +
