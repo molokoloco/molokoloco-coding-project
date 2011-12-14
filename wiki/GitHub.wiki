@@ -100,4 +100,10 @@ $ git log --oneline --decorate --graph
 
 $ git checkout develop
 $ git push --tags
+
+$ git tag -a v0.94 -m 'Version 0.94'
+$ ./git tag -l v1.4.2.*
+// v1.4.2.1 v1.4.2.2 ...
+
+
 }}}
