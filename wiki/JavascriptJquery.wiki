@@ -1031,6 +1031,13 @@ $.getJSON(
     }
 );
 
+// Pass Parameters Through the GET Method
+$("#load_get").click(function(){  
+    $("#result")  
+        .html("<img src='img/load.gif' alt='loading...' />")  
+        .load(loadUrl+' div#content', "language=php&version=5"); // + extract content
+});
+
 // --------------------------------------------------------------- //
 // DISTANT JSON // http://blog.jaysalvat.com/articles/comprendre-jsonp-et-acces-de-donnees-a-distance-en-javascript.php
 
