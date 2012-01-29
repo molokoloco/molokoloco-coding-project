@@ -8,6 +8,7 @@
   * http://www.alsacreations.com/tuto/lire/622-Securite-firewall-iptables.html
   * Exemple config serveur : http://www.dedibox-news.com/sujet-6593-resolu-probleme-ping-domaine-config-bind-apache
   * http://www.cyberciti.biz/tips/top-linux-monitoring-tools.html
+  * http://coding.smashingmagazine.com/2012/01/23/introduction-to-linux-commands/
 
 == COMMAND LINE (CMD, SHELL) ==
 
