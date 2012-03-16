@@ -123,6 +123,7 @@ $('p', document).size();
 $('p[a]').hide();
 $('a[(text()="Suivante")]').show();
 $(xml.responseXML);
+$('input[type=password]').attr('type','text');
 $('title', xml.responseXML); // Finds all title elements within an XML document
 $('p').height()
 $('/html/body//p').attr({align:'center'});
