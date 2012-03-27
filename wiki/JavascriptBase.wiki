@@ -493,6 +493,25 @@ myApp.notepad1  = new myApp.Notepad('helvetica');
 myApp.notepad1.setFont('arial');
 }}}
 
+== "hoists" variables ==
+
+ * http://synonym.dartlang.org/
+
+{{{
+// JavaScript "hoists" variables to the top of
+// their scope.  So the following function:
+function printName() {
+  console.log('Hello, ' + name);
+  var name = 'Bob';
+}
+// is equivalent to this function:
+function printName() {
+  var name;
+  console.log('Hello, ' + name);
+  name = 'Bob';
+}
+}}}
+
 == CLOSURE ==
 
 {{{
