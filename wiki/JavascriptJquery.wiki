@@ -297,6 +297,14 @@ $("ul > li").click(function () {
     var index = $(this).prevAll().length;
 });
 
+
+var nextTrack = function() {
+    soundManager.stopAll();
+    if ($('li.active').next().click().length == 0) {
+        $('.tracks li:first').click();
+    }
+}​;​
+
 // see if an image is loaded
 var imgsrc = 'img/image1.png';
 $('<img/>').load(function(){alert('image loaded');}).error(function(){alert('error loading image');}).attr('src', imgsrc);
