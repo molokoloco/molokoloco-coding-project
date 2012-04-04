@@ -306,6 +306,18 @@ Object.keys({ foo:55, bar:99 }).length // is: 2
 
 }}}
 
+== Math ==
+
+{{{
+var featured = [
+	'http://soundcloud.com/noisia/deadmau5-raise-your-weapon',
+	'http://soundcloud.com/bpitch-control/moderat-a-new-error',
+	'http://soundcloud.com/four-tet/angel-echoes-caribou-remix'
+];
+var url = document.getElementById('url');
+url.value = featured[Math.floor(Math.random() * featured.length)];
+}}}
+
 == FUNCTIONS ==
 
 {{{
