@@ -36,10 +36,12 @@ Not enough space here...
 So... the basis..
 
 {{{
+
 console.log(window);
 console.log(document);
 document.querySelector('#myaudio').style.marginTop = '10px';
-}}
+
+}}}
 
 == OPERATOR && COMPARAISONS ==
 
