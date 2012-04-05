@@ -641,6 +641,7 @@ x = Math.random(); //donne x = 0.6489534931546957
 
   * Live example : http://jsfiddle.net/molokoloco/2ZmjC/
   * http://msdn.microsoft.com/en-us/scriptjunkie/gg723713.aspx
+  * http://jsfiddle.net/molokoloco/2ZmjC/
 
 {{{
 
@@ -703,6 +704,33 @@ function getFollows() {
 $.when(getTweets(), getFriends(), getFollows()).then(function(){
 	//apply templates
 });
+}}}
+
+{{{
+var fetchTweets = function() {
+    var dfd = new $.Deferred();
+    $.ajax({
+        type: 'GET',
+        dataType: 'jsonp',
+        url: 'http://search.twitter.com/search.json?q=html5',
+        success: function(tweets) {
+            var twitter = $.map(tweets.results, function(obj, index) {
+                return {
+                    username: obj.from_user,
+                    tweet: obj.text,
+                    imgSource: obj.profile_image_url,
+                    geo: obj.geo
+                };
+            });
+            dfd.resolve(twitter);
+        }
+    });
+    return dfd.promise();
+};
+
+$.when(fetchTweets()).done(function(twitter) {
+    console.log(twitter);
+});​
 }}}
 
 {{{
