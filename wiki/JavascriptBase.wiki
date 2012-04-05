@@ -738,10 +738,10 @@ obs.subscribe(fn);
 obs.unsubscribe(fn);
 }}}
 
-== MICRO EVENT ==
+== MICRO EVENTS ==
 
 {{{
-**
+/**
  * microevents.js - https://github.com/jeromeetienne/microevent.js
 */
 tQuery.MicroeventMixin	= function(destObj){
