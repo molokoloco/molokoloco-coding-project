@@ -30,6 +30,17 @@ Good advices here :
   * Firefox, Firebug : http://getfirebug.com/wiki/index.php/Main_Page
   * Chrome, Developer Tools : http://code.google.com/intl/fr-FR/chrome/devtools/docs/overview.html
 
+== THE DOM ==
+
+Not enough space here...
+So... the basis..
+
+{{{
+console.log(window);
+console.log(document);
+document.querySelector('#myaudio').style.marginTop = '10px';
+}}
+
 == OPERATOR && COMPARAISONS ==
 
   * Arithmetic : +, -, *, /, %, ++, --, unary -, unary +
