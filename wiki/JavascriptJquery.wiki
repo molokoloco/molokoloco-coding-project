@@ -153,6 +153,12 @@ var id = $('#someAnchor').get(0).id; // The get method is particularly helpful, 
 $(xml).find('article').each(function(i) {
 	alert($(this).find('titre').text()); 
 });
+
+var q = 'search';
+$('.recordSleeveBk').css({ opacity: '0.4' }).removeClass('glow');
+$('.recordSleeveBk').filter('[data-artist*="' + q + '"]').animate({ opacity: '1.0' }).addClass('glow');
+
+
 $.each(['a','b','c'], function(i, l){
 	alert("Index #" + i + ": " + l );
 });
