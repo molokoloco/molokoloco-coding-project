@@ -403,6 +403,8 @@ $('#foo').bind({
 });
 $('#foo').trigger('click'); // Do event
 
+$doc.trigger({type: 'startPlay', percent: percent});
+
 // Listen to events from a particular context // OPTIMISATION !
 
 $('table').delegate('td', 'hover', function(){
