@@ -807,6 +807,47 @@ var module = (function() {
 module.facade({run:true, val:10});
 }}}
 
+== OBSERVABLE MIXIN (and Constructor Functions) ==
+
+From : http://peter.michaux.ca/articles/mixins-and-constructor-functions
+JSFIddle : http://jsfiddle.net/molokoloco/rNTvw/
+
+{{{
+var observableMethods = function() {
+
+    this.observers = [];
+
+    this.observe = function(observer) {
+        this.observers.push(observer);
+    };
+
+    this.notify = function(data) {
+        for (var i = 0, ilen = this.observers.length; i < ilen; i++) {
+            this.observers[i](data);
+        }
+    }
+};
+
+var person = {
+    name: 'Steve',
+    setName: function(name) {
+        var oldName = this.name;
+        this.name = name;
+        this.notify({
+            oldName: oldName,
+            newName: this.name
+        });
+    }
+};
+
+observableMethods.call(person);
+person.observe(function(data) {
+    document.write(data.oldName + ' was renamed to ' + data.newName);
+});
+
+person.setName('Sarah');​
+}}}
+
 == THIS is what ? ==
 
 {{{
