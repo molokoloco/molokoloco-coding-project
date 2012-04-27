@@ -577,6 +577,29 @@ Print( myAdder5( 2 ) ); // prints 7
 Print( myAdder6( 4 ) ); // prints 10
 }}}
 
+From http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/
+Using Closures To Extend The Language
+At this point, it should be relatively easy to see that closures are vital to writing top notch JavaScript. Let’s apply what we know about closures to augmenting one of JavaScript’s native types (gasp!). With our focus on function objects, let’s augment the native Function type:
+
+{{{
+Function.prototype.cached = function() {
+   var self = this, //"this" refers to the original function
+      cache = {}; //our local, lexically scoped cache storage
+   return function(args) {
+      if(args in cache) return cache[args];
+      return cache[args] = self(args);
+   };
+};
+}}}
+
+This little gem allows any and every function to create a cached version of itself. You can see the function returns a function itself, so this enhancement can be applied and used like so:
+
+{{{
+Math.sin = Math.sin.cached();
+Math.sin(1) // => 0.8414709848078965
+Math.sin(1) // => 0.8414709848078965 this time pulled from cache
+}}}
+
 ==Constructor==
 
 {{{
@@ -847,6 +870,7 @@ person.observe(function(data) {
 
 person.setName('Sarah');​
 }}}
+
 
 == THIS is what ? ==
 
