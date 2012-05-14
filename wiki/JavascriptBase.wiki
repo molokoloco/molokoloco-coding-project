@@ -555,6 +555,26 @@ function RunGavinsLife(){
 }
 }}}
 
+
+Behind a prototype "pure" object there is that :
+
+{{{
+Function.prototype = {
+    arguments: null,
+    length: 0,
+    call: function(){
+        // secret code
+    },
+    apply: function(){
+        // secret code
+    }
+    ...
+}
+}}}
+
+That's well explained here :
+http://net.tutsplus.com/tutorials/javascript-ajax/prototypes-in-javascript-what-you-need-to-know/
+
 == "hoists" variables ==
 
  * http://synonym.dartlang.org/
