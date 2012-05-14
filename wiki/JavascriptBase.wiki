@@ -439,83 +439,120 @@ var arr = ['foo', 'bar'];
 test.call(arr, 'toto'); // prints: foo bar toto
 }}}
 
-== OBJECTS ORIENTED PROGRAMMING ==
+== PROTOTYPE (OOP) ==
 
-inspired from Angus Croll http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
+From the prototype example illustrated here : http://phrogz.net/js/classes/OOPinJS.html
+Also note :  http://javascriptweblog.wordpress.com/2010/03/16/five-ways-to-create-objects/
+
 {{{
+function Person(n,race){ 
+	this.constructor.population++;
 
-// 1. Simple Object Literal
-var rabbit = {};
-var rabbit.run = true;
-rabbit.speak = function(s) {
-    print("The rabbit says '", s, "'");
-};
+	// ************************************************************************ 
+	// PRIVATE VARIABLES AND FUNCTIONS 
+	// ONLY PRIVELEGED METHODS MAY VIEW/EDIT/INVOKE 
+	// *********************************************************************** 
+	var alive=true, age=1;
+	var maxAge=70+Math.round(Math.random()*15)+Math.round(Math.random()*15);
+	function makeOlder(){ return alive = (++age <= maxAge) } 
 
-rabbit.speak("Well, now you're asking me.");
+	var myName=n?n:"John Doe";
+	var weight=1;
 
-// 2. Nested Object Literal
-myApp.notepad  = {
-    writeable: true,
-    font: 'helvetica',
-    setFont: function(theFont) {
-        this.font = theFont;
-    }
+
+	// ************************************************************************ 
+	// PRIVILEGED METHODS 
+	// MAY BE INVOKED PUBLICLY AND MAY ACCESS PRIVATE ITEMS 
+	// MAY NOT BE CHANGED; MAY BE REPLACED WITH PUBLIC FLAVORS 
+	// ************************************************************************ 
+	this.toString=this.getName=function(){ return myName } 
+
+	this.eat=function(){ 
+		if (makeOlder()){ 
+			this.dirtFactor++;
+			return weight*=3;
+		} else alert(myName+" can't eat, he's dead!");
+	} 
+	this.exercise=function(){ 
+		if (makeOlder()){ 
+			this.dirtFactor++;
+			return weight/=2;
+		} else alert(myName+" can't exercise, he's dead!");
+	} 
+	this.weigh=function(){ return weight } 
+	this.getRace=function(){ return race } 
+	this.getAge=function(){ return age } 
+	this.muchTimePasses=function(){ age+=50; this.dirtFactor=10; } 
+
+
+	// ************************************************************************ 
+	// PUBLIC PROPERTIES -- ANYONE MAY READ/WRITE 
+	// ************************************************************************ 
+	this.clothing="nothing/naked";
+	this.dirtFactor=0;
+} 
+
+
+// ************************************************************************ 
+// PUBLIC METHODS -- ANYONE MAY READ/WRITE 
+// ************************************************************************ 
+Person.prototype.beCool = function(){ this.clothing="khakis and black shirt" } 
+Person.prototype.shower = function(){ this.dirtFactor=2 } 
+Person.prototype.showLegs = function(){ alert(this+" has "+this.legs+" legs") } 
+Person.prototype.amputate = function(){ this.legs-- } 
+
+
+// ************************************************************************ 
+// PROTOTYOPE PROERTIES -- ANYONE MAY READ/WRITE (but may be overridden) 
+// ************************************************************************ 
+Person.prototype.legs=2;
+
+
+// ************************************************************************ 
+// STATIC PROPERTIES -- ANYONE MAY READ/WRITE 
+// ************************************************************************ 
+Person.population = 0;
+
+
+// Here is the code that uses the Person class 
+function RunGavinsLife(){ 
+	var gk=new Person("Gavin","caucasian");       //New instance of the Person object created. 
+	var lk=new Person("Lisa","caucasian");        //New instance of the Person object created. 
+	alert("There are now "+Person.population+" people");
+
+	gk.showLegs(); lk.showLegs();                 //Both share the common 'Person.prototype.legs' variable when looking at 'this.legs' 
+
+	gk.race = "hispanic";                         //Sets a public variable, but does not overwrite private 'race' variable. 
+	alert(gk+"'s real race is "+gk.getRace());    //Returns 'caucasian' from private 'race' variable set at create time. 
+	gk.eat(); gk.eat(); gk.eat();                 //weight is 3...then 9...then 27 
+	alert(gk+" weighs "+gk.weigh()+" pounds and has a dirt factor of "+gk.dirtFactor);
+
+	gk.exercise();                                //weight is now 13.5 
+	gk.beCool();                                  //clothing has been update to current fashionable levels 
+	gk.clothing="Pimp Outfit";                    //clothing is a public variable that can be updated to any funky value 
+	gk.shower();
+	alert("Existing shower technology has gotten "+gk+" to a dirt factor of "+gk.dirtFactor);
+
+	gk.muchTimePasses();                          //50 Years Pass 
+	Person.prototype.shower=function(){           //Shower technology improves for everyone 
+		this.dirtFactor=0;
+	} 
+	gk.beCool=function(){                         //Gavin alone gets new fashion ideas 
+		this.clothing="tinfoil";
+	};
+
+	gk.beCool(); gk.shower();
+	alert("Fashionable "+gk+" at " 
+		+gk.getAge()+" years old is now wearing " 
+		+gk.clothing+" with dirt factor " 
+		+gk.dirtFactor);
+
+	gk.amputate();                                //Uses the prototype property and makes a public property 
+	gk.showLegs(); lk.showLegs();                 //Lisa still has the prototype property 
+
+	gk.muchTimePasses();                          //50 Years Pass...Gavin is now over 100 years old. 
+	gk.eat();                                     //Complains about extreme age, death, and inability to eat. 
 }
-
-// 3. Constructor using Object Literal
-myApp.Notepad = function(defaultFont) {
-    var  that = {};
-    that.writeable = true;
-    that.font = defaultFont;
-    that.setFont = function(theFont) {
-        that.font = theFont;
-    }
-    return that;
-}
-
-myApp.notepad1 =  myApp.Notepad('helvetica');
-
-// 4. Simple Constructor for new
-myApp.Notepad = function(defaultFont) {
-    this.writeable = true;
-    this.font = defaultFont;
-    this.setFont = function(theFont) {
-        this.font = theFont;
-    }
-}
-
-myApp.notepad1 = new myApp.Notepad('helvetica');
-
-// 5. Prototype with Constructor for new
-// Extending functionality to the pre-built string() object
-String.prototype.writeback = function() {
-    for (i=this.length-1;i>=0;i--)
-    document.write(this.charAt(i))
-};
-
-var test = "Welcome to my site!";
-test.writeback();
-
-// Extending functionality to the pre-built object() object
-Object.prototype.properties = function() {
-  var result = [];
-  for (var property in this) result.push(property);
-  return result;
-};
-
-var test = {x: 10, y: 3};
-console.log(test.properties());
-
-// Extending functionality to a custom JavaScript object
-myApp.Notepad = function(defaultFont) {
-    this.font = defaultFont;
-}
-myApp.Notepad.prototype.writeable  = true;
-myApp.Notepad.prototype.setFont = function(theFont) {
-    this.font = theFont;
-}
-myApp.notepad1  = new myApp.Notepad('helvetica');
-myApp.notepad1.setFont('arial');
 }}}
 
 == "hoists" variables ==
@@ -600,9 +637,7 @@ Math.sin(1) // => 0.8414709848078965
 Math.sin(1) // => 0.8414709848078965 this time pulled from cache
 }}}
 
-==Prototype / Constructor==
-
-Full prototype example here : http://phrogz.net/js/classes/OOPinJS.html
+==Constructor==
 
 {{{
 function toto(val) { // parent class
