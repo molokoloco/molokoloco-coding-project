@@ -600,7 +600,9 @@ Math.sin(1) // => 0.8414709848078965
 Math.sin(1) // => 0.8414709848078965 this time pulled from cache
 }}}
 
-==Constructor==
+==Prototype / Constructor==
+
+Full prototype example here : http://phrogz.net/js/classes/OOPinJS.html
 
 {{{
 function toto(val) { // parent class
