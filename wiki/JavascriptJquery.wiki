@@ -681,6 +681,20 @@ $.when($.getJSON(graphUSER),$.getJSON(graphPOSTS)).done(function(user,posts){
 });
 }}}
 
+// From : http://stackoverflow.com/questions/6538470/jquery-deferred-waiting-for-multiple-ajax-requests-to-finish
+
+{{{
+function updateAllNotes () {
+        var getarray = [], i, len;
+        for (i = 0, len = data.length; i < len; i += 1) {
+            getarray.push(getNote(data[i].key));
+        };
+        $.when.apply($, getarray).done(function () {
+          // do things that need to wait until ALL gets are done
+        });
+};
+}}}
+
 {{{
 $.ajaxSetup({
 	dataType: "jsonp"
