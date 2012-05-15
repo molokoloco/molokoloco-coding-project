@@ -811,6 +811,16 @@ $.when( getData(), showDiv() )
   * deferred.rejectWith(context,args)	Reject a Deferred object and call any 'fail' Callback with the given context and arguments.
   * deferred.promise()	Returns a promise, that is an immutable view of the deferred object: the promise can be passed around safely since the underlying deferred cannot be resolved or rejected through it.
 
+
+== PROXY ==
+
+{{{
+setTimeout($.proxy( function () {
+        // "this" now refers to our element as we wanted
+        $( this ).addClass( "active" ); 
+}, this), 500);
+}}}
+
 == ANIMATE ==
 
   * http://www.robertpenner.com/easing/easing_demo.html
