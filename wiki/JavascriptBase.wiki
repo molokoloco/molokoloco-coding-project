@@ -29,7 +29,9 @@ Good advices here :
 == CONSOLE in your browser ==
 
   * Firefox, Firebug : http://getfirebug.com/wiki/index.php/Main_Page
-  * Chrome, Developer Tools : http://code.google.com/intl/fr-FR/chrome/devtools/docs/overview.html
+  * http://code.google.com/intl/fr-FR/chrome/devtools/docs/overview.html
+  * https://developers.google.com/chrome-developer-tools/docs/scripts
+  * http://www.andismith.com/blog/2011/11/25-dev-tool-secrets/
 
 == THE DOM ==
 
