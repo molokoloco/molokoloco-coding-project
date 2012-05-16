@@ -409,6 +409,8 @@ $('#foo').bind({
 });
 $('#foo').trigger('click'); // Do event
 
+$('input#search').trigger($.Event('keydown', {which:$.ui.keyCode.ENTER, keyCode:$.ui.keyCode.ENTER}));
+
 $doc.trigger({type: 'startPlay', percent: percent});
 
 // Listen to events from a particular context // OPTIMISATION !
