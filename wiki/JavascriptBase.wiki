@@ -37,7 +37,7 @@ Ctrl + Maj + C
   * https://developers.google.com/chrome-developer-tools/docs/scripts
   * http://www.andismith.com/blog/2011/11/25-dev-tool-secrets/
 
-
+{{{
 console.log(window);
 console.log('Ma reponse json', someObj);
 
@@ -54,6 +54,7 @@ console.assert(a === b, "A doesn't equal B");
 
 #protips ;)
 console.log(console.__proto__); // Console inception !
+}}}
 
 == THE DOM ==
 
