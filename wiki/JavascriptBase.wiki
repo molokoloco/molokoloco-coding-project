@@ -605,16 +605,15 @@ function printName() {
 // increment method (as you would in Java) – just make a function
 // that has private state through its closure
 
-var counter = function () {
-  var i = 0;
-  return function () {
-    i++;
-    return i;
-  };
-};
+var getUniqueName = (function(time) {
+    return function(prefix) {
+        return (prefix ? prefix : 'id_') + time++;
+    }
+})((new Date()).getTime());
 
-counter(); //returns 1
-counter(); //returns 2
+getUniqueName(); //returns id_1337814984218
+getUniqueName('toto_'); //returns toto_1337814984219
+getUniqueName(); //returns id_1337814984220
 
 // Idem
 
