@@ -28,10 +28,32 @@ Good advices here :
 
 == CONSOLE in your browser ==
 
+Ctrl + Maj + C
+.... ou F12 dans le navigateur...
+
+
   * Firefox, Firebug : http://getfirebug.com/wiki/index.php/Main_Page
   * http://code.google.com/intl/fr-FR/chrome/devtools/docs/overview.html
   * https://developers.google.com/chrome-developer-tools/docs/scripts
   * http://www.andismith.com/blog/2011/11/25-dev-tool-secrets/
+
+
+console.log(window);
+console.log('Ma reponse json', someObj);
+
+console.time("Execution time took");
+// Some code to execute
+console.timeEnd("Execution time took");
+
+console.profile();
+// Some code to execute
+console.profileEnd();
+
+var a = 1, b = "1";
+console.assert(a === b, "A doesn't equal B");
+
+#protips ;)
+console.log(console.__proto__); // Console inception !
 
 == THE DOM ==
 
