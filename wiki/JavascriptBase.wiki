@@ -52,8 +52,7 @@ console.profileEnd();
 var a = 1, b = "1";
 console.assert(a === b, "A doesn't equal B");
 
-#protips ;)
-console.log(console.__proto__); // Console inception !
+console.log(console.__proto__); // Console inception ! #protips ;)
 }}}
 
 == THE DOM ==
