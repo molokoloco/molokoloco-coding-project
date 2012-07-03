@@ -1140,9 +1140,6 @@ $(function() {
                     });
                     core.ajaxing = false;
                 },
-                error: function(xhr, textStatus, errorThrown) {
-                    alert("Message d'erreur");
-                }
 		error: function(XMLHttpRequest, textStatus, errorThrown) { 
 			console.log('JSON error :(', XMLHttpRequest, textStatus, errorThrown);
 		}
