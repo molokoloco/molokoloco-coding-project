@@ -22,6 +22,7 @@ Good advices here :
   * http://javascriptweblog.wordpress.com/2010/08/30/understanding-javascripts-this/
   * http://engineering.socialcast.com/2011/06/javascript-memory-management/
   * http://code.google.com/p/jslibs/wiki/JavascriptTips#language_advanced_Tips_&_Tricks
+  * http://jeremyckahn.github.com/blog/2012/07/01/treating-javascript-like-a-30-year-old-language/
 
 *Work in progress : ECMAScript 5 compatibility table*
   * http://kangax.github.com/es5-compat-table/
