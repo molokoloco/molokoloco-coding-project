@@ -154,6 +154,10 @@ $(xml).find('article').each(function(i) {
 	alert($(this).find('titre').text()); 
 });
 
+$('p a').each(function() { // Affiche les URL des liens dans les paragraphes
+	$(this).after(' ['+$(this).attr('href')+'] ');
+})
+
 var q = 'search';
 $('.recordSleeveBk').css({ opacity: '0.4' }).removeClass('glow');
 $('.recordSleeveBk').filter('[data-artist*="' + q + '"]').animate({ opacity: '1.0' }).addClass('glow');
