@@ -34,6 +34,10 @@ Others :
   * http://www.b2bweb.fr/molokoloco/best-must-know-ressources-for-building-the-new-web-%E2%98%85/ (My personnel webdev bookmarks)
   * http://net.tutsplus.com/tutorials/javascript-ajax/14-helpful-jquery-tricks-notes-and-best-practices/
 
+== jQuery 1.7 Cheat Sheet ==
+
+http://woorkup.com/wp-content/uploads/2011/12/jQuery-17-Visual-Cheat-Sheet1.pdf
+
 == jQuery 1.6 Cheat Sheet ==
 
 http://woorkup.com/wp-content/uploads/2011/05/jQuery-1.6-Visual-Cheat-Sheet.pdf
