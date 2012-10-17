@@ -33,6 +33,8 @@ Others :
 
   * http://www.b2bweb.fr/molokoloco/best-must-know-ressources-for-building-the-new-web-%E2%98%85/ (My personnel webdev bookmarks)
   * http://net.tutsplus.com/tutorials/javascript-ajax/14-helpful-jquery-tricks-notes-and-best-practices/
+  * http://james.padolsey.com/javascript/things-you-may-not-know-about-jquery/
+  * ...
 
 == jQuery 1.7 Cheat Sheet ==
 
