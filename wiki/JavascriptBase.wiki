@@ -13,7 +13,8 @@ Good advices here :
   * http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
   * http://bonsaiden.github.com/JavaScript-Garden/
   * https://developer.mozilla.org/en/Introduction_to_Object-Oriented_JavaScript
-  * http://addyosmani.com/resources/essentialjsdesignpatterns/book/#designpatternsjquery (new)
+  * http://addyosmani.com/resources/essentialjsdesignpatterns/book/#designpatternsjquery
+  * http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/ (new)
   * http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Tips_and_Tricks
   * http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/
   * http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
