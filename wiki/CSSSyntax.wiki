@@ -14,6 +14,7 @@ _TODO ... CLEAN NOTES & ADD CSS3 BETTER SUPPORT !!!_
   * http://www.impressivewebs.com/css3-click-chart/
   * Infinite pattern http://designfestival.com/the-cicada-principle-and-why-it-matters-to-web-designers/
   * boxShadows http://www.viget.com/uploads/file/boxshadows/
+  * http://tympanus.net/codrops/2012/10/25/kick-start-your-project-a-collection-of-handy-css-snippets/ [New]
 
 
 {{{
