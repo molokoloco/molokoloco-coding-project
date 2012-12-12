@@ -40,6 +40,24 @@ h1[data-text]::after {
 
 }}}
 
+Animate with ONE keyframe...
+http://lea.verou.me/2012/12/animations-with-one-keyframe/
+
+{{{
+/* Pounding heart animation */
+@keyframes pound {
+	to { transform: scale(1.4); }
+}
+.heart {
+	display: inline-block;
+	font-size: 150px;
+	color: #e00;
+	animation: pound .25s infinite alternate;
+	transform-origin: center;
+}
+body { text-align: center; }
+}}}
+
 {{{
 
 body {
