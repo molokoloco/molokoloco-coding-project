@@ -975,8 +975,15 @@ person.observe(function(data) {
 person.setName('Sarah');​
 }}}
 
+== New (JS Keyword ==
+
+  * http://javascriptplayground.com/blog/2012/12/the-new-keyword-in-javascript
+  * https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/constructor
+
 
 == THIS is what ? ==
+
+  * http://henrycode.tumblr.com/post/37627169791/javascript-clarifying-the-keyword-this
 
 {{{
 var a = {
