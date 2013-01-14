@@ -105,12 +105,27 @@ SELECT TRIM(TRAILING 'xyz' FROM 'barxxyz'); -> 'barx'
 
 SELECT LEFT(RIGHT(mee_date,4),2) -> 04 (mee_date = 20070412)
 
-Strange day...
+// Strange day...
+
 SELECT article, SUBSTRING(MAX(CONCAT(LPAD(price,6,'0'),dealer)),7) AS dealer, 0.00+LEFT(MAX( CONCAT(LPAD(price,6,'0'),dealer)),6) AS price FROM shop GROUP BY article;
 
 INSERT INTO new_table(date_field) SELECT DATEADD(s, timestamp_field, '19700101') FROM old_table
 
 SELECT SUBSTRING(datedeb,1,4) as year
+
+
+// COMPLEX
+
+SELECT M.titre, M.fichier FROM
+(SELECT app_id FROM
+	(SELECT id FROM mod_utilisateurs WHERE mod_utilisateurs.boxid='77007629c3e0e146') User
+	LEFT JOIN
+	(SELECT app_id, box_id FROM apps_relations_box) Rel
+	ON User.id=Rel.box_id) App
+LEFT JOIN
+(SELECT id, titre, fichier FROM mod_apps) M
+ON App.app_id=M.id
+
 }}}
 
 == Manipulating DB ==
@@ -142,18 +157,6 @@ LOAD DATA LOCAL INFILE "infile.txt" INTO TABLE table_name;
 // Inserting one row at a time:
 mysql> INSERT INTO table_name VALUES ('MyName', 'MyOwner', '2002-08-31');
 // (Use NULL for NULL)
-
-// COMPLEX
-
-SELECT M.titre, M.fichier FROM
-(SELECT app_id FROM
-	(SELECT id FROM mod_utilisateurs WHERE mod_utilisateurs.boxid='77007629c3e0e146') User
-	LEFT JOIN
-	(SELECT app_id, box_id FROM apps_relations_box) Rel
-	ON User.id=Rel.box_id) App
-LEFT JOIN
-(SELECT id, titre, fichier FROM mod_apps) M
-ON App.app_id=M.id
 
 }}}
 
