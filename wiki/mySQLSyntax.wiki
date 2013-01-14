@@ -143,6 +143,18 @@ LOAD DATA LOCAL INFILE "infile.txt" INTO TABLE table_name;
 mysql> INSERT INTO table_name VALUES ('MyName', 'MyOwner', '2002-08-31');
 // (Use NULL for NULL)
 
+// COMPLEX
+
+SELECT M.titre, M.fichier FROM
+(SELECT app_id FROM
+	(SELECT id FROM mod_utilisateurs WHERE mod_utilisateurs.boxid='77007629c3e0e146') User
+	LEFT JOIN
+	(SELECT app_id, box_id FROM apps_relations_box) Rel
+	ON User.id=Rel.box_id) App
+LEFT JOIN
+(SELECT id, titre, fichier FROM mod_apps) M
+ON App.app_id=M.id
+
 }}}
 
 == DB Product example===
