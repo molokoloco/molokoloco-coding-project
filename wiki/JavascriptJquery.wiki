@@ -1994,9 +1994,10 @@ $('a#remove').bind('click', function() {
 })( jQuery, window , document );
 }}}
 
-== jQuery Boilerplate - Plugin Prototype ==
+== jQuery Boilerplate - Plugin Prototype V2 ==
 
   * http://jqueryboilerplate.com/
+  * https://github.com/zenorocha/jquery-boilerplate/wiki/Extending-jQuery-Boilerplate
 
 {{{
 // the semi-colon before function invocation is a safety net against concatenated
