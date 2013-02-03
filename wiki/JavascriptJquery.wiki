@@ -2062,4 +2062,11 @@ $('a#remove').bind('click', function() {
     };
 
 })( jQuery, window, document );
+
+
+// Usage
+
+$('#elem').defaultPluginName({
+  propertyName: 'a custom value'
+});
 }}}
