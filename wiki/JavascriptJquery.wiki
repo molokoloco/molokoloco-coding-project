@@ -112,7 +112,7 @@ $('<img/>')
     .appendTo('body');
 }}}
 
-== Catch/Find an element with CSS "xPath" ==
+== Catch/Find an element with CSS like selector ==
 
 {{{
 
