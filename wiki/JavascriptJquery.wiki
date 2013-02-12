@@ -936,8 +936,33 @@ var arg = 'bouh !',
 if (Math.rand() > 0.5) clearTimeout(myTimeout); // Don't bouh ?
 }}}
 
+
+== Chaining ASYNC method ==
+
+  * http://kenneth.kufluk.com/blog/2010/08/chaining-asynchronous-methods-in-jquery-using-the-queue/
+
 {{{
-/* Emulating 3D with CSS...
+$.fn.makeYellowForFiveSeconds = function() {
+    // I'm only using actions which act on jQuery objects, so I don't need to use 'each' as above.  
+    this.css( { 'background-color' : 'yellow', color : 'yellow' } );
+    // reset the colour in five seconds time
+    var that = this; 
+    this.queue(function() {
+        setTimeout(function() {
+            that.css( { 'background-color' : 'none', color : 'inherit' } );
+            that.dequeue();
+        }, 5000);
+    });
+    // action the next method in the chain
+    return this;
+};
+
+}}}
+
+== Emulating 3D with CSS... ==
+
+{{{
+/* 
 #
 # .photoflat {  
 #     -moz-transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-21deg, 10deg);  
