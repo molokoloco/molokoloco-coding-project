@@ -1832,7 +1832,7 @@ Parmi les changements et améliorations apportées dans la version 1.4 :
   * http://stackoverflow.com/questions/1005600/programatically-include-jquery-in-high-conflict-environment/14983925
 
 {{{
-(function($) {
+(function($, window) {
     var version = ($ && typeof($) == 'function' && $().jquery ? ($().jquery).split('.').join('') : 0), // 1.8.1 -> 181
         jBack   = null;
     if (version) console.log('jQuery current version : ', version);
@@ -1860,7 +1860,7 @@ Parmi les changements et améliorations apportées dans la version 1.4 :
     if (version < 180) loadJs('http://code.jquery.com/jquery-1.9.1.min.js');
     else loaded();
 
-})(jQuery || null);
+})((typeof(jQuery) == 'function' ? jQuery : null), window);
 }}}
 
 = LITTLES FUNCTIONS FOR QUICK USE =
