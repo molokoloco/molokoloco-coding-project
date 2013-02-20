@@ -1826,6 +1826,41 @@ Parmi les changements et améliorations apportées dans la version 1.4 :
   * ...
   * http://blog.jquery.com/2011/04/26/jquery-1-6-rc-1-released/
 
+
+== jQuery noConflict() extended ==
+
+{{{
+(function($) {
+    var version = ($ && typeof($) == 'function' && $().jquery ? ($().jquery).split('.').join('') : 0), // 1.8.1 -> 181
+        jBack   = null;
+    if (version) console.log('jQuery current version : ', version);
+    else         console.log('no jQuery');
+    var loaded = function() {
+            console.log('loaded()');
+            var $ = jQuery.noConflict(); // LOCAL own jQuery version
+            if (jBack)  {
+                window.$      = jBack; // Reassign ex-jQuery
+                window.jQuery = jBack;
+            }
+            // Work with OUR new $
+            console.log('jQuery new version : ', ($().jquery).split('.').join(''));
+        },
+        loadJs = function(jsPath) {
+            console.log('loadJs()');
+            var s = document.createElement('script');
+            s.setAttribute('type', 'text/javascript');
+            s.setAttribute('src', jsPath);
+            s.onload = loaded;
+            document.getElementsByTagName('body')[0].appendChild(s);
+        };
+    
+    if (version) jBack = $;
+    if (!$ || version < 180) loadJs('http://code.jquery.com/jquery-1.9.1.min.js');
+    else loaded();
+
+})(jQuery || null);
+}}}
+
 = LITTLES FUNCTIONS FOR QUICK USE =
 
 {{{
