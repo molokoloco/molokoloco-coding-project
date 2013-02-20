@@ -1829,6 +1829,8 @@ Parmi les changements et améliorations apportées dans la version 1.4 :
 
 == jQuery noConflict() extended ==
 
+  * http://stackoverflow.com/questions/1005600/programatically-include-jquery-in-high-conflict-environment/14983925
+
 {{{
 (function($) {
     var version = ($ && typeof($) == 'function' && $().jquery ? ($().jquery).split('.').join('') : 0), // 1.8.1 -> 181
@@ -1837,13 +1839,13 @@ Parmi les changements et améliorations apportées dans la version 1.4 :
     else         console.log('no jQuery');
     var loaded = function() {
             console.log('loaded()');
-            var $ = jQuery.noConflict(); // LOCAL own jQuery version
+            var $ = jQuery.noConflict(true); // LOCAL own jQuery version
             if (jBack)  {
                 window.$      = jBack; // Reassign ex-jQuery
                 window.jQuery = jBack;
             }
-            // Work with OUR new $
-            console.log('jQuery new version : ', ($().jquery).split('.').join(''));
+            // OK : now work with OUR new $
+            console.log('jQuery new version : ', $().jquery);
         },
         loadJs = function(jsPath) {
             console.log('loadJs()');
@@ -1853,9 +1855,9 @@ Parmi les changements et améliorations apportées dans la version 1.4 :
             s.onload = loaded;
             document.getElementsByTagName('body')[0].appendChild(s);
         };
-    
+
     if (version) jBack = $;
-    if (!$ || version < 180) loadJs('http://code.jquery.com/jquery-1.9.1.min.js');
+    if (version < 180) loadJs('http://code.jquery.com/jquery-1.9.1.min.js');
     else loaded();
 
 })(jQuery || null);
