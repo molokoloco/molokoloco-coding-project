@@ -439,6 +439,32 @@ foo({ project:'jslibs', name:'soubok'})
 
 }}}
 
+== Object prototype ==
+
+Examples...
+
+{{{
+HTMLElement.prototype.hasClass = function(cls){
+    return this.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+};
+
+HTMLElement.prototype.addClass = function(cls){
+    if (cls instanceof Array){
+        for (var i = 0; i < cls.length; i++){
+            if (!this.hasClass(cls[i])) this.className += (' ' + cls[i]);
+        }
+    }else if (!this.hasClass(cls)) this.className += (' ' + cls);
+};
+
+HTMLElement.prototype.removeClass = function(cls){
+    if (cls instanceof Array){
+        for (var i = 0; i < cls.length; i++){
+            if (this.hasClass(cls)) this.className = this.className.replace(new RegExp('(\\s|^)'+cls+'(\\s|$)'), ' ');
+        }
+    }else if (this.hasClass(cls)) this.className = this.className.replace(new RegExp('(\\s|^)'+cls+'(\\s|$)'), ' ');
+};
+}}}
+
 == FUNCTIONS on functions ==
 
 {{{
@@ -489,6 +515,14 @@ function test(arg) {
 
 var arr = ['foo', 'bar'];
 test.call(arr, 'toto'); // prints: foo bar toto
+}}}
+
+Smooth override ;)
+
+{{{
+Math.rand = function(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 }}}
 
 == PROTOTYPE (OOP) ==
