@@ -4,8 +4,8 @@
 
 = Tooltips Regex =
 
-
-http://regex.larsolavtorvik.com/ (ONLINE)
+  * http://www.regexper.com/ (Regex visualization)
+  * http://scriptular.com/ (Regex online testing)
 
 {{{
 
