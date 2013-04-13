@@ -1416,3 +1416,23 @@ Object.identical = function (a, b, sortArrays) {
     return JSON.stringify(sort(a)) === JSON.stringify(sort(b));
 };
 }}}
+
+= Math with JS =
+
+  * http://fightcodegame.com/profile/molokoloco/
+
+{{{
+Robot.prototype.angleToPoint = function(mePos, newPos){
+  	var xDiff = mePos.x - newPos.x,
+        yDiff = mePos.y - newPos.y,
+        rads  = Math.atan2(-yDiff, xDiff);
+  	return rads * (180 / Math.PI);
+};
+
+Robot.prototype.distToPoint = function(mePos, newPos){
+  	var xDiff = mePos.x - newPos.x,
+  			yDiff = mePos.y - newPos.y,
+  			hyp   = Math.sqrt(Math.pow(yDiff, 2) + Math.pow(xDiff, 2));
+		return hyp;
+};
+}}}
