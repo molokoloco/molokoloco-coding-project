@@ -255,6 +255,10 @@ Match New line --- [\r\n]|$
 
 if (searchVal.indexOf('quot') >= 0) searchVal.replace(/&quot;/g, '"');
 
+// tester si une date est valide ? :)
+!/Invalid|NaN/.test(new Date(str))
+
+
 var reWhiteSpace = /^\s+$/;
 var reDigit = /^\d$/;
 var reInteger = /^\d+$/;
