@@ -275,6 +275,10 @@ var reUrl = /^http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}$/;
 return reAlphabetic.test(MyString);
 
 
+'12/02/1978'.match( /([0-9]+)/gi)
+//> ["12", "02", "1978"]
+
+
 function escape($filename) { // any non-word characters will be replaced
     Return preg_replace('/[^\w\._]/', '_', $filename);
 }
