@@ -166,6 +166,10 @@ if (totalViews > 0) {
     document.write(views); views = null;
 }
 
+// Comparing a JavaScript String to Multiple Values
+if (fruit.match(/^(banana|lemon|mango|pineapple)$/)) {
+    handleYellowFruit();
+}
 }}}
 
 ==ARRAYS / OBJECTS & ITERATIONS==
