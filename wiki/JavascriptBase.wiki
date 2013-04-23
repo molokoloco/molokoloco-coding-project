@@ -1429,7 +1429,7 @@ Object.identical = function (a, b, sortArrays) {
 };
 }}}
 
-= Math with JS =
+= Math with JS - Circalize - COS/SIN =
 
   * http://fightcodegame.com/profile/molokoloco/
 
@@ -1447,4 +1447,19 @@ Robot.prototype.distToPoint = function(mePos, newPos){
   	    hyp   = Math.sqrt(Math.pow(yDiff, 2) + Math.pow(xDiff, 2));
 	return hyp;
 };
+}}}
+
+Position of a point on a circle, given an angle
+
+{{{
+var posX = centerX + (rayon + 20) * Math.cos(angle / 180 * Math.PI),
+    posY = centerY + (rayon + 20) * Math.sin(angle / 180 * Math.PI);
+}}}
+
+jQuery Circalize plugin for CLOCK
+http://jsfiddle.net/molokoloco/V2rFN/
+
+{{{
+increase = (Math.PI * 2) / $targets.length, // Rad cheeseCake  
+angle = Math.PI * (options.startAngle / 180); // convert from DEG to RAD
 }}}
