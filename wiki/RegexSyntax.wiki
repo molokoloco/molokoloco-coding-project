@@ -4,6 +4,7 @@
 
 = Tooltips Regex =
 
+  * http://www.debuggex.com/ !!!
   * http://www.regexper.com/ (Regex visualization)
   * http://scriptular.com/ (Regex online testing)
 
