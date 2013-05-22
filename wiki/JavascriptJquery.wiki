@@ -2165,7 +2165,7 @@ $('#elem').defaultPluginName({
 }}}
 
 
-== jQuery "Bootstraped" plugin Boilerplate ==
+== jQuery plugin Boilerplate "Bootstraped" version V3 ==
 
 Plugin design pattern from Twitter Bootstrap
 http://twitter.github.io/bootstrap/
@@ -2194,13 +2194,13 @@ http://twitter.github.io/bootstrap/
         // Privates vars
         this.$container = $(element);
         this.wrapper    = '<div class="'+this.options.css+'"/>';
-		this.cWidth, this.colHeightRatio, this.intentNextP, this.lineHeight, this.maxHeight;
-		this.refresh();
+	this.cWidth, this.colHeightRatio, this.intentNextP, this.lineHeight, this.maxHeight;
+	this.refresh();
     };
 
     Colonizr.prototype = {
         
-		constructor: Colonizr,
+	constructor: Colonizr,
 		
         colsExtractor: function (i, e) {
             var $element    = $(e),
@@ -2250,7 +2250,7 @@ http://twitter.github.io/bootstrap/
 			this.colHeightRatio = 1;
 			this.intentNextP    = 0;
 			this.lineHeight     = 0;
-            this.maxHeight      = this.options.maxHeight;
+			this.maxHeight      = this.options.maxHeight;
 			var colWidth        = this.cWidth;
 			if (this.options.maxHeight < 1)
 				this.maxHeight = Math.max(80, $(window).height() - 60); // (Min/) Max cols height ?			
@@ -2284,9 +2284,9 @@ http://twitter.github.io/bootstrap/
 
     $.fn.colonizr = function (options) {
         return this.each(function() { // Iterate collections
-            var $this          = $(this),
-				data           = $this.data('colonizr');
-			if (!data) $this.data('colonizr', (data = new Colonizr(this, options)));
+            var $this = $(this),
+		data  = $this.data('colonizr');
+		if (!data) $this.data('colonizr', (data = new Colonizr(this, options)));
             if (typeof options == 'string') data[options]();
         });
     };
