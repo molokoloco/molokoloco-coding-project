@@ -2265,7 +2265,7 @@ http://twitter.github.io/bootstrap/
 			}
 			var $p = $('<p>A</p>').appendTo(this.$container);
 			this.lineHeight = $p.outerHeight();
-            this.lineHeight = this.lineHeight * this.options.minLine;
+			this.lineHeight = this.lineHeight * this.options.minLine;
 			$p.remove();
 			if (this.options.colWidth)
 				this.options.colCount = Math.max(1, Math.floor(this.cWidth / this.options.colWidth));
