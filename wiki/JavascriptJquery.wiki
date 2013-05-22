@@ -2165,7 +2165,7 @@ $('#elem').defaultPluginName({
 }}}
 
 
-== jQuery BootStraped plugin Boilerplate ==
+== jQuery "Bootstraped" plugin Boilerplate ==
 
 Plugin design pattern from Twitter Bootstrap
 http://twitter.github.io/bootstrap/
