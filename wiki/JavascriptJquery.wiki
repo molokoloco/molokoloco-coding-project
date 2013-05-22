@@ -1167,6 +1167,14 @@ $("#load_get").click(function(){
         .load(loadUrl+' div#content', "language=php&version=5"); // + extract content
 });
 
+// Long Polling (recursive AJAX) - An Efficient Server-Push Technique
+(function poll(){
+    $.ajax({url: "server", success: function(data){
+        // Update your dashboard gauge
+        salesGauge.setValue(data.value);
+    }, dataType: "json", complete: poll, timeout: 30000});
+})();
+
 // --------------------------------------------------------------- //
 // DISTANT JSON // http://blog.jaysalvat.com/articles/comprendre-jsonp-et-acces-de-donnees-a-distance-en-javascript.php
 
