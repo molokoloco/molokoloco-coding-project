@@ -4,15 +4,6 @@
 _Nota : I have stollen theses snippets here : [http://www.hongkiat.com/blog/css-snippets-for-designers/ http://www.hongkiat.com/blog/css-snippets-for-designers/] _  
 
 Shame on me for eternity, but i know well all this things, only forget to write it... nice to wrap them here...
-I gonna update them according to my nuclear back wiki [CSSSyntax CSS tooltips]
-
-----
-
-*Sommaire :*
-
-<wiki:toc max_depth="3" />
-
-----
 
 = CSS Snippets = 
 
@@ -72,7 +63,7 @@ This clearfix code has been around the Web for years circulating amongst savvy w
 == 3. 2011 Updated Clearfix == 
 
 {{{
->.clearfix:before, .container:after { content: ""; display: table; }
+.clearfix:before, .container:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 
 /* IE 6/7 */
@@ -84,7 +75,7 @@ From what I can tell there isn’t a major difference in rendering between this 
 == 4. Cross-Browser Transparency == 
 
 {{{
->.transparent {
+.transparent {
     filter: alpha(opacity = 50); /* internet explorer */
     -khtml-opacity: 0.5;      /* khtml, old safari */
     -moz-opacity: 0.5;       /* mozilla, netscape */
@@ -99,7 +90,7 @@ Some of the newer CSS3 properties have pampered us into thinking they may be app
 == 5. CSS Blockquote Template == 
 
 {{{
->blockquote {
+blockquote {
     background: #f9f9f9;
     border-left: 10px solid #ccc;
     margin: 1.5em 10px;
@@ -127,7 +118,7 @@ Not everybody needs to use blockquotes inside their website. But I feel these ar
 == 6. Individual Rounded Corners == 
 	
 {{{
->#container {
+#container {
     -webkit-border-radius: 4px 3px 6px 10px;
     -moz-border-radius: 4px 3px 6px 10px;
     -o-border-radius: 4px 3px 6px 10px;
@@ -153,7 +144,7 @@ Most developers are familiar with the CSS3 rounded corners syntax. But how would
 == 7. General Media Queries == 
 
 {{{
->/* Smartphones (portrait and landscape) ----------- */
+/* Smartphones (portrait and landscape) ----------- */
 @media only screen 
 and (min-device-width : 320px) and (max-device-width : 480px) {
   /* Styles */
@@ -207,7 +198,7 @@ This is an excellent template which you can find on <a href = "http://css-tricks
 == 8. Modern Font Stacks == 
 
 {{{
->/* Times New Roman-based serif */
+/* Times New Roman-based serif */
 font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
 
 /* A modern Georgia-based serif */
@@ -239,7 +230,7 @@ It is difficult brainstorming your own CSS font stacks for designing new webpage
 == 9. Custom Text Selection == 
 
 {{{
->::selection { background: #e2eae2; }
+::selection { background: #e2eae2; }
 ::-moz-selection { background: #e2eae2; }
 ::-webkit-selection { background: #e2eae2; }
 }}}
@@ -249,7 +240,7 @@ Some newer web browsers will allow you to define the highlight color on your web
 == 10. Hiding H1 Text for Logo == 
 
 {{{
->h1 {
+h1 {
     text-indent: -9999px;
     margin: 0 auto;
     width: 320px;
@@ -263,7 +254,7 @@ I first noticed this technique being implemented on the old <a href = "http://we
 == 11. Polaroid Image Border == 
 
 {{{
->img.polaroid {
+img.polaroid {
     background:#000; /*Change this to a background image or remove*/
     border:solid #fff;
     border-width:6px 6px 20px 6px;
@@ -282,7 +273,7 @@ Applying this basic snippet will allow you to implement <strong>.polaroid</stron
 == 12. Anchor Link Pseudo Classes == 
 
 {{{
->a:link { color: blue; }
+a:link { color: blue; }
 a:visited { color: purple; }
 a:hover { color: red; }
 a:active { color: yellow; }
@@ -295,7 +286,7 @@ Most CSS developers know about the anchor link styles and <code>:hover</code> ef
 == 13. Fancy CSS3 Pull-Quotes == 
 
 {{{
->.has-pullquote:before {
+.has-pullquote:before {
 	/* Reset metrics. */
 	padding: 0;
 	border: none;
@@ -344,7 +335,7 @@ Pull-quotes are different from blockquotes in that they appear off to the side o
 == 14. Fullscreen Backgrounds with CSS3 == 
 
 {{{
->html { 
+html { 
     background: url('images/bg.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -360,7 +351,7 @@ I should note that this code will not work properly in older browsers which do n
 == 15. Vertically Centered Content == 
 
 {{{
->.container {
+.container {
     min-height: 6.5em;
     display: table-cell;
     vertical-align: middle;
@@ -374,7 +365,7 @@ Using the margin: 0 auto technique it is very easy to embed content into the hor
 == 16. Force Vertical Scrollbars == 
 
 {{{
->html { height: 101% }
+html { height: 101% }
 }}}
 
 When your page content doesn’t fill the entire height of your browser window then you don’t end up getting any scrollbars. However resizing will force them to appear and append an extra 10-15 pixels to the width of your window, pushing over your webpage content. This snippet will ensure your <strong>HTML element is always just a little bit higher than the browser which forces scrollbars to stay in place at all times.</strong>
@@ -382,7 +373,7 @@ When your page content doesn’t fill the entire height of your browser window t
 == 17. CSS3 Gradients Template == 
 
 {{{
->#colorbox {
+#colorbox {
     background: #629721;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#83b842), to(#629721));
     background-image: -webkit-linear-gradient(top, #83b842, #629721);
@@ -398,7 +389,7 @@ CSS3 gradients are another wondrous  part of the newer specifications. Many of t
 == 18. @font-face Template == 
 
 {{{
->@font-face {
+@font-face {
     font-family: 'MyWebFont';
     src: url('webfont.eot'); /* IE9 Compat Modes */
     src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -419,7 +410,7 @@ Here is another bit of CSS3 code which isn’t the easiest to memorize. Using @f
 == 19. Stitched CSS3 Elements == 
 
 {{{
->p {
+p {
     position:relative;
     z-index:1;
     padding: 10px;
@@ -462,7 +453,7 @@ p a:hover, p a:focus, p a:active {
 == 20. CSS3 Zebra Stripes == 
 
 {{{
->tbody tr:nth-child(odd) {
+tbody tr:nth-child(odd) {
     background-color: #ccc;
 }
 }}}
@@ -474,7 +465,7 @@ Possibly the best item to include zebra stripes is within a table of data. It ca
 == 21. Fancy Ampersand == 
 
 {{{
->.amp {
+.amp {
     font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
     font-style: italic;
     font-weight: normal;
@@ -488,7 +479,7 @@ This class would be applied to one span element wrapped around your ampersand ch
 == 22. Drop-Cap Paragraphs == 
 
 {{{
->p:first-letter{
+p:first-letter{
     display: block;
     margin: 5px 0 0 5px;
     float: left;
@@ -503,7 +494,7 @@ Typically you’ll notice dropped capitals appear in printed mediums, such as ne
 == 23. Inner CSS3 Box Shadow == 
 
 {{{
->#mydiv { 
+#mydiv { 
     -moz-box-shadow: inset 2px 0 4px #000;
     -webkit-box-shadow: inset 2px 0 4px #000;
     box-shadow: inset 2px 0 4px #000;
@@ -515,7 +506,7 @@ The box shadow property has offered immense changes into how we build websites. 
 == 24. Outer CSS3 Box Shadow == 
 
 {{{
->#mydiv { 
+#mydiv { 
     -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
     -moz-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
@@ -527,7 +518,7 @@ In relation to the inner CSS3 shadows I also want to present an outer shadow cod
 == 25. Triangular List Bullets == 
 
 {{{
->ul {
+ul {
     margin: 0.75em 0;
     padding: 0 1em;
     list-style: none;
@@ -554,7 +545,7 @@ Believe it or not it is actually possible <strong>to generate triangle-shaped bu
 == 26. Centered Layout Fixed Width == 
 
 {{{
->#page-wrap {
+#page-wrap {
     width: 800px;
     margin: 0 auto;
 }
@@ -567,7 +558,7 @@ I know earlier it was mentioned how to setup horizontal positioning. I want to j
 == 27. CSS3 Column Text == 
 
 {{{
->#columns-3 {
+#columns-3 {
     text-align: justify;
     -moz-column-count: 3;
     -moz-column-gap: 12px;
@@ -585,7 +576,7 @@ CSS3 columns would be nice to see in website layouts, but the reality is how we 
 == 28. CSS Fixed Footer == 
 
 {{{
->#footer {
+#footer {
     position: fixed;
     left: 0px;
     bottom: 0px;
@@ -608,7 +599,7 @@ This is actually a lot more useful than it sounds, but appending a fixed footer 
 == 29. Transparent PNG Fix for IE6 == 
 
 {{{
->.bg {
+.bg {
     width:200px;
     height:100px;
     background: url(/folder/yourimage.png) no-repeat;
@@ -635,7 +626,7 @@ Using transparent images inside websites has become a very common practice. This
 == 30. Cross-Browser Minimum Height == 
 
 {{{
->#container {
+#container {
     min-height: 550px;
     height: auto !important;
     height: 550px;
@@ -647,7 +638,7 @@ Developers who have needed to work with <code>min-height</code> know all about t
 == 31. CSS3 Glowing Inputs == 
 
 {{{
->input[type = text], textarea {
+input[type = text], textarea {
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
@@ -673,7 +664,7 @@ I really enjoy this basic custom CSS3 class because of how it overwrites the def
 == 32. Style Links Based on Filetype == 
 
 {{{
->/* external links */
+/* external links */
 a[href^ = "http://"] {
     padding-right: 13px;
     background: url('external.gif') no-repeat center right;
@@ -699,7 +690,7 @@ Quite the obscure bit of CSS but I love the creativity! You can determine the fi
 == 33. Force Code Wraps == 
 
 {{{
->pre {
+pre {
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
@@ -715,7 +706,7 @@ The typical pre tags are used in layouts to display large chunks of code. This i
 == 34. Force Hand Cursor over Clickable Items == 
 
 {{{
->a[href], input[type = 'submit'], input[type = 'image'], label[for], select, button, .pointer {
+a[href], input[type = 'submit'], input[type = 'image'], label[for], select, button, .pointer {
     cursor: pointer;
 }
 }}}
@@ -727,7 +718,7 @@ There are lots of default clickable HTML elements which do not always display th
 == 35. Webpage Top Box Shadow == 
 
 {{{
->body:before {
+body:before {
     content: "";
     position: fixed;
     top: -10px;
@@ -750,7 +741,7 @@ Developers may not find a great use for this other than some pleasing aesthetics
 == 36. CSS3 Speech Bubble == 
 
 {{{
->.chat-bubble {
+.chat-bubble {
     background-color: #ededed;
     border: 2px solid #666;
     font-size: 35px;
@@ -795,7 +786,7 @@ Numerous user interface purposes come to mind when discussing speech bubbles. Th
 == 37. Default H1-H5 Headers == 
 
 {{{
->h1,h2,h3,h4,h5{
+h1,h2,h3,h4,h5{
 	color: #005a9c;
 }
 h1{
@@ -827,7 +818,7 @@ I have offered lots of common syntax including browser CSS resets and a few HTML
 == 38. Pure CSS Background Noise == 
 
 {{{
->body {
+body {
     background-image: url(data:image/png;base64,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 == );
     background-color: #0094d0;
 }
@@ -841,7 +832,7 @@ Designers have seen this effect added into websites for a long time, although th
 == 39. Continued List Ordering == 
 
 {{{
->ol.chapters {
+ol.chapters {
     list-style: none;
     margin-left: 0;
 }
@@ -875,7 +866,7 @@ I feel this may not be an extremely popular snippet, but it does have its market
 == 40. CSS Tooltip Hovers == 
 
 {{{
->a { 
+a { 
     border-bottom:1px solid #bbb;
     color:#666;
     display:inline-block;
@@ -947,7 +938,7 @@ There are lots of open source jQuery-based tooltips which you can implement on y
 == 41. Dark Grey Rounded Buttons == 
 
 {{{
->.graybtn {
+.graybtn {
     -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
     box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -987,7 +978,7 @@ As another helpful template for web developers I have included this simplistic C
 == 42. Display URLS in a Printed Webpage == 
 
 {{{
->@media print   {  
+@media print   {  
   a:after {  
     content: " [" attr(href) "] ";  
   }
@@ -1001,7 +992,7 @@ If you run a news website or resource with lots of print material, this is possi
 == 43. Disable Mobile Webkit Highlights == 
 	
 {{{
->body {
+body {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -1016,7 +1007,7 @@ Depending on your experience working in mobile this snippet may not appear very 
 == 44. CSS3 Polka-Dot Pattern == 
 
 {{{
->body {
+body {
     background: radial-gradient(circle, white 10%, transparent 10%),
     radial-gradient(circle, white 10%, black 10%) 50px 50px;
     background-size: 100px 100px;
@@ -1030,7 +1021,7 @@ I was a bit taken back when initially finding this snippet online. But it is a r
 == 45. CSS3 Checkered Pattern == 
 
 {{{
->body {
+body {
     background-color: white;
     background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), 
     linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
@@ -1046,7 +1037,7 @@ Similar to the polka-dots above we can also create a full seamless checkerboard 
 == 46. Github Fork Ribbon == 
 
 {{{
->.ribbon {
+.ribbon {
     background-color: #a00;
     overflow: hidden;
     /* top left corner */
@@ -1081,7 +1072,7 @@ As a big user on Github this basic code snippet blew my mind. You can quickly ge
 == 47. Condensed CSS Font Properties == 
 
 {{{
->p {
+p {
   font: italic small-caps bold 1.2em/1.0em Arial, Tahoma, Helvetica;
 }
 }}}
@@ -1093,7 +1084,7 @@ The main reason web developers don’t always use this condensed font property i
 == 48. Paper Page Curl Effect == 
 
 {{{
->ul.box {
+ul.box {
     position: relative;
     z-index: 1; /* prevent shadows falling behind containers with backgrounds */
     overflow: hidden;
@@ -1155,7 +1146,7 @@ This page curl effect can be applied to almost any container which holds website
 == 49. Glowing Anchor Links == 
 
 {{{
->a {
+a {
 	color: #00e;
 }
 a:visited {
