@@ -1,9 +1,17 @@
 #summary CSS Snippets i worked with
 #labels Featured,Tooltips
 
-_Nota : I have stollen theses snippets here :_  http://www.hongkiat.com/blog/css-snippets-for-designers/
+_Nota : I have stollen theses snippets here : [http://www.hongkiat.com/blog/css-snippets-for-designers/ http://www.hongkiat.com/blog/css-snippets-for-designers/] _  
 
 Shame on me for eternity, but i know well all this things, only forget to write it... nice to wrap them here...
+
+----
+
+*Sommaire :*
+
+<wiki:toc max_depth="3" />
+
+----
 
 = CSS Snippets = 
 
@@ -1222,5 +1230,5 @@ Here are more articles published in the pass you may be interested in:
   * http://www.hongkiat.com/blog/20-useful-css-tips-for-beginners/
   * http://www.hongkiat.com/blog/top-css-editors-reviewed/
   * http://www.hongkiat.com/blog/keep-css3-markup-slim/‎
-  * http:/www.hongkiat.com/blog/css-priority-level/
+  * http://www.hongkiat.com/blog/css-priority-level/
   * http://www.hongkiat.com/blog/css3-pseudo-classes/
