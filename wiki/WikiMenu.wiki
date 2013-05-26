@@ -27,6 +27,7 @@
 	<li>[HtAccess HTaccess (Apache)]</li>
 	<li>[LinuxCmdShell Linux tooltips]</li>
 	<li>[RegexSyntax REGEXP tooltips]</li>
+	<li>[CssSnippets CSS snippets]</li>
 	<li>[CSSSyntax CSS tooltips]</li>
 	<li>~~[FlexAirSyntax AS3/FLEX tooltips]~~</li>
 	<li>~~[VirtualAdmin Virtual Admin Framework]~~</li>
