@@ -5,6 +5,14 @@ _Nota : I have stollen theses snippets here : [http://www.hongkiat.com/blog/css-
 
 Shame on me for eternity, but i know well all this things, only forget to write it... nice to wrap them here...
 
+----
+
+*Sommaire :*
+
+<wiki:toc max_depth="3" />
+
+----
+
 = CSS Snippets = 
 
 With so many <a href = "http://www.hongkiat.com/blog/web-design-trend-2013/‎">new trends</a> advancing every year it can be difficult keeping up with the industry. Website designers and frontend developers have been deeply ingrained into the newer <a href = "http://www.hongkiat.com/blog/tag/css3/‎">CSS3 properties</a>, determining the ultimate <a href = "http://www.hongkiat.com/blog/complete-guide-to-cross-browser-compatibility-check/">browser support</a> and quirky hacks. But there are also brilliant CSS2 code snippets which have been unrequited in comparison.
