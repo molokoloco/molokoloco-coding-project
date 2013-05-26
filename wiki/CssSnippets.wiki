@@ -1,27 +1,19 @@
 #summary CSS Snippets i worked with
 #labels Featured,Tooltips
 
-_Nota : I have stollen theses snippets here : [http://www.hongkiat.com/blog/css-snippets-for-designers/ http://www.hongkiat.com/blog/css-snippets-for-designers/] _  
+_Nota : I have stollen theses snippets here :_  http://www.hongkiat.com/blog/css-snippets-for-designers/
 
 Shame on me for eternity, but i know well all this things, only forget to write it... nice to wrap them here...
 
-----
-
-*Sommaire :*
-
-<wiki:toc max_depth="3" />
-
-----
-
 = CSS Snippets = 
 
-With so many <a href = "http://www.hongkiat.com/blog/web-design-trend-2013/‎">new trends</a> advancing every year it can be difficult keeping up with the industry. Website designers and frontend developers have been deeply ingrained into the newer <a href = "http://www.hongkiat.com/blog/tag/css3/‎">CSS3 properties</a>, determining the ultimate <a href = "http://www.hongkiat.com/blog/complete-guide-to-cross-browser-compatibility-check/">browser support</a> and quirky hacks. But there are also brilliant CSS2 code snippets which have been unrequited in comparison.
+With so many <a href="http://www.hongkiat.com/blog/web-design-trend-2013/‎">new trends</a> advancing every year it can be difficult keeping up with the industry. Website designers and frontend developers have been deeply ingrained into the newer <a href="http://www.hongkiat.com/blog/tag/css3/‎">CSS3 properties</a>, determining the ultimate <a href="http://www.hongkiat.com/blog/complete-guide-to-cross-browser-compatibility-check/">browser support</a> and quirky hacks. But there are also brilliant CSS2 code snippets which have been unrequited in comparison.
 
 <img src = "http://media02.hongkiat.com/css-snippets-for-designers/css-snippets.jpg" width = "600" height = "369">
 
 For this article I want to present<strong> 50 handy CSS2/CSS3 code snippets</strong> for any web professional. These are perfect for storing in your development IDE of choice, or even keeping them saved in a small CSS file. Either way I am sure designers &amp; developers can find some use for some of the snippets in this collection.
 
-<strong>Recommended Reading:</strong> <a rel = "external" href = "http://www.hongkiat.com/blog/20-useful-css-tips-for-beginners/‎" target = "_blank">20 Useful CSS Tips For Beginners</a> 
+<strong>Recommended Reading:</strong> <a rel = "external" href="http://www.hongkiat.com/blog/20-useful-css-tips-for-beginners/‎" target = "_blank">20 Useful CSS Tips For Beginners</a> 
 
 == 1. CSS Resets == 
 
@@ -51,10 +43,10 @@ For this article I want to present<strong> 50 handy CSS2/CSS3 code snippets</str
 	table { border-collapse: collapse; border-spacing: 0; } 
 	img { border: 0; max-width: 100%; } 
 	 
-	p { font-size: 1.2em; line-height: 1.0em; color: #333; } 
+	p { font-size: 1.2em; line-height: 1.0em; color: #333; }
 }}}
 
-Basic CSS browser resets are some of the most common snippets you’ll find online. This is a customized snippet by myself which is based off <a href = "http://meyerweb.com/eric/tools/css/reset/">Eric Meyer’s reset codes</a>. I have included a bit for responsive images and set all core elements to <strong>border-box</strong>, keeping margins and padding measurements aligned properly.
+Basic CSS browser resets are some of the most common snippets you’ll find online. This is a customized snippet by myself which is based off <a href="http://meyerweb.com/eric/tools/css/reset/">Eric Meyer’s reset codes</a>. I have included a bit for responsive images and set all core elements to <strong>border-box</strong>, keeping margins and padding measurements aligned properly.
 
 == 2. Classic CSS Clearfix == 
 
@@ -91,7 +83,7 @@ From what I can tell there isn’t a major difference in rendering between this 
 }
 }}}
 
-<em><a href = "http://perishablepress.com/cross-browser-transparency-via-css/">Code Source</a></em>
+_<a href="http://perishablepress.com/cross-browser-transparency-via-css/">Code Source</a>_
 
 Some of the newer CSS3 properties have pampered us into thinking they may be applied everywhere. Unfortunately opacity is one such example where CSS still requires some minor updates. <strong>Appending the filter property</strong> should handle any older versions of IE with grace.
 
@@ -118,7 +110,7 @@ blockquote p {
 }
 }}}
 	
-<em><a href = "http://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/">Code Source</a>_
 
 	
 Not everybody needs to use blockquotes inside their website. But I feel these are an excellent HTML element for <strong>separating quoted or repeated content within blogs or webpages</strong>. This basic chunk of CSS offers a default style for your blockquotes so they don’t appear as drab and bland.
@@ -199,9 +191,9 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 }
 }}}
 
-<em><a href = "http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Code Source</a>_
 
-This is an excellent template which you can find on <a href = "http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">CSS-Tricks</a> for other bits and pieces of media queries. However I’ve copied their example in full which includes tons of real mobile devices. These codes will even target retina-based devices using <code>min-device-pixel-ratio</code>.
+This is an excellent template which you can find on <a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">CSS-Tricks</a> for other bits and pieces of media queries. However I’ve copied their example in full which includes tons of real mobile devices. These codes will even target retina-based devices using <code>min-device-pixel-ratio</code>.
 
 == 8. Modern Font Stacks == 
 
@@ -231,9 +223,9 @@ font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvet
 font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }}}
 
-<em><a href = "http://www.sitepoint.com/eight-definitive-font-stacks/">Code Source</a></em>
+_<a href="http://www.sitepoint.com/eight-definitive-font-stacks/">Code Source</a>_
 
-It is difficult brainstorming your own CSS font stacks for designing new webpages. I hope this snippet may alleviate some torture and give you a few templates for getting started. If you want to find more examples check out <a href = "http://cssfontstack.com/">CSS Font Stacks</a> which is one of my favorite resources.
+It is difficult brainstorming your own CSS font stacks for designing new webpages. I hope this snippet may alleviate some torture and give you a few templates for getting started. If you want to find more examples check out <a href="http://cssfontstack.com/">CSS Font Stacks</a> which is one of my favorite resources.
 
 == 9. Custom Text Selection == 
 
@@ -257,7 +249,7 @@ h1 {
 }
 }}}
 	
-I first noticed this technique being implemented on the old <a href = "http://web.archive.org/web/20080229090645/http://digg.com/">Digg layout</a>. You can setup an H1 tag which also has your website’s name in plaintext for SEO purposes. But using CSS we can <strong>move this text so it isn’t visible, and replace it with a custom logo image</strong>.
+I first noticed this technique being implemented on the old <a href="http://web.archive.org/web/20080229090645/http://digg.com/">Digg layout</a>. You can setup an H1 tag which also has your website’s name in plaintext for SEO purposes. But using CSS we can <strong>move this text so it isn’t visible, and replace it with a custom logo image</strong>.
 
 == 11. Polaroid Image Border == 
 
@@ -274,7 +266,7 @@ img.polaroid {
 }
 }}}
 
-<em><a href = "http://www.smipple.net/snippet/kettultim/Polaroid%20Image%20Border%20-%20CSS3">Code Source</a></em>
+_<a href="http://www.smipple.net/snippet/kettultim/Polaroid%20Image%20Border%20-%20CSS3">Code Source</a>_
 
 Applying this basic snippet will allow you to implement <strong>.polaroid</strong> classes onto your images. This will <strong>create the old photo-style effect with a large white border and some slight box shadows</strong>. You’ll want to update the width/height values to match that of your image dimensions and website layout.
 
@@ -287,7 +279,7 @@ a:hover { color: red; }
 a:active { color: yellow; }
 }}}
 
-<em><a href = "http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers">Code Source</a></em>
+_<a href="http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers">Code Source</a>_
 
 Most CSS developers know about the anchor link styles and <code>:hover</code> effects. But I wanted to include this small code snippet as a reference for newcomers. These are the four default states for an anchor link, and also a few other HTML elements. Keep this handy until you can memorize some of the more obscure ones.
 
@@ -335,7 +327,7 @@ Most CSS developers know about the anchor link styles and <code>:hover</code> ef
 }
 }}}
 	
-<em><a href = "http://miekd.com/articles/pull-quotes-with-html5-and-css/">Code Source</a></em>
+_<a href="http://miekd.com/articles/pull-quotes-with-html5-and-css/">Code Source</a>_
 
 	
 Pull-quotes are different from blockquotes in that they appear off to the side of your blog or news article. These often reference quoted text from the article, and so they appear slightly different than blockquotes. This default class has some basic properties along with 3 unique font families to choose from.
@@ -352,7 +344,7 @@ html {
 }
 }}}
 
-<em><a href = "http://css-tricks.com/perfect-full-page-background-image/">Code Source</a></em>
+_<a href="http://css-tricks.com/perfect-full-page-background-image/">Code Source</a>_
 
 I should note that this code will not work properly in older browsers which do not support CSS3 syntax. However if you’re looking for a quick solution and don’t care about legacy support, this is the best chunk of code you’ll find! <strong>Great for adding big photographs into the background of your website while keeping them resizable and fixed as you scroll</strong>.
 
@@ -366,7 +358,7 @@ I should note that this code will not work properly in older browsers which do n
 }
 }}}
 
-<em><a href = "http://www.w3.org/Style/Examples/007/center">Code Source</a></em>
+_<a href="http://www.w3.org/Style/Examples/007/center">Code Source</a>_
 
 Using the margin: 0 auto technique it is very easy to embed content into the horizontal center of your page. However vertical content is a lot harder, especially considering scrollbars and other methods. But this is a pure CSS solution which should work flawlessly without JavaScript.
 
@@ -411,7 +403,7 @@ body {
 }
 }}}
 
-<em><a href = "http://css-tricks.com/snippets/css/using-font-face/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/using-font-face/">Code Source</a>_
 
 Here is another bit of CSS3 code which isn’t the easiest to memorize. Using @font-face you may embed your own TTF/OTF/SVG/WOFF files into your website and generate custom font families. Use this template as a base example for your own projects in the future.
 
@@ -456,7 +448,7 @@ p a:hover, p a:focus, p a:active {
 }
 }}}
 	
-<em><a href = "http://kitmacallister.com/2011/css3-stitched-elements/">Code Source</a></em>
+_<a href="http://kitmacallister.com/2011/css3-stitched-elements/">Code Source</a>_
 
 == 20. CSS3 Zebra Stripes == 
 
@@ -466,7 +458,7 @@ tbody tr:nth-child(odd) {
 }
 }}}
 
-<em><a href = "http://css-tricks.com/snippets/css/css3-zebra-striping-a-table/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/css3-zebra-striping-a-table/">Code Source</a>_
 
 Possibly the best item to include zebra stripes is within a table of data. It can be difficult when users are scanning 40 or 50 rows to determine exactly which cell is lined up to which row. By adding zebra stripes on default we can update odd rows with varying background colors.
 
@@ -480,7 +472,7 @@ Possibly the best item to include zebra stripes is within a table of data. It ca
 }
 }}}
 
-<em><a href = "http://css-tricks.com/snippets/css/fancy-ampersand/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/fancy-ampersand/">Code Source</a>_
 
 This class would be applied to one span element wrapped around your ampersand character in page content. It will apply some classic serif fonts and use italics to enhance the ampersand symbol. Try it out on a demo webpage and see how you like the design.
 
@@ -521,7 +513,7 @@ The box shadow property has offered immense changes into how we build websites. 
 }
 }}}
 
-In relation to the inner CSS3 shadows I also want to present an outer shadow code snippet. Note the 3rd number in our syntax represents blur distance while the 4th number represents the spread. You can learn more about these values from <a href = "http://www.w3schools.com/cssref/css3_pr_box-shadow.asp">W3Schools</a>.
+In relation to the inner CSS3 shadows I also want to present an outer shadow code snippet. Note the 3rd number in our syntax represents blur distance while the 4th number represents the spread. You can learn more about these values from <a href="http://www.w3schools.com/cssref/css3_pr_box-shadow.asp">W3Schools</a>.
 
 == 25. Triangular List Bullets == 
 
@@ -545,7 +537,7 @@ li:before {
 }
 }}}
 	
-<em><a href = "http://jsfiddle.net/chriscoyier/yNZTU/">Code Source</a></em>
+_<a href="http://jsfiddle.net/chriscoyier/yNZTU/">Code Source</a>_
 
 	
 Believe it or not it is actually possible <strong>to generate triangle-shaped bullets solely in CSS3</strong>. This is a really cool technique which does look awesome in respected browsers. The only potential issue is a major lack of support for fallback methods.
@@ -559,7 +551,7 @@ Believe it or not it is actually possible <strong>to generate triangle-shaped bu
 }
 }}}
 
-<em><a href = "http://css-tricks.com/snippets/css/centering-a-website/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/centering-a-website/">Code Source</a>_
 
 I know earlier it was mentioned how to setup horizontal positioning. I want to jump back in with this <strong>quick snippet for horizontal positioning</strong>, which is perfect to be used on fixed-width layouts.
 
@@ -577,7 +569,7 @@ I know earlier it was mentioned how to setup horizontal positioning. I want to j
 }
 }}}
 
-<em><a href = "http://www.djavupixel.com/development/css-development/master-css3-ultimate-css-code-snippets/">Code Source</a></em>
+_<a href="http://www.djavupixel.com/development/css-development/master-css3-ultimate-css-code-snippets/">Code Source</a>_
 
 CSS3 columns would be nice to see in website layouts, but the reality is how we can split up text based on column styles. Use this snippet to place any number of columns inline with your paragraphs, where text will split evenly based on your column number.
 
@@ -600,7 +592,7 @@ CSS3 columns would be nice to see in website layouts, but the reality is how we 
 }
 }}}
 
-<em><a href = "http://www.flashjunior.ch/school/footers/fixed.cfm">Code Source</a></em>
+_<a href="http://www.flashjunior.ch/school/footers/fixed.cfm">Code Source</a>_
 
 This is actually a lot more useful than it sounds, but appending a fixed footer into your website is quite simple. These footers will scroll with the user and may contain helpful information about your site or unique contact details. Ideally this would only be implemented in cases where it truly adds value to the user interface.
 
@@ -626,7 +618,7 @@ img, .png {
 }
 }}}
 		
-<em><a href = "http://css-tricks.com/snippets/css/png-hack-for-ie-6/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/png-hack-for-ie-6/">Code Source</a>_
 
 		
 Using transparent images inside websites has become a very common practice. This started with gif images, but has evolved into alpha-transparent PNGs. Unfortunately older legacy versions of Internet Explorer have never supported the transparency. Adding this brief CSS snippet should clear up the problem.
@@ -665,7 +657,7 @@ input[type = text]:focus, textarea:focus {
 }
 }}}
 
-<em><a href = "http://css-tricks.com/snippets/css/glowing-blue-input-highlights/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/glowing-blue-input-highlights/">Code Source</a>_
 
 I really enjoy this basic custom CSS3 class because of how it overwrites the default browser behavior. Users of Chrome &amp; Safari know about annoying input outlines in forms. Adding these properties into your stylesheet will setup a whole new design for basic input elements.
 
@@ -691,7 +683,7 @@ a[href$ = ".pdf"] {
 }
 }}}
 
-<em><a href = "http://www.designyourway.net/blog/resources/31-css-code-snippets-to-make-you-a-better-coder/">Code Source</a></em>
+_<a href="http://www.designyourway.net/blog/resources/31-css-code-snippets-to-make-you-a-better-coder/">Code Source</a>_
 
 Quite the obscure bit of CSS but I love the creativity! You can determine the file type of your links using CSS selectors and implement icons as background images. These may include the various protocols (HTTP, FTP, IRC, mailto) or simply the file types themselves (mp3, avi, pdf).
 
@@ -707,7 +699,7 @@ pre {
 }
 }}}
 
-<em><a href = "http://css-tricks.com/snippets/css/make-pre-text-wrap/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/make-pre-text-wrap/">Code Source</a>_
 
 The typical pre tags are used in layouts to display large chunks of code. This is preformatted text like you would find inside Notepad or Textedit, except you’ll often notice long lines produce horizontal scrollbars. This block of CSS will <strong>force all pre tags to wrap code</strong> instead of breaking outside the container.
 
@@ -719,7 +711,7 @@ a[href], input[type = 'submit'], input[type = 'image'], label[for], select, butt
 }
 }}}
 
-<em><a href = "http://css-tricks.com/snippets/css/give-clickable-elements-a-pointer-cursor/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/give-clickable-elements-a-pointer-cursor/">Code Source</a>_
 
 There are lots of default clickable HTML elements which do not always display the hand pointer icon. Using this set of CSS selectors you may force the pointer over a number of key elements, along with any other objects using the class <strong>.pointer</strong>.
 
@@ -741,7 +733,7 @@ body:before {
 }
 }}}
 	
-<em><a href = "http://css-tricks.com/snippets/css/top-shadow/">Code Source</a></em>
+_<a href="http://css-tricks.com/snippets/css/top-shadow/">Code Source</a>_
 
 	
 Developers may not find a great use for this other than some pleasing aesthetics. But I really enjoy this effect and it’s definitely something unique! Simply append this CSS code targeting your body element <strong>to display a dark drop shadow fading down from the top of your webpage</strong>.
@@ -787,9 +779,9 @@ Developers may not find a great use for this other than some pleasing aesthetics
 }
 }}}
 
-<em><a href = "http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">Code Source</a></em>
+_<a href="http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">Code Source</a>_
 
-Numerous user interface purposes come to mind when discussing speech bubbles. These could be handy in discussion comments, or creating bulletin boards, or displaying quoted text. Simply add the following classes into your stylesheet and you can find related HTML codes from <a href = "http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">this CSS3 snippets post</a>.
+Numerous user interface purposes come to mind when discussing speech bubbles. These could be handy in discussion comments, or creating bulletin boards, or displaying quoted text. Simply add the following classes into your stylesheet and you can find related HTML codes from <a href="http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">this CSS3 snippets post</a>.
 
 == 37. Default H1-H5 Headers == 
 
@@ -819,7 +811,7 @@ h5{
 }
 }}}
 
-<em><a href = "https://snipt.net/freshmaker99/headers/">Code Source</a></em>
+_<a href="https://snipt.net/freshmaker99/headers/">Code Source</a>_
 
 I have offered lots of common syntax including browser CSS resets and a few HTML element resets. This template includes <strong>default styles for all major heading elements ranging from H1-H5</strong>. You may also consider adding H6 but I have never seen a website using all six nested headers.
 
@@ -832,10 +824,10 @@ body {
 }
 }}}
 	
-<em><a href = "https://coderwall.com/p/m-uwvg">Code Source</a></em>
+_<a href="https://coderwall.com/p/m-uwvg">Code Source</a>_
 
 	
-Designers have seen this effect added into websites for a long time, although they generally use repeating tile images with alpha-transparency. However we can embed Base64 code into CSS to generate brand new images. This is the case as in the snippet above which generates <strong>a small noise texture above the body background</strong>, or you can create a customized noise background over at <a href = "http://www.noisetexturegenerator.com">NoiseTextureGenerator</a>.
+Designers have seen this effect added into websites for a long time, although they generally use repeating tile images with alpha-transparency. However we can embed Base64 code into CSS to generate brand new images. This is the case as in the snippet above which generates <strong>a small noise texture above the body background</strong>, or you can create a customized noise background over at <a href="http://www.noisetexturegenerator.com">NoiseTextureGenerator</a>.
 
 == 39. Continued List Ordering == 
 
@@ -866,7 +858,7 @@ ol.continue {
 }
 }}}
 	
-<em><a href = "http://timmychristensen.com/css-ordered-list-numbering-examples.html">Code Source</a></em>
+_<a href="http://timmychristensen.com/css-ordered-list-numbering-examples.html">Code Source</a>_
 
 	
 I feel this may not be an extremely popular snippet, but it does have its market among developers. There may be situations where you’ll need to <strong>continue a list of items but split into two separate UL elements</strong>. Check out the code above for an awesome CSS-only fix.
@@ -938,7 +930,7 @@ a[data-tooltip]:active:before {
 }
 }}}
 	
-<em><a href = "http://www.impressivewebs.com/pure-css-tool-tips/">Code Source</a></em>
+_<a href="http://www.impressivewebs.com/pure-css-tool-tips/">Code Source</a>_
 
 	
 There are lots of open source jQuery-based tooltips which you can implement on your websites. But CSS-based tooltips are very rare, and this is one of my favorite snippets. Just copy this over into your stylesheet and using the new HTML5 data-attributes <strong>you can setup the tooltip text via</strong> <code>data-tooltip</code>.
@@ -979,7 +971,7 @@ There are lots of open source jQuery-based tooltips which you can implement on y
 }
 }}}
 
-<em><a href = "http://html5snippets.com/snippets/1-a-css-rounded-gray-button">Code Source</a></em>
+_<a href="http://html5snippets.com/snippets/1-a-css-rounded-gray-button">Code Source</a>_
 
 As another helpful template for web developers I have included this simplistic CSS3 buttons class. I am using the class name <strong>.graybtn</strong> which is appropriate for the colors, but this isn’t to say you couldn’t change the styles to match your own website. Check out the hex values inside a color wheel to match similar hues in different color ranges.
 
@@ -990,9 +982,10 @@ As another helpful template for web developers I have included this simplistic C
   a:after {  
     content: " [" attr(href) "] ";  
   }
-}}}}
+}
+}}}
 	
-<em><a href = "http://www.smipple.net/snippet/bramloquet/Print%20the%20url%20after%20your%20links">Code Source</a></em>
+_<a href="http://www.smipple.net/snippet/bramloquet/Print%20the%20url%20after%20your%20links">Code Source</a>_
 
 	
 If you run a news website or resource with lots of print material, this is possibly one of the greatest snippets you’ll ever find. Anchor links in your webpage will look and display exactly as normal. However when printed your users will be able to see the link text along with the full hyperlinked URL. This is handy when visitors need to access a webpage you’ve linked but <strong>cannot see the URL in a typical printed document</strong>.
@@ -1022,7 +1015,7 @@ body {
 }
 }}}
 
-<em><a href = "http://dabblet.com/gist/1457668">Code Source</a></em>
+_<a href="http://dabblet.com/gist/1457668">Code Source</a>_
 
 I was a bit taken back when initially finding this snippet online. But it is a really interesting method for generating CSS3-only BG patterns on the fly. I have targeted the body element as default but you could apply this onto any container div in your webpage.
 
@@ -1038,7 +1031,7 @@ body {
 }
 }}}
 
-<em><a href = "http://dabblet.com/gist/1457677">Code Source</a></em>
+_<a href="http://dabblet.com/gist/1457677">Code Source</a>_
 
 Similar to the polka-dots above we can also create a full seamless checkerboard pattern. This method requires a bit more syntax to get working, but it looks flawless in all CSS3-supported browsers. Also you can change the color values from white and black to match that of your own website color scheme.
 
@@ -1073,7 +1066,7 @@ Similar to the polka-dots above we can also create a full seamless checkerboard 
 }
 }}}
 
-<em><a href = "http://unindented.org/articles/2009/10/github-ribbon-using-css-transforms/">Code Source</a></em>
+_<a href="http://unindented.org/articles/2009/10/github-ribbon-using-css-transforms/">Code Source</a>_
 
 As a big user on Github this basic code snippet blew my mind. You can quickly generate Github corner ribbons in your webpage using CSS3 transform properties. This is perfect for open source plugins or code packs which have a popular following on Github. Also great for hosted HTML/CSS/JS demos if you have an active Github repo.
 
@@ -1085,7 +1078,7 @@ p {
 }
 }}}
 
-<em><a href = "http://www.csspop.com/view/542">Code Source</a></em>
+_<a href="http://www.csspop.com/view/542">Code Source</a>_
 
 The main reason web developers don’t always use this condensed font property is because not every setting is needed. But having an understanding of this shorthand may save you a lot of time and space in your stylesheets. Keep this snippet handy just in case you ever want to shorten the formatting of your font styles.
 
@@ -1147,9 +1140,9 @@ ul.box li:after {
 }
 }}}
 
-<em><a href = "http://www.csspop.com/view/524">Code Source</a></em>
+_<a href="http://www.csspop.com/view/524">Code Source</a>_
 
-This page curl effect can be applied to almost any container which holds website content. Immediately I thought about image media and quoted text, but really this could be anything at all. Check out the snippet’s <a href = "http://www.csspop.com/view/524">live demo page</a> for a better grasp of how these page curls function.
+This page curl effect can be applied to almost any container which holds website content. Immediately I thought about image media and quoted text, but really this could be anything at all. Check out the snippet’s <a href="http://www.csspop.com/view/524">live demo page</a> for a better grasp of how these page curls function.
 
 == 49. Glowing Anchor Links == 
 
@@ -1180,7 +1173,7 @@ a:hover, .glow {
 }
 }}}
 
-<em><a href = "http://www.csspop.com/view/625">Code Source</a></em>
+_<a href="http://www.csspop.com/view/625">Code Source</a>_
 
 CSS3 text shadows offer a unique method of styling your webpage typography. And more specifically this snippet is an excellent resource for <strong>custom creative links with glowing hover effects</strong>. I doubt this effect can be pulled off elegantly in the majority of websites, but if you have the patience to get it looking nice you are sure to impress visitors.
 
