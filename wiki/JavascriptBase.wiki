@@ -98,6 +98,20 @@ if ( ~checkFoo ) {}
 
 }}}
 
+True and False Boolean Expressions
+{{{
+// The following are all false in boolean expressions:
+null
+undefined
+'' // the empty string
+0 // the number
+
+// But be careful, because these are all true:
+'0' // the string
+[] // the empty array
+{} // the empty object
+}}}
+
 == REGEX ==
 
   * http://code.google.com/p/molokoloco-coding-project/wiki/RegexSyntax
