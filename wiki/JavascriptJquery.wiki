@@ -1,9 +1,9 @@
-#summary My JQuery personnal notes
+#summary CSS Snippets i worked with
 #labels Tooltips
 
-= JQUERY TIPS =
+_Nota : I have stollen theses snippets here : [http://www.hongkiat.com/blog/css-snippets-for-designers/ http://www.hongkiat.com/blog/css-snippets-for-designers/] _  
 
-This is some fonctions i take from the web, jQuery DOC, ... and others i made...
+Shame on me for eternity, but i know well all this things, only forget to write it... nice to wrap them here...
 
 ----
 
@@ -13,2359 +13,1222 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
 
 ----
 
-== SITES JQUERY ==
+= CSS Snippets = 
 
-  * http://api.jquery.com
-  * http://docs.jquery.com || http://docs.jquery.com/Alternative_Resources
-  * http://jqueryui.com
-  * http://plugins.jquery.com
+With so many <a href="http://www.hongkiat.com/blog/web-design-trend-2013/‎">new trends</a> advancing every year it can be difficult keeping up with the industry. Website designers and frontend developers have been deeply ingrained into the newer <a href="http://www.hongkiat.com/blog/tag/css3/‎">CSS3 properties</a>, determining the ultimate <a href="http://www.hongkiat.com/blog/complete-guide-to-cross-browser-compatibility-check/">browser support</a> and quirky hacks. But there are also brilliant CSS2 code snippets which have been unrequited in comparison.
 
-Les codeurs derrière jQuery...
+<img src = "http://media02.hongkiat.com/css-snippets-for-designers/css-snippets.jpg" width = "600" height = "369">
 
-  * http://ejohn.org (Father of jQuery)
-  * http://addyosmani.com
-  * http://brandonaaron.net
-  * http://benalman.com
-  * ...
-  * https://github.com/jquery/jquery
+For this article I want to present<strong> 50 handy CSS2/CSS3 code snippets</strong> for any web professional. These are perfect for storing in your development IDE of choice, or even keeping them saved in a small CSS file. Either way I am sure designers &amp; developers can find some use for some of the snippets in this collection.
 
-Others :
+<strong>Recommended Reading:</strong> <a rel = "external" href="http://www.hongkiat.com/blog/20-useful-css-tips-for-beginners/‎" target = "_blank">20 Useful CSS Tips For Beginners</a> 
 
-  * http://www.b2bweb.fr/molokoloco/best-must-know-ressources-for-building-the-new-web-%E2%98%85/ (My personnel webdev bookmarks)
-  * http://net.tutsplus.com/tutorials/javascript-ajax/14-helpful-jquery-tricks-notes-and-best-practices/
-  * http://james.padolsey.com/javascript/things-you-may-not-know-about-jquery/
-  * ...
-
-== jQuery 1.7 Cheat Sheet ==
-
-http://woorkup.com/wp-content/uploads/2011/12/jQuery-17-Visual-Cheat-Sheet1.pdf
-
-== jQuery 1.6 Cheat Sheet ==
-
-http://woorkup.com/wp-content/uploads/2011/05/jQuery-1.6-Visual-Cheat-Sheet.pdf
-
-== jQuery 1.4 Cheat Sheet ==
-
-[http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4.png Image PNG]|[http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf FichierPDF]
-
-[http://labs.impulsestudios.ca/downloads/impulse_studios-jquery_cheat_sheet-1.0.pdf http://www.b2bweb.fr/bonus/jQueryCheatSheet-1-4-small.png]
-
-== Inclure jQuery ==
+== 1. CSS Resets == 
 
 {{{
-<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>!window.jQuery && document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { 
+	 margin: 0; 
+	 padding: 0; 
+	 border: 0; 
+	 font-size: 100%; 
+	 font: inherit; 
+	 vertical-align: baselinebaseline; 
+	 outline: none; 
+	 -webkit-box-sizing: border-box; 
+	 -moz-box-sizing: border-box; 
+	 box-sizing: border-box; 
+	} 
+	html { height: 101%; } 
+	body { font-size: 62.5%; line-height: 1; font-family: Arial, Tahoma, sans-serif; } 
+	 
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } 
+	ol, ul { list-style: none; } 
+	 
+	blockquote, q { quotes: none; } 
+	blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } 
+	strong { font-weight: bold; } 
+	 
+	table { border-collapse: collapse; border-spacing: 0; } 
+	img { border: 0; max-width: 100%; } 
+	 
+	p { font-size: 1.2em; line-height: 1.0em; color: #333; }
 }}}
 
-ou
+Basic CSS browser resets are some of the most common snippets you’ll find online. This is a customized snippet by myself which is based off <a href="http://meyerweb.com/eric/tools/css/reset/">Eric Meyer’s reset codes</a>. I have included a bit for responsive images and set all core elements to <strong>border-box</strong>, keeping margins and padding measurements aligned properly.
+
+== 2. Classic CSS Clearfix == 
 
 {{{
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-}}}
-
-== jQuery INIT ==
-
-{{{
-
-// When jQuery is ready
-$(function(){ /*...*/ });
-
-// When document DOM is ready
-$(document).ready(function(){
-    $('a').click(function(event){
-        event.preventDefault();
-    });
-});
-
-// When all is loaded, includind external files
-$(window).bind('load', function()  { /* ... */ });
-
-}}}
-
-== What is jQuery ? ==
-
-  * http://jsfiddle.net/molokoloco/8t6Qk/
-
-{{{
-$('<img/>')
-    .load(function(event) {
-        $(this)
-            .css({
-                opacity: 0,
-                top: (($(window).scrollTop() || 0) - $(this).height()) + 'px',
-                position: 'absolute',
-                left: '50%',
-                margin: '0 0 0 -' + ($(this).width() / 2) + 'px' // horizontal center
-            })
-            .animate({
-                opacity: 1,
-                top: ($(window).scrollTop() || 0) + 'px'
-            }, 800)
-            .delay(3000)
-            .fadeOut(600, function() {
-                $(this).remove();
-            });
-    })
-    .error(function() {})
-    .attr('src', 'http://jsfiddle.net/img/logo.png')
-    .appendTo('body');
-}}}
-
-== Catch/Find an element with CSS like selector ==
-
-{{{
-
-$('p#info').html('Test'); // <p id="info">Test</p>
-$('p:first, td.odd').addClass('bigText'); // <td class="odd bigText">
-$('body').attr('onload')
-$('#quicktimePlayer').empty();
-$('#player').append(otherElement);
-$('#id').click(/*...*/)
-$(document).ready(/*...*/)
-$('img').load(function(e) { /*...*/ })
-$('ul').find('li:last-child');
-$('p', document).size();
-$('p[a]').hide();
-$('a[(text()="Suivante")]').show();
-$(xml.responseXML);
-$('input[type=password]').attr('type','text');
-$('title', xml.responseXML); // Finds all title elements within an XML document
-$('p').height()
-$('/html/body//p').attr({align:'center'});
-$('body').css({'overflow' : 'hidden'});
-$('button:gt(1)').attr('disabled','disabled'); // Disables buttons greater than the 1st button.
-$('ul li:last').after('<li>Added text ' + p + '</li>');
-$("div:contains('John')").css('text-decoration', 'underline');
-$(':input'); // Matches all input, textarea, select and button elements
-$('form input:text') // iniput type=text
-$('form > *'); // formChildren 
-if ($(this).is(':first-child')) {}
-if ( $(this).hasClass('protected') )
-$('div').show().fadeOut('slow');
-$("#myselect").val();
-$('<div/>').text('This is fun & stuff').html(); // htmlentities == "This is fun &amp; stuff"
-$maDiv = $('<div />', {text: $this.attr('title')});
-$("#myselect option:selected").text();
-$("span").fadeIn("slow");
-if($(element).is(":visible") == "true") {}
-$('#target div:not(#exclude)').hide();
-var foundin = $('*:contains("some string bla bla")');
-$('#myTable tr:last').after('<tr>...</tr>');
-var elements = $('#someid input[type=sometype][value=somevalue]').get();
-$('a').slice(0,10);
-$.each($('form#formEdit').serializeArray(), function(i, o){ siteObj[o.name] = o.value; });
-var id = $('#someAnchor').get(0).id; // The get method is particularly helpful, as it can translate your jQuery collection into an array
-$(xml).find('article').each(function(i) {
-	alert($(this).find('titre').text()); 
-});
-
-$('p a').each(function() { // Affiche les URL des liens dans les paragraphes
-	$(this).after(' ['+$(this).attr('href')+'] ');
-})
-
-var q = 'search';
-$('.recordSleeveBk').css({ opacity: '0.4' }).removeClass('glow');
-$('.recordSleeveBk').filter('[data-artist*="' + q + '"]').animate({ opacity: '1.0' }).addClass('glow');
-
-
-$.each(['a','b','c'], function(i, l){
-	alert("Index #" + i + ": " + l );
-});
-$.each({name: "John", lang: "JS"}, function(k, v){
-	alert("Key: " + k + ", Value: " + v );
-});
-this.columns.each(function(item) { this.buildHeader(item); }, this);
-
-var css_link = $('<link>', {rel: 'stylesheet', type: 'text/css', href: 'style.css'});
-css_link.appendTo('head');
-
-var $myInput = $('input#search');
-$myInput
-    .data('valInit', $myInput.val())
-    .focus(function() { if ($(this).val() == $(this).data('valInit')) $(this).val(''); })
-    .blur(function() { if ($(this).val() == '') $(this).val($(this).data('valInit')); });
-
-$(window).load(function(){
-	if ( window.location.hash ) {
-		var destination = $( window.location.hash ).offset().top;
-		$('html:not(:animated),body:not(:animated)').scrollTop( destination );
-	}
-});
-
-var popUp = function(message, delay) {
-	delay = delay || 5000;
-	$('<div />')
-		.addClass('ui-loader ui-overlay-shadow ui-corner-all')
-		.css({opacity: 0.96, top: $(window).scrollTop() + 100})
-		.html('<h1>Message...</h1><p>'+message+'</p>')
-		.appendTo('body')
-		.hide().fadeIn(200)
-		.delay(delay)
-		.fadeOut(400, function(){ $(this).remove(); });
-};
-
-$('body').css('zoom', $(window).width() / 1920);
-
-
-if (!(options.node instanceof jQuery)) {
-	options.node = $(options.node);
-}
-
-}}}
-
-== SHORTCUT MEMO ==
-
-{{{
-
-if (/^[\w\d\_\.]{4,}$/.test($('#username').attr('value'))) alert('Ok');
-
-if (! (ext && /^(jpg|png|jpeg|gif)$/i.test(ext))) return;
-
-if (/(_on)/.test($(this).attr('src'))) $(this).attr({src: $(this).attr('src').split('_on.png')[0]+'.png'});
-
-var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
-
-var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
-
-var loadJs = function(src) { $('head').append('<' + 'script type="text/javascript" src="'+src+'"></sc'+'ript>'); };
-
-$('<div id="#slide-' + i + '"></div>')  
-    .load('slides/' + i + '.html')  // INCLUDE
-    .appendTo($container);
-
-// Update tag
-$('img.hate').attr({
-    src: '/images/love.gif',
-    alt: 'jQuery Logo'
-});
-
-// Create tag (link)
-var $a = $('<a/>', {  
-    id : 'someId',  
-    className : 'someClass',  
-    href : 'somePath.html'  
-}).appentTo('body');
-
-$('div').text($('img').attr('alt'));
-
-$('div.example').css('width', function(index) {
-  return index * 50;
-});
-
-if ($('#myDiv').is('.pretty')) $('#myDiv').show();
-
-$('#myDiv:visible').animate({left: '+=200px'}, 'slow');
-
-$('button').each(function()  {
-    var el = $(this);
-    var elId = el.attr('id');
-});
-
-var targetOffset = $('li.selectedShow').offset().top;
-targetOffset = targetOffset-14;
-$('html,body').animate({scrollTop: targetOffset},5);
-
-$('div.scrollable:eq(1) div.items div').click(function() { 
-    $(this).fadeOut().fadeIn();   
-});
-
-if (!$(event.target).is('div') && !$(event.target).parents().is('div')) { // outside div
-    $('div').hide();
-}
-
-$('div')
-    .attr('id', function(arr) { return 'div-id' + arr; })
-    .each(function() { $('span', this).html('(ID = <b>' + this.id + '</b>)'); });
-
-$('p').eq(0).css('color', 'red') // First
-
-$('<div><p>Hello</p></div>').appendTo('body');
-
-$(document).keypress(function (e) {
-	//$('#duree').text(e.which);
-	toggleMenu();
-});
-
-$(document.body).click(function () {
-    $(document.body).append($('<div>'));
-    var n = $('div').length;
-}).trigger('click');
-
-$(document.body).click(function () {
-    $('div').each(function (i) {
-        if (this.style.color != 'blue') this.style.color = 'blue';
-        else this.style.color = '';
-    });
-});
-
-$('li').slice(2, 4).css('background-color', 'green');  
-
-// Toggle all checkboxes
-var tog = false; // or true if they are checked on load
-$('a').click(function() {
-    $("input[type=checkbox]").attr("checked",!tog);
-    tog = !tog;
-});
-
-// index of an element
-$("ul > li").click(function () {
-    var index = $(this).prevAll().length;
-});
-
-
-var nextTrack = function() {
-    soundManager.stopAll();
-    if ($('li.active').next().click().length == 0) {
-        $('.tracks li:first').click();
-    }
-}​;​
-
-// see if an image is loaded
-var imgsrc = 'img/image1.png';
-$('<img/>').load(function(){alert('image loaded');}).error(function(){alert('error loading image');}).attr('src', imgsrc);
-
-// Storing DATAS with elements...
-var adiv = $("div").get(0);
-jQuery.data(adiv, "test", { first: 16, last: "pizza!" });
-$("span:first").text(jQuery.data(adiv, "test").first);
-$("span:last").text(jQuery.data(adiv, "test").last);
-
-// Or
-$("div").data('storeName', 'stockValue');
-alert($("div").data("storeName"));
-$("div").removeData();
-$("div").remove();
-
-
-// When you bind a "live" event it will bind also to future elements
-$("p").live("click", function(){
-    $(this).after("<p>Another paragraph!</p>");
-});
-
-
-
-// Toggle multiple classes
-$('div').toggleClass( "a b" ); 
-// <div class="c">
-$('div').toggleClass( "a c" );
-// <div class="a">
-$('div').toggleClass( "a b c", false );
-// <div>
-$('div').toggleClass( "a b c", true ); 
-// <div class="a b c">
-
-}}}
-
-=== Shuffle the DOM ===
-
-{{{
-$.fn.shuffle = function () {
-    var allElems = this.get(),
-        getRandom = function (max) {
-            return Math.floor(Math.random() * max);
-        },
-        shuffled = $.map(allElems, function () {
-            var random = getRandom(allElems.length),
-                randEl = $(allElems[random]).clone(true)[0];
-            allElems.splice(random, 1);
-            return randEl;
-        });
-    this.each(function (i) {
-        $(this).replaceWith($(shuffled[i]));
-    });
-    return $(shuffled);
-};
-
-$('ul#menu li').shuffle();
-}}}
-
-== BINDABLES EVENTS ==
-
-  * http://api.jquery.com/category/events/
-
-{{{
-
-/*
-	bind() trigger() unbind() delegate() undelegate() live() die() 
-	blur() focus()  change() error() load() unload() beforeunload()
-	keydown() keypress() keyup()
-	one() click() dblclick() mouseenter() mouseleave() hover() mousedown() mousemove() mouseout() mouseover() mouseup() 
-	ready() resize() scroll() select() submit() toggle()
-*/
-
-
-$('#btnG').hide();
-var showButton = function(e) { 
-	$(document).unbind('mousemove', showButton);
-	$('#btnG').show();
-	$('#q').focus();
-};
-$(document).mousemove(showButton);
-
-$(window).bind('resize', function() {
-    resizeFrame();
-});
-
-$('div').one('click', function() { /*... Only first time*/ });
-
-$('div#fox img, div#ie img, div#saf img').hover(
-	function(event) { $(this).stop(true, true).animate({marginTop:'0px'}, {duration:500}); }, 
-	function(event) { $(this).stop(true, true).animate({marginTop:'-28px'}, {duration:500}); }
-);
-
-$('.thumbLien').hover(
-    function () {
-        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
-        cvi_glossy.modify($(imgId)[0], {shadow:66});
-    }, 
-    function () {
-        var imgId = '#site_img_'+$(this).attr('id').split('_')[2];
-        cvi_glossy.modify($(imgId)[0], {shadow:20});
-    }
-);
-
-$('#foo').bind('mouseenter mouseleave', function() {
-    $(this).toggleClass('focus');
-});
-
-$('#foo').bind({
-    click: function() {
-        // do something
-    },
-    mouseover: function() {
-        // do something
-    },
-    mouseout: function() {
-        // do something
-    }
-});
-$('#foo').trigger('click'); // Do event
-
-$('input#search').trigger($.Event('keydown', {which:$.ui.keyCode.ENTER, keyCode:$.ui.keyCode.ENTER}));
-
-$doc.trigger({type: 'startPlay', percent: percent});
-
-// Listen to events from a particular context // OPTIMISATION !
-
-$('table').delegate('td', 'hover', function(){
-    $(this).toggleClass("active");
-});
-
-// Or...
-
-$('table#data').bind('click', function(event) { 
-    var cell = $(event.target).closest('td');
-});
-
-// "return false" is actually doing three very separate things when you call it:
-//   1. event.preventDefault();
-//   2. event.stopPropagation();
-//   3. Stops callback execution and returns immediately when called.
-
-$('a').click(function (e) {
-    // here your code
-    e.preventDefault(); // cancel default behavior
-});
-$('a').click();
-
-$('#myImage').attr('src', 'image.jpg').load(function() {
-	alert('Image Loaded');
-}); 
-
-
-// Horloge
-var pad = function(s) { return (s < 10 ? '0'+s : s); }
-var timer = setInterval(function() {
-	var dt = new Date();
-	$('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
-}, 1000);
-
-
-// When clicking on an image we keep track of the index (child item index)
-$('#thumbs_container').delegate('li','click tap',function(){
-	current = $(this).index();
-});
-
-// Listening mouse move only when mouse down...
-
-var mouseIsMove = function(evt) { disturb(evt.pageX, evt.pageY); };
-var mouseIsDown = function(evt) { $('body').bind('mousemove', mouseIsMove); };
-var mouseIsUp = function(evt) { $('body').unbind('mousemove', mouseIsMove); };
-$('body')
-	.bind('mousedown', mouseIsDown)
-	.bind('mouseup click', mouseIsUp);
-
-
-// Adjust & auto-zoom
-$(document).ready(function() {
-  var w = screen.width;
-  var h = screen.height;
-
-  var bw = $(window).width();
-  var bh = $(window).height();
-
-  var wRatio = bw/w;
-  var hRatio = bh/h;
-  var ratio = (wRatio + hRatio) / 2;
-
-  $('body').css('zoom', ratio);
-});
-}}}
-
-== JQUERY SELECTORS (CSS3 like xPath) ==
-
-http://api.jquery.com/category/selectors/
-
-Returns: jQuery Array<Element(s)> Matches
-
-<strong>Selector 	Example 	Description 	Reference</strong>
-
-  * `*` 	$("`*`") 	It will select all the elements 	http://api.jquery.com/all-selector/
-  * #id 	$("#myid") 	The element with id name myid will be selected 	http://api.jquery.com/id-selector/
-  * .class 	$(".myclass") 	The element with class name myclass will be selected 	http://api.jquery.com/class-selector/
-  * .class1.class2 	$(".class_first. class_second") 	It will select all the elements of class_first and class_second classes 	http://api.jquery.com/class-selector/
-  * element 	$("p") 	All p elements will be selected 	http://api.jquery.com/element-selector/
-  * :first 	$("li:first") 	The first li element will be selected 	http://api.jquery.com/first-selector/
-  * :last 	$("li:last") 	The last li element will be selected 	http://api.jquery.com/last-selector/
-  * :even 	$("tr:even") 	All even tr elements will be selected 	http://api.jquery.com/even-selector/
-  * :odd 	$("tr:odd") 	All odd tr elements will be selected 	http://api.jquery.com/odd-selector/
-  * :eq(index) 	$("ul li:eq(2)") 	The index starts at 0. The third element in a list will be selected. 	http://api.jquery.com/eq-selector/
-  * :gt(no) 	$("ul li:gt(2)") 	List elements with an index greater than 2 will be selected 	http://api.jquery.com/gt-selector/
-  * :lt(no) 	$("ul li:lt(2)") 	List elements with an index less than 2 will be selected 	http://api.jquery.com/lt-selector/
-  * :header 	$(":header") 	All the header elements will be selected (ex. h1,h2,…) 	http://api.jquery.com/header-selector/
-  * sel1,sel2,sel3 	$("p,td,.myclass") 	All elements with matching selectors will be selected 	http://api.jquery.com/multiple-selector/
-  * :contains(text) 	$(":contains (‘smartnetzone’)") 	All elements which contains the text smartnetzone will be selected 	http://api.jquery.com/contains-selector/
-  * :visible 	$("table:visible") 	All visible tables will be selected 	http://api.jquery.com/visible-selector/
-  * :empty 	$(":empty") 	All elements with no child elements will be selected 	http://api.jquery.com/empty-selector/
-  * :hidden 	$("p:hidden") 	All hidden p elements will be selected 	http://api.jquery.com/hidden-selector/
-  * :reset 	$(":reset") 	All input elements with type="reset" will be selected 	http://api.jquery.com/reset-selector/
-  * :button 	$(":button") 	All input elements with type="button" will be selected 	http://api.jquery.com/button-selector/
-  * :file 	$(":file") 	All input elements with type="file" will be selected 	http://api.jquery.com/file-selector/
-  * :submit 	$(":submit") 	All input elements with type="submit" will be selected 	http://api.jquery.com/submit-selector/
-  * :input 	$(":input") 	All input elements will be selected 	http://api.jquery.com/input-selector/
-  * :text 	$(":text") 	All input elements with type="text" will be selected 	http://api.jquery.com/text-selector/
-  * :password 	$(":password") 	All input elements with type="password" will be selected 	http://api.jquery.com/password-selector/
-  * :enabled 	$(":enabled") 	All enabled input elements will be selected 	http://api.jquery.com/enabled-selector/
-  * :disabled 	$(":disabled") 	All disabled input elements will be selected 	http://api.jquery.com/disabled-selector/
-  * :selected 	$(":selected") 	All selected input elements will be selected 	http://api.jquery.com/selected-selector/
-  * :radio 	$(":radio") 	All input elements with type="radio" will be selected 	http://api.jquery.com/radio-selector/
-  * :checkbox 	$(":checkbox") 	All input elements with type="checkbox" will be selected 	http://api.jquery.com/checkbox-selector/
-  * [attribute] 	$("[href]") 	All elements with a href attribute will be selected 	http://api.jquery.com/has-attribute-selector/
-  * [attribute=value] 	$("[href='index.html']") 	All elements with a href attribute value equal to "index.html" will be selected 	http://api.jquery.com/attribute-equals-selector/
-  * [attribute!=value] 	$("[href!='index.html']") 	All elements with a href attribute value not equal to "index.html" will be selected 	http://api.jquery.com/attribute-not-equal-selector/
-  * [attribute$=value] 	$("[href$='.jpg']") 	All elements with a href attribute value ending with ".jpg" will be selected 	http://api.jquery.com/attribute-ends-with-selector/
-  * :animated   $("div:animated") 	    // All elements that are currently being animated.
-
-
-{{{
-$('div#login').show()
-$("[href$='.jpg']").attr({target:'_blank');
-$('div#header ul > li:even').attr({align:'right'});
-$('div.ok,div.error').remove()
-}}}
-
-== CUSTOM SELECTORS ==
-
-http://www.jquery.info/spip.php?article82
-
-{{{
-
-$.extend($.expr[':'], {
-    external: function(a,i,m) { // Vérifie si les liens sont externes (Ne fonctionne que pour les éléments qui ont un href)
-        if (!a.href) return false;
-        return a.hostname && a.hostname !== window.location.hostname;
-    },
-    inView: function(a) { // Vérifier si l'élément est actuellement dans la zone de vue (viewport)
-        var st = (document.documentElement.scrollTop || document.body.scrollTop),
-            ot = $(a).offset().top,
-            wh = (window.innerHeight && window.innerHeight < $(window).height()) ? window.innerHeight : $(window).height();
-        return ot > st && ($(a).height() + ot) < (st + wh);
-    },
-    block: function(elem) {
-        return $(elem).css("display") === "block";
-    },
-    hasData : function(elem) {
-        return !$.isEmptyObject( $(elem).data() );
-    }
-});
-
-// Utilisation :
-
-$('a:external'); // Sélectionne toutes les ancres qui pointent vers une page ou un site externe
-$('div:inView'); // Sélectionne tous les éléments div qui sont dans la zone de vue actuelle
-$("p:hasData").text("has data"); // grabs paras that have data attached
-
-}}}
-
-== INSERT ELEMENT ==
-
-{{{
-
-/*
-<ul class="sortUlLink">
-	<li class="sortLink"><a href="http://image-swirl.googlelabs.com">Swirl</a></li>
-	<li class="sortLink"><a href="http://translate.google.fr/">Traductions</a></li>
-	<!--// Insert Here //-->
-	<li class="liAddLink"><a class="addLink" href="javascript:void(0);" onclick="add(this);">[+]</a></li>
-</ul>
-*/
-
-var add = function(elm) {
-	var liParent = $(elm).parent();
-	$('<li class="sortLink"><a href="#">Something</a></li>').insertBefore(liParent);
-};
-
-}}}
-
-== KEYS ==
-
-{{{
-
-var event2key = {'97':'a', '98':'b', '99':'c', '100':'d', '101':'e', '102':'f', '103':'g', '104':'h', '105':'i', '106':'j', '107':'k', '108':'l', '109':'m', '110':'n', '111':'o', '112':'p', '113':'q', '114':'r', '115':'s', '116':'t', '117':'u', '118':'v', '119':'w', '120':'x', '121':'y', '122':'z', '37':'left', '39':'right', '38':'up', '40':'down', '13':'enter'};
-
-$(document).keypress(function(e) {
-	$('.l').each(function() {
-		if (event2key[e.which] != '' && $(this).html().charAt(0).toLowerCase() ==  event2key[e.which]) $(this).attr('class', 'l hightlight');
-		else $(this).attr('class', 'l');
-	});
-
-        switch(event2key[(e.which || e.keyCode)]) {
-		case 'left': break;
-		case 'right': break;
-		case 'up': break;
-		case 'down': break;
-		case 'enter': break;
-                case 'a': break;
-	}
-});
-
-}}}
-
-== BROWSERS ==
-
-{{{
-
-$('#browser').html( 'You are using the browser: ' + $.browser.browser() );
-$.browser.version.string();
-$.browser.version.number();
-$.browser.OS();
-var firefox = $.browser.firefox();
-
-}}}
-
-==ARRAY Build in functions ==
-
-{{{
-
-jQuery.isArray( obj )   //  Returns: Boolean // Added in jQuery 1.3 Determine if the parameter passed is an array.
-jQuery.isFunction( obj )   //  Returns: Boolean // Determine if the parameter passed is a Javascript function object.
-jQuery.trim( str )
-jQuery.param({width:160, height:105}); // width=160&height=105
-jQuery.each( object, callback )   //  Returns: Object // A generic iterator function
-jQuery.extend( deep, target, object1, objectN )   //  Returns: Object // Extend one object with one or more others, returning the modified object.
-jQuery.grep( array, callback, invert )   //  Returns: Array // Filter items out of an array, by using a filter function.
-jQuery.makeArray( obj )   //  Returns: Array // Turns anything into a true array.
-jQuery.map( array, callback )   //  Returns: Array // Translate all items in an array to another array of items.
-jQuery.inArray( value, array )   //  Returns: Number // Determine the index of the first parameter in the Array (-1 if not found).
-jQuery.merge( first, second )   //  Returns: Array // Merge two arrays together.
-jQuery.unique( array )   //  Returns: Array // Remove all duplicate elements from an array of elements. Note that this only works on arrays of DOM elements
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: inline-block; }
  
-// NATIVES...  --------------------------------------------------------------- //
- 
-var x = [];
-x.push(1);
-var x = [0, 3, 1, 2];
-x.reverse() // [2, 1, 3, 0]
-x.join(' - ') // '2 - 1 - 3 - 0'
-x.pop() // [2, 1, 3]
-x.unshift(-1) // [-1, 2, 1, 3]
-x.shift() // [2, 1, 3]
-x.sort() // [1, 2, 3]
-x.splice(1, 2) // [2, 3]
- 
-// --------------------------------------------------------------- //
- 
-x = Math.ceil(6.01); //donne x = 7
-x = Math.floor(6.01); //donne x = 6
-x = Math.round(6.01); //donne x = 6
-x = Math.max(6,7.25); //donne x = 7.25
-x = Math.min(6,7.25); //donne x = 6
-x = Math.pow(3,3); //donne x = 27
-x = Math.random(); //donne x = 0.6489534931546957
-
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
 }}}
 
-== Wait finish // Defered Done ==
+This clearfix code has been around the Web for years circulating amongst savvy web developers. You should apply this class onto a container which holds floating elements. This will ensure any content which comes afterwards <strong>will not float but instead be pushed down and cleared</strong>.
 
-  * Live example : http://jsfiddle.net/molokoloco/2ZmjC/
-  * http://msdn.microsoft.com/en-us/scriptjunkie/gg723713.aspx
-  * http://jsfiddle.net/molokoloco/2ZmjC/
+== 3. 2011 Updated Clearfix == 
 
 {{{
+.clearfix:before, .container:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
 
-promise.then( doneCallback, failCallback )
-// is equivalent to
-promise.done( doneCallback ).fail( failCallback )
-
-// http://tutorialzine.com/2011/03/custom-facebook-wall-jquery-graph/
-
-var graphUSER = 'http://graph.facebook.com/'+options.id+'/?fields=name,picture&callback=?',
-	graphPOSTS = 'http://graph.facebook.com/'+options.id+'/posts/?callback=?&date_format=U&limit='+options.limit;
-
-$.when($.getJSON(graphUSER),$.getJSON(graphPOSTS)).done(function(user,posts){
-	// user[0] contains information about the user (name and picture);
-	// posts[0].data is an array with wall posts;
-	var fb = {
-		user : user[0],
-		posts : []
-	};
-	$.each(posts[0].data,function(){
-		if(this.type != 'link' && this.type!='status'){
-			return true;
-		}
-		this.from.picture = fb.user.picture;
-		fb.posts.push(this);
-	});
-	// Rendering the templates:
-	$('#headingTpl').tmpl(fb.user).appendTo('body');
-});
+/* IE 6/7 */
+.clearfix { zoom: 1; }
 }}}
 
-// From : http://stackoverflow.com/questions/6538470/jquery-deferred-waiting-for-multiple-ajax-requests-to-finish
+From what I can tell there isn’t a major difference in rendering between this newer version and the classic version. Both of these classes will effectively clear your floats, and they should work in all modern browsers and even legacy Internet Explorer 6-8.
+
+== 4. Cross-Browser Transparency == 
 
 {{{
-function updateAllNotes () {
-        var getarray = [], i, len;
-        for (i = 0, len = data.length; i < len; i += 1) {
-            getarray.push(getNote(data[i].key));
-        };
-        $.when.apply($, getarray).done(function () {
-          // do things that need to wait until ALL gets are done
-        });
-};
-}}}
-
-{{{
-$.ajaxSetup({
-	dataType: "jsonp"
-});
-
-function getTweets() {
-	$.ajax("http://api.twitter.com/statuses/user_timeline/danwellman.json", {
-		success: function(data) {
-			var arr = [];
-			for (var x = 0; x < 5; x++) {
-				var dataItem = {};
-				dataItem["tweetlink"] = data[x].id_str;
-				dataItem["timestamp"] = convertDate(data, x);
-				dataItem["text"] = breakTweet(data, x);
-				arr.push(dataItem);
-			}
-			tweetData = arr;
-		}
-	});
+.transparent {
+    filter: alpha(opacity = 50); /* internet explorer */
+    -khtml-opacity: 0.5;      /* khtml, old safari */
+    -moz-opacity: 0.5;       /* mozilla, netscape */
+    opacity: 0.5;           /* fx, safari, opera */
 }
-function getFriends() {
-	/* ... */
+}}}
+
+_<a href="http://perishablepress.com/cross-browser-transparency-via-css/">Code Source</a>_
+
+Some of the newer CSS3 properties have pampered us into thinking they may be applied everywhere. Unfortunately opacity is one such example where CSS still requires some minor updates. <strong>Appending the filter property</strong> should handle any older versions of IE with grace.
+
+== 5. CSS Blockquote Template == 
+
+{{{
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: .5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
 }
-function getFollows() {
-	/* ... */
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: .1em;
+    margin-right: .25em;
+    vertical-align: -.4em;
+}
+blockquote p {
+    display: inline;
+}
+}}}
+	
+_<a href="http://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/">Code Source</a>_
+
+	
+Not everybody needs to use blockquotes inside their website. But I feel these are an excellent HTML element for <strong>separating quoted or repeated content within blogs or webpages</strong>. This basic chunk of CSS offers a default style for your blockquotes so they don’t appear as drab and bland.
+
+== 6. Individual Rounded Corners == 
+	
+{{{
+#container {
+    -webkit-border-radius: 4px 3px 6px 10px;
+    -moz-border-radius: 4px 3px 6px 10px;
+    -o-border-radius: 4px 3px 6px 10px;
+    border-radius: 4px 3px 6px 10px;
 }
 
-//execute once all requests complete
-$.when(getTweets(), getFriends(), getFollows()).then(function(){
-	//apply templates
-});
-}}}
-
-{{{
-var fetchTweets = function() {
-    var dfd = new $.Deferred();
-    $.ajax({
-        type: 'GET',
-        dataType: 'jsonp',
-        url: 'http://search.twitter.com/search.json?q=html5',
-        success: function(tweets) {
-            var twitter = $.map(tweets.results, function(obj, index) {
-                return {
-                    username: obj.from_user,
-                    tweet: obj.text,
-                    imgSource: obj.profile_image_url,
-                    geo: obj.geo
-                };
-            });
-            dfd.resolve(twitter);
-        }
-    });
-    return dfd.promise();
-};
-
-$.when(fetchTweets()).done(function(twitter) {
-    console.log(twitter);
-});​
-}}}
-
-{{{
-var Menu = (function(){
-	var init = function() {
-		loadPage();
-	},
-	loadPage = function() {
-		$ac_loading.show();
-		$.when(loadImages()).done(function(){
-			/* ... */
-		});
-	},
-	loadImages = function() {
-		return $.Deferred(
-			function(dfd) {
-				var total_images = $ItemImages.length,
-				loaded = 0;
-				for(var i = 0; i < total_images; ++i){
-					$('<img/>').load(function() {
-						++loaded;
-						if (loaded === total_images) dfd.resolve();
-					}).attr('src' , $ItemImages[i]);
-				}
-			}
-		).promise();
-	};
-	return {
-		init : init
-	};
-})();
-
-Menu.init();
-}}}
-
-The Promise exposes only the Deferred methods needed to attach additional handlers or determine the state (then, done, fail, always,pipe, progress, and state), but not ones that change the state (resolve, reject, progress, resolveWith, rejectWith, and progressWith).
-
-{{{
-function getData(){
-   return $.get('/echo/html/');
-}
-
-function showDiv(){
-    var dfd = $.Deferred();
+/* alternative syntax broken into each line */
+#container {
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 10px;
     
-    $('#foo').fadeIn( 1000, dfd.resolve );
-    
-    return dfd.promise();
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 6px;
+    -moz-border-radius-bottomleft: 10px;
+}
+}}}
+
+Most developers are familiar with the CSS3 rounded corners syntax. But how would you go about <strong>setting different values for each of the corners</strong>? Save this code snippet and you should never run into the problem again! I’ve included both a condensed version and a longer base with each corner radius broken down into a different property.
+
+== 7. General Media Queries == 
+
+{{{
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) and (max-device-width : 480px) {
+  /* Styles */
 }
 
-$.when( getData(), showDiv() )
-    .then(function( ajaxResult ){
-        console.log('The animation AND the AJAX request are both done!');
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+  /* Styles */
+}
 
-        // ‘ajaxResult’ is the server’s response
-    });
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+  /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+  /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+  /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+  /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+  /* Styles */
+}
 }}}
 
+_<a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Code Source</a>_
 
-  * jQuery.Deferred()	A constructor that creates a new Deferred object, can take an optional initFunction parameter that will be called right after the deferred has been constructed.
-  * jQuery.when()	A way to execute callback functions based on one or more objects that represent asynchronous tasks.
-  * jQuery.ajax()	Performs an asynchronous Ajax requests where the jqXHR objects returned by $.ajax() implement the Promise interface, giving them all the properties, methods, and behaviour of a Promise.
-  * deferred.then(resolveCallback,rejectCallback)	Handlers to be called when the Deferred object is resolved or rejected.
-  * deferred.done()	Functions or array of functions that are called when the Deferred object is resolved.
-  * deferred.fail()	Functions or array of functions that are called when the Deferred is rejected.
-  * deferred.resolve(arg1, arg2, ...)	Resolve a Deferred object and call any 'done' Callback with the given arguments.
-  * deferred.resolveWith(context,args)	Resolve a Deferred object and call any 'done' Callback with the given context and arguments.
-  * deferred.isResolved	Determine whether a Deferred object has been resolved.
-  * deferred.reject(arg1, arg2, ...)	Reject a Deferred object and call any 'fail' Callback with the given arguments.
-  * deferred.rejectWith(context,args)	Reject a Deferred object and call any 'fail' Callback with the given context and arguments.
-  * deferred.promise()	Returns a promise, that is an immutable view of the deferred object: the promise can be passed around safely since the underlying deferred cannot be resolved or rejected through it.
+This is an excellent template which you can find on <a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">CSS-Tricks</a> for other bits and pieces of media queries. However I’ve copied their example in full which includes tons of real mobile devices. These codes will even target retina-based devices using <code>min-device-pixel-ratio</code>.
 
-
-== PROXY ==
+== 8. Modern Font Stacks == 
 
 {{{
-setTimeout($.proxy( function () {
-        // "this" now refers to our element as we wanted
-        $( this ).addClass( "active" ); 
-}, this), 500);
+/* Times New Roman-based serif */
+font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+
+/* A modern Georgia-based serif */
+font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+
+/*A more traditional Garamond-based serif */
+font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+
+/*The Helvetica/Arial-based sans serif */
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/*The Verdana-based sans serif */
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+
+/*The Trebuchet-based sans serif */
+font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+
+/*The heavier “Impact” sans serif */
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+
+/*The monospace */
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }}}
 
-== ANIMATE ==
+_<a href="http://www.sitepoint.com/eight-definitive-font-stacks/">Code Source</a>_
 
-  * http://www.robertpenner.com/easing/easing_demo.html
-  * http://www.learningjquery.com/2009/02/quick-tip-add-easing-to-your-animations
-  * http://coding.smashingmagazine.com/2011/10/04/quick-look-math-animations-javascript/ 
+It is difficult brainstorming your own CSS font stacks for designing new webpages. I hope this snippet may alleviate some torture and give you a few templates for getting started. If you want to find more examples check out <a href="http://cssfontstack.com/">CSS Font Stacks</a> which is one of my favorite resources.
 
+== 9. Custom Text Selection == 
 
 {{{
-
-// Short !
-$('.block').animate({width:'70%', fontSize:'3em', borderWidth:'10px'}, 1500);
-$('div#mydiv').slideUp(300).delay(800).fadeIn(400);
-
-// Full function...
-$('#myDiv').animate({ // what we are animating
-        opacity:0,
-        width:'toggle', 
-        height:150
-    }, {
-        duration: 'fast', // how fast we are animating or in seconds
-        easing: 'swing', // the type of easing
-        specialEasing: {
-            width: 'linear',
-            height: 'easeOutBounce'
-        },
-        step: function(now, fx) {
-            var data = fx.elem.id + ' ' + fx.prop + ': ' + now;     
-            $('body').append('<div>' + data + '</div>');
-        }
-        complete: function() { // the callback
-            alert('done');
-            $(this).addClass('done');
-        }
-    }
-);
-
-// Optionnal parameter... milliseconds setInterval
-jQuery.fx.interval = 100;
-
-// hook into jQuery's animation mechanism by adding a property to the jQuery.fx.step object:
-$.fx.step["someCSSProp"] = function(fx){
-     $.cssHooks["someCSSProp"].set( fx.elem, fx.now + fx.unit );
-};
-
-// Be carefull when use animate...
-$('.page').stop().animate({width: '20%'}, 200);
-// jQuery automaticcaly put overflow:hidden no element..
-// to override this... put in CSS style :
-.page { overflow: visible !important; }
-
+::selection { background: #e2eae2; }
+::-moz-selection { background: #e2eae2; }
+::-webkit-selection { background: #e2eae2; }
 }}}
 
+Some newer web browsers will allow you to define the highlight color on your webpage. <strong>This is set to light blue by default</strong>, but you can setup any color value which tickles your fancy. This snippet includes the typical <code>::selection</code> target along with vendor prefixes for Webkit and Mozilla.
+
+== 10. Hiding H1 Text for Logo == 
+
 {{{
-// HELPERS native SETTIMEOUT (setTimeout)
+h1 {
+    text-indent: -9999px;
+    margin: 0 auto;
+    width: 320px;
+    height: 85px;
+    background: transparent url("images/logo.png") no-repeat scroll;
+}
+}}}
+	
+I first noticed this technique being implemented on the old <a href="http://web.archive.org/web/20080229090645/http://digg.com/">Digg layout</a>. You can setup an H1 tag which also has your website’s name in plaintext for SEO purposes. But using CSS we can <strong>move this text so it isn’t visible, and replace it with a custom logo image</strong>.
 
-setTimeout("alert('bouh');"); // buys you some time until the DOM elements are loaded
+== 11. Polaroid Image Border == 
 
-setTimeout(maFonction, 60 * 1000); // in 60 seconds
-
-var arg = 'bouh !',
-    myTimeout = setTimeout(function(_arg) {
-        alert(_arg);
-    }, 10*1000, arg); // Pass callback argument at the end !
-if (Math.rand() > 0.5) clearTimeout(myTimeout); // Don't bouh ?
+{{{
+img.polaroid {
+    background:#000; /*Change this to a background image or remove*/
+    border:solid #fff;
+    border-width:6px 6px 20px 6px;
+    box-shadow:1px 1px 5px #333; /* Standard blur at 5px. Increase for more depth */
+    -webkit-box-shadow:1px 1px 5px #333;
+    -moz-box-shadow:1px 1px 5px #333;
+    height:200px; /*Set to height of your image or desired div*/
+    width:200px; /*Set to width of your image or desired div*/
+}
 }}}
 
+_<a href="http://www.smipple.net/snippet/kettultim/Polaroid%20Image%20Border%20-%20CSS3">Code Source</a>_
 
-== Chaining ASYNC method ==
+Applying this basic snippet will allow you to implement <strong>.polaroid</strong> classes onto your images. This will <strong>create the old photo-style effect with a large white border and some slight box shadows</strong>. You’ll want to update the width/height values to match that of your image dimensions and website layout.
 
-  * http://kenneth.kufluk.com/blog/2010/08/chaining-asynchronous-methods-in-jquery-using-the-queue/
+== 12. Anchor Link Pseudo Classes == 
 
 {{{
-$.fn.makeYellowForFiveSeconds = function() {
-    // I'm only using actions which act on jQuery objects, so I don't need to use 'each' as above.  
-    this.css( { 'background-color' : 'yellow', color : 'yellow' } );
-    // reset the colour in five seconds time
-    var that = this; 
-    this.queue(function() {
-        setTimeout(function() {
-            that.css( { 'background-color' : 'none', color : 'inherit' } );
-            that.dequeue();
-        }, 5000);
-    });
-    // action the next method in the chain
-    return this;
-};
-
+a:link { color: blue; }
+a:visited { color: purple; }
+a:hover { color: red; }
+a:active { color: yellow; }
 }}}
 
-== Emulating 3D with CSS... ==
+_<a href="http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers">Code Source</a>_
+
+Most CSS developers know about the anchor link styles and <code>:hover</code> effects. But I wanted to include this small code snippet as a reference for newcomers. These are the four default states for an anchor link, and also a few other HTML elements. Keep this handy until you can memorize some of the more obscure ones.
+
+== 13. Fancy CSS3 Pull-Quotes == 
 
 {{{
-/* 
-#
-# .photoflat {  
-#     -moz-transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-21deg, 10deg);  
-#     transform-origin: 0% 0%;  
-#     -webkit-transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-21deg, 10deg);  
-#     -moz-box-shadow:0px 1px 3px #333333 ;  
-#     -webkit-box-shadow:0px 1px 3px #333333;  
-#     box-shadow:0px 1px 3px #333333;  
-#     margin-left:-43px;  
-#     border:1px solid white;  
-#     position:relative;  
-# }  
-*/
+.has-pullquote:before {
+	/* Reset metrics. */
+	padding: 0;
+	border: none;
+	
+	/* Content */
+	content: attr(data-pullquote);
+	
+	/* Pull out to the right, modular scale based margins. */
+	float: right;
+	width: 320px;
+	margin: 12px -140px 24px 36px;
+	
+	/* Baseline correction */
+	position: relative;
+	top: 5px;
+	
+	/* Typography (30px line-height equals 25% incremental leading) */
+	font-size: 23px;
+	line-height: 30px;
+}
 
-$(this).css('-moz-transform', 'scale(' + dist + ') skew(' + skew2 +'deg, 0deg)');  
-$(this).css('-webkit-transform', 'scale(' + dist + ') skew(' + skew2 +'deg, 0deg)');  
+.pullquote-adelle:before {
+	font-family: "adelle-1", "adelle-2";
+	font-weight: 100;
+	top: 10px !important;
+}
 
-var d = 0;
-setInterval(
-    function () { div.style['MozTransform'] = 'rotate(' + (d++ % 360) + 'deg)'; },
-    100
-);
+.pullquote-helvetica:before {
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	font-weight: bold;
+	top: 7px !important;
+}
+
+.pullquote-facit:before {
+	font-family: "facitweb-1", "facitweb-2", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	top: 7px !important;
+}
+}}}
+	
+_<a href="http://miekd.com/articles/pull-quotes-with-html5-and-css/">Code Source</a>_
+
+	
+Pull-quotes are different from blockquotes in that they appear off to the side of your blog or news article. These often reference quoted text from the article, and so they appear slightly different than blockquotes. This default class has some basic properties along with 3 unique font families to choose from.
+
+== 14. Fullscreen Backgrounds with CSS3 == 
+
+{{{
+html { 
+    background: url('images/bg.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 }}}
 
-{{{
-$(this).hide('puff', {}, 1000);
+_<a href="http://css-tricks.com/perfect-full-page-background-image/">Code Source</a>_
 
-/*
-	Effects that can be used with Show/Hide/Toggle:
-		Blind - Blinds the element away or shows it by blinding it in.
-		Clip - Clips the element on or off, vertically or horizontally.
-		Drop - Drops the element away or shows it by dropping it in.
-		Explode - Explodes the element into multiple pieces.
-		Fold - Folds the element like a piece of paper.
-		Puff - Scale and fade out animations create the puff effect.
-		Slide - Slides the element out of the viewport.
-		Scale - Shrink or grow an element by a percentage factor.
+I should note that this code will not work properly in older browsers which do not support CSS3 syntax. However if you’re looking for a quick solution and don’t care about legacy support, this is the best chunk of code you’ll find! <strong>Great for adding big photographs into the background of your website while keeping them resizable and fixed as you scroll</strong>.
+
+== 15. Vertically Centered Content == 
+
+{{{
+.container {
+    min-height: 6.5em;
+    display: table-cell;
+    vertical-align: middle;
+}
+}}}
+
+_<a href="http://www.w3.org/Style/Examples/007/center">Code Source</a>_
+
+Using the margin: 0 auto technique it is very easy to embed content into the horizontal center of your page. However vertical content is a lot harder, especially considering scrollbars and other methods. But this is a pure CSS solution which should work flawlessly without JavaScript.
+
+== 16. Force Vertical Scrollbars == 
+
+{{{
+html { height: 101% }
+}}}
+
+When your page content doesn’t fill the entire height of your browser window then you don’t end up getting any scrollbars. However resizing will force them to appear and append an extra 10-15 pixels to the width of your window, pushing over your webpage content. This snippet will ensure your <strong>HTML element is always just a little bit higher than the browser which forces scrollbars to stay in place at all times.</strong>
+
+== 17. CSS3 Gradients Template == 
+
+{{{
+#colorbox {
+    background: #629721;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#83b842), to(#629721));
+    background-image: -webkit-linear-gradient(top, #83b842, #629721);
+    background-image: -moz-linear-gradient(top, #83b842, #629721);
+    background-image: -ms-linear-gradient(top, #83b842, #629721);
+    background-image: -o-linear-gradient(top, #83b842, #629721);
+    background-image: linear-gradient(top, #83b842, #629721);
+}
+}}}
+
+CSS3 gradients are another wondrous  part of the newer specifications. Many of the vendor prefixes are difficult to memorize, so this code snippet should save you a bit of time on each project.
+
+== 18. @font-face Template == 
+
+{{{
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('webfont.eot'); /* IE9 Compat Modes */
+    src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('webfont.woff') format('woff'), /* Modern Browsers */
+    url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	
+body {
+    font-family: 'MyWebFont', Arial, sans-serif;
+}
+}}}
+
+_<a href="http://css-tricks.com/snippets/css/using-font-face/">Code Source</a>_
+
+Here is another bit of CSS3 code which isn’t the easiest to memorize. Using @font-face you may embed your own TTF/OTF/SVG/WOFF files into your website and generate custom font families. Use this template as a base example for your own projects in the future.
+
+== 19. Stitched CSS3 Elements == 
+
+{{{
+p {
+    position:relative;
+    z-index:1;
+    padding: 10px;
+    margin: 10px;
+    font-size: 21px;
+    line-height: 1.3em;
+    color: #fff;
+    background: #ff0030;
+    -webkit-box-shadow: 0 0 0 4px #ff0030, 2px 1px 4px 4px rgba(10,10,0,.5);
+    -moz-box-shadow: 0 0 0 4px #ff0030, 2px 1px 4px 4px rgba(10,10,0,.5);
+    box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10,10,0,.5);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+p:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 3px;
+    bottom: 3px;
+    left :3px;
+    right: 3px;
+    border: 2px dashed #fff;
+}
+
+p a {
+    color: #fff;
+    text-decoration:none;
+}
+
+p a:hover, p a:focus, p a:active {
+    text-decoration:underline;
+}
+}}}
+	
+_<a href="http://kitmacallister.com/2011/css3-stitched-elements/">Code Source</a>_
+
+== 20. CSS3 Zebra Stripes == 
+
+{{{
+tbody tr:nth-child(odd) {
+    background-color: #ccc;
+}
+}}}
+
+_<a href="http://css-tricks.com/snippets/css/css3-zebra-striping-a-table/">Code Source</a>_
+
+Possibly the best item to include zebra stripes is within a table of data. It can be difficult when users are scanning 40 or 50 rows to determine exactly which cell is lined up to which row. By adding zebra stripes on default we can update odd rows with varying background colors.
+
+== 21. Fancy Ampersand == 
+
+{{{
+.amp {
+    font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+    font-style: italic;
+    font-weight: normal;
+}
+}}}
+
+_<a href="http://css-tricks.com/snippets/css/fancy-ampersand/">Code Source</a>_
+
+This class would be applied to one span element wrapped around your ampersand character in page content. It will apply some classic serif fonts and use italics to enhance the ampersand symbol. Try it out on a demo webpage and see how you like the design.
+
+== 22. Drop-Cap Paragraphs == 
+
+{{{
+p:first-letter{
+    display: block;
+    margin: 5px 0 0 5px;
+    float: left;
+    color: #ff3366;
+    font-size: 5.4em;
+    font-family: Georgia, Times New Roman, serif;
+}
+}}}
+
+Typically you’ll notice dropped capitals appear in printed mediums, such as newspapers and books. However this can also be a neat effect in webpages or blogs where there is enough extra room in the layout. This CSS rule is targeting all paragraphs but you may limit this based on a single class or ID.
+
+== 23. Inner CSS3 Box Shadow == 
+
+{{{
+#mydiv { 
+    -moz-box-shadow: inset 2px 0 4px #000;
+    -webkit-box-shadow: inset 2px 0 4px #000;
+    box-shadow: inset 2px 0 4px #000;
+}
+}}}
+
+The box shadow property has offered immense changes into how we build websites. You can portray box shadows on nearly any element, and they all generally look great. This piece of code will force inner shadows which is a lot harder to design around, but in the right cases it looks pristine.
+
+== 24. Outer CSS3 Box Shadow == 
+
+{{{
+#mydiv { 
+    -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+    -moz-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+}
+}}}
+
+In relation to the inner CSS3 shadows I also want to present an outer shadow code snippet. Note the 3rd number in our syntax represents blur distance while the 4th number represents the spread. You can learn more about these values from <a href="http://www.w3schools.com/cssref/css3_pr_box-shadow.asp">W3Schools</a>.
+
+== 25. Triangular List Bullets == 
+
+{{{
+ul {
+    margin: 0.75em 0;
+    padding: 0 1em;
+    list-style: none;
+}
+li:before { 
+    content: "";
+    border-color: transparent #111;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+}
+}}}
+	
+_<a href="http://jsfiddle.net/chriscoyier/yNZTU/">Code Source</a>_
+
+	
+Believe it or not it is actually possible <strong>to generate triangle-shaped bullets solely in CSS3</strong>. This is a really cool technique which does look awesome in respected browsers. The only potential issue is a major lack of support for fallback methods.
+
+== 26. Centered Layout Fixed Width == 
+
+{{{
+#page-wrap {
+    width: 800px;
+    margin: 0 auto;
+}
+}}}
+
+_<a href="http://css-tricks.com/snippets/css/centering-a-website/">Code Source</a>_
+
+I know earlier it was mentioned how to setup horizontal positioning. I want to jump back in with this <strong>quick snippet for horizontal positioning</strong>, which is perfect to be used on fixed-width layouts.
+
+== 27. CSS3 Column Text == 
+
+{{{
+#columns-3 {
+    text-align: justify;
+    -moz-column-count: 3;
+    -moz-column-gap: 12px;
+    -moz-column-rule: 1px solid #c4c8cc;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 12px;
+    -webkit-column-rule: 1px solid #c4c8cc;
+}
+}}}
+
+_<a href="http://www.djavupixel.com/development/css-development/master-css3-ultimate-css-code-snippets/">Code Source</a>_
+
+CSS3 columns would be nice to see in website layouts, but the reality is how we can split up text based on column styles. Use this snippet to place any number of columns inline with your paragraphs, where text will split evenly based on your column number.
+
+== 28. CSS Fixed Footer == 
+
+{{{
+#footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background: #444;
+}
  
-	Effects that can be only used stand-alone:
-		Bounce - Bounces the element vertically or horizontally n-times.
-		Highlight - Highlights the background with a defined color.
-		Pulsate - Pulsates the opacity of the element multiple times.
-		Shake - Shakes the element vertically or horizontally n-times.
-		Size - Resize an element to a specified width and height.
-		Transfer - Transfers the outline of an element to another.
-*/
-}}}
-
-Request animation
-
-{{{
-window.requestAnimFrame = (function(){
-      return  window.requestAnimationFrame       || 
-              window.webkitRequestAnimationFrame || 
-              window.mozRequestAnimationFrame    || 
-              window.oRequestAnimationFrame      || 
-              window.msRequestAnimationFrame     || 
-              function(/* function */ callback, /* DOMElement */ element){
-                window.setTimeout(callback, 1000 / 60);
-              };
-    })();
-
-function render() {
-      // do something
-      window.requestAnimFrame(render);
+/* IE 6 */
+* html #footer {
+    position: absolute;
+    top: expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe  =  document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
 }
-render();
 }}}
 
-== Templating ==
+_<a href="http://www.flashjunior.ch/school/footers/fixed.cfm">Code Source</a>_
 
-http://net.tutsplus.com/tutorials/javascript-ajax/fun-with-jquery-templating-and-ajax/
+This is actually a lot more useful than it sounds, but appending a fixed footer into your website is quite simple. These footers will scroll with the user and may contain helpful information about your site or unique contact details. Ideally this would only be implemented in cases where it truly adds value to the user interface.
+
+== 29. Transparent PNG Fix for IE6 == 
 
 {{{
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>  
-<script src="jquery.tmpl.js"></script>  
+.bg {
+    width:200px;
+    height:100px;
+    background: url(/folder/yourimage.png) no-repeat;
+    _background:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src = '/folder/yourimage.png',sizingMethod = 'crop');
+}
+
+/* 1px gif method */
+img, .png {
+    position: relative;
+    behavior: expression((this.runtimeStyle.behavior = "none")&amp;&amp;(this.pngSet?this.pngSet = true:(this.nodeName  ==  "IMG" &amp;&amp; this.src.toLowerCase().indexOf('.png')&gt;-1?(this.runtimeStyle.backgroundImage  =  "none",
+       this.runtimeStyle.filter  =  "progid:DXImageTransform.Microsoft.AlphaImageLoader(src = '" + this.src + "', sizingMethod = 'image')",
+       this.src  =  "images/transparent.gif"):(this.origBg  =  this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+       this.runtimeStyle.filter  =  "progid:DXImageTransform.Microsoft.AlphaImageLoader(src = '" + this.origBg + "', sizingMethod = 'crop')",
+       this.runtimeStyle.backgroundImage  =  "none")),this.pngSet = true));
+}
 }}}
-
-{{{
-<script id="tweets" type="text/x-jquery-tmpl">  
-    <li>  
-        <img src="${imgSource}" alt="${username}" />  
-        <h2> ${username} </h2>  
-        <p> ${tweet} </p>  
-        {{if geo}}  
-        <span> ${geo} </span>  
-        {{/if}}  
-    </li>  
-</script>  
-}}}
-
-{{{
- $.ajax({  
-    type : 'GET',  
-    dataType : 'jsonp',  
-    url : 'http://search.twitter.com/search.json?q=nettuts',  
-  
-    success : function(tweets) {  
-       var twitter = $.map(tweets.results, function(obj, index) {  
-          return {  
-             username : obj.from_user,  
-             tweet : obj.text,  
-             imgSource : obj.profile_image_url,  
-             geo : obj.geo  
-          };  
-       });  
-    }  
-});
-}}}
-
-{{{
-<script type="text/x-jquery-tmpl" id="option-template">
-      <div class="option"><input type="radio" data-bind="attr: {id: id, name: option_group}, value: id, checked: $item.selected_value"><label data-bind="attr: {for: id}, text: label"></label></div>
-    </script>
-}}}
-
-== Elements methodes ==
-
-{{{
-
-$('a:first').offset();
-
-/*
-
-offset()//  Returns: Object{top,left} // Get the current offset of the first matched element, in pixels, relative to the document.
-position()//  Returns: Object{top,left} // Gets the top and left position of an element relative to its offset parent.
-scrollTop()//  Returns: Integer // Gets the scroll top offset of the first matched element.
-scrollTop(val)//  Returns: jQuery // When a value is passed in, the scroll top offset is set to that value on all matched elements.
-scrollLeft()//  Returns: Integer // Gets the scroll left offset of the first matched element.
-scrollLeft(val)//  Returns: jQuery // When a value is passed in, the scroll left offset is set to that value on all matched elements.
-
-height()//  Returns: Integer // Get the current computed, pixel, height of the first matched element.
-height(val)   //  Returns: jQuery // Set the CSS height of every matched element.
-width()//  Returns: Integer // Get the current computed, pixel, width of the first matched element.
-width(val)//  Returns: jQuery // Set the CSS width of every matched element.
-innerHeight()//  Returns: Integer // Gets the inner height (excludes the border and includes the padding) for the first matched element.
-innerWidth()//  Returns: Integer // Gets the inner width (excludes the border and includes the padding) for the first matched element.
-outerHeight(margin)//  Returns: Integer // Gets the outer height (includes the border and padding by default) for the first matched element.
-outerWidth(margin)//  Returns: Integer // Get the outer width (includes the border and padding by default) for the first matched element.
-
-*/
-
-// To get the width and height of the whole page (document)
-
-var pageWidth = $(document).width();
-var pageHeight = $(document).height();
-
-// To get the width and height of the viewport (window)
-
-var viewportWidth = $(window).width();
-var viewportHeight = $(window).height();
-
-}}}
-
-== PARSING XML (IE compatible) ==
-
-{{{
-
-var xmlParse = function (xml) {
-	 if ($.browser.msie) {  // IE !!!
-		 var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");  
-		 xmlDoc.loadXML(xml);  
-		 xml = xmlDoc;  
-	 }
-	$(xml).find("article").each(function(i) {
-		$('#news').append($(this).find("titre").text());
-	});
-};
-
-$(document).ready(function(){
-	$.ajax({
-		type: 'GET',
-		url: './xml/parisien.xml',
-		cache: true,
-		processData: true,
-		dataType: ($.browser.msie) ? 'text' : 'xml',
-		//error: function(xml) { db('error()'); },
-		success: function(xml) { xmlParse(xml); }
-	});
-});
-
-}}}
-
-== AJAX AND JSON ==
-
-{{{
-
-$.getJSON(
-    "http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?",
-    function(data){
-        $.each(data.items, function(i,item){
-            $("<img/>").attr("src", item.media.m).appendTo("#images");
-            if ( i == 3 ) return false;
-        });
-    }
-);
-
-// Pass Parameters Through the GET Method
-$("#load_get").click(function(){  
-    $("#result")  
-        .html("<img src='img/load.gif' alt='loading...' />")  
-        .load(loadUrl+' div#content', "language=php&version=5"); // + extract content
-});
-
-// Long Polling (recursive AJAX) - An Efficient Server-Push Technique
-(function poll(){
-    $.ajax({url: "server", success: function(data){
-        // Update your dashboard gauge
-        salesGauge.setValue(data.value);
-    }, dataType: "json", complete: poll, timeout: 30000});
-})();
-
-// --------------------------------------------------------------- //
-// DISTANT JSON // http://blog.jaysalvat.com/articles/comprendre-jsonp-et-acces-de-donnees-a-distance-en-javascript.php
-
-<?php    
-$json = "{ data: 'Plein de données utiles' }"; 
-
-if (isset($_GET['callback'])) echo $_GET['callback'].'('.$json.');'; 
-else echo $json; 
-
-?> 
-<script>
-$(function() { 
-	$.ajax({ 
-		dataType:'jsonp', 
-		url: 'http://www.monsitedistant.com/api.php', 
-		data: { param:'hello' },
-		beforeSend:function(){
-                    core.ajaxing = true;
-                    ui.getLoader();
-                },
-                complete: function(xhr, textStatus) {
-                    ui.removeLoader();
-                },
-                success: function(data, textStatus, xhr) {
-                    console.log(data); 
-                    core.lastAjaxed = url;
-                    $('#content').fadeOut('slow',function(){
-                        $(this).html('').append(data.template).fadeIn();
-                    });
-                    core.ajaxing = false;
-                },
-		error: function(XMLHttpRequest, textStatus, errorThrown) { 
-			console.log('JSON error :(', XMLHttpRequest, textStatus, errorThrown);
-		}
-	}); 
-});
-</script>
-
-// --------------------------------------------------------------- //
-
-var req = $.ajax({
-    type: 'POST',
-    url: 'some.php',
-    cache: false,
-    data: 'name=John&location=Boston',
-    success: function(msg){
 		
-        alert( 'Data Saved: ' + msg );
-    }
-});
+_<a href="http://css-tricks.com/snippets/css/png-hack-for-ie-6/">Code Source</a>_
 
-//Cancel the Ajax Request ?
-req.abort()
-
-$.post('test.php', { name: 'John', time: '2pm' }, function(data){
-    alert('Data Loaded: ' + data);
-});
-
-$.post('test.php', { func: 'getNameAndTime' }, function(data){
-    alert(data.name); // John
-    console.log(data.time); //  2pm
-}, 'json');
-
-var html = $.ajax({
-    url: 'some.php',
-    async: false
-}).responseText;
-
-$.ajax({
-    url: 'page.php',
-    processData: false,
-    data: [/*create xml document*/],
-    success: handleResponse
-});
-
-var obj = jQuery.parseJSON('{"name":"Larry King", "age": "5000"}');
-alert(obj.name);
-
-
-// MAPPING COMPLEX JSON 
-function youtube(callback) {
-    var url = "http://gdata.youtube.com/feeds/api/videos/-/Comedy?v=2&alt=json-in-script&start-index=" + startIndex + "&callback=?";
-
-    jQuery.getJSON(url, function (data) {
-        var images = jQuery.map(data.feed.entry, function (item) {
-            return {
-                title: item.title.$t,
-                thumb: item.media$group.media$thumbnail[0].url,
-                ytvideoid: item.media$group.yt$videoid.$t,
-                videoloader: youtubevideo,
-                link: item.link[0].href
-            };
-        });
-        startIndex += images.length;
-        callback(images);
-    });
-}
-
-}}}
-
-== Somes Functions ... ==
-
-{{{
-
-// Get URL parameters values
-
-$.extend({
-	getUrlVars: function() {
-		var vars = {};
-		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; });
-		return vars;
-	}
-});
-
-var name = $.getUrlVars()['name'];
-
-
-// --------------------------------------------------------------- //
-// scale elements to fit box
-
-(function($){
-  $.fn.extend({
-    fluwi: function(opt){
-        var variate = ((opt.variate!= undefined)?opt.variate:0);
-        var contWidth = this.outerWidth();
-        var boxWidth = opt.minWidth;
-        var counted = Math.floor(contWidth/boxWidth);
-        var extra = contWidth-boxWidth*counted;
-        var eachOne = extra/counted;
-        $(opt.boxQuery).css("width", (parseInt(boxWidth)+(eachOne))-variate);
-    }
-  });
-})(jQuery);
-
-// The plugin call code
-
-$('#mydiv').fluwi({
-        minWidth: 200, //pixels
-        variate: 2, //pixels
-        boxQuery: 'li' //class name or div name, or selector for elements that are resizing
-});
-
-// MENU
-/*
-<ul id="menu">
-  <li class="menu">Sub 1
-    <ul>
-      <li>test 1</li>
-      <li>test 2</li>
-      <li>test 3</li>
-      <li>test 4</li>
-    </ul>
-  </li>
-  <li class="menu">Sub 2
-    <ul>
-      <li>test 1</li>
-      <li>test 2</li>
-      <li>test 3</li>
-      <li>test 4</li>
-    </ul>
-  </li>
-</ul>
-*/
-
-// Code
-
-$(document).ready(function() {
-  var toggle = function(direction, display) {
-    return function() {
-      var self = this;
-      var ul = $("ul", this);
-      if( ul.css("display") == display && !self["block" + direction] ) {
-        self["block" + direction] = true;
-        ul["slide" + direction]("slow", function() {
-          self["block" + direction] = false;
-        });
-      }
-    };
-  }
-  $("li.menu").hover(toggle("Down", "none"), toggle("Up", "block"));
-  $("li.menu ul").hide();
-});
-
-
-// Fetch Links FavIcons
-$('.l').hover(
-	function(){
-		var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
-		$(this).html($(this).html()+' <img class="ico" width="16" height="16" src="http://www.google.com/s2/favicons?domain='+domaine+'"/>');
-	},
-	function(){
-		var html = $(this).html().split('<')[0];
-		$(this).html(html);
-	}
-);
-
-}}}
-
-== Mouse event ==
-
-{{{
-
-var div = $('div.sc_menu');
-var divWidth = div.width();
-var ul = $('ul.sc_menu');
-var lastLi = ul.find('li:last-child');
-var ulPadding = 15;
-
-div.mousemove(function(e){
-    var ulWidth = lastLi[0].offsetLeft + lastLi.outerWidth() + ulPadding;
-    var left = (e.pageX - div.offset().left) * (ulWidth-divWidth) / divWidth;
-    div.scrollLeft(left);
-});
-
-}}}
-
-== Gesture (Managing touch event) ==
-
-  * http://plugins.jquery.com/project/jGesture
-
-{{{
-
-var makeGesture = function() {
-    document.onselectstart = function() { return false; }; // ie
-    document.onmousedown = function() { return false; }; // mozilla
-    $('html').gesture(
-        function(gs){
-            //db('Gesture : ' + gs.getName() + ' : ' + gs.moves);
-            if (gs.moves.length % 5 == 0) {
-                if(gs.getName() == 'topleft' || gs.getName() == 'left' || gs.getName() == 'bottomleft') window.api.nextPage();
-                if (gs.getName() == 'topright' || gs.getName() == 'right' || gs.getName() == 'bottomright') window.api.prevPage();
-            }
-        }, {repeat: true, continuesmode: true, mindistance:30}
-    );
-};
-
-}}}
-
-== Widget container ==
-
-{{{
-
-(function($) {
-    // Widget container plugin
-    $.fn.widgetContainer = function() {
-        this.each(function() {
-            // Vars
-            var wc = $(this);
-
-            // Set events
-            wc.find('#add').click(function(e) { if (e) e.preventDefault(); add(wc) });
-        });
-    }
-
-    // Add a widget to the container
-    function add(wc) {
-        var widget = $($.fn.widget.template);
-        widget
-            .appendTo(wc)
-            .fadeIn('slow')
-            .widget(wc);
-    }
-
-    // Widget
-    (function() {
-        // Widget plugin
-        $.fn.widget = function(container) {
-            this.each(function() {
-                // Vars
-                var w = $(this);
-                w.parent = container;
-
-                // Set events
-                w.find('form').submit(function(e) { if (e) e.preventDefault(); submit(w) });
-                w.find('.remove').click(function(e) { if (e) e.preventDefault(); remove(w) });
-            });
-        }
-        $.fn.widget.template = '<div class="widget"><form action="" method="POST"><input type="text" value=""/><input type="submit" value="Action!"/><a href="#" class="remove">Remove</a></form></div>';
-
-        // Remove widget
-        function remove(w) {
-            w.remove();
-        }
-
-        // Submit widget data
-        function submit(w) {
-            w.css('background', 'red');
-            $.post('/', w.find('form').serialize(), function(data) {
-                w.find(':text').val((new Date()).toString());
-                w.parent.fadeOut();
-                setTimeout(function() { w.parent.fadeIn() }, 500);
-            });
-        }
-    })();
-})(jQuery);
-
-
-// Main
-$(function() {
-    $('.widgetContainer').widgetContainer();
-});
-
-}}}
-
-== Widgets Extends ==
-
-Source : http://www.novius-labs.com/developper-plugin-jquery-fonctionnalites-avancees,24.html
-
-{{{
-(function($) {
-    $.widget("ui.bloc", {
-        // options par défaut du widget
-        // modifiables à la construction
-        // mais aussi après la construction du widget
-        options: {
-            title: 'Titre',
-            togglable: true, // Variable indiquant si le bloc est ouvrable/fermable
-            opened : true // Variable indiquant si le bloc est ouvert
-        },
-
-        // Variables internes
-        uiBlocContainer: null, // contient l'objet jQuery du container du bloc
-        uiBlocTitle: null, // contient l'objet jQuery du titre du bloc
-        uiBlocTitleToggle: null, // contient l'objet jQuery du picto dans la barre de titre indiquant l'état d'ouverture/fermeture du bloc
-
-        // La fonction _create est appelée à la construction du widget
-        // la variable d'instance this.element contient un objet jQuery
-        // contenant l'élément sur lequel porte le widget
-        _create: function() {
-            // On crée un container pour notre nouvel élément d'UI
-            // On lui ajoute la classe ui-widget qui doit être ajoutée à tout container de widget
-            // On lui ajoute également la classe ui-widget-content qui doit être appliquée  à tout container de contenu de widget
-            // La classe ui-corner-all arrondit les 4 angles de notre bloc
-            this.uiBlocContainer = $('<div></div>')
-                .addClass('ui-bloc ui-widget ui-widget-content ui-corner-all')
-                .insertAfter(this.element);
-
-            // On encapsule notre élément initial dans notre nouveau container
-            this.element.addClass('ui-bloc-content').appendTo(this.uiBlocContainer);
-
-            // On ajoute la classe ui-widget-header qui doit être ajoutée à tout élément titre de widget
-            // La classe ui-corner-top arrondit les 2 angles suppérieurs de notre bloc titre
-            // L'élément uiBlocTitle est ajouté au container et non plus à notre élément de base
-            this.uiBlocTitle = $('<h5></h5>').addClass('ui-bloc-title ui-widget-header ui-corner-top')
-                .prependTo(this.uiBlocContainer);
-
-            // On encapsule un SPAN dans le bloc titre pour y écrire le titre et pouvoir le modifier à posteriori
-            $('<span></span>').appendTo(this.uiBlocTitle);
-
-            // On ajoute un SPAN au bloc titre pour le picto indicateur de l'état d'ouverture / fermeture
-            // Mais on le cache au cas où la fonctionnalité soit désactivée
-            this.uiBlocTitleToggle = $('<span></span>')
-                .addClass('ui-bloc-title-toggle ui-icon ui-icon-pin-s')
-                .appendTo(this.uiBlocTitle)
-                .hide();
-        },
-
-        // La fonction _init est appelée à la construction ET à la réinitialisation du widget
-        _init : function() {
-            var self = this;
-
-            // On renseigne le texte du titre avec la valeur présente dans les options
-            self.uiBlocTitle.children('span:first').text(self.options.title);
-
-            // On enlève l'événement click sur le bloc titre
-            // En cas de réinitialisation, cela évite d'ajouter un nouvel événement click
-            // à notre titre qui en a déjà potentiellement un
-            self.uiBlocTitle.unbind('click');
-
-            if (self.options.togglable) {
-                // On ajoute l'événement click au bloc titre si le bloc est ouvrable / fermable
-                self.uiBlocTitle.click(function(event) {
-                    // Si le widget est disabled, il ne se passe rien au click
-                    if (!self.options.disabled) {
-                        self.toggle(event);
-                        return false;
-                    }
-                }).css('cursor', 'pointer'); // On modifie le curseur au survol du titre
-
-                // On affiche le picto indicateur de l'état d'ouverture / fermeture
-                // précédemment crée dans _create
-                self.uiBlocTitleToggle.show();
-
-                if (!self.options.opened) {
-                    // Si le bloc est initialisé avec le paramètre opened à false, on ferme le bloc
-                    self._close();
-                } else {
-                    // Si le bloc est initialisé avec le paramètre opened à true, on ouvre le bloc
-                    self._open();
-                }
-            } else {
-                // Le bloc n'est pas togglable
-                // On réinitialise le curseur au survol du titre
-                self.uiBlocTitle.css('cursor', 'auto');
-                // On cache le picto indicateur de l'état d'ouverture / fermeture
-                self.uiBlocTitleToggle.hide();
-                // On ouvre le bloc
-                self._open();
-            }
-        },
-
-        // La fonction destroy ramène l'élément du DOM, sur lequel est basé notre widget,
-        // dans l'état où il était avant la création du widget.
-        // Elle défait ce que _create a fait
-        destroy: function() {
-            // On réaffiche l'élément éventuellement caché
-            // On enlève les classes css propres au widget
-            // Et on sort l'élément du container
-            this.element.show()
-                .removeClass('ui-bloc-content')
-                .insertBefore(this.uiBlocContainer);
-
-            // On détruit le container
-            // Ce qui détruit par ricochet tous les autres éléments créés par notre widget
-            this.uiBlocContainer.remove();
-
-            // On appelle la méthode originale du framework
-            // Elle supprime l'instance du widget qui a été stocké en data dans l'élément
-            $.Widget.prototype.destroy.apply(this);
-
-            return this;
-        },
-
-        // Surcharge de la méthode _setOption qui est appelée par la méthode option
-        // qui permet de modifier des options de notre widget
-        _setOption: function(key, value){
-            var self = this;
-
-            // On appelle la méthode originale du framework qui modifie le tableau d'options
-            $.Widget.prototype._setOption.apply(self, arguments);
-
-            if ($.inArray(key, ['title', 'togglable', 'opened']) != -1) {
-                // Si l'option modifiée est une des 3 options title, togglable, opened
-                // On appelle la méthode d'initialisation
-                self._init();
-            } else if (key === 'disabled') {
-                // L'option disabled a été modifiée
-                // On ajoute ou supprime, en fonction du cas, la classe ui-state-disabled au container
-                // Dans le framework css de jQuery UI, la classe ui-state-disabled grise un élément
-                if (value) {
-                    this.uiBlocContainer.addClass('ui-state-disabled');
-                } else {
-                    this.uiBlocContainer.removeClass('ui-state-disabled');
-                }
-            }
-        },
-
-        toggle : function() {
-            var self = this;
-
-            //Si le bloc n'est pas ouvrable/fermable on sort tout de suite
-            if (!self.options.togglable) {
-                return self;
-            }
-
-            if (self.options.opened) {
-                // Si l'événement beforeClose retourne false, on arrête la fermeture
-                if (false === this._trigger('beforeClose')) {
-                    return false;
-                }
-
-                self._close();
-
-                // Envoi du signal de fermeture
-                // _trigger accepte 3 paramètres, les deux derniers étant optionnels :
-                // - le nom de l'événement
-                // - l'objet événement
-                // - des données additionnelles envoyées aux fonctions interceptant l'événement
-                this._trigger('close');
-            } else {
-                // Si l'événement beforeOpen retourne false, on arrête l'ouverture
-                if (false === this._trigger('beforeOpen')) {
-                    return false;
-                }
-
-                self._open();
-
-                // Envoi du signal d'ouverture
-                this._trigger('open');
-            }
-            // On inverse la valeur de l'option opened
-            self.options.opened = !self.options.opened;
-
-            // On retourne l'instance du plugin pour préserver le chaînage des fonctions
-            return self;
-        },
-
-        _close: function() {
-            // On doit cacher tous les enfants du container sauf le titre
-            this.uiBlocContainer.children().not(this.uiBlocTitle).hide();
-            // L'icône de la barre de titre devient une tête d'épingle orientée vers l'ouest (west, donc vers la gauche)
-            this.uiBlocTitleToggle.removeClass('ui-icon-pin-s').addClass('ui-icon-pin-w');
-        },
-
-        _open: function() {
-            // On doit afficher tous les enfants du container
-            this.uiBlocContainer.children().show();
-            // L'icône de la barre de titre devient une tête d'épingle orientée vers le sud (vers le bas)
-            this.uiBlocTitleToggle.removeClass('ui-icon-pin-w').addClass('ui-icon-pin-s');
-        }
-    });
-})(jQuery);
-
-}}}
-
-== Widget with jQuery LOADER ==
-
-http://alexmarandon.com/articles/web_widget_jquery/
-
-{{{
-
-(function() {
-
-// Localize jQuery variable
-var jQuery;
-
-/******** Load jQuery if not present *********/
-if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
-    var script_tag = document.createElement('script');
-    script_tag.setAttribute("type","text/javascript");
-    script_tag.setAttribute("src",
-        "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js");
-    script_tag.onload = scriptLoadHandler;
-    script_tag.onreadystatechange = function () { // Same thing but for IE
-        if (this.readyState == 'complete' || this.readyState == 'loaded') {
-            scriptLoadHandler();
-        }
-    };
-    // Try to find the head, otherwise default to the documentElement
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
-} else {
-    // The jQuery version on the window is the one we want to use
-    jQuery = window.jQuery;
-    main();
-}
-
-/******** Called once jQuery has loaded ******/
-function scriptLoadHandler() {
-    // Restore $ and window.jQuery to their previous values and store the
-    // new jQuery in our local jQuery variable
-    jQuery = window.jQuery.noConflict(true);
-    // Call our main function
-    main(); 
-}
-
-/******** Our main function ********/
-function main() { 
-    jQuery(document).ready(function($) { 
-        /******* Load CSS *******/
-        var css_link = $("<link>", { 
-            rel: "stylesheet", 
-            type: "text/css", 
-            href: "style.css" 
-        });
-        css_link.appendTo('head');          
-
-        /******* Load HTML *******/
-        var jsonp_url = "http://alpage.org/cgi-bin/webwidget_tutorial.py?callback=?";
-        $.getJSON(jsonp_url, function(data) {
-          $('#example-widget-container').html("This data comes from another server: " + data.html);
-        });
-    });
-}
-
-})(); // We call our anonymous function immediately
-
-}}}
-
-== Code isolation ==
-
-{{{
-
-// Enclose all our code within an anonymous function and we call that function.
-// The variables we create in our functions won’t interfere with the rest of the
-page.
-
-var foo = "Hello World!";
-document.write("<p>Before our anonymous function foo means '" + foo + '".</p>');
-
-(function() {
-    // The following code will be enclosed within an anonymous function
-    var foo = "Goodbye World!";
-    document.write("<p>Inside our anonymous function foo means '" + foo + '".</p>');
-})(); // We call our anonymous function immediately
-
-document.write("<p>After our anonymous function foo means '" + foo + '".</p>');
-
-}}}
-
-== REGEX ==
-
-http://www.jquery.info/spip.php?article91
-
-{{{
-
-// Sélectionne tous les éléments dont l'id commence par une voyelle :
-$(':regex(id,^[aeiou])');
-
-// Sélectionne tous les divs dont la classe contient un chiffre :
-$('div:regex(class,[0-9])');
-
-// Sélectionne toutes les balises script dont la source contient jQuery :
-$('script:regex(src,jQuery)');
-
-// Oui, je sais que le dernier exemple peut être fait avec les sélecteur d'attributs CSS3. C'est juste un exemple...
-
-Note : toutes les recherches sont insensibles à la casse ; vous pouvez changer ça en retirant le drapeau "i" dans le plugin.
-
-Ce plugin vous permet aussi d'interroger les styles CSS avec des expressions régulières, par exemple :
-// Sélectionne tous les éléments dont la largeur est comprise entre 100 et 300 pixels :
-$(':regex(css:width, ^[1-3]\\d{2}px$)');
-
-// Sélectionne tous les divs qui ne sont pas en display: block :
-$('div:not(:regex(css:display, ^block$))');
-
-De plus, vous pouvez interroger les chaînes "data" ajoutées aux éléments au travers de la méthode "data" de jQuery :
-// Ajouter une propriété data à toutes les images (c'est juste un exemple) :
-$('img').each(function(){
-$(this).data('extension', $(this)[0].src.match(/\.(.{1,4})$/)[1]);
-});
-
-// Sélectionner toutes les images avec une extension PNG ou JPG :
-$('img:regex(data:extension, png|jpg)');
-
-}}}
-
-== jQUery version 1.4 ==
-
-Parmi les changements et améliorations apportées dans la version 1.4 :
-
-  * de nombreuses améliorations pour les fonctions Ajax et les données manipulées (sérialisation, parsing, json), 
-  * de nouvelles méthodes pour le parcours des éléments (first, last, eq...),
-  * une création rapide d'éléments avec la fonction jQuery, attributs et événements inclus,
-  * des fonctions .css(), .attr() et équivalentes plus évoluées (permettant l'usage d'un appel de fonction),
-  * des fonctions d'accélération (easing) par propriété CSS dans les animations,
-  * un appel multiple à .bind() possible, pour plusieurs types d'événements distincts,
-  * .proxy() pour s'assurer de la pérennité de this dans une fonction, 
-  * de nouveaux événements : focusin et focusout, équivalents à focus et blur mais qui remontent dans la hiérarchie du DOM (qui bubblent)
-  * .live() supporte désormais tous les événements (à l'exception des cas particuliers ready, blur, et focus), 
-  * de nouvelles méthodes : .detach(), .unwrap(),
-  * de nouvelles files d'attente avec .delay(), .queue() et .clearQueue(),
-  * de nouvelles fonctions de parcours : .index(), .has, .nextUntil(), .prevUntil(), parentsUntil() et des améliorations pour .add(), .closest(),
-  * les callbacks sont possibles sur les fonctions DOM,
-  * et bien d'autres perfectionnements...
-
-== jQuery 1.6 RC1 ==
-
-  * La fonction .prop() permet d’obtenir la valeur d’une propriété d’un élément du DOM ;
-  * La fonction .attr() permet quand à elle d’obtenir la valeur d’un attribut d’un élément sélectionné ;
-  * Une très grosse amélioration a été apporté à .is(), jusqu’à maintenant, vous pouviez vous assurer qu’un élément sélectionné correspondait bien à un autre sélecteur. Maintenant vous pouvez aussi le comparer au résultat d’une fonction, à un élément sélectionné ou encore un objet jQuery ;
-  * .undelegate() permet de supprimer tous les gestionnaires d’évènements provenant d’un namespace. Depuis la version 1.4, elle permettait déjà de les supprimer pour un sélecteur ;
-  * .holdReady() permet d’autoriser ou non le déclenchement de l’évènement jQuery’s ready, il peut donc agir comme un retardateur permettant de s’assurer que toutes les ressources nécessaires sont bien là ;
-  * Deferred.always(), à l’équivalent du finally dans les blocs try/catch, .always() permet de l’exécution de code que votre objet Deferred soit en état résolu ou rejeté.
-  * jQuery.map() permet la création d’un tableau à partir d’un autre ou d’une sélection d’éléments (jusqu’à maintenant que depuis un autre tableau). Très pratique pour créer une liste avec des index ayants un sens plus parlant pour l’accès aux données qu’une suite numérique banale ;
-  * jQuery.Ajax est désormais compatible XHR 2, c’est à dire l’utilisation d’Access Control pour envoyer des requêtes vers des domaines différents ;
-  * jQuery.css() supporte désormais les valeurs relatives.
-  * ...
-  * http://blog.jquery.com/2011/04/26/jquery-1-6-rc-1-released/
-
-
-== jQuery noConflict() extended ==
-
-  * http://stackoverflow.com/questions/1005600/programatically-include-jquery-in-high-conflict-environment/14983925
-
-{{{
-(function($, window) {
-    var version = ($ && typeof($) == 'function' && $().jquery ? ($().jquery).split('.').join('') : 0), // 1.8.1 -> 181
-        jBack   = null;
-    if (version) console.log('jQuery current version : ', version);
-    else         console.log('no jQuery');
-    var loaded = function() {
-            console.log('loaded()');
-            var $ = jQuery.noConflict(true); // LOCAL own jQuery version
-            if (jBack)  {
-                window.$      = jBack; // Reassign ex-jQuery
-                window.jQuery = jBack;
-            }
-            // OK : now work with OUR new $
-            console.log('jQuery new version : ', $().jquery);
-        },
-        loadJs = function(jsPath) {
-            console.log('loadJs()');
-            var s = document.createElement('script');
-            s.setAttribute('type', 'text/javascript');
-            s.setAttribute('src', jsPath);
-            s.onload = loaded;
-            document.getElementsByTagName('body')[0].appendChild(s);
-        };
-
-    if (version) jBack = $;
-    if (version < 180) loadJs('http://code.jquery.com/jquery-1.9.1.min.js');
-    else loaded();
-
-})((typeof(jQuery) == 'function' ? jQuery : null), window);
-}}}
-
-= LITTLES FUNCTIONS FOR QUICK USE =
-
-{{{
-
-// SIMPLE DEBUG :)
-var db = function() { 'console' in window && console.log.call(console, arguments); };
-// Usage :
-db('maVar : ', maVar);
-
-// Other one...
-var db = function(something) { if (!('console' in window)) return; if (arguments.length > 1) { for (var i=0, length=arguments.length; i<length; i++ ) db(arguments[i]); return; } var info = ''; if (typeof something == 'string' || typeof something == 'number') info += '\t'+something.valueOf(); else if (typeof something == 'boolean') info += '\t'+( something ? 'true' : 'false'); else { for (var key in something) { if (typeof something[key] != 'function') info += '\t'+key+' <'+typeof something[key]+'> '+something[key]+'\n'; } } console.info('db('+typeof something+')'); console.log(info); };
-
-var die = function(mess) { throw(( mess ? mess : "JS says that you killing him softly : Oh my god moonWalker is down...")); };
-
-var trim = function(string) { return string.replace(/^\s+|\s+$/g, ''); };
-var escapeURI = function(url) { if (encodeURIComponent) return encodeURIComponent(url); else if (encodeURI) return encodeURI(url); else if (escape) return escape(url); else return url; };
-var event2key = {'97':'a', '98':'b', '99':'c', '100':'d', '101':'e', '102':'f', '103':'g', '104':'h', '105':'i', '106':'j', '107':'k', '108':'l', '109':'m', '110':'n', '111':'o', '112':'p', '113':'q', '114':'r', '115':'s', '116':'t', '117':'u', '118':'v', '119':'w', '120':'x', '121':'y', '122':'z'};
-var pad = function(s) { return (s < 10 ? '0'+s : s); };
-var addslashes = function (str) { return (str+'').replace(/([\\"'])/g, "\\$1").replace(/\u0000/g, "\\0"); };
-// index.html?name=foo -> var name = getUrlVars()[name]; 
-var getUrlVars = function() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) { vars[key] = value; }); return vars; };
-// sites['link'].sort($.objSortByTitle);
-var objSortByTitle = function (a, b) { var x = a.title.toLowerCase(); var y = b.title.toLowerCase(); return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }; 
-// loadJs('http://other.com/other.js'); // For external link
-var loadJs = function(src) { var s = document.createElement('script'); s.setAttribute('type', 'text/javascript'); s.setAttribute('src', src); document.getElementsByTagName('head')[0].appendChild(s); };
-// getScript('./other.js', function() { ok(); });
-var getScript = function(src, callback) { $.ajax({dataType:'script', async:false, cache:true, url:src, success:function(response) { if (callback && typeof callback == 'function') callback(); }}); };
-
-}}}
-
-= (NEW) SAMPLE PLUGIN STRUCTURE =
-
-
-  * http://docs.jquery.com/Plugins/Authoring
-  * http://www.queness.com/post/112/a-really-simple-jquery-plugin-tutorial
-
-Workable / Testable jQuery Default Plugin : http://jsfiddle.net/molokoloco/DzYdE/
-
-
-... Comments or suggests ? http://www.b2bweb.fr/molokoloco/jquery-default-plugin/
-
-{{{
-
-
-
-// Log utilitie
-var db = function() {
-    'console' in window && console.log.call(console, arguments);
-};
-
-// Déclaration d'un nouveau plugin pour étendre les fonctions ($.fn) de jQuery
-
-(function($) {
-    var plugName = 'tooltip'; // Base name
-    var methods = {
-        init: function(options) {
-            options = $.extend({ // Custom arguments
-                parent: 'body', // Default
-                css: plugName,
-            }, options || {});
-            
-            return this.each(function() { // Iterate current(s) element(s)
-                var $this = $(this),
-                    data = $this.data(plugName);
-                if (data) return; // If the plugin has already been initialized
-                
-                var $element = $('<div />', { // Create Tooltip Div
-                    class: options.css,
-                    text: $this.attr('title') // Fetch tooltip text...
-                }).appendTo(options.parent).hide();
-                
-                var stock = {}; // Stock properties
-                stock[plugName] = $element; // Stock element or create unik Id...
-                stock['options'] = options;
-                
-                $this
-                    .data(plugName, stock)
-                    .attr('title', '') // Remove default title
-                    .bind('mouseenter.'+plugName, methods.show) // Event + this plugin NameSpace
-                    .bind('mouseleave.'+plugName, methods.hide);
-                
-                $(window).bind('resize.'+plugName, methods.reposition);
-                db('data', $this.data(plugName)); // Time to Log in console ;)
-            });
-        },
-        update: function(content) {
-            db('update');
-        },
-        reposition: function() {
-            db('reposition');
-        },
-        show: function(event) {
-            var mousex = event.pageX + 20, // Get event X mouse coordinates
-                mousey = event.pageY + 20;
-            
-            var $this = $(this), // Only one link trigger show()
-                data = $this.data(plugName); // Fetch data
-            
-            data[plugName]
-                .css({top: mousey+'px', left: mousex+'px'})
-                .show();
-        },
-        hide: function(event) {
-            var $this = $(this),
-                data = $this.data(plugName);
-            data[plugName].hide();
-        },
-        destroy: function() {
-            return this.each(function() {
-                var $this = $(this),
-                    data = $this.data(plugName);
-                
-                data[plugName].remove(); // Clear tooltip element
-                $(window).unbind('.'+plugName); // clear all events of the plugin namespace
-                $this
-                    .unbind('.'+plugName) // Remove tooltip event(s)
-                    .removeData(plugName); // Clear DOM data
-            })
-        }
-    };
-    $.fn[plugName] = function(method) { // Don't touch ;)
-        if (methods[method]) return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        else if (typeof method === 'object' || !method) return methods.init.apply(this, arguments);
-        else $.error('Method ' + method + ' does not exist on jQuery.'+plugName);
-    };
-})(jQuery);
-
-
-// Appel du plugin
-$('a#fun').tooltip({ // Init with optional obj of optionals args
-    css: 'myTtClass'
-});
-//$('a#fun').tooltip('update', 'This is the new tooltip content!'); // Call internal methode
-
-$('a#remove').bind('click', function() {
-    $('a#fun').tooltip('destroy');
-});
-
-}}}
-
-== 'Highly configurable' mutable plugin boilerplate ==
-
-  * http://coding.smashingmagazine.com/2011/10/11/essential-jquery-plugin-patterns/
-
-{{{
-
-/*
- * 'Highly configurable' mutable plugin boilerplate
- * Author: @markdalgleish
- * Further changes, comments: @addyosmani
- * Licensed under the MIT license
- */
-
-// Note that with this pattern, as per Alex Sexton's, the plugin logic
-// hasn't been nested in a jQuery plugin. Instead, we just use
-// jQuery for its instantiation.
-
-;(function( $, window, document, undefined ){
-
-  // our plugin constructor
-  var Plugin = function( elem, options ){
-      this.elem = elem;
-      this.$elem = $(elem);
-      this.options = options;
-
-      // This next line takes advantage of HTML5 data attributes
-      // to support customization of the plugin on a per-element
-      // basis. For example,
-      // <div class=item' data-plugin-options='{"message":"Goodbye World!"}'></div>
-      this.metadata = this.$elem.data( 'plugin-options' );
-    };
-
-  // the plugin prototype
-  Plugin.prototype = {
-    defaults: {
-      message: 'Hello world!'
-    },
-
-    init: function() {
-      // Introduce defaults that can be extended either
-      // globally or using an object literal.
-      this.config = $.extend({}, this.defaults, this.options,
-      this.metadata);
-
-      // Sample usage:
-      // Set the message per instance:
-      // $('#elem').plugin({ message: 'Goodbye World!'});
-      // or
-      // var p = new Plugin(document.getElementById('elem'),
-      // { message: 'Goodbye World!'}).init()
-      // or, set the global default message:
-      // Plugin.defaults.message = 'Goodbye World!'
-
-      this.sampleMethod();
-      return this;
-    },
-
-    sampleMethod: function() {
-      // eg. show the currently configured message
-      // console.log(this.config.message);
-    }
-  }
-
-  Plugin.defaults = Plugin.prototype.defaults;
-
-  $.fn.plugin = function(options) {
-    return this.each(function() {
-      new Plugin(this, options).init();
-    });
-  };
-
-  //optional: window.Plugin = Plugin;
-
-})( jQuery, window , document );
-}}}
-
-== jQuery Boilerplate - Plugin Prototype V2 ==
-
-  * http://jqueryboilerplate.com/
-  * https://github.com/zenorocha/jquery-boilerplate/wiki/Extending-jQuery-Boilerplate
-
-{{{
-// the semi-colon before function invocation is a safety net against concatenated
-// scripts and/or other plugins which may not be closed properly.
-;(function ( $, window, document, undefined ) {
-
-    // undefined is used here as the undefined global variable in ECMAScript 3 is
-    // mutable (ie. it can be changed by someone else). undefined isn't really being
-    // passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-    // can no longer be modified.
-
-    // window and document are passed through as local variable rather than global
-    // as this (slightly) quickens the resolution process and can be more efficiently
-    // minified (especially when both are regularly referenced in your plugin).
-
-    // Create the defaults once
-    var pluginName = "defaultPluginName",
-        defaults = {
-            propertyName: "value"
-        };
-
-    // The actual plugin constructor
-    function Plugin( element, options ) {
-        this.element = element;
-
-        // jQuery has an extend method which merges the contents of two or
-        // more objects, storing the result in the first object. The first object
-        // is generally empty as we don't want to alter the default options for
-        // future instances of the plugin
-        this.options = $.extend( {}, defaults, options );
-
-        this._defaults = defaults;
-        this._name = pluginName;
-
-        this.init();
-    }
-
-    Plugin.prototype = {
-
-        init: function() {
-            // Place initialization logic here
-            // You already have access to the DOM element and
-            // the options via the instance, e.g. this.element
-            // and this.options
-            // you can add more functions like the one below and
-            // call them like so: this.yourOtherFunction(this.element, this.options).
-        },
-
-        yourOtherFunction: function(el, options) {
-            // some logic
-        }
-    };
-
-    // A really lightweight plugin wrapper around the constructor,
-    // preventing against multiple instantiations
-    $.fn[pluginName] = function ( options ) {
-        return this.each(function () {
-            if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName, new Plugin( this, options ));
-            }
-        });
-    };
-
-})( jQuery, window, document );
-
-
-// Usage
-
-$('#elem').defaultPluginName({
-  propertyName: 'a custom value'
-});
-}}}
-
-
-== jQuery plugin Boilerplate "Bootstraped" version V3 ==
-
-Plugin design pattern from Twitter Bootstrap
-http://twitter.github.io/bootstrap/
-
-{{{
-/* =============================================================
- * jQuery colonizr V0.9.1 - Molokoloco 2013 - Copyleft
- * "In-between titles Multicols paragraphes" (Bootstrap-like plugin)
- * Live fiddle : http://jsfiddle.net/molokoloco/Ra288/
- * Github : https://github.com/molokoloco/FRAMEWORK/blob/master/jquery.plugins/jquery.colonizr.js
-            https://github.com/molokoloco/FRAMEWORK/blob/master/jquery.plugins/jquery.colonizr.min.js
- *          https://github.com/molokoloco/FRAMEWORK/blob/master/jquery.plugins/jquery.colonizr.css
- *  Infos : http://www.b2bweb.fr/molokoloco/jquery-colonize-plugin-in-between-titles-multicols-paragraphes-with-css3/
- * ============================================================== */
-
-!function ($) {
-
-    "use strict"; // jshint ;_;
-
-   /* COLONIZR CLASS DEFINITION
-    * ========================== */
-
-    function Colonizr(element, options) {
-        // Merge user options
-        this.options = $.extend(true, {}, $.fn.colonizr.defaults, typeof options == 'object' && options || {});
-        // Privates vars
-        this.$container = $(element);
-        this.wrapper    = '<div class="'+this.options.css+'"/>';
-	this.cWidth, this.colHeightRatio, this.intentNextP, this.lineHeight, this.maxHeight;
-	this.refresh();
-    };
-
-    Colonizr.prototype = {
-        
-	constructor: Colonizr,
 		
-        colsExtractor: function (i, e) {
-            var $element    = $(e),
-                $next       = $element.next(),
-                $collection = [],
-                jumpNext    = false,
-                totalHeight = 0;
-            while ($next) {
-                if (!$next.is(this.options.take)) {
-                    if (!$next.is(this.options.chapters)) jumpNext = true;
-                    $next = null; // Break
-                }
-                else {
-                    $collection.push($next);
-                    $next = $next.next();
-                }
-            }
-            var estimateHeight = 0;
-            if ($collection.length) {
-                for (var i = 0, len = $collection.length; i < len; i++) {
-                    estimateHeight += $collection[i].outerHeight();
-                }
-            }
-            if ($collection.length && estimateHeight > this.lineHeight) {
-                var $wrapper = $(this.wrapper);
-                for (var i = 0, len = $collection.length; i < len; i++) {
-                    totalHeight += ($collection[i].outerHeight() * this.colHeightRatio); // Futur P height
-                    $wrapper.append($collection[i].detach()); // Extract P
-                    if ($collection[(i + 1)] && this.maxHeight <= (totalHeight + $collection[(i + 1)].outerHeight())) { // Cut Cols if > screen height
-                        $wrapper.insertAfter($element);
-                        $element = $wrapper;
-                        totalHeight = 0;
-                        $wrapper = $(this.wrapper);
-                    }
-                }
-                $wrapper.insertAfter($element); // Append new COL div container
-                if (jumpNext) this.colsExtractor(0, $wrapper.next());
-            }
-            else if (jumpNext) {
-                this.intentNextP++; // Max, trois tags vides après un titre
-                if (this.intentNextP < 3 && $element.next()) this.colsExtractor(0, $element.next());
-            }
-        },
-        
-        refresh: function () {
-			this.cWidth         = this.$container.width();
-			this.colHeightRatio = 1;
-			this.intentNextP    = 0;
-			this.lineHeight     = 0;
-			this.maxHeight      = this.options.maxHeight;
-			var colWidth        = this.cWidth;
-			if (this.options.maxHeight < 1)
-				this.maxHeight = Math.max(80, $(window).height() - 60); // (Min/) Max cols height ?			
-			var $exists = this.$container.find('.'+this.options.css);
-			if ($exists.length) { // Existing this.wrappers ?
-				var exists = '';
-				$exists.each(function() {
-					var $this = $(this);
-					$($this.html()).insertBefore($this);
-					$this.remove(); 
-				});
-			}
-			var $p = $('<p>A</p>').appendTo(this.$container);
-			this.lineHeight = $p.outerHeight();
-			this.lineHeight = this.lineHeight * this.options.minLine;
-			$p.remove();
-			if (this.options.colWidth)
-				this.options.colCount = Math.max(1, Math.floor(this.cWidth / this.options.colWidth));
-			colWidth = (this.cWidth - ((this.options.marge * 2) * this.options.colCount)) / this.options.colCount;
-			this.colHeightRatio = this.cWidth / colWidth;
-			this.$container
-				.find(this.options.chapters)
-				.each($.proxy(this.colsExtractor, this)); // $.wrapAll() || $.nextAll() // :-(
-		}
-    };
+Using transparent images inside websites has become a very common practice. This started with gif images, but has evolved into alpha-transparent PNGs. Unfortunately older legacy versions of Internet Explorer have never supported the transparency. Adding this brief CSS snippet should clear up the problem.
 
-   /* COLONIZR PLUGIN DEFINITION
-    * =========================== */
+== 30. Cross-Browser Minimum Height == 
 
-    var old = $.fn.colonizr;
-
-    $.fn.colonizr = function (options) {
-        return this.each(function() { // Iterate collections
-            var $this = $(this),
-		data  = $this.data('colonizr');
-		if (!data) $this.data('colonizr', (data = new Colonizr(this, options)));
-            if (typeof options == 'string') data[options]();
-        });
-    };
-
-    $.fn.colonizr.Constructor = Colonizr;
-
-    $.fn.colonizr.defaults = {
-        marge:       10,                   // Left/right <p> margin
-        colWidth:    null,                 // As in the CSS, choose between COUNT or WIDTH for cols
-        colCount:    2,                    // colWidth (px) OR colCount (num)
-        chapters:    'h1,h2,h3,h4,h5,h6',  // Between the H1-Hx ()
-        take:        'p',                  // Take all the p (ul,quote,..) NEXT() to each chapters
-        css:         'multiplecolumns',    // And wrap them with class
-        minLine:      2,                   // If less than 3 lines, don't wrap with columns
-        maxHeight:    null                 // Max col height will be..
-    };
-
-   /* COLONIZR NO CONFLICT
-    * ===================== */
-
-    $.fn.colonizr.noConflict = function () {
-        $.fn.colonizr = old;
-        return this;
-    };
-
-   /* COLONIZR DATA-API
-    * ================== */
-
-    $(window).on('load', function () {
-        $('[data-colonizr="true"]').each(function () {
-            var $spy = $(this);
-            $spy.colonizr($spy.data());
-        })
-    });
-
-}(window.jQuery);
-
-
-/////////////////////////////////////////////////////////////////
-// Usage example... /////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
-
-var $container = $('div#container');
-
-$('a#colonize').click(function() {     // Call on click 
-    $container.colonizr({              // Use plugin...
-        marge:      10,
-        colWidth:   180,               // Report CSS "column-width"
-        take:       'p,ul',            // Adding UL to the stream...
-        css:        'multiplecolumns'  // If you want to change the CSS..
-    });
-});
-
-var windowTmr = null; // Timeout...
-var resizeRefreshEvent = function() {   // Trottle resize...
-    windowTmr = null;
-    if ($container.data('colonizr'))    // Colonizr was applyed by user click ?
-        $container.colonizr('refresh'); //  Refresh cols height...
-};
-
-$(window).on('resize', function(event) { // Resize Event
-    if (windowTmr) clearTimeout(windowTmr);
-    windowTmr = setTimeout(resizeRefreshEvent, 1600); // Trottle resize
-});
+{{{
+#container {
+    min-height: 550px;
+    height: auto !important;
+    height: 550px;
+}
 }}}
+
+Developers who have needed to work with <code>min-height</code> know all about the shady support. Many newer browsers can handle this perfectly, however Internet Explorer and older versions of Firefox do have trouble. This set of codes should provide a fix to any related bugs.
+
+== 31. CSS3 Glowing Inputs == 
+
+{{{
+input[type = text], textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #ddd;
+}
+ 
+input[type = text]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+}}}
+
+_<a href="http://css-tricks.com/snippets/css/glowing-blue-input-highlights/">Code Source</a>_
+
+I really enjoy this basic custom CSS3 class because of how it overwrites the default browser behavior. Users of Chrome &amp; Safari know about annoying input outlines in forms. Adding these properties into your stylesheet will setup a whole new design for basic input elements.
+
+== 32. Style Links Based on Filetype == 
+
+{{{
+/* external links */
+a[href^ = "http://"] {
+    padding-right: 13px;
+    background: url('external.gif') no-repeat center right;
+}
+ 
+/* emails */
+a[href^ = "mailto:"] {
+    padding-right: 20px;
+    background: url('email.png') no-repeat center right;
+}
+ 
+/* pdfs */
+a[href$ = ".pdf"] {
+    padding-right: 18px;
+    background: url('acrobat.png') no-repeat center right;
+}
+}}}
+
+_<a href="http://www.designyourway.net/blog/resources/31-css-code-snippets-to-make-you-a-better-coder/">Code Source</a>_
+
+Quite the obscure bit of CSS but I love the creativity! You can determine the file type of your links using CSS selectors and implement icons as background images. These may include the various protocols (HTTP, FTP, IRC, mailto) or simply the file types themselves (mp3, avi, pdf).
+
+== 33. Force Code Wraps == 
+
+{{{
+pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+}}}
+
+_<a href="http://css-tricks.com/snippets/css/make-pre-text-wrap/">Code Source</a>_
+
+The typical pre tags are used in layouts to display large chunks of code. This is preformatted text like you would find inside Notepad or Textedit, except you’ll often notice long lines produce horizontal scrollbars. This block of CSS will <strong>force all pre tags to wrap code</strong> instead of breaking outside the container.
+
+== 34. Force Hand Cursor over Clickable Items == 
+
+{{{
+a[href], input[type = 'submit'], input[type = 'image'], label[for], select, button, .pointer {
+    cursor: pointer;
+}
+}}}
+
+_<a href="http://css-tricks.com/snippets/css/give-clickable-elements-a-pointer-cursor/">Code Source</a>_
+
+There are lots of default clickable HTML elements which do not always display the hand pointer icon. Using this set of CSS selectors you may force the pointer over a number of key elements, along with any other objects using the class <strong>.pointer</strong>.
+
+== 35. Webpage Top Box Shadow == 
+
+{{{
+body:before {
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    z-index: 100;
+}
+}}}
+	
+_<a href="http://css-tricks.com/snippets/css/top-shadow/">Code Source</a>_
+
+	
+Developers may not find a great use for this other than some pleasing aesthetics. But I really enjoy this effect and it’s definitely something unique! Simply append this CSS code targeting your body element <strong>to display a dark drop shadow fading down from the top of your webpage</strong>.
+
+== 36. CSS3 Speech Bubble == 
+
+{{{
+.chat-bubble {
+    background-color: #ededed;
+    border: 2px solid #666;
+    font-size: 35px;
+    line-height: 1.3em;
+    margin: 10px auto;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    width: 300px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px #888;
+    font-family: 'Bangers', arial, serif; 
+}
+.chat-bubble-arrow-border {
+    border-color: #666 transparent transparent transparent;
+    border-style: solid;
+    border-width: 20px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -42px;
+    left: 30px;
+}
+.chat-bubble-arrow {
+    border-color: #ededed transparent transparent transparent;
+    border-style: solid;
+    border-width: 20px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -39px;
+    left: 30px;
+}
+}}}
+
+_<a href="http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">Code Source</a>_
+
+Numerous user interface purposes come to mind when discussing speech bubbles. These could be handy in discussion comments, or creating bulletin boards, or displaying quoted text. Simply add the following classes into your stylesheet and you can find related HTML codes from <a href="http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">this CSS3 snippets post</a>.
+
+== 37. Default H1-H5 Headers == 
+
+{{{
+h1,h2,h3,h4,h5{
+	color: #005a9c;
+}
+h1{
+	font-size: 2.6em;
+	line-height: 2.45em;
+}
+h2{
+	font-size: 2.1em;
+	line-height: 1.9em;
+}
+h3{
+	font-size: 1.8em;
+	line-height: 1.65em;
+}
+h4{
+	font-size: 1.65em;
+	line-height: 1.4em;
+}
+h5{
+	font-size: 1.4em;
+	line-height: 1.25em;
+}
+}}}
+
+_<a href="https://snipt.net/freshmaker99/headers/">Code Source</a>_
+
+I have offered lots of common syntax including browser CSS resets and a few HTML element resets. This template includes <strong>default styles for all major heading elements ranging from H1-H5</strong>. You may also consider adding H6 but I have never seen a website using all six nested headers.
+
+== 38. Pure CSS Background Noise == 
+
+{{{
+body {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg == );
+    background-color: #0094d0;
+}
+}}}
+	
+_<a href="https://coderwall.com/p/m-uwvg">Code Source</a>_
+
+	
+Designers have seen this effect added into websites for a long time, although they generally use repeating tile images with alpha-transparency. However we can embed Base64 code into CSS to generate brand new images. This is the case as in the snippet above which generates <strong>a small noise texture above the body background</strong>, or you can create a customized noise background over at <a href="http://www.noisetexturegenerator.com">NoiseTextureGenerator</a>.
+
+== 39. Continued List Ordering == 
+
+{{{
+ol.chapters {
+    list-style: none;
+    margin-left: 0;
+}
+
+ol.chapters &gt; li:before {
+    content: counter(chapter) ". ";
+    counter-increment: chapter;
+    font-weight: bold;
+    float: left;
+    width: 40px;
+}
+
+ol.chapters li {
+    clear: left;
+}
+
+ol.start {
+	counter-reset: chapter;
+}
+
+ol.continue {
+	counter-reset: chapter 11;
+}
+}}}
+	
+_<a href="http://timmychristensen.com/css-ordered-list-numbering-examples.html">Code Source</a>_
+
+	
+I feel this may not be an extremely popular snippet, but it does have its market among developers. There may be situations where you’ll need to <strong>continue a list of items but split into two separate UL elements</strong>. Check out the code above for an awesome CSS-only fix.
+
+== 40. CSS Tooltip Hovers == 
+
+{{{
+a { 
+    border-bottom:1px solid #bbb;
+    color:#666;
+    display:inline-block;
+    position:relative;
+    text-decoration:none;
+}
+a:hover,
+a:focus {
+    color:#36c;
+}
+a:active {
+    top:1px; 
+}
+ 
+/* Tooltip styling */
+a[data-tooltip]:after {
+    border-top: 8px solid #222;
+    border-top: 8px solid hsla(0,0%,0%,.85);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    content: "";
+    display: none;
+    height: 0;
+    width: 0;
+    left: 25%;
+    position: absolute;
+}
+a[data-tooltip]:before {
+    background: #222;
+    background: hsla(0,0%,0%,.85);
+    color: #f6f6f6;
+    content: attr(data-tooltip);
+    display: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    height: 32px;
+    left: 0;
+    line-height: 32px;
+    padding: 0 15px;
+    position: absolute;
+    text-shadow: 0 1px 1px hsla(0,0%,0%,1);
+    white-space: nowrap;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+a[data-tooltip]:hover:after {
+    display: block;
+    top: -9px;
+}
+a[data-tooltip]:hover:before {
+    display: block;
+    top: -41px;
+}
+a[data-tooltip]:active:after {
+    top: -10px;
+}
+a[data-tooltip]:active:before {
+    top: -42px;
+}
+}}}
+	
+_<a href="http://www.impressivewebs.com/pure-css-tool-tips/">Code Source</a>_
+
+	
+There are lots of open source jQuery-based tooltips which you can implement on your websites. But CSS-based tooltips are very rare, and this is one of my favorite snippets. Just copy this over into your stylesheet and using the new HTML5 data-attributes <strong>you can setup the tooltip text via</strong> <code>data-tooltip</code>.
+
+== 41. Dark Grey Rounded Buttons == 
+
+{{{
+.graybtn {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #d1d1d1) );
+    background:-moz-linear-gradient( center top, #ffffff 5%, #d1d1d1 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#d1d1d1');
+    background-color:#ffffff;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    color:#777777;
+    font-family:arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #ffffff;
+}
+.graybtn:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d1d1d1), color-stop(1, #ffffff) );
+    background:-moz-linear-gradient( center top, #d1d1d1 5%, #ffffff 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = '#d1d1d1', endColorstr = '#ffffff');
+    background-color:#d1d1d1;
+}
+.graybtn:active {
+    position:relative;
+    top:1px;
+}
+}}}
+
+_<a href="http://html5snippets.com/snippets/1-a-css-rounded-gray-button">Code Source</a>_
+
+As another helpful template for web developers I have included this simplistic CSS3 buttons class. I am using the class name <strong>.graybtn</strong> which is appropriate for the colors, but this isn’t to say you couldn’t change the styles to match your own website. Check out the hex values inside a color wheel to match similar hues in different color ranges.
+
+== 42. Display URLS in a Printed Webpage == 
+
+{{{
+@media print   {  
+  a:after {  
+    content: " [" attr(href) "] ";  
+  }
+}
+}}}
+	
+_<a href="http://www.smipple.net/snippet/bramloquet/Print%20the%20url%20after%20your%20links">Code Source</a>_
+
+	
+If you run a news website or resource with lots of print material, this is possibly one of the greatest snippets you’ll ever find. Anchor links in your webpage will look and display exactly as normal. However when printed your users will be able to see the link text along with the full hyperlinked URL. This is handy when visitors need to access a webpage you’ve linked but <strong>cannot see the URL in a typical printed document</strong>.
+
+== 43. Disable Mobile Webkit Highlights == 
+	
+{{{
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+}}}
+
+Depending on your experience working in mobile this snippet may not appear very helpful. But when accessing mobile websites in Safari and other Webkit-based engines, you’ll notice a grey box surrounds elements as you tap them. Just append these styles into your website and it should <strong>remove all native mobile browser highlights.</strong>
+
+== 44. CSS3 Polka-Dot Pattern == 
+
+{{{
+body {
+    background: radial-gradient(circle, white 10%, transparent 10%),
+    radial-gradient(circle, white 10%, black 10%) 50px 50px;
+    background-size: 100px 100px;
+}
+}}}
+
+_<a href="http://dabblet.com/gist/1457668">Code Source</a>_
+
+I was a bit taken back when initially finding this snippet online. But it is a really interesting method for generating CSS3-only BG patterns on the fly. I have targeted the body element as default but you could apply this onto any container div in your webpage.
+
+== 45. CSS3 Checkered Pattern == 
+
+{{{
+body {
+    background-color: white;
+    background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), 
+    linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+    background-size: 100px 100px;
+    background-position: 0 0, 50px 50px;
+}
+}}}
+
+_<a href="http://dabblet.com/gist/1457677">Code Source</a>_
+
+Similar to the polka-dots above we can also create a full seamless checkerboard pattern. This method requires a bit more syntax to get working, but it looks flawless in all CSS3-supported browsers. Also you can change the color values from white and black to match that of your own website color scheme.
+
+== 46. Github Fork Ribbon == 
+
+{{{
+.ribbon {
+    background-color: #a00;
+    overflow: hidden;
+    /* top left corner */
+    position: absolute;
+    left: -3em;
+    top: 2.5em;
+    /* 45 deg ccw rotation */
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    /* shadow */
+    -moz-box-shadow: 0 0 1em #888;
+    -webkit-box-shadow: 0 0 1em #888;
+}
+.ribbon a {
+    border: 1px solid #faa;
+    color: #fff;
+    display: block;
+    font: bold 81.25% 'Helvetiva Neue', Helvetica, Arial, sans-serif;
+    margin: 0.05em 0 0.075em 0;
+    padding: 0.5em 3.5em;
+    text-align: center;
+    text-decoration: none;
+    /* shadow */
+    text-shadow: 0 0 0.5em #444;
+}
+}}}
+
+_<a href="http://unindented.org/articles/2009/10/github-ribbon-using-css-transforms/">Code Source</a>_
+
+As a big user on Github this basic code snippet blew my mind. You can quickly generate Github corner ribbons in your webpage using CSS3 transform properties. This is perfect for open source plugins or code packs which have a popular following on Github. Also great for hosted HTML/CSS/JS demos if you have an active Github repo.
+
+== 47. Condensed CSS Font Properties == 
+
+{{{
+p {
+  font: italic small-caps bold 1.2em/1.0em Arial, Tahoma, Helvetica;
+}
+}}}
+
+_<a href="http://www.csspop.com/view/542">Code Source</a>_
+
+The main reason web developers don’t always use this condensed font property is because not every setting is needed. But having an understanding of this shorthand may save you a lot of time and space in your stylesheets. Keep this snippet handy just in case you ever want to shorten the formatting of your font styles.
+
+== 48. Paper Page Curl Effect == 
+
+{{{
+ul.box {
+    position: relative;
+    z-index: 1; /* prevent shadows falling behind containers with backgrounds */
+    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 0; 
+}
+
+ul.box li {
+    position: relative;
+    float: left;
+    width: 250px;
+    height: 150px;
+    padding: 0;
+    border: 1px solid #efefef;
+    margin: 0 30px 30px 0;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+}
+
+ul.box li:before,
+ul.box li:after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 70%;
+    max-width: 300px; /* avoid rotation causing ugly appearance at large container widths */
+    max-height: 100px;
+    height: 55%;
+    -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    -webkit-transform: skew(-15deg) rotate(-6deg);
+    -moz-transform: skew(-15deg) rotate(-6deg);
+    -ms-transform: skew(-15deg) rotate(-6deg);
+    -o-transform: skew(-15deg) rotate(-6deg);
+    transform: skew(-15deg) rotate(-6deg); 
+}
+
+ul.box li:after {
+    left: auto;
+    right: 10px;
+    -webkit-transform: skew(15deg) rotate(6deg);
+    -moz-transform: skew(15deg) rotate(6deg);
+    -ms-transform: skew(15deg) rotate(6deg);
+    -o-transform: skew(15deg) rotate(6deg);
+    transform: skew(15deg) rotate(6deg); 
+}
+}}}
+
+_<a href="http://www.csspop.com/view/524">Code Source</a>_
+
+This page curl effect can be applied to almost any container which holds website content. Immediately I thought about image media and quoted text, but really this could be anything at all. Check out the snippet’s <a href="http://www.csspop.com/view/524">live demo page</a> for a better grasp of how these page curls function.
+
+== 49. Glowing Anchor Links == 
+
+{{{
+a {
+	color: #00e;
+}
+a:visited {
+	color: #551a8b;
+}
+a:hover {
+	color: #06e;
+}
+a:focus {
+	outline: thin dotted;
+}
+a:hover, a:active {
+	outline: 0;
+}
+a, a:visited, a:active {
+	text-decoration: none;
+	color: #fff;
+	-webkit-transition: all .3s ease-in-out;
+}
+a:hover, .glow {
+	color: #ff0;
+	text-shadow: 0 0 10px #ff0;
+}
+}}}
+
+_<a href="http://www.csspop.com/view/625">Code Source</a>_
+
+CSS3 text shadows offer a unique method of styling your webpage typography. And more specifically this snippet is an excellent resource for <strong>custom creative links with glowing hover effects</strong>. I doubt this effect can be pulled off elegantly in the majority of websites, but if you have the patience to get it looking nice you are sure to impress visitors.
+
+== 50. Featured CSS3 Display Banner == 
+
+{{{
+
+>.featureBanner {
+    position: relative;
+    margin: 20px
+}
+.featureBanner:before {
+    content: "Featured";
+    position: absolute;
+    top: 5px;
+    left: -8px;
+    padding-right: 10px;
+    color: #232323;
+    font-weight: bold;
+    height: 0px;
+    border: 15px solid #ffa200;
+    border-right-color: transparent;
+    line-height: 0px;
+    box-shadow: -0px 5px 5px -5px #000;
+    z-index: 1;
+}
+
+.featureBanner:after {
+    content: "";
+    position: absolute;
+    top: 35px;
+    left: -8px;
+    border: 4px solid #89540c;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+}
+}}}
+
+Generally you would need to setup a background image to duplicate this effect in other browsers. But in CSS3-supported engines we can generate <strong>dynamic banners which hang off the edge of your content wrappers, all without images</strong>! These may look good attached onto e-commerce products, image thumbnails, video previews, or blog articles, to list just a few ideas.
+
+= More = 
+
+Here are more articles published in the pass you may be interested in:
+
+  * http://www.hongkiat.com/blog/css-back-to-basics-terminology-explained/
+  * http://www.hongkiat.com/blog/20-useful-css-tips-for-beginners/
+  * http://www.hongkiat.com/blog/top-css-editors-reviewed/
+  * http://www.hongkiat.com/blog/keep-css3-markup-slim/‎
+  * http:/www.hongkiat.com/blog/css-priority-level/
+  * http://www.hongkiat.com/blog/css3-pseudo-classes/
