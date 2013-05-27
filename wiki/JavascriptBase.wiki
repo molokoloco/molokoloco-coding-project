@@ -283,12 +283,18 @@ Generator Expressions - JavaScript 1.7
 
 var squares = [item * item for each (item in [1, 2, 3])];
 
-[alert(item) for each (item in [1, 2, 3])];
+[alert(item) forEach (item in [1, 2, 3])];
 
 var obj = { foo: 1, bar: 2, baz: 3 };
 [alert(name + "=" + obj[name]) for (name in obj)];
 
 [alert(key + "=" + val) for ([key, val] in Iterator({a:1,b:2,c:3}))]
+
+// THIS
+
+["hemanth","gnumanth","yomanth"].forEach(function (name) {
+    console.log(this.msg + " " + name);
+}, this);
 
 }}}
 
