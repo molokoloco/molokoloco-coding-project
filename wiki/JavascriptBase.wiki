@@ -197,6 +197,8 @@ xml validity.
 ==ARRAYS / OBJECTS & ITERATIONS==
 
 {{{
+var mobile = ('DeviceOrientationEvent' in window || 'orientation' in window);
+
 var arr = ['va1', 'val2', 300];
 for (var index in arr) alert(index+' : '+arr[index]);
 
