@@ -1329,6 +1329,13 @@ Miscellaneous Event Handlers:
   * onAbort [image]     image load has been abandoned by hitting the STOP icon.
   * onError [window, image]     window or image fails to load.
 
+
+== Pre-Loading ==
+
+<link rel="prefetch" href="http://www.webtutorialplus.com/html5-dns-content-prefetching/" />
+
+<link rel="prerender" href="http://www.webtutorialplus.com/html5-dns-content-prefetching/" />
+
 == Various ==
 
 {{{
