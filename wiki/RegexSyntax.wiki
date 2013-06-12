@@ -373,3 +373,13 @@ PRINT HTM CODE
 </xmp>
 
 }}}
+
+Dreamweaver Search/replace with regexp
+
+{{{
+// Ex.
+// Search
+/status/[0-9]{1,}</a>
+// Replace with
+</a>
+}}}
