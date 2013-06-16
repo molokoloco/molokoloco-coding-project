@@ -551,6 +551,12 @@ var arr = ['foo', 'bar'];
 test.call(arr, 'toto'); // prints: foo bar toto
 }}}
 
+Mapping "console.log()" to "log()"
+
+{{{
+window.log = Function.prototype.bind.call(console.log, console);
+}}}
+
 Smooth override ;)
 
 {{{
