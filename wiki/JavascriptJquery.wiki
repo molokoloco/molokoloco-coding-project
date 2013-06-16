@@ -64,7 +64,7 @@ ou
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 }}}
 
-== Injecter jQUery dans une page ==
+== Injecter jQuery dans une page ==
 
 // jquerify.js
 // https://github.com/bgrins/devtools-snippets
