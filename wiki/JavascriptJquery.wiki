@@ -20,7 +20,7 @@ This is some fonctions i take from the web, jQuery DOC, ... and others i made...
   * http://jqueryui.com
   * http://plugins.jquery.com
 
-Les codeurs derriÃ¨re jQuery...
+Les codeurs derrière jQuery...
 
   * http://ejohn.org (Father of jQuery)
   * http://addyosmani.com
@@ -167,7 +167,10 @@ $maDiv = $('<div />', {text: $this.attr('title')});
 $("#myselect option:selected").text();
 $("span").fadeIn("slow");
 if($(element).is(":visible") == "true") {}
+
 $('#target div:not(#exclude)').hide();
+$(item.content).find("img[src]:contains('http')");
+
 var foundin = $('*:contains("some string bla bla")');
 $('#myTable tr:last').after('<tr>...</tr>');
 var elements = $('#someid input[type=sometype][value=somevalue]').get();
