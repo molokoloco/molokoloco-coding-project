@@ -67,6 +67,11 @@ function _striplinks($document) {
     }
 
 
+var stripHtml = function(w) {
+    if (!w) return w;
+    return w.replace(/(<([^>]+)>)|nbsp;|\s{2,}|/ig, '');
+};
+
 // http://regexlib.com/Search.aspx?k=image
 // Extract image source from RSS feed for Yahoo pipe.... PERL like syntax
 
