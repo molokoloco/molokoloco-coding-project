@@ -154,7 +154,6 @@ $('/html/body//p').attr({align:'center'});
 $('body').css({'overflow' : 'hidden'});
 $('button:gt(1)').attr('disabled','disabled'); // Disables buttons greater than the 1st button.
 $('ul li:last').after('<li>Added text ' + p + '</li>');
-$("div:contains('John')").css('text-decoration', 'underline');
 $(':input'); // Matches all input, textarea, select and button elements
 $('form input:text') // iniput type=text
 $('form > *'); // formChildren 
@@ -169,7 +168,9 @@ $("span").fadeIn("slow");
 if($(element).is(":visible") == "true") {}
 
 $('#target div:not(#exclude)').hide();
+$("div:contains('John')").css('text-decoration', 'underline');
 $(item.content).find("img[src]:contains('http')");
+$('div:not(:has(img))')
 
 var foundin = $('*:contains("some string bla bla")');
 $('#myTable tr:last').after('<tr>...</tr>');
