@@ -178,11 +178,11 @@ $('a').slice(0,10);
 $.each($('form#formEdit').serializeArray(), function(i, o){ siteObj[o.name] = o.value; });
 var id = $('#someAnchor').get(0).id; // The get method is particularly helpful, as it can translate your jQuery collection into an array
 $(xml).find('article').each(function(i) {
-	alert($(this).find('titre').text()); 
+    alert($(this).find('titre').text()); 
 });
 
 $('p a').each(function() { // Affiche les URL des liens dans les paragraphes
-	$(this).after(' ['+$(this).attr('href')+'] ');
+    $(this).after(' ['+$(this).attr('href')+'] ');
 })
 
 var q = 'search';
@@ -191,10 +191,10 @@ $('.recordSleeveBk').filter('[data-artist*="' + q + '"]').animate({ opacity: '1.
 
 
 $.each(['a','b','c'], function(i, l){
-	alert("Index #" + i + ": " + l );
+    alert("Index #" + i + ": " + l );
 });
 $.each({name: "John", lang: "JS"}, function(k, v){
-	alert("Key: " + k + ", Value: " + v );
+    alert("Key: " + k + ", Value: " + v );
 });
 this.columns.each(function(item) { this.buildHeader(item); }, this);
 
@@ -208,29 +208,29 @@ $myInput
     .blur(function() { if ($(this).val() == '') $(this).val($(this).data('valInit')); });
 
 $(window).load(function(){
-	if ( window.location.hash ) {
-		var destination = $( window.location.hash ).offset().top;
-		$('html:not(:animated),body:not(:animated)').scrollTop( destination );
-	}
+    if ( window.location.hash ) {
+        var destination = $( window.location.hash ).offset().top;
+        $('html:not(:animated),body:not(:animated)').scrollTop( destination );
+    }
 });
 
 var popUp = function(message, delay) {
-	delay = delay || 5000;
-	$('<div />')
-		.addClass('ui-loader ui-overlay-shadow ui-corner-all')
-		.css({opacity: 0.96, top: $(window).scrollTop() + 100})
-		.html('<h1>Message...</h1><p>'+message+'</p>')
-		.appendTo('body')
-		.hide().fadeIn(200)
-		.delay(delay)
-		.fadeOut(400, function(){ $(this).remove(); });
+    delay = delay || 5000;
+    $('<div />')
+        .addClass('ui-loader ui-overlay-shadow ui-corner-all')
+        .css({opacity: 0.96, top: $(window).scrollTop() + 100})
+        .html('<h1>Message...</h1><p>'+message+'</p>')
+        .appendTo('body')
+        .hide().fadeIn(200)
+        .delay(delay)
+        .fadeOut(400, function(){ $(this).remove(); });
 };
 
 $('body').css('zoom', $(window).width() / 1920);
 
 
 if (!(options.node instanceof jQuery)) {
-	options.node = $(options.node);
+    options.node = $(options.node);
 }
 
 }}}
@@ -304,8 +304,8 @@ $('p').eq(0).css('color', 'red') // First
 $('<div><p>Hello</p></div>').appendTo('body');
 
 $(document).keypress(function (e) {
-	//$('#duree').text(e.which);
-	toggleMenu();
+    //$('#duree').text(e.which);
+    toggleMenu();
 });
 
 $(document.body).click(function () {
@@ -408,19 +408,19 @@ $('ul#menu li').shuffle();
 {{{
 
 /*
-	bind() trigger() unbind() delegate() undelegate() live() die() 
-	blur() focus()  change() error() load() unload() beforeunload()
-	keydown() keypress() keyup()
-	one() click() dblclick() mouseenter() mouseleave() hover() mousedown() mousemove() mouseout() mouseover() mouseup() 
-	ready() resize() scroll() select() submit() toggle()
+    bind() trigger() unbind() delegate() undelegate() live() die() 
+    blur() focus()  change() error() load() unload() beforeunload()
+    keydown() keypress() keyup()
+    one() click() dblclick() mouseenter() mouseleave() hover() mousedown() mousemove() mouseout() mouseover() mouseup() 
+    ready() resize() scroll() select() submit() toggle()
 */
 
 
 $('#btnG').hide();
 var showButton = function(e) { 
-	$(document).unbind('mousemove', showButton);
-	$('#btnG').show();
-	$('#q').focus();
+    $(document).unbind('mousemove', showButton);
+    $('#btnG').show();
+    $('#q').focus();
 };
 $(document).mousemove(showButton);
 
@@ -431,8 +431,8 @@ $(window).bind('resize', function() {
 $('div').one('click', function() { /*... Only first time*/ });
 
 $('div#fox img, div#ie img, div#saf img').hover(
-	function(event) { $(this).stop(true, true).animate({marginTop:'0px'}, {duration:500}); }, 
-	function(event) { $(this).stop(true, true).animate({marginTop:'-28px'}, {duration:500}); }
+    function(event) { $(this).stop(true, true).animate({marginTop:'0px'}, {duration:500}); }, 
+    function(event) { $(this).stop(true, true).animate({marginTop:'-28px'}, {duration:500}); }
 );
 
 $('.thumbLien').hover(
@@ -491,21 +491,21 @@ $('a').click(function (e) {
 $('a').click();
 
 $('#myImage').attr('src', 'image.jpg').load(function() {
-	alert('Image Loaded');
+    alert('Image Loaded');
 }); 
 
 
 // Horloge
 var pad = function(s) { return (s < 10 ? '0'+s : s); }
 var timer = setInterval(function() {
-	var dt = new Date();
-	$('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
+    var dt = new Date();
+    $('#horloge').html(pad(dt.getHours())+':'+pad(dt.getMinutes())+':'+pad(dt.getSeconds()));
 }, 1000);
 
 
 // When clicking on an image we keep track of the index (child item index)
 $('#thumbs_container').delegate('li','click tap',function(){
-	current = $(this).index();
+    current = $(this).index();
 });
 
 // Listening mouse move only when mouse down...
@@ -514,8 +514,8 @@ var mouseIsMove = function(evt) { disturb(evt.pageX, evt.pageY); };
 var mouseIsDown = function(evt) { $('body').bind('mousemove', mouseIsMove); };
 var mouseIsUp = function(evt) { $('body').unbind('mousemove', mouseIsMove); };
 $('body')
-	.bind('mousedown', mouseIsDown)
-	.bind('mouseup click', mouseIsUp);
+    .bind('mousedown', mouseIsDown)
+    .bind('mouseup click', mouseIsUp);
 
 
 // Adjust & auto-zoom
@@ -540,43 +540,43 @@ http://api.jquery.com/category/selectors/
 
 Returns: jQuery Array<Element(s)> Matches
 
-<strong>Selector 	Example 	Description 	Reference</strong>
+<strong>Selector     Example     Description     Reference</strong>
 
-  * `*` 	$("`*`") 	It will select all the elements 	http://api.jquery.com/all-selector/
-  * #id 	$("#myid") 	The element with id name myid will be selected 	http://api.jquery.com/id-selector/
-  * .class 	$(".myclass") 	The element with class name myclass will be selected 	http://api.jquery.com/class-selector/
-  * .class1.class2 	$(".class_first. class_second") 	It will select all the elements of class_first and class_second classes 	http://api.jquery.com/class-selector/
-  * element 	$("p") 	All p elements will be selected 	http://api.jquery.com/element-selector/
-  * :first 	$("li:first") 	The first li element will be selected 	http://api.jquery.com/first-selector/
-  * :last 	$("li:last") 	The last li element will be selected 	http://api.jquery.com/last-selector/
-  * :even 	$("tr:even") 	All even tr elements will be selected 	http://api.jquery.com/even-selector/
-  * :odd 	$("tr:odd") 	All odd tr elements will be selected 	http://api.jquery.com/odd-selector/
-  * :eq(index) 	$("ul li:eq(2)") 	The index starts at 0. The third element in a list will be selected. 	http://api.jquery.com/eq-selector/
-  * :gt(no) 	$("ul li:gt(2)") 	List elements with an index greater than 2 will be selected 	http://api.jquery.com/gt-selector/
-  * :lt(no) 	$("ul li:lt(2)") 	List elements with an index less than 2 will be selected 	http://api.jquery.com/lt-selector/
-  * :header 	$(":header") 	All the header elements will be selected (ex. h1,h2,â€¦) 	http://api.jquery.com/header-selector/
-  * sel1,sel2,sel3 	$("p,td,.myclass") 	All elements with matching selectors will be selected 	http://api.jquery.com/multiple-selector/
-  * :contains(text) 	$(":contains (â€˜smartnetzoneâ€™)") 	All elements which contains the text smartnetzone will be selected 	http://api.jquery.com/contains-selector/
-  * :visible 	$("table:visible") 	All visible tables will be selected 	http://api.jquery.com/visible-selector/
-  * :empty 	$(":empty") 	All elements with no child elements will be selected 	http://api.jquery.com/empty-selector/
-  * :hidden 	$("p:hidden") 	All hidden p elements will be selected 	http://api.jquery.com/hidden-selector/
-  * :reset 	$(":reset") 	All input elements with type="reset" will be selected 	http://api.jquery.com/reset-selector/
-  * :button 	$(":button") 	All input elements with type="button" will be selected 	http://api.jquery.com/button-selector/
-  * :file 	$(":file") 	All input elements with type="file" will be selected 	http://api.jquery.com/file-selector/
-  * :submit 	$(":submit") 	All input elements with type="submit" will be selected 	http://api.jquery.com/submit-selector/
-  * :input 	$(":input") 	All input elements will be selected 	http://api.jquery.com/input-selector/
-  * :text 	$(":text") 	All input elements with type="text" will be selected 	http://api.jquery.com/text-selector/
-  * :password 	$(":password") 	All input elements with type="password" will be selected 	http://api.jquery.com/password-selector/
-  * :enabled 	$(":enabled") 	All enabled input elements will be selected 	http://api.jquery.com/enabled-selector/
-  * :disabled 	$(":disabled") 	All disabled input elements will be selected 	http://api.jquery.com/disabled-selector/
-  * :selected 	$(":selected") 	All selected input elements will be selected 	http://api.jquery.com/selected-selector/
-  * :radio 	$(":radio") 	All input elements with type="radio" will be selected 	http://api.jquery.com/radio-selector/
-  * :checkbox 	$(":checkbox") 	All input elements with type="checkbox" will be selected 	http://api.jquery.com/checkbox-selector/
-  * [attribute] 	$("[href]") 	All elements with a href attribute will be selected 	http://api.jquery.com/has-attribute-selector/
-  * [attribute=value] 	$("[href='index.html']") 	All elements with a href attribute value equal to "index.html" will be selected 	http://api.jquery.com/attribute-equals-selector/
-  * [attribute!=value] 	$("[href!='index.html']") 	All elements with a href attribute value not equal to "index.html" will be selected 	http://api.jquery.com/attribute-not-equal-selector/
-  * [attribute$=value] 	$("[href$='.jpg']") 	All elements with a href attribute value ending with ".jpg" will be selected 	http://api.jquery.com/attribute-ends-with-selector/
-  * :animated   $("div:animated") 	    // All elements that are currently being animated.
+  * `*`     $("`*`")     It will select all the elements     http://api.jquery.com/all-selector/
+  * #id     $("#myid")     The element with id name myid will be selected     http://api.jquery.com/id-selector/
+  * .class     $(".myclass")     The element with class name myclass will be selected     http://api.jquery.com/class-selector/
+  * .class1.class2     $(".class_first. class_second")     It will select all the elements of class_first and class_second classes     http://api.jquery.com/class-selector/
+  * element     $("p")     All p elements will be selected     http://api.jquery.com/element-selector/
+  * :first     $("li:first")     The first li element will be selected     http://api.jquery.com/first-selector/
+  * :last     $("li:last")     The last li element will be selected     http://api.jquery.com/last-selector/
+  * :even     $("tr:even")     All even tr elements will be selected     http://api.jquery.com/even-selector/
+  * :odd     $("tr:odd")     All odd tr elements will be selected     http://api.jquery.com/odd-selector/
+  * :eq(index)     $("ul li:eq(2)")     The index starts at 0. The third element in a list will be selected.     http://api.jquery.com/eq-selector/
+  * :gt(no)     $("ul li:gt(2)")     List elements with an index greater than 2 will be selected     http://api.jquery.com/gt-selector/
+  * :lt(no)     $("ul li:lt(2)")     List elements with an index less than 2 will be selected     http://api.jquery.com/lt-selector/
+  * :header     $(":header")     All the header elements will be selected (ex. h1,h2,â€¦)     http://api.jquery.com/header-selector/
+  * sel1,sel2,sel3     $("p,td,.myclass")     All elements with matching selectors will be selected     http://api.jquery.com/multiple-selector/
+  * :contains(text)     $(":contains (â€˜smartnetzoneâ€™)")     All elements which contains the text smartnetzone will be selected     http://api.jquery.com/contains-selector/
+  * :visible     $("table:visible")     All visible tables will be selected     http://api.jquery.com/visible-selector/
+  * :empty     $(":empty")     All elements with no child elements will be selected     http://api.jquery.com/empty-selector/
+  * :hidden     $("p:hidden")     All hidden p elements will be selected     http://api.jquery.com/hidden-selector/
+  * :reset     $(":reset")     All input elements with type="reset" will be selected     http://api.jquery.com/reset-selector/
+  * :button     $(":button")     All input elements with type="button" will be selected     http://api.jquery.com/button-selector/
+  * :file     $(":file")     All input elements with type="file" will be selected     http://api.jquery.com/file-selector/
+  * :submit     $(":submit")     All input elements with type="submit" will be selected     http://api.jquery.com/submit-selector/
+  * :input     $(":input")     All input elements will be selected     http://api.jquery.com/input-selector/
+  * :text     $(":text")     All input elements with type="text" will be selected     http://api.jquery.com/text-selector/
+  * :password     $(":password")     All input elements with type="password" will be selected     http://api.jquery.com/password-selector/
+  * :enabled     $(":enabled")     All enabled input elements will be selected     http://api.jquery.com/enabled-selector/
+  * :disabled     $(":disabled")     All disabled input elements will be selected     http://api.jquery.com/disabled-selector/
+  * :selected     $(":selected")     All selected input elements will be selected     http://api.jquery.com/selected-selector/
+  * :radio     $(":radio")     All input elements with type="radio" will be selected     http://api.jquery.com/radio-selector/
+  * :checkbox     $(":checkbox")     All input elements with type="checkbox" will be selected     http://api.jquery.com/checkbox-selector/
+  * [attribute]     $("[href]")     All elements with a href attribute will be selected     http://api.jquery.com/has-attribute-selector/
+  * [attribute=value]     $("[href='index.html']")     All elements with a href attribute value equal to "index.html" will be selected     http://api.jquery.com/attribute-equals-selector/
+  * [attribute!=value]     $("[href!='index.html']")     All elements with a href attribute value not equal to "index.html" will be selected     http://api.jquery.com/attribute-not-equal-selector/
+  * [attribute$=value]     $("[href$='.jpg']")     All elements with a href attribute value ending with ".jpg" will be selected     http://api.jquery.com/attribute-ends-with-selector/
+  * :animated   $("div:animated")         // All elements that are currently being animated.
 
 
 {{{
@@ -625,16 +625,16 @@ $("p:hasData").text("has data"); // grabs paras that have data attached
 
 /*
 <ul class="sortUlLink">
-	<li class="sortLink"><a href="http://image-swirl.googlelabs.com">Swirl</a></li>
-	<li class="sortLink"><a href="http://translate.google.fr/">Traductions</a></li>
-	<!--// Insert Here //-->
-	<li class="liAddLink"><a class="addLink" href="javascript:void(0);" onclick="add(this);">[+]</a></li>
+    <li class="sortLink"><a href="http://image-swirl.googlelabs.com">Swirl</a></li>
+    <li class="sortLink"><a href="http://translate.google.fr/">Traductions</a></li>
+    <!--// Insert Here //-->
+    <li class="liAddLink"><a class="addLink" href="javascript:void(0);" onclick="add(this);">[+]</a></li>
 </ul>
 */
 
 var add = function(elm) {
-	var liParent = $(elm).parent();
-	$('<li class="sortLink"><a href="#">Something</a></li>').insertBefore(liParent);
+    var liParent = $(elm).parent();
+    $('<li class="sortLink"><a href="#">Something</a></li>').insertBefore(liParent);
 };
 
 }}}
@@ -646,19 +646,19 @@ var add = function(elm) {
 var event2key = {'97':'a', '98':'b', '99':'c', '100':'d', '101':'e', '102':'f', '103':'g', '104':'h', '105':'i', '106':'j', '107':'k', '108':'l', '109':'m', '110':'n', '111':'o', '112':'p', '113':'q', '114':'r', '115':'s', '116':'t', '117':'u', '118':'v', '119':'w', '120':'x', '121':'y', '122':'z', '37':'left', '39':'right', '38':'up', '40':'down', '13':'enter'};
 
 $(document).keypress(function(e) {
-	$('.l').each(function() {
-		if (event2key[e.which] != '' && $(this).html().charAt(0).toLowerCase() ==  event2key[e.which]) $(this).attr('class', 'l hightlight');
-		else $(this).attr('class', 'l');
-	});
+    $('.l').each(function() {
+        if (event2key[e.which] != '' && $(this).html().charAt(0).toLowerCase() ==  event2key[e.which]) $(this).attr('class', 'l hightlight');
+        else $(this).attr('class', 'l');
+    });
 
         switch(event2key[(e.which || e.keyCode)]) {
-		case 'left': break;
-		case 'right': break;
-		case 'up': break;
-		case 'down': break;
-		case 'enter': break;
+        case 'left': break;
+        case 'right': break;
+        case 'up': break;
+        case 'down': break;
+        case 'enter': break;
                 case 'a': break;
-	}
+    }
 });
 
 }}}
@@ -732,24 +732,24 @@ promise.done( doneCallback ).fail( failCallback )
 // http://tutorialzine.com/2011/03/custom-facebook-wall-jquery-graph/
 
 var graphUSER = 'http://graph.facebook.com/'+options.id+'/?fields=name,picture&callback=?',
-	graphPOSTS = 'http://graph.facebook.com/'+options.id+'/posts/?callback=?&date_format=U&limit='+options.limit;
+    graphPOSTS = 'http://graph.facebook.com/'+options.id+'/posts/?callback=?&date_format=U&limit='+options.limit;
 
 $.when($.getJSON(graphUSER),$.getJSON(graphPOSTS)).done(function(user,posts){
-	// user[0] contains information about the user (name and picture);
-	// posts[0].data is an array with wall posts;
-	var fb = {
-		user : user[0],
-		posts : []
-	};
-	$.each(posts[0].data,function(){
-		if(this.type != 'link' && this.type!='status'){
-			return true;
-		}
-		this.from.picture = fb.user.picture;
-		fb.posts.push(this);
-	});
-	// Rendering the templates:
-	$('#headingTpl').tmpl(fb.user).appendTo('body');
+    // user[0] contains information about the user (name and picture);
+    // posts[0].data is an array with wall posts;
+    var fb = {
+        user : user[0],
+        posts : []
+    };
+    $.each(posts[0].data,function(){
+        if(this.type != 'link' && this.type!='status'){
+            return true;
+        }
+        this.from.picture = fb.user.picture;
+        fb.posts.push(this);
+    });
+    // Rendering the templates:
+    $('#headingTpl').tmpl(fb.user).appendTo('body');
 });
 }}}
 
@@ -769,34 +769,34 @@ function updateAllNotes () {
 
 {{{
 $.ajaxSetup({
-	dataType: "jsonp"
+    dataType: "jsonp"
 });
 
 function getTweets() {
-	$.ajax("http://api.twitter.com/statuses/user_timeline/danwellman.json", {
-		success: function(data) {
-			var arr = [];
-			for (var x = 0; x < 5; x++) {
-				var dataItem = {};
-				dataItem["tweetlink"] = data[x].id_str;
-				dataItem["timestamp"] = convertDate(data, x);
-				dataItem["text"] = breakTweet(data, x);
-				arr.push(dataItem);
-			}
-			tweetData = arr;
-		}
-	});
+    $.ajax("http://api.twitter.com/statuses/user_timeline/danwellman.json", {
+        success: function(data) {
+            var arr = [];
+            for (var x = 0; x < 5; x++) {
+                var dataItem = {};
+                dataItem["tweetlink"] = data[x].id_str;
+                dataItem["timestamp"] = convertDate(data, x);
+                dataItem["text"] = breakTweet(data, x);
+                arr.push(dataItem);
+            }
+            tweetData = arr;
+        }
+    });
 }
 function getFriends() {
-	/* ... */
+    /* ... */
 }
 function getFollows() {
-	/* ... */
+    /* ... */
 }
 
 //execute once all requests complete
 $.when(getTweets(), getFriends(), getFollows()).then(function(){
-	//apply templates
+    //apply templates
 });
 }}}
 
@@ -829,32 +829,32 @@ $.when(fetchTweets()).done(function(twitter) {
 
 {{{
 var Menu = (function(){
-	var init = function() {
-		loadPage();
-	},
-	loadPage = function() {
-		$ac_loading.show();
-		$.when(loadImages()).done(function(){
-			/* ... */
-		});
-	},
-	loadImages = function() {
-		return $.Deferred(
-			function(dfd) {
-				var total_images = $ItemImages.length,
-				loaded = 0;
-				for(var i = 0; i < total_images; ++i){
-					$('<img/>').load(function() {
-						++loaded;
-						if (loaded === total_images) dfd.resolve();
-					}).attr('src' , $ItemImages[i]);
-				}
-			}
-		).promise();
-	};
-	return {
-		init : init
-	};
+    var init = function() {
+        loadPage();
+    },
+    loadPage = function() {
+        $ac_loading.show();
+        $.when(loadImages()).done(function(){
+            /* ... */
+        });
+    },
+    loadImages = function() {
+        return $.Deferred(
+            function(dfd) {
+                var total_images = $ItemImages.length,
+                loaded = 0;
+                for(var i = 0; i < total_images; ++i){
+                    $('<img/>').load(function() {
+                        ++loaded;
+                        if (loaded === total_images) dfd.resolve();
+                    }).attr('src' , $ItemImages[i]);
+                }
+            }
+        ).promise();
+    };
+    return {
+        init : init
+    };
 })();
 
 Menu.init();
@@ -884,18 +884,18 @@ $.when( getData(), showDiv() )
 }}}
 
 
-  * jQuery.Deferred()	A constructor that creates a new Deferred object, can take an optional initFunction parameter that will be called right after the deferred has been constructed.
-  * jQuery.when()	A way to execute callback functions based on one or more objects that represent asynchronous tasks.
-  * jQuery.ajax()	Performs an asynchronous Ajax requests where the jqXHR objects returned by $.ajax() implement the Promise interface, giving them all the properties, methods, and behaviour of a Promise.
-  * deferred.then(resolveCallback,rejectCallback)	Handlers to be called when the Deferred object is resolved or rejected.
-  * deferred.done()	Functions or array of functions that are called when the Deferred object is resolved.
-  * deferred.fail()	Functions or array of functions that are called when the Deferred is rejected.
-  * deferred.resolve(arg1, arg2, ...)	Resolve a Deferred object and call any 'done' Callback with the given arguments.
-  * deferred.resolveWith(context,args)	Resolve a Deferred object and call any 'done' Callback with the given context and arguments.
-  * deferred.isResolved	Determine whether a Deferred object has been resolved.
-  * deferred.reject(arg1, arg2, ...)	Reject a Deferred object and call any 'fail' Callback with the given arguments.
-  * deferred.rejectWith(context,args)	Reject a Deferred object and call any 'fail' Callback with the given context and arguments.
-  * deferred.promise()	Returns a promise, that is an immutable view of the deferred object: the promise can be passed around safely since the underlying deferred cannot be resolved or rejected through it.
+  * jQuery.Deferred()    A constructor that creates a new Deferred object, can take an optional initFunction parameter that will be called right after the deferred has been constructed.
+  * jQuery.when()    A way to execute callback functions based on one or more objects that represent asynchronous tasks.
+  * jQuery.ajax()    Performs an asynchronous Ajax requests where the jqXHR objects returned by $.ajax() implement the Promise interface, giving them all the properties, methods, and behaviour of a Promise.
+  * deferred.then(resolveCallback,rejectCallback)    Handlers to be called when the Deferred object is resolved or rejected.
+  * deferred.done()    Functions or array of functions that are called when the Deferred object is resolved.
+  * deferred.fail()    Functions or array of functions that are called when the Deferred is rejected.
+  * deferred.resolve(arg1, arg2, ...)    Resolve a Deferred object and call any 'done' Callback with the given arguments.
+  * deferred.resolveWith(context,args)    Resolve a Deferred object and call any 'done' Callback with the given context and arguments.
+  * deferred.isResolved    Determine whether a Deferred object has been resolved.
+  * deferred.reject(arg1, arg2, ...)    Reject a Deferred object and call any 'fail' Callback with the given arguments.
+  * deferred.rejectWith(context,args)    Reject a Deferred object and call any 'fail' Callback with the given context and arguments.
+  * deferred.promise()    Returns a promise, that is an immutable view of the deferred object: the promise can be passed around safely since the underlying deferred cannot be resolved or rejected through it.
 
 
 == PROXY ==
@@ -1028,23 +1028,23 @@ setInterval(
 $(this).hide('puff', {}, 1000);
 
 /*
-	Effects that can be used with Show/Hide/Toggle:
-		Blind - Blinds the element away or shows it by blinding it in.
-		Clip - Clips the element on or off, vertically or horizontally.
-		Drop - Drops the element away or shows it by dropping it in.
-		Explode - Explodes the element into multiple pieces.
-		Fold - Folds the element like a piece of paper.
-		Puff - Scale and fade out animations create the puff effect.
-		Slide - Slides the element out of the viewport.
-		Scale - Shrink or grow an element by a percentage factor.
+    Effects that can be used with Show/Hide/Toggle:
+        Blind - Blinds the element away or shows it by blinding it in.
+        Clip - Clips the element on or off, vertically or horizontally.
+        Drop - Drops the element away or shows it by dropping it in.
+        Explode - Explodes the element into multiple pieces.
+        Fold - Folds the element like a piece of paper.
+        Puff - Scale and fade out animations create the puff effect.
+        Slide - Slides the element out of the viewport.
+        Scale - Shrink or grow an element by a percentage factor.
  
-	Effects that can be only used stand-alone:
-		Bounce - Bounces the element vertically or horizontally n-times.
-		Highlight - Highlights the background with a defined color.
-		Pulsate - Pulsates the opacity of the element multiple times.
-		Shake - Shakes the element vertically or horizontally n-times.
-		Size - Resize an element to a specified width and height.
-		Transfer - Transfers the outline of an element to another.
+    Effects that can be only used stand-alone:
+        Bounce - Bounces the element vertically or horizontally n-times.
+        Highlight - Highlights the background with a defined color.
+        Pulsate - Pulsates the opacity of the element multiple times.
+        Shake - Shakes the element vertically or horizontally n-times.
+        Size - Resize an element to a specified width and height.
+        Transfer - Transfers the outline of an element to another.
 */
 }}}
 
@@ -1159,26 +1159,26 @@ var viewportHeight = $(window).height();
 {{{
 
 var xmlParse = function (xml) {
-	 if ($.browser.msie) {  // IE !!!
-		 var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");  
-		 xmlDoc.loadXML(xml);  
-		 xml = xmlDoc;  
-	 }
-	$(xml).find("article").each(function(i) {
-		$('#news').append($(this).find("titre").text());
-	});
+     if ($.browser.msie) {  // IE !!!
+         var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");  
+         xmlDoc.loadXML(xml);  
+         xml = xmlDoc;  
+     }
+    $(xml).find("article").each(function(i) {
+        $('#news').append($(this).find("titre").text());
+    });
 };
 
 $(document).ready(function(){
-	$.ajax({
-		type: 'GET',
-		url: './xml/parisien.xml',
-		cache: true,
-		processData: true,
-		dataType: ($.browser.msie) ? 'text' : 'xml',
-		//error: function(xml) { db('error()'); },
-		success: function(xml) { xmlParse(xml); }
-	});
+    $.ajax({
+        type: 'GET',
+        url: './xml/parisien.xml',
+        cache: true,
+        processData: true,
+        dataType: ($.browser.msie) ? 'text' : 'xml',
+        //error: function(xml) { db('error()'); },
+        success: function(xml) { xmlParse(xml); }
+    });
 });
 
 }}}
@@ -1224,11 +1224,11 @@ else echo $json;
 ?> 
 <script>
 $(function() { 
-	$.ajax({ 
-		dataType:'jsonp', 
-		url: 'http://www.monsitedistant.com/api.php', 
-		data: { param:'hello' },
-		beforeSend:function(){
+    $.ajax({ 
+        dataType:'jsonp', 
+        url: 'http://www.monsitedistant.com/api.php', 
+        data: { param:'hello' },
+        beforeSend:function(){
                     core.ajaxing = true;
                     ui.getLoader();
                 },
@@ -1243,10 +1243,10 @@ $(function() {
                     });
                     core.ajaxing = false;
                 },
-		error: function(XMLHttpRequest, textStatus, errorThrown) { 
-			console.log('JSON error :(', XMLHttpRequest, textStatus, errorThrown);
-		}
-	}); 
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            console.log('JSON error :(', XMLHttpRequest, textStatus, errorThrown);
+        }
+    }); 
 });
 </script>
 
@@ -1258,7 +1258,7 @@ var req = $.ajax({
     cache: false,
     data: 'name=John&location=Boston',
     success: function(msg){
-		
+        
         alert( 'Data Saved: ' + msg );
     }
 });
@@ -1319,11 +1319,11 @@ function youtube(callback) {
 // Get URL parameters values
 
 $.extend({
-	getUrlVars: function() {
-		var vars = {};
-		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; });
-		return vars;
-	}
+    getUrlVars: function() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; });
+        return vars;
+    }
 });
 
 var name = $.getUrlVars()['name'];
@@ -1398,14 +1398,14 @@ $(document).ready(function() {
 
 // Fetch Links FavIcons
 $('.l').hover(
-	function(){
-		var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
-		$(this).html($(this).html()+' <img class="ico" width="16" height="16" src="http://www.google.com/s2/favicons?domain='+domaine+'"/>');
-	},
-	function(){
-		var html = $(this).html().split('<')[0];
-		$(this).html(html);
-	}
+    function(){
+        var domaine = $(this).attr('href').split('/')[2].replace(/(\.www)/g, '');
+        $(this).html($(this).html()+' <img class="ico" width="16" height="16" src="http://www.google.com/s2/favicons?domain='+domaine+'"/>');
+    },
+    function(){
+        var html = $(this).html().split('<')[0];
+        $(this).html(html);
+    }
 );
 
 }}}
@@ -1947,6 +1947,22 @@ var getScript = function(src, callback) { $.ajax({dataType:'script', async:false
 
 }}}
 
+
+== Element toggle state ==
+
+{{{
+$(document).ready(function() {
+    $('ul.form li a').click(
+        function(e) {
+            e.preventDefault(); // prevent the default action
+            e.stopPropagation; // stop the click from bubbling
+            $(this).closest('ul').find('.selected').removeClass('selected');
+            $(this).parent().addClass('selected');
+        });
+});
+}}}
+
+
 = (NEW) SAMPLE PLUGIN STRUCTURE =
 
 
@@ -1959,8 +1975,6 @@ Workable / Testable jQuery Default Plugin : http://jsfiddle.net/molokoloco/DzYdE
 ... Comments or suggests ? http://www.b2bweb.fr/molokoloco/jquery-default-plugin/
 
 {{{
-
-
 
 // Log utilitie
 var db = function() {
@@ -2240,14 +2254,14 @@ http://twitter.github.io/bootstrap/
         // Privates vars
         this.$container = $(element);
         this.wrapper    = '<div class="'+this.options.css+'"/>';
-	this.cWidth, this.colHeightRatio, this.intentNextP, this.lineHeight, this.maxHeight;
-	this.refresh();
+    this.cWidth, this.colHeightRatio, this.intentNextP, this.lineHeight, this.maxHeight;
+    this.refresh();
     };
 
     Colonizr.prototype = {
         
-	constructor: Colonizr,
-		
+    constructor: Colonizr,
+        
         colsExtractor: function (i, e) {
             var $element    = $(e),
                 $next       = $element.next(),
@@ -2292,35 +2306,35 @@ http://twitter.github.io/bootstrap/
         },
         
         refresh: function () {
-			this.cWidth         = this.$container.width();
-			this.colHeightRatio = 1;
-			this.intentNextP    = 0;
-			this.lineHeight     = 0;
-			this.maxHeight      = this.options.maxHeight;
-			var colWidth        = this.cWidth;
-			if (this.options.maxHeight < 1)
-				this.maxHeight = Math.max(80, $(window).height() - 60); // (Min/) Max cols height ?			
-			var $exists = this.$container.find('.'+this.options.css);
-			if ($exists.length) { // Existing this.wrappers ?
-				var exists = '';
-				$exists.each(function() {
-					var $this = $(this);
-					$($this.html()).insertBefore($this);
-					$this.remove(); 
-				});
-			}
-			var $p = $('<p>A</p>').appendTo(this.$container);
-			this.lineHeight = $p.outerHeight();
-			this.lineHeight = this.lineHeight * this.options.minLine;
-			$p.remove();
-			if (this.options.colWidth)
-				this.options.colCount = Math.max(1, Math.floor(this.cWidth / this.options.colWidth));
-			colWidth = (this.cWidth - ((this.options.marge * 2) * this.options.colCount)) / this.options.colCount;
-			this.colHeightRatio = this.cWidth / colWidth;
-			this.$container
-				.find(this.options.chapters)
-				.each($.proxy(this.colsExtractor, this)); // $.wrapAll() || $.nextAll() // :-(
-		}
+            this.cWidth         = this.$container.width();
+            this.colHeightRatio = 1;
+            this.intentNextP    = 0;
+            this.lineHeight     = 0;
+            this.maxHeight      = this.options.maxHeight;
+            var colWidth        = this.cWidth;
+            if (this.options.maxHeight < 1)
+                this.maxHeight = Math.max(80, $(window).height() - 60); // (Min/) Max cols height ?            
+            var $exists = this.$container.find('.'+this.options.css);
+            if ($exists.length) { // Existing this.wrappers ?
+                var exists = '';
+                $exists.each(function() {
+                    var $this = $(this);
+                    $($this.html()).insertBefore($this);
+                    $this.remove(); 
+                });
+            }
+            var $p = $('<p>A</p>').appendTo(this.$container);
+            this.lineHeight = $p.outerHeight();
+            this.lineHeight = this.lineHeight * this.options.minLine;
+            $p.remove();
+            if (this.options.colWidth)
+                this.options.colCount = Math.max(1, Math.floor(this.cWidth / this.options.colWidth));
+            colWidth = (this.cWidth - ((this.options.marge * 2) * this.options.colCount)) / this.options.colCount;
+            this.colHeightRatio = this.cWidth / colWidth;
+            this.$container
+                .find(this.options.chapters)
+                .each($.proxy(this.colsExtractor, this)); // $.wrapAll() || $.nextAll() // :-(
+        }
     };
 
    /* COLONIZR PLUGIN DEFINITION
@@ -2331,8 +2345,8 @@ http://twitter.github.io/bootstrap/
     $.fn.colonizr = function (options) {
         return this.each(function() { // Iterate collections
             var $this = $(this),
-		data  = $this.data('colonizr');
-		if (!data) $this.data('colonizr', (data = new Colonizr(this, options)));
+        data  = $this.data('colonizr');
+        if (!data) $this.data('colonizr', (data = new Colonizr(this, options)));
             if (typeof options == 'string') data[options]();
         });
     };
