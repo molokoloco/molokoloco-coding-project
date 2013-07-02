@@ -550,6 +550,18 @@ _<a href="http://jsfiddle.net/chriscoyier/yNZTU/">Code Source</a>_
 	
 Believe it or not it is actually possible <strong>to generate triangle-shaped bullets solely in CSS3</strong>. This is a really cool technique which does look awesome in respected browsers. The only potential issue is a major lack of support for fallback methods.
 
+== 25.b Triangle == 
+
+/* Pour faire un triangle vers la droite */
+
+.triangle{ 
+    width: 0px;
+    height: 0px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #000000;
+}
+
 == 26. Centered Layout Fixed Width == 
 
 {{{
