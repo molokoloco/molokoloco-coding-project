@@ -535,6 +535,20 @@ $(document).ready(function() {
 });
 }}}
 
+// TROTTLE RESIZE
+
+{{{
+var windowTmr = null; // Timeout..
+
+$window.on('resize', function() {   // Trottle resize...
+    if (windowTmr) clearTimeout(windowTmr);
+    windowTmr = setTimeout(function() {   // Trottle resize...
+        windowTmr = null;
+        $.waypoints('refresh'); // Action
+    }, 1600); // Trottle resize
+});
+}}}
+
 == JQUERY SELECTORS (CSS3 like xPath) ==
 
 http://api.jquery.com/category/selectors/
