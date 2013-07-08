@@ -387,4 +387,6 @@ Dreamweaver Search/replace with regexp
 /status/[0-9]{1,}</a>
 // Replace with
 </a>
+// White space 
+^\s*$
 }}}
