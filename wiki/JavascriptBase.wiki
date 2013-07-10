@@ -1343,7 +1343,7 @@ Miscellaneous Event Handlers:
 
 <link rel="prerender" href="http://www.webtutorialplus.com/html5-dns-content-prefetching/" />
 
-== Various ==
+== unEscapeHtml ==
 
 {{{
 
@@ -1355,6 +1355,20 @@ String.prototype.unescapeHtml= function() {
 }
 var hello = "Hello Jos&eacute;";
 alert(hello.unescapeHtml());
+}}}
+
+Escape HTML
+
+{{{
+var el = document.createElement("i"),
+    textNode = document.createTextNode("");
+
+el.appendChild(textNode);
+
+function escapeHTMLDOM(text){
+  textNode.nodeValue = text
+  return el.innerHTML
+}
 }}}
 
 == DEBUG and CONSOLE ==
