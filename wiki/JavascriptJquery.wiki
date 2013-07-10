@@ -535,6 +535,38 @@ $(document).ready(function() {
 });
 }}}
 
+// TRIPPLE Click ?
+
+{{{
+$.tripleclickThreshold = 1000;
+
+$.event.special.tripleclick = {
+	setup: function( data ) {
+		$(this)
+			.data( 'tripleclick', { clicks: 0, last: 0, threshold: data })
+			.on( 'click', $.event.special.tripleclick.handler );
+	},
+	teardown: function() {
+		$(this)
+			.removeData( 'tripleclick' )
+			.off( 'click', $.event.special.tripleclick.handler );
+	},
+	handler: function(event) {
+		var elem = $(this),
+			data = elem.data( 'tripleclick' ),
+			threshold = data.threshold || $.tripleclickThreshold;
+		if ( event.timeStamp - data.last > threshold ) {
+			data.clicks = 0;
+		}
+		data.last = event.timeStamp;
+		if ( ++data.clicks === 3 ) {
+			elem.triggerHandler( 'tripleclick' );
+			data.clicks = 0;
+		}
+	}
+};
+}}}
+
 // TROTTLE RESIZE
 
 {{{
