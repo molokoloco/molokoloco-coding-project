@@ -356,7 +356,18 @@ _<a href="http://css-tricks.com/perfect-full-page-background-image/">Code Source
 
 I should note that this code will not work properly in older browsers which do not support CSS3 syntax. However if you’re looking for a quick solution and don’t care about legacy support, this is the best chunk of code you’ll find! <strong>Great for adding big photographs into the background of your website while keeping them resizable and fixed as you scroll</strong>.
 
-== 15. Vertically Centered Content == 
+== 15. Vertically Centered == 
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Yep! */
+  width: 48%;
+  height: 59%;
+}
+
+== 15b. Vertically Centered Content == 
 
 {{{
 .container {
