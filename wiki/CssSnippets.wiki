@@ -469,7 +469,25 @@ p a:hover, p a:focus, p a:active {
 	
 _<a href="http://kitmacallister.com/2011/css3-stitched-elements/">Code Source</a>_
 
-== 20. CSS3 Zebra Stripes == 
+
+== 20. CSS3 Underline text with background == 
+
+{{{
+.wp_syntax td.code {
+background:-moz-linear-gradient(top,rgba(30,87,153,0.125) 1px,#ffffff 1px);
+background:-webkit-gradient(linear,left top,left bottom,color-stop(1px,rgba(30,87,153,0.125)),color-stop(1px,#ffffff));
+background:-webkit-linear-gradient(top,rgba(30,87,153,0.125) 1px,#ffffff 1px);
+background:-o-linear-gradient(top,rgba(30,87,153,0.125) 1px,#ffffff 1px);
+background:-ms-linear-gradient(top,rgba(30,87,153,0.125) 1px,#ffffff 1px);
+background:linear-gradient(to bottom,rgba(30,87,153,0.125) 1px,#ffffff 1px);
+filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799',endColorstr='#ffffff',GradientType=0 );
+background-repeat:repeat;
+background-size:100% 20px;
+background-position:0 23px;
+}
+}}}
+
+== 20b. CSS3 Zebra Stripes b == 
 
 {{{
 tbody tr:nth-child(odd) {
