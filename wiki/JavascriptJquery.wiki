@@ -871,7 +871,7 @@ var fetchTweets = function() {
 
 $.when(fetchTweets()).done(function(twitter) {
     console.log(twitter);
-});â€‹
+});
 }}}
 
 {{{
@@ -1143,7 +1143,6 @@ http://net.tutsplus.com/tutorials/javascript-ajax/fun-with-jquery-templating-and
     type : 'GET',  
     dataType : 'jsonp',  
     url : 'http://search.twitter.com/search.json?q=nettuts',  
-  
     success : function(tweets) {  
        var twitter = $.map(tweets.results, function(obj, index) {  
           return {  
@@ -1155,6 +1154,16 @@ http://net.tutsplus.com/tutorials/javascript-ajax/fun-with-jquery-templating-and
        });  
     }  
 });
+
+// ou
+
+$.get(url)
+    .fail(function(e) {
+        callback(e, null);
+    })
+    .done(function(data) {
+        callback(null, data);
+    });
 }}}
 
 {{{
