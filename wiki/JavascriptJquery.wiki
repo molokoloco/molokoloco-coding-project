@@ -1154,16 +1154,6 @@ http://net.tutsplus.com/tutorials/javascript-ajax/fun-with-jquery-templating-and
        });  
     }  
 });
-
-// ou
-
-$.get(url)
-    .fail(function(e) {
-        callback(e, null);
-    })
-    .done(function(data) {
-        callback(null, data);
-    });
 }}}
 
 {{{
@@ -1252,6 +1242,15 @@ $.getJSON(
         });
     }
 );
+
+// ou encore
+$.get(url)
+    .fail(function(e) {
+        callback(e, null);
+    })
+    .done(function(data) {
+        callback(null, data);
+    });
 
 // Pass Parameters Through the GET Method
 $("#load_get").click(function(){  
