@@ -30,6 +30,11 @@ git status
 git fetch origin
 git pull origin master
 
+
+Commentaire ?
+
+esc + :wq + enter
+
 //---
 
 mkdir FastWebStart
