@@ -2017,6 +2017,32 @@ $(document).ready(function() {
 });
 }}}
 
+== Page auto-refresh ==
+
+{{{
+$(function() {
+	var INT = null;
+	$(window).scrollTop($(document).height() + 100); // Scroll 2 bottom
+	$('#clearLog').on('click', function(event) {
+		APP.api(APP.clearLogUrl);
+		window.location.reload(true);
+	});
+	$('#refresh').on('click', function(event) {
+		if (localStorage['refresh'] == 'yes') {
+			localStorage['refresh'] = 'no';
+			if (INT) clearInterval(INT);
+		}
+		else {
+			localStorage['refresh'] = 'yes';
+			window.location.reload(true);
+		}
+	});
+	if (localStorage['refresh'] == 'yes') INT = setTimeout(function() {
+		window.location.reload(true);
+	}, 5000);
+});
+}}}
+
 
 = (NEW) SAMPLE PLUGIN STRUCTURE =
 
@@ -2036,7 +2062,7 @@ var db = function() {
     'console' in window && console.log.call(console, arguments);
 };
 
-// DÃ©claration d'un nouveau plugin pour Ã©tendre les fonctions ($.fn) de jQuery
+// Déclaration d'un nouveau plugin pour Ã©tendre les fonctions ($.fn) de jQuery
 
 (function($) {
     var plugName = 'tooltip'; // Base name
