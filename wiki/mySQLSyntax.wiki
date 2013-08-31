@@ -11,6 +11,12 @@
   * http://dev.mysql.com/doc/refman/5.0/fr/index.html
   * http://dev.mysql.com/doc/refman/5.0/fr/string-functions.html
 
+
+SQL joins :
+http://pbs.twimg.com/media/BHVicYICMAAdHGv.jpg (@galtenberg) 
+http://www.b2bweb.fr/wp-content/uploads/BHVicYICMAAdHGv.jpg
+
+
 == OPERATORS ==
 
 {{{
