@@ -425,6 +425,20 @@ var showButton = function(e) {
 };
 $(document).mousemove(showButton);
 
+
+// Pour déclencher un click
+$currentFocusItem[0].click(); // Work in more browser
+$currentFocusItem.click();    // Do not work in all browser
+
+// To open a select menu :
+// Like i see there, it work in Chrome :
+// http://stackoverflow.com/a/10136523/174449
+
+var event = document.createEvent('MouseEvents');
+event.initMouseEvent('mousedown', true, true, window);
+element.dispatchEvent(event);
+
+
 $(window).bind('resize', function() {
     resizeFrame();
 });
