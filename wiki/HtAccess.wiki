@@ -97,6 +97,41 @@ deny from all
 </files>
 }}}
 
+// Holes in some dir ?
+
+/home/user/www/.htaccess
+
+{{{
+AuthName "Restricted Area" 
+AuthType Basic 
+AuthUserFile /home/passwd/passwords
+AuthGroupFile /dev/null 
+require valid-user
+Order deny,allow
+Deny from all
+Satisfy Any
+}}}
+
+/home/user/www/open/.htaccess
+
+{{{
+Satisfy Any
+Allow from all
+}}}
+
+/home/user/www/open/protect/.htaccess
+
+{{{
+AuthType Basic
+AuthName "Restricted Area"
+AuthUserFile /home/passwd/passwords
+AuthGroupFile /dev/null
+require valid-user
+Order deny,allow
+Deny from all
+Satisfy Any
+}}}
+
 === Utilisation avancée avec système de cache ===
 
 http://www.askapache.com/htaccess/speed-up-sites-with-htaccess-caching.html
