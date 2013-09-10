@@ -92,6 +92,10 @@ cat /etc/apt/preferences
 #ou alors
 cat /etc/apt/apt.conf
 
+// Nettoyer la partition /boot
+
+dpkg --get-selections|grep 'linux-image*'|awk '{print $1}'|egrep -v "linux-image-$(uname -r)|linux-image-generic" |while read n;do apt-get -y remove $n;done
+
 --- VI ---------------------------------------------------------
 
 VI (pico, nano)
