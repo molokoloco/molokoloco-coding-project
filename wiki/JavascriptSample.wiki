@@ -1,6 +1,14 @@
 #summary 200_tools.js example
 #labels Featured,Phase-Requirements
 
+----
+
+*Sommaire :*
+
+<wiki:toc max_depth="3" />
+
+----
+
 == En vrac ==
 
 {{{ 
