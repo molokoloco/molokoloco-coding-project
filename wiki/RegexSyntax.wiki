@@ -38,6 +38,16 @@ var youtubeUrl = /(https?\:\/\/(www\.)?youtu(\.)?be(\.com)?\/.*(\?v=|\/v\/)([a-z
 var dailymotionUrl = /https?:\/\/(?:www\.)?dailymotion.com\/video\/([\w-_]+)/g;
 var vimeoUrl = /http:\/\/(www\.)?vimeo\.com\/(clip\:)?(\d+)/g;
 
+
+
+// jQuery
+
+function getBackground() {
+    if ($("body").css("backgroundImage")) {
+        return $("body").css("backgroundImage").replace(/url\("?(.*?)"?\)/i, "$1");
+    }
+}
+
 ________________________________________________________________________
 
 // PHP.. EXTRACT IMAGE
