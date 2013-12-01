@@ -29,6 +29,7 @@ Good advices here :
   * http://engineering.socialcast.com/2011/06/javascript-memory-management/
   * http://code.google.com/p/jslibs/wiki/JavascriptTips#language_advanced_Tips_&_Tricks
   * http://jeremyckahn.github.com/blog/2012/07/01/treating-javascript-like-a-30-year-old-language/
+  * http://flippinawesome.org/2013/11/25/fun-with-javascript-native-array-functions/
 
 *Work in progress : ECMAScript 5 compatibility table*
   * http://kangax.github.com/es5-compat-table/
@@ -299,6 +300,31 @@ var obj = { foo: 1, bar: 2, baz: 3 };
     console.log(this.msg + " " + name);
 }, this);
 
+}}}
+
+
+  * http://flippinawesome.org/2013/11/25/fun-with-javascript-native-array-functions/
+
+Inversely, we could create a FIFO (first in first out) queue using .unshift and .shift.
+
+{{{
+function Queue () {
+    this._queue = []
+}
+
+Queue.prototype.next = function () {
+    return this._queue.shift()
+}
+
+Queue.prototype.add = function () {
+    return this._queue.unshift.apply(this._queue, arguments)
+}
+
+queue = new Queue()
+queue.add(1,2,3)
+
+queue.next()
+// <- 1
 }}}
 
 == DATA OBJECTS ==
