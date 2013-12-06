@@ -36,6 +36,10 @@ Others :
   * http://james.padolsey.com/javascript/things-you-may-not-know-about-jquery/
   * ...
 
+...et..
+
+  * jQuery VS Vanilla JS : https://gist.github.com/harmstyler/7468978
+
 == jQuery 1.7 Cheat Sheet ==
 
 http://woorkup.com/wp-content/uploads/2011/12/jQuery-17-Visual-Cheat-Sheet1.pdf
