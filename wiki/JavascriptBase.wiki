@@ -202,6 +202,7 @@ xml validity.
 ==ARRAYS / OBJECTS & ITERATIONS==
 
   * http://jsperf.com/native-loop-performance/9
+  * http://jsfiddle.net/molokoloco/qeWhB/
 
 Preparation code
 
@@ -220,40 +221,42 @@ Preparation code
 Test -  Ops/sec
 
 {{{
-for (var i = 0; i < arr.length; i++) { arr[i] + 1 } // 1,260,972 ±0.19%100% slower
+for (var i = 0; i < arr.length; i++) { arr[i] + 1 }
 
-for (var i = 0, length = arr.length; i < length; i++) { arr[i] + 1 } // 1,260,845 ±0.11%100% slower
+for (var i = 0, length = arr.length; i < length; i++) { arr[i] + 1 }
 
-for (var i = arr.length - 1; i >= 0; i--) { arr[i] + 1 } // 1,262,750 ±0.16%100% slower
+for (var i = arr.length - 1; i >= 0; i--) { arr[i] + 1 }
 
-for (var key in arr) { arr[key] + 1 } // 3,389 ±9.07%100% slower
+for (var key in arr) { arr[key] + 1 }
 
 var i = 0;
-while (i++ <= arr.length) { arr[i] + 1 } // 42,550 ±0.25%100% slower
+while (i++ < arr.length) { arr[i - 1] + 1 }
 
 var i = 0, length = arr.length;
-while (i++ < length) { arr[i] + 1 } // 43,154 ±0.18%100% slower
+while (i++ < length) { arr[i - 1] + 1 }
 
 var length = arr.length;
-while (length--) { arr[length] + 1 } // 630,398 ±1.36%100% slower
+while (length--) { arr[length] + 1 }
 
 var value;
-while(value = arr.pop()) { value + 1 } // 70,059,067 ±145.98%89% slower
+while(value = arr.pop()) { value + 1 }
 
 var value;
-do { value + 1 } while(value = arr.pop()) // 3,640,751 ±9.72%99% slower
+do { value + 1 } while(value = arr.pop())
 
-arr.forEach(function(value) { value + 1 }) // 29,545 ±17.33%100% slower
+arr.forEach(function(value) { value + 1 })
 
-arr.map(function(value) { value + 1 }) // 21,466 ±11.05%100% slower
+arr.map(function(value) { return value + 1 })
 
-$.each(arr, function(value) { value + 1 }) // 11,536 ±84.41%100% slower
+$.each(arr, function(value) { value + 1 })
 
-_.each(arr, function(value) { value + 1 }) // 22,836 ±0.47%100% slower
+_.each(arr, function(value) { value + 1 })
 
-for (var value; value = arr.pop();) { value + 1 } // 258,499,988 ±0.14%fastest
+for (var value = arr.pop(); value = arr.pop();) { value + 1 }
 
-for (var value; value = arr.shift();) { value + 1 } // 52,207,651 ±168.14%92% slower
+for (var value = arr.shift(); value = arr.shift();) { value + 1 }
+
+[(arr[key] + 1) for (key in arr)]
 }}}
 
 ...
