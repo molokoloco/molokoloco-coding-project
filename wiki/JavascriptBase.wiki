@@ -201,7 +201,7 @@ xml validity.
 
 ==ARRAYS / OBJECTS & ITERATIONS==
 
-  * http://jsperf.com/native-loop-performance/9
+  * http://jsperf.com/native-loop-performance/11
   * http://jsfiddle.net/molokoloco/qeWhB/
 
 Preparation code
