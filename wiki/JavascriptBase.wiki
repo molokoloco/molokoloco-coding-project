@@ -61,6 +61,9 @@ var a = 1, b = "1";
 console.assert(a === b, "A doesn't equal B");
 
 console.log(console.__proto__); // Console inception ! #protips ;)
+
+var C = Function.prototype.bind.call(console.log, console);
+
 }}}
 
 console.log(__FILE__, __LINE__, __FUNCTION__)
@@ -610,6 +613,7 @@ var value = myFunction.apply(this, args);
 
 var db = function(){ 'console' in window && console.log.call(console, arguments) };
 
+var C = Function.prototype.bind.call(console.log, console);
 
 function(a, b){
     var args = msg ? ' (' + [].join.call( arguments, ', ' ) + ')' : '';
@@ -1511,6 +1515,9 @@ Debouncer.prototype = {
 var db = function() { 'console' in window && console.log.call(console, arguments); };
 
 db('Test', window);
+
+var C = Function.prototype.bind.call(console.log, console);
+C('test');
 
 // Well ok, somebody got better ? ^^ // http://html5boilerplate.com/
 window.log = function(){
