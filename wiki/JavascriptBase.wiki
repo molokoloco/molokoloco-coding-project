@@ -198,6 +198,93 @@ xml validity.
 
 ==ARRAYS / OBJECTS & ITERATIONS==
 
+  * http://jsperf.com/native-loop-performance/9
+
+Preparation code
+
+{{{
+<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+<script>
+  Benchmark.prototype.setup = function() {
+    // Populate the base array
+    var arr = [];
+    for (var i = 0; i < 1024; i++) arr[i] = i;
+  };
+</script>
+}}}
+
+Test -  Ops/sec
+
+{{{
+for (var i = 0; i < arr.length; i++) { arr[i] + 1 }
+
+	1,260,972 ±0.19%100% slower
+
+for (var i = 0, length = arr.length; i < length; i++) { arr[i] + 1 }
+
+	1,260,845 ±0.11%100% slower
+
+for (var i = arr.length - 1; i >= 0; i--) { arr[i] + 1 }
+
+	1,262,750 ±0.16%100% slower
+
+for (var key in arr) { arr[key] + 1 }
+
+	3,389 ±9.07%100% slower
+
+var i = 0;
+while (i++ <= arr.length) { arr[i] + 1 }
+
+	42,550 ±0.25%100% slower
+
+var i = 0, length = arr.length;
+while (i++ < length) { arr[i] + 1 }
+
+	43,154 ±0.18%100% slower
+
+var length = arr.length;
+while (length--) { arr[length] + 1 }
+
+	630,398 ±1.36%100% slower
+
+var value;
+while(value = arr.pop()) { value + 1 }
+
+	70,059,067 ±145.98%89% slower
+
+var value;
+do { value + 1 } while(value = arr.pop())
+
+	3,640,751 ±9.72%99% slower
+
+arr.forEach(function(value) { value + 1 })
+
+	29,545 ±17.33%100% slower
+
+arr.map(function(value) { value + 1 })
+
+	21,466 ±11.05%100% slower
+
+$.each(arr, function(value) { value + 1 })
+
+	11,536 ±84.41%100% slower
+
+_.each(arr, function(value) { value + 1 })
+
+	22,836 ±0.47%100% slower
+
+for (var value; value = arr.pop();) { value + 1 }
+
+	258,499,988 ±0.14%fastest
+
+for (var value; value = arr.shift();) { value + 1 }
+
+	52,207,651 ±168.14%92% slower
+}}}
+
+...
+
 {{{
 var mobile = ('DeviceOrientationEvent' in window || 'orientation' in window);
 
