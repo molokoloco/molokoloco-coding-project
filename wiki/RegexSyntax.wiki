@@ -47,7 +47,31 @@ function getBackground() {
         return $("body").css("backgroundImage").replace(/url\("?(.*?)"?\)/i, "$1");
     }
 }
+}}}
 
+Test 
+
+{{{
+var cleanName = function(str) {
+    if ($.trim(str) == '') return str; // jQuery
+    str = $.trim(str).toLowerCase();
+    var special = ['&', 'O', 'Z', '-', 'o', 'z', 'Y', 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Æ', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ð', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'æ', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ñ', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ', '.', ' ', '+', '\''],
+        normal = ['et', 'o', 'z', '-', 'o', 'z', 'y', 'a', 'a', 'a', 'a', 'a', 'a', 'ae', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'd', 'n', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'a', 'a', 'a', 'a', 'a', 'a', 'ae', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'o', 'n', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'y', '_', '_', '-', '-'];
+    for (var i = 0; i < str.length; i++) {
+        for (var j = 0; j < special.length; j++) {
+            if (str[i] == special[j]) {
+                str = str.replace(new RegExp(str[i], 'gi'), normal[j]);
+            }
+        }
+    }
+    str = str.replace(/[^a-z0-9_\-]/gi, '_');
+    str = str.replace(/[\-]{2,}/gi, '_');
+    str = str.replace(/[\_]{2,}/gi, '_');
+    return str;
+};
+}}}
+
+{{{
 ________________________________________________________________________
 
 // PHP.. EXTRACT IMAGE
