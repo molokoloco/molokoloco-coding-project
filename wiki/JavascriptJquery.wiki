@@ -511,8 +511,11 @@ $('a').click();
 
 $('#myImage').attr('src', 'image.jpg').load(function() {
     alert('Image Loaded');
-}); 
+});
 
+$('#text').keypress(function(e){
+    socket.emit('client_data', {'letter': String.fromCharCode(e.charCode)});
+});
 
 // Horloge
 var pad = function(s) { return (s < 10 ? '0'+s : s); }
