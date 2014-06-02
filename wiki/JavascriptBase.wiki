@@ -1711,6 +1711,24 @@ You would use it against templates written like this (it doesn’t have to be in
 </script>
 }}}
 
+== MS to whatever ==
+
+{{{
+var calc = function (m) {
+    return function(n) { return Math.round(n * m); };
+};
+var stamp = {
+    seconds: calc(1e3),
+    minutes: calc(6e4),
+    hours:   calc(36e5),
+    days:    calc(864e5),
+    weeks:   calc(6048e5),
+    months:  calc(26298e5),
+    years:   calc(315576e5)
+};
+console.log(stamp.days(1)) /// 86400000 ms == 1 day
+}}}
+
 == Time Ago ==
 
 https://github.com/iatek/jquery-socialist/blob/master/jquery.socialist.js
