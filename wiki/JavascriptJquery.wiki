@@ -194,13 +194,25 @@ var q = 'search';
 $('.recordSleeveBk').css({ opacity: '0.4' }).removeClass('glow');
 $('.recordSleeveBk').filter('[data-artist*="' + q + '"]').animate({ opacity: '1.0' }).addClass('glow');
 
+$( ".container" )
+  .contents()
+    .filter(function() {
+      return this.nodeType === 3;
+    })
+      .wrap( "<p></p>" )
+      .end()
+    .filter( "br" )
+    .remove();
+
 
 $.each(['a','b','c'], function(i, l){
     alert("Index #" + i + ": " + l );
 });
+
 $.each({name: "John", lang: "JS"}, function(k, v){
     alert("Key: " + k + ", Value: " + v );
 });
+
 this.columns.each(function(item) { this.buildHeader(item); }, this);
 
 var css_link = $('<link>', {rel: 'stylesheet', type: 'text/css', href: 'style.css'});
