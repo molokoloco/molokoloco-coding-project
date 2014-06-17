@@ -1,7 +1,7 @@
 #summary Node tips
 #labels Tooltips
 
-= Node.js CheatSheet =
+= Node.js Cheatsheet =
 
 From : http://journal.gentlenode.com/node-2-node-js-cheatsheet/
 
