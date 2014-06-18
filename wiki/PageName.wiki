@@ -478,3 +478,7 @@ os.cpus();               // Returns an array of objects containing information a
 os.networkInterfaces();  // Get a list of network interfaces.
 os.EOL;                  // A constant defining the appropriate End-of-line marker for the operating system.
 }}}
+
+
+
+= Node example =
