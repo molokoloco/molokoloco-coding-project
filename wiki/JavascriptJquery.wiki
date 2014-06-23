@@ -2053,6 +2053,26 @@ var getScript = function(src, callback) { $.ajax({dataType:'script', async:false
 
 }}}
 
+== FORM serialize ==
+
+{{{
+$.fn.serializeObject = function() { // Form serialize for POST
+        var o = {},
+            a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) o[this.name] = [o[this.name]];
+                o[this.name].push(this.value || '');
+            }
+            else o[this.name] = this.value || '';
+        });
+        return o;
+};
+
+// elsewhere...
+var formValues = $form.serializeObject();
+console.log(formValues);
+}}}
 
 == Element toggle state ==
 
