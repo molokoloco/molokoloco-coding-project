@@ -1,7 +1,8 @@
 #summary CSS Snippets i worked with
 #labels Featured,Tooltips
 
-_Nota : I have stollen theses snippets here : [http://www.hongkiat.com/blog/css-snippets-for-designers/ http://www.hongkiat.com/blog/css-snippets-for-designers/] _  
+Bes tressource here http://css-tricks.com/snippets/ but...
+_Nota : I have stollen somes snippets here : [http://www.hongkiat.com/blog/css-snippets-for-designers/ http://www.hongkiat.com/blog/css-snippets-for-designers/] _  
 
 Shame on me for eternity, but i know well all this things, only forget to write it... nice to wrap them here...
 
@@ -1264,6 +1265,35 @@ CSS3 text shadows offer a unique method of styling your webpage typography. And 
 }}}
 
 Generally you would need to setup a background image to duplicate this effect in other browsers. But in CSS3-supported engines we can generate <strong>dynamic banners which hang off the edge of your content wrappers, all without images</strong>! These may look good attached onto e-commerce products, image thumbnails, video previews, or blog articles, to list just a few ideas.
+
+= Responsive TYPO =
+
+http://css-tricks.com/viewport-sized-typography/
+
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi" />
+
+{{{
+I use that code and after I make my declaration in EM.
+
+@media only screen and (min-width: 480px) {
+	body { font-size: 12px;}
+}
+@media only screen and (min-width: 768px) {
+	body { font-size: 13px;}
+}
+@media only screen and (min-width: 1000px) {
+	body { font-size: 14px;}
+}
+@media only screen and (min-width: 1170px) {
+	body { font-size: 15px;}
+}
+@media only screen and (min-width: 1340px) {
+	body { font-size: 16px; }
+}
+@media only screen and (min-width: 1580px) {
+	body { font-size: 17px; }
+}
+}}}
 
 = More = 
 
