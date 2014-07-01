@@ -1,8 +1,7 @@
 #summary CSS Snippets i worked with
 #labels Featured,Tooltips
 
-Best CSS ressources here *http://css-tricks.com/snippets/* but...
-_Nota : I have stollen somes snippets here : [http://www.hongkiat.com/blog/css-snippets-for-designers/ http://www.hongkiat.com/blog/css-snippets-for-designers/] _ Shame on me for eternity, but i know well all this things, only forget to write it... nice to wrap them here...
+Best CSS ressources here http://css-tricks.com/snippets/ but... i have stollen somes snippets here : [http://www.hongkiat.com/blog/css-snippets-for-designers/ http://www.hongkiat.com/blog/css-snippets-for-designers/] Shame on me for eternity, but i know well all this things, only forget to write it... nice to wrap them here...
 
 ----
 
