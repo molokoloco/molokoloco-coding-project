@@ -1778,6 +1778,7 @@ var timeAgo = function(date_str) {
 === Konami Code ===
 https://twitter.com/molokoloco/status/501753473747415040
 
+{{{
 // FULL
 
 var s = [],
@@ -1793,3 +1794,4 @@ $(document).on('keydown', p);
 
 // SHORT
 a='',onkeydown=function(e){a+=e.which;/38384040373937396665/.test(a)&&(a=[],alert("Konami"))}
+}}}
