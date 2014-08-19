@@ -1774,3 +1774,21 @@ var timeAgo = function(date_str) {
 	return time;
 };
 }}}
+
+=== Konami Code ===
+
+// FULL
+
+var s = [],
+    k = '38,38,40,40,37,39,37,39,66,65', // ↑↑↓↓←→←→BA
+    p = function(e) {
+        s.push(e.which);
+        if (s.join(',').indexOf(k) >= 0) {
+            $(document).off('keydown', p);
+            alert('Konami'); 
+        }
+    };
+$(document).on('keydown', p);
+
+// SHORT
+a='',onkeydown=function(e){a+=e.which;/38384040373937396665/.test(a)&&(a=[],alert("Konami"))}
