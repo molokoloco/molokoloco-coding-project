@@ -1776,6 +1776,7 @@ var timeAgo = function(date_str) {
 }}}
 
 === Konami Code ===
+https://twitter.com/molokoloco/status/501753473747415040
 
 // FULL
 
