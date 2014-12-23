@@ -137,6 +137,10 @@ if (preg_match_all('/<script[^<](.+?)<\/script>/si', $content, $value)) {
 	}
 }
 
+replace : onclick="xxxxxx"
+
+onclick=(['""])[\s\S]*?([\s\S]*?['"])
+
 ________________________________________________________________________
 /*
 SYNTAXE REGEX  preg_match_all("/([\w\._-]+\@([\w_-]+\.)+[\w_-]+)/", $contenu, $cleanMail);
