@@ -1408,6 +1408,65 @@ label {
     </div>
 }}}
 
+=CSS pretty underline link=
+
+  * http://codepen.io/molokoloco/pen/LEbayj
+
+{{{
+.has-custom-underline a {
+  color: #8db359;
+  text-decoration: none;
+  background-image: -webkit-linear-gradient(rgba(141, 179, 89, 0.25) 0%, #8db359 100%);
+  background-image: linear-gradient(rgba(141, 179, 89, 0.25) 0%, #8db359 100%);
+  background-repeat: repeat-x;
+  background-size: 1px 1px;
+  background-position: 0 95%;
+  text-shadow: 3px 0 white, 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white, -3px 0 white;
+}
+@media (-webkit-min-device-pixel-ratio: 1.75), (min-resolution: 168dpi) {
+  .has-custom-underline a {
+    background-image: -webkit-linear-gradient(rgba(141, 179, 89, 0.25) 0%, #8db359 100%);
+    background-image: linear-gradient(rgba(141, 179, 89, 0.25) 0%, #8db359 100%);
+    background-position: 0 93%;
+  }
+}
+.has-custom-underline a:hover {
+  color: #709143;
+  background-image: -webkit-linear-gradient(top, #7ea34b 0%, #7ea34b 100%);
+  background-image: linear-gradient(to bottom, #7ea34b 0%, #7ea34b 100%);
+}
+.has-custom-underline a::-moz-selection,
+.has-custom-underline a > *::-moz-selection {
+  background-color: #c9dbb0;
+  color: #57534a;
+  text-shadow: none;
+}
+.has-custom-underline a::selection,
+.has-custom-underline a > *::selection {
+  background-color: #c9dbb0;
+  color: #57534a;
+  text-shadow: none;
+}
+.has-custom-underline a::-moz-selection,
+.has-custom-underline a > *::-moz-selection {
+  background-color: #c9dbb0;
+  color: #57534a;
+  text-shadow: none;
+}
+.has-custom-underline h1 a, .has-custom-underline h2 a, .has-custom-underline h3 a {
+  background-size: 1px 2px;
+}
+@media (-webkit-min-device-pixel-ratio: 1.75), (min-resolution: 168dpi) {
+  .has-custom-underline h1 a, .has-custom-underline h2 a, .has-custom-underline h3 a {
+    background-position: 0 93%;
+    background-image: -webkit-linear-gradient(#8db359 0%, #8db359 100%);
+    background-image: linear-gradient(#8db359 0%, #8db359 100%);
+    background-size: 1px 1px;
+    background-position: 0 93%;
+  }
+}
+}}}
+
 = More = 
 
 Here are more articles published in the pass you may be interested in:
