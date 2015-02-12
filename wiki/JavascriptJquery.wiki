@@ -395,6 +395,27 @@ $('div').toggleClass( "a b c", true );
 
 }}}
 
+=== jquery event for images loaded ===
+// Stack http://stackoverflow.com/questions/910727/jquery-event-for-images-loaded/28486292#28486292
+// Demo http://jsfiddle.net/molokoloco/NWjDb/
+
+{{{
+$(function() { // Wait dom ready
+    var $img = $('img'), // images collection
+        totalImg = $img.length,
+        waitImgDone = function() {
+            totalImg--;
+            if (!totalImg) {
+                console.log($img.length+" image(s) chargée(s) !");
+            }
+        };
+    $img.each(function() {
+        if (this.complete) waitImgDone(); // already here..
+        else $(this).load(waitImgDone).error(waitImgDone); // completed...
+    });
+});
+}}}
+
 === Shuffle the DOM ===
 
 {{{
