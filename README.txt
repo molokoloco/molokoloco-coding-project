@@ -1,6 +1,7 @@
 
   * This is my old repo  exported from https://code.google.com/p/molokoloco-coding-project/
   * Source code is now hosted on *Github* https://github.com/molokoloco/FRAMEWORK/
+  * OLD WIKI is here : https://code.google.com/p/molokoloco-coding-project/wiki/WikiMenu
 
 =What you can find on my WIKI !==
 
