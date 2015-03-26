@@ -65,6 +65,20 @@ var getScript = function(jsPath, callback) {
 getScript('js/other.js', function() { functionFromOther(); });
 ```
 
+#### Get an Absolute URL ####
+// http://davidwalsh.name/get-absolute-url
+
+```
+var getAbsoluteUrl = (function() {
+	var a;
+	return function(url) {
+		if (!a) a = document.createElement('a');
+		a.href = url;
+		return a.href;
+	};
+})();
+```
+
 # My Javascript Toolbox #
 _Library edited from 2005 to 2007..._
 
